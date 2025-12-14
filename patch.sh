@@ -141,7 +141,7 @@ apply_deletions() {
         target="$WORK_DIR/decompiled/$file"
         if [ -e "$target" ]; then
             rm -rf "$target"
-            ((count++))
+            count=$((count + 1))
         fi
     done < "$PATCHES_DIR/files_to_delete.txt"
 
@@ -165,9 +165,9 @@ apply_patches() {
 
         if [ -f "$patch_file" ] && [ -f "$target" ]; then
             if patch -s -N "$target" < "$patch_file" 2>/dev/null; then
-                ((count++))
+                count=$((count + 1))
             else
-                ((failed++))
+                failed=$((failed + 1))
                 print_warning "Failed to patch: $file"
             fi
         fi
@@ -192,7 +192,7 @@ apply_binary_replacements() {
             target_dir=$(dirname "$target")
             mkdir -p "$target_dir"
             cp "$file" "$target"
-            ((count++))
+            count=$((count + 1))
         done < <(find "$PATCHES_DIR/binary_replacements" -type f -print0)
     fi
 
