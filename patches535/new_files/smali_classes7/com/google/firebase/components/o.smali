@@ -10,10 +10,8 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -22,9 +20,7 @@
 .method public final handle(Lcom/google/firebase/inject/Provider;)V
     .locals 0
 
-    .line 1
     invoke-static {p1}, Lcom/google/firebase/components/OptionalProvider;->c(Lcom/google/firebase/inject/Provider;)V
 
-    .line 4
     return-void
 .end method

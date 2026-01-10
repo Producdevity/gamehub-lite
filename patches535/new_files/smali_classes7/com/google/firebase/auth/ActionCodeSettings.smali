@@ -119,33 +119,26 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 1
     new-instance v0, Lcom/google/firebase/auth/zza;
 
-    .line 3
     invoke-direct {v0}, Lcom/google/firebase/auth/zza;-><init>()V
 
-    .line 6
     sput-object v0, Lcom/google/firebase/auth/ActionCodeSettings;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 8
     return-void
 .end method
 
 .method private constructor <init>(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)V
     .locals 1
 
-    .line 2
     invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
 
-    .line 3
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzf(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zza:Ljava/lang/String;
 
-    .line 4
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzd(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
 
     move-result-object v0
@@ -154,45 +147,38 @@
 
     const/4 v0, 0x0
 
-    .line 5
     iput-object v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzc:Ljava/lang/String;
 
-    .line 6
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzb(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzd:Ljava/lang/String;
 
-    .line 7
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzg(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zze:Z
 
-    .line 8
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zza(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzf:Ljava/lang/String;
 
-    .line 9
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzh(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzg:Z
 
-    .line 10
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzc(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzj:Ljava/lang/String;
 
-    .line 11
     invoke-static {p1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zze(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
 
     move-result-object p1
@@ -205,7 +191,6 @@
 .method public synthetic constructor <init>(Lcom/google/firebase/auth/ActionCodeSettings$Builder;Lcom/google/firebase/auth/zzb;)V
     .locals 0
 
-    .line 1
     invoke-direct {p0, p1}, Lcom/google/firebase/auth/ActionCodeSettings;-><init>(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)V
 
     return-void
@@ -271,40 +256,28 @@
     .annotation build Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable$Constructor;
     .end annotation
 
-    .line 12
     invoke-direct {p0}, Lcom/google/android/gms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
 
-    .line 13
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zza:Ljava/lang/String;
 
-    .line 14
     iput-object p2, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzb:Ljava/lang/String;
 
-    .line 15
     iput-object p3, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzc:Ljava/lang/String;
 
-    .line 16
     iput-object p4, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzd:Ljava/lang/String;
 
-    .line 17
     iput-boolean p5, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zze:Z
 
-    .line 18
     iput-object p6, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzf:Ljava/lang/String;
 
-    .line 19
     iput-boolean p7, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzg:Z
 
-    .line 20
     iput-object p8, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzh:Ljava/lang/String;
 
-    .line 21
     iput p9, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzi:I
 
-    .line 22
     iput-object p10, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzj:Ljava/lang/String;
 
-    .line 23
     iput-object p11, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzk:Ljava/lang/String;
 
     return-void
@@ -315,16 +288,12 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     new-instance v0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;
 
-    .line 3
     const/4 v1, 0x0
 
-    .line 4
     invoke-direct {v0, v1}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;-><init>(Lcom/google/firebase/auth/zzb;)V
 
-    .line 7
     return-object v0
 .end method
 
@@ -333,22 +302,16 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     new-instance v0, Lcom/google/firebase/auth/ActionCodeSettings;
 
-    .line 3
     new-instance v1, Lcom/google/firebase/auth/ActionCodeSettings$Builder;
 
-    .line 5
     const/4 v2, 0x0
 
-    .line 6
     invoke-direct {v1, v2}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;-><init>(Lcom/google/firebase/auth/zzb;)V
 
-    .line 9
     invoke-direct {v0, v1}, Lcom/google/firebase/auth/ActionCodeSettings;-><init>(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)V
 
-    .line 12
     return-object v0
 .end method
 
@@ -357,20 +320,16 @@
 .method public canHandleCodeInApp()Z
     .locals 0
 
-    .line 1
     iget-boolean p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzg:Z
 
-    .line 3
     return p0
 .end method
 
 .method public getAndroidInstallApp()Z
     .locals 0
 
-    .line 1
     iget-boolean p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zze:Z
 
-    .line 3
     return p0
 .end method
 
@@ -379,10 +338,8 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzf:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -391,10 +348,8 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzd:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -403,10 +358,8 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzb:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -415,10 +368,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzk:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -427,10 +378,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zza:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -441,146 +390,100 @@
         .end annotation
     .end param
 
-    .line 1
     invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
 
-    .line 4
     move-result p2
 
-    .line 5
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->getUrl()Ljava/lang/String;
 
-    .line 8
     move-result-object v0
 
-    .line 9
     const/4 v1, 0x1
 
-    .line 10
     const/4 v2, 0x0
 
-    .line 11
     invoke-static {p1, v1, v0, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 14
     const/4 v0, 0x2
 
-    .line 15
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->getIOSBundle()Ljava/lang/String;
 
-    .line 18
     move-result-object v1
 
-    .line 19
     invoke-static {p1, v0, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 22
     const/4 v0, 0x3
 
-    .line 23
     iget-object v1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzc:Ljava/lang/String;
 
-    .line 25
     invoke-static {p1, v0, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 28
     const/4 v0, 0x4
 
-    .line 29
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->getAndroidPackageName()Ljava/lang/String;
 
-    .line 32
     move-result-object v1
 
-    .line 33
     invoke-static {p1, v0, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 36
     const/4 v0, 0x5
 
-    .line 37
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->getAndroidInstallApp()Z
 
-    .line 40
     move-result v1
 
-    .line 41
     invoke-static {p1, v0, v1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeBoolean(Landroid/os/Parcel;IZ)V
 
-    .line 44
     const/4 v0, 0x6
 
-    .line 45
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->getAndroidMinimumVersion()Ljava/lang/String;
 
-    .line 48
     move-result-object v1
 
-    .line 49
     invoke-static {p1, v0, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 52
     const/4 v0, 0x7
 
-    .line 53
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->canHandleCodeInApp()Z
 
-    .line 56
     move-result v1
 
-    .line 57
     invoke-static {p1, v0, v1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeBoolean(Landroid/os/Parcel;IZ)V
 
-    .line 60
     const/16 v0, 0x8
 
-    .line 62
     iget-object v1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzh:Ljava/lang/String;
 
-    .line 64
     invoke-static {p1, v0, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 67
     const/16 v0, 0x9
 
-    .line 69
     iget v1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzi:I
 
-    .line 71
     invoke-static {p1, v0, v1}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
 
-    .line 74
     const/16 v0, 0xa
 
-    .line 76
     iget-object v1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzj:Ljava/lang/String;
 
-    .line 78
     invoke-static {p1, v0, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 81
     const/16 v0, 0xb
 
-    .line 83
     invoke-virtual {p0}, Lcom/google/firebase/auth/ActionCodeSettings;->getLinkDomain()Ljava/lang/String;
 
-    .line 86
     move-result-object p0
 
-    .line 87
     invoke-static {p1, v0, p0, v2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 90
     invoke-static {p1, p2}, Lcom/google/android/gms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
-    .line 93
     return-void
 .end method
 
 .method public final zza()I
     .locals 0
 
-    .line 1
     iget p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzi:I
 
     return p0
@@ -589,7 +492,6 @@
 .method public final zza(I)V
     .locals 0
 
-    .line 3
     iput p1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzi:I
 
     return-void
@@ -602,7 +504,6 @@
         .end annotation
     .end param
 
-    .line 2
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzh:Ljava/lang/String;
 
     return-void
@@ -616,10 +517,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzj:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -628,10 +527,8 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzc:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -640,9 +537,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings;->zzh:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method

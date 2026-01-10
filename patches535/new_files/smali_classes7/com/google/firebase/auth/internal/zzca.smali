@@ -17,21 +17,16 @@
     .annotation build Landroidx/annotation/VisibleForTesting;
     .end annotation
 
-    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
 
-    .line 3
     iput-boolean v0, p0, Lcom/google/firebase/auth/internal/zzca;->zzc:Z
 
-    .line 4
     iput v0, p0, Lcom/google/firebase/auth/internal/zzca;->zza:I
 
-    .line 5
     iput-object p2, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
-    .line 6
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
@@ -40,7 +35,6 @@
 
     invoke-static {p1}, Lcom/google/android/gms/common/api/internal/BackgroundDetector;->initialize(Landroid/app/Application;)V
 
-    .line 7
     invoke-static {}, Lcom/google/android/gms/common/api/internal/BackgroundDetector;->getInstance()Lcom/google/android/gms/common/api/internal/BackgroundDetector;
 
     move-result-object p1
@@ -49,7 +43,6 @@
 
     invoke-direct {p2, p0}, Lcom/google/firebase/auth/internal/zzcd;-><init>(Lcom/google/firebase/auth/internal/zzca;)V
 
-    .line 8
     invoke-virtual {p1, p2}, Lcom/google/android/gms/common/api/internal/BackgroundDetector;->addListener(Lcom/google/android/gms/common/api/internal/BackgroundDetector$BackgroundStateChangeListener;)V
 
     return-void
@@ -58,7 +51,6 @@
 .method public constructor <init>(Lcom/google/firebase/FirebaseApp;)V
     .locals 2
 
-    .line 1
     invoke-virtual {p1}, Lcom/google/firebase/FirebaseApp;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -75,7 +67,6 @@
 .method public static bridge synthetic zza(Lcom/google/firebase/auth/internal/zzca;)Lcom/google/firebase/auth/internal/zzaq;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
     return-object p0
@@ -84,7 +75,6 @@
 .method public static bridge synthetic zza(Lcom/google/firebase/auth/internal/zzca;Z)V
     .locals 0
 
-    .line 2
     iput-boolean p1, p0, Lcom/google/firebase/auth/internal/zzca;->zzc:Z
 
     return-void
@@ -93,7 +83,6 @@
 .method private final zzb()Z
     .locals 1
 
-    .line 2
     iget v0, p0, Lcom/google/firebase/auth/internal/zzca;->zza:I
 
     if-lez v0, :cond_0
@@ -115,7 +104,6 @@
 .method public static bridge synthetic zzb(Lcom/google/firebase/auth/internal/zzca;)Z
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Lcom/google/firebase/auth/internal/zzca;->zzb()Z
 
     move-result p0
@@ -128,7 +116,6 @@
 .method public final zza()V
     .locals 0
 
-    .line 3
     iget-object p0, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
     invoke-virtual {p0}, Lcom/google/firebase/auth/internal/zzaq;->zzb()V
@@ -141,22 +128,18 @@
 
     if-lez p1, :cond_0
 
-    .line 4
     iget v0, p0, Lcom/google/firebase/auth/internal/zzca;->zza:I
 
     if-nez v0, :cond_0
 
-    .line 5
     iput p1, p0, Lcom/google/firebase/auth/internal/zzca;->zza:I
 
-    .line 6
     invoke-direct {p0}, Lcom/google/firebase/auth/internal/zzca;->zzb()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 7
     iget-object v0, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
     invoke-virtual {v0}, Lcom/google/firebase/auth/internal/zzaq;->zzc()V
@@ -166,17 +149,14 @@
     :cond_0
     if-nez p1, :cond_1
 
-    .line 8
     iget v0, p0, Lcom/google/firebase/auth/internal/zzca;->zza:I
 
     if-eqz v0, :cond_1
 
-    .line 9
     iget-object v0, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
     invoke-virtual {v0}, Lcom/google/firebase/auth/internal/zzaq;->zzb()V
 
-    .line 10
     :cond_1
     :goto_0
     iput p1, p0, Lcom/google/firebase/auth/internal/zzca;->zza:I
@@ -191,7 +171,6 @@
 
     goto :goto_0
 
-    .line 11
     :cond_0
     invoke-virtual {p1}, Lcom/google/android/gms/internal/firebase-auth-api/zzahv;->zza()J
 
@@ -205,7 +184,6 @@
 
     const-wide/16 v0, 0xe10
 
-    .line 12
     :cond_1
     invoke-virtual {p1}, Lcom/google/android/gms/internal/firebase-auth-api/zzahv;->zzb()J
 
@@ -217,25 +195,20 @@
 
     add-long/2addr v2, v0
 
-    .line 13
     iget-object p1, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
-    .line 14
     iput-wide v2, p1, Lcom/google/firebase/auth/internal/zzaq;->zza:J
 
     const-wide/16 v0, -0x1
 
-    .line 15
     iput-wide v0, p1, Lcom/google/firebase/auth/internal/zzaq;->zzb:J
 
-    .line 16
     invoke-direct {p0}, Lcom/google/firebase/auth/internal/zzca;->zzb()Z
 
     move-result p1
 
     if-eqz p1, :cond_2
 
-    .line 17
     iget-object p0, p0, Lcom/google/firebase/auth/internal/zzca;->zzb:Lcom/google/firebase/auth/internal/zzaq;
 
     invoke-virtual {p0}, Lcom/google/firebase/auth/internal/zzaq;->zzc()V

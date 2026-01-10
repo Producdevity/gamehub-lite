@@ -9,7 +9,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
 
     return-void
@@ -22,7 +21,6 @@
         .end annotation
     .end param
 
-    .line 2
     const-string v0, "Detail message must not be empty"
 
     invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotEmpty(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
@@ -43,7 +41,6 @@
         .end annotation
     .end param
 
-    .line 3
     const-string v0, "Detail message must not be empty"
 
     invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotEmpty(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;

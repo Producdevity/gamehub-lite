@@ -37,10 +37,8 @@
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 0
 
-    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3
     iput-object p1, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zza:Ljava/lang/String;
 
     return-void
@@ -49,7 +47,6 @@
 .method public synthetic constructor <init>(Ljava/lang/String;Lcom/google/firebase/auth/zzal;)V
     .locals 0
 
-    .line 1
     invoke-direct {p0, p1}, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -62,25 +59,18 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object v0, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zza:Ljava/lang/String;
 
-    .line 3
     iget-object v1, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzb:Ljava/lang/String;
 
-    .line 5
     iget-object v2, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzc:Ljava/lang/String;
 
-    .line 7
     iget-object p0, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzd:Ljava/lang/String;
 
-    .line 9
     invoke-static {v0, v1, v2, p0}, Lcom/google/firebase/auth/zze;->zza(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/google/firebase/auth/zze;
 
-    .line 12
     move-result-object p0
 
-    .line 13
     return-object p0
 .end method
 
@@ -92,10 +82,8 @@
     .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzc:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -107,10 +95,8 @@
     .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzb:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -123,10 +109,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzc:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -139,10 +123,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzb:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -159,12 +141,9 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzb:Ljava/lang/String;
 
-    .line 3
     iput-object p2, p0, Lcom/google/firebase/auth/OAuthProvider$CredentialBuilder;->zzd:Ljava/lang/String;
 
-    .line 5
     return-object p0
 .end method

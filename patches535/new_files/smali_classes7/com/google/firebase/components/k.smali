@@ -16,16 +16,12 @@
 .method public synthetic constructor <init>(Lcom/google/firebase/components/OptionalProvider;Lcom/google/firebase/inject/Provider;)V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     iput-object p1, p0, Lcom/google/firebase/components/k;->a:Lcom/google/firebase/components/OptionalProvider;
 
-    .line 6
     iput-object p2, p0, Lcom/google/firebase/components/k;->b:Lcom/google/firebase/inject/Provider;
 
-    .line 8
     return-void
 .end method
 
@@ -34,15 +30,11 @@
 .method public final run()V
     .locals 1
 
-    .line 1
     iget-object v0, p0, Lcom/google/firebase/components/k;->a:Lcom/google/firebase/components/OptionalProvider;
 
-    .line 3
     iget-object p0, p0, Lcom/google/firebase/components/k;->b:Lcom/google/firebase/inject/Provider;
 
-    .line 5
     invoke-static {v0, p0}, Lcom/google/firebase/components/ComponentRuntime;->b(Lcom/google/firebase/components/OptionalProvider;Lcom/google/firebase/inject/Provider;)V
 
-    .line 8
     return-void
 .end method

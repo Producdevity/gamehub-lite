@@ -138,13 +138,10 @@
 .method public constructor <init>(I)V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     iput p1, p0, Lcom/google/firebase/FirebaseError;->errorCode:I
 
-    .line 6
     return-void
 .end method
 
@@ -153,9 +150,7 @@
 .method public getErrorCode()I
     .locals 0
 
-    .line 1
     iget p0, p0, Lcom/google/firebase/FirebaseError;->errorCode:I
 
-    .line 3
     return p0
 .end method

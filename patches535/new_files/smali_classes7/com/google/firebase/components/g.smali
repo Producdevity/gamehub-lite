@@ -10,10 +10,8 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -22,12 +20,9 @@
 .method public final processRegistrar(Lcom/google/firebase/components/ComponentRegistrar;)Ljava/util/List;
     .locals 0
 
-    .line 1
     invoke-interface {p1}, Lcom/google/firebase/components/ComponentRegistrar;->getComponents()Ljava/util/List;
 
-    .line 4
     move-result-object p0
 
-    .line 5
     return-object p0
 .end method

@@ -14,10 +14,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -30,15 +28,11 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     invoke-static {p0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 4
     new-instance v0, Lcom/google/firebase/auth/PhoneMultiFactorAssertion;
 
-    .line 6
     invoke-direct {v0, p0}, Lcom/google/firebase/auth/PhoneMultiFactorAssertion;-><init>(Lcom/google/firebase/auth/PhoneAuthCredential;)V
 
-    .line 9
     return-object v0
 .end method

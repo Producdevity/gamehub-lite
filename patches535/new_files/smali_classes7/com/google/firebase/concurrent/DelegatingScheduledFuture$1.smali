@@ -33,13 +33,10 @@
 .method public constructor <init>(Lcom/google/firebase/concurrent/DelegatingScheduledFuture;)V
     .locals 0
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/concurrent/DelegatingScheduledFuture$1;->this$0:Lcom/google/firebase/concurrent/DelegatingScheduledFuture;
 
-    .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6
     return-void
 .end method
 
@@ -53,25 +50,19 @@
         }
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/concurrent/DelegatingScheduledFuture$1;->this$0:Lcom/google/firebase/concurrent/DelegatingScheduledFuture;
 
-    .line 3
     invoke-static {p0, p1}, Lcom/google/firebase/concurrent/DelegatingScheduledFuture;->access$000(Lcom/google/firebase/concurrent/DelegatingScheduledFuture;Ljava/lang/Object;)Z
 
-    .line 6
     return-void
 .end method
 
 .method public setException(Ljava/lang/Throwable;)V
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/concurrent/DelegatingScheduledFuture$1;->this$0:Lcom/google/firebase/concurrent/DelegatingScheduledFuture;
 
-    .line 3
     invoke-static {p0, p1}, Lcom/google/firebase/concurrent/DelegatingScheduledFuture;->access$100(Lcom/google/firebase/concurrent/DelegatingScheduledFuture;Ljava/lang/Throwable;)Z
 
-    .line 6
     return-void
 .end method

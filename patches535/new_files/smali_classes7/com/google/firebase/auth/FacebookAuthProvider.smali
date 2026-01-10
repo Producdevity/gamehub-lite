@@ -19,10 +19,8 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -35,12 +33,9 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     new-instance v0, Lcom/google/firebase/auth/FacebookAuthCredential;
 
-    .line 3
     invoke-direct {v0, p0}, Lcom/google/firebase/auth/FacebookAuthCredential;-><init>(Ljava/lang/String;)V
 
-    .line 6
     return-object v0
 .end method

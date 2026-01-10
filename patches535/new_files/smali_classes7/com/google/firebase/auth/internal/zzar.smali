@@ -30,13 +30,10 @@
         }
     .end annotation
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     iput-object p1, p0, Lcom/google/firebase/auth/internal/zzar;->zza:Ljava/util/List;
 
-    .line 6
     return-void
 .end method
 
@@ -53,9 +50,7 @@
         }
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/internal/zzar;->zza:Ljava/util/List;
 
-    .line 3
     return-object p0
 .end method

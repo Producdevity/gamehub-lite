@@ -125,109 +125,74 @@
 .method public static constructor <clinit>()V
     .locals 5
 
-    .line 1
     const v0, 0x7f040042
 
-    .line 4
     const v1, 0x7f0403ff
 
-    .line 7
     const v2, 0x10101a5
 
-    .line 10
     const v3, 0x101031f
 
-    .line 13
     const v4, 0x1010647
 
-    .line 16
     filled-new-array {v2, v3, v4, v0, v1}, [I
 
-    .line 19
     move-result-object v0
 
-    .line 20
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->ColorStateListItem:[I
 
-    .line 22
     const v0, 0x7f0403fe
 
-    .line 25
     const v1, 0x7f040736
 
-    .line 28
     filled-new-array {v0, v1}, [I
 
-    .line 31
     move-result-object v0
 
-    .line 32
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->CoordinatorLayout:[I
 
-    .line 34
     const/4 v0, 0x7
 
-    .line 35
     new-array v0, v0, [I
 
-    .line 37
     fill-array-data v0, :array_0
 
-    .line 40
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->CoordinatorLayout_Layout:[I
 
-    .line 42
     const/16 v0, 0x8
 
-    .line 44
     new-array v0, v0, [I
 
-    .line 46
     fill-array-data v0, :array_1
 
-    .line 49
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->FontFamily:[I
 
-    .line 51
     const/16 v0, 0xa
 
-    .line 53
     new-array v0, v0, [I
 
-    .line 55
     fill-array-data v0, :array_2
 
-    .line 58
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->FontFamilyFont:[I
 
-    .line 60
     const/16 v0, 0xc
 
-    .line 62
     new-array v0, v0, [I
 
-    .line 64
     fill-array-data v0, :array_3
 
-    .line 67
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->GradientColor:[I
 
-    .line 69
     const v0, 0x1010514
 
-    .line 72
     filled-new-array {v2, v0}, [I
 
-    .line 75
     move-result-object v0
 
-    .line 76
     sput-object v0, Lcom/google/firebase/installations/interop/R$styleable;->GradientColorItem:[I
 
-    .line 78
     return-void
 
-    .line 79
     :array_0
     .array-data 4
         0x10100b3
@@ -239,7 +204,6 @@
         0x7f040456
     .end array-data
 
-    .line 97
     :array_1
     .array-data 4
         0x7f040326
@@ -252,7 +216,6 @@
         0x7f04032d
     .end array-data
 
-    .line 117
     :array_2
     .array-data 4
         0x1010532
@@ -267,7 +230,6 @@
         0x7f0408d6
     .end array-data
 
-    .line 141
     :array_3
     .array-data 4
         0x101019d
@@ -288,9 +250,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method

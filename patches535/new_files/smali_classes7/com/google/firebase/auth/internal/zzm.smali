@@ -15,10 +15,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Lcom/google/firebase/auth/internal/zzi;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -31,7 +29,6 @@
         .end annotation
     .end param
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/internal/zzm;->zzb:Ljava/lang/String;
 
     return-object p0
@@ -40,7 +37,6 @@
 .method public final zza()Lcom/google/firebase/auth/internal/zzj;
     .locals 4
 
-    .line 2
     new-instance v0, Lcom/google/firebase/auth/internal/zzn;
 
     iget-object v1, p0, Lcom/google/firebase/auth/internal/zzm;->zza:Ljava/lang/String;
@@ -63,10 +59,8 @@
         .end annotation
     .end param
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/internal/zzm;->zzc:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -77,9 +71,7 @@
         .end annotation
     .end param
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/internal/zzm;->zza:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method

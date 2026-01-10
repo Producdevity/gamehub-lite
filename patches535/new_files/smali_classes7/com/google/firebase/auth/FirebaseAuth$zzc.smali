@@ -22,13 +22,10 @@
 .method public constructor <init>(Lcom/google/firebase/auth/FirebaseAuth;)V
     .locals 0
 
-    .line 1
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 4
     invoke-direct {p0, p1}, Lcom/google/firebase/auth/FirebaseAuth$zza;-><init>(Lcom/google/firebase/auth/FirebaseAuth;)V
 
-    .line 7
     return-void
 .end method
 
@@ -37,6 +34,5 @@
 .method public final zza(Lcom/google/android/gms/common/api/Status;)V
     .locals 0
 
-    .line 1
     return-void
 .end method

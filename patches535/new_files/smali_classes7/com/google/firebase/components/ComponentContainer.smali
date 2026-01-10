@@ -16,7 +16,6 @@
         }
     .end annotation
 
-    .line 2
     invoke-interface {p0, p1}, Lcom/google/firebase/components/ComponentContainer;->getProvider(Lcom/google/firebase/components/Qualified;)Lcom/google/firebase/inject/Provider;
 
     move-result-object p0
@@ -27,7 +26,6 @@
 
     return-object p0
 
-    .line 3
     :cond_0
     invoke-interface {p0}, Lcom/google/firebase/inject/Provider;->get()Ljava/lang/Object;
 
@@ -48,7 +46,6 @@
         }
     .end annotation
 
-    .line 1
     invoke-static {p1}, Lcom/google/firebase/components/Qualified;->unqualified(Ljava/lang/Class;)Lcom/google/firebase/components/Qualified;
 
     move-result-object p1
@@ -88,7 +85,6 @@
         }
     .end annotation
 
-    .line 1
     invoke-static {p1}, Lcom/google/firebase/components/Qualified;->unqualified(Ljava/lang/Class;)Lcom/google/firebase/components/Qualified;
 
     move-result-object p1
@@ -128,7 +124,6 @@
         }
     .end annotation
 
-    .line 1
     invoke-static {p1}, Lcom/google/firebase/components/Qualified;->unqualified(Ljava/lang/Class;)Lcom/google/firebase/components/Qualified;
 
     move-result-object p1
@@ -154,7 +149,6 @@
         }
     .end annotation
 
-    .line 2
     invoke-interface {p0, p1}, Lcom/google/firebase/components/ComponentContainer;->setOfProvider(Lcom/google/firebase/components/Qualified;)Lcom/google/firebase/inject/Provider;
 
     move-result-object p0
@@ -182,7 +176,6 @@
         }
     .end annotation
 
-    .line 1
     invoke-static {p1}, Lcom/google/firebase/components/Qualified;->unqualified(Ljava/lang/Class;)Lcom/google/firebase/components/Qualified;
 
     move-result-object p1
@@ -224,7 +217,6 @@
         }
     .end annotation
 
-    .line 1
     invoke-static {p1}, Lcom/google/firebase/components/Qualified;->unqualified(Ljava/lang/Class;)Lcom/google/firebase/components/Qualified;
 
     move-result-object p1

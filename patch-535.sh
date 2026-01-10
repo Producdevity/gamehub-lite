@@ -35,7 +35,7 @@ BASE_PACKAGE="emuready.gamehub.lite"
 
 # Variant definitions as space-separated pairs: "name:package"
 # Order matters for release builds
-VARIANTS="base:gamehub.lite antutu:com.antutu.ABenchMark alt-antutu:com.antutu.benchmark.full ludashi:com.ludashi.aibench pubg:com.tencent.ig"
+VARIANTS="base:emuready.gamehub.lite antutu:com.antutu.ABenchMark alt-antutu:com.antutu.benchmark.full ludashi:com.ludashi.aibench pubg:com.tencent.ig"
 
 # Get package name for a variant
 get_variant_package() {
@@ -78,7 +78,7 @@ extract_version() {
     VERSION=$(grep "versionName:" "$WORK_DIR/decompiled/apktool.yml" | head -1 | awk -F': ' '{print $2}' | tr -d "'" | tr -d ' ')
   fi
   # Default fallback
-  VERSION="${VERSION:-5.1.0}"
+  VERSION="${VERSION:-5.3.5}"
   print_success "Version: $VERSION"
 }
 
@@ -231,6 +231,20 @@ decompile_apk() {
   apktool d -f "$SOURCE_APK" -o "$WORK_DIR/decompiled" 2>&1 | tail -5
 
   print_success "APK decompiled to $WORK_DIR/decompiled"
+}
+
+normalize_smali_files() {
+  print_step "Normalizing smali files (removing .line directives)..."
+
+  # Remove .line directives to match the patches (which were generated without them)
+  # This prevents context mismatches during patching
+  local count=$(find "$WORK_DIR/decompiled" -name "*.smali" -type f | wc -l | tr -d ' ')
+  echo "  Processing $count smali files..."
+
+  find "$WORK_DIR/decompiled" -name "*.smali" -type f -exec \
+    sed -i '' '/^[[:space:]]*\.line [0-9]*$/d' {} \;
+
+  print_success "Smali files normalized"
 }
 
 apply_deletions() {
@@ -466,6 +480,9 @@ main() {
   verify_source_apk
   setup_keystore
   decompile_apk
+
+  # Normalize smali files to match patches (removes .line directives)
+  normalize_smali_files
 
   # Extract version after decompilation
   extract_version

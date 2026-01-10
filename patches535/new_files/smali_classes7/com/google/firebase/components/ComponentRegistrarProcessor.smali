@@ -11,16 +11,12 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 1
     new-instance v0, Lcom/google/firebase/components/g;
 
-    .line 3
     invoke-direct {v0}, Lcom/google/firebase/components/g;-><init>()V
 
-    .line 6
     sput-object v0, Lcom/google/firebase/components/ComponentRegistrarProcessor;->NOOP:Lcom/google/firebase/components/ComponentRegistrarProcessor;
 
-    .line 8
     return-void
 .end method
 

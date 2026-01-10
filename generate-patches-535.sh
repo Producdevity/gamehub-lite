@@ -64,6 +64,26 @@ decompile_apks() {
     print_success "Both APKs decompiled"
 }
 
+normalize_smali_files() {
+    print_step "Normalizing smali files (removing .line directives)..."
+
+    # Count files to process
+    local orig_count=$(find "$DECOMPILED_DIR/original" -name "*.smali" -type f | wc -l | tr -d ' ')
+    local lite_count=$(find "$DECOMPILED_DIR/lite" -name "*.smali" -type f | wc -l | tr -d ' ')
+
+    echo "  Processing $orig_count smali files in original..."
+    # Remove .line directives to avoid noise in patches
+    # These are debug line numbers that differ based on compilation settings
+    find "$DECOMPILED_DIR/original" -name "*.smali" -type f -exec \
+        sed -i '' '/^[[:space:]]*\.line [0-9]*$/d' {} \;
+
+    echo "  Processing $lite_count smali files in lite..."
+    find "$DECOMPILED_DIR/lite" -name "*.smali" -type f -exec \
+        sed -i '' '/^[[:space:]]*\.line [0-9]*$/d' {} \;
+
+    print_success "Smali files normalized (removed .line directives)"
+}
+
 generate_file_lists() {
     print_step "Generating file lists..."
 
@@ -242,6 +262,7 @@ main() {
 
     check_apks
     decompile_apks
+    normalize_smali_files
     generate_file_lists
     generate_patches
     copy_new_files

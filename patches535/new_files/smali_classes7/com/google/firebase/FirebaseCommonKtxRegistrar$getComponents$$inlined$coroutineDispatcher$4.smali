@@ -45,26 +45,20 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 1
     new-instance v0, Lcom/google/firebase/FirebaseCommonKtxRegistrar$getComponents$$inlined$coroutineDispatcher$4;
 
-    .line 3
     invoke-direct {v0}, Lcom/google/firebase/FirebaseCommonKtxRegistrar$getComponents$$inlined$coroutineDispatcher$4;-><init>()V
 
-    .line 6
     sput-object v0, Lcom/google/firebase/FirebaseCommonKtxRegistrar$getComponents$$inlined$coroutineDispatcher$4;->INSTANCE:Lcom/google/firebase/FirebaseCommonKtxRegistrar$getComponents$$inlined$coroutineDispatcher$4;
 
-    .line 8
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -73,7 +67,6 @@
 .method public bridge synthetic create(Lcom/google/firebase/components/ComponentContainer;)Ljava/lang/Object;
     .locals 0
 
-    .line 1
     invoke-virtual {p0, p1}, Lcom/google/firebase/FirebaseCommonKtxRegistrar$getComponents$$inlined$coroutineDispatcher$4;->create(Lcom/google/firebase/components/ComponentContainer;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object p0
@@ -84,7 +77,6 @@
 .method public final create(Lcom/google/firebase/components/ComponentContainer;)Lkotlinx/coroutines/CoroutineDispatcher;
     .locals 1
 
-    .line 2
     const-class p0, Lcom/google/firebase/annotations/concurrent/UiThread;
 
     const-class v0, Ljava/util/concurrent/Executor;

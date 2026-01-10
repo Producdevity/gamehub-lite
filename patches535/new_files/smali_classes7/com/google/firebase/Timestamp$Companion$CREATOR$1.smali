@@ -33,10 +33,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -49,7 +47,6 @@
 
     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 2
     new-instance p0, Lcom/google/firebase/Timestamp;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
@@ -68,7 +65,6 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 0
 
-    .line 1
     invoke-virtual {p0, p1}, Lcom/google/firebase/Timestamp$Companion$CREATOR$1;->createFromParcel(Landroid/os/Parcel;)Lcom/google/firebase/Timestamp;
 
     move-result-object p0
@@ -79,7 +75,6 @@
 .method public newArray(I)[Lcom/google/firebase/Timestamp;
     .locals 0
 
-    .line 2
     new-array p0, p1, [Lcom/google/firebase/Timestamp;
 
     return-object p0
@@ -88,7 +83,6 @@
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
 
-    .line 1
     invoke-virtual {p0, p1}, Lcom/google/firebase/Timestamp$Companion$CREATOR$1;->newArray(I)[Lcom/google/firebase/Timestamp;
 
     move-result-object p0

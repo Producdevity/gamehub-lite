@@ -18,25 +18,18 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    .line 1
     const-string v0, "<this>"
 
-    .line 3
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 6
     invoke-static {}, Lcom/google/firebase/installations/FirebaseInstallations;->getInstance()Lcom/google/firebase/installations/FirebaseInstallations;
 
-    .line 9
     move-result-object p0
 
-    .line 10
     const-string v0, "getInstance(...)"
 
-    .line 12
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 15
     return-object p0
 .end method
 
@@ -53,30 +46,21 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    .line 1
     const-string v0, "<this>"
 
-    .line 3
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 6
     const-string p0, "app"
 
-    .line 8
     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 11
     invoke-static {p1}, Lcom/google/firebase/installations/FirebaseInstallations;->getInstance(Lcom/google/firebase/FirebaseApp;)Lcom/google/firebase/installations/FirebaseInstallations;
 
-    .line 14
     move-result-object p0
 
-    .line 15
     const-string p1, "getInstance(...)"
 
-    .line 17
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 20
     return-object p0
 .end method

@@ -45,26 +45,20 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 1
     new-instance v0, Lcom/google/firebase/FirebaseKt$coroutineDispatcher$1;
 
-    .line 3
     invoke-direct {v0}, Lcom/google/firebase/FirebaseKt$coroutineDispatcher$1;-><init>()V
 
-    .line 6
     sput-object v0, Lcom/google/firebase/FirebaseKt$coroutineDispatcher$1;->INSTANCE:Lcom/google/firebase/FirebaseKt$coroutineDispatcher$1;
 
-    .line 8
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -73,7 +67,6 @@
 .method public bridge synthetic create(Lcom/google/firebase/components/ComponentContainer;)Ljava/lang/Object;
     .locals 0
 
-    .line 1
     invoke-virtual {p0, p1}, Lcom/google/firebase/FirebaseKt$coroutineDispatcher$1;->create(Lcom/google/firebase/components/ComponentContainer;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object p0
@@ -86,7 +79,6 @@
 
     const/4 p0, 0x4
 
-    .line 2
     const-string v0, "T"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->m(ILjava/lang/String;)V

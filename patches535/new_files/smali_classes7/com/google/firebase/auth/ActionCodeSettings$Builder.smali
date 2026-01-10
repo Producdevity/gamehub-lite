@@ -45,12 +45,10 @@
 .method private constructor <init>()V
     .locals 1
 
-    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
 
-    .line 3
     iput-boolean v0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzf:Z
 
     return-void
@@ -59,7 +57,6 @@
 .method public synthetic constructor <init>(Lcom/google/firebase/auth/zzb;)V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Lcom/google/firebase/auth/ActionCodeSettings$Builder;-><init>()V
 
     return-void
@@ -68,80 +65,64 @@
 .method public static bridge synthetic zza(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zze:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public static bridge synthetic zzb(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzc:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public static bridge synthetic zzc(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzg:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public static bridge synthetic zzd(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzb:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public static bridge synthetic zze(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzh:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public static bridge synthetic zzf(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Ljava/lang/String;
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zza:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public static bridge synthetic zzg(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Z
     .locals 0
 
-    .line 1
     iget-boolean p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzd:Z
 
-    .line 3
     return p0
 .end method
 
 .method public static bridge synthetic zzh(Lcom/google/firebase/auth/ActionCodeSettings$Builder;)Z
     .locals 0
 
-    .line 1
     iget-boolean p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzf:Z
 
-    .line 3
     return p0
 .end method
 
@@ -152,35 +133,25 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object v0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zza:Ljava/lang/String;
 
-    .line 3
     if-eqz v0, :cond_0
 
-    .line 5
     new-instance v0, Lcom/google/firebase/auth/ActionCodeSettings;
 
-    .line 7
     const/4 v1, 0x0
 
-    .line 8
     invoke-direct {v0, p0, v1}, Lcom/google/firebase/auth/ActionCodeSettings;-><init>(Lcom/google/firebase/auth/ActionCodeSettings$Builder;Lcom/google/firebase/auth/zzb;)V
 
-    .line 11
     return-object v0
 
-    .line 12
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    .line 14
     const-string v0, "Cannot build ActionCodeSettings with null URL. Call #setUrl(String) before calling build()"
 
-    .line 16
     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    .line 19
     throw p0
 .end method
 
@@ -192,20 +163,16 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzg:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
 .method public getHandleCodeInApp()Z
     .locals 0
 
-    .line 1
     iget-boolean p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzf:Z
 
-    .line 3
     return p0
 .end method
 
@@ -214,10 +181,8 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzb:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -226,10 +191,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzh:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -238,10 +201,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zza:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -258,16 +219,12 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzc:Ljava/lang/String;
 
-    .line 3
     iput-boolean p2, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzd:Z
 
-    .line 5
     iput-object p3, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zze:Ljava/lang/String;
 
-    .line 7
     return-object p0
 .end method
 
@@ -283,10 +240,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzg:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -295,10 +250,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-boolean p1, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzf:Z
 
-    .line 3
     return-object p0
 .end method
 
@@ -311,10 +264,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzb:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -327,10 +278,8 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zzh:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method
 
@@ -343,9 +292,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/auth/ActionCodeSettings$Builder;->zza:Ljava/lang/String;
 
-    .line 3
     return-object p0
 .end method

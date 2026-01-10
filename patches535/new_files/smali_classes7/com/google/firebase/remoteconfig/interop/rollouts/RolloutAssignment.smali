@@ -35,41 +35,30 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 1
     new-instance v0, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;
 
-    .line 3
     invoke-direct {v0}, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;-><init>()V
 
-    .line 6
     sget-object v1, Lcom/google/firebase/remoteconfig/interop/rollouts/AutoRolloutAssignmentEncoder;->CONFIG:Lcom/google/firebase/encoders/config/Configurator;
 
-    .line 8
     invoke-virtual {v0, v1}, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;->configureWith(Lcom/google/firebase/encoders/config/Configurator;)Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;
 
-    .line 11
     move-result-object v0
 
-    .line 12
     invoke-virtual {v0}, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;->build()Lcom/google/firebase/encoders/DataEncoder;
 
-    .line 15
     move-result-object v0
 
-    .line 16
     sput-object v0, Lcom/google/firebase/remoteconfig/interop/rollouts/RolloutAssignment;->ROLLOUT_ASSIGNMENT_JSON_ENCODER:Lcom/google/firebase/encoders/DataEncoder;
 
-    .line 18
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     return-void
 .end method
 
@@ -78,13 +67,10 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     new-instance v0, Lcom/google/firebase/remoteconfig/interop/rollouts/AutoValue_RolloutAssignment$Builder;
 
-    .line 3
     invoke-direct {v0}, Lcom/google/firebase/remoteconfig/interop/rollouts/AutoValue_RolloutAssignment$Builder;-><init>()V
 
-    .line 6
     return-object v0
 .end method
 
@@ -103,7 +89,6 @@
         }
     .end annotation
 
-    .line 8
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
@@ -130,14 +115,12 @@
         }
     .end annotation
 
-    .line 1
     invoke-static {}, Lcom/google/firebase/remoteconfig/interop/rollouts/RolloutAssignment;->builder()Lcom/google/firebase/remoteconfig/interop/rollouts/RolloutAssignment$Builder;
 
     move-result-object v0
 
     const-string v1, "rolloutId"
 
-    .line 2
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -148,7 +131,6 @@
 
     const-string v1, "variantId"
 
-    .line 3
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -159,7 +141,6 @@
 
     const-string v1, "parameterKey"
 
-    .line 4
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -170,7 +151,6 @@
 
     const-string v1, "parameterValue"
 
-    .line 5
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -181,7 +161,6 @@
 
     const-string v1, "templateVersion"
 
-    .line 6
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
 
     move-result-wide v1
@@ -190,7 +169,6 @@
 
     move-result-object p0
 
-    .line 7
     invoke-virtual {p0}, Lcom/google/firebase/remoteconfig/interop/rollouts/RolloutAssignment$Builder;->build()Lcom/google/firebase/remoteconfig/interop/rollouts/RolloutAssignment;
 
     move-result-object p0

@@ -16,16 +16,12 @@
 .method public synthetic constructor <init>(Lcom/google/firebase/installations/FirebaseInstallations;Z)V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     iput-object p1, p0, Lcom/google/firebase/installations/b;->a:Lcom/google/firebase/installations/FirebaseInstallations;
 
-    .line 6
     iput-boolean p2, p0, Lcom/google/firebase/installations/b;->b:Z
 
-    .line 8
     return-void
 .end method
 
@@ -34,15 +30,11 @@
 .method public final run()V
     .locals 1
 
-    .line 1
     iget-object v0, p0, Lcom/google/firebase/installations/b;->a:Lcom/google/firebase/installations/FirebaseInstallations;
 
-    .line 3
     iget-boolean p0, p0, Lcom/google/firebase/installations/b;->b:Z
 
-    .line 5
     invoke-static {v0, p0}, Lcom/google/firebase/installations/FirebaseInstallations;->c(Lcom/google/firebase/installations/FirebaseInstallations;Z)V
 
-    .line 8
     return-void
 .end method

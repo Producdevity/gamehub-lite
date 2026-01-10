@@ -25,13 +25,10 @@
 .method public constructor <init>(Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;)V
     .locals 0
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder$1;->this$0:Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;
 
-    .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6
     return-void
 .end method
 
@@ -44,18 +41,15 @@
         .end annotation
     .end param
 
-    .line 5
     new-instance v0, Ljava/io/StringWriter;
 
     invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
 
-    .line 6
     :try_start_0
     invoke-virtual {p0, p1, v0}, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder$1;->encode(Ljava/lang/Object;Ljava/io/Writer;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 7
     :catch_0
     invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
@@ -80,12 +74,10 @@
         }
     .end annotation
 
-    .line 1
     new-instance v0, Lcom/google/firebase/encoders/json/JsonValueObjectEncoderContext;
 
     iget-object v1, p0, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder$1;->this$0:Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;
 
-    .line 2
     invoke-static {v1}, Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;->access$100(Lcom/google/firebase/encoders/json/JsonDataEncoderBuilder;)Ljava/util/Map;
 
     move-result-object v2
@@ -114,10 +106,8 @@
 
     const/4 p0, 0x0
 
-    .line 3
     invoke-virtual {v0, p1, p0}, Lcom/google/firebase/encoders/json/JsonValueObjectEncoderContext;->add(Ljava/lang/Object;Z)Lcom/google/firebase/encoders/json/JsonValueObjectEncoderContext;
 
-    .line 4
     invoke-virtual {v0}, Lcom/google/firebase/encoders/json/JsonValueObjectEncoderContext;->close()V
 
     return-void

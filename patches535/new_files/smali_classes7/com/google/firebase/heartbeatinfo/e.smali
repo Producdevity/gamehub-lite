@@ -7,18 +7,13 @@
 .method public static synthetic a(Ljava/lang/Object;)Ljava/util/Set;
     .locals 0
 
-    .line 1
     filled-new-array {p0}, [Ljava/lang/Object;
 
-    .line 4
     move-result-object p0
 
-    .line 5
     invoke-static {p0}, Lcom/google/android/gms/measurement/internal/c;->a([Ljava/lang/Object;)Ljava/util/Set;
 
-    .line 8
     move-result-object p0
 
-    .line 9
     return-object p0
 .end method

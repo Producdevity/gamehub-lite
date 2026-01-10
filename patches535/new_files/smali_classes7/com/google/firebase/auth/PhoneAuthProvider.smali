@@ -32,13 +32,10 @@
 .method private constructor <init>(Lcom/google/firebase/auth/FirebaseAuth;)V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     iput-object p1, p0, Lcom/google/firebase/auth/PhoneAuthProvider;->zza:Lcom/google/firebase/auth/FirebaseAuth;
 
-    .line 6
     return-void
 .end method
 
@@ -55,13 +52,10 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     invoke-static {p0, p1}, Lcom/google/firebase/auth/PhoneAuthCredential;->zza(Ljava/lang/String;Ljava/lang/String;)Lcom/google/firebase/auth/PhoneAuthCredential;
 
-    .line 4
     move-result-object p0
 
-    .line 5
     return-object p0
 .end method
 
@@ -73,7 +67,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 1
     new-instance v0, Lcom/google/firebase/auth/PhoneAuthProvider;
 
     invoke-static {}, Lcom/google/firebase/FirebaseApp;->getInstance()Lcom/google/firebase/FirebaseApp;
@@ -101,7 +94,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 2
     new-instance v0, Lcom/google/firebase/auth/PhoneAuthProvider;
 
     invoke-direct {v0, p0}, Lcom/google/firebase/auth/PhoneAuthProvider;-><init>(Lcom/google/firebase/auth/FirebaseAuth;)V
@@ -116,10 +108,8 @@
         .end annotation
     .end param
 
-    .line 1
     invoke-static {p0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2
     invoke-static {p0}, Lcom/google/firebase/auth/FirebaseAuth;->zza(Lcom/google/firebase/auth/PhoneAuthOptions;)V
 
     return-void
@@ -148,20 +138,16 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3
     iget-object p0, p0, Lcom/google/firebase/auth/PhoneAuthProvider;->zza:Lcom/google/firebase/auth/FirebaseAuth;
 
-    .line 4
     invoke-static {p0}, Lcom/google/firebase/auth/PhoneAuthOptions;->newBuilder(Lcom/google/firebase/auth/FirebaseAuth;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 5
     invoke-virtual {p0, p1}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setPhoneNumber(Ljava/lang/String;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 6
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p1
@@ -170,22 +156,18 @@
 
     move-result-object p0
 
-    .line 7
     invoke-virtual {p0, p5}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setActivity(Landroid/app/Activity;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 8
     invoke-virtual {p0, p6}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setCallbacks(Lcom/google/firebase/auth/PhoneAuthProvider$OnVerificationStateChangedCallbacks;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 9
     invoke-virtual {p0}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->build()Lcom/google/firebase/auth/PhoneAuthOptions;
 
     move-result-object p0
 
-    .line 10
     invoke-static {p0}, Lcom/google/firebase/auth/PhoneAuthProvider;->verifyPhoneNumber(Lcom/google/firebase/auth/PhoneAuthOptions;)V
 
     return-void
@@ -216,20 +198,16 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 11
     iget-object p0, p0, Lcom/google/firebase/auth/PhoneAuthProvider;->zza:Lcom/google/firebase/auth/FirebaseAuth;
 
-    .line 12
     invoke-static {p0}, Lcom/google/firebase/auth/PhoneAuthOptions;->newBuilder(Lcom/google/firebase/auth/FirebaseAuth;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 13
     invoke-virtual {p0, p1}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setPhoneNumber(Ljava/lang/String;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 14
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p1
@@ -238,22 +216,18 @@
 
     move-result-object p0
 
-    .line 15
     invoke-virtual {p0, p5}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setActivity(Landroid/app/Activity;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
-    .line 16
     invoke-virtual {p0, p6}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setCallbacks(Lcom/google/firebase/auth/PhoneAuthProvider$OnVerificationStateChangedCallbacks;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
     move-result-object p0
 
     if-eqz p7, :cond_0
 
-    .line 17
     invoke-virtual {p0, p7}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->setForceResendingToken(Lcom/google/firebase/auth/PhoneAuthProvider$ForceResendingToken;)Lcom/google/firebase/auth/PhoneAuthOptions$Builder;
 
-    .line 18
     :cond_0
     invoke-virtual {p0}, Lcom/google/firebase/auth/PhoneAuthOptions$Builder;->build()Lcom/google/firebase/auth/PhoneAuthOptions;
 

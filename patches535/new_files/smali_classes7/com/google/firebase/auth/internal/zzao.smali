@@ -13,14 +13,12 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 5
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 6
     new-instance p0, Lcom/google/android/gms/common/api/Status;
 
     const/16 v0, 0x445b
@@ -29,20 +27,17 @@
 
     return-object p0
 
-    .line 7
     :cond_0
     const-string v0, ":"
 
     const/4 v1, 0x2
 
-    .line 8
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object p0
 
     const/4 v0, 0x0
 
-    .line 9
     aget-object v1, p0, v0
 
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -51,7 +46,6 @@
 
     aput-object v1, p0, v0
 
-    .line 10
     array-length v1, p0
 
     const/4 v2, 0x1
@@ -62,27 +56,23 @@
 
     if-eqz v1, :cond_1
 
-    .line 11
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
 
     aput-object v1, p0, v2
 
-    .line 12
     :cond_1
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object p0
 
-    .line 13
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
     if-le v1, v2, :cond_2
 
-    .line 14
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -101,7 +91,6 @@
 
     return-object p0
 
-    .line 15
     :cond_2
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -127,7 +116,6 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .line 1
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -1837,7 +1825,6 @@
 
     if-eqz p1, :cond_52
 
-    .line 2
     new-instance v0, Lcom/google/android/gms/common/api/Status;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1860,7 +1847,6 @@
 
     return-object v0
 
-    .line 3
     :cond_52
     new-instance p1, Lcom/google/android/gms/common/api/Status;
 
@@ -1868,7 +1854,6 @@
 
     return-object p1
 
-    .line 4
     :cond_53
     new-instance p0, Lcom/google/android/gms/common/api/Status;
 

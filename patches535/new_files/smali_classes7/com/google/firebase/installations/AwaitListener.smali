@@ -25,22 +25,16 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4
     new-instance v0, Ljava/util/concurrent/CountDownLatch;
 
-    .line 6
     const/4 v1, 0x1
 
-    .line 7
     invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
-    .line 10
     iput-object v0, p0, Lcom/google/firebase/installations/AwaitListener;->latch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 12
     return-void
 .end method
 
@@ -54,16 +48,12 @@
         }
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/installations/AwaitListener;->latch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 3
     invoke-virtual {p0, p1, p2, p3}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
 
-    .line 6
     move-result p0
 
-    .line 7
     return p0
 .end method
 
@@ -82,25 +72,19 @@
         }
     .end annotation
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/installations/AwaitListener;->latch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 3
     invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 6
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 0
 
-    .line 1
     iget-object p0, p0, Lcom/google/firebase/installations/AwaitListener;->latch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 3
     invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 6
     return-void
 .end method

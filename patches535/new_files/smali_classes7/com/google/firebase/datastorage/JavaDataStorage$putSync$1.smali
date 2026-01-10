@@ -82,22 +82,16 @@
         }
     .end annotation
 
-    .line 1
     iput-object p1, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->this$0:Lcom/google/firebase/datastorage/JavaDataStorage;
 
-    .line 3
     iput-object p2, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->$key:Landroidx/datastore/preferences/core/Preferences$Key;
 
-    .line 5
     iput-object p3, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->$value:Ljava/lang/Object;
 
-    .line 7
     const/4 p1, 0x2
 
-    .line 8
     invoke-direct {p0, p1, p4}, Lkotlin/coroutines/jvm/internal/SuspendLambda;-><init>(ILkotlin/coroutines/Continuation;)V
 
-    .line 11
     return-void
 .end method
 
@@ -117,29 +111,22 @@
         }
     .end annotation
 
-    .line 1
     new-instance p1, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;
 
-    .line 3
     iget-object v0, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->this$0:Lcom/google/firebase/datastorage/JavaDataStorage;
 
-    .line 5
     iget-object v1, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->$key:Landroidx/datastore/preferences/core/Preferences$Key;
 
-    .line 7
     iget-object p0, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->$value:Ljava/lang/Object;
 
-    .line 9
     invoke-direct {p1, v0, v1, p0, p2}, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;-><init>(Lcom/google/firebase/datastorage/JavaDataStorage;Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
 
-    .line 12
     return-object p1
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    .line 1
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
     check-cast p2, Lkotlin/coroutines/Continuation;
@@ -165,7 +152,6 @@
         }
     .end annotation
 
-    .line 2
     invoke-virtual {p0, p1, p2}, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object p0
@@ -184,87 +170,60 @@
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 6
 
-    .line 1
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
 
-    .line 4
     move-result-object v0
 
-    .line 5
     iget v1, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->label:I
 
-    .line 7
     const/4 v2, 0x1
 
-    .line 8
     if-eqz v1, :cond_1
 
-    .line 10
     if-ne v1, v2, :cond_0
 
-    .line 12
     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
 
-    .line 15
     return-object p1
 
-    .line 16
     :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
-    .line 18
     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
 
-    .line 20
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .line 23
     throw p0
 
-    .line 24
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
 
-    .line 27
     iget-object p1, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->this$0:Lcom/google/firebase/datastorage/JavaDataStorage;
 
-    .line 29
     invoke-static {p1}, Lcom/google/firebase/datastorage/JavaDataStorage;->access$getDataStore$p(Lcom/google/firebase/datastorage/JavaDataStorage;)Landroidx/datastore/core/DataStore;
 
-    .line 32
     move-result-object p1
 
-    .line 33
     new-instance v1, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1$1;
 
-    .line 35
     iget-object v3, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->$key:Landroidx/datastore/preferences/core/Preferences$Key;
 
-    .line 37
     iget-object v4, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->$value:Ljava/lang/Object;
 
-    .line 39
     const/4 v5, 0x0
 
-    .line 40
     invoke-direct {v1, v3, v4, v5}, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1$1;-><init>(Landroidx/datastore/preferences/core/Preferences$Key;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
 
-    .line 43
     iput v2, p0, Lcom/google/firebase/datastorage/JavaDataStorage$putSync$1;->label:I
 
-    .line 45
     invoke-static {p1, v1, p0}, Landroidx/datastore/preferences/core/PreferencesKt;->a(Landroidx/datastore/core/DataStore;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    .line 48
     move-result-object p0
 
-    .line 49
     if-ne p0, v0, :cond_2
 
-    .line 51
     return-object v0
 
-    .line 52
     :cond_2
     return-object p0
 .end method
