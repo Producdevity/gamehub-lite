@@ -95,6 +95,32 @@ To find your key alias, run:
 keytool -list -keystore ./keystore/release.keystore
 ```
 
+#### Building Release Variants
+
+For releases, GameHub Lite is distributed with multiple package name variants to enable performance optimizations on certain devices (see [Different versions of GameHub Lite](#different-versions-of-gamehub-lite) for details).
+
+To build all 5 variants at once, use the `RELEASE=true` flag:
+
+```bash
+RELEASE=true \
+KEYSTORE="./keystore/release.keystore" \
+KEYSTORE_PASS="your_password" \
+KEY_ALIAS="your_key_alias" \
+./patch.sh
+```
+
+This will generate the following APKs in the `output/` directory:
+
+| Variant | Filename | Package Name |
+|---------|----------|--------------|
+| Base | `GameHub-Lite-v{VERSION}.apk` | `gamehub.lite` |
+| AnTuTu | `GameHub-Lite-v{VERSION}-antutu.apk` | `com.antutu.ABenchMark` |
+| Alt-AnTuTu | `GameHub-Lite-v{VERSION}-alt-antutu.apk` | `com.antutu.benchmark.full` |
+| Ludashi | `GameHub-Lite-v{VERSION}-ludashi.apk` | `com.ludashi.aibench` |
+| PUBG | `GameHub-Lite-v{VERSION}-pubg.apk` | `com.tencent.ig` |
+
+The version number is automatically extracted from the source APK.
+
 ## How It Works
 
 The patcher uses a multi-step process:
