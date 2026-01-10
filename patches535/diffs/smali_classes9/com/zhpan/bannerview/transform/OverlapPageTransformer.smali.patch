@@ -1,0 +1,522 @@
+--- a/smali_classes9/com/zhpan/bannerview/transform/OverlapPageTransformer.smali
++++ b/smali_classes9/com/zhpan/bannerview/transform/OverlapPageTransformer.smali
+@@ -35,76 +35,57 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput p1, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->a:I
+ 
+-    .line 5
+     .line 6
+     iput p2, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->b:F
+ 
+-    .line 7
+     .line 8
+     iput p3, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->c:F
+ 
+-    .line 9
+     .line 10
+     iput p4, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->d:F
+ 
+-    .line 11
+     .line 12
+     iput p5, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->e:F
+ 
+-    .line 13
+     .line 14
+     const/4 p1, 0x0
+ 
+     .line 15
+     cmpg-float p3, p1, p2
+ 
+-    .line 16
+     .line 17
+     if-gtz p3, :cond_1
+ 
+-    .line 18
+     .line 19
+     const/high16 p3, 0x3f800000    # 1.0f
+ 
+-    .line 20
+     .line 21
+     cmpg-float p2, p2, p3
+ 
+-    .line 22
+     .line 23
+     if-gtz p2, :cond_1
+ 
+-    .line 24
+     .line 25
+     cmpg-float p1, p1, p4
+ 
+-    .line 26
+     .line 27
+     if-gtz p1, :cond_0
+ 
+-    .line 28
+     .line 29
+     cmpg-float p1, p4, p3
+ 
+-    .line 30
+     .line 31
+     if-gtz p1, :cond_0
+ 
+-    .line 32
+     .line 33
+     const p1, 0x3e4ccccd    # 0.2f
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     iput p1, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->f:F
+ 
+-    .line 37
+     .line 38
+     return-void
+ 
+@@ -112,16 +93,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 40
+     .line 41
+     const-string p1, "unSelectedItemAlpha value should be between 1.0 to 0.0"
+ 
+-    .line 42
+     .line 43
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     throw p0
+ 
+@@ -129,16 +106,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 48
+     .line 49
+     const-string p1, "minScale value should be between 1.0 to 0.0"
+ 
+-    .line 50
+     .line 51
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     throw p0
+ .end method
+@@ -151,39 +124,27 @@
+     .line 1
+     const-string v0, "page"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget v0, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->b:F
+ 
+-    .line 7
+     .line 8
+     float-to-double v1, v0
+ 
+     .line 9
+     const-wide v3, 0x3fe999999999999aL    # 0.8
+ 
+-    .line 10
+-    .line 11
+-    .line 12
+-    .line 13
+     .line 14
+     cmpl-double v1, v1, v3
+ 
+-    .line 15
+     .line 16
+     if-ltz v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     const v0, 0x3e4ccccd    # 0.2f
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -194,23 +155,15 @@
+     .line 23
+     const-wide v2, 0x3fe3333333333333L    # 0.6
+ 
+-    .line 24
+-    .line 25
+-    .line 26
+-    .line 27
+     .line 28
+     cmpl-double v0, v0, v2
+ 
+-    .line 29
+     .line 30
+     if-ltz v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     const v0, 0x3e99999a    # 0.3f
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -218,18 +171,13 @@
+     :cond_1
+     const v0, 0x3ecccccd    # 0.4f
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :goto_0
+     iput v0, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->f:F
+ 
+-    .line 40
+     .line 41
+     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v0
+ 
+@@ -239,58 +187,45 @@
+     .line 46
+     invoke-virtual {p1, v0}, Landroid/view/View;->setElevation(F)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     const/high16 v0, 0x3f000000    # 0.5f
+ 
+-    .line 50
+     .line 51
+     mul-float v1, p2, v0
+ 
+-    .line 52
+     .line 53
+     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v1
+ 
+     .line 57
+     const/high16 v2, 0x3f800000    # 1.0f
+ 
+-    .line 58
+     .line 59
+     sub-float v1, v2, v1
+ 
+-    .line 60
+     .line 61
+     invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v1
+ 
+     .line 65
+     iget v3, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->c:F
+ 
+-    .line 66
+     .line 67
+     const/4 v4, 0x0
+ 
+     .line 68
+     cmpg-float v5, v3, v4
+ 
+-    .line 69
+     .line 70
+     const/4 v6, 0x1
+ 
+     .line 71
+     if-nez v5, :cond_2
+ 
+-    .line 72
+     .line 73
+     goto :goto_2
+ 
+@@ -304,11 +239,9 @@
+     .line 76
+     cmpl-float v1, p2, v4
+ 
+-    .line 77
+     .line 78
+     if-lez v1, :cond_3
+ 
+-    .line 79
+     .line 80
+     goto :goto_1
+ 
+@@ -323,84 +256,64 @@
+     .line 83
+     invoke-virtual {p1, v5}, Landroid/view/View;->setRotationY(F)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     :goto_2
+     iget v1, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->f:F
+ 
+-    .line 87
+     .line 88
+     mul-float/2addr v1, p2
+ 
+     .line 89
+     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result v1
+ 
+     .line 93
+     sub-float v1, v2, v1
+ 
+-    .line 94
+     .line 95
+     iget v3, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->b:F
+ 
+-    .line 96
+     .line 97
+     invoke-static {v1, v3}, Ljava/lang/Math;->max(FF)F
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result v1
+ 
+     .line 101
+     invoke-virtual {p1, v1}, Landroid/view/View;->setScaleX(F)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     invoke-virtual {p1, v1}, Landroid/view/View;->setScaleY(F)V
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     iget v3, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->e:F
+ 
+-    .line 108
+     .line 109
+     float-to-int v3, v3
+ 
+     .line 110
+     div-int/lit8 v3, v3, 0x2
+ 
+-    .line 111
+     .line 112
+     int-to-float v3, v3
+ 
+     .line 113
+     invoke-static {v3}, Lcom/zhpan/indicator/utils/IndicatorUtils;->a(F)I
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result v3
+ 
+     .line 117
+     iget v5, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->a:I
+ 
+-    .line 118
+     .line 119
+     if-eqz v5, :cond_6
+ 
+-    .line 120
+     .line 121
+     if-ne v5, v6, :cond_5
+ 
+-    .line 122
+     .line 123
+     int-to-float v3, v3
+ 
+@@ -410,16 +323,12 @@
+     .line 125
+     cmpl-float v4, p2, v4
+ 
+-    .line 126
+     .line 127
+     if-lez v4, :cond_4
+ 
+-    .line 128
+     .line 129
+     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result v4
+ 
+@@ -433,7 +342,6 @@
+     .line 135
+     sub-float v1, v2, v1
+ 
+-    .line 136
+     .line 137
+     mul-float/2addr v4, v1
+ 
+@@ -444,8 +352,6 @@
+     :cond_4
+     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result v4
+ 
+@@ -459,8 +365,6 @@
+     .line 145
+     invoke-virtual {p1, v3}, Landroid/view/View;->setTranslationY(F)V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     goto :goto_7
+ 
+@@ -468,16 +372,12 @@
+     :cond_5
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 150
+     .line 151
+     const-string p1, "Gives correct orientation value, ViewPager2.ORIENTATION_HORIZONTAL or ViewPager2.ORIENTATION_VERTICAL"
+ 
+-    .line 152
+     .line 153
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     throw p0
+ 
+@@ -491,16 +391,12 @@
+     .line 159
+     cmpl-float v4, p2, v4
+ 
+-    .line 160
+     .line 161
+     if-lez v4, :cond_7
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result v4
+ 
+@@ -514,7 +410,6 @@
+     .line 169
+     sub-float v1, v2, v1
+ 
+-    .line 170
+     .line 171
+     mul-float/2addr v4, v1
+ 
+@@ -525,8 +420,6 @@
+     :cond_7
+     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result v4
+ 
+@@ -540,21 +433,16 @@
+     .line 179
+     invoke-virtual {p1, v3}, Landroid/view/View;->setTranslationX(F)V
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     :goto_7
+     iget p0, p0, Lcom/zhpan/bannerview/transform/OverlapPageTransformer;->d:F
+ 
+-    .line 183
+     .line 184
+     cmpg-float p0, p0, v2
+ 
+-    .line 185
+     .line 186
+     if-nez p0, :cond_8
+ 
+-    .line 187
+     .line 188
+     return-void
+ 
+@@ -562,31 +450,24 @@
+     :cond_8
+     const/high16 p0, -0x40800000    # -1.0f
+ 
+-    .line 190
+     .line 191
+     cmpl-float p0, p2, p0
+ 
+-    .line 192
+     .line 193
+     if-ltz p0, :cond_9
+ 
+-    .line 194
+     .line 195
+     cmpg-float p0, p2, v2
+ 
+-    .line 196
+     .line 197
+     if-gtz p0, :cond_9
+ 
+-    .line 198
+     .line 199
+     int-to-float p0, v6
+ 
+     .line 200
+     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result p2
+ 
+@@ -609,21 +490,16 @@
+     .line 209
+     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     move-result p0
+ 
+     .line 213
+     div-float p0, v0, p0
+ 
+-    .line 214
+     .line 215
+     :goto_8
+     invoke-virtual {p1, p0}, Landroid/view/View;->setAlpha(F)V
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     return-void
+ .end method

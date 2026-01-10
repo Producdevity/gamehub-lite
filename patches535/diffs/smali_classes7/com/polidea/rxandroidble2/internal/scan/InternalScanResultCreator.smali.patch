@@ -1,0 +1,319 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/scan/InternalScanResultCreator.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/scan/InternalScanResultCreator.smali
+@@ -26,20 +26,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->a:Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->b:Lcom/polidea/rxandroidble2/internal/scan/IsConnectableChecker;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->c:Lcom/polidea/rxandroidble2/internal/scan/AdvertisingSidExtractor;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -53,50 +48,39 @@
+     .line 2
+     if-eq p0, v0, :cond_2
+ 
+-    .line 3
+     .line 4
+     const/4 v0, 0x2
+ 
+     .line 5
+     if-eq p0, v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x4
+ 
+     .line 8
+     if-eq p0, v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     const-string v0, "Unknown callback type %d -> check android.bluetooth.le.ScanSettings"
+ 
+-    .line 19
+     .line 20
+     invoke-static {v0, p0}, Lcom/polidea/rxandroidble2/internal/RxBleLog;->p(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     sget-object p0, Lcom/polidea/rxandroidble2/scan/ScanCallbackType;->CALLBACK_TYPE_UNKNOWN:Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 24
+     .line 25
+     return-object p0
+ 
+@@ -104,7 +88,6 @@
+     :cond_0
+     sget-object p0, Lcom/polidea/rxandroidble2/scan/ScanCallbackType;->CALLBACK_TYPE_MATCH_LOST:Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 27
+     .line 28
+     return-object p0
+ 
+@@ -112,7 +95,6 @@
+     :cond_1
+     sget-object p0, Lcom/polidea/rxandroidble2/scan/ScanCallbackType;->CALLBACK_TYPE_FIRST_MATCH:Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 30
+     .line 31
+     return-object p0
+ 
+@@ -120,7 +102,6 @@
+     :cond_2
+     sget-object p0, Lcom/polidea/rxandroidble2/scan/ScanCallbackType;->CALLBACK_TYPE_ALL_MATCHES:Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 33
+     .line 34
+     return-object p0
+ .end method
+@@ -133,89 +114,66 @@
+     .line 1
+     new-instance v5, Lcom/polidea/rxandroidble2/internal/scan/ScanRecordImplNativeWrapper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p2}, Landroid/bluetooth/le/ScanResult;->getScanRecord()Landroid/bluetooth/le/ScanRecord;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->a:Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v5, v0, v1}, Lcom/polidea/rxandroidble2/internal/scan/ScanRecordImplNativeWrapper;-><init>(Landroid/bluetooth/le/ScanRecord;Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/scan/RxBleInternalScanResult;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p2}, Landroid/bluetooth/le/ScanResult;->getDevice()Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     invoke-virtual {p2}, Landroid/bluetooth/le/ScanResult;->getRssi()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     invoke-virtual {p2}, Landroid/bluetooth/le/ScanResult;->getTimestampNanos()J
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-wide v3
+ 
+     .line 26
+     invoke-static {p1}, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->d(I)Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v6
+ 
+     .line 30
+     iget-object p1, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->b:Lcom/polidea/rxandroidble2/internal/scan/IsConnectableChecker;
+ 
+-    .line 31
+     .line 32
+     invoke-interface {p1, p2}, Lcom/polidea/rxandroidble2/internal/scan/IsConnectableChecker;->a(Landroid/bluetooth/le/ScanResult;)Lcom/polidea/rxandroidble2/scan/IsConnectable;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v7
+ 
+     .line 36
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->c:Lcom/polidea/rxandroidble2/internal/scan/AdvertisingSidExtractor;
+ 
+-    .line 37
+     .line 38
+     invoke-interface {p0, p2}, Lcom/polidea/rxandroidble2/internal/scan/AdvertisingSidExtractor;->a(Landroid/bluetooth/le/ScanResult;)Ljava/lang/Integer;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v8
+ 
+     .line 42
+     invoke-direct/range {v0 .. v8}, Lcom/polidea/rxandroidble2/internal/scan/RxBleInternalScanResult;-><init>(Landroid/bluetooth/BluetoothDevice;IJLcom/polidea/rxandroidble2/scan/ScanRecord;Lcom/polidea/rxandroidble2/scan/ScanCallbackType;Lcom/polidea/rxandroidble2/scan/IsConnectable;Ljava/lang/Integer;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     return-object v0
+ .end method
+@@ -226,35 +184,27 @@
+     .line 1
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->a:Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p3}, Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;->c([B)Lcom/polidea/rxandroidble2/scan/ScanRecord;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v5
+ 
+     .line 7
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/scan/RxBleInternalScanResult;
+ 
+-    .line 8
+     .line 9
+     invoke-static {}, Ljava/lang/System;->nanoTime()J
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-wide v3
+ 
+     .line 13
+     sget-object v6, Lcom/polidea/rxandroidble2/scan/ScanCallbackType;->CALLBACK_TYPE_UNSPECIFIED:Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 14
+     .line 15
+     sget-object v7, Lcom/polidea/rxandroidble2/scan/IsConnectable;->LEGACY_UNKNOWN:Lcom/polidea/rxandroidble2/scan/IsConnectable;
+ 
+-    .line 16
+     .line 17
+     const/4 v8, 0x0
+ 
+@@ -267,8 +217,6 @@
+     .line 20
+     invoke-direct/range {v0 .. v8}, Lcom/polidea/rxandroidble2/internal/scan/RxBleInternalScanResult;-><init>(Landroid/bluetooth/BluetoothDevice;IJLcom/polidea/rxandroidble2/scan/ScanRecord;Lcom/polidea/rxandroidble2/scan/ScanCallbackType;Lcom/polidea/rxandroidble2/scan/IsConnectable;Ljava/lang/Integer;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-object v0
+ .end method
+@@ -279,85 +227,63 @@
+     .line 1
+     new-instance v5, Lcom/polidea/rxandroidble2/internal/scan/ScanRecordImplNativeWrapper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Landroid/bluetooth/le/ScanResult;->getScanRecord()Landroid/bluetooth/le/ScanRecord;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->a:Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v5, v0, v1}, Lcom/polidea/rxandroidble2/internal/scan/ScanRecordImplNativeWrapper;-><init>(Landroid/bluetooth/le/ScanRecord;Lcom/polidea/rxandroidble2/internal/util/ScanRecordParser;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/scan/RxBleInternalScanResult;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1}, Landroid/bluetooth/le/ScanResult;->getDevice()Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     invoke-virtual {p1}, Landroid/bluetooth/le/ScanResult;->getRssi()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     invoke-virtual {p1}, Landroid/bluetooth/le/ScanResult;->getTimestampNanos()J
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-wide v3
+ 
+     .line 26
+     sget-object v6, Lcom/polidea/rxandroidble2/scan/ScanCallbackType;->CALLBACK_TYPE_BATCH:Lcom/polidea/rxandroidble2/scan/ScanCallbackType;
+ 
+-    .line 27
+     .line 28
+     iget-object v7, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->b:Lcom/polidea/rxandroidble2/internal/scan/IsConnectableChecker;
+ 
+-    .line 29
+     .line 30
+     invoke-interface {v7, p1}, Lcom/polidea/rxandroidble2/internal/scan/IsConnectableChecker;->a(Landroid/bluetooth/le/ScanResult;)Lcom/polidea/rxandroidble2/scan/IsConnectable;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v7
+ 
+     .line 34
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/scan/InternalScanResultCreator;->c:Lcom/polidea/rxandroidble2/internal/scan/AdvertisingSidExtractor;
+ 
+-    .line 35
+     .line 36
+     invoke-interface {p0, p1}, Lcom/polidea/rxandroidble2/internal/scan/AdvertisingSidExtractor;->a(Landroid/bluetooth/le/ScanResult;)Ljava/lang/Integer;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v8
+ 
+     .line 40
+     invoke-direct/range {v0 .. v8}, Lcom/polidea/rxandroidble2/internal/scan/RxBleInternalScanResult;-><init>(Landroid/bluetooth/BluetoothDevice;IJLcom/polidea/rxandroidble2/scan/ScanRecord;Lcom/polidea/rxandroidble2/scan/ScanCallbackType;Lcom/polidea/rxandroidble2/scan/IsConnectable;Ljava/lang/Integer;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-object v0
+ .end method

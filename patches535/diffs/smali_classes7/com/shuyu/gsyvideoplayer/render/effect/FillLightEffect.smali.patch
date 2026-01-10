@@ -1,0 +1,160 @@
+--- a/smali_classes7/com/shuyu/gsyvideoplayer/render/effect/FillLightEffect.smali
++++ b/smali_classes7/com/shuyu/gsyvideoplayer/render/effect/FillLightEffect.smali
+@@ -17,35 +17,27 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/render/effect/FillLightEffect;->a:F
+ 
+-    .line 2
+     .line 3
+     const/high16 p1, 0x3f800000    # 1.0f
+ 
+-    .line 4
+     .line 5
+     sub-float p0, p1, p0
+ 
+-    .line 6
+     .line 7
+     const v0, 0x3f333333    # 0.7f
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     mul-float/2addr p0, v0
+ 
+     .line 11
+     const v1, 0x3e99999a    # 0.3f
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     add-float/2addr p0, v1
+ 
+     .line 15
+     div-float p0, p1, p0
+ 
+-    .line 16
+     .line 17
+     mul-float/2addr v0, p0
+ 
+@@ -58,121 +50,81 @@
+     .line 20
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     const-string v1, "mult = "
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     const-string p0, ";\n"
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v0
+ 
+     .line 42
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 43
+     .line 44
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     const-string v2, "igamma = "
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p0
+ 
+     .line 62
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 63
+     .line 64
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     const-string v1, "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nuniform samplerExternalOES sTexture;\n float mult;\n float igamma;\nvarying vec2 vTextureCoord;\nvoid main()\n{\n"
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     const-string p0, "  const vec3 color_weights = vec3(0.25, 0.5, 0.25);\n  vec4 color = texture2D(sTexture, vTextureCoord);\n  float lightmask = dot(color.rgb, color_weights);\n  float backmask = (1.0 - lightmask);\n  vec3 ones = vec3(1.0, 1.0, 1.0);\n  vec3 diff = pow(mult * color.rgb, igamma * ones) - color.rgb;\n  diff = min(diff, 1.0);\n  vec3 new_color = min(color.rgb + diff * backmask, 1.0);\n  gl_FragColor = vec4(new_color, color.a);\n}\n"
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object p0
+ 

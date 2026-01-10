@@ -1,0 +1,221 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback.smali
+@@ -40,178 +40,130 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 10
+     .line 11
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;
+ 
+-    .line 21
+     .line 22
+     new-instance v0, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;->getSteamidFrom()J
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-wide v1
+ 
+     .line 28
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->recipient:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;->getChatEntryType()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+ 
+     .line 37
+     invoke-static {v0}, Lin/dragonbra/javasteam/enums/EChatEntryType;->from(I)Lin/dragonbra/javasteam/enums/EChatEntryType;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v0
+ 
+     .line 41
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->entryType:Lin/dragonbra/javasteam/enums/EChatEntryType;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;->getFromLimitedAccount()Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v0
+ 
+     .line 47
+     iput-boolean v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->fromLimitedAccount:Z
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;->hasMessage()Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v0
+ 
+     .line 53
+     if-eqz v0, :cond_0
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;->getMessage()Lcom/google/protobuf/ByteString;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     sget-object v1, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {v0, v1}, Lcom/google/protobuf/ByteString;->toString(Ljava/nio/charset/Charset;)Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v0
+ 
+     .line 65
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->message:Ljava/lang/String;
+ 
+-    .line 66
+     .line 67
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     new-instance v1, Lkotlin/text/Regex;
+ 
+-    .line 71
+     .line 72
+     const-string v2, "\u0000+$"
+ 
+-    .line 73
+     .line 74
+     invoke-direct {v1, v2}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     const-string v2, ""
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {v1, v0, v2}, Lkotlin/text/Regex;->replace(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v0
+ 
+     .line 83
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->message:Ljava/lang/String;
+ 
+-    .line 84
+     .line 85
+     :cond_0
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverFriends$CMsgClientFriendMsgIncoming$Builder;->getRtime32ServerTimestamp()I
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result p1
+ 
+     .line 89
+     iput p1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->rTime32ServerTimestamp:I
+ 
+-    .line 90
+     .line 91
+     return-void
+ .end method
+@@ -226,7 +178,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->entryType:Lin/dragonbra/javasteam/enums/EChatEntryType;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -237,7 +188,6 @@
+     .line 1
+     iget-boolean p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->fromLimitedAccount:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -250,7 +200,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->message:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -261,7 +210,6 @@
+     .line 1
+     iget p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->rTime32ServerTimestamp:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -274,7 +222,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/FriendMsgEchoCallback;->recipient:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

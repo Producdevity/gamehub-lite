@@ -1,0 +1,222 @@
+--- a/smali_classes6/com/xj/ota/check/firmware/T4nProFirmwareCheck.smali
++++ b/smali_classes6/com/xj/ota/check/firmware/T4nProFirmwareCheck.smali
+@@ -24,8 +24,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -38,43 +36,30 @@
+     .line 1
+     sget-object p0, Lcom/xj/ota/check/firmware/T4nProFirmwareCheck;->a:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const-string p3, "firmwareCheck,firmware path:"
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     invoke-static {p0, p1}, Lcom/xj/common/utils/XjLog;->h(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const/4 p0, 0x0
+ 
+@@ -84,55 +69,42 @@
+     .line 25
+     if-eqz p2, :cond_3
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p3
+ 
+     .line 31
+     const-string v0, "zip"
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p3, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result p3
+ 
+     .line 37
+     if-eqz p3, :cond_3
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p3
+ 
+     .line 43
+     const-string v0, "t4n-pro-firmware-"
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p3, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result p3
+ 
+     .line 49
+     if-nez p3, :cond_0
+ 
+-    .line 50
+     .line 51
+     goto :goto_1
+ 
+@@ -140,36 +112,27 @@
+     :cond_0
+     new-instance p3, Ljava/io/File;
+ 
+-    .line 53
+     .line 54
+     invoke-direct {p3, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {p3}, Ljava/io/File;->exists()Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v1
+ 
+     .line 61
+     if-eqz v1, :cond_2
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {p3}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result p3
+ 
+     .line 67
+     if-eqz p3, :cond_1
+ 
+-    .line 68
+     .line 69
+     goto :goto_0
+ 
+@@ -177,47 +140,36 @@
+     :cond_1
+     invoke-virtual {p2, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p0
+ 
+     .line 74
+     add-int/lit8 p0, p0, 0x11
+ 
+-    .line 75
+     .line 76
+     const-string p3, ".zip"
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p2, p3}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result p3
+ 
+     .line 82
+     invoke-virtual {p2, p0, p3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p0
+ 
+     .line 86
+     if-eqz p4, :cond_4
+ 
+-    .line 87
+     .line 88
+     const/4 p3, 0x1
+ 
+     .line 89
+     invoke-interface {p4, p3, p0, p1, p2}, Lcom/xj/ota/check/IFirmwareCheckCallback;->a(ZLjava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     return-void
+ 
+@@ -226,12 +178,9 @@
+     :goto_0
+     if-eqz p4, :cond_4
+ 
+-    .line 94
+     .line 95
+     invoke-interface {p4, p0, p1, p1, p2}, Lcom/xj/ota/check/IFirmwareCheckCallback;->a(ZLjava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     return-void
+ 
+@@ -240,12 +189,9 @@
+     :goto_1
+     if-eqz p4, :cond_4
+ 
+-    .line 100
+     .line 101
+     invoke-interface {p4, p0, p1, p1, p2}, Lcom/xj/ota/check/IFirmwareCheckCallback;->a(ZLjava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     :cond_4
+     return-void

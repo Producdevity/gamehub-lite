@@ -1,0 +1,2986 @@
+--- a/smali_classes5/com/google/android/gms/cast/framework/media/MediaNotificationService.smali
++++ b/smali_classes5/com/google/android/gms/cast/framework/media/MediaNotificationService.smali
+@@ -65,20 +65,15 @@
+     .line 1
+     new-instance v0, Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "MediaNotificationService"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Lcom/google/android/gms/cast/internal/Logger;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sput-object v0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -89,21 +84,15 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzg:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -118,8 +107,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/CastOptions;->getCastMediaOptions()Lcom/google/android/gms/cast/framework/media/CastMediaOptions;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -129,7 +116,6 @@
+     .line 6
+     if-nez p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v0
+ 
+@@ -137,15 +123,12 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/CastMediaOptions;->getNotificationOptions()Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     return v0
+ 
+@@ -153,8 +136,6 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zzm()Lcom/google/android/gms/cast/framework/media/zzg;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -164,7 +145,6 @@
+     .line 21
+     if-nez p0, :cond_2
+ 
+-    .line 22
+     .line 23
+     return v1
+ 
+@@ -172,23 +152,18 @@
+     :cond_2
+     invoke-static {p0}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzf(Lcom/google/android/gms/cast/framework/media/zzg;)Ljava/util/List;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     invoke-static {p0}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzg(Lcom/google/android/gms/cast/framework/media/zzg;)[I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     if-nez v2, :cond_3
+ 
+-    .line 33
+     .line 34
+     move v3, v0
+ 
+@@ -199,8 +174,6 @@
+     :cond_3
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v3
+ 
+@@ -208,23 +181,18 @@
+     :goto_0
+     const-class v4, Lcom/google/android/gms/cast/framework/media/NotificationActionsProvider;
+ 
+-    .line 41
+     .line 42
+     if-eqz v2, :cond_b
+ 
+-    .line 43
+     .line 44
+     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v5
+ 
+     .line 48
+     if-eqz v5, :cond_4
+ 
+-    .line 49
+     .line 50
+     goto :goto_4
+ 
+@@ -232,8 +200,6 @@
+     :cond_4
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v2
+ 
+@@ -243,40 +209,30 @@
+     .line 56
+     if-le v2, v5, :cond_5
+ 
+-    .line 57
+     .line 58
+     sget-object p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v1
+ 
+     .line 64
+     new-array v2, v0, [Ljava/lang/Object;
+ 
+-    .line 65
+     .line 66
+     const-string v3, " provides more than 5 actions."
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v1, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v1
+ 
+     .line 72
+     invoke-virtual {p0, v1, v2}, Lcom/google/android/gms/cast/internal/Logger;->e(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     goto :goto_5
+ 
+@@ -284,14 +240,12 @@
+     :cond_5
+     if-eqz p0, :cond_a
+ 
+-    .line 77
+     .line 78
+     array-length v2, p0
+ 
+     .line 79
+     if-nez v2, :cond_6
+ 
+-    .line 80
+     .line 81
+     goto :goto_3
+ 
+@@ -303,19 +257,15 @@
+     :goto_1
+     if-ge v5, v2, :cond_9
+ 
+-    .line 84
+     .line 85
+     aget v6, p0, v5
+ 
+-    .line 86
+     .line 87
+     if-ltz v6, :cond_8
+ 
+-    .line 88
+     .line 89
+     if-lt v6, v3, :cond_7
+ 
+-    .line 90
+     .line 91
+     goto :goto_2
+ 
+@@ -323,7 +273,6 @@
+     :cond_7
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 93
+     .line 94
+     goto :goto_1
+ 
+@@ -332,36 +281,27 @@
+     :goto_2
+     sget-object p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v1
+ 
+     .line 101
+     new-array v2, v0, [Ljava/lang/Object;
+ 
+-    .line 102
+     .line 103
+     const-string v3, "provides a compact view action whose index is out of bounds."
+ 
+-    .line 104
+     .line 105
+     invoke-virtual {v1, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v1
+ 
+     .line 109
+     invoke-virtual {p0, v1, v2}, Lcom/google/android/gms/cast/internal/Logger;->e(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     goto :goto_5
+ 
+@@ -374,36 +314,27 @@
+     :goto_3
+     sget-object p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 115
+     .line 116
+     invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v1
+ 
+     .line 120
+     new-array v2, v0, [Ljava/lang/Object;
+ 
+-    .line 121
+     .line 122
+     const-string v3, " doesn\'t provide any actions for compact view."
+ 
+-    .line 123
+     .line 124
+     invoke-virtual {v1, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object v1
+ 
+     .line 128
+     invoke-virtual {p0, v1, v2}, Lcom/google/android/gms/cast/internal/Logger;->e(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     goto :goto_5
+ 
+@@ -412,36 +343,27 @@
+     :goto_4
+     sget-object p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 133
+     .line 134
+     invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v1
+ 
+     .line 138
+     new-array v2, v0, [Ljava/lang/Object;
+ 
+-    .line 139
+     .line 140
+     const-string v3, " doesn\'t provide any action."
+ 
+-    .line 141
+     .line 142
+     invoke-virtual {v1, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object v1
+ 
+     .line 146
+     invoke-virtual {p0, v1, v2}, Lcom/google/android/gms/cast/internal/Logger;->e(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     :goto_5
+     return v0
+@@ -453,7 +375,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzn:Lcom/google/android/gms/cast/framework/media/zzn;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -464,8 +385,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzd()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -478,19 +397,15 @@
+     .line 1
+     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     const/high16 v1, 0x8000000
+ 
+-    .line 6
+     .line 7
+     const-string v2, "googlecast-extra_skip_step_ms"
+ 
+-    .line 8
+     .line 9
+     const/4 v3, 0x0
+ 
+@@ -500,121 +415,88 @@
+     .line 11
+     sparse-switch v0, :sswitch_data_0
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     goto/16 :goto_1
+ 
+-    .line 15
+     .line 16
+     :sswitch_0
+     const-string v0, "com.google.android.gms.cast.framework.action.FORWARD"
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v5
+ 
+     .line 22
+     if-eqz v5, :cond_5
+ 
+-    .line 23
+     .line 24
+     iget-wide v5, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzi:J
+ 
+-    .line 25
+     .line 26
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {p1, v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 40
+     .line 41
+     or-int/2addr v0, v1
+ 
+     .line 42
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p1
+ 
+     .line 46
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 47
+     .line 48
+     invoke-static {v0, v5, v6}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zza(Lcom/google/android/gms/cast/framework/media/NotificationOptions;J)I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v0
+ 
+     .line 52
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 53
+     .line 54
+     invoke-static {v1, v5, v6}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzb(Lcom/google/android/gms/cast/framework/media/NotificationOptions;J)I
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v1
+ 
+     .line 58
+     new-instance v2, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 59
+     .line 60
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p0
+ 
+     .line 66
+     invoke-direct {v2, v0, p0, p1}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {v2}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+ 
+@@ -625,59 +507,45 @@
+     :sswitch_1
+     const-string v0, "com.google.android.gms.cast.framework.action.TOGGLE_PLAYBACK"
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v1
+ 
+     .line 80
+     if-eqz v1, :cond_5
+ 
+-    .line 81
+     .line 82
+     iget-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 83
+     .line 84
+     iget v1, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzc:I
+ 
+-    .line 85
+     .line 86
+     iget-boolean p1, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzb:Z
+ 
+-    .line 87
+     .line 88
+     const/4 v2, 0x2
+ 
+     .line 89
+     if-ne v1, v2, :cond_0
+ 
+-    .line 90
+     .line 91
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getStopLiveStreamDrawableResId()I
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v1
+ 
+     .line 97
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {v2}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getStopLiveStreamTitleResId()I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v2
+ 
+@@ -688,24 +556,18 @@
+     :cond_0
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 105
+     .line 106
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getPauseDrawableResId()I
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result v1
+ 
+     .line 110
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 111
+     .line 112
+     invoke-virtual {v2}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zzf()I
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result v2
+ 
+@@ -713,16 +575,12 @@
+     :goto_0
+     if-nez p1, :cond_1
+ 
+-    .line 117
+     .line 118
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 119
+     .line 120
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getPlayDrawableResId()I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result v1
+ 
+@@ -730,16 +588,12 @@
+     :cond_1
+     if-nez p1, :cond_2
+ 
+-    .line 125
+     .line 126
+     iget-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {p1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zzg()I
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v2
+ 
+@@ -747,59 +601,42 @@
+     :cond_2
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 133
+     .line 134
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 138
+     .line 139
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 143
+     .line 144
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object p1
+ 
+     .line 148
+     new-instance v0, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 149
+     .line 150
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 151
+     .line 152
+     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result-object p0
+ 
+     .line 156
+     invoke-direct {v0, v1, p0, p1}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     invoke-virtual {v0}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result-object p0
+ 
+@@ -810,111 +647,81 @@
+     :sswitch_2
+     const-string v0, "com.google.android.gms.cast.framework.action.DISCONNECT"
+ 
+-    .line 165
+     .line 166
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result v1
+ 
+     .line 170
+     if-eqz v1, :cond_5
+ 
+-    .line 171
+     .line 172
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 173
+     .line 174
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 178
+     .line 179
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 183
+     .line 184
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     move-result-object p1
+ 
+     .line 188
+     new-instance v0, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 189
+     .line 190
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 191
+     .line 192
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getDisconnectDrawableResId()I
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result v1
+ 
+     .line 196
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 197
+     .line 198
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 199
+     .line 200
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zza()I
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result p0
+ 
+     .line 204
+     const-string v3, ""
+ 
+-    .line 205
+     .line 206
+     filled-new-array {v3}, [Ljava/lang/Object;
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result-object v3
+ 
+     .line 210
+     invoke-virtual {v2, p0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     move-result-object p0
+ 
+     .line 214
+     invoke-direct {v0, v1, p0, p1}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     invoke-virtual {v0}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     move-result-object p0
+ 
+@@ -925,99 +732,72 @@
+     :sswitch_3
+     const-string v0, "com.google.android.gms.cast.framework.action.STOP_CASTING"
+ 
+-    .line 223
+     .line 224
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     move-result v1
+ 
+     .line 228
+     if-eqz v1, :cond_5
+ 
+-    .line 229
+     .line 230
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 231
+     .line 232
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 236
+     .line 237
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 238
+-    .line 239
+     .line 240
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 241
+     .line 242
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     move-result-object p1
+ 
+     .line 246
+     new-instance v0, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 247
+     .line 248
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 249
+     .line 250
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getDisconnectDrawableResId()I
+ 
+-    .line 251
+-    .line 252
+     .line 253
+     move-result v1
+ 
+     .line 254
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 255
+     .line 256
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 257
+     .line 258
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zza()I
+ 
+-    .line 259
+-    .line 260
+     .line 261
+     move-result p0
+ 
+     .line 262
+     invoke-virtual {v2, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 263
+-    .line 264
+     .line 265
+     move-result-object p0
+ 
+     .line 266
+     invoke-direct {v0, v1, p0, p1}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 267
+-    .line 268
+     .line 269
+     invoke-virtual {v0}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     move-result-object p0
+ 
+@@ -1028,58 +808,42 @@
+     :sswitch_4
+     const-string v0, "com.google.android.gms.cast.framework.action.SKIP_PREV"
+ 
+-    .line 275
+     .line 276
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 277
+-    .line 278
+     .line 279
+     move-result v1
+ 
+     .line 280
+     if-eqz v1, :cond_5
+ 
+-    .line 281
+     .line 282
+     iget-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 283
+     .line 284
+     iget-boolean p1, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzg:Z
+ 
+-    .line 285
+     .line 286
+     if-eqz p1, :cond_3
+ 
+-    .line 287
+     .line 288
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 289
+     .line 290
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 291
+-    .line 292
+     .line 293
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 294
+     .line 295
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 296
+-    .line 297
+     .line 298
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 299
+     .line 300
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 301
+-    .line 302
+     .line 303
+     move-result-object v3
+ 
+@@ -1087,53 +851,39 @@
+     :cond_3
+     new-instance p1, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 305
+     .line 306
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 307
+     .line 308
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getSkipPrevDrawableResId()I
+ 
+-    .line 309
+-    .line 310
+     .line 311
+     move-result v0
+ 
+     .line 312
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 313
+     .line 314
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 315
+     .line 316
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zzl()I
+ 
+-    .line 317
+-    .line 318
+     .line 319
+     move-result p0
+ 
+     .line 320
+     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 321
+-    .line 322
+     .line 323
+     move-result-object p0
+ 
+     .line 324
+     invoke-direct {p1, v0, p0, v3}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 325
+-    .line 326
+     .line 327
+     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 328
+-    .line 329
+     .line 330
+     move-result-object p0
+ 
+@@ -1144,58 +894,42 @@
+     :sswitch_5
+     const-string v0, "com.google.android.gms.cast.framework.action.SKIP_NEXT"
+ 
+-    .line 333
+     .line 334
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 335
+-    .line 336
+     .line 337
+     move-result v1
+ 
+     .line 338
+     if-eqz v1, :cond_5
+ 
+-    .line 339
+     .line 340
+     iget-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 341
+     .line 342
+     iget-boolean p1, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzf:Z
+ 
+-    .line 343
+     .line 344
+     if-eqz p1, :cond_4
+ 
+-    .line 345
+     .line 346
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 347
+     .line 348
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 349
+-    .line 350
+     .line 351
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 352
+     .line 353
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 354
+-    .line 355
+     .line 356
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 357
+     .line 358
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 359
+-    .line 360
+     .line 361
+     move-result-object v3
+ 
+@@ -1203,53 +937,39 @@
+     :cond_4
+     new-instance p1, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 363
+     .line 364
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 365
+     .line 366
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getSkipNextDrawableResId()I
+ 
+-    .line 367
+-    .line 368
+     .line 369
+     move-result v0
+ 
+     .line 370
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 371
+     .line 372
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 373
+     .line 374
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zzk()I
+ 
+-    .line 375
+-    .line 376
+     .line 377
+     move-result p0
+ 
+     .line 378
+     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 379
+-    .line 380
+     .line 381
+     move-result-object p0
+ 
+     .line 382
+     invoke-direct {p1, v0, p0, v3}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 383
+-    .line 384
+     .line 385
+     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 386
+-    .line 387
+     .line 388
+     move-result-object p0
+ 
+@@ -1260,111 +980,81 @@
+     :sswitch_6
+     const-string v0, "com.google.android.gms.cast.framework.action.REWIND"
+ 
+-    .line 391
+     .line 392
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 393
+-    .line 394
+     .line 395
+     move-result v5
+ 
+     .line 396
+     if-eqz v5, :cond_5
+ 
+-    .line 397
+     .line 398
+     iget-wide v5, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzi:J
+ 
+-    .line 399
+     .line 400
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 401
+     .line 402
+     invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 403
+-    .line 404
+     .line 405
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 406
+     .line 407
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 408
+-    .line 409
+     .line 410
+     invoke-virtual {p1, v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+ 
+-    .line 411
+-    .line 412
+     .line 413
+     sget v0, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 414
+     .line 415
+     or-int/2addr v0, v1
+ 
+     .line 416
+     invoke-static {p0, v4, p1, v0}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 417
+-    .line 418
+     .line 419
+     move-result-object p1
+ 
+     .line 420
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 421
+     .line 422
+     invoke-static {v0, v5, v6}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzc(Lcom/google/android/gms/cast/framework/media/NotificationOptions;J)I
+ 
+-    .line 423
+-    .line 424
+     .line 425
+     move-result v0
+ 
+     .line 426
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 427
+     .line 428
+     invoke-static {v1, v5, v6}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzd(Lcom/google/android/gms/cast/framework/media/NotificationOptions;J)I
+ 
+-    .line 429
+-    .line 430
+     .line 431
+     move-result v1
+ 
+     .line 432
+     new-instance v2, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 433
+     .line 434
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 435
+     .line 436
+     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 437
+-    .line 438
+     .line 439
+     move-result-object p0
+ 
+     .line 440
+     invoke-direct {v2, v0, p0, p1}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 441
+-    .line 442
+     .line 443
+     invoke-virtual {v2}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 444
+-    .line 445
+     .line 446
+     move-result-object p0
+ 
+@@ -1376,28 +1066,21 @@
+     :goto_1
+     sget-object p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 449
+     .line 450
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 451
+-    .line 452
+     .line 453
+     move-result-object p1
+ 
+     .line 454
+     const-string v0, "Action: %s is not a pre-defined action."
+ 
+-    .line 455
+     .line 456
+     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/cast/internal/Logger;->e(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 457
+-    .line 458
+     .line 459
+     return-object v3
+ 
+-    .line 460
+     nop
+ 
+     .line 461
+@@ -1419,11 +1102,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -1431,14 +1112,12 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzn:Lcom/google/android/gms/cast/framework/media/zzn;
+ 
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+     .line 9
+     if-nez v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     move-object v0, v1
+ 
+@@ -1449,110 +1128,82 @@
+     :cond_1
+     iget-object v0, v0, Lcom/google/android/gms/cast/framework/media/zzn;->zzb:Landroid/graphics/Bitmap;
+ 
+-    .line 14
+     .line 15
+     :goto_0
+     new-instance v2, Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 16
+     .line 17
+     const-string v3, "cast_media_notification"
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v2, p0, v3}, Landroidx/core/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v2, v0}, Landroidx/core/app/NotificationCompat$Builder;->y(Landroid/graphics/Bitmap;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v2}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getSmallIconDrawableResId()I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v2
+ 
+     .line 32
+     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->F(I)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v0
+ 
+     .line 36
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 37
+     .line 38
+     iget-object v2, v2, Lcom/google/android/gms/cast/framework/media/zzm;->zzd:Ljava/lang/String;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->s(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+     .line 44
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 45
+     .line 46
+     iget-object v3, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v3}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getCastingToDeviceStringResId()I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v3
+ 
+     .line 52
+     iget-object v4, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 53
+     .line 54
+     iget-object v4, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zze:Ljava/lang/String;
+ 
+-    .line 55
+     .line 56
+     filled-new-array {v4}, [Ljava/lang/Object;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v4
+ 
+     .line 60
+     invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v2
+ 
+     .line 64
+     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->r(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v0
+ 
+@@ -1562,8 +1213,6 @@
+     .line 69
+     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->A(Z)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+@@ -1573,27 +1222,21 @@
+     .line 74
+     invoke-virtual {v0, v3}, Landroidx/core/app/NotificationCompat$Builder;->E(Z)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v0
+ 
+     .line 78
+     invoke-virtual {v0, v2}, Landroidx/core/app/NotificationCompat$Builder;->M(I)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v0
+ 
+     .line 82
+     iget-object v4, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzf:Landroid/content/ComponentName;
+ 
+-    .line 83
+     .line 84
+     if-nez v4, :cond_2
+ 
+-    .line 85
+     .line 86
+     move-object v4, v1
+ 
+@@ -1604,68 +1247,48 @@
+     :cond_2
+     new-instance v5, Landroid/content/Intent;
+ 
+-    .line 89
+     .line 90
+     invoke-direct {v5}, Landroid/content/Intent;-><init>()V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     const-string v6, "targetActivity"
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {v5, v6, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     invoke-virtual {v4}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v6
+ 
+     .line 102
+     invoke-virtual {v5, v6}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     invoke-virtual {v5, v4}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     invoke-static {p0}, Landroidx/core/app/TaskStackBuilder;->e(Landroid/content/Context;)Landroidx/core/app/TaskStackBuilder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object v4
+ 
+     .line 112
+     invoke-virtual {v4, v5}, Landroidx/core/app/TaskStackBuilder;->b(Landroid/content/Intent;)Landroidx/core/app/TaskStackBuilder;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     sget v5, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 116
+     .line 117
+     const/high16 v6, 0x8000000
+ 
+-    .line 118
+     .line 119
+     or-int/2addr v5, v6
+ 
+     .line 120
+     invoke-virtual {v4, v2, v5}, Landroidx/core/app/TaskStackBuilder;->f(II)Landroid/app/PendingIntent;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v4
+ 
+@@ -1673,58 +1296,43 @@
+     :goto_1
+     if-eqz v4, :cond_3
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {v0, v4}, Landroidx/core/app/NotificationCompat$Builder;->q(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     :cond_3
+     iget-object v4, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 130
+     .line 131
+     invoke-virtual {v4}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zzm()Lcom/google/android/gms/cast/framework/media/zzg;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object v4
+ 
+     .line 135
+     if-eqz v4, :cond_9
+ 
+-    .line 136
+     .line 137
+     sget-object v5, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 138
+     .line 139
+     new-array v6, v3, [Ljava/lang/Object;
+ 
+-    .line 140
+     .line 141
+     const-string v7, "actionsProvider != null"
+ 
+-    .line 142
+     .line 143
+     invoke-virtual {v5, v7, v6}, Lcom/google/android/gms/cast/internal/Logger;->i(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     invoke-static {v4}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzg(Lcom/google/android/gms/cast/framework/media/zzg;)[I
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result-object v5
+ 
+     .line 150
+     if-nez v5, :cond_4
+ 
+-    .line 151
+     .line 152
+     goto :goto_2
+ 
+@@ -1732,55 +1340,41 @@
+     :cond_4
+     invoke-virtual {v5}, [I->clone()Ljava/lang/Object;
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result-object v1
+ 
+     .line 157
+     check-cast v1, [I
+ 
+-    .line 158
+     .line 159
+     :goto_2
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzh:[I
+ 
+-    .line 160
+     .line 161
+     invoke-static {v4}, Lcom/google/android/gms/cast/framework/media/internal/zzw;->zzf(Lcom/google/android/gms/cast/framework/media/zzg;)Ljava/util/List;
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result-object v1
+ 
+     .line 165
+     new-instance v4, Ljava/util/ArrayList;
+ 
+-    .line 166
+     .line 167
+     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     iput-object v4, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzg:Ljava/util/List;
+ 
+-    .line 171
+     .line 172
+     if-nez v1, :cond_5
+ 
+-    .line 173
+     .line 174
+     goto/16 :goto_7
+ 
+-    .line 175
+     .line 176
+     :cond_5
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object v1
+ 
+@@ -1789,147 +1383,111 @@
+     :goto_3
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result v4
+ 
+     .line 184
+     if-eqz v4, :cond_c
+ 
+-    .line 185
+     .line 186
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     move-result-object v4
+ 
+     .line 190
+     check-cast v4, Lcom/google/android/gms/cast/framework/media/NotificationAction;
+ 
+-    .line 191
+     .line 192
+     invoke-virtual {v4}, Lcom/google/android/gms/cast/framework/media/NotificationAction;->getAction()Ljava/lang/String;
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result-object v5
+ 
+     .line 196
+     const-string v6, "com.google.android.gms.cast.framework.action.TOGGLE_PLAYBACK"
+ 
+-    .line 197
+     .line 198
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     move-result v6
+ 
+     .line 202
+     if-nez v6, :cond_8
+ 
+-    .line 203
+     .line 204
+     const-string v6, "com.google.android.gms.cast.framework.action.SKIP_NEXT"
+ 
+-    .line 205
+     .line 206
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result v6
+ 
+     .line 210
+     if-nez v6, :cond_8
+ 
+-    .line 211
+     .line 212
+     const-string v6, "com.google.android.gms.cast.framework.action.SKIP_PREV"
+ 
+-    .line 213
+     .line 214
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     move-result v6
+ 
+     .line 218
+     if-nez v6, :cond_8
+ 
+-    .line 219
+     .line 220
+     const-string v6, "com.google.android.gms.cast.framework.action.FORWARD"
+ 
+-    .line 221
+     .line 222
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     move-result v6
+ 
+     .line 226
+     if-nez v6, :cond_8
+ 
+-    .line 227
+     .line 228
+     const-string v6, "com.google.android.gms.cast.framework.action.REWIND"
+ 
+-    .line 229
+     .line 230
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     move-result v6
+ 
+     .line 234
+     if-nez v6, :cond_8
+ 
+-    .line 235
+     .line 236
+     const-string v6, "com.google.android.gms.cast.framework.action.STOP_CASTING"
+ 
+-    .line 237
+     .line 238
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 239
+-    .line 240
+     .line 241
+     move-result v6
+ 
+     .line 242
+     if-nez v6, :cond_8
+ 
+-    .line 243
+     .line 244
+     const-string v6, "com.google.android.gms.cast.framework.action.DISCONNECT"
+ 
+-    .line 245
+     .line 246
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 247
+-    .line 248
+     .line 249
+     move-result v5
+ 
+     .line 250
+     if-eqz v5, :cond_7
+ 
+-    .line 251
+     .line 252
+     goto :goto_4
+ 
+@@ -1937,71 +1495,51 @@
+     :cond_7
+     new-instance v5, Landroid/content/Intent;
+ 
+-    .line 254
+     .line 255
+     invoke-virtual {v4}, Lcom/google/android/gms/cast/framework/media/NotificationAction;->getAction()Ljava/lang/String;
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     move-result-object v6
+ 
+     .line 259
+     invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 260
+-    .line 261
+     .line 262
+     iget-object v6, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 263
+     .line 264
+     invoke-virtual {v5, v6}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+ 
+-    .line 265
+-    .line 266
+     .line 267
+     sget v6, Lcom/google/android/gms/internal/cast/zzdy;->zza:I
+ 
+-    .line 268
+     .line 269
+     invoke-static {p0, v3, v5, v6}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     move-result-object v5
+ 
+     .line 273
+     new-instance v6, Landroidx/core/app/NotificationCompat$Action$Builder;
+ 
+-    .line 274
+     .line 275
+     invoke-virtual {v4}, Lcom/google/android/gms/cast/framework/media/NotificationAction;->getIconResId()I
+ 
+-    .line 276
+-    .line 277
+     .line 278
+     move-result v7
+ 
+     .line 279
+     invoke-virtual {v4}, Lcom/google/android/gms/cast/framework/media/NotificationAction;->getContentDescription()Ljava/lang/String;
+ 
+-    .line 280
+-    .line 281
+     .line 282
+     move-result-object v4
+ 
+     .line 283
+     invoke-direct {v6, v7, v4, v5}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+ 
+-    .line 284
+-    .line 285
+     .line 286
+     invoke-virtual {v6}, Landroidx/core/app/NotificationCompat$Action$Builder;->a()Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 287
+-    .line 288
+     .line 289
+     move-result-object v4
+ 
+@@ -2013,16 +1551,12 @@
+     :goto_4
+     invoke-virtual {v4}, Lcom/google/android/gms/cast/framework/media/NotificationAction;->getAction()Ljava/lang/String;
+ 
+-    .line 292
+-    .line 293
+     .line 294
+     move-result-object v4
+ 
+     .line 295
+     invoke-direct {p0, v4}, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc(Ljava/lang/String;)Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 296
+-    .line 297
+     .line 298
+     move-result-object v4
+ 
+@@ -2030,16 +1564,12 @@
+     :goto_5
+     if-eqz v4, :cond_6
+ 
+-    .line 300
+     .line 301
+     iget-object v5, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzg:Ljava/util/List;
+ 
+-    .line 302
+     .line 303
+     invoke-interface {v5, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 304
+-    .line 305
+     .line 306
+     goto :goto_3
+ 
+@@ -2047,50 +1577,36 @@
+     :cond_9
+     sget-object v1, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 308
+     .line 309
+     new-array v3, v3, [Ljava/lang/Object;
+ 
+-    .line 310
+     .line 311
+     const-string v4, "actionsProvider == null"
+ 
+-    .line 312
+     .line 313
+     invoke-virtual {v1, v4, v3}, Lcom/google/android/gms/cast/internal/Logger;->i(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 314
+-    .line 315
+     .line 316
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 317
+     .line 318
+     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 319
+-    .line 320
+     .line 321
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzg:Ljava/util/List;
+ 
+-    .line 322
+     .line 323
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 324
+     .line 325
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getActions()Ljava/util/List;
+ 
+-    .line 326
+-    .line 327
+     .line 328
+     move-result-object v1
+ 
+     .line 329
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 330
+-    .line 331
+     .line 332
+     move-result-object v1
+ 
+@@ -2099,48 +1615,36 @@
+     :goto_6
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 334
+-    .line 335
+     .line 336
+     move-result v3
+ 
+     .line 337
+     if-eqz v3, :cond_b
+ 
+-    .line 338
+     .line 339
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 340
+-    .line 341
+     .line 342
+     move-result-object v3
+ 
+     .line 343
+     check-cast v3, Ljava/lang/String;
+ 
+-    .line 344
+     .line 345
+     invoke-direct {p0, v3}, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc(Ljava/lang/String;)Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 346
+-    .line 347
+     .line 348
+     move-result-object v3
+ 
+     .line 349
+     if-eqz v3, :cond_a
+ 
+-    .line 350
+     .line 351
+     iget-object v4, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzg:Ljava/util/List;
+ 
+-    .line 352
+     .line 353
+     invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 354
+-    .line 355
+     .line 356
+     goto :goto_6
+ 
+@@ -2148,42 +1652,32 @@
+     :cond_b
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 358
+     .line 359
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getCompatActionIndices()[I
+ 
+-    .line 360
+-    .line 361
+     .line 362
+     move-result-object v1
+ 
+     .line 363
+     invoke-virtual {v1}, [I->clone()Ljava/lang/Object;
+ 
+-    .line 364
+-    .line 365
+     .line 366
+     move-result-object v1
+ 
+     .line 367
+     check-cast v1, [I
+ 
+-    .line 368
+     .line 369
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzh:[I
+ 
+-    .line 370
+     .line 371
+     :cond_c
+     :goto_7
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzg:Ljava/util/List;
+ 
+-    .line 372
+     .line 373
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 374
+-    .line 375
+     .line 376
+     move-result-object v1
+ 
+@@ -2191,32 +1685,24 @@
+     :goto_8
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 378
+-    .line 379
+     .line 380
+     move-result v3
+ 
+     .line 381
+     if-eqz v3, :cond_d
+ 
+-    .line 382
+     .line 383
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 384
+-    .line 385
+     .line 386
+     move-result-object v3
+ 
+     .line 387
+     check-cast v3, Landroidx/core/app/NotificationCompat$Action;
+ 
+-    .line 388
+     .line 389
+     invoke-virtual {v0, v3}, Landroidx/core/app/NotificationCompat$Builder;->b(Landroidx/core/app/NotificationCompat$Action;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 390
+-    .line 391
+     .line 392
+     goto :goto_8
+ 
+@@ -2224,66 +1710,47 @@
+     :cond_d
+     new-instance v1, Landroidx/media/app/NotificationCompat$MediaStyle;
+ 
+-    .line 394
+     .line 395
+     invoke-direct {v1}, Landroidx/media/app/NotificationCompat$MediaStyle;-><init>()V
+ 
+-    .line 396
+-    .line 397
+     .line 398
+     iget-object v3, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzh:[I
+ 
+-    .line 399
+     .line 400
+     if-eqz v3, :cond_e
+ 
+-    .line 401
+     .line 402
+     invoke-virtual {v1, v3}, Landroidx/media/app/NotificationCompat$MediaStyle;->i([I)Landroidx/media/app/NotificationCompat$MediaStyle;
+ 
+-    .line 403
+-    .line 404
+     .line 405
+     :cond_e
+     iget-object v3, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 406
+     .line 407
+     iget-object v3, v3, Lcom/google/android/gms/cast/framework/media/zzm;->zza:Landroid/support/v4/media/session/MediaSessionCompat$Token;
+ 
+-    .line 408
+     .line 409
+     if-eqz v3, :cond_f
+ 
+-    .line 410
+     .line 411
+     invoke-virtual {v1, v3}, Landroidx/media/app/NotificationCompat$MediaStyle;->h(Landroid/support/v4/media/session/MediaSessionCompat$Token;)Landroidx/media/app/NotificationCompat$MediaStyle;
+ 
+-    .line 412
+-    .line 413
+     .line 414
+     :cond_f
+     invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$Builder;->H(Landroidx/core/app/NotificationCompat$Style;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 415
+-    .line 416
+     .line 417
+     invoke-virtual {v0}, Landroidx/core/app/NotificationCompat$Builder;->c()Landroid/app/Notification;
+ 
+-    .line 418
+-    .line 419
+     .line 420
+     move-result-object v0
+ 
+     .line 421
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzp:Landroid/app/Notification;
+ 
+-    .line 422
+     .line 423
+     invoke-virtual {p0, v2, v0}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+ 
+-    .line 424
+-    .line 425
+     .line 426
+     return-void
+ .end method
+@@ -2312,197 +1779,147 @@
+     .line 1
+     const-string v0, "notification"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast v0, Landroid/app/NotificationManager;
+ 
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzo:Landroid/app/NotificationManager;
+ 
+-    .line 10
+     .line 11
+     invoke-static {p0}, Lcom/google/android/gms/cast/framework/CastContext;->getSharedInstance(Landroid/content/Context;)Lcom/google/android/gms/cast/framework/CastContext;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzq:Lcom/google/android/gms/cast/framework/CastContext;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/CastContext;->getCastOptions()Lcom/google/android/gms/cast/framework/CastOptions;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/CastOptions;->getCastMediaOptions()Lcom/google/android/gms/cast/framework/media/CastMediaOptions;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     invoke-static {v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     check-cast v0, Lcom/google/android/gms/cast/framework/media/CastMediaOptions;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/CastMediaOptions;->getNotificationOptions()Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v1
+ 
+     .line 35
+     invoke-static {v1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v1
+ 
+     .line 39
+     check-cast v1, Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 40
+     .line 41
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/CastMediaOptions;->getImagePicker()Lcom/google/android/gms/cast/framework/media/ImagePicker;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+     .line 47
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzd:Lcom/google/android/gms/cast/framework/media/ImagePicker;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v1
+ 
+     .line 53
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 54
+     .line 55
+     new-instance v1, Landroid/content/ComponentName;
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v2
+ 
+     .line 61
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/CastMediaOptions;->getMediaIntentReceiverClassName()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v0
+ 
+     .line 65
+     invoke-direct {v1, v2, v0}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zze:Landroid/content/ComponentName;
+ 
+-    .line 69
+     .line 70
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getTargetActivityClassName()Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v0
+ 
+     .line 76
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-nez v0, :cond_0
+ 
+-    .line 81
+     .line 82
+     new-instance v0, Landroid/content/ComponentName;
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v1
+ 
+     .line 88
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {v2}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getTargetActivityClassName()Ljava/lang/String;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v2
+ 
+     .line 94
+     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzf:Landroid/content/ComponentName;
+ 
+-    .line 98
+     .line 99
+     goto :goto_0
+ 
+@@ -2513,164 +1930,122 @@
+     .line 101
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzf:Landroid/content/ComponentName;
+ 
+-    .line 102
+     .line 103
+     :goto_0
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 104
+     .line 105
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->getSkipStepMs()J
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-wide v0
+ 
+     .line 109
+     iput-wide v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzi:J
+ 
+-    .line 110
+     .line 111
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzl:Landroid/content/res/Resources;
+ 
+-    .line 112
+     .line 113
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzc:Lcom/google/android/gms/cast/framework/media/NotificationOptions;
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/media/NotificationOptions;->zze()I
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result v1
+ 
+     .line 119
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v0
+ 
+     .line 123
+     new-instance v1, Lcom/google/android/gms/cast/framework/media/ImageHints;
+ 
+-    .line 124
+     .line 125
+     const/4 v2, 0x1
+ 
+     .line 126
+     invoke-direct {v1, v2, v0, v0}, Lcom/google/android/gms/cast/framework/media/ImageHints;-><init>(III)V
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     iput-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzk:Lcom/google/android/gms/cast/framework/media/ImageHints;
+ 
+-    .line 130
+     .line 131
+     new-instance v0, Lcom/google/android/gms/cast/framework/media/internal/zzb;
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v1
+ 
+     .line 137
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzk:Lcom/google/android/gms/cast/framework/media/ImageHints;
+ 
+-    .line 138
+     .line 139
+     invoke-direct {v0, v1, v2}, Lcom/google/android/gms/cast/framework/media/internal/zzb;-><init>(Landroid/content/Context;Lcom/google/android/gms/cast/framework/media/ImageHints;)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     iput-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzj:Lcom/google/android/gms/cast/framework/media/internal/zzb;
+ 
+-    .line 143
+     .line 144
+     invoke-static {}, Lcom/google/android/gms/common/util/PlatformVersion;->isAtLeastO()Z
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result v0
+ 
+     .line 148
+     if-eqz v0, :cond_1
+ 
+-    .line 149
+     .line 150
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result-object v0
+ 
+     .line 154
+     sget v1, Lcom/google/android/gms/cast/framework/R$string;->media_notification_channel_name:I
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object v0
+ 
+     .line 160
+     new-instance v1, Landroid/app/NotificationChannel;
+ 
+-    .line 161
+     .line 162
+     const-string v2, "cast_media_notification"
+ 
+-    .line 163
+     .line 164
+     const/4 v3, 0x2
+ 
+     .line 165
+     invoke-direct {v1, v2, v0, v3}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     const/4 v0, 0x0
+ 
+     .line 169
+     invoke-virtual {v1, v0}, Landroid/app/NotificationChannel;->setShowBadge(Z)V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzo:Landroid/app/NotificationManager;
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {p0, v1}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     :cond_1
+     sget-object p0, Lcom/google/android/gms/internal/cast/zzml;->zzX:Lcom/google/android/gms/internal/cast/zzml;
+ 
+-    .line 178
+     .line 179
+     invoke-static {p0}, Lcom/google/android/gms/internal/cast/zzo;->zzd(Lcom/google/android/gms/internal/cast/zzml;)V
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     return-void
+ .end method
+@@ -2681,16 +2056,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzj:Lcom/google/android/gms/cast/framework/media/internal/zzb;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/framework/media/internal/zzb;->zza()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :cond_0
+     const/4 v0, 0x0
+@@ -2698,19 +2069,15 @@
+     .line 9
+     sput-object v0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzb:Ljava/lang/Runnable;
+ 
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzo:Landroid/app/NotificationManager;
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x1
+ 
+     .line 14
+     invoke-virtual {p0, v0}, Landroid/app/NotificationManager;->cancel(I)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -2725,135 +2092,102 @@
+     .line 1
+     const-string p2, "extra_media_info"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1, p2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p2
+ 
+     .line 7
+     check-cast p2, Lcom/google/android/gms/cast/MediaInfo;
+ 
+-    .line 8
+     .line 9
+     invoke-static {p2}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p2
+ 
+     .line 13
+     check-cast p2, Lcom/google/android/gms/cast/MediaInfo;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p2}, Lcom/google/android/gms/cast/MediaInfo;->getMetadata()Lcom/google/android/gms/cast/MediaMetadata;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+ 
+     .line 19
+     invoke-static {v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     check-cast v0, Lcom/google/android/gms/cast/MediaMetadata;
+ 
+-    .line 24
+     .line 25
+     const-string v1, "extra_remote_media_client_player_state"
+ 
+-    .line 26
+     .line 27
+     const/4 v2, 0x0
+ 
+     .line 28
+     invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v1
+ 
+     .line 32
+     const-string v3, "extra_cast_device"
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {p1, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v3
+ 
+     .line 38
+     check-cast v3, Lcom/google/android/gms/cast/CastDevice;
+ 
+-    .line 39
+     .line 40
+     invoke-static {v3}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v3
+ 
+     .line 44
+     check-cast v3, Lcom/google/android/gms/cast/CastDevice;
+ 
+-    .line 45
+     .line 46
+     new-instance v4, Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p2}, Lcom/google/android/gms/cast/MediaInfo;->getStreamType()I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v6
+ 
+     .line 52
+     const-string p2, "com.google.android.gms.cast.metadata.TITLE"
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v0, p2}, Lcom/google/android/gms/cast/MediaMetadata;->getString(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v7
+ 
+     .line 58
+     invoke-virtual {v3}, Lcom/google/android/gms/cast/CastDevice;->getFriendlyName()Ljava/lang/String;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v8
+ 
+     .line 62
+     const-string p2, "extra_media_session_token"
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p1, p2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p2
+ 
+@@ -2863,7 +2197,6 @@
+     .line 69
+     check-cast v9, Landroid/support/v4/media/session/MediaSessionCompat$Token;
+ 
+-    .line 70
+     .line 71
+     const/4 p2, 0x1
+ 
+@@ -2873,7 +2206,6 @@
+     .line 73
+     if-ne v1, v3, :cond_0
+ 
+-    .line 74
+     .line 75
+     move v5, p2
+ 
+@@ -2888,176 +2220,131 @@
+     :goto_0
+     const-string v1, "extra_can_skip_next"
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v10
+ 
+     .line 84
+     const-string v1, "extra_can_skip_prev"
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v11
+ 
+     .line 90
+     invoke-direct/range {v4 .. v11}, Lcom/google/android/gms/cast/framework/media/zzm;-><init>(ZILjava/lang/String;Ljava/lang/String;Landroid/support/v4/media/session/MediaSessionCompat$Token;ZZ)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     const-string v1, "extra_media_notification_force_update"
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result p1
+ 
+     .line 99
+     if-nez p1, :cond_1
+ 
+-    .line 100
+     .line 101
+     iget-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 102
+     .line 103
+     if-eqz p1, :cond_1
+ 
+-    .line 104
+     .line 105
+     iget-boolean v1, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zzb:Z
+ 
+-    .line 106
+     .line 107
+     iget-boolean v5, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzb:Z
+ 
+-    .line 108
+     .line 109
+     if-ne v1, v5, :cond_1
+ 
+-    .line 110
+     .line 111
+     iget v1, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zzc:I
+ 
+-    .line 112
+     .line 113
+     iget v5, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzc:I
+ 
+-    .line 114
+     .line 115
+     if-ne v1, v5, :cond_1
+ 
+-    .line 116
+     .line 117
+     iget-object v1, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zzd:Ljava/lang/String;
+ 
+-    .line 118
+     .line 119
+     iget-object v5, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzd:Ljava/lang/String;
+ 
+-    .line 120
+     .line 121
+     invoke-static {v1, v5}, Lcom/google/android/gms/cast/internal/CastUtils;->zze(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v1
+ 
+     .line 125
+     if-eqz v1, :cond_1
+ 
+-    .line 126
+     .line 127
+     iget-object v1, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zze:Ljava/lang/String;
+ 
+-    .line 128
+     .line 129
+     iget-object v5, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zze:Ljava/lang/String;
+ 
+-    .line 130
+     .line 131
+     invoke-static {v1, v5}, Lcom/google/android/gms/cast/internal/CastUtils;->zze(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result v1
+ 
+     .line 135
+     if-eqz v1, :cond_1
+ 
+-    .line 136
+     .line 137
+     iget-boolean v1, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zzf:Z
+ 
+-    .line 138
+     .line 139
+     iget-boolean v5, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzf:Z
+ 
+-    .line 140
+     .line 141
+     if-ne v1, v5, :cond_1
+ 
+-    .line 142
+     .line 143
+     iget-boolean v1, v4, Lcom/google/android/gms/cast/framework/media/zzm;->zzg:Z
+ 
+-    .line 144
+     .line 145
+     iget-boolean p1, p1, Lcom/google/android/gms/cast/framework/media/zzm;->zzg:Z
+ 
+-    .line 146
+     .line 147
+     if-eq v1, p1, :cond_2
+ 
+-    .line 148
+     .line 149
+     :cond_1
+     iput-object v4, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzm:Lcom/google/android/gms/cast/framework/media/zzm;
+ 
+-    .line 150
+     .line 151
+     invoke-direct {p0}, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzd()V
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     :cond_2
+     new-instance p1, Lcom/google/android/gms/cast/framework/media/zzn;
+ 
+-    .line 155
+     .line 156
+     iget-object v1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzd:Lcom/google/android/gms/cast/framework/media/ImagePicker;
+ 
+-    .line 157
+     .line 158
+     if-eqz v1, :cond_3
+ 
+-    .line 159
+     .line 160
+     iget-object v2, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzk:Lcom/google/android/gms/cast/framework/media/ImageHints;
+ 
+-    .line 161
+     .line 162
+     invoke-virtual {v1, v0, v2}, Lcom/google/android/gms/cast/framework/media/ImagePicker;->onPickImage(Lcom/google/android/gms/cast/MediaMetadata;Lcom/google/android/gms/cast/framework/media/ImageHints;)Lcom/google/android/gms/common/images/WebImage;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object v0
+ 
+@@ -3068,35 +2355,27 @@
+     :cond_3
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/MediaMetadata;->hasImages()Z
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     move-result v1
+ 
+     .line 171
+     if-eqz v1, :cond_4
+ 
+-    .line 172
+     .line 173
+     invoke-virtual {v0}, Lcom/google/android/gms/cast/MediaMetadata;->getImages()Ljava/util/List;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-object v0
+ 
+     .line 177
+     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     move-result-object v0
+ 
+     .line 181
+     check-cast v0, Lcom/google/android/gms/common/images/WebImage;
+ 
+-    .line 182
+     .line 183
+     goto :goto_1
+ 
+@@ -3108,91 +2387,65 @@
+     :goto_1
+     invoke-direct {p1, v0}, Lcom/google/android/gms/cast/framework/media/zzn;-><init>(Lcom/google/android/gms/common/images/WebImage;)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzn:Lcom/google/android/gms/cast/framework/media/zzn;
+ 
+-    .line 189
+     .line 190
+     if-eqz v0, :cond_5
+ 
+-    .line 191
+     .line 192
+     iget-object v1, p1, Lcom/google/android/gms/cast/framework/media/zzn;->zza:Landroid/net/Uri;
+ 
+-    .line 193
+     .line 194
+     iget-object v0, v0, Lcom/google/android/gms/cast/framework/media/zzn;->zza:Landroid/net/Uri;
+ 
+-    .line 195
+     .line 196
+     invoke-static {v1, v0}, Lcom/google/android/gms/cast/internal/CastUtils;->zze(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result v0
+ 
+     .line 200
+     if-nez v0, :cond_6
+ 
+-    .line 201
+     .line 202
+     :cond_5
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzj:Lcom/google/android/gms/cast/framework/media/internal/zzb;
+ 
+-    .line 203
+     .line 204
+     new-instance v1, Lcom/google/android/gms/cast/framework/media/zzl;
+ 
+-    .line 205
+     .line 206
+     invoke-direct {v1, p0, p1}, Lcom/google/android/gms/cast/framework/media/zzl;-><init>(Lcom/google/android/gms/cast/framework/media/MediaNotificationService;Lcom/google/android/gms/cast/framework/media/zzn;)V
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     invoke-virtual {v0, v1}, Lcom/google/android/gms/cast/framework/media/internal/zzb;->zzc(Lcom/google/android/gms/cast/framework/media/internal/zza;)V
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     iget-object v0, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzj:Lcom/google/android/gms/cast/framework/media/internal/zzb;
+ 
+-    .line 213
+     .line 214
+     iget-object p1, p1, Lcom/google/android/gms/cast/framework/media/zzn;->zza:Landroid/net/Uri;
+ 
+-    .line 215
+     .line 216
+     invoke-virtual {v0, p1}, Lcom/google/android/gms/cast/framework/media/internal/zzb;->zzd(Landroid/net/Uri;)Z
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     :cond_6
+     iget-object p1, p0, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzp:Landroid/app/Notification;
+ 
+-    .line 220
+     .line 221
+     invoke-virtual {p0, p2, p1}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     new-instance p1, Lcom/google/android/gms/cast/framework/media/zzk;
+ 
+-    .line 225
+     .line 226
+     invoke-direct {p1, p0, p3}, Lcom/google/android/gms/cast/framework/media/zzk;-><init>(Lcom/google/android/gms/cast/framework/media/MediaNotificationService;I)V
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     sput-object p1, Lcom/google/android/gms/cast/framework/media/MediaNotificationService;->zzb:Ljava/lang/Runnable;
+ 
+-    .line 230
+     .line 231
+     return v3
+ .end method

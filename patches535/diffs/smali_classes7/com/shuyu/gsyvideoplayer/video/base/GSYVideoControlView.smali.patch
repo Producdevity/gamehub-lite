@@ -1,0 +1,5621 @@
+--- a/smali_classes7/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.smali
++++ b/smali_classes7/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.smali
+@@ -638,16 +638,12 @@
+     .line 2
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mPostDismiss:Z
+ 
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->dismissControlTask:Ljava/lang/Runnable;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -661,16 +657,12 @@
+     .line 2
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mPostProgress:Z
+ 
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->progressTask:Ljava/lang/Runnable;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -702,16 +694,12 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :cond_0
+     return-void
+@@ -723,75 +711,54 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mUrl:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const-string v1, "********"
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     sget v1, Lcom/shuyu/gsyvideoplayer/R$string;->no_url:I
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+     .line 29
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfError(Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -799,22 +766,18 @@
+     :cond_0
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 41
+     .line 42
+     if-eqz v0, :cond_9
+ 
+-    .line 43
+     .line 44
+     const/4 v1, 0x7
+ 
+     .line 45
+     if-ne v0, v1, :cond_1
+ 
+-    .line 46
+     .line 47
+     goto/16 :goto_4
+ 
+-    .line 48
+     .line 49
+     :cond_1
+     const/4 v1, 0x5
+@@ -825,15 +788,12 @@
+     .line 51
+     if-ne v0, v2, :cond_3
+ 
+-    .line 52
+     .line 53
+     :try_start_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->onVideoPause()V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     goto :goto_0
+ 
+@@ -844,76 +804,55 @@
+     .line 58
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :goto_0
+     invoke-virtual {p0, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->setStateAndUi(I)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 65
+     .line 66
+     if-eqz v0, :cond_8
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v0
+ 
+     .line 72
+     if-eqz v0, :cond_8
+ 
+-    .line 73
+     .line 74
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 75
+     .line 76
+     if-eqz v0, :cond_2
+ 
+-    .line 77
+     .line 78
+     const-string v0, "onClickStopFullscreen"
+ 
+-    .line 79
+     .line 80
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 84
+     .line 85
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 86
+     .line 87
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 88
+     .line 89
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p0
+ 
+     .line 93
+     invoke-interface {v0, v1, p0}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->r(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     goto :goto_3
+ 
+@@ -921,37 +860,27 @@
+     :cond_2
+     const-string v0, "onClickStop"
+ 
+-    .line 98
+     .line 99
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 103
+     .line 104
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 105
+     .line 106
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 107
+     .line 108
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object p0
+ 
+     .line 112
+     invoke-interface {v0, v1, p0}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->A0(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     goto :goto_3
+ 
+@@ -959,69 +888,51 @@
+     :cond_3
+     if-ne v0, v1, :cond_7
+ 
+-    .line 117
+     .line 118
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 119
+     .line 120
+     if-eqz v0, :cond_5
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result v0
+ 
+     .line 126
+     if-eqz v0, :cond_5
+ 
+-    .line 127
+     .line 128
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 129
+     .line 130
+     if-eqz v0, :cond_4
+ 
+-    .line 131
+     .line 132
+     const-string v0, "onClickResumeFullscreen"
+ 
+-    .line 133
+     .line 134
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 138
+     .line 139
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 140
+     .line 141
+     iget-object v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 142
+     .line 143
+     filled-new-array {v3, p0}, [Ljava/lang/Object;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result-object v3
+ 
+     .line 147
+     invoke-interface {v0, v1, v3}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->n0(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     goto :goto_1
+ 
+@@ -1029,67 +940,49 @@
+     :cond_4
+     const-string v0, "onClickResume"
+ 
+-    .line 152
+     .line 153
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 157
+     .line 158
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 159
+     .line 160
+     iget-object v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 161
+     .line 162
+     filled-new-array {v3, p0}, [Ljava/lang/Object;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object v3
+ 
+     .line 166
+     invoke-interface {v0, v1, v3}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->V(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     :cond_5
+     :goto_1
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mHadPlay:Z
+ 
+-    .line 170
+     .line 171
+     if-nez v0, :cond_6
+ 
+-    .line 172
+     .line 173
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mStartAfterPrepared:Z
+ 
+-    .line 174
+     .line 175
+     if-nez v0, :cond_6
+ 
+-    .line 176
+     .line 177
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->startAfterPrepared()V
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     :cond_6
+     :try_start_1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result-object v0
+ 
+@@ -1098,8 +991,6 @@
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     goto :goto_2
+ 
+@@ -1110,14 +1001,10 @@
+     .line 189
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     :goto_2
+     invoke-virtual {p0, v2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->setStateAndUi(I)V
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     goto :goto_3
+ 
+@@ -1128,12 +1015,9 @@
+     .line 197
+     if-ne v0, v1, :cond_8
+ 
+-    .line 198
+     .line 199
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->startButtonLogic()V
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     :cond_8
+     :goto_3
+@@ -1144,20 +1028,15 @@
+     :goto_4
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->isShowNetConfirm()Z
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result v0
+ 
+     .line 207
+     if-eqz v0, :cond_a
+ 
+-    .line 208
+     .line 209
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->showWifiDialog()V
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     return-void
+ 
+@@ -1165,8 +1044,6 @@
+     :cond_a
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->startButtonLogic()V
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     return-void
+ .end method
+@@ -1186,7 +1063,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBackButton:Landroid/widget/ImageView;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1197,7 +1073,6 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDismissControlTime:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1208,18 +1083,15 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mEnlargeImageRes:I
+ 
+-    .line 2
+     .line 3
+     const/4 v0, -0x1
+ 
+     .line 4
+     if-ne p0, v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     sget p0, Lcom/shuyu/gsyvideoplayer/R$drawable;->video_enlarge:I
+ 
+-    .line 7
+     .line 8
+     :cond_0
+     return p0
+@@ -1231,7 +1103,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFullscreenButton:Landroid/widget/ImageView;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1242,7 +1113,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGsyStateUiListener:Lcom/shuyu/gsyvideoplayer/listener/GSYStateUiListener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1253,7 +1123,6 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekRatio:F
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1264,18 +1133,15 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mShrinkImageRes:I
+ 
+-    .line 2
+     .line 3
+     const/4 v0, -0x1
+ 
+     .line 4
+     if-ne p0, v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     sget p0, Lcom/shuyu/gsyvideoplayer/R$drawable;->video_shrink:I
+ 
+-    .line 7
+     .line 8
+     :cond_0
+     return p0
+@@ -1287,7 +1153,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mStartButton:Landroid/view/View;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1298,7 +1163,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageView:Landroid/view/View;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1309,7 +1173,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1320,7 +1183,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTitleTextView:Landroid/widget/TextView;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1334,527 +1196,386 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->init(Landroid/content/Context;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->start:I
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mStartButton:Landroid/view/View;
+ 
+-    .line 11
+     .line 12
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->title:I
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     check-cast p1, Landroid/widget/TextView;
+ 
+-    .line 19
+     .line 20
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTitleTextView:Landroid/widget/TextView;
+ 
+-    .line 21
+     .line 22
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->back:I
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     check-cast p1, Landroid/widget/ImageView;
+ 
+-    .line 29
+     .line 30
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBackButton:Landroid/widget/ImageView;
+ 
+-    .line 31
+     .line 32
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->fullscreen:I
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p1
+ 
+     .line 38
+     check-cast p1, Landroid/widget/ImageView;
+ 
+-    .line 39
+     .line 40
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFullscreenButton:Landroid/widget/ImageView;
+ 
+-    .line 41
+     .line 42
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->progress:I
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p1
+ 
+     .line 48
+     check-cast p1, Landroid/widget/SeekBar;
+ 
+-    .line 49
+     .line 50
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 51
+     .line 52
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->current:I
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p1
+ 
+     .line 58
+     check-cast p1, Landroid/widget/TextView;
+ 
+-    .line 59
+     .line 60
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 61
+     .line 62
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->total:I
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p1
+ 
+     .line 68
+     check-cast p1, Landroid/widget/TextView;
+ 
+-    .line 69
+     .line 70
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 71
+     .line 72
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->layout_bottom:I
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p1
+ 
+     .line 78
+     check-cast p1, Landroid/view/ViewGroup;
+ 
+-    .line 79
+     .line 80
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomContainer:Landroid/view/ViewGroup;
+ 
+-    .line 81
+     .line 82
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->layout_top:I
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p1
+ 
+     .line 88
+     check-cast p1, Landroid/view/ViewGroup;
+ 
+-    .line 89
+     .line 90
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTopContainer:Landroid/view/ViewGroup;
+ 
+-    .line 91
+     .line 92
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->bottom_progressbar:I
+ 
+-    .line 93
+     .line 94
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p1
+ 
+     .line 98
+     check-cast p1, Landroid/widget/ProgressBar;
+ 
+-    .line 99
+     .line 100
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 101
+     .line 102
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->thumb:I
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p1
+ 
+     .line 108
+     check-cast p1, Landroid/widget/RelativeLayout;
+ 
+-    .line 109
+     .line 110
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 111
+     .line 112
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->lock_screen:I
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object p1
+ 
+     .line 118
+     check-cast p1, Landroid/widget/ImageView;
+ 
+-    .line 119
+     .line 120
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 121
+     .line 122
+     sget p1, Lcom/shuyu/gsyvideoplayer/R$id;->loading:I
+ 
+-    .line 123
+     .line 124
+     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object p1
+ 
+     .line 128
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLoadingProgressBar:Landroid/view/View;
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {p0}, Landroid/view/View;->isInEditMode()Z
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result p1
+ 
+     .line 134
+     if-eqz p1, :cond_0
+ 
+-    .line 135
+     .line 136
+     goto/16 :goto_0
+ 
+-    .line 137
+     .line 138
+     :cond_0
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mStartButton:Landroid/view/View;
+ 
+-    .line 139
+     .line 140
+     if-eqz p1, :cond_1
+ 
+-    .line 141
+     .line 142
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     :cond_1
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFullscreenButton:Landroid/widget/ImageView;
+ 
+-    .line 146
+     .line 147
+     if-eqz p1, :cond_2
+ 
+-    .line 148
+     .line 149
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFullscreenButton:Landroid/widget/ImageView;
+ 
+-    .line 153
+     .line 154
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     :cond_2
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 158
+     .line 159
+     if-eqz p1, :cond_3
+ 
+-    .line 160
+     .line 161
+     invoke-virtual {p1, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     :cond_3
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomContainer:Landroid/view/ViewGroup;
+ 
+-    .line 165
+     .line 166
+     if-eqz p1, :cond_4
+ 
+-    .line 167
+     .line 168
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     :cond_4
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView;->mTextureViewContainer:Landroid/view/ViewGroup;
+ 
+-    .line 172
+     .line 173
+     if-eqz p1, :cond_5
+ 
+-    .line 174
+     .line 175
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView;->mTextureViewContainer:Landroid/view/ViewGroup;
+ 
+-    .line 179
+     .line 180
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     :cond_5
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 184
+     .line 185
+     if-eqz p1, :cond_6
+ 
+-    .line 186
+     .line 187
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     :cond_6
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 191
+     .line 192
+     const/16 v0, 0x8
+ 
+-    .line 193
+     .line 194
+     if-eqz p1, :cond_7
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 200
+     .line 201
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     :cond_7
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageView:Landroid/view/View;
+ 
+-    .line 205
+     .line 206
+     if-eqz p1, :cond_8
+ 
+-    .line 207
+     .line 208
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 209
+     .line 210
+     if-nez p1, :cond_8
+ 
+-    .line 211
+     .line 212
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 213
+     .line 214
+     if-eqz p1, :cond_8
+ 
+-    .line 215
+     .line 216
+     invoke-virtual {p1}, Landroid/view/ViewGroup;->removeAllViews()V
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageView:Landroid/view/View;
+ 
+-    .line 220
+     .line 221
+     invoke-virtual {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->resolveThumbImage(Landroid/view/View;)V
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     :cond_8
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBackButton:Landroid/widget/ImageView;
+ 
+-    .line 225
+     .line 226
+     if-eqz p1, :cond_9
+ 
+-    .line 227
+     .line 228
+     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     :cond_9
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 232
+     .line 233
+     if-eqz p1, :cond_a
+ 
+-    .line 234
+     .line 235
+     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 239
+     .line 240
+     new-instance v0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView$1;
+ 
+-    .line 241
+     .line 242
+     invoke-direct {v0, p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView$1;-><init>(Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;)V
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 246
+-    .line 247
+     .line 248
+     :cond_a
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     move-result-object p1
+ 
+     .line 252
+     if-eqz p1, :cond_b
+ 
+-    .line 253
+     .line 254
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 255
+-    .line 256
+     .line 257
+     move-result-object p1
+ 
+     .line 258
+     const/high16 v0, 0x42480000    # 50.0f
+ 
+-    .line 259
+     .line 260
+     invoke-static {p1, v0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->dip2px(Landroid/content/Context;F)I
+ 
+-    .line 261
+-    .line 262
+     .line 263
+     move-result p1
+ 
+     .line 264
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekEndOffset:I
+ 
+-    .line 265
+     .line 266
+     :cond_b
+     :goto_0
+@@ -1870,8 +1591,6 @@
+     .line 2
+     invoke-virtual {p0, v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->setStateAndUi(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -1882,7 +1601,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHideKey:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1893,7 +1611,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mNeedLockFull:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1904,7 +1621,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mNeedShowWifiTip:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1915,7 +1631,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->isShowDragProgressTextOnSeekBar:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1926,111 +1641,84 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "file"
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     const-string v1, "android.resource"
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-nez v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->isWifiConnected(Landroid/content/Context;)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     if-nez v0, :cond_0
+ 
+-    .line 30
+     .line 31
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mNeedShowWifiTip:Z
+ 
+-    .line 32
+     .line 33
+     if-eqz v0, :cond_0
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v0
+ 
+     .line 39
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mContext:Landroid/content/Context;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v1
+ 
+     .line 45
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCachePath:Ljava/io/File;
+ 
+-    .line 46
+     .line 47
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 48
+     .line 49
+     invoke-interface {v0, v1, v2, p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->cachePreview(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result p0
+ 
+     .line 53
+     if-nez p0, :cond_0
+ 
+-    .line 54
+     .line 55
+     const/4 p0, 0x1
+ 
+@@ -2051,7 +1739,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSurfaceErrorPlay:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2062,7 +1749,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mIsTouchWiget:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2073,7 +1759,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mIsTouchWigetFull:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2084,31 +1769,24 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockCurScreen:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 6
+     .line 7
+     sget v1, Lcom/shuyu/gsyvideoplayer/R$drawable;->unlock:I
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 v0, 0x0
+ 
+     .line 13
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockCurScreen:Z
+ 
+-    .line 14
+     .line 15
+     return-void
+ 
+@@ -2116,28 +1794,21 @@
+     :cond_0
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 17
+     .line 18
+     sget v1, Lcom/shuyu/gsyvideoplayer/R$drawable;->lock:I
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const/4 v0, 0x1
+ 
+     .line 24
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockCurScreen:Z
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->hideAllWidget()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-void
+ .end method
+@@ -2148,27 +1819,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 6
+     .line 7
+     if-eqz v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 10
+     .line 11
+     if-nez v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -2179,51 +1844,36 @@
+     .line 15
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setSecondaryProgress(I)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 24
+     .line 25
+     const-wide/16 v2, 0x0
+ 
+-    .line 26
+     .line 27
+     invoke-static {v2, v3}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+     .line 31
+     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 35
+     .line 36
+     if-eqz p0, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     :cond_1
+     :goto_0
+@@ -2236,34 +1886,24 @@
+     .line 1
+     invoke-super {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->onAutoCompletion()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockCurScreen:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->lockTouchLogic()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 12
+     .line 13
+     const/16 v0, 0x8
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setVisibility(I)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     return-void
+@@ -2278,59 +1918,45 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mContext:Landroid/content/Context;
+ 
+-    .line 2
+     .line 3
+     check-cast v0, Landroid/app/Activity;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+ 
+-    .line 14
+     .line 15
+     iput v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightnessData:F
+ 
+-    .line 16
+     .line 17
+     const/4 v1, 0x0
+ 
+     .line 18
+     cmpg-float v1, v0, v1
+ 
+-    .line 19
+     .line 20
+     const v2, 0x3c23d70a    # 0.01f
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     if-gtz v1, :cond_0
+ 
+-    .line 24
+     .line 25
+     const/high16 v0, 0x3f000000    # 0.5f
+ 
+-    .line 26
+     .line 27
+     iput v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightnessData:F
+ 
+-    .line 28
+     .line 29
+     goto :goto_0
+ 
+@@ -2338,68 +1964,53 @@
+     :cond_0
+     cmpg-float v0, v0, v2
+ 
+-    .line 31
+     .line 32
+     if-gez v0, :cond_1
+ 
+-    .line 33
+     .line 34
+     iput v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightnessData:F
+ 
+-    .line 35
+     .line 36
+     :cond_1
+     :goto_0
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mContext:Landroid/content/Context;
+ 
+-    .line 37
+     .line 38
+     check-cast v0, Landroid/app/Activity;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+     .line 44
+     invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     iget v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightnessData:F
+ 
+-    .line 49
+     .line 50
+     add-float/2addr v1, p1
+ 
+     .line 51
+     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+ 
+-    .line 52
+     .line 53
+     const/high16 p1, 0x3f800000    # 1.0f
+ 
+-    .line 54
+     .line 55
+     cmpl-float v3, v1, p1
+ 
+-    .line 56
+     .line 57
+     if-lez v3, :cond_2
+ 
+-    .line 58
+     .line 59
+     iput p1, v0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+ 
+-    .line 60
+     .line 61
+     goto :goto_1
+ 
+@@ -2407,47 +2018,35 @@
+     :cond_2
+     cmpg-float p1, v1, v2
+ 
+-    .line 63
+     .line 64
+     if-gez p1, :cond_3
+ 
+-    .line 65
+     .line 66
+     iput v2, v0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+ 
+-    .line 67
+     .line 68
+     :cond_3
+     :goto_1
+     iget p1, v0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->showBrightnessDialog(F)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mContext:Landroid/content/Context;
+ 
+-    .line 74
+     .line 75
+     check-cast p0, Landroid/app/Activity;
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p0
+ 
+     .line 81
+     invoke-virtual {p0, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     return-void
+ .end method
+@@ -2458,17 +2057,12 @@
+     .line 1
+     new-instance v0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView$3;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView$3;-><init>(Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -2479,50 +2073,37 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/view/View;->getId()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+     .line 5
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHideKey:Z
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 10
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mContext:Landroid/content/Context;
+ 
+-    .line 14
+     .line 15
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->hideNavKey(Landroid/content/Context;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     sget v0, Lcom/shuyu/gsyvideoplayer/R$id;->start:I
+ 
+-    .line 19
+     .line 20
+     if-ne p1, v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->clickStartIcon()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ 
+@@ -2530,38 +2111,30 @@
+     :cond_1
+     sget v0, Lcom/shuyu/gsyvideoplayer/R$id;->surface_container:I
+ 
+-    .line 27
+     .line 28
+     const/4 v1, 0x0
+ 
+     .line 29
+     if-ne p1, v0, :cond_4
+ 
+-    .line 30
+     .line 31
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x7
+ 
+     .line 34
+     if-ne v2, v3, :cond_4
+ 
+-    .line 35
+     .line 36
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSurfaceErrorPlay:Z
+ 
+-    .line 37
+     .line 38
+     if-nez p1, :cond_2
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->onClickUiToggle(Landroid/view/MotionEvent;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ 
+@@ -2569,51 +2142,37 @@
+     :cond_2
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 45
+     .line 46
+     if-eqz p1, :cond_3
+ 
+-    .line 47
+     .line 48
+     const-string p1, "onClickStartError"
+ 
+-    .line 49
+     .line 50
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 54
+     .line 55
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 56
+     .line 57
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 58
+     .line 59
+     filled-new-array {v1, p0}, [Ljava/lang/Object;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v1
+ 
+     .line 63
+     invoke-interface {p1, v0, v1}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->c0(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     :cond_3
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->prepareVideo()V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     return-void
+ 
+@@ -2621,96 +2180,70 @@
+     :cond_4
+     sget v2, Lcom/shuyu/gsyvideoplayer/R$id;->thumb:I
+ 
+-    .line 71
+     .line 72
+     if-ne p1, v2, :cond_9
+ 
+-    .line 73
+     .line 74
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbPlay:Z
+ 
+-    .line 75
+     .line 76
+     if-nez p1, :cond_5
+ 
+-    .line 77
+     .line 78
+     goto/16 :goto_1
+ 
+-    .line 79
+     .line 80
+     :cond_5
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mUrl:Ljava/lang/String;
+ 
+-    .line 81
+     .line 82
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result p1
+ 
+     .line 86
+     if-eqz p1, :cond_6
+ 
+-    .line 87
+     .line 88
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 89
+     .line 90
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     const-string v0, "********"
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object p0
+ 
+     .line 102
+     sget v0, Lcom/shuyu/gsyvideoplayer/R$string;->no_url:I
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p0
+ 
+     .line 108
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+     .line 115
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfError(Ljava/lang/String;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     return-void
+ 
+@@ -2718,28 +2251,21 @@
+     :cond_6
+     iget p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 120
+     .line 121
+     if-nez p1, :cond_8
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->isShowNetConfirm()Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result p1
+ 
+     .line 127
+     if-eqz p1, :cond_7
+ 
+-    .line 128
+     .line 129
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->showWifiDialog()V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     return-void
+ 
+@@ -2747,8 +2273,6 @@
+     :cond_7
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->startPlayLogic()V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     return-void
+ 
+@@ -2759,12 +2283,9 @@
+     .line 138
+     if-ne p1, v0, :cond_c
+ 
+-    .line 139
+     .line 140
+     invoke-virtual {p0, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->onClickUiToggle(Landroid/view/MotionEvent;)V
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     return-void
+ 
+@@ -2772,69 +2293,51 @@
+     :cond_9
+     if-ne p1, v0, :cond_c
+ 
+-    .line 145
+     .line 146
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 147
+     .line 148
+     if-eqz p1, :cond_b
+ 
+-    .line 149
+     .line 150
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result p1
+ 
+     .line 154
+     if-eqz p1, :cond_b
+ 
+-    .line 155
+     .line 156
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 157
+     .line 158
+     if-eqz p1, :cond_a
+ 
+-    .line 159
+     .line 160
+     const-string p1, "onClickBlankFullscreen"
+ 
+-    .line 161
+     .line 162
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 166
+     .line 167
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 168
+     .line 169
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 170
+     .line 171
+     filled-new-array {v1, p0}, [Ljava/lang/Object;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object v1
+ 
+     .line 175
+     invoke-interface {p1, v0, v1}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->Y(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     goto :goto_0
+ 
+@@ -2842,44 +2345,32 @@
+     :cond_a
+     const-string p1, "onClickBlank"
+ 
+-    .line 180
+     .line 181
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     iget-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 185
+     .line 186
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 187
+     .line 188
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 189
+     .line 190
+     filled-new-array {v1, p0}, [Ljava/lang/Object;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     move-result-object v1
+ 
+     .line 194
+     invoke-interface {p1, v0, v1}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->y(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     :cond_b
+     :goto_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startDismissControlViewTimer()V
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     :cond_c
+     :goto_1
+@@ -2895,62 +2386,42 @@
+     .line 1
+     invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v1, "------------------------------ dismiss onDetachedFromWindow"
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelProgressTimer()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelDismissControlViewTimer()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method
+@@ -2961,34 +2432,24 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->onError(II)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockCurScreen:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->lockTouchLogic()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockScreen:Landroid/widget/ImageView;
+ 
+-    .line 12
+     .line 13
+     const/16 p1, 0x8
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     return-void
+@@ -3006,21 +2467,15 @@
+     .line 3
+     invoke-virtual {p0, v0, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->setTextAndProgress(IZ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->onPrepared()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 10
+     .line 11
+     if-eq v0, v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -3028,52 +2483,36 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startProgressTimer()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+ 
+     .line 26
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-string p0, "------------------------------ surface_container onPrepared"
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ .end method
+@@ -3084,8 +2523,6 @@
+     .line 1
+     invoke-virtual {p0, p3, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->showDragProgressTextOnSeekBar(ZI)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -3099,7 +2536,6 @@
+     .line 2
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHadSeekTouch:Z
+ 
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -3110,69 +2546,51 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isIfCurrentIsFullscreen()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     if-eqz v0, :cond_0
+ 
+-    .line 16
+     .line 17
+     const-string v0, "onClickSeekbarFullscreen"
+ 
+-    .line 18
+     .line 19
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 23
+     .line 24
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 25
+     .line 26
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 27
+     .line 28
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v2
+ 
+     .line 32
+     invoke-interface {v0, v1, v2}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->l0(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -3180,65 +2598,48 @@
+     :cond_0
+     const-string v0, "onClickSeekbar"
+ 
+-    .line 37
+     .line 38
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 42
+     .line 43
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 44
+     .line 45
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 46
+     .line 47
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v2
+ 
+     .line 51
+     invoke-interface {v0, v1, v2}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->C(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     :cond_1
+     :goto_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     if-eqz v0, :cond_2
+ 
+-    .line 59
+     .line 60
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mHadPlay:Z
+ 
+-    .line 61
+     .line 62
+     if-eqz v0, :cond_2
+ 
+-    .line 63
+     .line 64
+     :try_start_0
+     invoke-virtual {p1}, Landroid/widget/ProgressBar;->getProgress()I
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result p1
+ 
+@@ -3248,8 +2649,6 @@
+     .line 69
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-wide v2
+ 
+@@ -3259,15 +2658,12 @@
+     .line 74
+     const-wide/16 v2, 0x64
+ 
+-    .line 75
+     .line 76
+     div-long/2addr v0, v2
+ 
+     .line 77
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p1
+ 
+@@ -3276,8 +2672,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     goto :goto_1
+ 
+@@ -3288,16 +2682,12 @@
+     .line 86
+     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p1
+ 
+     .line 90
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfWarning(Ljava/lang/String;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     :cond_2
+     :goto_1
+@@ -3306,7 +2696,6 @@
+     .line 94
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHadSeekTouch:Z
+ 
+-    .line 95
+     .line 96
+     return-void
+ .end method
+@@ -3317,64 +2706,48 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/view/View;->getId()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+     .line 5
+     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     iget-boolean v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 14
+     .line 15
+     const/4 v3, 0x1
+ 
+     .line 16
+     if-eqz v2, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget-boolean v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockCurScreen:Z
+ 
+-    .line 19
+     .line 20
+     if-eqz v2, :cond_0
+ 
+-    .line 21
+     .line 22
+     iget-boolean v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mNeedLockFull:Z
+ 
+-    .line 23
+     .line 24
+     if-eqz v2, :cond_0
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->onClickUiToggle(Landroid/view/MotionEvent;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startDismissControlViewTimer()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return v3
+ 
+@@ -3382,14 +2755,12 @@
+     :cond_0
+     sget v2, Lcom/shuyu/gsyvideoplayer/R$id;->fullscreen:I
+ 
+-    .line 34
+     .line 35
+     const/4 v4, 0x0
+ 
+     .line 36
+     if-ne p1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     return v4
+ 
+@@ -3397,34 +2768,27 @@
+     :cond_1
+     sget v2, Lcom/shuyu/gsyvideoplayer/R$id;->surface_container:I
+ 
+-    .line 40
+     .line 41
+     const/4 v5, 0x2
+ 
+     .line 42
+     if-ne p1, v2, :cond_9
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result p1
+ 
+     .line 48
+     if-eqz p1, :cond_7
+ 
+-    .line 49
+     .line 50
+     if-eq p1, v3, :cond_6
+ 
+-    .line 51
+     .line 52
+     if-eq p1, v5, :cond_2
+ 
+-    .line 53
+     .line 54
+     goto :goto_0
+ 
+@@ -3432,99 +2796,75 @@
+     :cond_2
+     iget p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownX:F
+ 
+-    .line 56
+     .line 57
+     sub-float/2addr v0, p1
+ 
+     .line 58
+     iget p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownY:F
+ 
+-    .line 59
+     .line 60
+     sub-float p1, v1, p1
+ 
+-    .line 61
+     .line 62
+     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v2
+ 
+     .line 66
+     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v3
+ 
+     .line 70
+     iget-boolean v5, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mIfCurrentIsFullscreen:Z
+ 
+-    .line 71
+     .line 72
+     if-eqz v5, :cond_3
+ 
+-    .line 73
+     .line 74
+     iget-boolean v6, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mIsTouchWigetFull:Z
+ 
+-    .line 75
+     .line 76
+     if-nez v6, :cond_4
+ 
+-    .line 77
+     .line 78
+     :cond_3
+     iget-boolean v6, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mIsTouchWiget:Z
+ 
+-    .line 79
+     .line 80
+     if-eqz v6, :cond_5
+ 
+-    .line 81
+     .line 82
+     if-nez v5, :cond_5
+ 
+-    .line 83
+     .line 84
+     :cond_4
+     iget-boolean v5, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangePosition:Z
+ 
+-    .line 85
+     .line 86
+     if-nez v5, :cond_5
+ 
+-    .line 87
+     .line 88
+     iget-boolean v5, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangeVolume:Z
+ 
+-    .line 89
+     .line 90
+     if-nez v5, :cond_5
+ 
+-    .line 91
+     .line 92
+     iget-boolean v5, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightness:Z
+ 
+-    .line 93
+     .line 94
+     if-nez v5, :cond_5
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {p0, v2, v3}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->touchSurfaceMoveFullLogic(FF)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     :cond_5
+     invoke-virtual {p0, v0, p1, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->touchSurfaceMove(FFF)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     goto :goto_0
+ 
+@@ -3532,78 +2872,54 @@
+     :cond_6
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startDismissControlViewTimer()V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->touchSurfaceUp()V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 110
+     .line 111
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result v0
+ 
+     .line 118
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     const-string v0, "------------------------------ surface_container ACTION_UP"
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result-object p1
+ 
+     .line 130
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startProgressTimer()V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHideKey:Z
+ 
+-    .line 137
+     .line 138
+     if-eqz p1, :cond_8
+ 
+-    .line 139
+     .line 140
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mShowVKey:Z
+ 
+-    .line 141
+     .line 142
+     if-eqz p1, :cond_8
+ 
+-    .line 143
+     .line 144
+     return v3
+ 
+@@ -3611,19 +2927,14 @@
+     :cond_7
+     invoke-virtual {p0, v0, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->touchSurfaceDown(FF)V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     :cond_8
+     :goto_0
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->gestureDetector:Landroid/view/GestureDetector;
+ 
+-    .line 149
+     .line 150
+     invoke-virtual {p0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     goto :goto_3
+ 
+@@ -3631,31 +2942,24 @@
+     :cond_9
+     sget v0, Lcom/shuyu/gsyvideoplayer/R$id;->progress:I
+ 
+-    .line 155
+     .line 156
+     if-ne p1, v0, :cond_e
+ 
+-    .line 157
+     .line 158
+     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     move-result p1
+ 
+     .line 162
+     if-eqz p1, :cond_c
+ 
+-    .line 163
+     .line 164
+     if-eq p1, v3, :cond_a
+ 
+-    .line 165
+     .line 166
+     if-eq p1, v5, :cond_d
+ 
+-    .line 167
+     .line 168
+     goto :goto_3
+ 
+@@ -3663,62 +2967,42 @@
+     :cond_a
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startDismissControlViewTimer()V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 173
+     .line 174
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     move-result p2
+ 
+     .line 181
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     const-string p2, "------------------------------ progress ACTION_UP"
+ 
+-    .line 185
+     .line 186
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     move-result-object p1
+ 
+     .line 193
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startProgressTimer()V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object p1
+ 
+@@ -3726,17 +3010,12 @@
+     :goto_1
+     if-eqz p1, :cond_b
+ 
+-    .line 204
+     .line 205
+     invoke-interface {p1, v4}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     invoke-interface {p1}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     move-result-object p1
+ 
+@@ -3747,11 +3026,9 @@
+     :cond_b
+     const/high16 p1, -0x40800000    # -1.0f
+ 
+-    .line 214
+     .line 215
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightnessData:F
+ 
+-    .line 216
+     .line 217
+     goto :goto_3
+ 
+@@ -3759,19 +3036,13 @@
+     :cond_c
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelDismissControlViewTimer()V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     :cond_d
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelProgressTimer()V
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     move-result-object p0
+ 
+@@ -3779,17 +3050,12 @@
+     :goto_2
+     if-eqz p0, :cond_e
+ 
+-    .line 229
+     .line 230
+     invoke-interface {p0, v3}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     invoke-interface {p0}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     move-result-object p0
+ 
+@@ -3808,39 +3074,30 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSetUpLazy:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     iget-boolean v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCache:Z
+ 
+-    .line 8
+     .line 9
+     iget-object v4, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCachePath:Ljava/io/File;
+ 
+-    .line 10
+     .line 11
+     iget-object v5, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mMapHeadData:Ljava/util/Map;
+ 
+-    .line 12
+     .line 13
+     iget-object v6, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     move-object v1, p0
+ 
+     .line 16
+     invoke-super/range {v1 .. v6}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->setUp(Ljava/lang/String;ZLjava/io/File;Ljava/util/Map;Ljava/lang/String;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -3852,8 +3109,6 @@
+     :goto_0
+     invoke-super {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->prepareVideo()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-void
+ .end method
+@@ -3864,27 +3119,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 6
+     .line 7
+     if-eqz v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 10
+     .line 11
+     if-nez v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -3895,77 +3144,54 @@
+     .line 15
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setSecondaryProgress(I)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 24
+     .line 25
+     const-wide/16 v2, 0x0
+ 
+-    .line 26
+     .line 27
+     invoke-static {v2, v3}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v4
+ 
+     .line 31
+     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 35
+     .line 36
+     invoke-static {v2, v3}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v2
+ 
+     .line 40
+     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 44
+     .line 45
+     if-eqz v0, :cond_1
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {p0, v1}, Landroid/widget/ProgressBar;->setSecondaryProgress(I)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     :cond_1
+     :goto_0
+@@ -3978,30 +3204,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+@@ -4011,16 +3228,12 @@
+     .line 18
+     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+ 
+-    .line 19
+     .line 20
+     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1, p0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :cond_0
+     return-void
+@@ -4032,49 +3245,42 @@
+     .line 1
+     if-eqz p1, :cond_6
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+     .line 4
+     if-eq p1, v0, :cond_5
+ 
+-    .line 5
+     .line 6
+     const/4 v0, 0x2
+ 
+     .line 7
+     if-eq p1, v0, :cond_4
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x3
+ 
+     .line 10
+     if-eq p1, v0, :cond_3
+ 
+-    .line 11
+     .line 12
+     const/4 v0, 0x5
+ 
+     .line 13
+     if-eq p1, v0, :cond_2
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x6
+ 
+     .line 16
+     if-eq p1, v0, :cond_1
+ 
+-    .line 17
+     .line 18
+     const/4 v0, 0x7
+ 
+     .line 19
+     if-eq p1, v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -4082,8 +3288,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToError()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ 
+@@ -4091,13 +3295,9 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToCompleteShow()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelDismissControlViewTimer()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-void
+ 
+@@ -4105,13 +3305,9 @@
+     :cond_2
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToPauseShow()V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelDismissControlViewTimer()V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -4119,8 +3315,6 @@
+     :cond_3
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToPlayingBufferingShow()V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ 
+@@ -4128,13 +3322,9 @@
+     :cond_4
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToPlayingShow()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startDismissControlViewTimer()V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return-void
+ 
+@@ -4142,13 +3332,9 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToPreparingShow()V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startDismissControlViewTimer()V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     return-void
+ 
+@@ -4156,13 +3342,9 @@
+     :cond_6
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->changeUiToNormal()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelDismissControlViewTimer()V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     return-void
+ .end method
+@@ -4173,7 +3355,6 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDismissControlTime:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4184,7 +3365,6 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mEnlargeImageRes:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4195,7 +3375,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGsyStateUiListener:Lcom/shuyu/gsyvideoplayer/listener/GSYStateUiListener;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4206,7 +3385,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGSYVideoProgressListener:Lcom/shuyu/gsyvideoplayer/listener/GSYVideoProgressListener;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4217,7 +3395,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHideKey:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4228,7 +3405,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mIsTouchWiget:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4239,7 +3415,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mIsTouchWigetFull:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4250,7 +3425,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mLockClickListener:Lcom/shuyu/gsyvideoplayer/listener/LockClickListener;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4261,7 +3435,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mNeedLockFull:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4272,7 +3445,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mNeedShowWifiTip:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4283,22 +3455,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGSYVideoProgressListener:Lcom/shuyu/gsyvideoplayer/listener/GSYVideoProgressListener;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 6
+     .line 7
+     const/4 v2, 0x2
+ 
+     .line 8
+     if-ne v1, v2, :cond_0
+ 
+-    .line 9
+     .line 10
+     move-wide v1, p1
+ 
+@@ -4311,37 +3479,28 @@
+     .line 13
+     move-wide/from16 v7, p7
+ 
+-    .line 14
+     .line 15
+     invoke-interface/range {v0 .. v8}, Lcom/shuyu/gsyvideoplayer/listener/GSYVideoProgressListener;->a(JJJJ)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 19
+     .line 20
+     if-eqz v0, :cond_a
+ 
+-    .line 21
+     .line 22
+     iget-object v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 23
+     .line 24
+     if-eqz v3, :cond_a
+ 
+-    .line 25
+     .line 26
+     iget-object v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 27
+     .line 28
+     if-nez v3, :cond_1
+ 
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -4349,11 +3508,9 @@
+     :cond_1
+     iget-boolean v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mHadSeekTouch:Z
+ 
+-    .line 32
+     .line 33
+     if-eqz v3, :cond_2
+ 
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -4361,27 +3518,21 @@
+     :cond_2
+     iget-boolean v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTouchingProgressBar:Z
+ 
+-    .line 37
+     .line 38
+     const-wide/16 v4, 0x0
+ 
+-    .line 39
+     .line 40
+     if-nez v3, :cond_4
+ 
+-    .line 41
+     .line 42
+     cmp-long v3, p1, v4
+ 
+-    .line 43
+     .line 44
+     if-nez v3, :cond_3
+ 
+-    .line 45
+     .line 46
+     if-eqz p9, :cond_4
+ 
+-    .line 47
+     .line 48
+     :cond_3
+     long-to-int v3, p1
+@@ -4389,42 +3540,31 @@
+     .line 49
+     invoke-virtual {v0, v3}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :cond_4
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v0
+ 
+     .line 56
+     invoke-interface {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->getBufferedPercentage()I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v0
+ 
+     .line 60
+     if-lez v0, :cond_5
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p3
+ 
+     .line 66
+     invoke-interface {p3}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->getBufferedPercentage()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result p3
+ 
+@@ -4435,88 +3575,65 @@
+     :cond_5
+     const-wide/16 v6, 0x5e
+ 
+-    .line 72
+     .line 73
+     cmp-long v0, p3, v6
+ 
+-    .line 74
+     .line 75
+     if-lez v0, :cond_6
+ 
+-    .line 76
+     .line 77
+     const-wide/16 p3, 0x64
+ 
+-    .line 78
+     .line 79
+     :cond_6
+     invoke-virtual {p0, p3, p4}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->setSecondaryProgress(J)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 83
+     .line 84
+     invoke-static/range {p7 .. p8}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v3
+ 
+     .line 88
+     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     cmp-long v0, p5, v4
+ 
+-    .line 92
+     .line 93
+     if-lez v0, :cond_7
+ 
+-    .line 94
+     .line 95
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 96
+     .line 97
+     invoke-static {p5, p6}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v3
+ 
+     .line 101
+     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     :cond_7
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 105
+     .line 106
+     if-eqz v0, :cond_a
+ 
+-    .line 107
+     .line 108
+     cmp-long v3, p1, v4
+ 
+-    .line 109
+     .line 110
+     if-nez v3, :cond_8
+ 
+-    .line 111
+     .line 112
+     if-eqz p9, :cond_9
+ 
+-    .line 113
+     .line 114
+     :cond_8
+     long-to-int p1, p1
+@@ -4524,14 +3641,10 @@
+     .line 115
+     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     :cond_9
+     invoke-virtual {p0, p3, p4}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->setSecondaryProgress(J)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     :cond_a
+     :goto_0
+@@ -4544,104 +3657,79 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v1, 0x0
+ 
+-    .line 4
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     cmp-long v0, p1, v1
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-interface {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->isCacheFile()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-nez v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 22
+     .line 23
+     long-to-int v3, p1
+ 
+     .line 24
+     invoke-virtual {v0, v3}, Landroid/widget/ProgressBar;->setSecondaryProgress(I)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_0
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 28
+     .line 29
+     if-eqz v0, :cond_1
+ 
+-    .line 30
+     .line 31
+     cmp-long v0, p1, v1
+ 
+-    .line 32
+     .line 33
+     if-eqz v0, :cond_1
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v0
+ 
+     .line 39
+     invoke-interface {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->isCacheFile()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v0
+ 
+     .line 43
+     if-nez v0, :cond_1
+ 
+-    .line 44
+     .line 45
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 46
+     .line 47
+     long-to-int p1, p1
+ 
+     .line 48
+     invoke-virtual {p0, p1}, Landroid/widget/ProgressBar;->setSecondaryProgress(I)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     :cond_1
+     return-void
+@@ -4656,11 +3744,9 @@
+     .line 2
+     cmpg-float v0, p1, v0
+ 
+-    .line 3
+     .line 4
+     if-gez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return-void
+ 
+@@ -4668,7 +3754,6 @@
+     :cond_0
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekRatio:F
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -4679,7 +3764,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->isShowDragProgressTextOnSeekBar:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4690,7 +3774,6 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mShrinkImageRes:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -4701,21 +3784,15 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView;->setSmallVideoTextureView(Landroid/view/View$OnTouchListener;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 5
+     .line 6
+     if-eqz p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     :cond_0
+     return-void
+@@ -4727,7 +3804,6 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x0
+ 
+@@ -4740,270 +3816,197 @@
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v3
+ 
+     .line 12
+     if-nez v3, :cond_1
+ 
+-    .line 13
+     .line 14
+     :cond_0
+     if-eq p1, v2, :cond_1
+ 
+-    .line 15
+     .line 16
+     if-ne p1, v1, :cond_2
+ 
+-    .line 17
+     .line 18
+     :cond_1
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mHadPrepared:Z
+ 
+-    .line 19
+     .line 20
+     :cond_2
+     iget v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 21
+     .line 22
+     if-eqz v3, :cond_a
+ 
+-    .line 23
+     .line 24
+     const/4 v0, 0x1
+ 
+     .line 25
+     if-eq v3, v0, :cond_9
+ 
+-    .line 26
+     .line 27
+     const/4 v0, 0x2
+ 
+     .line 28
+     if-eq v3, v0, :cond_8
+ 
+-    .line 29
+     .line 30
+     const/4 v0, 0x5
+ 
+     .line 31
+     if-eq v3, v0, :cond_7
+ 
+-    .line 32
+     .line 33
+     if-eq v3, v2, :cond_4
+ 
+-    .line 34
+     .line 35
+     if-eq v3, v1, :cond_3
+ 
+-    .line 36
+     .line 37
+     goto/16 :goto_0
+ 
+-    .line 38
+     .line 39
+     :cond_3
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v0
+ 
+     .line 43
+     if-eqz v0, :cond_c
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     invoke-interface {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->releaseMediaPlayer()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     goto/16 :goto_0
+ 
+-    .line 53
+     .line 54
+     :cond_4
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 55
+     .line 56
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v1
+ 
+     .line 63
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     const-string v1, "------------------------------ dismiss CURRENT_STATE_AUTO_COMPLETE"
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v0
+ 
+     .line 75
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelProgressTimer()V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 82
+     .line 83
+     const/16 v1, 0x64
+ 
+-    .line 84
+     .line 85
+     if-eqz v0, :cond_5
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     :cond_5
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 91
+     .line 92
+     if-eqz v0, :cond_6
+ 
+-    .line 93
+     .line 94
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTotalTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 95
+     .line 96
+     if-eqz v2, :cond_6
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v2
+ 
+     .line 102
+     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     :cond_6
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 106
+     .line 107
+     if-eqz v0, :cond_c
+ 
+-    .line 108
+     .line 109
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     goto/16 :goto_0
+ 
+-    .line 113
+     .line 114
+     :cond_7
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 115
+     .line 116
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v1
+ 
+     .line 123
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     const-string v1, "------------------------------ CURRENT_STATE_PAUSE"
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object v0
+ 
+     .line 135
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startProgressTimer()V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     goto :goto_0
+ 
+@@ -5011,64 +4014,45 @@
+     :cond_8
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result v0
+ 
+     .line 146
+     if-eqz v0, :cond_c
+ 
+-    .line 147
+     .line 148
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 149
+     .line 150
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result v1
+ 
+     .line 157
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     const-string v1, "------------------------------ CURRENT_STATE_PLAYING"
+ 
+-    .line 161
+     .line 162
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object v0
+ 
+     .line 169
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->startProgressTimer()V
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     goto :goto_0
+ 
+@@ -5076,8 +4060,6 @@
+     :cond_9
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->resetProgressAndTime()V
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     goto :goto_0
+ 
+@@ -5085,137 +4067,96 @@
+     :cond_a
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result v1
+ 
+     .line 184
+     if-eqz v1, :cond_b
+ 
+-    .line 185
+     .line 186
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 187
+     .line 188
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result v2
+ 
+     .line 195
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     const-string v2, "------------------------------ dismiss CURRENT_STATE_NORMAL"
+ 
+-    .line 199
+     .line 200
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result-object v1
+ 
+     .line 207
+     invoke-static {v1}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelProgressTimer()V
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     move-result-object v1
+ 
+     .line 217
+     invoke-interface {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->releaseMediaPlayer()V
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->releasePauseCover()V
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     iput v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mBufferPoint:I
+ 
+-    .line 224
+     .line 225
+     const-wide/16 v0, 0x0
+ 
+-    .line 226
+     .line 227
+     iput-wide v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mSaveChangeViewTIme:J
+ 
+-    .line 228
+     .line 229
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mAudioManager:Landroid/media/AudioManager;
+ 
+-    .line 230
+     .line 231
+     if-eqz v0, :cond_b
+ 
+-    .line 232
+     .line 233
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->onAudioFocusChangeListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
+ 
+-    .line 234
+     .line 235
+     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     :cond_b
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->releaseNetWorkState()V
+ 
+-    .line 239
+-    .line 240
+     .line 241
+     :cond_c
+     :goto_0
+     invoke-virtual {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->resolveUIState(I)V
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGsyStateUiListener:Lcom/shuyu/gsyvideoplayer/listener/GSYStateUiListener;
+ 
+-    .line 245
+     .line 246
+     if-eqz p0, :cond_d
+ 
+-    .line 247
+     .line 248
+     invoke-interface {p0, p1}, Lcom/shuyu/gsyvideoplayer/listener/GSYStateUiListener;->a(I)V
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     :cond_d
+     return-void
+@@ -5227,7 +4168,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSurfaceErrorPlay:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -5295,20 +4235,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageViewLayout:Landroid/widget/RelativeLayout;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbImageView:Landroid/view/View;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->resolveThumbImage(Landroid/view/View;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void
+@@ -5320,7 +4255,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThumbPlay:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -5423,35 +4357,27 @@
+     .line 1
+     iput-object p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCache:Z
+ 
+-    .line 4
+     .line 5
+     iput-object p3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCachePath:Ljava/io/File;
+ 
+-    .line 6
+     .line 7
+     const/4 p1, 0x1
+ 
+     .line 8
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSetUpLazy:Z
+ 
+-    .line 9
+     .line 10
+     iput-object p5, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     iput-object p4, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mMapHeadData:Ljava/util/Map;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result p2
+ 
+@@ -5461,34 +4387,27 @@
+     .line 19
+     if-eqz p2, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-wide p4
+ 
+     .line 25
+     iget-wide v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mSaveChangeViewTIme:J
+ 
+-    .line 26
+     .line 27
+     sub-long/2addr p4, v0
+ 
+     .line 28
+     const-wide/16 v0, 0x7d0
+ 
+-    .line 29
+     .line 30
+     cmp-long p2, p4, v0
+ 
+-    .line 31
+     .line 32
+     if-gez p2, :cond_0
+ 
+-    .line 33
+     .line 34
+     return p3
+ 
+@@ -5496,15 +4415,12 @@
+     :cond_0
+     const-string p2, "waiting"
+ 
+-    .line 36
+     .line 37
+     iput-object p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mUrl:Ljava/lang/String;
+ 
+-    .line 38
+     .line 39
+     iput p3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 40
+     .line 41
+     return p1
+ .end method
+@@ -5515,12 +4431,9 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :cond_0
+     return-void
+@@ -5535,31 +4448,24 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->isShowDragProgressTextOnSeekBar:Z
+ 
+-    .line 4
+     .line 5
+     if-eqz p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-wide v0
+ 
+     .line 11
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mCurrentTimeTextView:Landroid/widget/TextView;
+ 
+-    .line 12
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     int-to-long p1, p2
+ 
+@@ -5569,23 +4475,18 @@
+     .line 17
+     const-wide/16 v0, 0x64
+ 
+-    .line 18
+     .line 19
+     div-long/2addr p1, v0
+ 
+     .line 20
+     invoke-static {p1, p2}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_0
+     return-void
+@@ -5606,31 +4507,24 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelDismissControlViewTimer()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x1
+ 
+     .line 5
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mPostDismiss:Z
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->dismissControlTask:Ljava/lang/Runnable;
+ 
+-    .line 8
+     .line 9
+     iget v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDismissControlTime:I
+ 
+-    .line 10
+     .line 11
+     int-to-long v1, v1
+ 
+     .line 12
+     invoke-virtual {p0, v0, v1, v2}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -5641,28 +4535,21 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelProgressTimer()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x1
+ 
+     .line 5
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mPostProgress:Z
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->progressTask:Ljava/lang/Runnable;
+ 
+-    .line 8
+     .line 9
+     const-wide/16 v1, 0x12c
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, v0, v1, v2}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5673,11 +4560,9 @@
+     .line 1
+     iget-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mHadPlay:Z
+ 
+-    .line 2
+     .line 3
+     if-nez p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -5685,8 +4570,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->clickStartIcon()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -5707,45 +4590,36 @@
+     .line 2
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTouchingProgressBar:Z
+ 
+-    .line 3
+     .line 4
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownX:F
+ 
+-    .line 5
+     .line 6
+     iput p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownY:F
+ 
+-    .line 7
+     .line 8
+     const/4 p1, 0x0
+ 
+     .line 9
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mMoveY:F
+ 
+-    .line 10
+     .line 11
+     const/4 p1, 0x0
+ 
+     .line 12
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangeVolume:Z
+ 
+-    .line 13
+     .line 14
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangePosition:Z
+ 
+-    .line 15
+     .line 16
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mShowVKey:Z
+ 
+-    .line 17
+     .line 18
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightness:Z
+ 
+-    .line 19
+     .line 20
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFirstTouch:Z
+ 
+-    .line 21
+     .line 22
+     return-void
+ .end method
+@@ -5756,8 +4630,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -5767,35 +4639,27 @@
+     .line 6
+     if-eqz v0, :cond_2
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     check-cast v0, Landroid/app/Activity;
+ 
+-    .line 13
+     .line 14
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getCurrentScreenLand(Landroid/app/Activity;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v0
+ 
+     .line 18
+     if-eqz v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mScreenHeight:I
+ 
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -5803,36 +4667,28 @@
+     :cond_0
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mScreenWidth:I
+ 
+-    .line 24
+     .line 25
+     :goto_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v2
+ 
+     .line 29
+     check-cast v2, Landroid/app/Activity;
+ 
+-    .line 30
+     .line 31
+     invoke-static {v2}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getCurrentScreenLand(Landroid/app/Activity;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v2
+ 
+     .line 35
+     if-eqz v2, :cond_1
+ 
+-    .line 36
+     .line 37
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mScreenWidth:I
+ 
+-    .line 38
+     .line 39
+     goto :goto_1
+ 
+@@ -5840,7 +4696,6 @@
+     :cond_1
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mScreenHeight:I
+ 
+-    .line 41
+     .line 42
+     goto :goto_1
+ 
+@@ -5855,23 +4710,18 @@
+     :goto_1
+     iget-boolean v3, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangePosition:Z
+ 
+-    .line 46
+     .line 47
+     if-eqz v3, :cond_5
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-wide v10
+ 
+     .line 53
+     iget-wide p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownPosition:J
+ 
+-    .line 54
+     .line 55
+     long-to-float p2, p2
+ 
+@@ -5890,7 +4740,6 @@
+     .line 60
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekRatio:F
+ 
+-    .line 61
+     .line 62
+     div-float/2addr p3, v0
+ 
+@@ -5906,65 +4755,50 @@
+     .line 66
+     iput-wide p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 67
+     .line 68
+     const-wide/16 v0, 0x0
+ 
+-    .line 69
+     .line 70
+     cmp-long p2, p2, v0
+ 
+-    .line 71
+     .line 72
+     if-gez p2, :cond_3
+ 
+-    .line 73
+     .line 74
+     iput-wide v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 75
+     .line 76
+     :cond_3
+     iget-wide p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 77
+     .line 78
+     cmp-long p2, p2, v10
+ 
+-    .line 79
+     .line 80
+     if-lez p2, :cond_4
+ 
+-    .line 81
+     .line 82
+     iput-wide v10, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 83
+     .line 84
+     :cond_4
+     iget-wide p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 85
+     .line 86
+     invoke-static {p2, p3}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v6
+ 
+     .line 90
+     invoke-static {v10, v11}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->stringForTime(J)Ljava/lang/String;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v9
+ 
+     .line 94
+     iget-wide v7, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 95
+     .line 96
+     move-object v4, p0
+ 
+@@ -5974,8 +4808,6 @@
+     .line 98
+     invoke-virtual/range {v4 .. v11}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->showProgressDialog(FLjava/lang/String;JLjava/lang/String;J)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     return-void
+ 
+@@ -5986,26 +4818,21 @@
+     .line 103
+     iget-boolean p0, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangeVolume:Z
+ 
+-    .line 104
+     .line 105
+     if-eqz p0, :cond_6
+ 
+-    .line 106
+     .line 107
+     neg-float p0, p2
+ 
+     .line 108
+     iget-object p1, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mAudioManager:Landroid/media/AudioManager;
+ 
+-    .line 109
+     .line 110
+     const/4 p2, 0x3
+ 
+     .line 111
+     invoke-virtual {p1, p2}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result p1
+ 
+@@ -6018,7 +4845,6 @@
+     .line 117
+     const/high16 v0, 0x40400000    # 3.0f
+ 
+-    .line 118
+     .line 119
+     mul-float/2addr p3, v0
+ 
+@@ -6034,27 +4860,21 @@
+     .line 123
+     iget-object v3, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mAudioManager:Landroid/media/AudioManager;
+ 
+-    .line 124
+     .line 125
+     iget v5, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGestureDownVolume:I
+ 
+-    .line 126
+     .line 127
+     add-int/2addr v5, p3
+ 
+     .line 128
+     invoke-virtual {v3, p2, v5, v1}, Landroid/media/AudioManager;->setStreamVolume(III)V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     iget p2, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGestureDownVolume:I
+ 
+-    .line 132
+     .line 133
+     mul-int/lit8 p2, p2, 0x64
+ 
+-    .line 134
+     .line 135
+     div-int/2addr p2, p1
+ 
+@@ -6067,7 +4887,6 @@
+     .line 138
+     const/high16 p2, 0x42c80000    # 100.0f
+ 
+-    .line 139
+     .line 140
+     mul-float/2addr v0, p2
+ 
+@@ -6086,8 +4905,6 @@
+     .line 145
+     invoke-virtual {v4, p0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->showVolumeDialog(FI)V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     return-void
+ 
+@@ -6095,34 +4912,27 @@
+     :cond_6
+     iget-boolean p0, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightness:Z
+ 
+-    .line 150
+     .line 151
+     if-eqz p0, :cond_7
+ 
+-    .line 152
+     .line 153
+     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result p0
+ 
+     .line 157
+     iget p1, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThreshold:I
+ 
+-    .line 158
+     .line 159
+     int-to-float p1, p1
+ 
+     .line 160
+     cmpl-float p0, p0, p1
+ 
+-    .line 161
+     .line 162
+     if-lez p0, :cond_7
+ 
+-    .line 163
+     .line 164
+     neg-float p0, p2
+ 
+@@ -6135,12 +4945,9 @@
+     .line 167
+     invoke-virtual {v4, p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->onBrightnessSlide(F)V
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     iput p3, v4, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownY:F
+ 
+-    .line 171
+     .line 172
+     :cond_7
+     return-void
+@@ -6152,8 +4959,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -6163,35 +4968,27 @@
+     .line 6
+     if-eqz v0, :cond_1
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getActivityContext()Landroid/content/Context;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     check-cast v0, Landroid/app/Activity;
+ 
+-    .line 13
+     .line 14
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getCurrentScreenLand(Landroid/app/Activity;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v0
+ 
+     .line 18
+     if-eqz v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mScreenHeight:I
+ 
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -6199,7 +4996,6 @@
+     :cond_0
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mScreenWidth:I
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -6211,29 +5007,24 @@
+     :goto_0
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThreshold:I
+ 
+-    .line 28
+     .line 29
+     int-to-float v3, v2
+ 
+     .line 30
+     cmpl-float v3, p1, v3
+ 
+-    .line 31
+     .line 32
+     if-gtz v3, :cond_3
+ 
+-    .line 33
+     .line 34
+     int-to-float v2, v2
+ 
+     .line 35
+     cmpl-float p2, p2, v2
+ 
+-    .line 36
+     .line 37
+     if-lez p2, :cond_2
+ 
+-    .line 38
+     .line 39
+     goto :goto_1
+ 
+@@ -6246,39 +5037,30 @@
+     :goto_1
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->cancelProgressTimer()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     iget p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mThreshold:I
+ 
+-    .line 45
+     .line 46
+     int-to-float p2, p2
+ 
+     .line 47
+     cmpl-float p1, p1, p2
+ 
+-    .line 48
+     .line 49
+     const/4 p2, 0x1
+ 
+     .line 50
+     if-ltz p1, :cond_5
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object p1
+ 
+     .line 56
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getScreenWidth(Landroid/content/Context;)I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result p1
+ 
+@@ -6288,49 +5070,39 @@
+     .line 61
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownX:F
+ 
+-    .line 62
+     .line 63
+     sub-float/2addr p1, v0
+ 
+     .line 64
+     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result p1
+ 
+     .line 68
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekEndOffset:I
+ 
+-    .line 69
+     .line 70
+     int-to-float v0, v0
+ 
+     .line 71
+     cmpl-float p1, p1, v0
+ 
+-    .line 72
+     .line 73
+     if-lez p1, :cond_4
+ 
+-    .line 74
+     .line 75
+     iput-boolean p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangePosition:Z
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getCurrentPositionWhenPlaying()J
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-wide p1
+ 
+     .line 81
+     iput-wide p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownPosition:J
+ 
+-    .line 82
+     .line 83
+     return-void
+ 
+@@ -6338,7 +5110,6 @@
+     :cond_4
+     iput-boolean p2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mShowVKey:Z
+ 
+-    .line 85
+     .line 86
+     return-void
+ 
+@@ -6346,16 +5117,12 @@
+     :cond_5
+     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p1
+ 
+     .line 91
+     invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getScreenHeight(Landroid/content/Context;)I
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result p1
+ 
+@@ -6365,33 +5132,27 @@
+     .line 96
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownY:F
+ 
+-    .line 97
+     .line 98
+     sub-float/2addr p1, v2
+ 
+     .line 99
+     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p1
+ 
+     .line 103
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekEndOffset:I
+ 
+-    .line 104
+     .line 105
+     int-to-float v2, v2
+ 
+     .line 106
+     cmpl-float p1, p1, v2
+ 
+-    .line 107
+     .line 108
+     if-lez p1, :cond_6
+ 
+-    .line 109
+     .line 110
+     move p1, p2
+ 
+@@ -6406,37 +5167,30 @@
+     :goto_2
+     iget-boolean v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFirstTouch:Z
+ 
+-    .line 114
+     .line 115
+     if-eqz v2, :cond_8
+ 
+-    .line 116
+     .line 117
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mDownX:F
+ 
+-    .line 118
+     .line 119
+     int-to-float v0, v0
+ 
+     .line 120
+     const/high16 v3, 0x3f000000    # 0.5f
+ 
+-    .line 121
+     .line 122
+     mul-float/2addr v0, v3
+ 
+     .line 123
+     cmpg-float v0, v2, v0
+ 
+-    .line 124
+     .line 125
+     if-gez v0, :cond_7
+ 
+-    .line 126
+     .line 127
+     if-eqz p1, :cond_7
+ 
+-    .line 128
+     .line 129
+     move v0, p2
+ 
+@@ -6451,43 +5205,34 @@
+     :goto_3
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightness:Z
+ 
+-    .line 133
+     .line 134
+     iput-boolean v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mFirstTouch:Z
+ 
+-    .line 135
+     .line 136
+     :cond_8
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightness:Z
+ 
+-    .line 137
+     .line 138
+     if-nez v0, :cond_9
+ 
+-    .line 139
+     .line 140
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangeVolume:Z
+ 
+-    .line 141
+     .line 142
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mAudioManager:Landroid/media/AudioManager;
+ 
+-    .line 143
+     .line 144
+     const/4 v1, 0x3
+ 
+     .line 145
+     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->getStreamVolume(I)I
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result v0
+ 
+     .line 149
+     iput v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mGestureDownVolume:I
+ 
+-    .line 150
+     .line 151
+     :cond_9
+     xor-int/2addr p1, p2
+@@ -6495,7 +5240,6 @@
+     .line 152
+     iput-boolean p1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mShowVKey:Z
+ 
+-    .line 153
+     .line 154
+     return-void
+ .end method
+@@ -6506,46 +5250,36 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangePosition:Z
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v1, 0x1
+ 
+-    .line 4
+     .line 5
+     const-wide/16 v3, 0x0
+ 
+-    .line 6
+     .line 7
+     const-wide/16 v5, 0x64
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-wide v7
+ 
+     .line 15
+     iget-wide v9, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 16
+     .line 17
+     mul-long/2addr v9, v5
+ 
+     .line 18
+     cmp-long v0, v7, v3
+ 
+-    .line 19
+     .line 20
+     if-nez v0, :cond_0
+ 
+-    .line 21
+     .line 22
+     move-wide v7, v1
+ 
+@@ -6556,19 +5290,15 @@
+     .line 24
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBottomProgressBar:Landroid/widget/ProgressBar;
+ 
+-    .line 25
+     .line 26
+     if-eqz v0, :cond_1
+ 
+-    .line 27
+     .line 28
+     long-to-int v7, v9
+ 
+     .line 29
+     invoke-virtual {v0, v7}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     :cond_1
+     const/4 v0, 0x0
+@@ -6576,81 +5306,61 @@
+     .line 33
+     iput-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mTouchingProgressBar:Z
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->dismissProgressDialog()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->dismissVolumeDialog()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->dismissBrightnessDialog()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangePosition:Z
+ 
+-    .line 45
+     .line 46
+     if-eqz v0, :cond_5
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v0
+ 
+     .line 52
+     if-eqz v0, :cond_5
+ 
+-    .line 53
+     .line 54
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mCurrentState:I
+ 
+-    .line 55
+     .line 56
+     const/4 v7, 0x2
+ 
+     .line 57
+     if-eq v0, v7, :cond_2
+ 
+-    .line 58
+     .line 59
+     const/4 v7, 0x5
+ 
+     .line 60
+     if-ne v0, v7, :cond_5
+ 
+-    .line 61
+     .line 62
+     :cond_2
+     :try_start_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     iget-wide v7, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 67
+     .line 68
+     invoke-interface {v0, v7, v8}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->seekTo(J)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto :goto_0
+ 
+@@ -6661,32 +5371,25 @@
+     .line 73
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     :goto_0
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-wide v7
+ 
+     .line 80
+     iget-wide v9, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mSeekTimePosition:J
+ 
+-    .line 81
+     .line 82
+     mul-long/2addr v9, v5
+ 
+     .line 83
+     cmp-long v0, v7, v3
+ 
+-    .line 84
+     .line 85
+     if-nez v0, :cond_3
+ 
+-    .line 86
+     .line 87
+     goto :goto_1
+ 
+@@ -6701,74 +5404,55 @@
+     .line 90
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mProgressBar:Landroid/widget/SeekBar;
+ 
+-    .line 91
+     .line 92
+     if-eqz v0, :cond_4
+ 
+-    .line 93
+     .line 94
+     long-to-int v1, v9
+ 
+     .line 95
+     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     :cond_4
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 99
+     .line 100
+     if-eqz v0, :cond_7
+ 
+-    .line 101
+     .line 102
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result v0
+ 
+     .line 106
+     if-eqz v0, :cond_7
+ 
+-    .line 107
+     .line 108
+     const-string v0, "onTouchScreenSeekPosition"
+ 
+-    .line 109
+     .line 110
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 114
+     .line 115
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 116
+     .line 117
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 118
+     .line 119
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object p0
+ 
+     .line 123
+     invoke-interface {v0, v1, p0}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->p(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     goto :goto_2
+ 
+@@ -6776,65 +5460,48 @@
+     :cond_5
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mBrightness:Z
+ 
+-    .line 128
+     .line 129
+     if-eqz v0, :cond_6
+ 
+-    .line 130
+     .line 131
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 132
+     .line 133
+     if-eqz v0, :cond_7
+ 
+-    .line 134
+     .line 135
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result v0
+ 
+     .line 139
+     if-eqz v0, :cond_7
+ 
+-    .line 140
+     .line 141
+     const-string v0, "onTouchScreenSeekLight"
+ 
+-    .line 142
+     .line 143
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 147
+     .line 148
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 149
+     .line 150
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 151
+     .line 152
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result-object p0
+ 
+     .line 156
+     invoke-interface {v0, v1, p0}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->e0(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     return-void
+ 
+@@ -6842,65 +5509,48 @@
+     :cond_6
+     iget-boolean v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoControlView;->mChangeVolume:Z
+ 
+-    .line 161
+     .line 162
+     if-eqz v0, :cond_7
+ 
+-    .line 163
+     .line 164
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 165
+     .line 166
+     if-eqz v0, :cond_7
+ 
+-    .line 167
+     .line 168
+     invoke-virtual {p0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->isCurrentMediaListener()Z
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result v0
+ 
+     .line 172
+     if-eqz v0, :cond_7
+ 
+-    .line 173
+     .line 174
+     const-string v0, "onTouchScreenSeekVolume"
+ 
+-    .line 175
+     .line 176
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mVideoAllCallBack:Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;
+ 
+-    .line 180
+     .line 181
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mOriginUrl:Ljava/lang/String;
+ 
+-    .line 182
+     .line 183
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->mTitle:Ljava/lang/String;
+ 
+-    .line 184
+     .line 185
+     filled-new-array {v2, p0}, [Ljava/lang/Object;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object p0
+ 
+     .line 189
+     invoke-interface {v0, v1, p0}, Lcom/shuyu/gsyvideoplayer/listener/VideoAllCallBack;->p0(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     :cond_7
+     :goto_2

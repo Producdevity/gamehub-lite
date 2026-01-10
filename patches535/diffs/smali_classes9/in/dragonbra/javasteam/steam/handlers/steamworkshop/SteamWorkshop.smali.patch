@@ -1,0 +1,258 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop.smali
+@@ -28,19 +28,15 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop;->Companion:Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop$Companion;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -51,8 +47,6 @@
+     .line 1
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -82,180 +76,129 @@
+     .line 1
+     const-string v0, "details"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction;
+ 
+-    .line 9
+     .line 10
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientUCMEnumeratePublishedFilesByUserAction:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getNextJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v1
+ 
+     .line 23
+     invoke-virtual {v0, v1}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->setSourceJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v1
+ 
+     .line 30
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/EnumerationUserDetails;->getUserAction()Lin/dragonbra/javasteam/enums/EWorkshopFileAction;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v2
+ 
+     .line 36
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/enums/EWorkshopFileAction;->code()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v2
+ 
+     .line 40
+     invoke-virtual {v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;->setAction(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+     .line 47
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/EnumerationUserDetails;->getAppID()I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v2
+ 
+     .line 53
+     invoke-virtual {v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v1
+ 
+     .line 60
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/EnumerationUserDetails;->getStartIndex()I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result p1
+ 
+     .line 66
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;->setStartIndex(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUcm$CMsgClientUCMEnumeratePublishedFilesByUserAction$Builder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p1
+ 
+     .line 73
+     invoke-virtual {p1, v0}, Lin/dragonbra/javasteam/steam/CMClient;->send(Lin/dragonbra/javasteam/base/IClientMsg;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     new-instance p1, Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p0
+ 
+     .line 82
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v0
+ 
+     .line 86
+     const-string v1, "getSourceJobID(...)"
+ 
+-    .line 87
+     .line 88
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     invoke-direct {p1, p0, v0}, Lin/dragonbra/javasteam/types/AsyncJobSingle;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     return-object p1
+ .end method
+@@ -270,28 +213,21 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object v0, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop;->Companion:Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop$Companion;
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p1}, Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop$Companion;->access$getCallback(Lin/dragonbra/javasteam/steam/handlers/steamworkshop/SteamWorkshop$Companion;Lin/dragonbra/javasteam/base/IPacketMsg;)Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     if-nez p1, :cond_0
+ 
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -299,16 +235,12 @@
+     :cond_0
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ .end method

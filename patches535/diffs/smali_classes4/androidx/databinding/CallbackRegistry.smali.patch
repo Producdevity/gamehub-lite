@@ -1,0 +1,928 @@
+--- a/smali_classes4/androidx/databinding/CallbackRegistry.smali
++++ b/smali_classes4/androidx/databinding/CallbackRegistry.smali
+@@ -47,33 +47,24 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     const-wide/16 v0, 0x0
+ 
+-    .line 12
+     .line 13
+     iput-wide v0, p0, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 14
+     .line 15
+     iput-object p1, p0, Landroidx/databinding/CallbackRegistry;->e:Landroidx/databinding/CallbackRegistry$NotifierCallback;
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -89,36 +80,28 @@
+     .line 2
+     if-eqz p1, :cond_2
+ 
+-    .line 3
+     .line 4
+     :try_start_0
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 5
+     .line 6
+     invoke-interface {v0, p1}, Ljava/util/List;->lastIndexOf(Ljava/lang/Object;)I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+     .line 10
+     if-ltz v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, v0}, Landroidx/databinding/CallbackRegistry;->d(I)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-eqz v0, :cond_1
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -134,14 +117,11 @@
+     :goto_0
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_1
+     monitor-exit p0
+@@ -154,16 +134,12 @@
+     :try_start_1
+     new-instance p1, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 29
+     .line 30
+     const-string v0, "callback cannot be null"
+ 
+-    .line 31
+     .line 32
+     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     throw p1
+ 
+@@ -190,8 +166,6 @@
+     :try_start_0
+     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+@@ -201,49 +175,37 @@
+     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_1
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 8
+     .line 9
+     const-wide/16 v2, 0x0
+ 
+-    .line 10
+     .line 11
+     :try_start_1
+     iput-wide v2, v1, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 12
+     .line 13
+     iput-object v0, v1, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+     .line 16
+     iput v0, v1, Landroidx/databinding/CallbackRegistry;->d:I
+ 
+-    .line 17
+     .line 18
+     new-instance v2, Ljava/util/ArrayList;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iput-object v2, v1, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 24
+     .line 25
+     iget-object v2, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 26
+     .line 27
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v2
+ 
+@@ -251,32 +213,24 @@
+     :goto_0
+     if-ge v0, v2, :cond_1
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0, v0}, Landroidx/databinding/CallbackRegistry;->d(I)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v3
+ 
+     .line 37
+     if-nez v3, :cond_0
+ 
+-    .line 38
+     .line 39
+     iget-object v3, v1, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 40
+     .line 41
+     iget-object v4, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 42
+     .line 43
+     invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v4
+ 
+@@ -286,8 +240,6 @@
+     .catch Ljava/lang/CloneNotSupportedException; {:try_start_1 .. :try_end_1} :catch_0
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     goto :goto_1
+ 
+@@ -310,7 +262,6 @@
+     :goto_1
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 56
+     .line 57
+     goto :goto_0
+ 
+@@ -334,8 +285,6 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :cond_1
+     monitor-exit p0
+@@ -360,8 +309,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/databinding/CallbackRegistry;->c()Landroidx/databinding/CallbackRegistry;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -375,11 +322,9 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v2, 0x1
+ 
+-    .line 4
+     .line 5
+     const/4 v4, 0x1
+ 
+@@ -389,29 +334,24 @@
+     .line 7
+     const/16 v6, 0x40
+ 
+-    .line 8
+     .line 9
+     if-ge p1, v6, :cond_1
+ 
+-    .line 10
+     .line 11
+     shl-long/2addr v2, p1
+ 
+     .line 12
+     iget-wide p0, p0, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 13
+     .line 14
+     and-long/2addr p0, v2
+ 
+     .line 15
+     cmp-long p0, p0, v0
+ 
+-    .line 16
+     .line 17
+     if-eqz p0, :cond_0
+ 
+-    .line 18
+     .line 19
+     return v4
+ 
+@@ -423,11 +363,9 @@
+     :cond_1
+     iget-object p0, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 22
+     .line 23
+     if-nez p0, :cond_2
+ 
+-    .line 24
+     .line 25
+     return v5
+ 
+@@ -435,7 +373,6 @@
+     :cond_2
+     div-int/lit8 v7, p1, 0x40
+ 
+-    .line 27
+     .line 28
+     sub-int/2addr v7, v4
+ 
+@@ -445,7 +382,6 @@
+     .line 30
+     if-lt v7, v8, :cond_3
+ 
+-    .line 31
+     .line 32
+     return v5
+ 
+@@ -453,25 +389,21 @@
+     :cond_3
+     aget-wide v7, p0, v7
+ 
+-    .line 34
+     .line 35
+     rem-int/2addr p1, v6
+ 
+     .line 36
+     shl-long p0, v2, p1
+ 
+-    .line 37
+     .line 38
+     and-long/2addr p0, v7
+ 
+     .line 39
+     cmp-long p0, p0, v0
+ 
+-    .line 40
+     .line 41
+     if-eqz p0, :cond_4
+ 
+-    .line 42
+     .line 43
+     return v4
+ 
+@@ -490,97 +422,73 @@
+     :try_start_0
+     iget v0, p0, Landroidx/databinding/CallbackRegistry;->d:I
+ 
+-    .line 3
+     .line 4
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 5
+     .line 6
+     iput v0, p0, Landroidx/databinding/CallbackRegistry;->d:I
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1, p2, p3}, Landroidx/databinding/CallbackRegistry;->h(Ljava/lang/Object;ILjava/lang/Object;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget p1, p0, Landroidx/databinding/CallbackRegistry;->d:I
+ 
+-    .line 12
+     .line 13
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 14
+     .line 15
+     iput p1, p0, Landroidx/databinding/CallbackRegistry;->d:I
+ 
+-    .line 16
+     .line 17
+     if-nez p1, :cond_2
+ 
+-    .line 18
+     .line 19
+     iget-object p1, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 20
+     .line 21
+     const-wide/16 p2, 0x0
+ 
+-    .line 22
+     .line 23
+     if-eqz p1, :cond_1
+ 
+-    .line 24
+     .line 25
+     array-length p1, p1
+ 
+     .line 26
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 27
+     .line 28
+     :goto_0
+     if-ltz p1, :cond_1
+ 
+-    .line 29
+     .line 30
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 31
+     .line 32
+     aget-wide v0, v0, p1
+ 
+-    .line 33
+     .line 34
+     cmp-long v2, v0, p2
+ 
+-    .line 35
+     .line 36
+     if-eqz v2, :cond_0
+ 
+-    .line 37
+     .line 38
+     add-int/lit8 v2, p1, 0x1
+ 
+-    .line 39
+     .line 40
+     mul-int/lit8 v2, v2, 0x40
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p0, v2, v0, v1}, Landroidx/databinding/CallbackRegistry;->k(IJ)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 46
+     .line 47
+     aput-wide p2, v0, p1
+ 
+-    .line 48
+     .line 49
+     goto :goto_1
+ 
+@@ -596,7 +504,6 @@
+     :goto_1
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 53
+     .line 54
+     goto :goto_0
+ 
+@@ -604,29 +511,23 @@
+     :cond_1
+     iget-wide v0, p0, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 56
+     .line 57
+     cmp-long p1, v0, p2
+ 
+-    .line 58
+     .line 59
+     if-eqz p1, :cond_2
+ 
+-    .line 60
+     .line 61
+     const/4 p1, 0x0
+ 
+     .line 62
+     invoke-virtual {p0, p1, v0, v1}, Landroidx/databinding/CallbackRegistry;->k(IJ)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     iput-wide p2, p0, Landroidx/databinding/CallbackRegistry;->b:J
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 66
+     .line 67
+     :cond_2
+     monitor-exit p0
+@@ -651,49 +552,37 @@
+     .line 1
+     const-wide/16 v0, 0x1
+ 
+-    .line 2
+     .line 3
+     :goto_0
+     if-ge p4, p5, :cond_1
+ 
+-    .line 4
+     .line 5
+     and-long v2, p6, v0
+ 
+-    .line 6
+     .line 7
+     const-wide/16 v4, 0x0
+ 
+-    .line 8
+     .line 9
+     cmp-long v2, v2, v4
+ 
+-    .line 10
+     .line 11
+     if-nez v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     iget-object v2, p0, Landroidx/databinding/CallbackRegistry;->e:Landroidx/databinding/CallbackRegistry$NotifierCallback;
+ 
+-    .line 14
+     .line 15
+     iget-object v3, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v3, p4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v3
+ 
+     .line 21
+     invoke-virtual {v2, v3, p1, p2, p3}, Landroidx/databinding/CallbackRegistry$NotifierCallback;->a(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_0
+     const/4 v2, 0x1
+@@ -704,7 +593,6 @@
+     .line 26
+     add-int/lit8 p4, p4, 0x1
+ 
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -719,24 +607,18 @@
+     .line 1
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     const/16 v1, 0x40
+ 
+-    .line 8
+     .line 9
+     invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v7
+ 
+@@ -746,7 +628,6 @@
+     .line 14
+     iget-wide v8, p0, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 15
+     .line 16
+     move-object v2, p0
+ 
+@@ -762,8 +643,6 @@
+     .line 20
+     invoke-virtual/range {v2 .. v9}, Landroidx/databinding/CallbackRegistry;->f(Ljava/lang/Object;ILjava/lang/Object;IIJ)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -774,23 +653,18 @@
+     .line 1
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v6
+ 
+     .line 7
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 8
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 v0, -0x1
+ 
+@@ -804,25 +678,19 @@
+     .line 14
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 15
+     .line 16
+     :goto_0
+     invoke-virtual {p0, p1, p2, p3, v0}, Landroidx/databinding/CallbackRegistry;->i(Ljava/lang/Object;ILjava/lang/Object;I)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     add-int/lit8 v0, v0, 0x2
+ 
+-    .line 20
+     .line 21
+     mul-int/lit8 v5, v0, 0x40
+ 
+-    .line 22
+     .line 23
+     const-wide/16 v7, 0x0
+ 
+-    .line 24
+     .line 25
+     move-object v1, p0
+ 
+@@ -838,8 +706,6 @@
+     .line 29
+     invoke-virtual/range {v1 .. v8}, Landroidx/databinding/CallbackRegistry;->f(Ljava/lang/Object;ILjava/lang/Object;IIJ)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -850,12 +716,9 @@
+     .line 1
+     if-gez p4, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Landroidx/databinding/CallbackRegistry;->g(Ljava/lang/Object;ILjava/lang/Object;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ 
+@@ -863,52 +726,39 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 8
+     .line 9
+     aget-wide v7, v0, p4
+ 
+-    .line 10
+     .line 11
+     add-int/lit8 v0, p4, 0x1
+ 
+-    .line 12
+     .line 13
+     mul-int/lit8 v5, v0, 0x40
+ 
+-    .line 14
+     .line 15
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     add-int/lit8 v1, v5, 0x40
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v6
+ 
+     .line 27
+     add-int/lit8 p4, p4, -0x1
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0, p1, p2, p3, p4}, Landroidx/databinding/CallbackRegistry;->i(Ljava/lang/Object;ILjava/lang/Object;I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-object v1, p0
+ 
+@@ -924,8 +774,6 @@
+     .line 36
+     invoke-virtual/range {v1 .. v8}, Landroidx/databinding/CallbackRegistry;->f(Ljava/lang/Object;ILjava/lang/Object;IIJ)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ .end method
+@@ -940,20 +788,15 @@
+     :try_start_0
+     iget v0, p0, Landroidx/databinding/CallbackRegistry;->d:I
+ 
+-    .line 3
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -968,26 +811,20 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 15
+     .line 16
+     invoke-interface {v0, p1}, Ljava/util/List;->lastIndexOf(Ljava/lang/Object;)I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p1
+ 
+     .line 20
+     if-ltz p1, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0, p1}, Landroidx/databinding/CallbackRegistry;->l(I)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :cond_1
+     :goto_0
+@@ -1013,41 +850,31 @@
+     .line 1
+     add-int/lit8 v0, p1, 0x3f
+ 
+-    .line 2
+     .line 3
+     const-wide/high16 v1, -0x8000000000000000L
+ 
+-    .line 4
+     .line 5
+     :goto_0
+     if-lt v0, p1, :cond_1
+ 
+-    .line 6
+     .line 7
+     and-long v3, p2, v1
+ 
+-    .line 8
+     .line 9
+     const-wide/16 v5, 0x0
+ 
+-    .line 10
+     .line 11
+     cmp-long v3, v3, v5
+ 
+-    .line 12
+     .line 13
+     if-eqz v3, :cond_0
+ 
+-    .line 14
+     .line 15
+     iget-object v3, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v3, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     :cond_0
+     const/4 v3, 0x1
+@@ -1058,7 +885,6 @@
+     .line 22
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -1073,29 +899,24 @@
+     .line 1
+     const-wide/16 v0, 0x1
+ 
+-    .line 2
+     .line 3
+     const/16 v2, 0x40
+ 
+-    .line 4
+     .line 5
+     if-ge p1, v2, :cond_0
+ 
+-    .line 6
+     .line 7
+     shl-long/2addr v0, p1
+ 
+     .line 8
+     iget-wide v2, p0, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 9
+     .line 10
+     or-long/2addr v0, v2
+ 
+     .line 11
+     iput-wide v0, p0, Landroidx/databinding/CallbackRegistry;->b:J
+ 
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1103,28 +924,21 @@
+     :cond_0
+     div-int/lit8 v3, p1, 0x40
+ 
+-    .line 15
+     .line 16
+     add-int/lit8 v3, v3, -0x1
+ 
+-    .line 17
+     .line 18
+     iget-object v4, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 19
+     .line 20
+     if-nez v4, :cond_1
+ 
+-    .line 21
+     .line 22
+     iget-object v4, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 23
+     .line 24
+     invoke-interface {v4}, Ljava/util/List;->size()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v4
+ 
+@@ -1134,11 +948,9 @@
+     .line 29
+     new-array v4, v4, [J
+ 
+-    .line 30
+     .line 31
+     iput-object v4, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -1149,16 +961,12 @@
+     .line 35
+     if-gt v4, v3, :cond_2
+ 
+-    .line 36
+     .line 37
+     iget-object v4, p0, Landroidx/databinding/CallbackRegistry;->a:Ljava/util/List;
+ 
+-    .line 38
+     .line 39
+     invoke-interface {v4}, Ljava/util/List;->size()I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v4
+ 
+@@ -1168,11 +976,9 @@
+     .line 44
+     new-array v4, v4, [J
+ 
+-    .line 45
+     .line 46
+     iget-object v5, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 47
+     .line 48
+     array-length v6, v5
+ 
+@@ -1182,12 +988,9 @@
+     .line 50
+     invoke-static {v5, v7, v4, v7, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     iput-object v4, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 54
+     .line 55
+     :cond_2
+     :goto_0
+@@ -1199,18 +1002,15 @@
+     .line 57
+     iget-object p0, p0, Landroidx/databinding/CallbackRegistry;->c:[J
+ 
+-    .line 58
+     .line 59
+     aget-wide v4, p0, v3
+ 
+-    .line 60
+     .line 61
+     or-long/2addr v0, v4
+ 
+     .line 62
+     aput-wide v0, p0, v3
+ 
+-    .line 63
+     .line 64
+     return-void
+ .end method

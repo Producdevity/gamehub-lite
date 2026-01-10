@@ -1,0 +1,891 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager.smali
+@@ -35,19 +35,15 @@
+     .line 1
+     const-string v0, "00002902-0000-1000-8000-00805f9b34fb"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->h:Ljava/util/UUID;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -58,45 +54,33 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/HashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->g:Ljava/util/Map;
+ 
+-    .line 10
+     .line 11
+     iput-object p1, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->a:[B
+ 
+-    .line 12
+     .line 13
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->b:[B
+ 
+-    .line 14
+     .line 15
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->c:[B
+ 
+-    .line 16
+     .line 17
+     iput-object p4, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->d:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 18
+     .line 19
+     iput-object p5, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->e:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 20
+     .line 21
+     iput-object p6, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->f:Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;
+ 
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -107,44 +91,33 @@
+     .line 1
+     const-class v0, [B
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Lio/reactivex/Observable;->e(Ljava/lang/Class;)Lio/reactivex/Observable;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {p1, p0}, Lio/reactivex/Observable;->D0(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     filled-new-array {v0, p0}, [Lio/reactivex/Observable;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-static {p0}, Lio/reactivex/Observable;->c(Ljava/lang/Iterable;)Lio/reactivex/Observable;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+@@ -158,16 +131,12 @@
+     .line 1
+     invoke-virtual {p0}, Lio/reactivex/Completable;->n()Lio/reactivex/Completable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p1, p0}, Lio/reactivex/Observable;->a0(Lio/reactivex/CompletableSource;)Lio/reactivex/Observable;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -181,7 +150,6 @@
+     .line 1
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->g:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v1
+ 
+@@ -189,71 +157,54 @@
+     :try_start_0
+     new-instance v5, Lcom/polidea/rxandroidble2/internal/util/CharacteristicNotificationId;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGattCharacteristic;->getUuid()Ljava/util/UUID;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGattCharacteristic;->getInstanceId()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v2
+ 
+     .line 14
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v2
+ 
+     .line 18
+     invoke-direct {v5, v0, v2}, Lcom/polidea/rxandroidble2/internal/util/CharacteristicNotificationId;-><init>(Ljava/util/UUID;Ljava/lang/Integer;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->g:Ljava/util/Map;
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v0, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+     .line 27
+     check-cast v0, Lcom/polidea/rxandroidble2/internal/util/ActiveCharacteristicNotification;
+ 
+-    .line 28
+     .line 29
+     const/4 v8, 0x1
+ 
+     .line 30
+     if-eqz v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     iget-boolean p0, v0, Lcom/polidea/rxandroidble2/internal/util/ActiveCharacteristicNotification;->b:Z
+ 
+-    .line 33
+     .line 34
+     if-ne p0, p2, :cond_0
+ 
+-    .line 35
+     .line 36
+     iget-object p0, v0, Lcom/polidea/rxandroidble2/internal/util/ActiveCharacteristicNotification;->a:Lio/reactivex/Observable;
+ 
+-    .line 37
+     .line 38
+     monitor-exit v1
+ 
+@@ -274,12 +225,9 @@
+     :cond_0
+     new-instance p0, Lcom/polidea/rxandroidble2/exceptions/BleConflictingNotificationAlreadySetException;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGattCharacteristic;->getUuid()Ljava/util/UUID;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p1
+ 
+@@ -289,13 +237,9 @@
+     .line 50
+     invoke-direct {p0, p1, p2}, Lcom/polidea/rxandroidble2/exceptions/BleConflictingNotificationAlreadySetException;-><init>(Ljava/util/UUID;Z)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-static {p0}, Lio/reactivex/Observable;->F(Ljava/lang/Throwable;)Lio/reactivex/Observable;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -309,11 +253,9 @@
+     :cond_1
+     if-eqz p2, :cond_2
+ 
+-    .line 60
+     .line 61
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->b:[B
+ 
+-    .line 62
+     .line 63
+     goto :goto_0
+ 
+@@ -321,97 +263,73 @@
+     :cond_2
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->a:[B
+ 
+-    .line 65
+     .line 66
+     :goto_0
+     invoke-static {}, Lio/reactivex/subjects/PublishSubject;->R0()Lio/reactivex/subjects/PublishSubject;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v4
+ 
+     .line 70
+     iget-object v2, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->d:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 71
+     .line 72
+     invoke-static {v2, p1, v8}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->l(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;Z)Lio/reactivex/Completable;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v2
+ 
+     .line 76
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->e:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 77
+     .line 78
+     invoke-static {v3, v5}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->k(Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;Lcom/polidea/rxandroidble2/internal/util/CharacteristicNotificationId;)Lio/reactivex/Observable;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v3
+ 
+     .line 82
+     invoke-static {v3}, Lcom/polidea/rxandroidble2/internal/util/ObservableUtil;->a(Ljava/lang/Object;)Lio/reactivex/Observable;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v3
+ 
+     .line 86
+     invoke-virtual {v2, v3}, Lio/reactivex/Completable;->e(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v2
+ 
+     .line 90
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->f:Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;
+ 
+-    .line 91
+     .line 92
+     invoke-static {v3, p1, v0, p3}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->m(Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;Landroid/bluetooth/BluetoothGattCharacteristic;[BLcom/polidea/rxandroidble2/NotificationSetupMode;)Lio/reactivex/ObservableTransformer;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object v0
+ 
+     .line 96
+     invoke-virtual {v2, v0}, Lio/reactivex/Observable;->j(Lio/reactivex/ObservableTransformer;)Lio/reactivex/Observable;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v0
+ 
+     .line 100
+     new-instance v2, Lcom/polidea/rxandroidble2/internal/connection/f;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {v2, v4}, Lcom/polidea/rxandroidble2/internal/connection/f;-><init>(Lio/reactivex/subjects/PublishSubject;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     invoke-virtual {v0, v2}, Lio/reactivex/Observable;->W(Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v0
+ 
+     .line 109
+     new-instance v2, Lcom/polidea/rxandroidble2/internal/connection/g;
+ 
+-    .line 110
+     .line 111
+     move-object v3, p0
+ 
+@@ -424,70 +342,51 @@
+     .line 114
+     invoke-direct/range {v2 .. v7}, Lcom/polidea/rxandroidble2/internal/connection/g;-><init>(Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;Lio/reactivex/subjects/PublishSubject;Lcom/polidea/rxandroidble2/internal/util/CharacteristicNotificationId;Landroid/bluetooth/BluetoothGattCharacteristic;Lcom/polidea/rxandroidble2/NotificationSetupMode;)V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {v0, v2}, Lio/reactivex/Observable;->w(Lio/reactivex/functions/Action;)Lio/reactivex/Observable;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p0
+ 
+     .line 121
+     iget-object p1, v3, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->e:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p1}, Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;->o()Lio/reactivex/Observable;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p1
+ 
+     .line 127
+     invoke-virtual {p0, p1}, Lio/reactivex/Observable;->b0(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object p0
+ 
+     .line 131
+     invoke-virtual {p0, v8}, Lio/reactivex/Observable;->j0(I)Lio/reactivex/observables/ConnectableObservable;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object p0
+ 
+     .line 135
+     invoke-virtual {p0}, Lio/reactivex/observables/ConnectableObservable;->T0()Lio/reactivex/Observable;
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-object p0
+ 
+     .line 139
+     iget-object p1, v3, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->g:Ljava/util/Map;
+ 
+-    .line 140
+     .line 141
+     new-instance p3, Lcom/polidea/rxandroidble2/internal/util/ActiveCharacteristicNotification;
+ 
+-    .line 142
+     .line 143
+     invoke-direct {p3, p0, p2}, Lcom/polidea/rxandroidble2/internal/util/ActiveCharacteristicNotification;-><init>(Lio/reactivex/Observable;Z)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     invoke-interface {p1, v5, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     monitor-exit v1
+ 
+@@ -510,20 +409,15 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/exceptions/BleCannotSetCharacteristicNotificationException;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x3
+ 
+     .line 4
+     invoke-direct {v0, p0, v1, p1}, Lcom/polidea/rxandroidble2/exceptions/BleCannotSetCharacteristicNotificationException;-><init>(Landroid/bluetooth/BluetoothGattCharacteristic;ILjava/lang/Throwable;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-static {v0}, Lio/reactivex/Completable;->j(Ljava/lang/Throwable;)Lio/reactivex/Completable;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -537,7 +431,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/util/CharacteristicChangedEvent;->a:[B
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -548,15 +441,12 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Landroid/bluetooth/BluetoothGatt;->setCharacteristicNotification(Landroid/bluetooth/BluetoothGattCharacteristic;Z)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -564,7 +454,6 @@
+     :cond_0
+     new-instance p0, Lcom/polidea/rxandroidble2/exceptions/BleCannotSetCharacteristicNotificationException;
+ 
+-    .line 9
+     .line 10
+     const/4 p2, 0x1
+ 
+@@ -574,8 +463,6 @@
+     .line 12
+     invoke-direct {p0, p1, p2, v0}, Lcom/polidea/rxandroidble2/exceptions/BleCannotSetCharacteristicNotificationException;-><init>(Landroid/bluetooth/BluetoothGattCharacteristic;ILjava/lang/Throwable;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     throw p0
+ .end method
+@@ -586,8 +473,6 @@
+     .line 1
+     invoke-virtual {p1, p0}, Lcom/polidea/rxandroidble2/internal/util/CharacteristicChangedEvent;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -601,17 +486,12 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p1}, Lio/reactivex/subjects/PublishSubject;->onComplete()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     iget-object p1, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->g:Ljava/util/Map;
+ 
+-    .line 8
+     .line 9
+     monitor-enter p1
+ 
+@@ -619,12 +499,9 @@
+     :try_start_0
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->g:Ljava/util/Map;
+ 
+-    .line 11
+     .line 12
+     invoke-interface {v0, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     monitor-exit p1
+     :try_end_0
+@@ -633,59 +510,45 @@
+     .line 16
+     iget-object p1, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->d:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 17
+     .line 18
+     const/4 p2, 0x0
+ 
+     .line 19
+     invoke-static {p1, p3, p2}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->l(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;Z)Lio/reactivex/Completable;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p1
+ 
+     .line 23
+     iget-object p2, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->f:Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;
+ 
+-    .line 24
+     .line 25
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->c:[B
+ 
+-    .line 26
+     .line 27
+     invoke-static {p2, p3, p0, p4}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->o(Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;Landroid/bluetooth/BluetoothGattCharacteristic;[BLcom/polidea/rxandroidble2/NotificationSetupMode;)Lio/reactivex/CompletableTransformer;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     invoke-virtual {p1, p0}, Lio/reactivex/Completable;->h(Lio/reactivex/CompletableTransformer;)Lio/reactivex/Completable;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p0
+ 
+     .line 35
+     sget-object p1, Lio/reactivex/internal/functions/Functions;->c:Lio/reactivex/functions/Action;
+ 
+-    .line 36
+     .line 37
+     invoke-static {}, Lio/reactivex/internal/functions/Functions;->d()Lio/reactivex/functions/Consumer;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p2
+ 
+     .line 41
+     invoke-virtual {p0, p1, p2}, Lio/reactivex/Completable;->s(Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ 
+@@ -709,46 +572,36 @@
+     .line 1
+     sget-object v0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager$1;->a:[I
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+     .line 7
+     aget p0, v0, p0
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x1
+ 
+     .line 10
+     if-eq p0, v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     const/4 v0, 0x2
+ 
+     .line 13
+     if-eq p0, v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-static {p1, p2, p3}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->p(Landroid/bluetooth/BluetoothGattCharacteristic;Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;[B)Lio/reactivex/Completable;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-virtual {p0, p4}, Lio/reactivex/Completable;->e(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+@@ -759,65 +612,48 @@
+     :cond_0
+     invoke-static {p1, p2, p3}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->p(Landroid/bluetooth/BluetoothGattCharacteristic;Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;[B)Lio/reactivex/Completable;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     invoke-virtual {p0}, Lio/reactivex/Completable;->w()Lio/reactivex/Observable;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     invoke-virtual {p0}, Lio/reactivex/Observable;->g0()Lio/reactivex/observables/ConnectableObservable;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     invoke-virtual {p0, v0}, Lio/reactivex/observables/ConnectableObservable;->P0(I)Lio/reactivex/Observable;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p0
+ 
+     .line 40
+     invoke-virtual {p0}, Lio/reactivex/Observable;->T()Lio/reactivex/Completable;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+     .line 44
+     invoke-virtual {p4, p0}, Lio/reactivex/Observable;->a0(Lio/reactivex/CompletableSource;)Lio/reactivex/Observable;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p1
+ 
+     .line 48
+     new-instance p2, Lcom/polidea/rxandroidble2/internal/connection/m;
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p2, p0}, Lcom/polidea/rxandroidble2/internal/connection/m;-><init>(Lio/reactivex/Completable;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {p1, p2}, Lio/reactivex/Observable;->W(Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -835,11 +671,9 @@
+     .line 1
+     sget-object v0, Lcom/polidea/rxandroidble2/NotificationSetupMode;->COMPAT:Lcom/polidea/rxandroidble2/NotificationSetupMode;
+ 
+-    .line 2
+     .line 3
+     if-ne p0, v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-object p4
+ 
+@@ -847,16 +681,12 @@
+     :cond_0
+     invoke-static {p1, p2, p3}, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->p(Landroid/bluetooth/BluetoothGattCharacteristic;Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;[B)Lio/reactivex/Completable;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-virtual {p4, p0}, Lio/reactivex/Completable;->d(Lio/reactivex/CompletableSource;)Lio/reactivex/Completable;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+@@ -870,42 +700,30 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;->b()Lio/reactivex/Observable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/h;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0, p1}, Lcom/polidea/rxandroidble2/internal/connection/h;-><init>(Lcom/polidea/rxandroidble2/internal/util/CharacteristicNotificationId;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {p0, v0}, Lio/reactivex/Observable;->H(Lio/reactivex/functions/Predicate;)Lio/reactivex/Observable;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     new-instance p1, Lcom/polidea/rxandroidble2/internal/connection/i;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p1}, Lcom/polidea/rxandroidble2/internal/connection/i;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p0, p1}, Lio/reactivex/Observable;->W(Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+@@ -919,17 +737,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/k;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1, p2}, Lcom/polidea/rxandroidble2/internal/connection/k;-><init>(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lio/reactivex/Completable;->k(Lio/reactivex/functions/Action;)Lio/reactivex/Completable;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -943,12 +756,9 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/j;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p3, p1, p0, p2}, Lcom/polidea/rxandroidble2/internal/connection/j;-><init>(Lcom/polidea/rxandroidble2/NotificationSetupMode;Landroid/bluetooth/BluetoothGattCharacteristic;Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;[B)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -959,12 +769,9 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/l;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p3, p1, p0, p2}, Lcom/polidea/rxandroidble2/internal/connection/l;-><init>(Lcom/polidea/rxandroidble2/NotificationSetupMode;Landroid/bluetooth/BluetoothGattCharacteristic;Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;[B)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -975,23 +782,18 @@
+     .line 1
+     sget-object v0, Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;->h:Ljava/util/UUID;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/bluetooth/BluetoothGattCharacteristic;->getDescriptor(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattDescriptor;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     new-instance p1, Lcom/polidea/rxandroidble2/exceptions/BleCannotSetCharacteristicNotificationException;
+ 
+-    .line 10
+     .line 11
+     const/4 p2, 0x2
+ 
+@@ -1001,13 +803,9 @@
+     .line 13
+     invoke-direct {p1, p0, p2, v0}, Lcom/polidea/rxandroidble2/exceptions/BleCannotSetCharacteristicNotificationException;-><init>(Landroid/bluetooth/BluetoothGattCharacteristic;ILjava/lang/Throwable;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {p1}, Lio/reactivex/Completable;->j(Ljava/lang/Throwable;)Lio/reactivex/Completable;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -1018,25 +816,18 @@
+     :cond_0
+     invoke-virtual {p1, v0, p2}, Lcom/polidea/rxandroidble2/internal/connection/DescriptorWriter;->a(Landroid/bluetooth/BluetoothGattDescriptor;[B)Lio/reactivex/Completable;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p1
+ 
+     .line 25
+     new-instance p2, Lcom/polidea/rxandroidble2/internal/connection/n;
+ 
+-    .line 26
+     .line 27
+     invoke-direct {p2, p0}, Lcom/polidea/rxandroidble2/internal/connection/n;-><init>(Landroid/bluetooth/BluetoothGattCharacteristic;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {p1, p2}, Lio/reactivex/Completable;->p(Lio/reactivex/functions/Function;)Lio/reactivex/Completable;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -1052,17 +843,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/e;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1, p3, p2}, Lcom/polidea/rxandroidble2/internal/connection/e;-><init>(Lcom/polidea/rxandroidble2/internal/connection/NotificationAndIndicationManager;Landroid/bluetooth/BluetoothGattCharacteristic;ZLcom/polidea/rxandroidble2/NotificationSetupMode;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lio/reactivex/Observable;->q(Ljava/util/concurrent/Callable;)Lio/reactivex/Observable;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 

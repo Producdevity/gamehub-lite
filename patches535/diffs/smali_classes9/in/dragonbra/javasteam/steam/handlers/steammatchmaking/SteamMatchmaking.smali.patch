@@ -1,0 +1,4661 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking.smali
+@@ -45,34 +45,24 @@
+     .line 1
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -83,8 +73,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->attachIncompleteManipulationHandler$lambda$10(Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;Lin/dragonbra/javasteam/types/AsyncJobSingle;Ljava/lang/Throwable;)Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -98,8 +86,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->handleCreateLobbyResponse(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -121,25 +107,18 @@
+     .line 1
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/types/AsyncJobSingle;->toFuture()Ljava/util/concurrent/CompletableFuture;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     new-instance v1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/c;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v1, p0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/c;-><init>(Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;Lin/dragonbra/javasteam/types/AsyncJobSingle;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/CompletableFuture;->exceptionally(Ljava/util/function/Function;)Ljava/util/concurrent/CompletableFuture;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-object p1
+ .end method
+@@ -150,20 +129,15 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/types/AsyncJob;->getJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 p0, 0x0
+ 
+@@ -177,11 +151,9 @@
+     .line 1
+     and-int/lit8 p7, p6, 0x8
+ 
+-    .line 2
+     .line 3
+     if-eqz p7, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p4, 0x0
+ 
+@@ -192,11 +164,9 @@
+     .line 7
+     and-int/lit8 p4, p6, 0x10
+ 
+-    .line 8
+     .line 9
+     if-eqz p4, :cond_1
+ 
+-    .line 10
+     .line 11
+     const/4 p5, 0x0
+ 
+@@ -219,8 +189,6 @@
+     .line 17
+     invoke-virtual/range {v0 .. v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->createLobby(ILin/dragonbra/javasteam/enums/ELobbyType;IILjava/util/Map;)Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+@@ -245,15 +213,12 @@
+     .line 1
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getMsgType()Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     if-nez p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p1, -0x1
+ 
+@@ -264,25 +229,19 @@
+     :cond_0
+     sget-object v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$WhenMappings;->$EnumSwitchMapping$0:[I
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     aget p1, v0, p1
+ 
+-    .line 16
+     .line 17
+     :goto_0
+     packed-switch p1, :pswitch_data_0
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const/4 p0, 0x0
+ 
+@@ -293,12 +252,9 @@
+     :pswitch_0
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$9;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$9;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-object p1
+ 
+@@ -306,12 +262,9 @@
+     :pswitch_1
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$8;
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$8;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-object p1
+ 
+@@ -319,12 +272,9 @@
+     :pswitch_2
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$7;
+ 
+-    .line 35
+     .line 36
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$7;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-object p1
+ 
+@@ -332,12 +282,9 @@
+     :pswitch_3
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$6;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$6;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     return-object p1
+ 
+@@ -345,12 +292,9 @@
+     :pswitch_4
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$5;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$5;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     return-object p1
+ 
+@@ -358,12 +302,9 @@
+     :pswitch_5
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$4;
+ 
+-    .line 53
+     .line 54
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$4;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     return-object p1
+ 
+@@ -371,12 +312,9 @@
+     :pswitch_6
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$3;
+ 
+-    .line 59
+     .line 60
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$3;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     return-object p1
+ 
+@@ -384,12 +322,9 @@
+     :pswitch_7
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$2;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$2;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     return-object p1
+ 
+@@ -397,16 +332,12 @@
+     :pswitch_8
+     new-instance p1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$1;
+ 
+-    .line 71
+     .line 72
+     invoke-direct {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking$getHandler$1;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     return-object p1
+ 
+-    .line 76
+     nop
+ 
+     .line 77
+@@ -430,11 +361,9 @@
+     .line 1
+     and-int/lit8 p5, p4, 0x2
+ 
+-    .line 2
+     .line 3
+     if-eqz p5, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p2, 0x0
+ 
+@@ -442,11 +371,9 @@
+     :cond_0
+     and-int/lit8 p4, p4, 0x4
+ 
+-    .line 7
+     .line 8
+     if-eqz p4, :cond_1
+ 
+-    .line 9
+     .line 10
+     const/4 p3, -0x1
+ 
+@@ -454,8 +381,6 @@
+     :cond_1
+     invoke-virtual {p0, p1, p2, p3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->getLobbyList(ILjava/util/List;I)Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+@@ -469,150 +394,111 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 4
+     .line 5
+     const-class v2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse;
+ 
+-    .line 6
+     .line 7
+     move-object/from16 v3, p1
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v1, v2, v3}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     check-cast v2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse$Builder;
+ 
+-    .line 17
+     .line 18
+     iget-object v3, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v4
+ 
+     .line 24
+     invoke-virtual {v3, v4}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v3
+ 
+     .line 28
+     check-cast v3, Lcom/google/protobuf/GeneratedMessage;
+ 
+-    .line 29
+     .line 30
+     const-string v4, "from(...)"
+ 
+-    .line 31
+     .line 32
+     if-eqz v3, :cond_0
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse$Builder;->getEresult()I
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result v5
+ 
+     .line 38
+     sget-object v6, Lin/dragonbra/javasteam/enums/EResult;->OK:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v6}, Lin/dragonbra/javasteam/enums/EResult;->code()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v6
+ 
+     .line 44
+     if-ne v5, v6, :cond_0
+ 
+-    .line 45
+     .line 46
+     check-cast v3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;
+ 
+-    .line 47
+     .line 48
+     new-instance v13, Ljava/util/ArrayList;
+ 
+-    .line 49
+     .line 50
+     const/4 v5, 0x1
+ 
+     .line 51
+     invoke-direct {v13, v5}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     new-instance v6, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v5
+ 
+     .line 60
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/CMClient;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v7
+ 
+     .line 64
+     invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;->getPersonaNameOwner()Ljava/lang/String;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object v8
+ 
+     .line 71
+     const-string v5, "getPersonaNameOwner(...)"
+ 
+-    .line 72
+     .line 73
+     invoke-static {v8, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     const/4 v10, 0x4
+ 
+@@ -625,22 +511,15 @@
+     .line 79
+     invoke-direct/range {v6 .. v11}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;-><init>(Lin/dragonbra/javasteam/types/SteamID;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {v13, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     iget-object v5, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;->getAppId()I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v6
+ 
+@@ -650,100 +529,75 @@
+     .line 92
+     new-instance v5, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 93
+     .line 94
+     move v8, v6
+ 
+     .line 95
+     new-instance v6, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-wide v9
+ 
+     .line 101
+     invoke-direct {v6, v9, v10}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;->getLobbyType()I
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result v9
+ 
+     .line 108
+     invoke-static {v9}, Lin/dragonbra/javasteam/enums/ELobbyType;->from(I)Lin/dragonbra/javasteam/enums/ELobbyType;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object v9
+ 
+     .line 112
+     invoke-static {v9, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move v10, v8
+ 
+     .line 116
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;->getLobbyFlags()I
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v8
+ 
+     .line 120
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v11
+ 
+     .line 124
+     invoke-virtual {v11}, Lin/dragonbra/javasteam/steam/CMClient;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object v11
+ 
+     .line 128
+     sget-object v12, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result-object v14
+ 
+     .line 134
+     invoke-virtual {v12, v14}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v12
+ 
+     .line 138
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobby;->getMaxMembers()I
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result v3
+ 
+@@ -756,7 +610,6 @@
+     .line 144
+     move/from16 v16, v10
+ 
+-    .line 145
+     .line 146
+     move-object v10, v12
+ 
+@@ -781,103 +634,73 @@
+     .line 153
+     move/from16 v0, v16
+ 
+-    .line 154
+     .line 155
+     invoke-direct/range {v5 .. v15}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;-><init>(Lin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/enums/ELobbyType;ILin/dragonbra/javasteam/types/SteamID;Ljava/util/Map;IILjava/util/List;Ljava/lang/Float;Ljava/lang/Long;)V
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     invoke-virtual {v3, v0, v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->cacheLobby(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     :cond_0
+     new-instance v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/CreateLobbyCallback;
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object v1
+ 
+     .line 167
+     const-string v3, "getTargetJobID(...)"
+ 
+-    .line 168
+     .line 169
+     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse$Builder;->getAppId()I
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result v3
+ 
+     .line 176
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse$Builder;->getEresult()I
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result v5
+ 
+     .line 180
+     invoke-static {v5}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result-object v5
+ 
+     .line 184
+     invoke-static {v5, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     new-instance v4, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 188
+     .line 189
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSCreateLobbyResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     move-result-wide v6
+ 
+     .line 193
+     invoke-direct {v4, v6, v7}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     invoke-direct {v0, v1, v3, v5, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/CreateLobbyCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/enums/EResult;Lin/dragonbra/javasteam/types/SteamID;)V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     invoke-virtual/range {p0 .. p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object v1
+ 
+     .line 203
+     invoke-virtual {v1, v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     return-void
+ .end method
+@@ -888,11 +711,9 @@
+     .line 1
+     and-int/lit8 p8, p7, 0x10
+ 
+-    .line 2
+     .line 3
+     if-eqz p8, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p5, 0x0
+ 
+@@ -903,11 +724,9 @@
+     .line 7
+     and-int/lit8 p5, p7, 0x20
+ 
+-    .line 8
+     .line 9
+     if-eqz p5, :cond_1
+ 
+-    .line 10
+     .line 11
+     const/4 p6, 0x0
+ 
+@@ -933,8 +752,6 @@
+     .line 18
+     invoke-virtual/range {v0 .. v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->setLobbyData(ILin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/enums/ELobbyType;IILjava/util/Map;)Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+@@ -950,12 +767,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->clear()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1330,21 +1144,15 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1, p2}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(ILin/dragonbra/javasteam/types/SteamID;)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+@@ -1375,131 +1183,93 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData;
+ 
+-    .line 9
+     .line 10
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientMMSGetLobbyData:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData$Builder;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData$Builder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData$Builder;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-wide v2
+ 
+     .line 34
+     invoke-virtual {v1, v2, v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData$Builder;->setSteamIdLobby(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyData$Builder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p2
+ 
+     .line 41
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getNextJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p2
+ 
+     .line 45
+     invoke-virtual {v0, p2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->setSourceJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {p0, v0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->send(Lin/dragonbra/javasteam/base/ClientMsgProtobuf;I)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     new-instance p1, Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+     .line 57
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p2
+ 
+     .line 61
+     const-string v0, "getSourceJobID(...)"
+ 
+-    .line 62
+     .line 63
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-direct {p1, p0, p2}, Lin/dragonbra/javasteam/types/AsyncJobSingle;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     return-object p1
+ .end method
+@@ -1787,88 +1557,63 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p1
+ 
+-    .line 4
+     .line 5
+     const-string v2, "packetMsg"
+ 
+-    .line 6
+     .line 7
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     new-instance v2, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 11
+     .line 12
+     const-class v3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v2, v3, v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Builder;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Builder;->getLobbiesList()Ljava/util/List;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v3
+ 
+     .line 27
+     const-string v4, "getLobbiesList(...)"
+ 
+-    .line 28
+     .line 29
+     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     new-instance v4, Ljava/util/ArrayList;
+ 
+-    .line 33
+     .line 34
+     const/16 v5, 0xa
+ 
+-    .line 35
+     .line 36
+     invoke-static {v3, v5}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v5
+ 
+     .line 40
+     invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v3
+ 
+@@ -1876,56 +1621,42 @@
+     :goto_0
+     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v5
+ 
+     .line 51
+     const-string v6, "from(...)"
+ 
+-    .line 52
+     .line 53
+     if-eqz v5, :cond_3
+ 
+-    .line 54
+     .line 55
+     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v5
+ 
+     .line 59
+     check-cast v5, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;
+ 
+-    .line 60
+     .line 61
+     iget-object v7, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Builder;->getAppId()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v8
+ 
+     .line 67
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getSteamId()J
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-wide v9
+ 
+     .line 71
+     invoke-virtual {v7, v8, v9, v10}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(IJ)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v7
+ 
+@@ -1935,12 +1666,9 @@
+     .line 76
+     if-eqz v7, :cond_0
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getMembers()Ljava/util/List;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v9
+ 
+@@ -1955,62 +1683,45 @@
+     :goto_1
+     new-instance v10, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 85
+     .line 86
+     new-instance v11, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 87
+     .line 88
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getSteamId()J
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-wide v12
+ 
+     .line 92
+     invoke-direct {v11, v12, v13}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getLobbyType()I
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v12
+ 
+     .line 99
+     invoke-static {v12}, Lin/dragonbra/javasteam/enums/ELobbyType;->from(I)Lin/dragonbra/javasteam/enums/ELobbyType;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v12
+ 
+     .line 103
+     invoke-static {v12, v6}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getLobbyFlags()I
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result v13
+ 
+     .line 110
+     if-eqz v7, :cond_1
+ 
+-    .line 111
+     .line 112
+     invoke-virtual {v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getOwnerSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v8
+ 
+@@ -2021,48 +1732,36 @@
+     .line 117
+     sget-object v6, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 118
+     .line 119
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v7
+ 
+     .line 123
+     invoke-virtual {v6, v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object v15
+ 
+     .line 127
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getMaxMembers()I
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v16
+ 
+     .line 131
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getNumMembers()I
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result v17
+ 
+     .line 135
+     if-nez v9, :cond_2
+ 
+-    .line 136
+     .line 137
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result-object v9
+ 
+@@ -2070,49 +1769,36 @@
+     :cond_2
+     move-object/from16 v18, v9
+ 
+-    .line 142
+     .line 143
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getDistance()F
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result v6
+ 
+     .line 147
+     invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-object v19
+ 
+     .line 151
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Lobby;->getWeight()J
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-wide v5
+ 
+     .line 155
+     invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     move-result-object v20
+ 
+     .line 159
+     invoke-direct/range {v10 .. v20}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;-><init>(Lin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/enums/ELobbyType;ILin/dragonbra/javasteam/types/SteamID;Ljava/util/Map;IILjava/util/List;Ljava/lang/Float;Ljava/lang/Long;)V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     invoke-interface {v4, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     goto :goto_0
+ 
+@@ -2120,8 +1806,6 @@
+     :cond_3
+     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object v3
+ 
+@@ -2129,44 +1813,33 @@
+     :goto_2
+     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result v5
+ 
+     .line 174
+     if-eqz v5, :cond_4
+ 
+-    .line 175
+     .line 176
+     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object v5
+ 
+     .line 180
+     check-cast v5, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 181
+     .line 182
+     iget-object v7, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 183
+     .line 184
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Builder;->getAppId()I
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     move-result v8
+ 
+     .line 188
+     invoke-virtual {v7, v8, v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->cacheLobby(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     goto :goto_2
+ 
+@@ -2174,71 +1847,51 @@
+     :cond_4
+     new-instance v3, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/GetLobbyListCallback;
+ 
+-    .line 193
+     .line 194
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     move-result-object v2
+ 
+     .line 198
+     const-string v5, "getTargetJobID(...)"
+ 
+-    .line 199
+     .line 200
+     invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Builder;->getAppId()I
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result v5
+ 
+     .line 207
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSGetLobbyListResponse$Builder;->getEresult()I
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     move-result v1
+ 
+     .line 211
+     invoke-static {v1}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result-object v1
+ 
+     .line 215
+     invoke-static {v1, v6}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     invoke-direct {v3, v2, v5, v1, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/GetLobbyListCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/enums/EResult;Ljava/util/List;)V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     move-result-object v0
+ 
+     .line 225
+     invoke-virtual {v0, v3}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 226
+-    .line 227
+     .line 228
+     return-void
+ .end method
+@@ -2253,107 +1906,78 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p1
+ 
+-    .line 4
+     .line 5
+     const-string v2, "packetMsg"
+ 
+-    .line 6
+     .line 7
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     new-instance v2, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 11
+     .line 12
+     const-class v3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v2, v3, v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->hasSteamIdLobby()Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v3
+ 
+     .line 27
+     const-string v4, "from(...)"
+ 
+-    .line 28
+     .line 29
+     const/4 v5, 0x0
+ 
+     .line 30
+     if-eqz v3, :cond_3
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getMembersList()Ljava/util/List;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v3
+ 
+     .line 36
+     const-string v6, "getMembersList(...)"
+ 
+-    .line 37
+     .line 38
+     invoke-static {v3, v6}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     new-instance v15, Ljava/util/ArrayList;
+ 
+-    .line 42
+     .line 43
+     const/16 v6, 0xa
+ 
+-    .line 44
+     .line 45
+     invoke-static {v3, v6}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v6
+ 
+     .line 49
+     invoke-direct {v15, v6}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v3
+ 
+@@ -2361,95 +1985,69 @@
+     :goto_0
+     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v6
+ 
+     .line 60
+     if-eqz v6, :cond_0
+ 
+-    .line 61
+     .line 62
+     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v6
+ 
+     .line 66
+     check-cast v6, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Member;
+ 
+-    .line 67
+     .line 68
+     new-instance v7, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 69
+     .line 70
+     new-instance v8, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {v6}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Member;->getSteamId()J
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-wide v9
+ 
+     .line 76
+     invoke-direct {v8, v9, v10}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {v6}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Member;->getPersonaName()Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v9
+ 
+     .line 83
+     const-string v10, "getPersonaName(...)"
+ 
+-    .line 84
+     .line 85
+     invoke-static {v9, v10}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     sget-object v10, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {v6}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Member;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v6
+ 
+     .line 94
+     invoke-virtual {v10, v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v6
+ 
+     .line 98
+     invoke-direct {v7, v8, v9, v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;-><init>(Lin/dragonbra/javasteam/types/SteamID;Ljava/lang/String;Ljava/util/Map;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-interface {v15, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     goto :goto_0
+ 
+@@ -2457,150 +2055,111 @@
+     :cond_0
+     iget-object v3, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 106
+     .line 107
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getAppId()I
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result v6
+ 
+     .line 111
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-wide v7
+ 
+     .line 115
+     invoke-virtual {v3, v6, v7, v8}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(IJ)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object v3
+ 
+     .line 119
+     new-instance v7, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 120
+     .line 121
+     new-instance v8, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-wide v9
+ 
+     .line 127
+     invoke-direct {v8, v9, v10}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getLobbyType()I
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result v6
+ 
+     .line 134
+     invoke-static {v6}, Lin/dragonbra/javasteam/enums/ELobbyType;->from(I)Lin/dragonbra/javasteam/enums/ELobbyType;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v9
+ 
+     .line 138
+     invoke-static {v9, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getLobbyFlags()I
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result v10
+ 
+     .line 145
+     new-instance v11, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 146
+     .line 147
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getSteamIdOwner()J
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-wide v12
+ 
+     .line 151
+     invoke-direct {v11, v12, v13}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     sget-object v6, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object v12
+ 
+     .line 160
+     invoke-virtual {v6, v12}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result-object v12
+ 
+     .line 164
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getMaxMembers()I
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result v13
+ 
+     .line 168
+     invoke-interface {v15}, Ljava/util/List;->size()I
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result v14
+ 
+     .line 172
+     if-eqz v3, :cond_1
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getDistance()Ljava/lang/Float;
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result-object v6
+ 
+     .line 178
+     move-object/from16 v16, v6
+ 
+-    .line 179
+     .line 180
+     goto :goto_1
+ 
+@@ -2608,17 +2167,13 @@
+     :cond_1
+     move-object/from16 v16, v5
+ 
+-    .line 182
+     .line 183
+     :goto_1
+     if-eqz v3, :cond_2
+ 
+-    .line 184
+     .line 185
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getWeight()Ljava/lang/Long;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object v5
+ 
+@@ -2626,29 +2181,21 @@
+     :cond_2
+     move-object/from16 v17, v5
+ 
+-    .line 190
+     .line 191
+     invoke-direct/range {v7 .. v17}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;-><init>(Lin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/enums/ELobbyType;ILin/dragonbra/javasteam/types/SteamID;Ljava/util/Map;IILjava/util/List;Ljava/lang/Float;Ljava/lang/Long;)V
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     iget-object v3, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getAppId()I
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result v5
+ 
+     .line 200
+     invoke-virtual {v3, v5, v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->cacheLobby(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-object v5, v7
+ 
+@@ -2656,71 +2203,51 @@
+     :cond_3
+     new-instance v3, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/JoinLobbyCallback;
+ 
+-    .line 205
+     .line 206
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result-object v2
+ 
+     .line 210
+     const-string v6, "getTargetJobID(...)"
+ 
+-    .line 211
+     .line 212
+     invoke-static {v2, v6}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getAppId()I
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move-result v6
+ 
+     .line 219
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobbyResponse$Builder;->getChatRoomEnterResponse()I
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     move-result v1
+ 
+     .line 223
+     invoke-static {v1}, Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;->from(I)Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result-object v1
+ 
+     .line 227
+     invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     invoke-direct {v3, v2, v6, v1, v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/JoinLobbyCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/enums/EChatRoomEnterResponse;Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     move-result-object v0
+ 
+     .line 237
+     invoke-virtual {v0, v3}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 238
+-    .line 239
+     .line 240
+     return-void
+ .end method
+@@ -2735,176 +2262,127 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;->getEresult()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v1
+ 
+     .line 23
+     sget-object v2, Lin/dragonbra/javasteam/enums/EResult;->OK:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/enums/EResult;->code()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v2
+ 
+     .line 29
+     if-ne v1, v2, :cond_0
+ 
+-    .line 30
+     .line 31
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;->getAppId()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v2
+ 
+     .line 37
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-wide v3
+ 
+     .line 41
+     invoke-virtual {v1, v2, v3, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->clearLobbyMembers(IJ)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     :cond_0
+     new-instance v1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/LeaveLobbyCallback;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     const-string v2, "getTargetJobID(...)"
+ 
+-    .line 51
+     .line 52
+     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;->getAppId()I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v2
+ 
+     .line 59
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;->getEresult()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v3
+ 
+     .line 63
+     invoke-static {v3}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v3
+ 
+     .line 67
+     const-string v4, "from(...)"
+ 
+-    .line 68
+     .line 69
+     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     new-instance v4, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobbyResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-wide v5
+ 
+     .line 78
+     invoke-direct {v4, v5, v6}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-direct {v1, v0, v2, v3, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/LeaveLobbyCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/enums/EResult;Lin/dragonbra/javasteam/types/SteamID;)V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p0
+ 
+     .line 88
+     invoke-virtual {p0, v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     return-void
+ .end method
+@@ -2919,86 +2397,63 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p1
+ 
+-    .line 4
+     .line 5
+     const-string v2, "packetMsg"
+ 
+-    .line 6
+     .line 7
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     new-instance v2, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 11
+     .line 12
+     const-class v3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v2, v3, v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;
+ 
+-    .line 22
+     .line 23
+     iget-object v3, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getAppId()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v4
+ 
+     .line 29
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getSteamIdLobby()J
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-wide v5
+ 
+     .line 33
+     invoke-virtual {v3, v4, v5, v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(IJ)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v3
+ 
+     .line 37
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getMembersList()Ljava/util/List;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v4
+ 
+     .line 41
+     invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v4
+ 
+@@ -3008,16 +2463,12 @@
+     .line 46
+     if-eqz v4, :cond_1
+ 
+-    .line 47
+     .line 48
+     if-eqz v3, :cond_0
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getMembers()Ljava/util/List;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v4
+ 
+@@ -3035,46 +2486,33 @@
+     :cond_1
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getMembersList()Ljava/util/List;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v4
+ 
+     .line 61
+     const-string v6, "getMembersList(...)"
+ 
+-    .line 62
+     .line 63
+     invoke-static {v4, v6}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     new-instance v6, Ljava/util/ArrayList;
+ 
+-    .line 67
+     .line 68
+     const/16 v7, 0xa
+ 
+-    .line 69
+     .line 70
+     invoke-static {v4, v7}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v7
+ 
+     .line 74
+     invoke-direct {v6, v7}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v4
+ 
+@@ -3082,95 +2520,69 @@
+     :goto_0
+     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result v7
+ 
+     .line 85
+     if-eqz v7, :cond_2
+ 
+-    .line 86
+     .line 87
+     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object v7
+ 
+     .line 91
+     check-cast v7, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Member;
+ 
+-    .line 92
+     .line 93
+     new-instance v8, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 94
+     .line 95
+     new-instance v9, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v7}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Member;->getSteamId()J
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-wide v10
+ 
+     .line 101
+     invoke-direct {v9, v10, v11}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     invoke-virtual {v7}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Member;->getPersonaName()Ljava/lang/String;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object v10
+ 
+     .line 108
+     const-string v11, "getPersonaName(...)"
+ 
+-    .line 109
+     .line 110
+     invoke-static {v10, v11}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     sget-object v11, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {v7}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Member;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object v7
+ 
+     .line 119
+     invoke-virtual {v11, v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v7
+ 
+     .line 123
+     invoke-direct {v8, v9, v10, v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;-><init>(Lin/dragonbra/javasteam/types/SteamID;Ljava/lang/String;Ljava/util/Map;)V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     invoke-interface {v6, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     goto :goto_0
+ 
+@@ -3182,119 +2594,87 @@
+     :goto_1
+     new-instance v6, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 132
+     .line 133
+     new-instance v7, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 134
+     .line 135
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getSteamIdLobby()J
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-wide v8
+ 
+     .line 139
+     invoke-direct {v7, v8, v9}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getLobbyType()I
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result v8
+ 
+     .line 146
+     invoke-static {v8}, Lin/dragonbra/javasteam/enums/ELobbyType;->from(I)Lin/dragonbra/javasteam/enums/ELobbyType;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result-object v8
+ 
+     .line 150
+     const-string v9, "from(...)"
+ 
+-    .line 151
+     .line 152
+     invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getLobbyFlags()I
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     move-result v9
+ 
+     .line 159
+     new-instance v10, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 160
+     .line 161
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getSteamIdOwner()J
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result-wide v11
+ 
+     .line 165
+     invoke-direct {v10, v11, v12}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     sget-object v11, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 169
+     .line 170
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result-object v12
+ 
+     .line 174
+     invoke-virtual {v11, v12}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result-object v11
+ 
+     .line 178
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getMaxMembers()I
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result v12
+ 
+     .line 182
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getNumMembers()I
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result v13
+ 
+     .line 186
+     if-nez v4, :cond_3
+ 
+-    .line 187
+     .line 188
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result-object v4
+ 
+@@ -3305,12 +2685,9 @@
+     .line 193
+     if-eqz v3, :cond_4
+ 
+-    .line 194
+     .line 195
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getDistance()Ljava/lang/Float;
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     move-result-object v4
+ 
+@@ -3328,12 +2705,9 @@
+     :goto_2
+     if-eqz v3, :cond_5
+ 
+-    .line 203
+     .line 204
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getWeight()Ljava/lang/Long;
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     move-result-object v5
+ 
+@@ -3341,76 +2715,54 @@
+     :cond_5
+     move-object/from16 v16, v5
+ 
+-    .line 209
+     .line 210
+     invoke-direct/range {v6 .. v16}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;-><init>(Lin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/enums/ELobbyType;ILin/dragonbra/javasteam/types/SteamID;Ljava/util/Map;IILjava/util/List;Ljava/lang/Float;Ljava/lang/Long;)V
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     iget-object v3, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 214
+     .line 215
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getAppId()I
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move-result v4
+ 
+     .line 219
+     invoke-virtual {v3, v4, v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->cacheLobby(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     new-instance v3, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/LobbyDataCallback;
+ 
+-    .line 223
+     .line 224
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     move-result-object v2
+ 
+     .line 228
+     const-string v4, "getTargetJobID(...)"
+ 
+-    .line 229
+     .line 230
+     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLobbyData$Builder;->getAppId()I
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     move-result v1
+ 
+     .line 237
+     invoke-direct {v3, v2, v1, v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/LobbyDataCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 238
+-    .line 239
+     .line 240
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     move-result-object v0
+ 
+     .line 244
+     invoke-virtual {v0, v3}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 245
+-    .line 246
+     .line 247
+     return-void
+ .end method
+@@ -3425,29 +2777,21 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->getHandler(Lin/dragonbra/javasteam/base/IPacketMsg;)Lkotlin/jvm/functions/Function1;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     if-eqz p0, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-interface {p0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     :cond_0
+     return-void
+@@ -3463,288 +2807,213 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p1
+ 
+-    .line 4
+     .line 5
+     const-string v2, "packetMsg"
+ 
+-    .line 6
+     .line 7
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     new-instance v2, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 11
+     .line 12
+     const-class v3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyDataResponse;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v2, v3, v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyDataResponse$Builder;
+ 
+-    .line 22
+     .line 23
+     iget-object v3, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v4
+ 
+     .line 29
+     invoke-virtual {v3, v4}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v3
+ 
+     .line 33
+     check-cast v3, Lcom/google/protobuf/GeneratedMessage;
+ 
+-    .line 34
+     .line 35
+     const-string v4, "from(...)"
+ 
+-    .line 36
+     .line 37
+     if-eqz v3, :cond_3
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyDataResponse$Builder;->getEresult()I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v5
+ 
+     .line 43
+     sget-object v6, Lin/dragonbra/javasteam/enums/EResult;->OK:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v6}, Lin/dragonbra/javasteam/enums/EResult;->code()I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v6
+ 
+     .line 49
+     if-ne v5, v6, :cond_3
+ 
+-    .line 50
+     .line 51
+     check-cast v3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;
+ 
+-    .line 52
+     .line 53
+     iget-object v5, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getAppId()I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v6
+ 
+     .line 59
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getSteamIdLobby()J
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-wide v7
+ 
+     .line 63
+     invoke-virtual {v5, v6, v7, v8}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(IJ)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v5
+ 
+     .line 67
+     if-eqz v5, :cond_3
+ 
+-    .line 68
+     .line 69
+     sget-object v6, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getMetadata()Lcom/google/protobuf/ByteString;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v7
+ 
+     .line 75
+     invoke-virtual {v6, v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->decodeMetadata$library_standalone_steam_release(Lcom/google/protobuf/ByteString;)Ljava/util/Map;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v13
+ 
+     .line 79
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getSteamIdMember()J
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-wide v6
+ 
+     .line 83
+     const-wide/16 v8, 0x0
+ 
+-    .line 84
+     .line 85
+     cmp-long v6, v6, v8
+ 
+-    .line 86
+     .line 87
+     if-nez v6, :cond_0
+ 
+-    .line 88
+     .line 89
+     iget-object v6, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 90
+     .line 91
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getAppId()I
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v7
+ 
+     .line 95
+     new-instance v8, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v9
+ 
+     .line 101
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getLobbyType()I
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v10
+ 
+     .line 105
+     invoke-static {v10}, Lin/dragonbra/javasteam/enums/ELobbyType;->from(I)Lin/dragonbra/javasteam/enums/ELobbyType;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v10
+ 
+     .line 109
+     invoke-static {v10, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getLobbyFlags()I
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result v11
+ 
+     .line 116
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getOwnerSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v12
+ 
+     .line 120
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getMaxMembers()I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result v14
+ 
+     .line 124
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getNumMembers()I
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result v15
+ 
+     .line 128
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getMembers()Ljava/util/List;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object v16
+ 
+     .line 132
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getDistance()Ljava/lang/Float;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object v17
+ 
+     .line 136
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getWeight()Ljava/lang/Long;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object v18
+ 
+     .line 140
+     invoke-direct/range {v8 .. v18}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;-><init>(Lin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/enums/ELobbyType;ILin/dragonbra/javasteam/types/SteamID;Ljava/util/Map;IILjava/util/List;Ljava/lang/Float;Ljava/lang/Long;)V
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     invoke-virtual {v6, v7, v8}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->cacheLobby(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     goto :goto_1
+ 
+@@ -3752,37 +3021,27 @@
+     :cond_0
+     invoke-virtual {v5}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getMembers()Ljava/util/List;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-object v6
+ 
+     .line 151
+     new-instance v7, Ljava/util/ArrayList;
+ 
+-    .line 152
+     .line 153
+     const/16 v8, 0xa
+ 
+-    .line 154
+     .line 155
+     invoke-static {v6, v8}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     move-result v8
+ 
+     .line 159
+     invoke-direct {v7, v8}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object v6
+ 
+@@ -3790,84 +3049,63 @@
+     :goto_0
+     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result v8
+ 
+     .line 170
+     if-eqz v8, :cond_2
+ 
+-    .line 171
+     .line 172
+     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result-object v8
+ 
+     .line 176
+     check-cast v8, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 177
+     .line 178
+     invoke-virtual {v8}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result-object v9
+ 
+     .line 182
+     invoke-virtual {v9}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result-wide v9
+ 
+     .line 186
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getSteamIdMember()J
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     move-result-wide v11
+ 
+     .line 190
+     cmp-long v9, v9, v11
+ 
+-    .line 191
+     .line 192
+     if-nez v9, :cond_1
+ 
+-    .line 193
+     .line 194
+     new-instance v9, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {v8}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-object v10
+ 
+     .line 200
+     invoke-virtual {v8}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;->getPersonaName()Ljava/lang/String;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result-object v8
+ 
+     .line 204
+     invoke-direct {v9, v10, v8, v13}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;-><init>(Lin/dragonbra/javasteam/types/SteamID;Ljava/lang/String;Ljava/util/Map;)V
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     move-object v8, v9
+ 
+@@ -3875,8 +3113,6 @@
+     :cond_1
+     invoke-interface {v7, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     goto :goto_0
+ 
+@@ -3884,107 +3120,77 @@
+     :cond_2
+     iget-object v6, v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 213
+     .line 214
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;->getAppId()I
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     move-result v3
+ 
+     .line 218
+     invoke-virtual {v6, v3, v5, v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->updateLobbyMembers(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;Ljava/util/List;)V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     :cond_3
+     :goto_1
+     new-instance v3, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/SetLobbyDataCallback;
+ 
+-    .line 222
+     .line 223
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result-object v2
+ 
+     .line 227
+     const-string v5, "getTargetJobID(...)"
+ 
+-    .line 228
+     .line 229
+     invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyDataResponse$Builder;->getAppId()I
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     move-result v5
+ 
+     .line 236
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyDataResponse$Builder;->getEresult()I
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result v6
+ 
+     .line 240
+     invoke-static {v6}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     move-result-object v6
+ 
+     .line 244
+     invoke-static {v6, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 245
+-    .line 246
+     .line 247
+     new-instance v4, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 248
+     .line 249
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyDataResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 250
+-    .line 251
+     .line 252
+     move-result-wide v7
+ 
+     .line 253
+     invoke-direct {v4, v7, v8}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 254
+-    .line 255
+     .line 256
+     invoke-direct {v3, v2, v5, v6, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/SetLobbyDataCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/enums/EResult;Lin/dragonbra/javasteam/types/SteamID;)V
+ 
+-    .line 257
+-    .line 258
+     .line 259
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 260
+-    .line 261
+     .line 262
+     move-result-object v0
+ 
+     .line 263
+     invoke-virtual {v0, v3}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 264
+-    .line 265
+     .line 266
+     return-void
+ .end method
+@@ -3999,216 +3205,157 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;
+ 
+-    .line 18
+     .line 19
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v2
+ 
+     .line 25
+     invoke-virtual {v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     check-cast v1, Lcom/google/protobuf/GeneratedMessage;
+ 
+-    .line 30
+     .line 31
+     if-eqz v1, :cond_0
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;->getEresult()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v2
+ 
+     .line 37
+     sget-object v3, Lin/dragonbra/javasteam/enums/EResult;->OK:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v3}, Lin/dragonbra/javasteam/enums/EResult;->code()I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v3
+ 
+     .line 43
+     if-ne v2, v3, :cond_0
+ 
+-    .line 44
+     .line 45
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner;
+ 
+-    .line 46
+     .line 47
+     iget-object v2, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;->getAppId()I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v3
+ 
+     .line 53
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-wide v4
+ 
+     .line 57
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner;->getSteamIdNewOwner()J
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-wide v6
+ 
+     .line 61
+     invoke-virtual/range {v2 .. v7}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->updateLobbyOwner(IJJ)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     :cond_0
+     new-instance v1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/SetLobbyOwnerCallback;
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v0
+ 
+     .line 70
+     const-string v2, "getTargetJobID(...)"
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;->getAppId()I
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result v2
+ 
+     .line 79
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;->getEresult()I
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v3
+ 
+     .line 83
+     invoke-static {v3}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v3
+ 
+     .line 87
+     const-string v4, "from(...)"
+ 
+-    .line 88
+     .line 89
+     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     new-instance v4, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 93
+     .line 94
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwnerResponse$Builder;->getSteamIdLobby()J
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-wide v5
+ 
+     .line 98
+     invoke-direct {v4, v5, v6}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-direct {v1, v0, v2, v3, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/SetLobbyOwnerCallback;-><init>(Lin/dragonbra/javasteam/types/JobID;ILin/dragonbra/javasteam/enums/EResult;Lin/dragonbra/javasteam/types/SteamID;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p0
+ 
+     .line 108
+     invoke-virtual {p0, v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     return-void
+ .end method
+@@ -4223,185 +3370,135 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;
+ 
+-    .line 18
+     .line 19
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getAppId()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getSteamIdLobby()J
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-wide v2
+ 
+     .line 29
+     invoke-virtual {v0, v1, v2, v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(IJ)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v6
+ 
+     .line 33
+     if-eqz v6, :cond_0
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v6}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getMembers()Ljava/util/List;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v0
+ 
+     .line 39
+     invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v0
+ 
+     .line 43
+     if-nez v0, :cond_0
+ 
+-    .line 44
+     .line 45
+     iget-object v4, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getAppId()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v5
+ 
+     .line 51
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getSteamIdUser()J
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-wide v7
+ 
+     .line 55
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getPersonaName()Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v9
+ 
+     .line 59
+     const-string v0, "getPersonaName(...)"
+ 
+-    .line 60
+     .line 61
+     invoke-static {v9, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual/range {v4 .. v9}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->addLobbyMember(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;JLjava/lang/String;)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v0
+ 
+     .line 68
+     if-eqz v0, :cond_0
+ 
+-    .line 69
+     .line 70
+     new-instance v1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/UserJoinedLobbyCallback;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getAppId()I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v2
+ 
+     .line 76
+     new-instance v3, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserJoinedLobby$Builder;->getSteamIdLobby()J
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-wide v4
+ 
+     .line 82
+     invoke-direct {v3, v4, v5}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-direct {v1, v2, v3, v0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/UserJoinedLobbyCallback;-><init>(ILin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object p0
+ 
+     .line 92
+     invoke-virtual {p0, v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     :cond_0
+     return-void
+@@ -4417,121 +3514,90 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;
+ 
+-    .line 18
+     .line 19
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getAppId()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getSteamIdLobby()J
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-wide v2
+ 
+     .line 29
+     invoke-virtual {v0, v1, v2, v3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->getLobby(IJ)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     if-eqz v0, :cond_2
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->getMembers()Ljava/util/List;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v1
+ 
+     .line 39
+     invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v1
+ 
+     .line 43
+     if-nez v1, :cond_2
+ 
+-    .line 44
+     .line 45
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getAppId()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v2
+ 
+     .line 51
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getSteamIdUser()J
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-wide v3
+ 
+     .line 55
+     invoke-virtual {v1, v2, v0, v3, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->removeLobbyMember(ILin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;J)Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     if-nez v0, :cond_0
+ 
+-    .line 60
+     .line 61
+     goto :goto_0
+ 
+@@ -4539,112 +3605,82 @@
+     :cond_0
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v1
+ 
+     .line 66
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v2
+ 
+     .line 70
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/steam/CMClient;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v2
+ 
+     .line 74
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result v1
+ 
+     .line 78
+     if-eqz v1, :cond_1
+ 
+-    .line 79
+     .line 80
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyCache:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getAppId()I
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v2
+ 
+     .line 86
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getSteamIdLobby()J
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-wide v3
+ 
+     .line 90
+     invoke-virtual {v1, v2, v3, v4}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/LobbyCache;->clearLobbyMembers(IJ)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     :cond_1
+     new-instance v1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/UserLeftLobbyCallback;
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getAppId()I
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v2
+ 
+     .line 99
+     new-instance v3, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSUserLeftLobby$Builder;->getSteamIdLobby()J
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-wide v4
+ 
+     .line 105
+     invoke-direct {v3, v4, v5}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     invoke-direct {v1, v2, v3, v0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/callback/UserLeftLobbyCallback;-><init>(ILin/dragonbra/javasteam/types/SteamID;Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Member;)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+     .line 115
+     invoke-virtual {p0, v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     :cond_2
+     :goto_0
+@@ -4665,110 +3701,78 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "userSteamId"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 12
+     .line 13
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby;
+ 
+-    .line 14
+     .line 15
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientMMSInviteToLobby:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-wide v2
+ 
+     .line 39
+     invoke-virtual {v1, v2, v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;->setSteamIdLobby(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p2
+ 
+     .line 46
+     check-cast p2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p3}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-wide v1
+ 
+     .line 52
+     invoke-virtual {p2, v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;->setSteamIdUserInvited(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSInviteToLobby$Builder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {p0, v0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->send(Lin/dragonbra/javasteam/base/ClientMsgProtobuf;I)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     return-void
+ .end method
+@@ -4796,48 +3800,36 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     const-class v1, Lin/dragonbra/javasteam/steam/handlers/steamfriends/SteamFriends;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0, v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getHandler(Ljava/lang/Class;)Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     check-cast v0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/SteamFriends;
+ 
+-    .line 17
+     .line 18
+     const/4 v1, 0x0
+ 
+     .line 19
+     if-eqz v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/handlers/steamfriends/SteamFriends;->getPersonaName()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+@@ -4852,7 +3844,6 @@
+     :goto_0
+     if-nez v0, :cond_1
+ 
+-    .line 28
+     .line 29
+     return-object v1
+ 
+@@ -4860,139 +3851,99 @@
+     :cond_1
+     new-instance v1, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 31
+     .line 32
+     const-class v2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby;
+ 
+-    .line 33
+     .line 34
+     sget-object v3, Lin/dragonbra/javasteam/enums/EMsg;->ClientMMSJoinLobby:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 35
+     .line 36
+     invoke-direct {v1, v2, v3}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v2
+ 
+     .line 43
+     check-cast v2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v2, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v2
+ 
+     .line 52
+     check-cast v2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v2, v0}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;->setPersonaName(Ljava/lang/String;)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v0
+ 
+     .line 61
+     check-cast v0, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-wide v2
+ 
+     .line 67
+     invoke-virtual {v0, v2, v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;->setSteamIdLobby(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSJoinLobby$Builder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p2
+ 
+     .line 74
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getNextJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p2
+ 
+     .line 78
+     invoke-virtual {v1, p2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->setSourceJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-virtual {p0, v1, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->send(Lin/dragonbra/javasteam/base/ClientMsgProtobuf;I)V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     new-instance p1, Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p0
+ 
+     .line 90
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p2
+ 
+     .line 94
+     const-string v0, "getSourceJobID(...)"
+ 
+-    .line 95
+     .line 96
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-direct {p1, p0, p2}, Lin/dragonbra/javasteam/types/AsyncJobSingle;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     return-object p1
+ .end method
+@@ -5020,131 +3971,93 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 7
+     .line 8
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby;
+ 
+-    .line 9
+     .line 10
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientMMSLeaveLobby:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby$Builder;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby$Builder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby$Builder;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-wide v2
+ 
+     .line 34
+     invoke-virtual {v1, v2, v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby$Builder;->setSteamIdLobby(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSLeaveLobby$Builder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p2
+ 
+     .line 41
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getNextJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p2
+ 
+     .line 45
+     invoke-virtual {v0, p2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->setSourceJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {p0, v0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->send(Lin/dragonbra/javasteam/base/ClientMsgProtobuf;I)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     new-instance p1, Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+     .line 57
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p2
+ 
+     .line 61
+     const-string v0, "getSourceJobID(...)"
+ 
+-    .line 62
+     .line 63
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-direct {p1, p0, p2}, Lin/dragonbra/javasteam/types/AsyncJobSingle;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     return-object p1
+ .end method
+@@ -5168,38 +4081,27 @@
+     .line 1
+     const-string v0, "msg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getProtoHeader()Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {v0, p2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;->setRoutingAppid(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->send(Lin/dragonbra/javasteam/base/IClientMsg;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -5555,41 +4457,30 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "metadata"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/CMClient;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+ 
+     .line 19
+     if-nez v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     const/4 p0, 0x0
+ 
+@@ -5600,247 +4491,177 @@
+     :cond_0
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 24
+     .line 25
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;
+ 
+-    .line 26
+     .line 27
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientMMSSetLobbyData:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 28
+     .line 29
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+     .line 36
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v1
+ 
+     .line 45
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v2
+ 
+     .line 51
+     invoke-virtual {v1, v2, v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;->setSteamIdLobby(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p2
+ 
+     .line 58
+     check-cast p2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v1
+ 
+     .line 64
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/steam/CMClient;->getSteamID()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v1
+ 
+     .line 68
+     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-wide v1
+ 
+     .line 75
+     invoke-virtual {p2, v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;->setSteamIdMember(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p2
+ 
+     .line 82
+     check-cast p2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 83
+     .line 84
+     sget-object v1, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby;->Companion:Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v1, p3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->encodeMetadata$library_standalone_steam_release(Ljava/util/Map;)[B
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p3
+ 
+     .line 90
+     invoke-virtual {v1, p3}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/Lobby$Companion;->toByteString$library_standalone_steam_release([B)Lcom/google/protobuf/ByteString;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p3
+ 
+     .line 94
+     invoke-virtual {p2, p3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;->setMetadata(Lcom/google/protobuf/ByteString;)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object p2
+ 
+     .line 101
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getNextJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object p2
+ 
+     .line 105
+     invoke-virtual {v0, p2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->setSourceJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     invoke-virtual {p0, v0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->send(Lin/dragonbra/javasteam/base/ClientMsgProtobuf;I)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object p2
+ 
+     .line 117
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p3
+ 
+     .line 121
+     check-cast p3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData$Builder;->build()Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyData;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p3
+ 
+     .line 127
+     invoke-interface {p1, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     new-instance p1, Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 131
+     .line 132
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object p2
+ 
+     .line 136
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object p3
+ 
+     .line 140
+     const-string v0, "getSourceJobID(...)"
+ 
+-    .line 141
+     .line 142
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     invoke-direct {p1, p2, p3}, Lin/dragonbra/javasteam/types/AsyncJobSingle;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->attachIncompleteManipulationHandler(Lin/dragonbra/javasteam/types/AsyncJobSingle;)Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result-object p0
+ 
+@@ -5876,207 +4697,147 @@
+     .line 1
+     const-string v0, "lobbySteamId"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "newOwner"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 12
+     .line 13
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner;
+ 
+-    .line 14
+     .line 15
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientMMSSetLobbyOwner:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;->setAppId(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-wide v2
+ 
+     .line 39
+     invoke-virtual {v1, v2, v3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;->setSteamIdLobby(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p2
+ 
+     .line 46
+     check-cast p2, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p3}, Lin/dragonbra/javasteam/types/SteamID;->convertToUInt64()J
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-wide v1
+ 
+     .line 52
+     invoke-virtual {p2, v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;->setSteamIdNewOwner(J)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p2
+ 
+     .line 59
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getNextJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p2
+ 
+     .line 63
+     invoke-virtual {v0, p2}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->setSourceJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {p0, v0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->send(Lin/dragonbra/javasteam/base/ClientMsgProtobuf;I)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->lobbyManipulationRequests:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object p2
+ 
+     .line 75
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p3
+ 
+     .line 79
+     check-cast p3, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {p3}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner$Builder;->build()Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverMms$CMsgClientMMSSetLobbyOwner;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p3
+ 
+     .line 85
+     invoke-interface {p1, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     new-instance p1, Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->getClient()Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p2
+ 
+     .line 94
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getSourceJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p3
+ 
+     .line 98
+     const-string v0, "getSourceJobID(...)"
+ 
+-    .line 99
+     .line 100
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-direct {p1, p2, p3}, Lin/dragonbra/javasteam/types/AsyncJobSingle;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->attachIncompleteManipulationHandler(Lin/dragonbra/javasteam/types/AsyncJobSingle;)Lin/dragonbra/javasteam/types/AsyncJobSingle;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p0
+ 

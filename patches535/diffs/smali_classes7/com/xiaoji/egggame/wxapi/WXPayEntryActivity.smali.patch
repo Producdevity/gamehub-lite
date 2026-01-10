@@ -1,0 +1,319 @@
+--- a/smali_classes7/com/xiaoji/egggame/wxapi/WXPayEntryActivity.smali
++++ b/smali_classes7/com/xiaoji/egggame/wxapi/WXPayEntryActivity.smali
+@@ -22,29 +22,21 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/activity/ComponentActivity;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lcom/xiaoji/egggame/wxapi/b;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, p0}, Lcom/xiaoji/egggame/wxapi/b;-><init>(Lcom/xiaoji/egggame/wxapi/WXPayEntryActivity;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-static {v0}, Lkotlin/LazyKt;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     iput-object v0, p0, Lcom/xiaoji/egggame/wxapi/WXPayEntryActivity;->a:Lkotlin/Lazy;
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -55,8 +47,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/xiaoji/egggame/wxapi/WXPayEntryActivity;->U0(Lcom/xiaoji/egggame/wxapi/WXPayEntryActivity;)Lcom/tencent/mm/opensdk/openapi/IWXAPI;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -70,20 +60,15 @@
+     .line 1
+     sget-object v0, Lcom/xj/pay/config/PayApi;->a:Lcom/xj/pay/config/PayApi;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/xj/pay/config/PayApi;->a()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-static {p0, v0}, Lcom/tencent/mm/opensdk/openapi/WXAPIFactory;->createWXAPI(Landroid/content/Context;Ljava/lang/String;)Lcom/tencent/mm/opensdk/openapi/IWXAPI;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -99,19 +84,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/egggame/wxapi/WXPayEntryActivity;->a:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Lcom/tencent/mm/opensdk/openapi/IWXAPI;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -122,29 +103,21 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/activity/ComponentActivity;->onCreate(Landroid/os/Bundle;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Lcom/xiaoji/egggame/wxapi/WXPayEntryActivity;->T0()Lcom/tencent/mm/opensdk/openapi/IWXAPI;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p1
+ 
+     .line 8
+     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-interface {p1, v0, p0}, Lcom/tencent/mm/opensdk/openapi/IWXAPI;->handleIntent(Landroid/content/Intent;Lcom/tencent/mm/opensdk/openapi/IWXAPIEventHandler;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -165,16 +138,12 @@
+     .line 2
+     if-eqz p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     iget v1, p1, Lcom/tencent/mm/opensdk/modelbase/BaseResp;->errCode:I
+ 
+-    .line 5
+     .line 6
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+@@ -192,7 +161,6 @@
+     .line 13
+     if-nez v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     goto :goto_1
+ 
+@@ -200,45 +168,33 @@
+     :cond_1
+     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v3
+ 
+     .line 20
+     if-nez v3, :cond_2
+ 
+-    .line 21
+     .line 22
+     new-instance p1, Lcom/xj/pay/event/PayEvent;
+ 
+-    .line 23
+     .line 24
+     const/4 v1, 0x0
+ 
+     .line 25
+     invoke-direct {p1, v1}, Lcom/xj/pay/event/PayEvent;-><init>(I)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {p1, v0, v2, v0}, Lcom/drake/channel/ChannelKt;->c(Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     sget-object p1, Lcom/xj/common/utils/LogA;->a:Lcom/xj/common/utils/LogA;
+ 
+-    .line 32
+     .line 33
+     const-string v0, "\u652f\u4ed8\u6210\u529f"
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p1, v0}, Lcom/xj/common/utils/LogA;->b(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     goto :goto_4
+ 
+@@ -250,7 +206,6 @@
+     .line 40
+     if-nez v1, :cond_3
+ 
+-    .line 41
+     .line 42
+     goto :goto_2
+ 
+@@ -258,42 +213,30 @@
+     :cond_3
+     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v4
+ 
+     .line 47
+     if-ne v4, v3, :cond_4
+ 
+-    .line 48
+     .line 49
+     new-instance p1, Lcom/xj/pay/event/PayEvent;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {p1, v3}, Lcom/xj/pay/event/PayEvent;-><init>(I)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-static {p1, v0, v2, v0}, Lcom/drake/channel/ChannelKt;->c(Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     sget-object p1, Lcom/xj/common/utils/LogA;->a:Lcom/xj/common/utils/LogA;
+ 
+-    .line 58
+     .line 59
+     const-string v0, "\u652f\u4ed8\u5931\u8d25"
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {p1, v0}, Lcom/xj/common/utils/LogA;->b(Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     goto :goto_4
+ 
+@@ -302,7 +245,6 @@
+     :goto_2
+     if-nez v1, :cond_5
+ 
+-    .line 66
+     .line 67
+     goto :goto_3
+ 
+@@ -310,8 +252,6 @@
+     :cond_5
+     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v1
+ 
+@@ -321,34 +261,24 @@
+     .line 73
+     if-ne v1, v4, :cond_6
+ 
+-    .line 74
+     .line 75
+     new-instance p1, Lcom/xj/pay/event/PayEvent;
+ 
+-    .line 76
+     .line 77
+     invoke-direct {p1, v4}, Lcom/xj/pay/event/PayEvent;-><init>(I)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-static {p1, v0, v2, v0}, Lcom/drake/channel/ChannelKt;->c(Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     sget-object p1, Lcom/xj/common/utils/LogA;->a:Lcom/xj/common/utils/LogA;
+ 
+-    .line 84
+     .line 85
+     const-string v0, "\u7528\u6237\u53d6\u6d88"
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {p1, v0}, Lcom/xj/common/utils/LogA;->b(Ljava/lang/String;)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     goto :goto_4
+ 
+@@ -357,32 +287,23 @@
+     :goto_3
+     new-instance v1, Lcom/xj/pay/event/PayEvent;
+ 
+-    .line 92
+     .line 93
+     if-eqz p1, :cond_7
+ 
+-    .line 94
+     .line 95
+     iget v3, p1, Lcom/tencent/mm/opensdk/modelbase/BaseResp;->errCode:I
+ 
+-    .line 96
+     .line 97
+     :cond_7
+     invoke-direct {v1, v3}, Lcom/xj/pay/event/PayEvent;-><init>(I)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     invoke-static {v1, v0, v2, v0}, Lcom/drake/channel/ChannelKt;->c(Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     :goto_4
+     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     return-void
+ .end method

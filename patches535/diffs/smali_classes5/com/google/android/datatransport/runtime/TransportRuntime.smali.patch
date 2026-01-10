@@ -1,0 +1,612 @@
+--- a/smali_classes5/com/google/android/datatransport/runtime/TransportRuntime.smali
++++ b/smali_classes5/com/google/android/datatransport/runtime/TransportRuntime.smali
+@@ -49,29 +49,21 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->eventClock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->uptimeClock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->scheduler:Lcom/google/android/datatransport/runtime/scheduling/Scheduler;
+ 
+-    .line 9
+     .line 10
+     iput-object p4, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->uploader:Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p5}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkInitializer;->ensureContextsScheduled()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -82,321 +74,238 @@
+     .line 1
+     invoke-static {}, Lcom/google/android/datatransport/runtime/EventInternal;->builder()Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     iget-object v1, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->eventClock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {v1}, Lcom/google/android/datatransport/runtime/time/Clock;->getTime()J
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-wide v1
+ 
+     .line 11
+     invoke-virtual {v0, v1, v2}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setEventMillis(J)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->uptimeClock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/time/Clock;->getTime()J
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-wide v1
+ 
+     .line 21
+     invoke-virtual {v0, v1, v2}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setUptimeMillis(J)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+     .line 25
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getTransportName()Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setTransportName(Ljava/lang/String;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     new-instance v0, Lcom/google/android/datatransport/runtime/EncodedPayload;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEncoding()Lcom/google/android/datatransport/Encoding;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v1
+ 
+     .line 39
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getPayload()[B
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v2
+ 
+     .line 43
+     invoke-direct {v0, v1, v2}, Lcom/google/android/datatransport/runtime/EncodedPayload;-><init>(Lcom/google/android/datatransport/Encoding;[B)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setEncodedPayload(Lcom/google/android/datatransport/runtime/EncodedPayload;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+     .line 54
+     invoke-virtual {v0}, Lcom/google/android/datatransport/Event;->getCode()Ljava/lang/Integer;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setCode(Ljava/lang/Integer;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p0
+ 
+     .line 62
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     invoke-virtual {v0}, Lcom/google/android/datatransport/Event;->getProductData()Lcom/google/android/datatransport/ProductData;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v0
+ 
+     .line 70
+     if-eqz v0, :cond_0
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v0
+ 
+     .line 76
+     invoke-virtual {v0}, Lcom/google/android/datatransport/Event;->getProductData()Lcom/google/android/datatransport/ProductData;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v0
+ 
+     .line 80
+     invoke-virtual {v0}, Lcom/google/android/datatransport/ProductData;->getProductId()Ljava/lang/Integer;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v0
+ 
+     .line 84
+     if-eqz v0, :cond_0
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v0
+ 
+     .line 90
+     invoke-virtual {v0}, Lcom/google/android/datatransport/Event;->getProductData()Lcom/google/android/datatransport/ProductData;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v0
+ 
+     .line 94
+     invoke-virtual {v0}, Lcom/google/android/datatransport/ProductData;->getProductId()Ljava/lang/Integer;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v0
+ 
+     .line 98
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setProductId(Ljava/lang/Integer;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     :cond_0
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object v0
+ 
+     .line 105
+     invoke-virtual {v0}, Lcom/google/android/datatransport/Event;->getEventContext()Lcom/google/android/datatransport/EventContext;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v0
+ 
+     .line 109
+     if-eqz v0, :cond_3
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p1
+ 
+     .line 115
+     invoke-virtual {p1}, Lcom/google/android/datatransport/Event;->getEventContext()Lcom/google/android/datatransport/EventContext;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p1
+ 
+     .line 119
+     invoke-virtual {p1}, Lcom/google/android/datatransport/EventContext;->getPseudonymousId()Ljava/lang/String;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v0
+ 
+     .line 123
+     if-eqz v0, :cond_1
+ 
+-    .line 124
+     .line 125
+     invoke-virtual {p1}, Lcom/google/android/datatransport/EventContext;->getPseudonymousId()Ljava/lang/String;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object v0
+ 
+     .line 129
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setPseudonymousId(Ljava/lang/String;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     :cond_1
+     invoke-virtual {p1}, Lcom/google/android/datatransport/EventContext;->getExperimentIdsClear()[B
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object v0
+ 
+     .line 136
+     if-eqz v0, :cond_2
+ 
+-    .line 137
+     .line 138
+     invoke-virtual {p1}, Lcom/google/android/datatransport/EventContext;->getExperimentIdsClear()[B
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-object v0
+ 
+     .line 142
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setExperimentIdsClear([B)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     :cond_2
+     invoke-virtual {p1}, Lcom/google/android/datatransport/EventContext;->getExperimentIdsEncrypted()[B
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result-object v0
+ 
+     .line 149
+     if-eqz v0, :cond_3
+ 
+-    .line 150
+     .line 151
+     invoke-virtual {p1}, Lcom/google/android/datatransport/EventContext;->getExperimentIdsEncrypted()[B
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object p1
+ 
+     .line 155
+     invoke-virtual {p0, p1}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setExperimentIdsEncrypted([B)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     :cond_3
+     invoke-virtual {p0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->build()Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     move-result-object p0
+ 
+@@ -410,16 +319,12 @@
+     .line 1
+     sget-object v0, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;->getTransportRuntime()Lcom/google/android/datatransport/runtime/TransportRuntime;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+@@ -430,16 +335,12 @@
+     :cond_0
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 11
+     .line 12
+     const-string v1, "Not initialized!"
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     throw v0
+ .end method
+@@ -460,28 +361,21 @@
+     .line 1
+     instance-of v0, p0, Lcom/google/android/datatransport/runtime/EncodedDestination;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p0, Lcom/google/android/datatransport/runtime/EncodedDestination;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/EncodedDestination;->getSupportedEncodings()Ljava/util/Set;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     invoke-static {p0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+@@ -492,20 +386,15 @@
+     :cond_0
+     const-string p0, "proto"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p0}, Lcom/google/android/datatransport/Encoding;->of(Ljava/lang/String;)Lcom/google/android/datatransport/Encoding;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     invoke-static {p0}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -519,15 +408,12 @@
+     .line 1
+     sget-object v0, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const-class v0, Lcom/google/android/datatransport/runtime/TransportRuntime;
+ 
+-    .line 6
+     .line 7
+     monitor-enter v0
+ 
+@@ -535,39 +421,30 @@
+     :try_start_0
+     sget-object v1, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 9
+     .line 10
+     if-nez v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-static {}, Lcom/google/android/datatransport/runtime/DaggerTransportRuntimeComponent;->builder()Lcom/google/android/datatransport/runtime/TransportRuntimeComponent$Builder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     invoke-interface {v1, p0}, Lcom/google/android/datatransport/runtime/TransportRuntimeComponent$Builder;->setApplicationContext(Landroid/content/Context;)Lcom/google/android/datatransport/runtime/TransportRuntimeComponent$Builder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/TransportRuntimeComponent$Builder;->build()Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     sput-object p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -627,7 +504,6 @@
+     .line 1
+     const-class v0, Lcom/google/android/datatransport/runtime/TransportRuntime;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -635,11 +511,9 @@
+     :try_start_0
+     sget-object v1, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 5
+     .line 6
+     sput-object p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 7
+     .line 8
+     monitor-exit v0
+     :try_end_0
+@@ -651,12 +525,9 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_1
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const-class p0, Lcom/google/android/datatransport/runtime/TransportRuntime;
+ 
+-    .line 13
+     .line 14
+     monitor-enter p0
+ 
+@@ -664,7 +535,6 @@
+     :try_start_2
+     sput-object v1, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 16
+     .line 17
+     monitor-exit p0
+ 
+@@ -690,7 +560,6 @@
+     .line 23
+     const-class p1, Lcom/google/android/datatransport/runtime/TransportRuntime;
+ 
+-    .line 24
+     .line 25
+     monitor-enter p1
+ 
+@@ -698,7 +567,6 @@
+     :try_start_3
+     sput-object v1, Lcom/google/android/datatransport/runtime/TransportRuntime;->instance:Lcom/google/android/datatransport/runtime/TransportRuntimeComponent;
+ 
+-    .line 27
+     .line 28
+     monitor-exit p1
+     :try_end_3
+@@ -744,7 +612,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->uploader:Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -832,52 +699,39 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/TransportRuntime;->scheduler:Lcom/google/android/datatransport/runtime/scheduling/Scheduler;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getTransportContext()Lcom/google/android/datatransport/runtime/TransportContext;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/SendRequest;->getEvent()Lcom/google/android/datatransport/Event;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     invoke-virtual {v2}, Lcom/google/android/datatransport/Event;->getPriority()Lcom/google/android/datatransport/Priority;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v2
+ 
+     .line 15
+     invoke-virtual {v1, v2}, Lcom/google/android/datatransport/runtime/TransportContext;->withPriority(Lcom/google/android/datatransport/Priority;)Lcom/google/android/datatransport/runtime/TransportContext;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     invoke-direct {p0, p1}, Lcom/google/android/datatransport/runtime/TransportRuntime;->convert(Lcom/google/android/datatransport/runtime/SendRequest;)Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     invoke-interface {v0, v1, p0, p2}, Lcom/google/android/datatransport/runtime/scheduling/Scheduler;->schedule(Lcom/google/android/datatransport/runtime/TransportContext;Lcom/google/android/datatransport/runtime/EventInternal;Lcom/google/android/datatransport/TransportScheduleCallback;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     return-void
+ .end method

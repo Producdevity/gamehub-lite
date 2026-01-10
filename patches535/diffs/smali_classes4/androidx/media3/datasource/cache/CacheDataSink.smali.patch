@@ -1,0 +1,578 @@
+--- a/smali_classes4/androidx/media3/datasource/cache/CacheDataSink.smali
++++ b/smali_classes4/androidx/media3/datasource/cache/CacheDataSink.smali
+@@ -158,11 +158,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -176,54 +174,39 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 11
+     .line 12
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->closeQuietly(Ljava/io/Closeable;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     iput-object v1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 16
+     .line 17
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->file:Ljava/io/File;
+ 
+-    .line 18
+     .line 19
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     check-cast v0, Ljava/io/File;
+ 
+-    .line 24
+     .line 25
+     iput-object v1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->file:Ljava/io/File;
+ 
+-    .line 26
+     .line 27
+     iget-object v1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->cache:Landroidx/media3/datasource/cache/Cache;
+ 
+-    .line 28
+     .line 29
+     iget-wide v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStreamBytesWritten:J
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v1, v0, v2, v3}, Landroidx/media3/datasource/cache/Cache;->commitFile(Ljava/io/File;J)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ 
+@@ -234,41 +217,30 @@
+     .line 36
+     iget-object v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 37
+     .line 38
+     invoke-static {v2}, Landroidx/media3/common/util/Util;->closeQuietly(Ljava/io/Closeable;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     iput-object v1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 42
+     .line 43
+     iget-object v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->file:Ljava/io/File;
+ 
+-    .line 44
+     .line 45
+     invoke-static {v2}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v2
+ 
+     .line 49
+     check-cast v2, Ljava/io/File;
+ 
+-    .line 50
+     .line 51
+     iput-object v1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->file:Ljava/io/File;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {v2}, Ljava/io/File;->delete()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     throw v0
+ .end method
+@@ -284,19 +256,15 @@
+     .line 1
+     iget-wide v0, p1, Landroidx/media3/datasource/DataSpec;->length:J
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v2, -0x1
+ 
+-    .line 4
+     .line 5
+     cmp-long v4, v0, v2
+ 
+-    .line 6
+     .line 7
+     if-nez v4, :cond_0
+ 
+-    .line 8
+     .line 9
+     :goto_0
+     move-wide v8, v2
+@@ -308,19 +276,15 @@
+     :cond_0
+     iget-wide v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecBytesWritten:J
+ 
+-    .line 12
+     .line 13
+     sub-long/2addr v0, v2
+ 
+     .line 14
+     iget-wide v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecFragmentSize:J
+ 
+-    .line 15
+     .line 16
+     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-wide v2
+ 
+@@ -331,16 +295,12 @@
+     :goto_1
+     iget-object v4, p0, Landroidx/media3/datasource/cache/CacheDataSink;->cache:Landroidx/media3/datasource/cache/Cache;
+ 
+-    .line 22
+     .line 23
+     iget-object v0, p1, Landroidx/media3/datasource/DataSpec;->key:Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+@@ -350,77 +310,57 @@
+     .line 30
+     check-cast v5, Ljava/lang/String;
+ 
+-    .line 31
+     .line 32
+     iget-wide v0, p1, Landroidx/media3/datasource/DataSpec;->position:J
+ 
+-    .line 33
+     .line 34
+     iget-wide v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecBytesWritten:J
+ 
+-    .line 35
+     .line 36
+     add-long v6, v0, v2
+ 
+-    .line 37
+     .line 38
+     invoke-interface/range {v4 .. v9}, Landroidx/media3/datasource/cache/Cache;->startFile(Ljava/lang/String;JJ)Ljava/io/File;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p1
+ 
+     .line 42
+     iput-object p1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->file:Ljava/io/File;
+ 
+-    .line 43
+     .line 44
+     new-instance p1, Ljava/io/FileOutputStream;
+ 
+-    .line 45
+     .line 46
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->file:Ljava/io/File;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p1, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     iget v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->bufferSize:I
+ 
+-    .line 52
+     .line 53
+     if-lez v0, :cond_2
+ 
+-    .line 54
+     .line 55
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->bufferedOutputStream:Landroidx/media3/datasource/cache/ReusableBufferedOutputStream;
+ 
+-    .line 56
+     .line 57
+     if-nez v0, :cond_1
+ 
+-    .line 58
+     .line 59
+     new-instance v0, Landroidx/media3/datasource/cache/ReusableBufferedOutputStream;
+ 
+-    .line 60
+     .line 61
+     iget v1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->bufferSize:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {v0, p1, v1}, Landroidx/media3/datasource/cache/ReusableBufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     iput-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->bufferedOutputStream:Landroidx/media3/datasource/cache/ReusableBufferedOutputStream;
+ 
+-    .line 67
+     .line 68
+     goto :goto_2
+ 
+@@ -428,17 +368,13 @@
+     :cond_1
+     invoke-virtual {v0, p1}, Landroidx/media3/datasource/cache/ReusableBufferedOutputStream;->reset(Ljava/io/OutputStream;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     :goto_2
+     iget-object p1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->bufferedOutputStream:Landroidx/media3/datasource/cache/ReusableBufferedOutputStream;
+ 
+-    .line 73
+     .line 74
+     iput-object p1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 75
+     .line 76
+     goto :goto_3
+ 
+@@ -446,16 +382,13 @@
+     :cond_2
+     iput-object p1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 78
+     .line 79
+     :goto_3
+     const-wide/16 v0, 0x0
+ 
+-    .line 80
+     .line 81
+     iput-wide v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStreamBytesWritten:J
+ 
+-    .line 82
+     .line 83
+     return-void
+ .end method
+@@ -473,11 +406,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpec:Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -488,8 +419,6 @@
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -500,12 +429,9 @@
+     .line 11
+     new-instance v0, Landroidx/media3/datasource/cache/CacheDataSink$CacheDataSinkException;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p0}, Landroidx/media3/datasource/cache/CacheDataSink$CacheDataSinkException;-><init>(Ljava/io/IOException;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     throw v0
+ .end method
+@@ -521,50 +447,39 @@
+     .line 1
+     iget-object v0, p1, Landroidx/media3/datasource/DataSpec;->key:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-wide v0, p1, Landroidx/media3/datasource/DataSpec;->length:J
+ 
+-    .line 7
+     .line 8
+     const-wide/16 v2, -0x1
+ 
+-    .line 9
+     .line 10
+     cmp-long v0, v0, v2
+ 
+-    .line 11
+     .line 12
+     if-nez v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     const/4 v0, 0x2
+ 
+     .line 15
+     invoke-virtual {p1, v0}, Landroidx/media3/datasource/DataSpec;->isFlagSet(I)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-eqz v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     const/4 p1, 0x0
+ 
+     .line 22
+     iput-object p1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpec:Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 23
+     .line 24
+     return-void
+ 
+@@ -572,26 +487,21 @@
+     :cond_0
+     iput-object p1, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpec:Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 26
+     .line 27
+     const/4 v0, 0x4
+ 
+     .line 28
+     invoke-virtual {p1, v0}, Landroidx/media3/datasource/DataSpec;->isFlagSet(I)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+     .line 32
+     if-eqz v0, :cond_1
+ 
+-    .line 33
+     .line 34
+     iget-wide v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->fragmentSize:J
+ 
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -599,31 +509,22 @@
+     :cond_1
+     const-wide v0, 0x7fffffffffffffffL
+ 
+-    .line 38
+-    .line 39
+-    .line 40
+-    .line 41
+     .line 42
+     :goto_0
+     iput-wide v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecFragmentSize:J
+ 
+-    .line 43
+     .line 44
+     const-wide/16 v0, 0x0
+ 
+-    .line 45
+     .line 46
+     iput-wide v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecBytesWritten:J
+ 
+-    .line 47
+     .line 48
+     :try_start_0
+     invoke-direct {p0, p1}, Landroidx/media3/datasource/cache/CacheDataSink;->openNextOutputStream(Landroidx/media3/datasource/DataSpec;)V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     return-void
+ 
+@@ -634,12 +535,9 @@
+     .line 53
+     new-instance p1, Landroidx/media3/datasource/cache/CacheDataSink$CacheDataSinkException;
+ 
+-    .line 54
+     .line 55
+     invoke-direct {p1, p0}, Landroidx/media3/datasource/cache/CacheDataSink$CacheDataSinkException;-><init>(Ljava/io/IOException;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     throw p1
+ .end method
+@@ -655,11 +553,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpec:Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     goto :goto_1
+ 
+@@ -671,58 +567,44 @@
+     :goto_0
+     if-ge v1, p3, :cond_2
+ 
+-    .line 8
+     .line 9
+     :try_start_0
+     iget-wide v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStreamBytesWritten:J
+ 
+-    .line 10
+     .line 11
+     iget-wide v4, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecFragmentSize:J
+ 
+-    .line 12
+     .line 13
+     cmp-long v2, v2, v4
+ 
+-    .line 14
+     .line 15
+     if-nez v2, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-direct {p0}, Landroidx/media3/datasource/cache/CacheDataSink;->closeCurrentOutputStream()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-direct {p0, v0}, Landroidx/media3/datasource/cache/CacheDataSink;->openNextOutputStream(Landroidx/media3/datasource/DataSpec;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :cond_1
+     sub-int v2, p3, v1
+ 
+-    .line 24
+     .line 25
+     int-to-long v2, v2
+ 
+     .line 26
+     iget-wide v4, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecFragmentSize:J
+ 
+-    .line 27
+     .line 28
+     iget-wide v6, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStreamBytesWritten:J
+ 
+-    .line 29
+     .line 30
+     sub-long/2addr v4, v6
+ 
+     .line 31
+     invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-wide v2
+ 
+@@ -732,35 +614,27 @@
+     .line 36
+     iget-object v3, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStream:Ljava/io/OutputStream;
+ 
+-    .line 37
+     .line 38
+     invoke-static {v3}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v3
+ 
+     .line 42
+     check-cast v3, Ljava/io/OutputStream;
+ 
+-    .line 43
+     .line 44
+     add-int v4, p2, v1
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v3, p1, v4, v2}, Ljava/io/OutputStream;->write([BII)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     add-int/2addr v1, v2
+ 
+     .line 50
+     iget-wide v3, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStreamBytesWritten:J
+ 
+-    .line 51
+     .line 52
+     int-to-long v5, v2
+ 
+@@ -770,11 +644,9 @@
+     .line 54
+     iput-wide v3, p0, Landroidx/media3/datasource/cache/CacheDataSink;->outputStreamBytesWritten:J
+ 
+-    .line 55
+     .line 56
+     iget-wide v2, p0, Landroidx/media3/datasource/cache/CacheDataSink;->dataSpecBytesWritten:J
+ 
+-    .line 57
+     .line 58
+     add-long/2addr v2, v5
+ 
+@@ -783,7 +655,6 @@
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 60
+     .line 61
+     goto :goto_0
+ 
+@@ -794,12 +665,9 @@
+     .line 63
+     new-instance p1, Landroidx/media3/datasource/cache/CacheDataSink$CacheDataSinkException;
+ 
+-    .line 64
+     .line 65
+     invoke-direct {p1, p0}, Landroidx/media3/datasource/cache/CacheDataSink$CacheDataSinkException;-><init>(Ljava/io/IOException;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     throw p1
+ 

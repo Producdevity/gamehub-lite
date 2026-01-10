@@ -1,0 +1,468 @@
+--- a/smali_classes6/com/google/zxing/qrcode/QRCodeReader.smali
++++ b/smali_classes6/com/google/zxing/qrcode/QRCodeReader.smali
+@@ -24,11 +24,9 @@
+     .line 2
+     new-array v0, v0, [Lcom/google/zxing/ResultPoint;
+ 
+-    .line 3
+     .line 4
+     sput-object v0, Lcom/google/zxing/qrcode/QRCodeReader;->NO_POINTS:[Lcom/google/zxing/ResultPoint;
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -39,21 +37,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lcom/google/zxing/qrcode/decoder/Decoder;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Lcom/google/zxing/qrcode/decoder/Decoder;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/google/zxing/qrcode/QRCodeReader;->decoder:Lcom/google/zxing/qrcode/decoder/Decoder;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -69,32 +61,24 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/zxing/common/BitMatrix;->getTopLeftOnBit()[I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/google/zxing/common/BitMatrix;->getBottomRightOnBit()[I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     if-eqz v0, :cond_c
+ 
+-    .line 10
+     .line 11
+     if-eqz v1, :cond_c
+ 
+-    .line 12
+     .line 13
+     invoke-static {v0, p0}, Lcom/google/zxing/qrcode/QRCodeReader;->moduleSize([ILcom/google/zxing/common/BitMatrix;)F
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+@@ -104,58 +88,45 @@
+     .line 18
+     aget v4, v0, v3
+ 
+-    .line 19
+     .line 20
+     aget v5, v1, v3
+ 
+-    .line 21
+     .line 22
+     const/4 v6, 0x0
+ 
+     .line 23
+     aget v0, v0, v6
+ 
+-    .line 24
+     .line 25
+     aget v1, v1, v6
+ 
+-    .line 26
+     .line 27
+     if-ge v0, v1, :cond_b
+ 
+-    .line 28
+     .line 29
+     if-ge v4, v5, :cond_b
+ 
+-    .line 30
+     .line 31
+     sub-int v7, v5, v4
+ 
+-    .line 32
+     .line 33
+     sub-int v8, v1, v0
+ 
+-    .line 34
+     .line 35
+     if-eq v7, v8, :cond_1
+ 
+-    .line 36
+     .line 37
+     add-int v1, v0, v7
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p0}, Lcom/google/zxing/common/BitMatrix;->getWidth()I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v8
+ 
+     .line 43
+     if-ge v1, v8, :cond_0
+ 
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -163,8 +134,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+@@ -176,7 +145,6 @@
+     :goto_0
+     sub-int v8, v1, v0
+ 
+-    .line 52
+     .line 53
+     add-int/2addr v8, v3
+ 
+@@ -189,8 +157,6 @@
+     .line 56
+     invoke-static {v8}, Ljava/lang/Math;->round(F)I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v8
+ 
+@@ -206,31 +172,24 @@
+     .line 63
+     invoke-static {v3}, Ljava/lang/Math;->round(F)I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v3
+ 
+     .line 67
+     if-lez v8, :cond_a
+ 
+-    .line 68
+     .line 69
+     if-lez v3, :cond_a
+ 
+-    .line 70
+     .line 71
+     if-ne v3, v8, :cond_9
+ 
+-    .line 72
+     .line 73
+     const/high16 v7, 0x40000000    # 2.0f
+ 
+-    .line 74
+     .line 75
+     div-float v7, v2, v7
+ 
+-    .line 76
+     .line 77
+     float-to-int v7, v7
+ 
+@@ -243,7 +202,6 @@
+     .line 80
+     add-int/lit8 v9, v8, -0x1
+ 
+-    .line 81
+     .line 82
+     int-to-float v9, v9
+ 
+@@ -262,11 +220,9 @@
+     .line 87
+     if-lez v9, :cond_3
+ 
+-    .line 88
+     .line 89
+     if-gt v9, v7, :cond_2
+ 
+-    .line 90
+     .line 91
+     sub-int/2addr v0, v9
+ 
+@@ -277,8 +233,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object p0
+ 
+@@ -290,7 +244,6 @@
+     :goto_1
+     add-int/lit8 v1, v3, -0x1
+ 
+-    .line 99
+     .line 100
+     int-to-float v1, v1
+ 
+@@ -309,11 +262,9 @@
+     .line 105
+     if-lez v1, :cond_5
+ 
+-    .line 106
+     .line 107
+     if-gt v1, v7, :cond_4
+ 
+-    .line 108
+     .line 109
+     sub-int/2addr v4, v1
+ 
+@@ -324,8 +275,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -337,12 +286,9 @@
+     :goto_2
+     new-instance v1, Lcom/google/zxing/common/BitMatrix;
+ 
+-    .line 117
+     .line 118
+     invoke-direct {v1, v8, v3}, Lcom/google/zxing/common/BitMatrix;-><init>(II)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move v5, v6
+ 
+@@ -350,7 +296,6 @@
+     :goto_3
+     if-ge v5, v3, :cond_8
+ 
+-    .line 123
+     .line 124
+     int-to-float v7, v5
+ 
+@@ -370,7 +315,6 @@
+     :goto_4
+     if-ge v9, v8, :cond_7
+ 
+-    .line 130
+     .line 131
+     int-to-float v10, v9
+ 
+@@ -386,25 +330,19 @@
+     .line 135
+     invoke-virtual {p0, v10, v7}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result v10
+ 
+     .line 139
+     if-eqz v10, :cond_6
+ 
+-    .line 140
+     .line 141
+     invoke-virtual {v1, v9, v5}, Lcom/google/zxing/common/BitMatrix;->set(II)V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     :cond_6
+     add-int/lit8 v9, v9, 0x1
+ 
+-    .line 145
+     .line 146
+     goto :goto_4
+ 
+@@ -412,7 +350,6 @@
+     :cond_7
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 148
+     .line 149
+     goto :goto_3
+ 
+@@ -424,8 +361,6 @@
+     :cond_9
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object p0
+ 
+@@ -436,8 +371,6 @@
+     :cond_a
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object p0
+ 
+@@ -448,8 +381,6 @@
+     :cond_b
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result-object p0
+ 
+@@ -460,8 +391,6 @@
+     :cond_c
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object p0
+ 
+@@ -480,16 +409,12 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/google/zxing/common/BitMatrix;->getHeight()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p1}, Lcom/google/zxing/common/BitMatrix;->getWidth()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+@@ -499,14 +424,12 @@
+     .line 10
+     aget v3, p0, v2
+ 
+-    .line 11
+     .line 12
+     const/4 v4, 0x1
+ 
+     .line 13
+     aget v5, p0, v4
+ 
+-    .line 14
+     .line 15
+     move v6, v2
+ 
+@@ -514,34 +437,27 @@
+     :goto_0
+     if-ge v3, v1, :cond_2
+ 
+-    .line 17
+     .line 18
+     if-ge v5, v0, :cond_2
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1, v3, v5}, Lcom/google/zxing/common/BitMatrix;->get(II)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v7
+ 
+     .line 24
+     if-eq v4, v7, :cond_1
+ 
+-    .line 25
+     .line 26
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 27
+     .line 28
+     const/4 v7, 0x5
+ 
+     .line 29
+     if-ne v6, v7, :cond_0
+ 
+-    .line 30
+     .line 31
+     goto :goto_1
+ 
+@@ -549,16 +465,13 @@
+     :cond_0
+     xor-int/lit8 v4, v4, 0x1
+ 
+-    .line 33
+     .line 34
+     :cond_1
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 35
+     .line 36
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -567,15 +480,12 @@
+     :goto_1
+     if-eq v3, v1, :cond_3
+ 
+-    .line 40
+     .line 41
+     if-eq v5, v0, :cond_3
+ 
+-    .line 42
+     .line 43
+     aget p0, p0, v2
+ 
+-    .line 44
+     .line 45
+     sub-int/2addr v3, p0
+ 
+@@ -585,7 +495,6 @@
+     .line 47
+     const/high16 p1, 0x40e00000    # 7.0f
+ 
+-    .line 48
+     .line 49
+     div-float/2addr p0, p1
+ 
+@@ -596,8 +505,6 @@
+     :cond_3
+     invoke-static {}, Lcom/google/zxing/NotFoundException;->getNotFoundInstance()Lcom/google/zxing/NotFoundException;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p0
+ 
+@@ -850,7 +757,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/zxing/qrcode/QRCodeReader;->decoder:Lcom/google/zxing/qrcode/decoder/Decoder;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

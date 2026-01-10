@@ -1,0 +1,351 @@
+--- a/smali_classes6/com/king/zxing/analyze/ImageAnalyzer.smali
++++ b/smali_classes6/com/king/zxing/analyze/ImageAnalyzer.smali
+@@ -30,37 +30,27 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->a:Ljava/util/Queue;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 12
+     .line 13
+     const/4 v1, 0x0
+ 
+     .line 14
+     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iput-object v0, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 18
+     .line 19
+     return-void
+ .end method
+@@ -73,12 +63,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -88,20 +75,15 @@
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getWidth()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getHeight()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+@@ -111,57 +93,43 @@
+     .line 19
+     div-int/lit8 v2, v0, 0x4
+ 
+-    .line 20
+     .line 21
+     mul-int/lit8 v2, v2, 0x2
+ 
+-    .line 22
+     .line 23
+     add-int/2addr v0, v2
+ 
+     .line 24
+     new-array v0, v0, [B
+ 
+-    .line 25
+     .line 26
+     iget-object v2, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->a:Ljava/util/Queue;
+ 
+-    .line 27
+     .line 28
+     invoke-interface {v2, v0}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iget-object v0, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     :cond_0
+     iget-object v0, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->a:Ljava/util/Queue;
+ 
+-    .line 37
+     .line 38
+     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v0
+ 
+     .line 42
+     check-cast v0, [B
+ 
+-    .line 43
+     .line 44
+     if-nez v0, :cond_1
+ 
+-    .line 45
+     .line 46
+     return-void
+ 
+@@ -173,59 +141,45 @@
+     :try_start_0
+     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->g0()Landroidx/camera/core/ImageInfo;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v3
+ 
+     .line 52
+     invoke-interface {v3}, Landroidx/camera/core/ImageInfo;->getRotationDegrees()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v3
+ 
+     .line 56
+     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getWidth()I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v4
+ 
+     .line 60
+     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->getHeight()I
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v5
+ 
+     .line 64
+     invoke-static {p1, v0}, Lcom/king/camera/scan/util/ImageUtils;->a(Landroidx/camera/core/ImageProxy;[B)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     const/16 p1, 0x5a
+ 
+-    .line 68
+     .line 69
+     const/4 v6, 0x0
+ 
+     .line 70
+     if-eq v3, p1, :cond_3
+ 
+-    .line 71
+     .line 72
+     const/16 p1, 0x10e
+ 
+-    .line 73
+     .line 74
+     if-ne v3, p1, :cond_2
+ 
+-    .line 75
+     .line 76
+     goto :goto_0
+ 
+@@ -233,8 +187,6 @@
+     :cond_2
+     invoke-virtual {p0, v0, v4, v5}, Lcom/king/zxing/analyze/ImageAnalyzer;->b([BII)Lcom/google/zxing/Result;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p1
+ 
+@@ -249,7 +201,6 @@
+     .line 83
+     new-array p1, p1, [B
+ 
+-    .line 84
+     .line 85
+     move v7, v6
+ 
+@@ -257,7 +208,6 @@
+     :goto_1
+     if-ge v7, v5, :cond_5
+ 
+-    .line 87
+     .line 88
+     move v8, v6
+ 
+@@ -265,11 +215,9 @@
+     :goto_2
+     if-ge v8, v4, :cond_4
+ 
+-    .line 90
+     .line 91
+     mul-int v9, v8, v5
+ 
+-    .line 92
+     .line 93
+     add-int/2addr v9, v5
+ 
+@@ -282,22 +230,18 @@
+     .line 96
+     mul-int v10, v7, v4
+ 
+-    .line 97
+     .line 98
+     add-int/2addr v10, v8
+ 
+     .line 99
+     aget-byte v10, v0, v10
+ 
+-    .line 100
+     .line 101
+     aput-byte v10, p1, v9
+ 
+-    .line 102
+     .line 103
+     add-int/lit8 v8, v8, 0x1
+ 
+-    .line 104
+     .line 105
+     goto :goto_2
+ 
+@@ -305,7 +249,6 @@
+     :cond_4
+     add-int/lit8 v7, v7, 0x1
+ 
+-    .line 107
+     .line 108
+     goto :goto_1
+ 
+@@ -313,8 +256,6 @@
+     :cond_5
+     invoke-virtual {p0, p1, v5, v4}, Lcom/king/zxing/analyze/ImageAnalyzer;->b([BII)Lcom/google/zxing/Result;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object p1
+ 
+@@ -322,43 +263,30 @@
+     :goto_3
+     if-eqz p1, :cond_6
+ 
+-    .line 114
+     .line 115
+     new-instance v1, Lcom/king/camera/scan/FrameMetadata;
+ 
+-    .line 116
+     .line 117
+     invoke-direct {v1, v4, v5, v3}, Lcom/king/camera/scan/FrameMetadata;-><init>(III)V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     iget-object v3, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {v3, v6}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     new-instance v3, Lcom/king/camera/scan/AnalyzeResult;
+ 
+-    .line 126
+     .line 127
+     const/16 v4, 0x11
+ 
+-    .line 128
+     .line 129
+     invoke-direct {v3, v0, v4, v1, p1}, Lcom/king/camera/scan/AnalyzeResult;-><init>([BILcom/king/camera/scan/FrameMetadata;Ljava/lang/Object;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     invoke-interface {p2, v3}, Lcom/king/camera/scan/analyze/Analyzer$OnAnalyzeListener;->a(Lcom/king/camera/scan/AnalyzeResult;)V
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     return-void
+ 
+@@ -366,19 +294,14 @@
+     :cond_6
+     iget-object p1, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->a:Ljava/util/Queue;
+ 
+-    .line 137
+     .line 138
+     invoke-interface {p1, v0}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     invoke-interface {p2, v2}, Lcom/king/camera/scan/analyze/Analyzer$OnAnalyzeListener;->onFailure(Ljava/lang/Exception;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     return-void
+ 
+@@ -386,17 +309,12 @@
+     :catch_0
+     iget-object p0, p0, Lcom/king/zxing/analyze/ImageAnalyzer;->a:Ljava/util/Queue;
+ 
+-    .line 146
+     .line 147
+     invoke-interface {p0, v0}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     invoke-interface {p2, v2}, Lcom/king/camera/scan/analyze/Analyzer$OnAnalyzeListener;->onFailure(Ljava/lang/Exception;)V
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     return-void
+ .end method

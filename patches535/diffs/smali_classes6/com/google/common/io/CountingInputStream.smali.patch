@@ -1,0 +1,178 @@
+--- a/smali_classes6/com/google/common/io/CountingInputStream.smali
++++ b/smali_classes6/com/google/common/io/CountingInputStream.smali
+@@ -27,28 +27,21 @@
+     .line 1
+     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     check-cast p1, Ljava/io/InputStream;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const-wide/16 v0, -0x1
+ 
+-    .line 11
+     .line 12
+     iput-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -61,7 +54,6 @@
+     .line 1
+     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -76,22 +68,17 @@
+     :try_start_0
+     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 3
+     .line 4
+     invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
+ 
+-    .line 8
+     .line 9
+     iput-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 10
+     .line 11
+     monitor-exit p0
+ 
+@@ -191,54 +178,41 @@
+     :try_start_0
+     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 3
+     .line 4
+     invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     if-eqz v0, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
+ 
+-    .line 11
+     .line 12
+     const-wide/16 v2, -0x1
+ 
+-    .line 13
+     .line 14
+     cmp-long v0, v0, v2
+ 
+-    .line 15
+     .line 16
+     if-eqz v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->mark:J
+ 
+-    .line 24
+     .line 25
+     iput-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 26
+     .line 27
+     monitor-exit p0
+ 
+@@ -257,16 +231,12 @@
+     :try_start_1
+     new-instance v0, Ljava/io/IOException;
+ 
+-    .line 32
+     .line 33
+     const-string v1, "Mark not set"
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     throw v0
+ 
+@@ -274,16 +244,12 @@
+     :cond_1
+     new-instance v0, Ljava/io/IOException;
+ 
+-    .line 40
+     .line 41
+     const-string v1, "Mark not supported"
+ 
+-    .line 42
+     .line 43
+     invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     throw v0
+ 
+@@ -308,26 +274,21 @@
+     .line 1
+     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide p1
+ 
+     .line 7
+     iget-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
+ 
+-    .line 8
+     .line 9
+     add-long/2addr v0, p1
+ 
+     .line 10
+     iput-wide v0, p0, Lcom/google/common/io/CountingInputStream;->count:J
+ 
+-    .line 11
+     .line 12
+     return-wide p1
+ .end method

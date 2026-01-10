@@ -1,0 +1,2584 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/CMClient.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/CMClient.smali
+@@ -90,19 +90,15 @@
+     .line 1
+     const-class v0, Lin/dragonbra/javasteam/steam/CMClient;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/log/LogManager;->getLogger(Ljava/lang/Class;)Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -113,94 +109,66 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/lang/Object;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connectionLock:Ljava/lang/Object;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Lin/dragonbra/javasteam/steam/a;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/steam/a;-><init>(Lin/dragonbra/javasteam/steam/CMClient;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->netMsgReceived:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 17
+     .line 18
+     new-instance v0, Lin/dragonbra/javasteam/steam/b;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/steam/b;-><init>(Lin/dragonbra/javasteam/steam/CMClient;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connected:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 24
+     .line 25
+     new-instance v0, Lin/dragonbra/javasteam/steam/CMClient$1;
+ 
+-    .line 26
+     .line 27
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/steam/CMClient$1;-><init>(Lin/dragonbra/javasteam/steam/CMClient;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->disconnected:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 31
+     .line 32
+     if-eqz p1, :cond_0
+ 
+-    .line 33
+     .line 34
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 35
+     .line 36
+     new-instance p1, Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 37
+     .line 38
+     new-instance v0, Lin/dragonbra/javasteam/steam/c;
+ 
+-    .line 39
+     .line 40
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/steam/c;-><init>(Lin/dragonbra/javasteam/steam/CMClient;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     const-wide/16 v1, 0x1388
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p1, v0, v1, v2}, Lin/dragonbra/javasteam/util/event/ScheduledFunction;-><init>(Ljava/lang/Runnable;J)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->heartBeatFunc:Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 49
+     .line 50
+     return-void
+ 
+@@ -208,16 +176,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 52
+     .line 53
+     const-string p1, "configuration is null"
+ 
+-    .line 54
+     .line 55
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     throw p0
+ .end method
+@@ -228,50 +192,36 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 5
+     .line 6
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHeartBeat;
+ 
+-    .line 7
+     .line 8
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientHeartBeat:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHeartBeat$Builder;
+ 
+-    .line 18
+     .line 19
+     const/4 v2, 0x1
+ 
+     .line 20
+     invoke-virtual {v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHeartBeat$Builder;->setSendReply(Z)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHeartBeat$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/CMClient;->send(Lin/dragonbra/javasteam/base/IClientMsg;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     return-void
+ .end method
+@@ -282,88 +232,66 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     sget-object p1, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 5
+     .line 6
+     const-string p2, "EventHandler `connected` called"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p1, p2}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p2, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x0
+ 
+     .line 14
+     if-eqz p2, :cond_0
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/CMClient;->getServers()Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     iget-object p2, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getCurrentEndPoint()Ljava/net/InetSocketAddress;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p2
+ 
+     .line 26
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getProtocolTypes()Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     sget-object v2, Lin/dragonbra/javasteam/steam/discovery/ServerQuality;->GOOD:Lin/dragonbra/javasteam/steam/discovery/ServerQuality;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {p1, p2, v1, v2}, Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;->tryMark(Ljava/net/InetSocketAddress;Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;Lin/dragonbra/javasteam/steam/discovery/ServerQuality;)Z
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const/4 p1, 0x1
+ 
+     .line 38
+     iput-boolean p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->isConnected:Z
+ 
+-    .line 39
+     .line 40
+     :try_start_0
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/CMClient;->onClientConnected()V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ 
+@@ -374,21 +302,15 @@
+     .line 45
+     sget-object p2, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 46
+     .line 47
+     const-string v1, "Unhandled exception after connecting: "
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p2, v1, p1}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/CMClient;->disconnect(Z)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-void
+ 
+@@ -396,17 +318,12 @@
+     :cond_0
+     const-string p2, "Unhandled exception after connecting: connection is null"
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {p1, p2}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/CMClient;->disconnect(Z)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     return-void
+ .end method
+@@ -417,29 +334,21 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/networking/steam3/NetMsgEventArgs;->getData()[B
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p1
+ 
+     .line 8
+     invoke-static {p1}, Lin/dragonbra/javasteam/steam/CMClient;->getPacketMsg([B)Lin/dragonbra/javasteam/base/IPacketMsg;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->onClientMsgReceived(Lin/dragonbra/javasteam/base/IPacketMsg;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -459,31 +368,24 @@
+     .line 1
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;->getConnectionFactory()Lin/dragonbra/javasteam/networking/steam3/IConnectionFactory;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {v0, p0, p1}, Lin/dragonbra/javasteam/networking/steam3/IConnectionFactory;->createConnection(Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;Ljava/util/EnumSet;)Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     return-object p0
+ 
+@@ -491,45 +393,33 @@
+     :cond_0
+     sget-object p0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 17
+     .line 18
+     const-string v0, "Connection factory returned null connection for protocols %s"
+ 
+-    .line 19
+     .line 20
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 32
+     .line 33
+     const-string p1, "Connection factory returned null connection."
+ 
+-    .line 34
+     .line 35
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     throw p0
+ .end method
+@@ -540,7 +430,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connected:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -551,7 +440,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -562,7 +450,6 @@
+     .line 1
+     iget-boolean p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->expectDisconnection:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -573,7 +460,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->heartBeatFunc:Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -593,72 +479,51 @@
+     .line 4
+     if-ge v0, v1, :cond_0
+ 
+-    .line 5
+     .line 6
+     sget-object v0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 7
+     .line 8
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const-string v3, "PacketMsg too small to contain a message, was only "
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     array-length v3, p0
+ 
+     .line 19
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const-string v3, " bytes. Message: "
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-static {p0}, Lin/dragonbra/javasteam/util/Strings;->toHex([B)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-virtual {v0, p0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-object v2
+ 
+@@ -670,17 +535,12 @@
+     :try_start_0
+     new-instance v1, Lokio/Buffer;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {v1}, Lokio/Buffer;-><init>()V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v1, p0}, Lokio/Buffer;->write([B)Lokio/Buffer;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v1
+     :try_end_0
+@@ -690,8 +550,6 @@
+     :try_start_1
+     invoke-virtual {v1}, Lokio/Buffer;->readIntLe()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v0
+     :try_end_1
+@@ -703,8 +561,6 @@
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     goto :goto_2
+ 
+@@ -722,15 +578,12 @@
+     .line 63
+     if-eqz v1, :cond_1
+ 
+-    .line 64
+     .line 65
+     :try_start_3
+     invoke-virtual {v1}, Lokio/Buffer;->close()V
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     goto :goto_0
+ 
+@@ -742,8 +595,6 @@
+     :try_start_4
+     invoke-virtual {v3, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     :cond_1
+     :goto_0
+@@ -755,75 +606,58 @@
+     :goto_1
+     sget-object v3, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 75
+     .line 76
+     const-string v4, "Exception while getting EMsg code"
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v3, v4, v1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :goto_2
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/MsgUtil;->getMsg(I)Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v1
+ 
+     .line 85
+     sget-object v3, Lin/dragonbra/javasteam/steam/CMClient$2;->$SwitchMap$in$dragonbra$javasteam$enums$EMsg:[I
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v4
+ 
+     .line 91
+     aget v3, v3, v4
+ 
+-    .line 92
+     .line 93
+     const/4 v4, 0x6
+ 
+     .line 94
+     const-string v5, ")."
+ 
+-    .line 95
+     .line 96
+     const-string v6, " ("
+ 
+-    .line 97
+     .line 98
+     const-string v7, "Exception deserializing emsg "
+ 
+-    .line 99
+     .line 100
+     if-eq v3, v4, :cond_2
+ 
+-    .line 101
+     .line 102
+     const/4 v4, 0x7
+ 
+     .line 103
+     if-eq v3, v4, :cond_2
+ 
+-    .line 104
+     .line 105
+     const/16 v4, 0x8
+ 
+-    .line 106
+     .line 107
+     if-eq v3, v4, :cond_2
+ 
+-    .line 108
+     .line 109
+     goto :goto_3
+ 
+@@ -832,14 +666,11 @@
+     :try_start_5
+     new-instance v3, Lin/dragonbra/javasteam/base/PacketMsg;
+ 
+-    .line 111
+     .line 112
+     invoke-direct {v3, v1, p0}, Lin/dragonbra/javasteam/base/PacketMsg;-><init>(Lin/dragonbra/javasteam/enums/EMsg;[B)V
+     :try_end_5
+     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     return-object v3
+ 
+@@ -850,85 +681,59 @@
+     .line 117
+     sget-object v4, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 118
+     .line 119
+     new-instance v8, Ljava/lang/StringBuilder;
+ 
+-    .line 120
+     .line 121
+     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/MsgUtil;->isProtoBuf(I)Z
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result v9
+ 
+     .line 137
+     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result-object v8
+ 
+     .line 147
+     invoke-virtual {v4, v8, v3}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     :goto_3
+     :try_start_6
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/MsgUtil;->isProtoBuf(I)Z
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result v3
+ 
+     .line 154
+     if-eqz v3, :cond_3
+ 
+-    .line 155
+     .line 156
+     new-instance v3, Lin/dragonbra/javasteam/base/PacketClientMsgProtobuf;
+ 
+-    .line 157
+     .line 158
+     invoke-direct {v3, v1, p0}, Lin/dragonbra/javasteam/base/PacketClientMsgProtobuf;-><init>(Lin/dragonbra/javasteam/enums/EMsg;[B)V
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     return-object v3
+ 
+@@ -943,14 +748,11 @@
+     :cond_3
+     new-instance v3, Lin/dragonbra/javasteam/base/PacketClientMsg;
+ 
+-    .line 165
+     .line 166
+     invoke-direct {v3, v1, p0}, Lin/dragonbra/javasteam/base/PacketClientMsg;-><init>(Lin/dragonbra/javasteam/enums/EMsg;[B)V
+     :try_end_6
+     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     return-object v3
+ 
+@@ -958,62 +760,42 @@
+     :goto_4
+     sget-object v3, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 171
+     .line 172
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 173
+     .line 174
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/MsgUtil;->isProtoBuf(I)Z
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     move-result v0
+ 
+     .line 190
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-object v0
+ 
+     .line 200
+     invoke-virtual {v3, v0, p0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     return-object v2
+ .end method
+@@ -1024,7 +806,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->netMsgReceived:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1035,28 +816,21 @@
+     .line 1
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->isProto()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     sget-object p0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 8
+     .line 9
+     const-string p1, "Got non-proto logon response, this is indicative of no logon attempt after connecting."
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1064,309 +838,225 @@
+     :cond_0
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 16
+     .line 17
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;->getEresult()I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result p1
+ 
+     .line 32
+     invoke-static {p1}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p1
+ 
+     .line 36
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v1
+ 
+     .line 40
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;->getEresultExtended()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v1
+ 
+     .line 46
+     invoke-static {v1}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v1
+ 
+     .line 50
+     sget-object v2, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 51
+     .line 52
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 53
+     .line 54
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     const-string v4, "handleLogOnResponse got response: "
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     const-string v4, ", extended: "
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v1
+ 
+     .line 77
+     invoke-virtual {v2, v1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     sget-object v1, Lin/dragonbra/javasteam/enums/EResult;->OK:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 81
+     .line 82
+     if-ne p1, v1, :cond_1
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getProtoHeader()Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p1
+ 
+     .line 88
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;->getClientSessionid()I
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result p1
+ 
+     .line 92
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p1
+ 
+     .line 96
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionID:Ljava/lang/Integer;
+ 
+-    .line 97
+     .line 98
+     new-instance p1, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 99
+     .line 100
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getProtoHeader()Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object v1
+ 
+     .line 104
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgProtoBufHeader$Builder;->getSteamid()J
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-wide v1
+ 
+     .line 108
+     invoke-direct {p1, v1, v2}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object p1
+ 
+     .line 117
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;
+ 
+-    .line 118
+     .line 119
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;->getCellId()I
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result p1
+ 
+     .line 123
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p1
+ 
+     .line 127
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->cellID:Ljava/lang/Integer;
+ 
+-    .line 128
+     .line 129
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object p1
+ 
+     .line 133
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;
+ 
+-    .line 134
+     .line 135
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;->getPublicIp()Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgIPAddress;
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-object p1
+ 
+     .line 139
+     invoke-static {p1}, Lin/dragonbra/javasteam/util/NetHelpers;->getIPAddress(Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgIPAddress;)Ljava/net/InetAddress;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result-object p1
+ 
+     .line 143
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->publicIP:Ljava/net/InetAddress;
+ 
+-    .line 144
+     .line 145
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result-object p1
+ 
+     .line 149
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;
+ 
+-    .line 150
+     .line 151
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;->getIpCountryCode()Ljava/lang/String;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object p1
+ 
+     .line 155
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->ipCountryCode:Ljava/lang/String;
+ 
+-    .line 156
+     .line 157
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->heartBeatFunc:Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 158
+     .line 159
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/util/event/ScheduledFunction;->stop()V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->heartBeatFunc:Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 163
+     .line 164
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result-object v0
+ 
+     .line 168
+     check-cast v0, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;
+ 
+-    .line 169
+     .line 170
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLogonResponse$Builder;->getLegacyOutOfGameHeartbeatSeconds()I
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result v0
+ 
+@@ -1376,24 +1066,18 @@
+     .line 175
+     const-wide/16 v2, 0x3e8
+ 
+-    .line 176
+     .line 177
+     mul-long/2addr v0, v2
+ 
+     .line 178
+     invoke-virtual {p1, v0, v1}, Lin/dragonbra/javasteam/util/event/ScheduledFunction;->setDelay(J)V
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->heartBeatFunc:Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 182
+     .line 183
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/util/event/ScheduledFunction;->start()V
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     return-void
+ 
+@@ -1401,19 +1085,15 @@
+     :cond_1
+     sget-object v0, Lin/dragonbra/javasteam/enums/EResult;->TryAnotherCM:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 188
+     .line 189
+     if-eq p1, v0, :cond_3
+ 
+-    .line 190
+     .line 191
+     sget-object v0, Lin/dragonbra/javasteam/enums/EResult;->ServiceUnavailable:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 192
+     .line 193
+     if-ne p1, v0, :cond_2
+ 
+-    .line 194
+     .line 195
+     goto :goto_0
+ 
+@@ -1426,44 +1106,33 @@
+     :goto_0
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 198
+     .line 199
+     if-eqz p1, :cond_4
+ 
+-    .line 200
+     .line 201
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/CMClient;->getServers()Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     move-result-object p0
+ 
+     .line 205
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getCurrentEndPoint()Ljava/net/InetSocketAddress;
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     move-result-object v0
+ 
+     .line 209
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getProtocolTypes()Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     move-result-object p1
+ 
+     .line 213
+     sget-object v1, Lin/dragonbra/javasteam/steam/discovery/ServerQuality;->BAD:Lin/dragonbra/javasteam/steam/discovery/ServerQuality;
+ 
+-    .line 214
+     .line 215
+     invoke-virtual {p0, v0, p1, v1}, Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;->tryMark(Ljava/net/InetSocketAddress;Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;Lin/dragonbra/javasteam/steam/discovery/ServerQuality;)Z
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     return-void
+ 
+@@ -1471,12 +1140,9 @@
+     :cond_4
+     const-string p0, "Connection was null trying to mark endpoint bad."
+ 
+-    .line 220
+     .line 221
+     invoke-virtual {v2, p0}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;)V
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     return-void
+ .end method
+@@ -1490,141 +1156,102 @@
+     .line 2
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionID:Ljava/lang/Integer;
+ 
+-    .line 3
+     .line 4
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 5
+     .line 6
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->cellID:Ljava/lang/Integer;
+ 
+-    .line 7
+     .line 8
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->publicIP:Ljava/net/InetAddress;
+ 
+-    .line 9
+     .line 10
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->ipCountryCode:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->heartBeatFunc:Lin/dragonbra/javasteam/util/event/ScheduledFunction;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/util/event/ScheduledFunction;->stop()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->isProto()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     if-eqz v0, :cond_3
+ 
+-    .line 22
+     .line 23
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 24
+     .line 25
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLoggedOff;
+ 
+-    .line 26
+     .line 27
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p1
+ 
+     .line 34
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLoggedOff$Builder;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientLoggedOff$Builder;->getEresult()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p1
+ 
+     .line 40
+     invoke-static {p1}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p1
+ 
+     .line 44
+     sget-object v0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 45
+     .line 46
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     const-string v2, "handleLoggedOff got "
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v1
+ 
+     .line 63
+     invoke-virtual {v0, v1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     sget-object v1, Lin/dragonbra/javasteam/enums/EResult;->TryAnotherCM:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 67
+     .line 68
+     if-eq p1, v1, :cond_1
+ 
+-    .line 69
+     .line 70
+     sget-object v1, Lin/dragonbra/javasteam/enums/EResult;->ServiceUnavailable:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 71
+     .line 72
+     if-ne p1, v1, :cond_0
+ 
+-    .line 73
+     .line 74
+     goto :goto_0
+ 
+@@ -1637,44 +1264,33 @@
+     :goto_0
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 77
+     .line 78
+     if-eqz p1, :cond_2
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/CMClient;->getServers()Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object p0
+ 
+     .line 84
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getCurrentEndPoint()Ljava/net/InetSocketAddress;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v0
+ 
+     .line 88
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getProtocolTypes()Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object p1
+ 
+     .line 92
+     sget-object v1, Lin/dragonbra/javasteam/steam/discovery/ServerQuality;->BAD:Lin/dragonbra/javasteam/steam/discovery/ServerQuality;
+ 
+-    .line 93
+     .line 94
+     invoke-virtual {p0, v0, p1, v1}, Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;->tryMark(Ljava/net/InetSocketAddress;Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;Lin/dragonbra/javasteam/steam/discovery/ServerQuality;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     return-void
+ 
+@@ -1682,12 +1298,9 @@
+     :cond_2
+     const-string p0, "Connection was null trying to mark endpoint bad."
+ 
+-    .line 99
+     .line 100
+     invoke-virtual {v0, p0}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     return-void
+ 
+@@ -1695,51 +1308,36 @@
+     :cond_3
+     sget-object p0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 105
+     .line 106
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 107
+     .line 108
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     const-string v1, "handleLoggedOff got unexpected response: "
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getMsgType()Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object p1
+ 
+     .line 120
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p1
+ 
+     .line 127
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     return-void
+ .end method
+@@ -1750,28 +1348,21 @@
+     .line 1
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->isProto()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     sget-object p0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 8
+     .line 9
+     const-string p1, "HandleMulti got non-proto MsgMulti!!"
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1779,41 +1370,30 @@
+     :cond_0
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 16
+     .line 17
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgMulti;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgMulti$Builder;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgMulti$Builder;->getMessageBody()Lcom/google/protobuf/ByteString;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p1
+ 
+     .line 32
+     invoke-virtual {p1}, Lcom/google/protobuf/ByteString;->toByteArray()[B
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p1
+ 
+@@ -1821,17 +1401,12 @@
+     :try_start_0
+     new-instance v1, Lokio/Buffer;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {v1}, Lokio/Buffer;-><init>()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {v1, p1}, Lokio/Buffer;->write([B)Lokio/Buffer;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p1
+     :try_end_0
+@@ -1841,41 +1416,30 @@
+     :try_start_1
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     check-cast v0, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgMulti$Builder;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesBase$CMsgMulti$Builder;->getSizeUnzipped()I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v0
+ 
+     .line 55
+     if-lez v0, :cond_1
+ 
+-    .line 56
+     .line 57
+     new-instance v0, Lokio/GzipSource;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v0, p1}, Lokio/GzipSource;-><init>(Lokio/Source;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+     :try_end_1
+@@ -1901,8 +1465,6 @@
+     :try_start_2
+     invoke-interface {v0}, Lokio/BufferedSource;->readIntLe()I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v1
+ 
+@@ -1912,31 +1474,24 @@
+     .line 75
+     invoke-interface {v0, v1, v2}, Lokio/BufferedSource;->readByteArray(J)[B
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v1
+ 
+     .line 79
+     invoke-static {v1}, Lin/dragonbra/javasteam/steam/CMClient;->getPacketMsg([B)Lin/dragonbra/javasteam/base/IPacketMsg;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v1
+ 
+     .line 83
+     invoke-virtual {p0, v1}, Lin/dragonbra/javasteam/steam/CMClient;->onClientMsgReceived(Lin/dragonbra/javasteam/base/IPacketMsg;)Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v1
+ 
+     .line 87
+     if-nez v1, :cond_3
+ 
+-    .line 88
+     .line 89
+     goto :goto_1
+ 
+@@ -1944,8 +1499,6 @@
+     :cond_3
+     invoke-interface {v0}, Lokio/BufferedSource;->exhausted()Z
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result v1
+     :try_end_2
+@@ -1954,7 +1507,6 @@
+     .line 94
+     if-eqz v1, :cond_2
+ 
+-    .line 95
+     .line 96
+     :goto_1
+     :try_start_3
+@@ -1962,20 +1514,15 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     if-eqz p1, :cond_4
+ 
+-    .line 100
+     .line 101
+     :try_start_4
+     invoke-virtual {p1}, Lokio/Buffer;->close()V
+     :try_end_4
+     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     :cond_4
+     return-void
+@@ -1987,15 +1534,12 @@
+     .line 106
+     if-eqz v0, :cond_5
+ 
+-    .line 107
+     .line 108
+     :try_start_5
+     invoke-interface {v0}, Lokio/Source;->close()V
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_2
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     goto :goto_2
+ 
+@@ -2007,8 +1551,6 @@
+     :try_start_6
+     invoke-virtual {p0, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     :cond_5
+     :goto_2
+@@ -2020,15 +1562,12 @@
+     :goto_3
+     if-eqz p1, :cond_6
+ 
+-    .line 118
+     .line 119
+     :try_start_7
+     invoke-virtual {p1}, Lokio/Buffer;->close()V
+     :try_end_7
+     .catchall {:try_start_7 .. :try_end_7} :catchall_3
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     goto :goto_4
+ 
+@@ -2040,8 +1579,6 @@
+     :try_start_8
+     invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     :cond_6
+     :goto_4
+@@ -2056,16 +1593,12 @@
+     .line 129
+     sget-object p1, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 130
+     .line 131
+     const-string v0, "error in handleMulti()"
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {p1, v0, p0}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     return-void
+ .end method
+@@ -2076,126 +1609,90 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsg;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lin/dragonbra/javasteam/generated/MsgClientServerUnavailable;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsg;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sget-object p1, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 9
+     .line 10
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const-string v2, "A server of type "
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v2
+ 
+     .line 24
+     check-cast v2, Lin/dragonbra/javasteam/generated/MsgClientServerUnavailable;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/generated/MsgClientServerUnavailable;->getEServerTypeUnavailable()Lin/dragonbra/javasteam/enums/EServerType;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+     .line 30
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     const-string v2, "was not available for request: "
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v0
+ 
+     .line 42
+     check-cast v0, Lin/dragonbra/javasteam/generated/MsgClientServerUnavailable;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/generated/MsgClientServerUnavailable;->getEMsgSent()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+     .line 48
+     invoke-static {v0}, Lin/dragonbra/javasteam/enums/EMsg;->from(I)Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v0
+ 
+     .line 52
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     invoke-virtual {p1, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     const/4 p1, 0x0
+ 
+     .line 63
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->disconnect(Z)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     return-void
+ .end method
+@@ -2206,40 +1703,30 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientSessionToken;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientSessionToken$Builder;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientSessionToken$Builder;->getToken()J
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-wide v0
+ 
+     .line 18
+     iput-wide v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionToken:J
+ 
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -2250,7 +1737,6 @@
+     .line 1
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2261,7 +1747,6 @@
+     .line 1
+     iput-boolean p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->isConnected:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2272,7 +1757,6 @@
+     .line 1
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionID:Ljava/lang/Integer;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2283,7 +1767,6 @@
+     .line 1
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2294,7 +1777,6 @@
+     .line 1
+     sget-object v0, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -2586,7 +2068,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->cellID:Ljava/lang/Integer;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2597,7 +2078,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2608,12 +2088,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;->getConnectionTimeout()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v0
+ 
+@@ -2629,11 +2106,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     if-nez p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x0
+ 
+@@ -2644,8 +2119,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getCurrentEndPoint()Ljava/net/InetSocketAddress;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -2659,7 +2132,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->debugNetworkListener:Lin/dragonbra/javasteam/util/IDebugNetworkListener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2672,7 +2144,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->ipCountryCode:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2685,11 +2156,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     if-nez p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x0
+ 
+@@ -2700,8 +2169,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getLocalIP()Ljava/net/InetAddress;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -2717,7 +2184,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->publicIP:Ljava/net/InetAddress;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2728,12 +2194,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;->getServerList()Lin/dragonbra/javasteam/steam/discovery/SmartCMServerList;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -2749,7 +2212,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionID:Ljava/lang/Integer;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2760,7 +2222,6 @@
+     .line 1
+     iget-wide v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionToken:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -2773,7 +2234,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2784,12 +2244,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->configuration:Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/steamclient/configuration/SteamConfiguration;->getUniverse()Lin/dragonbra/javasteam/enums/EUniverse;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -2803,7 +2260,6 @@
+     .line 1
+     iget-boolean p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->isConnected:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2814,19 +2270,15 @@
+     .line 1
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->isConnected:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 6
+     .line 7
+     if-nez p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     const/4 p0, 0x1
+ 
+@@ -2847,7 +2299,6 @@
+     .line 1
+     iget-boolean p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->expectDisconnection:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2858,47 +2309,33 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHello;
+ 
+-    .line 4
+     .line 5
+     sget-object v2, Lin/dragonbra/javasteam/enums/EMsg;->ClientHello:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/enums/EMsg;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v1
+ 
+     .line 14
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHello$Builder;
+ 
+-    .line 15
+     .line 16
+     const v2, 0x1002d
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v1, v2}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHello$Builder;->setProtocolVersion(I)Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverLogin$CMsgClientHello$Builder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/CMClient;->send(Lin/dragonbra/javasteam/base/IClientMsg;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -2916,15 +2353,12 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     const/4 p1, 0x0
+ 
+     .line 4
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->disconnect(Z)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return p1
+ 
+@@ -2932,35 +2366,27 @@
+     :cond_0
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getMsgType()Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     sget-object v1, Lin/dragonbra/javasteam/enums/EMsg;->Multi:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 13
+     .line 14
+     if-eq v0, v1, :cond_1
+ 
+-    .line 15
+     .line 16
+     :try_start_0
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->debugNetworkListener:Lin/dragonbra/javasteam/util/IDebugNetworkListener;
+ 
+-    .line 17
+     .line 18
+     if-eqz v0, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-interface {v0, p1}, Lin/dragonbra/javasteam/util/IDebugNetworkListener;->onIncomingNetworkMessage(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     goto :goto_0
+ 
+@@ -2971,77 +2397,62 @@
+     .line 25
+     sget-object v1, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 26
+     .line 27
+     const-string v2, "debugNetworkListener threw an exception"
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v1, v2, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     :cond_1
+     :goto_0
+     sget-object v0, Lin/dragonbra/javasteam/steam/CMClient$2;->$SwitchMap$in$dragonbra$javasteam$enums$EMsg:[I
+ 
+-    .line 33
+     .line 34
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getMsgType()Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v1
+ 
+     .line 38
+     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v1
+ 
+     .line 42
+     aget v0, v0, v1
+ 
+-    .line 43
+     .line 44
+     const/4 v1, 0x1
+ 
+     .line 45
+     if-eq v0, v1, :cond_6
+ 
+-    .line 46
+     .line 47
+     const/4 v2, 0x2
+ 
+     .line 48
+     if-eq v0, v2, :cond_5
+ 
+-    .line 49
+     .line 50
+     const/4 v2, 0x3
+ 
+     .line 51
+     if-eq v0, v2, :cond_4
+ 
+-    .line 52
+     .line 53
+     const/4 v2, 0x4
+ 
+     .line 54
+     if-eq v0, v2, :cond_3
+ 
+-    .line 55
+     .line 56
+     const/4 v2, 0x5
+ 
+     .line 57
+     if-eq v0, v2, :cond_2
+ 
+-    .line 58
+     .line 59
+     goto :goto_1
+ 
+@@ -3049,8 +2460,6 @@
+     :cond_2
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->handleSessionToken(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     goto :goto_1
+ 
+@@ -3058,8 +2467,6 @@
+     :cond_3
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->handleServerUnavailable(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     goto :goto_1
+ 
+@@ -3067,8 +2474,6 @@
+     :cond_4
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->handleLoggedOff(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto :goto_1
+ 
+@@ -3076,8 +2481,6 @@
+     :cond_5
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->handleLogOnResponse(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     goto :goto_1
+ 
+@@ -3085,8 +2488,6 @@
+     :cond_6
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->handleMulti(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     :goto_1
+     return v1
+@@ -3098,8 +2499,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->onClientMsgReceived(Lin/dragonbra/javasteam/base/IPacketMsg;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -3110,59 +2509,44 @@
+     .line 1
+     if-eqz p1, :cond_4
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->sessionID:Ljava/lang/Integer;
+ 
+-    .line 4
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     invoke-interface {p1, v0}, Lin/dragonbra/javasteam/base/IClientMsg;->setSessionID(I)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 15
+     .line 16
+     if-eqz v0, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-interface {p1, v0}, Lin/dragonbra/javasteam/base/IClientMsg;->setSteamID(Lin/dragonbra/javasteam/types/SteamID;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :cond_1
+     :try_start_0
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/CMClient;->debugNetworkListener:Lin/dragonbra/javasteam/util/IDebugNetworkListener;
+ 
+-    .line 22
+     .line 23
+     if-eqz v0, :cond_2
+ 
+-    .line 24
+     .line 25
+     invoke-interface {v0, p1}, Lin/dragonbra/javasteam/util/IDebugNetworkListener;->onOutgoingNetworkMessage(Lin/dragonbra/javasteam/base/IClientMsg;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -3173,39 +2557,29 @@
+     .line 30
+     sget-object v1, Lin/dragonbra/javasteam/steam/CMClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 31
+     .line 32
+     const-string v2, "DebugNetworkListener threw an exception"
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v1, v2, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     :cond_2
+     :goto_0
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/CMClient;->connection:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 38
+     .line 39
+     if-eqz p0, :cond_3
+ 
+-    .line 40
+     .line 41
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IClientMsg;->serialize()[B
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p1
+ 
+     .line 45
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->send([B)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     :cond_3
+     return-void
+@@ -3214,16 +2588,12 @@
+     :cond_4
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 50
+     .line 51
+     const-string p1, "A value for \'msg\' must be supplied"
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     throw p0
+ .end method
+@@ -3234,7 +2604,6 @@
+     .line 1
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->debugNetworkListener:Lin/dragonbra/javasteam/util/IDebugNetworkListener;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -3245,7 +2614,6 @@
+     .line 1
+     iput-boolean p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->expectDisconnection:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -3256,7 +2624,6 @@
+     .line 1
+     iput-boolean p1, p0, Lin/dragonbra/javasteam/steam/CMClient;->isConnected:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method

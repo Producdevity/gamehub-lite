@@ -1,0 +1,273 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation.smali
+@@ -26,20 +26,15 @@
+     .line 1
+     sget-object v0, Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;->c:Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p2, p1, v0, p4}, Lcom/polidea/rxandroidble2/internal/SingleResponseOperation;-><init>(Landroid/bluetooth/BluetoothGatt;Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation;->e:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation;->f:Lcom/polidea/rxandroidble2/internal/logger/LoggerUtilBluetoothServices;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -50,24 +45,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation;->f:Lcom/polidea/rxandroidble2/internal/logger/LoggerUtilBluetoothServices;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation;->e:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroid/bluetooth/BluetoothGatt;->getDevice()Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     invoke-virtual {v0, p1, p0}, Lcom/polidea/rxandroidble2/internal/logger/LoggerUtilBluetoothServices;->m(Lcom/polidea/rxandroidble2/RxBleDeviceServices;Landroid/bluetooth/BluetoothDevice;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ .end method
+@@ -78,17 +67,12 @@
+     .line 1
+     new-instance p1, Lcom/polidea/rxandroidble2/internal/operations/d;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p1, p0}, Lcom/polidea/rxandroidble2/internal/operations/d;-><init>(Landroid/bluetooth/BluetoothGatt;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {p1}, Lio/reactivex/Single;->s(Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -102,41 +86,30 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/bluetooth/BluetoothGatt;->getServices()Ljava/util/List;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     new-instance p1, Lcom/polidea/rxandroidble2/exceptions/BleGattCallbackTimeoutException;
+ 
+-    .line 12
+     .line 13
+     sget-object v0, Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;->c:Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {p1, p0, v0}, Lcom/polidea/rxandroidble2/exceptions/BleGattCallbackTimeoutException;-><init>(Landroid/bluetooth/BluetoothGatt;Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-static {p1}, Lio/reactivex/Single;->m(Ljava/lang/Throwable;)Lio/reactivex/Single;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+@@ -147,33 +120,24 @@
+     :cond_0
+     const-wide/16 v0, 0x5
+ 
+-    .line 24
+     .line 25
+     sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v0, v1, v2, p1}, Lio/reactivex/Single;->H(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Single;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/c;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/c;-><init>(Landroid/bluetooth/BluetoothGatt;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {p1, v0}, Lio/reactivex/Single;->p(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p0
+ 
+@@ -187,20 +151,15 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/RxBleDeviceServices;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroid/bluetooth/BluetoothGatt;->getServices()Ljava/util/List;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/RxBleDeviceServices;-><init>(Ljava/util/List;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-object v0
+ .end method
+@@ -213,33 +172,24 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;->l()Lio/reactivex/Observable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-virtual {p1}, Lio/reactivex/Observable;->J()Lio/reactivex/Single;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/a;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/a;-><init>(Lcom/polidea/rxandroidble2/internal/operations/ServiceDiscoveryOperation;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p1, v0}, Lio/reactivex/Single;->l(Lio/reactivex/functions/Consumer;)Lio/reactivex/Single;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+@@ -253,8 +203,6 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGatt;->discoverServices()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -268,17 +216,12 @@
+     .line 1
+     new-instance p0, Lcom/polidea/rxandroidble2/internal/operations/b;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1, p3}, Lcom/polidea/rxandroidble2/internal/operations/b;-><init>(Landroid/bluetooth/BluetoothGatt;Lio/reactivex/Scheduler;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {p0}, Lio/reactivex/Single;->g(Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -292,48 +235,33 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "ServiceDiscoveryOperation{"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-super {p0}, Lcom/polidea/rxandroidble2/internal/SingleResponseOperation;->toString()Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const/16 p0, 0x7d
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 

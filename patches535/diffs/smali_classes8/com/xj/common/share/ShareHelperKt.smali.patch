@@ -1,0 +1,117 @@
+--- a/smali_classes8/com/xj/common/share/ShareHelperKt.smali
++++ b/smali_classes8/com/xj/common/share/ShareHelperKt.smali
+@@ -15,42 +15,30 @@
+     .line 1
+     const-string v0, "<this>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "videoPath"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p1
+ 
+     .line 20
+     if-nez p1, :cond_0
+ 
+-    .line 21
+     .line 22
+     return-void
+ 
+@@ -58,71 +46,51 @@
+     :cond_0
+     sget-object p1, Lcom/xj/common/share/ShareFileProvider;->a:Lcom/xj/common/share/ShareFileProvider$Companion;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p1, p0, v0}, Lcom/xj/common/share/ShareFileProvider$Companion;->b(Landroid/content/Context;Ljava/io/File;)Landroid/net/Uri;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p1
+ 
+     .line 29
+     new-instance v0, Landroid/content/Intent;
+ 
+-    .line 30
+     .line 31
+     const-string v1, "android.intent.action.SEND"
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     const-string v1, "video/*"
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     const-string v1, "android.intent.extra.STREAM"
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     const/4 p1, 0x1
+ 
+     .line 47
+     invoke-virtual {v0, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const-string p1, "\u5206\u4eab\u89c6\u9891"
+ 
+-    .line 51
+     .line 52
+     invoke-static {v0, p1}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object p1
+ 
+     .line 56
+     invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     return-void
+ .end method

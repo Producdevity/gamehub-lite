@@ -1,0 +1,1205 @@
+--- a/smali_classes4/androidx/profileinstaller/DeviceProfileWriter.smali
++++ b/smali_classes4/androidx/profileinstaller/DeviceProfileWriter.smali
+@@ -39,55 +39,42 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     iput-boolean v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->i:Z
+ 
+-    .line 6
+     .line 7
+     iput-object p1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->a:Landroid/content/res/AssetManager;
+ 
+-    .line 8
+     .line 9
+     iput-object p2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->b:Ljava/util/concurrent/Executor;
+ 
+-    .line 10
+     .line 11
+     iput-object p3, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 12
+     .line 13
+     iput-object p4, p0, Landroidx/profileinstaller/DeviceProfileWriter;->f:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     iput-object p5, p0, Landroidx/profileinstaller/DeviceProfileWriter;->g:Ljava/lang/String;
+ 
+-    .line 16
+     .line 17
+     iput-object p6, p0, Landroidx/profileinstaller/DeviceProfileWriter;->h:Ljava/lang/String;
+ 
+-    .line 18
+     .line 19
+     iput-object p7, p0, Landroidx/profileinstaller/DeviceProfileWriter;->e:Ljava/io/File;
+ 
+-    .line 20
+     .line 21
+     invoke-static {}, Landroidx/profileinstaller/DeviceProfileWriter;->d()[B
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p1
+ 
+     .line 25
+     iput-object p1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->d:[B
+ 
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -98,12 +85,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1, p2}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -114,19 +98,15 @@
+     .line 1
+     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 2
+     .line 3
+     const/16 v1, 0x1f
+ 
+-    .line 4
+     .line 5
+     if-lt v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->a:[B
+ 
+-    .line 8
+     .line 9
+     return-object v0
+ 
+@@ -134,19 +114,15 @@
+     :cond_0
+     const/16 v1, 0x1d
+ 
+-    .line 11
+     .line 12
+     if-eq v0, v1, :cond_1
+ 
+-    .line 13
+     .line 14
+     const/16 v1, 0x1e
+ 
+-    .line 15
+     .line 16
+     if-eq v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     const/4 v0, 0x0
+ 
+@@ -157,7 +133,6 @@
+     :cond_1
+     sget-object v0, Landroidx/profileinstaller/ProfileVersion;->b:[B
+ 
+-    .line 21
+     .line 22
+     return-object v0
+ .end method
+@@ -168,15 +143,12 @@
+     .line 1
+     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 2
+     .line 3
+     const/16 v1, 0x1f
+ 
+-    .line 4
+     .line 5
+     if-lt v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x1
+ 
+@@ -203,16 +175,12 @@
+     :try_start_0
+     iget-object v1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->a:Landroid/content/res/AssetManager;
+ 
+-    .line 3
+     .line 4
+     iget-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->h:Ljava/lang/String;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, v1, v2}, Landroidx/profileinstaller/DeviceProfileWriter;->g(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/io/InputStream;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+     :try_end_0
+@@ -223,25 +191,19 @@
+     .line 10
+     if-eqz v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     :try_start_1
+     sget-object v2, Landroidx/profileinstaller/ProfileTranscoder;->b:[B
+ 
+-    .line 13
+     .line 14
+     invoke-static {v1, v2}, Landroidx/profileinstaller/ProfileTranscoder;->p(Ljava/io/InputStream;[B)[B
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v2
+ 
+     .line 18
+     invoke-static {v1, v2, p2, p1}, Landroidx/profileinstaller/ProfileTranscoder;->r(Ljava/io/InputStream;[B[B[Landroidx/profileinstaller/DexProfileData;)[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+@@ -250,7 +212,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 23
+     .line 24
+     :try_start_2
+     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
+@@ -259,8 +220,6 @@
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+     .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-object p0
+ 
+@@ -295,8 +254,6 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -308,8 +265,6 @@
+     :try_start_4
+     invoke-virtual {p1, p2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     :goto_0
+     throw p1
+@@ -318,7 +273,6 @@
+     :cond_0
+     if-eqz v1, :cond_1
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
+     :try_end_4
+@@ -326,8 +280,6 @@
+     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+     .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_4} :catch_0
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     goto :goto_4
+ 
+@@ -335,20 +287,15 @@
+     :goto_1
+     iput-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 51
+     .line 52
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 53
+     .line 54
+     const/16 p2, 0x8
+ 
+-    .line 55
+     .line 56
+     invoke-interface {p0, p2, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     goto :goto_4
+ 
+@@ -356,15 +303,12 @@
+     :goto_2
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 61
+     .line 62
+     const/4 p2, 0x7
+ 
+     .line 63
+     invoke-interface {p0, p2, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     goto :goto_4
+ 
+@@ -372,16 +316,12 @@
+     :goto_3
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 68
+     .line 69
+     const/16 p2, 0x9
+ 
+-    .line 70
+     .line 71
+     invoke-interface {p0, p2, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     :cond_1
+     :goto_4
+@@ -394,11 +334,9 @@
+     .line 1
+     iget-boolean p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->i:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -406,16 +344,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 7
+     .line 8
+     const-string v0, "This device doesn\'t support aot. Did you call deviceSupportsAotProfile()?"
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     throw p0
+ .end method
+@@ -426,23 +360,18 @@
+     .line 1
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->d:[B
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+@@ -452,8 +381,6 @@
+     .line 13
+     invoke-virtual {p0, v2, v0}, Landroidx/profileinstaller/DeviceProfileWriter;->k(ILjava/lang/Object;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return v1
+ 
+@@ -461,12 +388,9 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->e:Ljava/io/File;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+@@ -479,28 +403,21 @@
+     .line 25
+     if-eqz v0, :cond_1
+ 
+-    .line 26
+     .line 27
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->e:Ljava/io/File;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v0}, Ljava/io/File;->canWrite()Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v0
+ 
+     .line 33
+     if-nez v0, :cond_2
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0, v3, v2}, Landroidx/profileinstaller/DeviceProfileWriter;->k(ILjava/lang/Object;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return v1
+ 
+@@ -509,26 +426,20 @@
+     :try_start_0
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->e:Ljava/io/File;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v0
+ 
+     .line 45
+     if-nez v0, :cond_2
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p0, v3, v2}, Landroidx/profileinstaller/DeviceProfileWriter;->k(ILjava/lang/Object;)V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return v1
+ 
+@@ -539,7 +450,6 @@
+     .line 52
+     iput-boolean v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->i:Z
+ 
+-    .line 53
+     .line 54
+     return v0
+ 
+@@ -547,8 +457,6 @@
+     :catch_0
+     invoke-virtual {p0, v3, v2}, Landroidx/profileinstaller/DeviceProfileWriter;->k(ILjava/lang/Object;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     return v1
+ .end method
+@@ -560,12 +468,9 @@
+     :try_start_0
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->g:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, v0}, Landroidx/profileinstaller/DeviceProfileWriter;->g(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/io/InputStream;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+     :try_end_0
+@@ -593,15 +498,12 @@
+     :goto_0
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 13
+     .line 14
+     const/4 v0, 0x7
+ 
+     .line 15
+     invoke-interface {p0, v0, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     goto :goto_2
+ 
+@@ -609,15 +511,12 @@
+     :goto_1
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 20
+     .line 21
+     const/4 v0, 0x6
+ 
+     .line 22
+     invoke-interface {p0, v0, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_2
+     const/4 p0, 0x0
+@@ -633,16 +532,12 @@
+     :try_start_0
+     invoke-virtual {p1, p2}, Landroid/content/res/AssetManager;->openFd(Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-virtual {p1}, Landroid/content/res/AssetFileDescriptor;->createInputStream()Ljava/io/FileInputStream;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+     :try_end_0
+@@ -658,8 +553,6 @@
+     .line 11
+     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+@@ -669,35 +562,27 @@
+     .line 16
+     if-eqz p1, :cond_0
+ 
+-    .line 17
+     .line 18
+     const-string v0, "compressed"
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     if-eqz p1, :cond_0
+ 
+-    .line 25
+     .line 26
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 27
+     .line 28
+     const/4 p1, 0x5
+ 
+     .line 29
+     invoke-interface {p0, p1, p2}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->b(ILjava/lang/Object;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     :cond_0
+     return-object p2
+@@ -709,16 +594,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/profileinstaller/DeviceProfileWriter;->c()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->d:[B
+ 
+-    .line 5
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     goto :goto_0
+ 
+@@ -726,68 +607,52 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->a:Landroid/content/res/AssetManager;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, v0}, Landroidx/profileinstaller/DeviceProfileWriter;->f(Landroid/content/res/AssetManager;)Ljava/io/InputStream;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     if-eqz v0, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, v0}, Landroidx/profileinstaller/DeviceProfileWriter;->i(Ljava/io/InputStream;)[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     iput-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 22
+     .line 23
+     :cond_1
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 24
+     .line 25
+     if-eqz v0, :cond_2
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Landroidx/profileinstaller/DeviceProfileWriter;->j()Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v1
+ 
+     .line 31
+     if-eqz v1, :cond_2
+ 
+-    .line 32
+     .line 33
+     iget-object v1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->d:[B
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0, v0, v1}, Landroidx/profileinstaller/DeviceProfileWriter;->b([Landroidx/profileinstaller/DexProfileData;[B)Landroidx/profileinstaller/DeviceProfileWriter;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v0
+ 
+     .line 39
+     if-eqz v0, :cond_2
+ 
+-    .line 40
+     .line 41
+     return-object v0
+ 
+@@ -807,24 +672,18 @@
+     :try_start_0
+     sget-object v1, Landroidx/profileinstaller/ProfileTranscoder;->a:[B
+ 
+-    .line 3
+     .line 4
+     invoke-static {p1, v1}, Landroidx/profileinstaller/ProfileTranscoder;->p(Ljava/io/InputStream;[B)[B
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v1
+ 
+     .line 8
+     iget-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->f:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     invoke-static {p1, v1, v2}, Landroidx/profileinstaller/ProfileTranscoder;->x(Ljava/io/InputStream;[BLjava/lang/String;)[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v1
+     :try_end_0
+@@ -838,8 +697,6 @@
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     goto :goto_4
+ 
+@@ -850,12 +707,9 @@
+     .line 19
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 20
+     .line 21
+     invoke-interface {p0, v0, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     goto :goto_4
+ 
+@@ -885,18 +739,14 @@
+     :try_start_2
+     iget-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 32
+     .line 33
+     const/16 v3, 0x8
+ 
+-    .line 34
+     .line 35
+     invoke-interface {v2, v3, v1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :goto_1
+     :try_start_3
+@@ -904,8 +754,6 @@
+     :try_end_3
+     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_3
+ 
+@@ -916,12 +764,9 @@
+     .line 43
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 44
+     .line 45
+     invoke-interface {p0, v0, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     goto :goto_3
+ 
+@@ -930,14 +775,11 @@
+     :try_start_4
+     iget-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 50
+     .line 51
+     invoke-interface {v2, v0, v1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_0
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     goto :goto_1
+ 
+@@ -956,8 +798,6 @@
+     :try_end_5
+     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_6
+ 
+@@ -968,12 +808,9 @@
+     .line 62
+     iget-object p0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 63
+     .line 64
+     invoke-interface {p0, v0, p1}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     :goto_6
+     throw v1
+@@ -985,21 +822,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->b:Ljava/util/concurrent/Executor;
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Landroidx/profileinstaller/a;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1, p0, p1, p2}, Landroidx/profileinstaller/a;-><init>(Landroidx/profileinstaller/DeviceProfileWriter;ILjava/lang/Object;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -1010,19 +841,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->d:[B
+ 
+-    .line 4
+     .line 5
+     if-eqz v0, :cond_2
+ 
+-    .line 6
+     .line 7
+     if-nez v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_5
+ 
+@@ -1030,8 +857,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/profileinstaller/DeviceProfileWriter;->c()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 v2, 0x0
+ 
+@@ -1039,51 +864,39 @@
+     :try_start_0
+     new-instance v3, Ljava/io/ByteArrayOutputStream;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v3}, Ljava/io/ByteArrayOutputStream;-><init>()V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     :try_start_1
+     invoke-static {v3, v1}, Landroidx/profileinstaller/ProfileTranscoder;->F(Ljava/io/OutputStream;[B)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-static {v3, v1, v0}, Landroidx/profileinstaller/ProfileTranscoder;->C(Ljava/io/OutputStream;[B[Landroidx/profileinstaller/DexProfileData;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v0
+ 
+     .line 26
+     if-nez v0, :cond_1
+ 
+-    .line 27
+     .line 28
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 29
+     .line 30
+     const/4 v1, 0x5
+ 
+     .line 31
+     invoke-interface {v0, v1, v2}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 35
+     .line 36
+     :try_start_2
+     invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->close()V
+@@ -1091,8 +904,6 @@
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+     .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-object p0
+ 
+@@ -1122,8 +933,6 @@
+     :try_start_3
+     invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+@@ -1132,7 +941,6 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 51
+     .line 52
+     :try_start_4
+     invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->close()V
+@@ -1140,8 +948,6 @@
+     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+     .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_4} :catch_0
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     goto :goto_4
+ 
+@@ -1152,8 +958,6 @@
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_1
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     goto :goto_1
+ 
+@@ -1165,8 +969,6 @@
+     :try_start_6
+     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     :goto_1
+     throw v0
+@@ -1178,16 +980,12 @@
+     :goto_2
+     iget-object v1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 66
+     .line 67
+     const/16 v3, 0x8
+ 
+-    .line 68
+     .line 69
+     invoke-interface {v1, v3, v0}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     goto :goto_4
+ 
+@@ -1195,20 +993,16 @@
+     :goto_3
+     iget-object v1, p0, Landroidx/profileinstaller/DeviceProfileWriter;->c:Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;
+ 
+-    .line 74
+     .line 75
+     const/4 v3, 0x7
+ 
+     .line 76
+     invoke-interface {v1, v3, v0}, Landroidx/profileinstaller/ProfileInstaller$DiagnosticsCallback;->a(ILjava/lang/Object;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     :goto_4
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 80
+     .line 81
+     :cond_2
+     :goto_5
+@@ -1221,14 +1015,12 @@
+     .line 1
+     iget-object v0, p0, Landroidx/profileinstaller/DeviceProfileWriter;->k:[B
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -1236,8 +1028,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/profileinstaller/DeviceProfileWriter;->c()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 v2, 0x0
+ 
+@@ -1245,7 +1035,6 @@
+     :try_start_0
+     new-instance v3, Ljava/io/ByteArrayInputStream;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v3, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+     :try_end_0
+@@ -1253,30 +1042,22 @@
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :try_start_1
+     new-instance v0, Ljava/io/FileOutputStream;
+ 
+-    .line 17
+     .line 18
+     iget-object v4, p0, Landroidx/profileinstaller/DeviceProfileWriter;->e:Ljava/io/File;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v0, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_2
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :try_start_2
+     invoke-virtual {v0}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v4
+     :try_end_2
+@@ -1286,8 +1067,6 @@
+     :try_start_3
+     invoke-virtual {v4}, Ljava/nio/channels/FileChannel;->tryLock()Ljava/nio/channels/FileLock;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v5
+     :try_end_3
+@@ -1297,8 +1076,6 @@
+     :try_start_4
+     invoke-static {v3, v0, v5}, Landroidx/profileinstaller/Encoding;->l(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/nio/channels/FileLock;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const/4 v6, 0x1
+ 
+@@ -1307,20 +1084,15 @@
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_4
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     if-eqz v5, :cond_1
+ 
+-    .line 39
+     .line 40
+     :try_start_5
+     invoke-virtual {v5}, Ljava/nio/channels/FileLock;->close()V
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_0
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     goto :goto_0
+ 
+@@ -1339,16 +1111,12 @@
+     :try_end_6
+     .catchall {:try_start_6 .. :try_end_6} :catchall_3
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     :try_start_7
+     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
+     :try_end_7
+     .catchall {:try_start_7 .. :try_end_7} :catchall_2
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :try_start_8
+     invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+@@ -1357,16 +1125,12 @@
+     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_0
+     .catchall {:try_start_8 .. :try_end_8} :catchall_1
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->k:[B
+ 
+-    .line 56
+     .line 57
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 58
+     .line 59
+     return v6
+ 
+@@ -1412,15 +1176,12 @@
+     .line 71
+     if-eqz v5, :cond_2
+ 
+-    .line 72
+     .line 73
+     :try_start_9
+     invoke-virtual {v5}, Ljava/nio/channels/FileLock;->close()V
+     :try_end_9
+     .catchall {:try_start_9 .. :try_end_9} :catchall_5
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     goto :goto_1
+ 
+@@ -1432,8 +1193,6 @@
+     :try_start_a
+     invoke-virtual {v6, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :cond_2
+     :goto_1
+@@ -1445,15 +1204,12 @@
+     :goto_2
+     if-eqz v4, :cond_3
+ 
+-    .line 83
+     .line 84
+     :try_start_b
+     invoke-virtual {v4}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+     :try_end_b
+     .catchall {:try_start_b .. :try_end_b} :catchall_6
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     goto :goto_3
+ 
+@@ -1465,8 +1221,6 @@
+     :try_start_c
+     invoke-virtual {v5, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     :cond_3
+     :goto_3
+@@ -1481,8 +1235,6 @@
+     :try_end_d
+     .catchall {:try_start_d .. :try_end_d} :catchall_7
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     goto :goto_5
+ 
+@@ -1494,8 +1246,6 @@
+     :try_start_e
+     invoke-virtual {v4, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     :goto_5
+     throw v4
+@@ -1509,8 +1259,6 @@
+     :try_end_f
+     .catchall {:try_start_f .. :try_end_f} :catchall_8
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     goto :goto_7
+ 
+@@ -1522,8 +1270,6 @@
+     :try_start_10
+     invoke-virtual {v0, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     :goto_7
+     throw v0
+@@ -1542,17 +1288,13 @@
+     :try_end_11
+     .catchall {:try_start_11 .. :try_end_11} :catchall_1
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     :goto_9
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->k:[B
+ 
+-    .line 116
+     .line 117
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 118
+     .line 119
+     goto :goto_b
+ 
+@@ -1566,8 +1308,6 @@
+     :try_end_12
+     .catchall {:try_start_12 .. :try_end_12} :catchall_1
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     goto :goto_9
+ 
+@@ -1579,11 +1319,9 @@
+     :goto_c
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->k:[B
+ 
+-    .line 127
+     .line 128
+     iput-object v2, p0, Landroidx/profileinstaller/DeviceProfileWriter;->j:[Landroidx/profileinstaller/DexProfileData;
+ 
+-    .line 129
+     .line 130
+     throw v0
+ .end method

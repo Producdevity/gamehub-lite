@@ -1,0 +1,107 @@
+--- a/smali_classes7/com/winemu/core/server/environment/plugins/ALSAServerPlugin.smali
++++ b/smali_classes7/com/winemu/core/server/environment/plugins/ALSAServerPlugin.smali
+@@ -16,12 +16,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/winemu/core/server/environment/ProgramPlugin;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->c:Lcom/winemu/core/server/socket/UnixSocketConfig;
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -34,11 +31,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -46,55 +41,39 @@
+     :cond_0
+     new-instance v0, Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->c:Lcom/winemu/core/server/socket/UnixSocketConfig;
+ 
+-    .line 9
+     .line 10
+     new-instance v2, Lcom/winemu/core/server/alsaserver/ALSAClientConnectionHandler;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v2}, Lcom/winemu/core/server/alsaserver/ALSAClientConnectionHandler;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     new-instance v3, Lcom/winemu/core/server/alsaserver/ALSARequestHandler;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v3}, Lcom/winemu/core/server/alsaserver/ALSARequestHandler;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-direct {v0, v1, v2, v3}, Lcom/winemu/core/server/socket/XConnectorEpoll;-><init>(Lcom/winemu/core/server/socket/UnixSocketConfig;Lcom/winemu/core/server/socket/ConnectionHandler;Lcom/winemu/core/server/socket/RequestHandler;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iput-object v0, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 24
+     .line 25
+     const/4 v1, 0x1
+ 
+     .line 26
+     invoke-virtual {v0, v1}, Lcom/winemu/core/server/socket/XConnectorEpoll;->setMultithreadedClients(Z)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-object p0, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0}, Lcom/winemu/core/server/socket/XConnectorEpoll;->start()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method
+@@ -105,23 +84,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/XConnectorEpoll;->stop()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+     .line 9
+     iput-object v0, p0, Lcom/winemu/core/server/environment/plugins/ALSAServerPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 10
+     .line 11
+     :cond_0
+     return-void

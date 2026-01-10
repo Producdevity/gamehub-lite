@@ -1,0 +1,639 @@
+--- a/smali_classes7/com/uyumao/h.smali
++++ b/smali_classes7/com/uyumao/h.smali
+@@ -14,16 +14,12 @@
+     .line 1
+     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-wide/16 v0, 0x0
+ 
+-    .line 5
+     .line 6
+     iput-wide v0, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -36,73 +32,56 @@
+     .line 1
+     const-string v0, "android.net.conn.CONNECTIVITY_CHANGE"
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p2
+ 
+     .line 7
+     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p2
+ 
+     .line 11
+     if-eqz p2, :cond_a
+ 
+-    .line 12
+     .line 13
+     const-string p2, "android.permission.ACCESS_NETWORK_STATE"
+ 
+-    .line 14
+     .line 15
+     invoke-static {p1, p2}, Lcom/uyumao/e;->a(Landroid/content/Context;Ljava/lang/String;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p2
+ 
+     .line 19
+     if-nez p2, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto/16 :goto_7
+ 
+-    .line 22
+     .line 23
+     :cond_0
+     const-string p2, "connectivity"
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p2
+ 
+     .line 29
+     check-cast p2, Landroid/net/ConnectivityManager;
+ 
+-    .line 30
+     .line 31
+     const/4 v0, 0x1
+ 
+     .line 32
+     invoke-virtual {p2, v0}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+@@ -112,16 +91,12 @@
+     .line 37
+     invoke-virtual {p2, v2}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p2
+ 
+     .line 41
+     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v3
+     :try_end_0
+@@ -130,120 +105,92 @@
+     .line 45
+     const-wide/16 v4, 0x1f4
+ 
+-    .line 46
+     .line 47
+     const-wide/16 v6, 0x0
+ 
+-    .line 48
+     .line 49
+     const-string v8, "NetChangeReceiver"
+ 
+-    .line 50
+     .line 51
+     const/4 v9, 0x0
+ 
+     .line 52
+     if-eqz v3, :cond_3
+ 
+-    .line 53
+     .line 54
+     :try_start_1
+     invoke-virtual {p2}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v3
+ 
+     .line 58
+     if-eqz v3, :cond_3
+ 
+-    .line 59
+     .line 60
+     iget-wide v10, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 61
+     .line 62
+     cmp-long v1, v10, v6
+ 
+-    .line 63
+     .line 64
+     if-ltz v1, :cond_1
+ 
+-    .line 65
+     .line 66
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-wide v6
+ 
+     .line 70
+     iget-wide v10, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 71
+     .line 72
+     sub-long/2addr v6, v10
+ 
+     .line 73
+     cmp-long v1, v6, v4
+ 
+-    .line 74
+     .line 75
+     if-gtz v1, :cond_1
+ 
+-    .line 76
+     .line 77
+     goto/16 :goto_7
+ 
+-    .line 78
+     .line 79
+     :cond_1
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-wide v3
+ 
+     .line 83
+     iput-wide v3, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 84
+     .line 85
+     const-string v1, "WIFI\u5df2\u8fde\u63a5,\u79fb\u52a8\u6570\u636e\u5df2\u8fde\u63a5"
+ 
+-    .line 86
+     .line 87
+     invoke-static {v8, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     sget-boolean v1, Lcom/uyumao/d;->c:Z
+ 
+-    .line 91
+     .line 92
+     if-eqz v1, :cond_2
+ 
+-    .line 93
+     .line 94
+     invoke-static {p1}, Lcom/uyumao/e;->g(Landroid/content/Context;)[Ljava/lang/String;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v1
+ 
+     .line 98
+     aget-object v2, v1, v2
+ 
+-    .line 99
+     .line 100
+     aget-object v0, v1, v0
+ 
+-    .line 101
+     .line 102
+     goto :goto_0
+ 
+@@ -258,16 +205,12 @@
+     :goto_0
+     invoke-static {p2}, Lcom/uyumao/e;->a(Landroid/net/NetworkInfo;)Ljava/lang/String;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object p2
+ 
+     .line 109
+     invoke-static {p1}, Lcom/uyumao/e;->d(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object v1
+ 
+@@ -292,54 +235,40 @@
+     .line 119
+     goto/16 :goto_2
+ 
+-    .line 120
+     .line 121
+     :cond_3
+     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v3
+ 
+     .line 125
+     if-nez v3, :cond_4
+ 
+-    .line 126
+     .line 127
+     invoke-virtual {p2}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v3
+ 
+     .line 131
+     if-eqz v3, :cond_4
+ 
+-    .line 132
+     .line 133
+     const-string v0, "WIFI\u5df2\u65ad\u5f00,\u79fb\u52a8\u6570\u636e\u5df2\u8fde\u63a5"
+ 
+-    .line 134
+     .line 135
+     invoke-static {v8, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     invoke-static {p2}, Lcom/uyumao/e;->a(Landroid/net/NetworkInfo;)Ljava/lang/String;
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-object p2
+ 
+     .line 142
+     invoke-static {p1}, Lcom/uyumao/e;->d(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object v1
+ 
+@@ -362,112 +291,85 @@
+     :cond_4
+     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result v1
+ 
+     .line 155
+     if-eqz v1, :cond_7
+ 
+-    .line 156
+     .line 157
+     invoke-virtual {p2}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result p2
+ 
+     .line 161
+     if-nez p2, :cond_7
+ 
+-    .line 162
+     .line 163
+     iget-wide v10, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 164
+     .line 165
+     cmp-long p2, v10, v6
+ 
+-    .line 166
+     .line 167
+     if-ltz p2, :cond_5
+ 
+-    .line 168
+     .line 169
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result-wide v6
+ 
+     .line 173
+     iget-wide v10, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 174
+     .line 175
+     sub-long/2addr v6, v10
+ 
+     .line 176
+     cmp-long p2, v6, v4
+ 
+-    .line 177
+     .line 178
+     if-gtz p2, :cond_5
+ 
+-    .line 179
+     .line 180
+     goto/16 :goto_7
+ 
+-    .line 181
+     .line 182
+     :cond_5
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result-wide v3
+ 
+     .line 186
+     iput-wide v3, p0, Lcom/uyumao/h;->a:J
+ 
+-    .line 187
+     .line 188
+     const-string p2, "WIFI\u5df2\u8fde\u63a5,\u79fb\u52a8\u6570\u636e\u5df2\u65ad\u5f00"
+ 
+-    .line 189
+     .line 190
+     invoke-static {v8, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     sget-boolean p2, Lcom/uyumao/d;->c:Z
+ 
+-    .line 194
+     .line 195
+     if-eqz p2, :cond_6
+ 
+-    .line 196
+     .line 197
+     invoke-static {p1}, Lcom/uyumao/e;->g(Landroid/content/Context;)[Ljava/lang/String;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object p2
+ 
+     .line 201
+     aget-object v3, p2, v2
+ 
+-    .line 202
+     .line 203
+     aget-object v1, p2, v0
+ 
+-    .line 204
+     .line 205
+     move-object p2, v9
+ 
+@@ -498,14 +400,11 @@
+     :cond_7
+     const-string p2, "WIFI\u5df2\u65ad\u5f00,\u79fb\u52a8\u6570\u636e\u5df2\u65ad\u5f00"
+ 
+-    .line 214
+     .line 215
+     invoke-static {v8, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_3
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move v0, v2
+ 
+@@ -517,66 +416,48 @@
+     :try_start_2
+     new-instance v4, Lorg/json/JSONObject;
+ 
+-    .line 221
+     .line 222
+     invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     :try_start_3
+     const-string v5, "type"
+ 
+-    .line 226
+     .line 227
+     invoke-virtual {v4, v5, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     move-result v0
+ 
+     .line 234
+     if-nez v0, :cond_8
+ 
+-    .line 235
+     .line 236
+     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result v0
+ 
+     .line 240
+     if-nez v0, :cond_8
+ 
+-    .line 241
+     .line 242
+     const-string v0, "wifi_ssid"
+ 
+-    .line 243
+     .line 244
+     invoke-virtual {v4, v0, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+ 
+-    .line 245
+-    .line 246
+     .line 247
+     const-string v0, "wifi_bssid"
+ 
+-    .line 248
+     .line 249
+     invoke-virtual {v4, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+ 
+-    .line 250
+-    .line 251
+     .line 252
+     goto :goto_3
+ 
+@@ -592,58 +473,43 @@
+     :goto_3
+     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     move-result v0
+ 
+     .line 259
+     if-nez v0, :cond_9
+ 
+-    .line 260
+     .line 261
+     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 262
+-    .line 263
+     .line 264
+     move-result v0
+ 
+     .line 265
+     if-nez v0, :cond_9
+ 
+-    .line 266
+     .line 267
+     const-string v0, "mobile_type"
+ 
+-    .line 268
+     .line 269
+     invoke-virtual {v4, v0, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     const-string p2, "mobile_carrier"
+ 
+-    .line 273
+     .line 274
+     invoke-virtual {v4, p2, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 275
+-    .line 276
+     .line 277
+     :cond_9
+     const-string p2, "systemtime"
+ 
+-    .line 278
+     .line 279
+     :try_start_4
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 280
+-    .line 281
+     .line 282
+     move-result-wide v0
+ 
+@@ -652,8 +518,6 @@
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_0
+ 
+-    .line 284
+-    .line 285
+     .line 286
+     goto :goto_6
+ 
+@@ -673,8 +537,6 @@
+     :try_start_5
+     invoke-virtual {p2}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 291
+-    .line 292
+     .line 293
+     move-object v4, v9
+ 
+@@ -682,12 +544,9 @@
+     :goto_6
+     if-eqz v4, :cond_a
+ 
+-    .line 295
+     .line 296
+     invoke-virtual {v4}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+ 
+-    .line 297
+-    .line 298
+     .line 299
+     move-result-object p2
+ 
+@@ -696,41 +555,30 @@
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_3
+ 
+-    .line 301
+-    .line 302
+     .line 303
+     :try_start_6
+     invoke-static {}, Lcom/uyumao/l;->a()Lcom/uyumao/l;
+ 
+-    .line 304
+-    .line 305
+     .line 306
+     move-result-object p2
+ 
+     .line 307
+     invoke-virtual {p2}, Lcom/uyumao/l;->b()Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 308
+-    .line 309
+     .line 310
+     move-result-object p2
+ 
+     .line 311
+     new-instance v0, Lcom/uyumao/h$a;
+ 
+-    .line 312
+     .line 313
+     invoke-direct {v0, p0, p1, v4}, Lcom/uyumao/h$a;-><init>(Lcom/uyumao/h;Landroid/content/Context;Lorg/json/JSONObject;)V
+ 
+-    .line 314
+-    .line 315
+     .line 316
+     invoke-interface {p2, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+     :try_end_6
+     .catchall {:try_start_6 .. :try_end_6} :catchall_2
+ 
+-    .line 317
+-    .line 318
+     .line 319
+     goto :goto_7
+ 
+@@ -744,8 +592,6 @@
+     :try_end_7
+     .catchall {:try_start_7 .. :try_end_7} :catchall_3
+ 
+-    .line 322
+-    .line 323
+     .line 324
+     :catchall_3
+     :cond_a

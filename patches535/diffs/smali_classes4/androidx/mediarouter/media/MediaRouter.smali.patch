@@ -1,0 +1,1143 @@
+--- a/smali_classes4/androidx/mediarouter/media/MediaRouter.smali
++++ b/smali_classes4/androidx/mediarouter/media/MediaRouter.smali
+@@ -37,15 +37,12 @@
+     .line 1
+     const-string v0, "MediaRouter"
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x3
+ 
+     .line 4
+     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -56,25 +53,18 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouter;->b:Ljava/util/ArrayList;
+ 
+-    .line 10
+     .line 11
+     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter;->a:Landroid/content/Context;
+ 
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -85,23 +75,18 @@
+     .line 1
+     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     if-ne v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     return-void
+ 
+@@ -109,16 +94,12 @@
+     :cond_0
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 13
+     .line 14
+     const-string v1, "The media router service must only be accessed on the application\'s main thread."
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     throw v0
+ .end method
+@@ -129,11 +110,9 @@
+     .line 1
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v0, 0x0
+ 
+@@ -144,16 +123,12 @@
+     :cond_0
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->o()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+@@ -167,11 +142,9 @@
+     .line 1
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v0, 0x0
+ 
+@@ -182,12 +155,9 @@
+     :cond_0
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->j()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 11
+     .line 12
+     return-object v0
+ .end method
+@@ -198,51 +168,37 @@
+     .line 1
+     if-eqz p0, :cond_1
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 7
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     new-instance v0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     invoke-direct {v0, v1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;-><init>(Landroid/content/Context;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     sput-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 20
+     .line 21
+     :cond_0
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v0, p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->t(Landroid/content/Context;)Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 
+@@ -253,16 +209,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 29
+     .line 30
+     const-string v0, "context must not be null"
+ 
+-    .line 31
+     .line 32
+     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     throw p0
+ .end method
+@@ -273,11 +225,9 @@
+     .line 1
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v0, 0x0
+ 
+@@ -288,16 +238,12 @@
+     :cond_0
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->y()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+@@ -311,11 +257,9 @@
+     .line 1
+     sget-object v0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v0, 0x0
+ 
+@@ -326,16 +270,12 @@
+     :cond_0
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->z()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+@@ -349,27 +289,21 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->D()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x1
+ 
+@@ -395,8 +329,6 @@
+     .line 2
+     invoke-virtual {p0, p1, p2, v0}, Landroidx/mediarouter/media/MediaRouter;->b(Landroidx/mediarouter/media/MediaRouteSelector;Landroidx/mediarouter/media/MediaRouter$Callback;I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -407,46 +339,33 @@
+     .line 1
+     if-eqz p1, :cond_6
+ 
+-    .line 2
+     .line 3
+     if-eqz p2, :cond_5
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p2}, Landroidx/mediarouter/media/MediaRouter;->e(Landroidx/mediarouter/media/MediaRouter$Callback;)I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-gez v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     new-instance v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0, p0, p2}, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;-><init>(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$Callback;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouter;->b:Ljava/util/ArrayList;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -454,12 +373,9 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouter;->b:Ljava/util/ArrayList;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+@@ -469,23 +385,19 @@
+     .line 32
+     check-cast v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;
+ 
+-    .line 33
+     .line 34
+     :goto_0
+     iget p0, v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->d:I
+ 
+-    .line 35
+     .line 36
+     const/4 p2, 0x1
+ 
+     .line 37
+     if-eq p3, p0, :cond_1
+ 
+-    .line 38
+     .line 39
+     iput p3, v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->d:I
+ 
+-    .line 40
+     .line 41
+     move p0, p2
+ 
+@@ -500,8 +412,6 @@
+     :goto_1
+     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-wide v1
+ 
+@@ -511,7 +421,6 @@
+     .line 49
+     if-eqz p3, :cond_2
+ 
+-    .line 50
+     .line 51
+     move p0, p2
+ 
+@@ -519,56 +428,42 @@
+     :cond_2
+     iput-wide v1, v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->e:J
+ 
+-    .line 53
+     .line 54
+     iget-object p3, v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->c:Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {p3, p1}, Landroidx/mediarouter/media/MediaRouteSelector;->b(Landroidx/mediarouter/media/MediaRouteSelector;)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result p3
+ 
+     .line 60
+     if-nez p3, :cond_3
+ 
+-    .line 61
+     .line 62
+     new-instance p0, Landroidx/mediarouter/media/MediaRouteSelector$Builder;
+ 
+-    .line 63
+     .line 64
+     iget-object p3, v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->c:Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p0, p3}, Landroidx/mediarouter/media/MediaRouteSelector$Builder;-><init>(Landroidx/mediarouter/media/MediaRouteSelector;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouteSelector$Builder;->c(Landroidx/mediarouter/media/MediaRouteSelector;)Landroidx/mediarouter/media/MediaRouteSelector$Builder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+ 
+     .line 73
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteSelector$Builder;->d()Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p0
+ 
+     .line 77
+     iput-object p0, v0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->c:Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 78
+     .line 79
+     goto :goto_2
+ 
+@@ -580,20 +475,15 @@
+     :goto_2
+     if-eqz p2, :cond_4
+ 
+-    .line 82
+     .line 83
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object p0
+ 
+     .line 87
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->R()V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     :cond_4
+     return-void
+@@ -602,16 +492,12 @@
+     :cond_5
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 92
+     .line 93
+     const-string p1, "callback must not be null"
+ 
+-    .line 94
+     .line 95
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     throw p0
+ 
+@@ -619,16 +505,12 @@
+     :cond_6
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 100
+     .line 101
+     const-string p1, "selector must not be null"
+ 
+-    .line 102
+     .line 103
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     throw p0
+ .end method
+@@ -639,25 +521,18 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->e(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -665,16 +540,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 15
+     .line 16
+     const-string p1, "route must not be null"
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     throw p0
+ .end method
+@@ -685,12 +556,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter;->b:Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -701,31 +569,24 @@
+     :goto_0
+     if-ge v1, v0, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget-object v2, p0, Landroidx/mediarouter/media/MediaRouter;->b:Ljava/util/ArrayList;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     check-cast v2, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;
+ 
+-    .line 17
+     .line 18
+     iget-object v2, v2, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->b:Landroidx/mediarouter/media/MediaRouter$Callback;
+ 
+-    .line 19
+     .line 20
+     if-ne v2, p1, :cond_0
+ 
+-    .line 21
+     .line 22
+     return v1
+ 
+@@ -733,7 +594,6 @@
+     :cond_0
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -751,20 +611,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     if-nez p0, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 p0, 0x0
+ 
+@@ -775,8 +630,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->n()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -790,21 +643,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->p()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+@@ -818,11 +665,9 @@
+     .line 1
+     sget-object p0, Landroidx/mediarouter/media/MediaRouter;->d:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 2
+     .line 3
+     if-nez p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x0
+ 
+@@ -833,8 +678,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->r()Landroid/support/v4/media/session/MediaSessionCompat$Token;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -848,20 +691,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     if-nez p0, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 p0, 0x0
+ 
+@@ -872,8 +710,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->u()Landroidx/mediarouter/media/MediaRouterParams;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -887,24 +723,18 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     if-nez p0, :cond_0
+ 
+-    .line 9
+     .line 10
+     sget-object p0, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ 
+@@ -912,8 +742,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->v()Ljava/util/List;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+@@ -927,21 +755,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->w()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+@@ -955,25 +777,18 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-virtual {p0, p1, p2}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->A(Landroidx/mediarouter/media/MediaRouteSelector;I)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -984,16 +799,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 16
+     .line 17
+     const-string p1, "selector must not be null"
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     throw p0
+ .end method
+@@ -1004,46 +815,33 @@
+     .line 1
+     if-eqz p1, :cond_1
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter;->e(Landroidx/mediarouter/media/MediaRouter$Callback;)I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p1
+ 
+     .line 10
+     if-ltz p1, :cond_0
+ 
+-    .line 11
+     .line 12
+     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouter;->b:Ljava/util/ArrayList;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->R()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_0
+     return-void
+@@ -1052,16 +850,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 26
+     .line 27
+     const-string p1, "callback must not be null"
+ 
+-    .line 28
+     .line 29
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     throw p0
+ .end method
+@@ -1078,20 +872,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->B:Landroidx/mediarouter/media/MediaRouter$OnPrepareTransferListener;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -1102,25 +891,18 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->G(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1128,16 +910,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 15
+     .line 16
+     const-string p1, "route must not be null"
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     throw p0
+ .end method
+@@ -1148,17 +926,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -1168,8 +941,6 @@
+     .line 11
+     invoke-virtual {p0, p1, v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->K(Landroidx/mediarouter/media/MediaRouter$RouteInfo;I)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1177,16 +948,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 16
+     .line 17
+     const-string p1, "route must not be null"
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     throw p0
+ .end method
+@@ -1197,21 +964,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->M(Landroid/support/v4/media/session/MediaSessionCompat;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -1222,21 +983,15 @@
+     .line 1
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->O(Landroidx/mediarouter/media/MediaRouterParams;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -1247,25 +1002,18 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->Q(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1273,16 +1021,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 15
+     .line 16
+     const-string p1, "route must not be null"
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     throw p0
+ .end method
+@@ -1293,52 +1037,39 @@
+     .line 1
+     if-ltz p1, :cond_1
+ 
+-    .line 2
+     .line 3
+     const/4 p0, 0x3
+ 
+     .line 4
+     if-gt p1, p0, :cond_1
+ 
+-    .line 5
+     .line 6
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->d()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->i()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->w()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     if-eq v1, v0, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p0, v0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->K(Landroidx/mediarouter/media/MediaRouter$RouteInfo;I)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_0
+     return-void
+@@ -1347,16 +1078,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 28
+     .line 29
+     const-string p1, "Unsupported reason to unselect route"
+ 
+-    .line 30
+     .line 31
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     throw p0
+ .end method

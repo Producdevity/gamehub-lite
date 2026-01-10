@@ -1,0 +1,1984 @@
+--- a/smali_classes6/com/luck/picture/lib/utils/MediaUtils.smali
++++ b/smali_classes6/com/luck/picture/lib/utils/MediaUtils.smali
+@@ -14,8 +14,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -26,96 +24,66 @@
+     .line 1
+     new-instance v0, Landroid/os/Bundle;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "android:query-arg-sql-selection"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1, p0}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string p0, "android:query-arg-sql-selection-args"
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, p0, p1}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string p0, "android:query-arg-sql-sort-order"
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0, p0, p4}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isR()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+     .line 25
+     if-eqz p0, :cond_0
+ 
+-    .line 26
+     .line 27
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 28
+     .line 29
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string p1, " offset "
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+     .line 47
+     const-string p1, "android:query-arg-sql-limit"
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v0, p1, p0}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :cond_0
+     return-object v0
+@@ -128,40 +96,30 @@
+     :try_start_0
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {p1}, Lcom/luck/picture/lib/config/PictureMimeType;->isContent(Ljava/lang/String;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p1
+ 
+@@ -173,8 +131,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :cond_0
+     return-void
+@@ -186,8 +142,6 @@
+     .line 27
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     return-void
+ .end method
+@@ -198,37 +152,27 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     if-eqz p0, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -239,7 +183,6 @@
+     :cond_0
+     const-string p0, "Camera"
+ 
+-    .line 22
+     .line 23
+     return-object p0
+ .end method
+@@ -260,17 +203,12 @@
+     .line 1
+     new-instance v0, Lcom/luck/picture/lib/utils/MediaUtils$3;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1, p2}, Lcom/luck/picture/lib/utils/MediaUtils$3;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/luck/picture/lib/interfaces/OnCallbackListener;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lcom/luck/picture/lib/thread/PictureThreadUtils;->executeByIo(Lcom/luck/picture/lib/thread/PictureThreadUtils$Task;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -281,24 +219,18 @@
+     .line 1
+     new-instance v0, Lcom/luck/picture/lib/entity/MediaExtraInfo;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/luck/picture/lib/entity/MediaExtraInfo;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {p1}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasHttp(Ljava/lang/String;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-eqz v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     goto :goto_2
+ 
+@@ -306,38 +238,28 @@
+     :cond_0
+     new-instance v1, Landroid/media/MediaMetadataRetriever;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v1}, Landroid/media/MediaMetadataRetriever;-><init>()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :try_start_0
+     invoke-static {p1}, Lcom/luck/picture/lib/config/PictureMimeType;->isContent(Ljava/lang/String;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     if-eqz v2, :cond_1
+ 
+-    .line 23
+     .line 24
+     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     invoke-virtual {v1, p0, p1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -359,26 +281,19 @@
+     :cond_1
+     invoke-virtual {v1, p1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :goto_0
+     const/16 p0, 0x9
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v1, p0}, Landroid/media/MediaMetadataRetriever;->extractMetadata(I)Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p0
+ 
+     .line 45
+     invoke-static {p0}, Lcom/luck/picture/lib/utils/ValueOf;->toLong(Ljava/lang/Object;)J
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-wide p0
+ 
+@@ -388,16 +303,12 @@
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :try_start_1
+     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-object v0
+ 
+@@ -408,8 +319,6 @@
+     .line 57
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -420,16 +329,12 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     :try_start_3
+     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
+     :try_end_3
+     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     :goto_2
+     return-object v0
+@@ -441,8 +346,6 @@
+     :try_end_4
+     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto :goto_4
+ 
+@@ -453,8 +356,6 @@
+     .line 73
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     :goto_4
+     throw p0
+@@ -466,7 +367,6 @@
+     .line 1
+     const-string v0, "%"
+ 
+-    .line 2
+     .line 3
+     const/4 v1, -0x1
+ 
+@@ -477,52 +377,36 @@
+     :try_start_0
+     const-string v6, "_data like ?"
+ 
+-    .line 6
+     .line 7
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p1
+ 
+     .line 25
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v7
+ 
+     .line 29
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isR()Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p1
+ 
+@@ -532,47 +416,36 @@
+     .line 34
+     if-eqz p1, :cond_0
+ 
+-    .line 35
+     .line 36
+     const-string p1, "_id DESC"
+ 
+-    .line 37
+     .line 38
+     const/4 v3, 0x0
+ 
+     .line 39
+     invoke-static {v6, v7, v0, v3, p1}, Lcom/luck/picture/lib/utils/MediaUtils;->createQueryArgsBundle(Ljava/lang/String;[Ljava/lang/String;IILjava/lang/String;)Landroid/os/Bundle;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p1
+ 
+     .line 43
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+     .line 47
+     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+     .line 51
+     sget-object v3, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p0, v3, v2, p1, v2}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -607,35 +480,27 @@
+     :cond_0
+     const-string v8, "_id DESC limit 1 offset 0"
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object p0
+ 
+     .line 71
+     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v3
+ 
+     .line 75
+     sget-object v4, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 76
+     .line 77
+     const/4 v5, 0x0
+ 
+     .line 78
+     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p0
+ 
+@@ -646,76 +511,57 @@
+     :goto_1
+     if-eqz v2, :cond_2
+ 
+-    .line 84
+     .line 85
+     invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result p0
+ 
+     .line 89
+     if-lez p0, :cond_2
+ 
+-    .line 90
+     .line 91
+     invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result p0
+ 
+     .line 95
+     if-eqz p0, :cond_2
+ 
+-    .line 96
+     .line 97
+     const-string p0, "_id"
+ 
+-    .line 98
+     .line 99
+     invoke-interface {v2, p0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p0
+ 
+     .line 103
+     invoke-interface {v2, p0}, Landroid/database/Cursor;->getInt(I)I
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result p0
+ 
+     .line 107
+     const-string p1, "date_added"
+ 
+-    .line 108
+     .line 109
+     invoke-interface {v2, p1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result p1
+ 
+     .line 113
+     invoke-interface {v2, p1}, Landroid/database/Cursor;->getLong(I)J
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-wide v3
+ 
+     .line 117
+     invoke-static {v3, v4}, Lcom/luck/picture/lib/utils/DateUtils;->dateDiffer(J)I
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result p1
+     :try_end_0
+@@ -725,7 +571,6 @@
+     .line 121
+     if-gt p1, v0, :cond_1
+ 
+-    .line 122
+     .line 123
+     move v1, p0
+ 
+@@ -733,8 +578,6 @@
+     :cond_1
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     return v1
+ 
+@@ -742,12 +585,9 @@
+     :cond_2
+     if-eqz v2, :cond_3
+ 
+-    .line 129
+     .line 130
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     :cond_3
+     return v1
+@@ -759,17 +599,12 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     if-eqz v2, :cond_4
+ 
+-    .line 138
+     .line 139
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     :cond_4
+     return v1
+@@ -778,12 +613,9 @@
+     :goto_3
+     if-eqz v2, :cond_5
+ 
+-    .line 144
+     .line 145
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     :cond_5
+     throw p0
+@@ -1074,24 +906,18 @@
+     .line 1
+     invoke-static {}, Ljava/net/URLConnection;->getFileNameMap()Ljava/net/FileNameMap;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     invoke-interface {v0, p0}, Ljava/net/FileNameMap;->getContentTypeFor(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -1105,8 +931,6 @@
+     .line 1
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -1116,7 +940,6 @@
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return-object v1
+ 
+@@ -1124,84 +947,64 @@
+     :cond_0
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     const-string v2, ".jpg"
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-nez v0, :cond_b
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     const-string v2, ".jpeg"
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v0
+ 
+     .line 31
+     if-eqz v0, :cond_1
+ 
+-    .line 32
+     .line 33
+     goto/16 :goto_0
+ 
+-    .line 34
+     .line 35
+     :cond_1
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v0
+ 
+     .line 39
+     const-string v2, ".png"
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v0
+ 
+     .line 45
+     if-eqz v0, :cond_2
+ 
+-    .line 46
+     .line 47
+     const-string p0, "image/png"
+ 
+-    .line 48
+     .line 49
+     return-object p0
+ 
+@@ -1209,31 +1012,24 @@
+     :cond_2
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+     .line 54
+     const-string v2, ".gif"
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v0
+ 
+     .line 60
+     if-eqz v0, :cond_3
+ 
+-    .line 61
+     .line 62
+     const-string p0, "image/gif"
+ 
+-    .line 63
+     .line 64
+     return-object p0
+ 
+@@ -1241,31 +1037,24 @@
+     :cond_3
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v0
+ 
+     .line 69
+     const-string v2, ".webp"
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v0
+ 
+     .line 75
+     if-eqz v0, :cond_4
+ 
+-    .line 76
+     .line 77
+     const-string p0, "image/webp"
+ 
+-    .line 78
+     .line 79
+     return-object p0
+ 
+@@ -1273,31 +1062,24 @@
+     :cond_4
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v0
+ 
+     .line 84
+     const-string v2, ".bmp"
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v0
+ 
+     .line 90
+     if-eqz v0, :cond_5
+ 
+-    .line 91
+     .line 92
+     const-string p0, "image/bmp"
+ 
+-    .line 93
+     .line 94
+     return-object p0
+ 
+@@ -1305,31 +1087,24 @@
+     :cond_5
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object v0
+ 
+     .line 99
+     const-string v2, ".mp4"
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v0
+ 
+     .line 105
+     if-eqz v0, :cond_6
+ 
+-    .line 106
+     .line 107
+     const-string p0, "video/mp4"
+ 
+-    .line 108
+     .line 109
+     return-object p0
+ 
+@@ -1337,31 +1112,24 @@
+     :cond_6
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object v0
+ 
+     .line 114
+     const-string v2, ".avi"
+ 
+-    .line 115
+     .line 116
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v0
+ 
+     .line 120
+     if-eqz v0, :cond_7
+ 
+-    .line 121
+     .line 122
+     const-string p0, "video/avi"
+ 
+-    .line 123
+     .line 124
+     return-object p0
+ 
+@@ -1369,31 +1137,24 @@
+     :cond_7
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object v0
+ 
+     .line 129
+     const-string v2, ".mp3"
+ 
+-    .line 130
+     .line 131
+     invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result v0
+ 
+     .line 135
+     const-string v2, "audio/mpeg"
+ 
+-    .line 136
+     .line 137
+     if-eqz v0, :cond_8
+ 
+-    .line 138
+     .line 139
+     return-object v2
+ 
+@@ -1401,31 +1162,24 @@
+     :cond_8
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object v0
+ 
+     .line 144
+     const-string v3, ".amr"
+ 
+-    .line 145
+     .line 146
+     invoke-virtual {v0, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result v0
+ 
+     .line 150
+     if-eqz v0, :cond_9
+ 
+-    .line 151
+     .line 152
+     const-string p0, "audio/amr"
+ 
+-    .line 153
+     .line 154
+     return-object p0
+ 
+@@ -1433,27 +1187,21 @@
+     :cond_9
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     move-result-object p0
+ 
+     .line 159
+     const-string v0, ".m4a"
+ 
+-    .line 160
+     .line 161
+     invoke-virtual {p0, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result p0
+ 
+     .line 165
+     if-eqz p0, :cond_a
+ 
+-    .line 166
+     .line 167
+     return-object v2
+ 
+@@ -1466,7 +1214,6 @@
+     :goto_0
+     const-string p0, "image/jpeg"
+ 
+-    .line 170
+     .line 171
+     return-object p0
+ .end method
+@@ -1477,61 +1224,45 @@
+     .line 1
+     invoke-static {p0}, Landroid/webkit/MimeTypeMap;->getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {}, Landroid/webkit/MimeTypeMap;->getSingleton()Landroid/webkit/MimeTypeMap;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-virtual {v1, v0}, Landroid/webkit/MimeTypeMap;->getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v1
+ 
+     .line 21
+     if-eqz v1, :cond_0
+ 
+-    .line 22
+     .line 23
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {v0}, Lcom/luck/picture/lib/utils/MediaUtils;->getMimeType(Ljava/io/File;)Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+@@ -1539,19 +1270,15 @@
+     :cond_0
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result p0
+ 
+     .line 36
+     if-eqz p0, :cond_1
+ 
+-    .line 37
+     .line 38
+     const-string p0, "image/jpeg"
+ 
+-    .line 39
+     .line 40
+     return-object p0
+ 
+@@ -1566,23 +1293,18 @@
+     .line 1
+     const-string v0, "%"
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     new-array v1, v1, [Ljava/lang/Long;
+ 
+-    .line 5
+     .line 6
+     const-wide/16 v2, 0x0
+ 
+-    .line 7
+     .line 8
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v2
+ 
+@@ -1592,14 +1314,12 @@
+     .line 13
+     aput-object v2, v1, v3
+ 
+-    .line 14
+     .line 15
+     const/4 v4, 0x1
+ 
+     .line 16
+     aput-object v2, v1, v4
+ 
+-    .line 17
+     .line 18
+     const/4 v2, 0x0
+ 
+@@ -1607,52 +1327,36 @@
+     :try_start_0
+     const-string v8, "_data like ?"
+ 
+-    .line 20
+     .line 21
+     new-instance v5, Ljava/lang/StringBuilder;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p1
+ 
+     .line 39
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v9
+ 
+     .line 43
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isR()Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p1
+     :try_end_0
+@@ -1662,45 +1366,34 @@
+     .line 47
+     const-string v0, "external"
+ 
+-    .line 48
+     .line 49
+     if-eqz p1, :cond_0
+ 
+-    .line 50
+     .line 51
+     :try_start_1
+     const-string p1, "_id DESC"
+ 
+-    .line 52
+     .line 53
+     invoke-static {v8, v9, v4, v3, p1}, Lcom/luck/picture/lib/utils/MediaUtils;->createQueryArgsBundle(Ljava/lang/String;[Ljava/lang/String;IILjava/lang/String;)Landroid/os/Bundle;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p1
+ 
+     .line 57
+     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+     .line 61
+     invoke-static {v0}, Landroid/provider/MediaStore$Files;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v0
+ 
+     .line 65
+     invoke-virtual {p0, v0, v2, p1, v2}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p0
+ 
+@@ -1735,20 +1428,15 @@
+     :cond_0
+     const-string v10, "_id DESC limit 1 offset 0"
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v5
+ 
+     .line 83
+     invoke-static {v0}, Landroid/provider/MediaStore$Files;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v6
+ 
+@@ -1758,8 +1446,6 @@
+     .line 88
+     invoke-virtual/range {v5 .. v10}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object p0
+ 
+@@ -1770,88 +1456,66 @@
+     :goto_1
+     if-eqz v2, :cond_1
+ 
+-    .line 94
+     .line 95
+     invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result p0
+ 
+     .line 99
+     if-lez p0, :cond_1
+ 
+-    .line 100
+     .line 101
+     invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result p0
+ 
+     .line 105
+     if-eqz p0, :cond_1
+ 
+-    .line 106
+     .line 107
+     const-string p0, "_id"
+ 
+-    .line 108
+     .line 109
+     invoke-interface {v2, p0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result p0
+ 
+     .line 113
+     invoke-interface {v2, p0}, Landroid/database/Cursor;->getLong(I)J
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-wide p0
+ 
+     .line 117
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p0
+ 
+     .line 121
+     aput-object p0, v1, v3
+ 
+-    .line 122
+     .line 123
+     const-string p0, "bucket_id"
+ 
+-    .line 124
+     .line 125
+     invoke-interface {v2, p0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result p0
+ 
+     .line 129
+     invoke-interface {v2, p0}, Landroid/database/Cursor;->getLong(I)J
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-wide p0
+ 
+     .line 133
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object p0
+ 
+@@ -1861,17 +1525,13 @@
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 138
+     .line 139
+     :cond_1
+     if-eqz v2, :cond_2
+ 
+-    .line 140
+     .line 141
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     return-object v1
+ 
+@@ -1882,17 +1542,12 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     if-eqz v2, :cond_2
+ 
+-    .line 149
+     .line 150
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     :cond_2
+     return-object v1
+@@ -1901,12 +1556,9 @@
+     :goto_3
+     if-eqz v2, :cond_3
+ 
+-    .line 155
+     .line 156
+     invoke-interface {v2}, Landroid/database/Cursor;->close()V
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     :cond_3
+     throw p0
+@@ -1918,19 +1570,15 @@
+     .line 1
+     invoke-static {p2}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasImage(Ljava/lang/String;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     sget-object p2, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -1938,19 +1586,15 @@
+     :cond_0
+     invoke-static {p2}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasVideo(Ljava/lang/String;)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-eqz v0, :cond_1
+ 
+-    .line 15
+     .line 16
+     sget-object p2, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -1958,19 +1602,15 @@
+     :cond_1
+     invoke-static {p2}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasAudio(Ljava/lang/String;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p2
+ 
+     .line 23
+     if-eqz p2, :cond_2
+ 
+-    .line 24
+     .line 25
+     sget-object p2, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 26
+     .line 27
+     goto :goto_0
+ 
+@@ -1978,12 +1618,9 @@
+     :cond_2
+     const-string p2, "external"
+ 
+-    .line 29
+     .line 30
+     invoke-static {p2}, Landroid/provider/MediaStore$Files;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p2
+ 
+@@ -1991,16 +1628,12 @@
+     :goto_0
+     invoke-static {p2, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-virtual {p0}, Landroid/net/Uri;->toString()Ljava/lang/String;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -2246,12 +1879,9 @@
+     .line 1
+     new-instance v0, Lcom/luck/picture/lib/entity/MediaExtraInfo;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/luck/picture/lib/entity/MediaExtraInfo;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v1, 0x0
+ 
+@@ -2259,37 +1889,27 @@
+     :try_start_0
+     new-instance v2, Landroid/media/MediaMetadataRetriever;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v2}, Landroid/media/MediaMetadataRetriever;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-static {p1}, Lcom/luck/picture/lib/config/PictureMimeType;->isContent(Ljava/lang/String;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v3
+ 
+     .line 16
+     if-eqz v3, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     invoke-virtual {v2, p0, p1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -2306,7 +1926,6 @@
+     .line 29
+     goto/16 :goto_3
+ 
+-    .line 30
+     .line 31
+     :catch_0
+     move-exception p0
+@@ -2320,19 +1939,14 @@
+     .line 34
+     goto/16 :goto_2
+ 
+-    .line 35
+     .line 36
+     :cond_0
+     invoke-virtual {v2, p1}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :goto_0
+     invoke-virtual {v2}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime()Landroid/graphics/Bitmap;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p1
+     :try_end_0
+@@ -2342,168 +1956,120 @@
+     .line 43
+     if-eqz p1, :cond_1
+ 
+-    .line 44
+     .line 45
+     :try_start_1
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isRecycled()Z
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v2
+ 
+     .line 49
+     if-nez v2, :cond_1
+ 
+-    .line 50
+     .line 51
+     new-instance v2, Ljava/io/ByteArrayOutputStream;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+     .catchall {:try_start_1 .. :try_end_1} :catchall_3
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     :try_start_2
+     sget-object v3, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+ 
+-    .line 57
+     .line 58
+     const/16 v4, 0x32
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p1, v3, v4, v2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     invoke-static {p0}, Lcom/luck/picture/lib/utils/PictureFileUtils;->getVideoThumbnailDir(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object p0
+ 
+     .line 67
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 68
+     .line 69
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 70
+     .line 71
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     const-string v5, "vid_"
+ 
+-    .line 75
+     .line 76
+     invoke-static {v5}, Lcom/luck/picture/lib/utils/DateUtils;->getCreateFileName(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v5
+ 
+     .line 80
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     const-string v5, "_thumb.jpg"
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v4
+ 
+     .line 92
+     invoke-direct {v3, p0, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     new-instance p0, Ljava/io/FileOutputStream;
+ 
+-    .line 96
+     .line 97
+     invoke-direct {p0, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_2
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     :try_start_3
+     invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object v1
+ 
+     .line 104
+     invoke-virtual {p0, v1}, Ljava/io/FileOutputStream;->write([B)V
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     invoke-virtual {p0}, Ljava/io/OutputStream;->flush()V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object v1
+ 
+     .line 114
+     invoke-virtual {v0, v1}, Lcom/luck/picture/lib/entity/MediaExtraInfo;->setVideoThumbnail(Ljava/lang/String;)V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result v1
+ 
+     .line 121
+     invoke-virtual {v0, v1}, Lcom/luck/picture/lib/entity/MediaExtraInfo;->setWidth(I)V
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result v1
+ 
+@@ -2513,8 +2079,6 @@
+     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-object v1, v2
+ 
+@@ -2634,34 +2198,24 @@
+     :goto_1
+     invoke-static {v1}, Lcom/luck/picture/lib/utils/PictureFileUtils;->close(Ljava/io/Closeable;)V
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     invoke-static {p0}, Lcom/luck/picture/lib/utils/PictureFileUtils;->close(Ljava/io/Closeable;)V
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     if-eqz p1, :cond_2
+ 
+-    .line 174
+     .line 175
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isRecycled()Z
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result p0
+ 
+     .line 179
+     if-nez p0, :cond_2
+ 
+-    .line 180
+     .line 181
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     return-object v0
+ 
+@@ -2672,39 +2226,27 @@
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_4
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     invoke-static {v1}, Lcom/luck/picture/lib/utils/PictureFileUtils;->close(Ljava/io/Closeable;)V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     invoke-static {p1}, Lcom/luck/picture/lib/utils/PictureFileUtils;->close(Ljava/io/Closeable;)V
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     if-eqz v2, :cond_2
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {v2}, Landroid/graphics/Bitmap;->isRecycled()Z
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result p0
+ 
+     .line 200
+     if-nez p0, :cond_2
+ 
+-    .line 201
+     .line 202
+     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     :cond_2
+     return-object v0
+@@ -2717,34 +2259,24 @@
+     :goto_3
+     invoke-static {v1}, Lcom/luck/picture/lib/utils/PictureFileUtils;->close(Ljava/io/Closeable;)V
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     invoke-static {p1}, Lcom/luck/picture/lib/utils/PictureFileUtils;->close(Ljava/io/Closeable;)V
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     if-eqz v2, :cond_3
+ 
+-    .line 214
+     .line 215
+     invoke-virtual {v2}, Landroid/graphics/Bitmap;->isRecycled()Z
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move-result p1
+ 
+     .line 219
+     if-nez p1, :cond_3
+ 
+-    .line 220
+     .line 221
+     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     :cond_3
+     throw p0
+@@ -2759,11 +2291,9 @@
+     .line 2
+     if-lez p0, :cond_1
+ 
+-    .line 3
+     .line 4
+     if-gtz p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     goto :goto_0
+ 
+@@ -2771,11 +2301,9 @@
+     :cond_0
+     mul-int/lit8 p0, p0, 0x3
+ 
+-    .line 8
+     .line 9
+     if-le p1, p0, :cond_1
+ 
+-    .line 10
+     .line 11
+     const/4 p0, 0x1
+ 
+@@ -2795,43 +2323,33 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     sget-object v0, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 10
+     .line 11
+     const-string v1, "_id=?"
+ 
+-    .line 12
+     .line 13
+     int-to-long v2, p1
+ 
+     .line 14
+     invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+@@ -2840,8 +2358,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ 
+@@ -2852,8 +2368,6 @@
+     .line 27
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     return-void
+ .end method

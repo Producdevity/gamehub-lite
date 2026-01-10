@@ -1,0 +1,411 @@
+--- a/smali_classes6/com/kichik/pecoff4j/SectionData.smali
++++ b/smali_classes6/com/kichik/pecoff4j/SectionData.smali
+@@ -16,8 +16,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -28,127 +26,91 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->f()Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     iget v1, p1, Lcom/kichik/pecoff4j/io/DataEntry;->b:I
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1}, Lcom/kichik/pecoff4j/SectionTable;->c(I)Lcom/kichik/pecoff4j/SectionHeader;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v1
+ 
+     .line 11
+     new-instance v2, Lcom/kichik/pecoff4j/SectionData;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v2}, Lcom/kichik/pecoff4j/SectionData;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionHeader;->c()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v3
+ 
+     .line 20
+     if-ltz v3, :cond_5
+ 
+-    .line 21
+     .line 22
+     const/high16 v4, 0x8000000
+ 
+-    .line 23
+     .line 24
+     if-gt v3, v4, :cond_4
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionHeader;->b()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v4
+ 
+     .line 30
+     invoke-interface {p2, v4}, Lcom/kichik/pecoff4j/io/IDataReader;->E0(I)[B
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v4
+ 
+     .line 34
+     if-eqz v4, :cond_0
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v2, v4}, Lcom/kichik/pecoff4j/SectionData;->d([B)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :cond_0
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionHeader;->b()I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v4
+ 
+     .line 43
+     invoke-interface {p2, v4}, Lcom/kichik/pecoff4j/io/IDataReader;->k1(I)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     new-array v3, v3, [B
+ 
+-    .line 47
+     .line 48
+     invoke-interface {p2, v3}, Lcom/kichik/pecoff4j/io/IDataReader;->read([B)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     invoke-virtual {v2, v3}, Lcom/kichik/pecoff4j/SectionData;->c([B)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     iget p1, p1, Lcom/kichik/pecoff4j/io/DataEntry;->b:I
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0, p1, v2}, Lcom/kichik/pecoff4j/SectionTable;->g(ILcom/kichik/pecoff4j/SectionData;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->e()Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p1
+ 
+     .line 63
+     invoke-virtual {p1}, Lcom/kichik/pecoff4j/OptionalHeader;->b()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result p1
+ 
+@@ -162,14 +124,12 @@
+     :goto_0
+     if-ge v0, p1, :cond_3
+ 
+-    .line 70
+     .line 71
+     const/4 v4, 0x4
+ 
+     .line 72
+     if-ne v0, v4, :cond_1
+ 
+-    .line 73
+     .line 74
+     goto :goto_1
+ 
+@@ -177,44 +137,33 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->e()Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v4
+ 
+     .line 79
+     invoke-virtual {v4, v0}, Lcom/kichik/pecoff4j/OptionalHeader;->a(I)Lcom/kichik/pecoff4j/ImageDataDirectory;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v4
+ 
+     .line 83
+     invoke-virtual {v4}, Lcom/kichik/pecoff4j/ImageDataDirectory;->a()I
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v5
+ 
+     .line 87
+     if-lez v5, :cond_2
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionHeader;->d()I
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result v5
+ 
+     .line 93
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionHeader;->e()I
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v6
+ 
+@@ -224,19 +173,15 @@
+     .line 98
+     invoke-virtual {v4}, Lcom/kichik/pecoff4j/ImageDataDirectory;->b()I
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result v7
+ 
+     .line 102
+     if-lt v7, v5, :cond_2
+ 
+-    .line 103
+     .line 104
+     if-ge v7, v6, :cond_2
+ 
+-    .line 105
+     .line 106
+     sub-int/2addr v7, v5
+ 
+@@ -244,46 +189,33 @@
+     :try_start_0
+     new-instance v5, Lcom/kichik/pecoff4j/io/ByteArrayDataReader;
+ 
+-    .line 108
+     .line 109
+     invoke-virtual {v4}, Lcom/kichik/pecoff4j/ImageDataDirectory;->a()I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v4
+ 
+     .line 113
+     invoke-direct {v5, v3, v7, v4}, Lcom/kichik/pecoff4j/io/ByteArrayDataReader;-><init>([BII)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     new-instance v4, Lcom/kichik/pecoff4j/io/DataEntry;
+ 
+-    .line 117
+     .line 118
+     invoke-direct {v4, v0, p2}, Lcom/kichik/pecoff4j/io/DataEntry;-><init>(II)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionHeader;->d()I
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v6
+ 
+     .line 125
+     iput v6, v4, Lcom/kichik/pecoff4j/io/DataEntry;->e:I
+ 
+-    .line 126
+     .line 127
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->d()Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object v6
+ 
+@@ -292,8 +224,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     goto :goto_1
+ 
+@@ -304,14 +234,11 @@
+     .line 136
+     invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     :cond_2
+     :goto_1
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 140
+     .line 141
+     goto :goto_0
+ 
+@@ -323,52 +250,36 @@
+     :cond_4
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 144
+     .line 145
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 146
+     .line 147
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     const-string p2, "Section data too large: "
+ 
+-    .line 151
+     .line 152
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     const-string p2, " bytes (limit: 128MB)"
+ 
+-    .line 159
+     .line 160
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object p1
+ 
+     .line 167
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     throw p0
+ 
+@@ -376,43 +287,30 @@
+     :cond_5
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 172
+     .line 173
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 174
+     .line 175
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     const-string p2, "Invalid section raw data size: "
+ 
+-    .line 179
+     .line 180
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     move-result-object p1
+ 
+     .line 190
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     throw p0
+ .end method
+@@ -425,7 +323,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/kichik/pecoff4j/SectionData;->a:[B
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -436,7 +333,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/SectionData;->a:[B
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -447,7 +343,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/SectionData;->b:[B
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method

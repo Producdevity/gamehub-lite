@@ -1,0 +1,418 @@
+--- a/smali_classes4/androidx/media3/exoplayer/dash/manifest/DashManifest.smali
++++ b/smali_classes4/androidx/media3/exoplayer/dash/manifest/DashManifest.smali
+@@ -103,80 +103,60 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-wide p1, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->availabilityStartTimeMs:J
+ 
+-    .line 5
+     .line 6
+     iput-wide p3, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->durationMs:J
+ 
+-    .line 7
+     .line 8
+     iput-wide p5, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->minBufferTimeMs:J
+ 
+-    .line 9
+     .line 10
+     iput-boolean p7, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->dynamic:Z
+ 
+-    .line 11
+     .line 12
+     iput-wide p8, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->minUpdatePeriodMs:J
+ 
+-    .line 13
+     .line 14
+     iput-wide p10, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->timeShiftBufferDepthMs:J
+ 
+-    .line 15
+     .line 16
+     iput-wide p12, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->suggestedPresentationDelayMs:J
+ 
+-    .line 17
+     .line 18
+     iput-wide p14, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->publishTimeMs:J
+ 
+-    .line 19
+     .line 20
+     move-object/from16 p1, p16
+ 
+-    .line 21
+     .line 22
+     iput-object p1, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->programInformation:Landroidx/media3/exoplayer/dash/manifest/ProgramInformation;
+ 
+-    .line 23
+     .line 24
+     move-object/from16 p1, p17
+ 
+-    .line 25
+     .line 26
+     iput-object p1, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->utcTiming:Landroidx/media3/exoplayer/dash/manifest/UtcTimingElement;
+ 
+-    .line 27
+     .line 28
+     move-object/from16 p1, p19
+ 
+-    .line 29
+     .line 30
+     iput-object p1, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->location:Landroid/net/Uri;
+ 
+-    .line 31
+     .line 32
+     move-object/from16 p1, p18
+ 
+-    .line 33
+     .line 34
+     iput-object p1, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->serviceDescription:Landroidx/media3/exoplayer/dash/manifest/ServiceDescriptionElement;
+ 
+-    .line 35
+     .line 36
+     if-nez p20, :cond_0
+ 
+-    .line 37
+     .line 38
+     sget-object p1, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -184,12 +164,10 @@
+     :cond_0
+     move-object/from16 p1, p20
+ 
+-    .line 42
+     .line 43
+     :goto_0
+     iput-object p1, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 44
+     .line 45
+     return-void
+ .end method
+@@ -214,156 +192,114 @@
+     .line 1
+     invoke-virtual {p1}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     check-cast v0, Landroidx/media3/common/StreamKey;
+ 
+-    .line 6
+     .line 7
+     iget v1, v0, Landroidx/media3/common/StreamKey;->periodIndex:I
+ 
+-    .line 8
+     .line 9
+     new-instance v2, Ljava/util/ArrayList;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     iget v3, v0, Landroidx/media3/common/StreamKey;->groupIndex:I
+ 
+-    .line 15
+     .line 16
+     invoke-interface {p0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v4
+ 
+     .line 20
+     check-cast v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;
+ 
+-    .line 21
+     .line 22
+     iget-object v5, v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;->representations:Ljava/util/List;
+ 
+-    .line 23
+     .line 24
+     new-instance v10, Ljava/util/ArrayList;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     :cond_1
+     iget v0, v0, Landroidx/media3/common/StreamKey;->streamIndex:I
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     check-cast v0, Landroidx/media3/exoplayer/dash/manifest/Representation;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v10, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p1}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+     .line 44
+     check-cast v0, Landroidx/media3/common/StreamKey;
+ 
+-    .line 45
+     .line 46
+     iget v6, v0, Landroidx/media3/common/StreamKey;->periodIndex:I
+ 
+-    .line 47
+     .line 48
+     if-ne v6, v1, :cond_2
+ 
+-    .line 49
+     .line 50
+     iget v6, v0, Landroidx/media3/common/StreamKey;->groupIndex:I
+ 
+-    .line 51
+     .line 52
+     if-eq v6, v3, :cond_1
+ 
+-    .line 53
+     .line 54
+     :cond_2
+     new-instance v6, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;
+ 
+-    .line 55
+     .line 56
+     iget-wide v7, v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;->id:J
+ 
+-    .line 57
+     .line 58
+     iget v9, v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;->type:I
+ 
+-    .line 59
+     .line 60
+     iget-object v11, v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;->accessibilityDescriptors:Ljava/util/List;
+ 
+-    .line 61
+     .line 62
+     iget-object v12, v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;->essentialProperties:Ljava/util/List;
+ 
+-    .line 63
+     .line 64
+     iget-object v13, v4, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;->supplementalProperties:Ljava/util/List;
+ 
+-    .line 65
+     .line 66
+     invoke-direct/range {v6 .. v13}, Landroidx/media3/exoplayer/dash/manifest/AdaptationSet;-><init>(JILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {v2, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     iget v3, v0, Landroidx/media3/common/StreamKey;->periodIndex:I
+ 
+-    .line 73
+     .line 74
+     if-eq v3, v1, :cond_0
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p1, v0}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     return-object v2
+ .end method
+@@ -554,19 +490,15 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroidx/media3/exoplayer/dash/manifest/Period;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -577,12 +509,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -596,42 +525,30 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 8
+     .line 9
+     if-ne p1, v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     iget-wide v0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->durationMs:J
+ 
+-    .line 12
+     .line 13
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 14
+-    .line 15
+-    .line 16
+-    .line 17
+     .line 18
+     cmp-long v4, v0, v2
+ 
+-    .line 19
+     .line 20
+     if-nez v4, :cond_0
+ 
+-    .line 21
+     .line 22
+     return-wide v2
+ 
+@@ -639,23 +556,18 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 24
+     .line 25
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+     .line 29
+     check-cast p0, Landroidx/media3/exoplayer/dash/manifest/Period;
+ 
+-    .line 30
+     .line 31
+     iget-wide p0, p0, Landroidx/media3/exoplayer/dash/manifest/Period;->startMs:J
+ 
+-    .line 32
+     .line 33
+     :goto_0
+     sub-long/2addr v0, p0
+@@ -667,47 +579,36 @@
+     :cond_1
+     iget-object v0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 36
+     .line 37
+     add-int/lit8 v1, p1, 0x1
+ 
+-    .line 38
+     .line 39
+     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v0
+ 
+     .line 43
+     check-cast v0, Landroidx/media3/exoplayer/dash/manifest/Period;
+ 
+-    .line 44
+     .line 45
+     iget-wide v0, v0, Landroidx/media3/exoplayer/dash/manifest/Period;->startMs:J
+ 
+-    .line 46
+     .line 47
+     iget-object p0, p0, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->periods:Ljava/util/List;
+ 
+-    .line 48
+     .line 49
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+     .line 53
+     check-cast p0, Landroidx/media3/exoplayer/dash/manifest/Period;
+ 
+-    .line 54
+     .line 55
+     iget-wide p0, p0, Landroidx/media3/exoplayer/dash/manifest/Period;->startMs:J
+ 
+-    .line 56
+     .line 57
+     goto :goto_0
+ .end method
+@@ -718,16 +619,12 @@
+     .line 1
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/dash/manifest/DashManifest;->getPeriodDurationMs(I)J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide p0
+ 
+     .line 5
+     invoke-static {p0, p1}, Landroidx/media3/common/util/Util;->msToUs(J)J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide p0
+ 

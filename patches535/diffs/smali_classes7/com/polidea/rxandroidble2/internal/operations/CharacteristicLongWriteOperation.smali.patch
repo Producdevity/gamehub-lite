@@ -1,0 +1,686 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation.smali
+@@ -47,44 +47,33 @@
+     .line 1
+     invoke-direct {p0}, Lcom/polidea/rxandroidble2/internal/QueueOperation;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->a:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->b:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 9
+     .line 10
+     iput-object p4, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->d:Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;
+ 
+-    .line 11
+     .line 12
+     iput-object p5, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->e:Landroid/bluetooth/BluetoothGattCharacteristic;
+ 
+-    .line 13
+     .line 14
+     iput-object p6, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->f:Lcom/polidea/rxandroidble2/internal/connection/PayloadSizeLimitProvider;
+ 
+-    .line 15
+     .line 16
+     iput-object p7, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->g:Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationAckStrategy;
+ 
+-    .line 17
+     .line 18
+     iput-object p8, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->h:Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationRetryStrategy;
+ 
+-    .line 19
+     .line 20
+     iput-object p9, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->i:[B
+ 
+-    .line 21
+     .line 22
+     return-void
+ .end method
+@@ -95,12 +84,9 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$5;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p2, p1, p0}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$5;-><init>(Lcom/polidea/rxandroidble2/internal/util/QueueReleasingEmitterWrapper;Ljava/nio/ByteBuffer;Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationAckStrategy;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -111,12 +97,9 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$6;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p3, p2, p1}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$6;-><init>(Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationRetryStrategy;Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$IntSupplier;ILjava/nio/ByteBuffer;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -127,12 +110,9 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$4;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$4;-><init>(Landroid/bluetooth/BluetoothGattCharacteristic;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -145,204 +125,150 @@
+     .line 1
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->f:Lcom/polidea/rxandroidble2/internal/connection/PayloadSizeLimitProvider;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Lcom/polidea/rxandroidble2/internal/connection/PayloadSizeLimitProvider;->a()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-lez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     new-instance v1, Lcom/polidea/rxandroidble2/exceptions/BleGattCallbackTimeoutException;
+ 
+-    .line 10
+     .line 11
+     iget-object v2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->a:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 12
+     .line 13
+     sget-object v3, Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;->f:Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v1, v2, v3}, Lcom/polidea/rxandroidble2/exceptions/BleGattCallbackTimeoutException;-><init>(Landroid/bluetooth/BluetoothGatt;Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-static {v1}, Lio/reactivex/Observable;->F(Ljava/lang/Throwable;)Lio/reactivex/Observable;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v9
+ 
+     .line 22
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->i:[B
+ 
+-    .line 23
+     .line 24
+     invoke-static {v1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     new-instance v2, Lcom/polidea/rxandroidble2/internal/util/QueueReleasingEmitterWrapper;
+ 
+-    .line 29
+     .line 30
+     invoke-direct {v2, p1, p2}, Lcom/polidea/rxandroidble2/internal/util/QueueReleasingEmitterWrapper;-><init>(Lio/reactivex/ObservableEmitter;Lcom/polidea/rxandroidble2/internal/serialization/QueueReleaseInterface;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     new-instance p1, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$1;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {p1, p0, v1, v0}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$1;-><init>(Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;Ljava/nio/ByteBuffer;I)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p0, v0, v1, p1}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->i(ILjava/nio/ByteBuffer;Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$IntSupplier;)Lio/reactivex/Observable;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p2
+ 
+     .line 42
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p2, v3}, Lio/reactivex/Observable;->w0(Lio/reactivex/Scheduler;)Lio/reactivex/Observable;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p2
+ 
+     .line 48
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->e:Landroid/bluetooth/BluetoothGattCharacteristic;
+ 
+-    .line 49
+     .line 50
+     invoke-static {v3}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->k(Landroid/bluetooth/BluetoothGattCharacteristic;)Lio/reactivex/functions/Predicate;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v3
+ 
+     .line 54
+     invoke-virtual {p2, v3}, Lio/reactivex/Observable;->H(Lio/reactivex/functions/Predicate;)Lio/reactivex/Observable;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p2
+ 
+     .line 58
+     const-wide/16 v3, 0x1
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p2, v3, v4}, Lio/reactivex/Observable;->B0(J)Lio/reactivex/Observable;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v4
+ 
+     .line 64
+     iget-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->d:Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;
+ 
+-    .line 65
+     .line 66
+     iget-wide v5, p2, Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;->a:J
+ 
+-    .line 67
+     .line 68
+     iget-object v7, p2, Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;->b:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 69
+     .line 70
+     iget-object v8, p2, Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual/range {v4 .. v9}, Lio/reactivex/Observable;->F0(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p2
+ 
+     .line 76
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->g:Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationAckStrategy;
+ 
+-    .line 77
+     .line 78
+     invoke-static {v3, v1, v2}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->f(Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationAckStrategy;Ljava/nio/ByteBuffer;Lcom/polidea/rxandroidble2/internal/util/QueueReleasingEmitterWrapper;)Lio/reactivex/functions/Function;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v3
+ 
+     .line 82
+     invoke-virtual {p2, v3}, Lio/reactivex/Observable;->h0(Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p2
+ 
+     .line 86
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->h:Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationRetryStrategy;
+ 
+-    .line 87
+     .line 88
+     invoke-static {v3, v1, v0, p1}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->g(Lcom/polidea/rxandroidble2/RxBleConnection$WriteOperationRetryStrategy;Ljava/nio/ByteBuffer;ILcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$IntSupplier;)Lio/reactivex/functions/Function;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object p1
+ 
+     .line 92
+     invoke-virtual {p2, p1}, Lio/reactivex/Observable;->o0(Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p1
+ 
+     .line 96
+     new-instance p2, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$2;
+ 
+-    .line 97
+     .line 98
+     invoke-direct {p2, p0, v2}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$2;-><init>(Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;Lcom/polidea/rxandroidble2/internal/util/QueueReleasingEmitterWrapper;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-virtual {p1, p2}, Lio/reactivex/Observable;->subscribe(Lio/reactivex/Observer;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     return-void
+ 
+@@ -350,52 +276,36 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 106
+     .line 107
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 108
+     .line 109
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     const-string p2, "batchSizeProvider value must be greater than zero (now: "
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     const-string p2, ")"
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object p1
+ 
+     .line 129
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     throw p0
+ .end method
+@@ -406,24 +316,18 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/exceptions/BleDisconnectedException;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->a:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroid/bluetooth/BluetoothGatt;->getDevice()Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -433,8 +337,6 @@
+     .line 14
+     invoke-direct {v0, p1, p0, v1}, Lcom/polidea/rxandroidble2/exceptions/BleDisconnectedException;-><init>(Ljava/lang/Throwable;Ljava/lang/String;I)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-object v0
+ .end method
+@@ -445,57 +347,44 @@
+     .line 1
+     invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-static {v0, p2}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p2
+ 
+     .line 9
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->j:[B
+ 
+-    .line 10
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     array-length v0, v0
+ 
+     .line 14
+     if-eq v0, p2, :cond_1
+ 
+-    .line 15
+     .line 16
+     :cond_0
+     new-array p2, p2, [B
+ 
+-    .line 17
+     .line 18
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->j:[B
+ 
+-    .line 19
+     .line 20
+     :cond_1
+     iget-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->j:[B
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->j:[B
+ 
+-    .line 26
+     .line 27
+     return-object p0
+ .end method
+@@ -506,19 +395,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->b:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;->d()Lio/reactivex/Observable;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v3
+ 
+     .line 7
+     new-instance v1, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$3;
+ 
+-    .line 8
+     .line 9
+     move-object v2, p0
+ 
+@@ -534,13 +419,9 @@
+     .line 13
+     invoke-direct/range {v1 .. v6}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$3;-><init>(Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;Lio/reactivex/Observable;Ljava/nio/ByteBuffer;ILcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$IntSupplier;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {v1}, Lio/reactivex/Observable;->m(Lio/reactivex/ObservableOnSubscribe;)Lio/reactivex/Observable;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -557,86 +438,64 @@
+     .line 2
+     invoke-static {v0}, Lcom/polidea/rxandroidble2/internal/RxBleLog;->l(I)Z
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v0
+ 
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-interface {p2}, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation$IntSupplier;->get()I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p2
+ 
+     .line 12
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p2
+ 
+     .line 16
+     invoke-static {p1}, Lcom/polidea/rxandroidble2/internal/logger/LoggerUtil;->a([B)Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     filled-new-array {p2, v0}, [Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p2
+ 
+     .line 24
+     const-string v0, "Writing batch #%04d: %s"
+ 
+-    .line 25
+     .line 26
+     invoke-static {v0, p2}, Lcom/polidea/rxandroidble2/internal/RxBleLog;->b(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     :cond_0
+     iget-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->e:Landroid/bluetooth/BluetoothGattCharacteristic;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p2, p1}, Landroid/bluetooth/BluetoothGattCharacteristic;->setValue([B)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iget-object p1, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->a:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 35
+     .line 36
+     iget-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->e:Landroid/bluetooth/BluetoothGattCharacteristic;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p1, p2}, Landroid/bluetooth/BluetoothGatt;->writeCharacteristic(Landroid/bluetooth/BluetoothGattCharacteristic;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p1
+ 
+     .line 42
+     if-eqz p1, :cond_1
+ 
+-    .line 43
+     .line 44
+     return-void
+ 
+@@ -644,20 +503,15 @@
+     :cond_1
+     new-instance p1, Lcom/polidea/rxandroidble2/exceptions/BleGattCannotStartException;
+ 
+-    .line 46
+     .line 47
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->a:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 48
+     .line 49
+     sget-object p2, Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;->f:Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {p1, p0, p2}, Lcom/polidea/rxandroidble2/exceptions/BleGattCannotStartException;-><init>(Landroid/bluetooth/BluetoothGatt;Lcom/polidea/rxandroidble2/exceptions/BleGattOperationType;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     throw p1
+ .end method
+@@ -668,107 +522,75 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "CharacteristicLongWriteOperation{"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->a:Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 12
+     .line 13
+     invoke-static {v1}, Lcom/polidea/rxandroidble2/internal/logger/LoggerUtil;->c(Landroid/bluetooth/BluetoothGatt;)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const-string v1, ", characteristic="
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->e:Landroid/bluetooth/BluetoothGattCharacteristic;
+ 
+-    .line 26
+     .line 27
+     const/4 v2, 0x0
+ 
+     .line 28
+     invoke-static {v1, v2}, Lcom/polidea/rxandroidble2/internal/logger/LoggerUtil;->v(Landroid/bluetooth/BluetoothGattCharacteristic;[B)Lcom/polidea/rxandroidble2/internal/logger/LoggerUtil$AttributeLogWrapper;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v1, ", maxBatchSize="
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/CharacteristicLongWriteOperation;->f:Lcom/polidea/rxandroidble2/internal/connection/PayloadSizeLimitProvider;
+ 
+-    .line 41
+     .line 42
+     invoke-interface {p0}, Lcom/polidea/rxandroidble2/internal/connection/PayloadSizeLimitProvider;->a()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result p0
+ 
+     .line 46
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     const/16 p0, 0x7d
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 

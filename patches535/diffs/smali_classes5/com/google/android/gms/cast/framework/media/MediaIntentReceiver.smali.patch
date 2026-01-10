@@ -1,0 +1,753 @@
+--- a/smali_classes5/com/google/android/gms/cast/framework/media/MediaIntentReceiver.smali
++++ b/smali_classes5/com/google/android/gms/cast/framework/media/MediaIntentReceiver.smali
+@@ -61,20 +61,15 @@
+     .line 1
+     new-instance v0, Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "MediaIntentReceiver"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Lcom/google/android/gms/cast/internal/Logger;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sput-object v0, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->log:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -85,8 +80,6 @@
+     .line 1
+     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -99,19 +92,15 @@
+     .line 1
+     if-eqz p0, :cond_1
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/Session;->isConnected()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -119,8 +108,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/CastSession;->getRemoteMediaClient()Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+@@ -142,15 +129,12 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long p0, p2, v0
+ 
+-    .line 4
+     .line 5
+     if-nez p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     goto :goto_0
+ 
+@@ -158,44 +142,33 @@
+     :cond_0
+     invoke-static {p1}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->getRemoteMediaClient(Lcom/google/android/gms/cast/framework/CastSession;)Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     if-eqz p0, :cond_1
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->isLiveStream()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result p1
+ 
+     .line 18
+     if-nez p1, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->isPlayingAd()Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     if-nez p1, :cond_1
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->getApproximateStreamPosition()J
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-wide v0
+ 
+@@ -205,8 +178,6 @@
+     .line 31
+     invoke-virtual {p0, v0, v1}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->seek(J)Lcom/google/android/gms/common/api/PendingResult;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_1
+     :goto_0
+@@ -219,15 +190,12 @@
+     .line 1
+     invoke-static {p1}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->getRemoteMediaClient(Lcom/google/android/gms/cast/framework/CastSession;)Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     if-nez p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -235,8 +203,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->togglePlayback()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -257,90 +223,67 @@
+     .line 1
+     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     sget-object v1, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->log:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 6
+     .line 7
+     filled-new-array {v0}, [Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     const-string v3, "onReceive action: %s"
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1, v3, v2}, Lcom/google/android/gms/cast/internal/Logger;->d(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     if-nez v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     goto/16 :goto_1
+ 
+-    .line 19
+     .line 20
+     :cond_0
+     invoke-static {p1}, Lcom/google/android/gms/cast/framework/CastContext;->getSharedInstance(Landroid/content/Context;)Lcom/google/android/gms/cast/framework/CastContext;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/CastContext;->getSessionManager()Lcom/google/android/gms/cast/framework/SessionManager;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     invoke-virtual {v1}, Lcom/google/android/gms/cast/framework/SessionManager;->getCurrentSession()Lcom/google/android/gms/cast/framework/Session;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v2
+ 
+     .line 32
+     if-eqz v2, :cond_2
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result v3
+ 
+     .line 38
+     const-wide/16 v4, 0x0
+ 
+-    .line 39
+     .line 40
+     const-string v6, "googlecast-extra_skip_step_ms"
+ 
+-    .line 41
+     .line 42
+     sparse-switch v3, :sswitch_data_0
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -348,24 +291,18 @@
+     :sswitch_0
+     const-string v1, "android.intent.action.MEDIA_BUTTON"
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v1
+ 
+     .line 52
+     if-eqz v1, :cond_1
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p0, v2, p2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveActionMediaButton(Lcom/google/android/gms/cast/framework/Session;Landroid/content/Intent;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     return-void
+ 
+@@ -373,32 +310,24 @@
+     :sswitch_1
+     const-string v1, "com.google.android.gms.cast.framework.action.FORWARD"
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v1
+ 
+     .line 64
+     if-eqz v1, :cond_1
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p2, v6, v4, v5}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-wide p1
+ 
+     .line 70
+     invoke-virtual {p0, v2, p1, p2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveActionForward(Lcom/google/android/gms/cast/framework/Session;J)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -406,24 +335,18 @@
+     :sswitch_2
+     const-string v1, "com.google.android.gms.cast.framework.action.TOGGLE_PLAYBACK"
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v1
+ 
+     .line 80
+     if-eqz v1, :cond_1
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {p0, v2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveActionTogglePlayback(Lcom/google/android/gms/cast/framework/Session;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     return-void
+ 
+@@ -431,27 +354,21 @@
+     :sswitch_3
+     const-string v2, "com.google.android.gms.cast.framework.action.DISCONNECT"
+ 
+-    .line 87
+     .line 88
+     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v2
+ 
+     .line 92
+     if-eqz v2, :cond_1
+ 
+-    .line 93
+     .line 94
+     const/4 p0, 0x0
+ 
+     .line 95
+     invoke-virtual {v1, p0}, Lcom/google/android/gms/cast/framework/SessionManager;->endCurrentSession(Z)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     return-void
+ 
+@@ -459,27 +376,21 @@
+     :sswitch_4
+     const-string v2, "com.google.android.gms.cast.framework.action.STOP_CASTING"
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v2
+ 
+     .line 105
+     if-eqz v2, :cond_1
+ 
+-    .line 106
+     .line 107
+     const/4 p0, 0x1
+ 
+     .line 108
+     invoke-virtual {v1, p0}, Lcom/google/android/gms/cast/framework/SessionManager;->endCurrentSession(Z)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     return-void
+ 
+@@ -487,24 +398,18 @@
+     :sswitch_5
+     const-string v1, "com.google.android.gms.cast.framework.action.SKIP_PREV"
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result v1
+ 
+     .line 118
+     if-eqz v1, :cond_1
+ 
+-    .line 119
+     .line 120
+     invoke-virtual {p0, v2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveActionSkipPrev(Lcom/google/android/gms/cast/framework/Session;)V
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     return-void
+ 
+@@ -512,24 +417,18 @@
+     :sswitch_6
+     const-string v1, "com.google.android.gms.cast.framework.action.SKIP_NEXT"
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result v1
+ 
+     .line 130
+     if-eqz v1, :cond_1
+ 
+-    .line 131
+     .line 132
+     invoke-virtual {p0, v2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveActionSkipNext(Lcom/google/android/gms/cast/framework/Session;)V
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     return-void
+ 
+@@ -537,32 +436,24 @@
+     :sswitch_7
+     const-string v1, "com.google.android.gms.cast.framework.action.REWIND"
+ 
+-    .line 137
+     .line 138
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result v1
+ 
+     .line 142
+     if-eqz v1, :cond_1
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {p2, v6, v4, v5}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-wide p1
+ 
+     .line 148
+     invoke-virtual {p0, v2, p1, p2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveActionRewind(Lcom/google/android/gms/cast/framework/Session;J)V
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     return-void
+ 
+@@ -571,14 +462,11 @@
+     :goto_0
+     invoke-virtual {p0, p1, v0, p2}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->onReceiveOtherAction(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;)V
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     :cond_2
+     :goto_1
+     return-void
+ 
+-    .line 156
+     nop
+ 
+     .line 157
+@@ -605,20 +493,15 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->seek(Lcom/google/android/gms/cast/framework/CastSession;J)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void
+@@ -638,27 +521,21 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const-string v0, "android.intent.extra.KEY_EVENT"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p2, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+     .line 11
+     if-nez v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -666,76 +543,57 @@
+     :cond_0
+     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p2
+ 
+     .line 18
+     invoke-static {p2}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p2
+ 
+     .line 22
+     check-cast p2, Landroid/os/Bundle;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p2, v0}, Landroid/os/BaseBundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p2
+ 
+     .line 28
+     check-cast p2, Landroid/view/KeyEvent;
+ 
+-    .line 29
+     .line 30
+     if-eqz p2, :cond_1
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+ 
+     .line 36
+     if-nez v0, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p2}, Landroid/view/KeyEvent;->getKeyCode()I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p2
+ 
+     .line 42
+     const/16 v0, 0x55
+ 
+-    .line 43
+     .line 44
+     if-ne p2, v0, :cond_1
+ 
+-    .line 45
+     .line 46
+     check-cast p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p0, p1}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->togglePlayback(Lcom/google/android/gms/cast/framework/CastSession;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     :cond_1
+     :goto_0
+@@ -752,23 +610,18 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 6
+     .line 7
+     neg-long p2, p2
+ 
+     .line 8
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->seek(Lcom/google/android/gms/cast/framework/CastSession;J)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     :cond_0
+     return-void
+@@ -784,39 +637,30 @@
+     .line 1
+     instance-of p0, p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_1
+ 
+-    .line 4
+     .line 5
+     check-cast p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 6
+     .line 7
+     invoke-static {p1}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->getRemoteMediaClient(Lcom/google/android/gms/cast/framework/CastSession;)Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     if-eqz p0, :cond_1
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->isPlayingAd()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p1
+ 
+     .line 17
+     if-eqz p1, :cond_0
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -827,8 +671,6 @@
+     .line 21
+     invoke-virtual {p0, p1}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->queueNext(Lorg/json/JSONObject;)Lcom/google/android/gms/common/api/PendingResult;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_1
+     :goto_0
+@@ -845,39 +687,30 @@
+     .line 1
+     instance-of p0, p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_1
+ 
+-    .line 4
+     .line 5
+     check-cast p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 6
+     .line 7
+     invoke-static {p1}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->getRemoteMediaClient(Lcom/google/android/gms/cast/framework/CastSession;)Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     if-eqz p0, :cond_1
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->isPlayingAd()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p1
+ 
+     .line 17
+     if-eqz p1, :cond_0
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -888,8 +721,6 @@
+     .line 21
+     invoke-virtual {p0, p1}, Lcom/google/android/gms/cast/framework/media/RemoteMediaClient;->queuePrev(Lorg/json/JSONObject;)Lcom/google/android/gms/common/api/PendingResult;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_1
+     :goto_0
+@@ -906,20 +737,15 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p1, Lcom/google/android/gms/cast/framework/CastSession;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1}, Lcom/google/android/gms/cast/framework/media/MediaIntentReceiver;->togglePlayback(Lcom/google/android/gms/cast/framework/CastSession;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void

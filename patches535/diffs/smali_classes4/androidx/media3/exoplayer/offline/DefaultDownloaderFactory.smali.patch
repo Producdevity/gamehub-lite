@@ -1,0 +1,615 @@
+--- a/smali_classes4/androidx/media3/exoplayer/offline/DefaultDownloaderFactory.smali
++++ b/smali_classes4/androidx/media3/exoplayer/offline/DefaultDownloaderFactory.smali
+@@ -83,119 +83,88 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->cacheDataSourceFactory:Landroidx/media3/datasource/cache/CacheDataSource$Factory;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p2, v0}, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->getSegmentDownloaderFactory(ILandroidx/media3/datasource/cache/CacheDataSource$Factory;)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p2
+ 
+     .line 7
+     new-instance v0, Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v0}, Landroidx/media3/common/MediaItem$Builder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object v1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->uri:Landroid/net/Uri;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v0, v1}, Landroidx/media3/common/MediaItem$Builder;->setUri(Landroid/net/Uri;)Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     iget-object v1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->streamKeys:Ljava/util/List;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0, v1}, Landroidx/media3/common/MediaItem$Builder;->setStreamKeys(Ljava/util/List;)Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v0
+ 
+     .line 24
+     iget-object v1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->customCacheKey:Ljava/lang/String;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0, v1}, Landroidx/media3/common/MediaItem$Builder;->setCustomCacheKey(Ljava/lang/String;)Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     invoke-virtual {v0}, Landroidx/media3/common/MediaItem$Builder;->build()Landroidx/media3/common/MediaItem;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+     .line 34
+     iget-object v1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->timeRange:Landroidx/media3/exoplayer/offline/DownloadRequest$TimeRange;
+ 
+-    .line 35
+     .line 36
+     if-eqz v1, :cond_0
+ 
+-    .line 37
+     .line 38
+     iget-wide v1, v1, Landroidx/media3/exoplayer/offline/DownloadRequest$TimeRange;->startPositionUs:J
+ 
+-    .line 39
+     .line 40
+     invoke-interface {p2, v1, v2}, Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;->setStartPositionUs(J)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v1
+ 
+     .line 44
+     iget-object p1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->timeRange:Landroidx/media3/exoplayer/offline/DownloadRequest$TimeRange;
+ 
+-    .line 45
+     .line 46
+     iget-wide v2, p1, Landroidx/media3/exoplayer/offline/DownloadRequest$TimeRange;->durationUs:J
+ 
+-    .line 47
+     .line 48
+     invoke-interface {v1, v2, v3}, Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;->setDurationUs(J)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->executor:Ljava/util/concurrent/Executor;
+ 
+-    .line 52
+     .line 53
+     invoke-interface {p2, p0}, Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;->setExecutor(Ljava/util/concurrent/Executor;)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+     .line 57
+     invoke-interface {p0, v0}, Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;->create(Landroidx/media3/common/MediaItem;)Landroidx/media3/exoplayer/offline/SegmentDownloader;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+@@ -222,36 +191,27 @@
+     :try_start_0
+     const-class v0, Landroidx/media3/datasource/cache/CacheDataSource$Factory;
+ 
+-    .line 2
+     .line 3
+     filled-new-array {v0}, [Ljava/lang/Class;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     invoke-virtual {p0, p1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -260,7 +220,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 20
+     .line 21
+     return-object p0
+ 
+@@ -271,16 +230,12 @@
+     .line 23
+     new-instance p1, Ljava/lang/IllegalStateException;
+ 
+-    .line 24
+     .line 25
+     const-string v0, "Downloader factory missing"
+ 
+-    .line 26
+     .line 27
+     invoke-direct {p1, v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     throw p1
+ .end method
+@@ -291,35 +246,27 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->segmentDownloaderFactories:Landroid/util/SparseArray;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0, p1}, Landroidx/media3/common/util/Util;->contains(Landroid/util/SparseArray;I)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->segmentDownloaderFactories:Landroid/util/SparseArray;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     check-cast p0, Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 16
+     .line 17
+     return-object p0
+ 
+@@ -328,8 +275,6 @@
+     :try_start_0
+     invoke-direct {p0, p1, p2}, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->loadSegmentDownloaderFactory(ILandroidx/media3/datasource/cache/CacheDataSource$Factory;)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+     :try_end_0
+@@ -345,43 +290,30 @@
+     .line 24
+     new-instance p2, Ljava/lang/IllegalStateException;
+ 
+-    .line 25
+     .line 26
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 27
+     .line 28
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     const-string v1, "Module missing for content type "
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p1
+ 
+     .line 43
+     invoke-direct {p2, p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     throw p2
+ .end method
+@@ -397,42 +329,33 @@
+     .line 1
+     const-class v0, Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 2
+     .line 3
+     if-eqz p1, :cond_2
+ 
+-    .line 4
+     .line 5
+     const/4 v1, 0x1
+ 
+     .line 6
+     if-eq p1, v1, :cond_1
+ 
+-    .line 7
+     .line 8
+     const/4 v1, 0x2
+ 
+     .line 9
+     if-ne p1, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     const-class v1, Landroidx/media3/exoplayer/hls/offline/HlsDownloader$Factory;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1, v0}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     invoke-static {v0, p2}, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->createSegmentDownloaderFactory(Ljava/lang/Class;Landroidx/media3/datasource/cache/CacheDataSource$Factory;)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p2
+ 
+@@ -443,43 +366,30 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 23
+     .line 24
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-string v0, "Unsupported type: "
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p1
+ 
+     .line 41
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     throw p0
+ 
+@@ -487,20 +397,15 @@
+     :cond_1
+     const-class v1, Landroidx/media3/exoplayer/smoothstreaming/offline/SsDownloader$Factory;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v1, v0}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     invoke-static {v0, p2}, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->createSegmentDownloaderFactory(Ljava/lang/Class;Landroidx/media3/datasource/cache/CacheDataSource$Factory;)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p2
+ 
+@@ -511,20 +416,15 @@
+     :cond_2
+     const-class v1, Landroidx/media3/exoplayer/dash/offline/DashDownloader$Factory;
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v1, v0}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v0
+ 
+     .line 62
+     invoke-static {v0, p2}, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->createSegmentDownloaderFactory(Ljava/lang/Class;Landroidx/media3/datasource/cache/CacheDataSource$Factory;)Landroidx/media3/exoplayer/offline/SegmentDownloaderFactory;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p2
+ 
+@@ -532,12 +432,9 @@
+     :goto_0
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->segmentDownloaderFactories:Landroid/util/SparseArray;
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     return-object p2
+ .end method
+@@ -550,109 +447,84 @@
+     .line 1
+     iget-object v0, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->uri:Landroid/net/Uri;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->mimeType:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->inferContentTypeForUriAndMimeType(Landroid/net/Uri;Ljava/lang/String;)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_3
+ 
+-    .line 10
+     .line 11
+     const/4 v1, 0x1
+ 
+     .line 12
+     if-eq v0, v1, :cond_3
+ 
+-    .line 13
+     .line 14
+     const/4 v1, 0x2
+ 
+     .line 15
+     if-eq v0, v1, :cond_3
+ 
+-    .line 16
+     .line 17
+     const/4 v1, 0x4
+ 
+     .line 18
+     if-ne v0, v1, :cond_2
+ 
+-    .line 19
+     .line 20
+     iget-object v0, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->byteRange:Landroidx/media3/exoplayer/offline/DownloadRequest$ByteRange;
+ 
+-    .line 21
+     .line 22
+     new-instance v1, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;
+ 
+-    .line 23
+     .line 24
+     new-instance v2, Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v2}, Landroidx/media3/common/MediaItem$Builder;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-object v3, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->uri:Landroid/net/Uri;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v2, v3}, Landroidx/media3/common/MediaItem$Builder;->setUri(Landroid/net/Uri;)Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v2
+ 
+     .line 35
+     iget-object p1, p1, Landroidx/media3/exoplayer/offline/DownloadRequest;->customCacheKey:Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v2, p1}, Landroidx/media3/common/MediaItem$Builder;->setCustomCacheKey(Ljava/lang/String;)Landroidx/media3/common/MediaItem$Builder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p1
+ 
+     .line 41
+     invoke-virtual {p1}, Landroidx/media3/common/MediaItem$Builder;->build()Landroidx/media3/common/MediaItem;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v2
+ 
+     .line 45
+     iget-object v3, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->cacheDataSourceFactory:Landroidx/media3/datasource/cache/CacheDataSource$Factory;
+ 
+-    .line 46
+     .line 47
+     iget-object v4, p0, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->executor:Ljava/util/concurrent/Executor;
+ 
+-    .line 48
+     .line 49
+     if-eqz v0, :cond_0
+ 
+-    .line 50
+     .line 51
+     iget-wide p0, v0, Landroidx/media3/exoplayer/offline/DownloadRequest$ByteRange;->offset:J
+ 
+-    .line 52
+     .line 53
+     :goto_0
+     move-wide v5, p0
+@@ -664,7 +536,6 @@
+     :cond_0
+     const-wide/16 p0, 0x0
+ 
+-    .line 56
+     .line 57
+     goto :goto_0
+ 
+@@ -672,11 +543,9 @@
+     :goto_1
+     if-eqz v0, :cond_1
+ 
+-    .line 59
+     .line 60
+     iget-wide p0, v0, Landroidx/media3/exoplayer/offline/DownloadRequest$ByteRange;->length:J
+ 
+-    .line 61
+     .line 62
+     :goto_2
+     move-wide v7, p0
+@@ -688,7 +557,6 @@
+     :cond_1
+     const-wide/16 p0, -0x1
+ 
+-    .line 65
+     .line 66
+     goto :goto_2
+ 
+@@ -696,8 +564,6 @@
+     :goto_3
+     invoke-direct/range {v1 .. v8}, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;-><init>(Landroidx/media3/common/MediaItem;Landroidx/media3/datasource/cache/CacheDataSource$Factory;Ljava/util/concurrent/Executor;JJ)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     return-object v1
+ 
+@@ -705,43 +571,30 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 72
+     .line 73
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 74
+     .line 75
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     const-string v1, "Unsupported type: "
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p1
+ 
+     .line 90
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     throw p0
+ 
+@@ -749,8 +602,6 @@
+     :cond_3
+     invoke-direct {p0, p1, v0}, Landroidx/media3/exoplayer/offline/DefaultDownloaderFactory;->createSegmentDownloader(Landroidx/media3/exoplayer/offline/DownloadRequest;I)Landroidx/media3/exoplayer/offline/Downloader;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p0
+ 

@@ -1,0 +1,1323 @@
+--- a/smali_classes7/com/streaming/preferences/AddComputerManually.smali
++++ b/smali_classes7/com/streaming/preferences/AddComputerManually.smali
+@@ -22,34 +22,24 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/concurrent/LinkedBlockingQueue;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->c:Ljava/util/concurrent/LinkedBlockingQueue;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Lcom/streaming/preferences/AddComputerManually$1;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p0}, Lcom/streaming/preferences/AddComputerManually$1;-><init>(Lcom/streaming/preferences/AddComputerManually;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->e:Landroid/content/ServiceConnection;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -60,7 +50,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/streaming/preferences/AddComputerManually;->c:Ljava/util/concurrent/LinkedBlockingQueue;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -71,7 +60,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/streaming/preferences/AddComputerManually;->a:Landroid/widget/TextView;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -82,7 +70,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/streaming/preferences/AddComputerManually;->b:Lcom/streaming/computers/ComputerManagerService$ComputerManagerBinder;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -93,8 +80,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lcom/streaming/preferences/AddComputerManually;->h(Ljava/lang/String;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -105,8 +90,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/streaming/preferences/AddComputerManually;->i()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -120,8 +103,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/streaming/preferences/AddComputerManually;->k()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -132,8 +113,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/streaming/preferences/AddComputerManually;->m()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -146,40 +125,30 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     sget v1, Lcom/xj/language/R$string;->title_add_pc:I
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+     .line 15
+     sget v2, Lcom/xj/language/R$string;->msg_add_pc:I
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+@@ -189,8 +158,6 @@
+     .line 22
+     invoke-static {p0, v0, v1, v2}, Lcom/streaming/utils/SpinnerDialog;->d(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z)Lcom/streaming/utils/SpinnerDialog;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+@@ -204,116 +171,85 @@
+     :try_start_0
+     new-instance v4, Lcom/streaming/nvstream/http/ComputerDetails;
+ 
+-    .line 29
+     .line 30
+     invoke-direct {v4}, Lcom/streaming/nvstream/http/ComputerDetails;-><init>()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {p0, p1}, Lcom/streaming/preferences/AddComputerManually;->l(Ljava/lang/String;)Ljava/net/URI;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p1
+ 
+     .line 37
+     if-eqz p1, :cond_2
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p1}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v5
+ 
+     .line 43
+     if-eqz v5, :cond_2
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p1}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v5
+ 
+     .line 49
+     invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v5
+ 
+     .line 53
+     if-nez v5, :cond_2
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {p1}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v5
+ 
+     .line 59
+     invoke-virtual {p1}, Ljava/net/URI;->getPort()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result p1
+ 
+     .line 63
+     if-ne p1, v3, :cond_0
+ 
+-    .line 64
+     .line 65
+     const p1, 0xbf5d
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     :cond_0
+     new-instance v6, Lcom/streaming/nvstream/http/ComputerDetails$AddressTuple;
+ 
+-    .line 69
+     .line 70
+     invoke-direct {v6, v5, p1}, Lcom/streaming/nvstream/http/ComputerDetails$AddressTuple;-><init>(Ljava/lang/String;I)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     iput-object v6, v4, Lcom/streaming/nvstream/http/ComputerDetails;->manualAddress:Lcom/streaming/nvstream/http/ComputerDetails$AddressTuple;
+ 
+-    .line 74
+     .line 75
+     iget-object p1, p0, Lcom/streaming/preferences/AddComputerManually;->b:Lcom/streaming/computers/ComputerManagerService$ComputerManagerBinder;
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p1, v4}, Lcom/streaming/computers/ComputerManagerService$ComputerManagerBinder;->a(Lcom/streaming/nvstream/http/ComputerDetails;)Z
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result p1
+ 
+     .line 81
+     if-nez p1, :cond_1
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {p0, v5}, Lcom/streaming/preferences/AddComputerManually;->j(Ljava/lang/String;)Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v1
+     :try_end_0
+@@ -337,7 +273,6 @@
+     .line 91
+     goto/16 :goto_6
+ 
+-    .line 92
+     .line 93
+     :cond_1
+     move v1, v2
+@@ -353,8 +288,6 @@
+     :goto_1
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     :cond_2
+     move v4, v1
+@@ -369,31 +302,24 @@
+     :goto_2
+     if-nez p1, :cond_3
+ 
+-    .line 103
+     .line 104
+     if-nez v1, :cond_3
+ 
+-    .line 105
+     .line 106
+     if-nez v4, :cond_3
+ 
+-    .line 107
+     .line 108
+     const/16 v5, 0x1bb
+ 
+-    .line 109
+     .line 110
+     const/4 v6, 0x3
+ 
+     .line 111
+     const-string v7, ""
+ 
+-    .line 112
+     .line 113
+     invoke-static {v7, v5, v6}, Lcom/streaming/nvstream/jni/StreamingBridge;->testClientConnectivity(Ljava/lang/String;II)I
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result v5
+ 
+@@ -408,57 +334,42 @@
+     :goto_3
+     invoke-virtual {v0}, Lcom/streaming/utils/SpinnerDialog;->c()V
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     if-eqz v4, :cond_4
+ 
+-    .line 123
+     .line 124
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object p1
+ 
+     .line 128
+     sget v0, Lcom/xj/language/R$string;->conn_error_title:I
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result-object p1
+ 
+     .line 134
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v0
+ 
+     .line 138
+     sget v1, Lcom/xj/language/R$string;->addpc_unknown_host:I
+ 
+-    .line 139
+     .line 140
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object v0
+ 
+     .line 144
+     invoke-static {p0, p1, v0, v2}, Lcom/streaming/utils/Dialog;->e(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     goto :goto_5
+ 
+@@ -466,52 +377,39 @@
+     :cond_4
+     if-eqz v1, :cond_5
+ 
+-    .line 149
+     .line 150
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result-object p1
+ 
+     .line 154
+     sget v0, Lcom/xj/language/R$string;->conn_error_title:I
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object p1
+ 
+     .line 160
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result-object v0
+ 
+     .line 164
+     sget v1, Lcom/xj/language/R$string;->addpc_wrong_sitelocal:I
+ 
+-    .line 165
+     .line 166
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object v0
+ 
+     .line 170
+     invoke-static {p0, p1, v0, v2}, Lcom/streaming/utils/Dialog;->e(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z)V
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     goto :goto_5
+ 
+@@ -519,32 +417,24 @@
+     :cond_5
+     if-nez p1, :cond_7
+ 
+-    .line 175
+     .line 176
+     if-eq v5, v3, :cond_6
+ 
+-    .line 177
+     .line 178
+     if-eqz v5, :cond_6
+ 
+-    .line 179
+     .line 180
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result-object p1
+ 
+     .line 184
+     sget v0, Lcom/xj/language/R$string;->nettest_text_blocked:I
+ 
+-    .line 185
+     .line 186
+     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     move-result-object p1
+ 
+@@ -555,20 +445,15 @@
+     :cond_6
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result-object p1
+ 
+     .line 195
+     sget v0, Lcom/xj/language/R$string;->addpc_fail:I
+ 
+-    .line 196
+     .line 197
+     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object p1
+ 
+@@ -576,28 +461,21 @@
+     :goto_4
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     move-result-object v0
+ 
+     .line 205
+     sget v1, Lcom/xj/language/R$string;->conn_error_title:I
+ 
+-    .line 206
+     .line 207
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     move-result-object v0
+ 
+     .line 211
+     invoke-static {p0, v0, p1, v2}, Lcom/streaming/utils/Dialog;->e(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Z)V
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     goto :goto_5
+ 
+@@ -605,17 +483,12 @@
+     :cond_7
+     new-instance p1, Lcom/streaming/preferences/AddComputerManually$2;
+ 
+-    .line 216
+     .line 217
+     invoke-direct {p1, p0}, Lcom/streaming/preferences/AddComputerManually$2;-><init>(Lcom/streaming/preferences/AddComputerManually;)V
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     invoke-virtual {p0, p1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     :goto_5
+     return-void
+@@ -624,8 +497,6 @@
+     :goto_6
+     invoke-virtual {v0}, Lcom/streaming/utils/SpinnerDialog;->c()V
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     throw p0
+ .end method
+@@ -636,60 +507,45 @@
+     .line 1
+     iget-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->a:Landroid/widget/TextView;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-virtual {v0}, Ljava/lang/String;->length()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+     .line 19
+     if-nez v1, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     sget v1, Lcom/xj/language/R$string;->addpc_enter_ip:I
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+@@ -699,16 +555,12 @@
+     .line 32
+     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return v1
+ 
+@@ -716,12 +568,9 @@
+     :cond_0
+     iget-object p0, p0, Lcom/streaming/preferences/AddComputerManually;->c:Ljava/util/concurrent/LinkedBlockingQueue;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p0, v0}, Ljava/util/AbstractCollection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const/4 p0, 0x0
+ 
+@@ -739,57 +588,43 @@
+     :try_start_0
+     invoke-static {p1}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     instance-of v0, p1, Ljava/net/Inet4Address;
+ 
+-    .line 7
+     .line 8
+     if-eqz v0, :cond_7
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Ljava/net/InetAddress;->isSiteLocalAddress()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-nez v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     goto/16 :goto_2
+ 
+-    .line 17
+     .line 18
+     :cond_0
+     invoke-static {}, Ljava/net/NetworkInterface;->getNetworkInterfaces()Ljava/util/Enumeration;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     invoke-static {v0}, Ljava/util/Collections;->list(Ljava/util/Enumeration;)Ljava/util/ArrayList;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+@@ -797,8 +632,6 @@
+     :cond_1
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v1
+ 
+@@ -808,32 +641,24 @@
+     .line 35
+     if-eqz v1, :cond_6
+ 
+-    .line 36
+     .line 37
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v1
+ 
+     .line 41
+     check-cast v1, Ljava/net/NetworkInterface;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v1}, Ljava/net/NetworkInterface;->getInterfaceAddresses()Ljava/util/List;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+     .line 47
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v1
+ 
+@@ -842,63 +667,48 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v3
+ 
+     .line 55
+     if-eqz v3, :cond_1
+ 
+-    .line 56
+     .line 57
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v3
+ 
+     .line 61
+     check-cast v3, Ljava/net/InterfaceAddress;
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v3}, Ljava/net/InterfaceAddress;->getAddress()Ljava/net/InetAddress;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v4
+ 
+     .line 67
+     instance-of v4, v4, Ljava/net/Inet4Address;
+ 
+-    .line 68
+     .line 69
+     if-eqz v4, :cond_2
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v3}, Ljava/net/InterfaceAddress;->getAddress()Ljava/net/InetAddress;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v4
+ 
+     .line 75
+     invoke-virtual {v4}, Ljava/net/InetAddress;->isSiteLocalAddress()Z
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result v4
+ 
+     .line 79
+     if-nez v4, :cond_3
+ 
+-    .line 80
+     .line 81
+     goto :goto_0
+ 
+@@ -906,24 +716,18 @@
+     :cond_3
+     invoke-virtual {p1}, Ljava/net/InetAddress;->getAddress()[B
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v4
+ 
+     .line 86
+     invoke-virtual {v3}, Ljava/net/InterfaceAddress;->getAddress()Ljava/net/InetAddress;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v5
+ 
+     .line 90
+     invoke-virtual {v5}, Ljava/net/InetAddress;->getAddress()[B
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v5
+ 
+@@ -934,59 +738,47 @@
+     :goto_1
+     invoke-virtual {v3}, Ljava/net/InterfaceAddress;->getNetworkPrefixLength()S
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v7
+ 
+     .line 99
+     if-ge v6, v7, :cond_5
+ 
+-    .line 100
+     .line 101
+     div-int/lit8 v7, v6, 0x8
+ 
+-    .line 102
+     .line 103
+     aget-byte v7, v5, v7
+ 
+-    .line 104
+     .line 105
+     rem-int/lit8 v8, v6, 0x8
+ 
+-    .line 106
+     .line 107
+     shl-int v8, v2, v8
+ 
+-    .line 108
+     .line 109
+     and-int/2addr v7, v8
+ 
+     .line 110
+     div-int/lit8 v8, v6, 0x8
+ 
+-    .line 111
+     .line 112
+     aget-byte v8, v4, v8
+ 
+-    .line 113
+     .line 114
+     rem-int/lit8 v9, v6, 0x8
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 115
+     .line 116
+     shl-int v9, v2, v9
+ 
+-    .line 117
+     .line 118
+     and-int/2addr v8, v9
+ 
+     .line 119
+     if-eq v7, v8, :cond_4
+ 
+-    .line 120
+     .line 121
+     goto :goto_0
+ 
+@@ -994,7 +786,6 @@
+     :cond_4
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 123
+     .line 124
+     goto :goto_1
+ 
+@@ -1022,8 +813,6 @@
+     :goto_3
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     return p0
+ .end method
+@@ -1034,28 +823,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->d:Ljava/lang/Thread;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :try_start_0
+     iget-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->d:Ljava/lang/Thread;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0}, Ljava/lang/Thread;->join()V
+     :try_end_0
+     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1066,21 +848,15 @@
+     .line 15
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     const/4 v0, 0x0
+@@ -1088,7 +864,6 @@
+     .line 26
+     iput-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->d:Ljava/lang/Thread;
+ 
+-    .line 27
+     .line 28
+     :cond_0
+     return-void
+@@ -1101,68 +876,48 @@
+     :try_start_0
+     new-instance p0, Ljava/net/URI;
+ 
+-    .line 2
+     .line 3
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const-string v1, "stream://"
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     invoke-direct {p0, v0}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p0}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+     .line 27
+     if-eqz v0, :cond_0
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+     :try_end_0
+@@ -1171,7 +926,6 @@
+     .line 37
+     if-nez v0, :cond_0
+ 
+-    .line 38
+     .line 39
+     return-object p0
+ 
+@@ -1181,77 +935,54 @@
+     :try_start_1
+     new-instance p0, Ljava/net/URI;
+ 
+-    .line 41
+     .line 42
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 43
+     .line 44
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     const-string v1, "stream://["
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const-string p1, "]"
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object p1
+ 
+     .line 64
+     invoke-direct {p0, p1}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {p0}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object p1
+ 
+     .line 71
+     if-eqz p1, :cond_1
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {p0}, Ljava/net/URI;->getHost()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p1
+ 
+     .line 77
+     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result p1
+     :try_end_1
+@@ -1260,7 +991,6 @@
+     .line 81
+     if-nez p1, :cond_1
+ 
+-    .line 82
+     .line 83
+     return-object p0
+ 
+@@ -1279,34 +1009,24 @@
+     .line 1
+     new-instance v0, Lcom/streaming/preferences/AddComputerManually$3;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/streaming/preferences/AddComputerManually$3;-><init>(Lcom/streaming/preferences/AddComputerManually;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->d:Ljava/lang/Thread;
+ 
+-    .line 7
+     .line 8
+     const-string v1, "UI - AddComputerManually"
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     iget-object p0, p0, Lcom/streaming/preferences/AddComputerManually;->d:Ljava/lang/Thread;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0}, Ljava/lang/Thread;->start()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -1317,124 +1037,87 @@
+     .line 1
+     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {p0}, Lcom/streaming/utils/UiHelper;->m(Landroid/app/Activity;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sget p1, Lcom/xj/module_pcstream/R$layout;->activity_add_computer_manually:I
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-static {p0}, Lcom/streaming/utils/UiHelper;->f(Landroid/app/Activity;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     sget p1, Lcom/xj/module_pcstream/R$id;->hostTextView:I
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p1
+ 
+     .line 21
+     check-cast p1, Landroid/widget/TextView;
+ 
+-    .line 22
+     .line 23
+     iput-object p1, p0, Lcom/streaming/preferences/AddComputerManually;->a:Landroid/widget/TextView;
+ 
+-    .line 24
+     .line 25
+     const/4 v0, 0x6
+ 
+     .line 26
+     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setImeOptions(I)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-object p1, p0, Lcom/streaming/preferences/AddComputerManually;->a:Landroid/widget/TextView;
+ 
+-    .line 30
+     .line 31
+     new-instance v0, Lcom/streaming/preferences/AddComputerManually$4;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v0, p0}, Lcom/streaming/preferences/AddComputerManually$4;-><init>(Lcom/streaming/preferences/AddComputerManually;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     sget p1, Lcom/xj/module_pcstream/R$id;->addPcButton:I
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p1
+ 
+     .line 45
+     new-instance v0, Lcom/streaming/preferences/AddComputerManually$5;
+ 
+-    .line 46
+     .line 47
+     invoke-direct {v0, p0}, Lcom/streaming/preferences/AddComputerManually$5;-><init>(Lcom/streaming/preferences/AddComputerManually;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 54
+     .line 55
+     const-class v0, Lcom/streaming/computers/ComputerManagerService;
+ 
+-    .line 56
+     .line 57
+     invoke-direct {p1, p0, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     iget-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->e:Landroid/content/ServiceConnection;
+ 
+-    .line 61
+     .line 62
+     const/4 v1, 0x1
+ 
+     .line 63
+     invoke-virtual {p0, p1, v0, v1}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     return-void
+ .end method
+@@ -1445,30 +1128,21 @@
+     .line 1
+     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->b:Lcom/streaming/computers/ComputerManagerService$ComputerManagerBinder;
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/streaming/preferences/AddComputerManually;->k()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v0, p0, Lcom/streaming/preferences/AddComputerManually;->e:Landroid/content/ServiceConnection;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0, v0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :cond_0
+     return-void
+@@ -1480,18 +1154,12 @@
+     .line 1
+     invoke-super {p0}, Landroid/app/Activity;->onStop()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Lcom/streaming/utils/Dialog;->c()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-static {p0}, Lcom/streaming/utils/SpinnerDialog;->b(Landroid/app/Activity;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ .end method

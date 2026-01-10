@@ -1,0 +1,271 @@
+--- a/smali_classes9/io/ktor/events/Events.smali
++++ b/smali_classes9/io/ktor/events/Events.smali
+@@ -28,21 +28,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lio/ktor/util/collections/CopyOnWriteHashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Lio/ktor/util/collections/CopyOnWriteHashMap;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lio/ktor/events/Events;->a:Lio/ktor/util/collections/CopyOnWriteHashMap;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -53,8 +47,6 @@
+     .line 1
+     invoke-static {p0}, Lio/ktor/events/Events;->d(Lio/ktor/events/EventDefinition;)Lio/ktor/util/internal/LockFreeLinkedListHead;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -68,21 +60,15 @@
+     .line 1
+     const-string v0, "it"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance p0, Lio/ktor/util/internal/LockFreeLinkedListHead;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {p0}, Lio/ktor/util/internal/LockFreeLinkedListHead;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-object p0
+ .end method
+@@ -95,124 +81,94 @@
+     .line 1
+     const-string v0, "definition"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p0, p0, Lio/ktor/events/Events;->a:Lio/ktor/util/collections/CopyOnWriteHashMap;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Lio/ktor/util/collections/CopyOnWriteHashMap;->b(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     check-cast p0, Lio/ktor/util/internal/LockFreeLinkedListHead;
+ 
+-    .line 13
+     .line 14
+     const/4 p1, 0x0
+ 
+     .line 15
+     if-eqz p0, :cond_2
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Lio/ktor/util/internal/LockFreeLinkedListNode;->j()Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     const-string v1, "null cannot be cast to non-null type io.ktor.util.internal.LockFreeLinkedListNode"
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     check-cast v0, Lio/ktor/util/internal/LockFreeLinkedListNode;
+ 
+-    .line 27
+     .line 28
+     :goto_0
+     invoke-static {v0, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v1
+ 
+     .line 32
+     if-nez v1, :cond_2
+ 
+-    .line 33
+     .line 34
+     instance-of v1, v0, Lio/ktor/events/Events$HandlerRegistration;
+ 
+-    .line 35
+     .line 36
+     if-eqz v1, :cond_1
+ 
+-    .line 37
+     .line 38
+     move-object v1, v0
+ 
+     .line 39
+     check-cast v1, Lio/ktor/events/Events$HandlerRegistration;
+ 
+-    .line 40
+     .line 41
+     :try_start_0
+     invoke-virtual {v1}, Lio/ktor/events/Events$HandlerRegistration;->r()Lkotlin/jvm/functions/Function1;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v1
+ 
+     .line 45
+     const-string v2, "null cannot be cast to non-null type kotlin.Function1<T of io.ktor.events.Events.raise, kotlin.Unit>"
+ 
+-    .line 46
+     .line 47
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const/4 v2, 0x1
+ 
+     .line 51
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/TypeIntrinsics;->e(Ljava/lang/Object;I)Ljava/lang/Object;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v1
+ 
+     .line 55
+     check-cast v1, Lkotlin/jvm/functions/Function1;
+ 
+-    .line 56
+     .line 57
+     invoke-interface {v1, p2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_1
+ 
+@@ -223,12 +179,9 @@
+     .line 62
+     if-eqz p1, :cond_0
+ 
+-    .line 63
+     .line 64
+     invoke-static {p1, v1}, Lkotlin/ExceptionsKt;->a(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     goto :goto_1
+ 
+@@ -241,8 +194,6 @@
+     :goto_1
+     invoke-virtual {v0}, Lio/ktor/util/internal/LockFreeLinkedListNode;->l()Lio/ktor/util/internal/LockFreeLinkedListNode;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+@@ -253,7 +204,6 @@
+     :cond_2
+     if-nez p1, :cond_3
+ 
+-    .line 75
+     .line 76
+     return-void
+ 
+@@ -268,60 +218,42 @@
+     .line 1
+     const-string v0, "definition"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "handler"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Lio/ktor/events/Events$HandlerRegistration;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p2}, Lio/ktor/events/Events$HandlerRegistration;-><init>(Lkotlin/jvm/functions/Function1;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iget-object p0, p0, Lio/ktor/events/Events;->a:Lio/ktor/util/collections/CopyOnWriteHashMap;
+ 
+-    .line 17
+     .line 18
+     new-instance p2, Lio/ktor/events/a;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p2}, Lio/ktor/events/a;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p0, p1, p2}, Lio/ktor/util/collections/CopyOnWriteHashMap;->a(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 
+     .line 27
+     check-cast p0, Lio/ktor/util/internal/LockFreeLinkedListHead;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0, v0}, Lio/ktor/util/internal/LockFreeLinkedListNode;->c(Lio/ktor/util/internal/LockFreeLinkedListNode;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-object v0
+ .end method

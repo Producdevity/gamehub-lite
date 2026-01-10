@@ -1,0 +1,397 @@
+--- a/smali_classes5/com/alipay/sdk/m/y/d.smali
++++ b/smali_classes5/com/alipay/sdk/m/y/d.smali
+@@ -10,8 +10,6 @@
+     .line 1
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -21,107 +19,78 @@
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     if-eqz v2, :cond_0
+ 
+-    .line 18
+     .line 19
+     :try_start_0
+     new-instance v2, Ljava/io/FileInputStream;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v2, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-static {}, Landroid/webkit/MimeTypeMap;->getSingleton()Landroid/webkit/MimeTypeMap;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v0
+ 
+     .line 28
+     invoke-static {p0}, Lcom/alipay/sdk/m/y/d;->c(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     invoke-virtual {v0, p0}, Landroid/webkit/MimeTypeMap;->getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     new-instance v0, Ljava/util/HashMap;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     const-string v3, "Access-Control-Allow-Origin"
+ 
+-    .line 42
+     .line 43
+     const-string v4, "*"
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v0, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     new-instance v3, Landroid/webkit/WebResourceResponse;
+ 
+-    .line 49
+     .line 50
+     const-string v4, "UTF-8"
+ 
+-    .line 51
+     .line 52
+     invoke-direct {v3, p0, v4, v2}, Landroid/webkit/WebResourceResponse;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     :try_start_1
+     invoke-virtual {v3, v0}, Landroid/webkit/WebResourceResponse;->setResponseHeaders(Ljava/util/Map;)V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     return-object v3
+ 
+@@ -143,8 +112,6 @@
+     :goto_0
+     invoke-static {p0}, Lcom/alipay/sdk/m/y/f;->d(Ljava/lang/Throwable;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     :cond_0
+     return-object v1
+@@ -156,48 +123,36 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+     .line 10
+     if-eqz p0, :cond_2
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p0
+ 
+     .line 16
+     if-eqz p0, :cond_2
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     if-eqz p0, :cond_1
+ 
+-    .line 23
+     .line 24
+     array-length v1, p0
+ 
+@@ -208,36 +163,27 @@
+     :goto_0
+     if-ge v2, v1, :cond_1
+ 
+-    .line 27
+     .line 28
+     aget-object v3, p0, v2
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v4
+ 
+     .line 34
+     if-eqz v4, :cond_0
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v3
+ 
+     .line 40
+     invoke-static {v3}, Lcom/alipay/sdk/m/y/d;->b(Ljava/lang/String;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     goto :goto_1
+ 
+@@ -245,13 +191,10 @@
+     :cond_0
+     invoke-virtual {v3}, Ljava/io/File;->delete()Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     :goto_1
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 48
+     .line 49
+     goto :goto_0
+ 
+@@ -259,8 +202,6 @@
+     :cond_1
+     invoke-virtual {v0}, Ljava/io/File;->delete()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     :cond_2
+     return-void
+@@ -272,24 +213,18 @@
+     .line 1
+     const-string v0, "."
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -304,57 +239,40 @@
+     :try_start_0
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v1, Ljava/io/FileInputStream;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance p0, Ljava/io/BufferedReader;
+ 
+-    .line 12
+     .line 13
+     new-instance v2, Ljava/io/InputStreamReader;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v2, v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-direct {p0, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :goto_0
+     invoke-virtual {p0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v1
+ 
+     .line 25
+     if-eqz v1, :cond_0
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -362,67 +280,47 @@
+     :cond_0
+     invoke-virtual {p0}, Ljava/io/BufferedReader;->close()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     const-string v0, "mspl"
+ 
+-    .line 39
+     .line 40
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-string v2, "readFileToJSON result="
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v1
+ 
+     .line 57
+     invoke-static {v0, v1}, Lcom/alipay/sdk/m/y/f;->f(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     new-instance v0, Lorg/json/JSONObject;
+ 
+-    .line 61
+     .line 62
+     invoke-direct {v0, p0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     return-object v0
+ 
+@@ -433,8 +331,6 @@
+     .line 67
+     invoke-static {p0}, Lcom/alipay/sdk/m/y/f;->d(Ljava/lang/Throwable;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     const/4 p0, 0x0
+ 

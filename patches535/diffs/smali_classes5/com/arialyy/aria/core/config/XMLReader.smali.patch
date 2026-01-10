@@ -1,0 +1,2531 @@
+--- a/smali_classes5/com/arialyy/aria/core/config/XMLReader.smali
++++ b/smali_classes5/com/arialyy/aria/core/config/XMLReader.smali
+@@ -24,84 +24,63 @@
+     .line 1
+     invoke-direct {p0}, Lorg/xml/sax/helpers/DefaultHandler;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {p0}, Lcom/arialyy/aria/util/CommonUtil;->getClassName(Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     iput-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->TAG:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     invoke-static {}, Lcom/arialyy/aria/core/config/Configuration;->getInstance()Lcom/arialyy/aria/core/config/Configuration;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     iget-object v0, v0, Lcom/arialyy/aria/core/config/Configuration;->downloadCfg:Lcom/arialyy/aria/core/config/DownloadConfig;
+ 
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mDownloadConfig:Lcom/arialyy/aria/core/config/DownloadConfig;
+ 
+-    .line 17
+     .line 18
+     invoke-static {}, Lcom/arialyy/aria/core/config/Configuration;->getInstance()Lcom/arialyy/aria/core/config/Configuration;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     iget-object v0, v0, Lcom/arialyy/aria/core/config/Configuration;->uploadCfg:Lcom/arialyy/aria/core/config/UploadConfig;
+ 
+-    .line 23
+     .line 24
+     iput-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mUploadConfig:Lcom/arialyy/aria/core/config/UploadConfig;
+ 
+-    .line 25
+     .line 26
+     invoke-static {}, Lcom/arialyy/aria/core/config/Configuration;->getInstance()Lcom/arialyy/aria/core/config/Configuration;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     iget-object v0, v0, Lcom/arialyy/aria/core/config/Configuration;->appCfg:Lcom/arialyy/aria/core/config/AppConfig;
+ 
+-    .line 31
+     .line 32
+     iput-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mAppConfig:Lcom/arialyy/aria/core/config/AppConfig;
+ 
+-    .line 33
+     .line 34
+     invoke-static {}, Lcom/arialyy/aria/core/config/Configuration;->getInstance()Lcom/arialyy/aria/core/config/Configuration;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v0
+ 
+     .line 38
+     iget-object v0, v0, Lcom/arialyy/aria/core/config/Configuration;->dGroupCfg:Lcom/arialyy/aria/core/config/DGroupConfig;
+ 
+-    .line 39
+     .line 40
+     iput-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mDGroupConfig:Lcom/arialyy/aria/core/config/DGroupConfig;
+ 
+-    .line 41
+     .line 42
+     return-void
+ .end method
+@@ -112,47 +91,36 @@
+     .line 1
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-nez p0, :cond_1
+ 
+-    .line 6
+     .line 7
+     const-string p0, "true"
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     if-nez p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const-string p0, "false"
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+     .line 21
+     if-eqz p0, :cond_1
+ 
+-    .line 22
+     .line 23
+     :cond_0
+     const/4 p0, 0x1
+@@ -174,8 +142,6 @@
+     .line 1
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -185,7 +151,6 @@
+     .line 6
+     if-eqz p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v0
+ 
+@@ -194,8 +159,6 @@
+     :try_start_0
+     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+     :try_end_0
+@@ -204,7 +167,6 @@
+     .line 13
+     if-ltz p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     const/4 p0, 0x1
+ 
+@@ -222,8 +184,6 @@
+     .line 19
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return v0
+ .end method
+@@ -234,8 +194,6 @@
+     .line 1
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -245,7 +203,6 @@
+     .line 6
+     if-eqz p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v0
+ 
+@@ -256,8 +213,6 @@
+     :try_end_0
+     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 p0, 0x1
+ 
+@@ -271,8 +226,6 @@
+     .line 15
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return v0
+ .end method
+@@ -375,8 +328,6 @@
+     .line 1
+     invoke-super {p0, p1, p2, p3}, Lorg/xml/sax/helpers/DefaultHandler;->characters([CII)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -392,44 +343,30 @@
+     .line 1
+     invoke-super {p0}, Lorg/xml/sax/helpers/DefaultHandler;->endDocument()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mDownloadConfig:Lcom/arialyy/aria/core/config/DownloadConfig;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/config/BaseConfig;->save()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mUploadConfig:Lcom/arialyy/aria/core/config/UploadConfig;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/config/BaseConfig;->save()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mAppConfig:Lcom/arialyy/aria/core/config/AppConfig;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/config/BaseConfig;->save()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object p0, p0, Lcom/arialyy/aria/core/config/XMLReader;->mDGroupConfig:Lcom/arialyy/aria/core/config/DGroupConfig;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/config/BaseConfig;->save()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-void
+ .end method
+@@ -445,8 +382,6 @@
+     .line 1
+     invoke-super {p0, p1, p2, p3}, Lorg/xml/sax/helpers/DefaultHandler;->endElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -462,8 +397,6 @@
+     .line 1
+     invoke-super {p0}, Lorg/xml/sax/helpers/DefaultHandler;->startDocument()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -479,30 +412,21 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p3
+ 
+-    .line 4
+     .line 5
+     move-object/from16 v2, p4
+ 
+-    .line 6
+     .line 7
+     invoke-super/range {p0 .. p4}, Lorg/xml/sax/helpers/DefaultHandler;->startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v3
+ 
+@@ -518,8 +442,6 @@
+     .line 20
+     sparse-switch v3, :sswitch_data_0
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :goto_0
+     const/4 v3, -0x1
+@@ -531,19 +453,15 @@
+     :sswitch_0
+     const-string v3, "download"
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v3
+ 
+     .line 31
+     if-nez v3, :cond_0
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -558,19 +476,15 @@
+     :sswitch_1
+     const-string v3, "app"
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v3
+ 
+     .line 42
+     if-nez v3, :cond_1
+ 
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -585,19 +499,15 @@
+     :sswitch_2
+     const-string v3, "upload"
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v3
+ 
+     .line 53
+     if-nez v3, :cond_2
+ 
+-    .line 54
+     .line 55
+     goto :goto_0
+ 
+@@ -612,19 +522,15 @@
+     :sswitch_3
+     const-string v3, "dGroup"
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v3
+ 
+     .line 64
+     if-nez v3, :cond_3
+ 
+-    .line 65
+     .line 66
+     goto :goto_0
+ 
+@@ -639,8 +545,6 @@
+     .line 69
+     packed-switch v3, :pswitch_data_0
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     goto :goto_2
+ 
+@@ -648,7 +552,6 @@
+     :pswitch_0
+     iput v7, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 74
+     .line 75
+     goto :goto_2
+ 
+@@ -656,7 +559,6 @@
+     :pswitch_1
+     iput v6, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 77
+     .line 78
+     goto :goto_2
+ 
+@@ -664,7 +566,6 @@
+     :pswitch_2
+     iput v4, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 80
+     .line 81
+     goto :goto_2
+ 
+@@ -672,82 +573,62 @@
+     :pswitch_3
+     iput v9, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 83
+     .line 84
+     :goto_2
+     iget v3, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 85
+     .line 86
+     const/16 v10, 0x8
+ 
+-    .line 87
+     .line 88
+     const-string v11, "value"
+ 
+-    .line 89
+     .line 90
+     if-eq v3, v7, :cond_11
+ 
+-    .line 91
+     .line 92
+     if-eq v3, v4, :cond_11
+ 
+-    .line 93
+     .line 94
+     if-ne v3, v9, :cond_4
+ 
+-    .line 95
+     .line 96
+     goto/16 :goto_b
+ 
+-    .line 97
+     .line 98
+     :cond_4
+     if-ne v3, v6, :cond_24
+ 
+-    .line 99
+     .line 100
+     invoke-interface {v2, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object v2
+ 
+     .line 104
+     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result v3
+ 
+     .line 108
+     const-string v11, "logLevel"
+ 
+-    .line 109
+     .line 110
+     const-string v12, "notNetRetry"
+ 
+-    .line 111
+     .line 112
+     const-string v13, "netCheck"
+ 
+-    .line 113
+     .line 114
+     const-string v14, "useBroadcast"
+ 
+-    .line 115
+     .line 116
+     const-string v15, "useAriaCrashHandler"
+ 
+-    .line 117
+     .line 118
+     sparse-switch v3, :sswitch_data_1
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     :goto_3
+     const/4 v8, -0x1
+@@ -759,15 +640,12 @@
+     :sswitch_4
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result v1
+ 
+     .line 127
+     if-nez v1, :cond_5
+ 
+-    .line 128
+     .line 129
+     goto :goto_3
+ 
+@@ -782,15 +660,12 @@
+     :sswitch_5
+     invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result v1
+ 
+     .line 136
+     if-nez v1, :cond_6
+ 
+-    .line 137
+     .line 138
+     goto :goto_3
+ 
+@@ -805,15 +680,12 @@
+     :sswitch_6
+     invoke-virtual {v1, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result v1
+ 
+     .line 145
+     if-nez v1, :cond_7
+ 
+-    .line 146
+     .line 147
+     goto :goto_3
+ 
+@@ -828,15 +700,12 @@
+     :sswitch_7
+     invoke-virtual {v1, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result v1
+ 
+     .line 154
+     if-nez v1, :cond_8
+ 
+-    .line 155
+     .line 156
+     goto :goto_3
+ 
+@@ -851,15 +720,12 @@
+     :sswitch_8
+     invoke-virtual {v1, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result v1
+ 
+     .line 163
+     if-nez v1, :cond_9
+ 
+-    .line 164
+     .line 165
+     goto :goto_3
+ 
+@@ -871,30 +737,22 @@
+     :goto_4
+     packed-switch v8, :pswitch_data_1
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     goto/16 :goto_f
+ 
+-    .line 171
+     .line 172
+     :pswitch_4
+     invoke-direct {v0, v2}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result v1
+ 
+     .line 176
+     if-eqz v1, :cond_a
+ 
+-    .line 177
+     .line 178
+     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result v1
+ 
+@@ -909,11 +767,9 @@
+     :goto_5
+     if-lt v1, v4, :cond_c
+ 
+-    .line 185
+     .line 186
+     if-le v1, v10, :cond_b
+ 
+-    .line 187
+     .line 188
+     goto :goto_6
+ 
+@@ -929,66 +785,46 @@
+     :goto_6
+     iget-object v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->TAG:Ljava/lang/String;
+ 
+-    .line 192
+     .line 193
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 194
+     .line 195
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     const-string v5, "level\u3010"
+ 
+-    .line 199
+     .line 200
+     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     const-string v1, "\u3011\u9519\u8bef"
+ 
+-    .line 207
+     .line 208
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result-object v1
+ 
+     .line 215
+     invoke-static {v2, v1}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     :goto_7
+     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result-object v1
+ 
+     .line 222
+     invoke-direct {v0, v11, v1, v6}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     return-void
+ 
+@@ -996,28 +832,21 @@
+     :pswitch_5
+     invoke-direct {v0, v2}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     move-result v1
+ 
+     .line 230
+     if-eqz v1, :cond_d
+ 
+-    .line 231
+     .line 232
+     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     move-result-object v1
+ 
+     .line 236
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result v5
+ 
+@@ -1032,16 +861,12 @@
+     :goto_8
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     move-result-object v1
+ 
+     .line 246
+     invoke-direct {v0, v12, v1, v6}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 247
+-    .line 248
+     .line 249
+     return-void
+ 
+@@ -1049,28 +874,21 @@
+     :pswitch_6
+     invoke-direct {v0, v2}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 251
+-    .line 252
+     .line 253
+     move-result v1
+ 
+     .line 254
+     if-eqz v1, :cond_e
+ 
+-    .line 255
+     .line 256
+     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 257
+-    .line 258
+     .line 259
+     move-result-object v1
+ 
+     .line 260
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 261
+-    .line 262
+     .line 263
+     move-result v5
+ 
+@@ -1085,16 +903,12 @@
+     :goto_9
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 267
+-    .line 268
+     .line 269
+     move-result-object v1
+ 
+     .line 270
+     invoke-direct {v0, v13, v1, v6}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 271
+-    .line 272
+     .line 273
+     return-void
+ 
+@@ -1102,28 +916,21 @@
+     :pswitch_7
+     invoke-direct {v0, v2}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 275
+-    .line 276
+     .line 277
+     move-result v1
+ 
+     .line 278
+     if-eqz v1, :cond_f
+ 
+-    .line 279
+     .line 280
+     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 281
+-    .line 282
+     .line 283
+     move-result-object v1
+ 
+     .line 284
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 285
+-    .line 286
+     .line 287
+     move-result v5
+ 
+@@ -1138,16 +945,12 @@
+     :goto_a
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 291
+-    .line 292
+     .line 293
+     move-result-object v1
+ 
+     .line 294
+     invoke-direct {v0, v14, v1, v6}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 295
+-    .line 296
+     .line 297
+     return-void
+ 
+@@ -1155,28 +958,21 @@
+     :pswitch_8
+     invoke-direct {v0, v2}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 299
+-    .line 300
+     .line 301
+     move-result v1
+ 
+     .line 302
+     if-eqz v1, :cond_10
+ 
+-    .line 303
+     .line 304
+     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 305
+-    .line 306
+     .line 307
+     move-result-object v1
+ 
+     .line 308
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 309
+-    .line 310
+     .line 311
+     move-result v7
+ 
+@@ -1184,16 +980,12 @@
+     :cond_10
+     invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 313
+-    .line 314
+     .line 315
+     move-result-object v1
+ 
+     .line 316
+     invoke-direct {v0, v15, v1, v6}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 317
+-    .line 318
+     .line 319
+     return-void
+ 
+@@ -1202,86 +994,65 @@
+     :goto_b
+     invoke-interface {v2, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 321
+-    .line 322
+     .line 323
+     move-result-object v3
+ 
+     .line 324
+     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 325
+-    .line 326
+     .line 327
+     move-result v11
+ 
+     .line 328
+     const-string v12, "subFailAsStop"
+ 
+-    .line 329
+     .line 330
+     const-string v13, "iOTimeOut"
+ 
+-    .line 331
+     .line 332
+     const-string v14, "useBlock"
+ 
+-    .line 333
+     .line 334
+     const-string v4, "connectTimeOut"
+ 
+-    .line 335
+     .line 336
+     const-string v5, "maxTaskNum"
+ 
+-    .line 337
+     .line 338
+     const-string v6, "queueMod"
+ 
+-    .line 339
+     .line 340
+     const-string v8, "reTryNum"
+ 
+-    .line 341
+     .line 342
+     const-string v10, "buffSize"
+ 
+-    .line 343
+     .line 344
+     const-string v15, "threadNum"
+ 
+-    .line 345
+     .line 346
+     sparse-switch v11, :sswitch_data_2
+ 
+-    .line 347
+-    .line 348
+     .line 349
+     :goto_c
+     const/16 v16, -0x1
+ 
+-    .line 350
+     .line 351
+     goto/16 :goto_e
+ 
+-    .line 352
+     .line 353
+     :sswitch_9
+     const-string v11, "updateInterval"
+ 
+-    .line 354
+     .line 355
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 356
+-    .line 357
+     .line 358
+     move-result v1
+ 
+     .line 359
+     if-nez v1, :cond_12
+ 
+-    .line 360
+     .line 361
+     goto :goto_c
+ 
+@@ -1289,28 +1060,22 @@
+     :cond_12
+     const/16 v1, 0x11
+ 
+-    .line 363
+     .line 364
+     goto/16 :goto_d
+ 
+-    .line 365
+     .line 366
+     :sswitch_a
+     const-string v11, "convertSpeed"
+ 
+-    .line 367
+     .line 368
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 369
+-    .line 370
+     .line 371
+     move-result v1
+ 
+     .line 372
+     if-nez v1, :cond_13
+ 
+-    .line 373
+     .line 374
+     goto :goto_c
+ 
+@@ -1318,28 +1083,22 @@
+     :cond_13
+     const/16 v1, 0x10
+ 
+-    .line 376
+     .line 377
+     goto/16 :goto_d
+ 
+-    .line 378
+     .line 379
+     :sswitch_b
+     const-string v11, "subReTryInterval"
+ 
+-    .line 380
+     .line 381
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 382
+-    .line 383
+     .line 384
+     move-result v1
+ 
+     .line 385
+     if-nez v1, :cond_14
+ 
+-    .line 386
+     .line 387
+     goto :goto_c
+ 
+@@ -1347,28 +1106,22 @@
+     :cond_14
+     const/16 v1, 0xf
+ 
+-    .line 389
+     .line 390
+     goto/16 :goto_d
+ 
+-    .line 391
+     .line 392
+     :sswitch_c
+     const-string v11, "reTryInterval"
+ 
+-    .line 393
+     .line 394
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 395
+-    .line 396
+     .line 397
+     move-result v1
+ 
+     .line 398
+     if-nez v1, :cond_15
+ 
+-    .line 399
+     .line 400
+     goto :goto_c
+ 
+@@ -1376,28 +1129,22 @@
+     :cond_15
+     const/16 v1, 0xe
+ 
+-    .line 402
+     .line 403
+     goto/16 :goto_d
+ 
+-    .line 404
+     .line 405
+     :sswitch_d
+     const-string v11, "maxSpeed"
+ 
+-    .line 406
+     .line 407
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 408
+-    .line 409
+     .line 410
+     move-result v1
+ 
+     .line 411
+     if-nez v1, :cond_16
+ 
+-    .line 412
+     .line 413
+     goto :goto_c
+ 
+@@ -1405,7 +1152,6 @@
+     :cond_16
+     const/16 v1, 0xd
+ 
+-    .line 415
+     .line 416
+     goto :goto_d
+ 
+@@ -1413,19 +1159,15 @@
+     :sswitch_e
+     const-string v11, "useHeadRequest"
+ 
+-    .line 418
+     .line 419
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 420
+-    .line 421
+     .line 422
+     move-result v1
+ 
+     .line 423
+     if-nez v1, :cond_17
+ 
+-    .line 424
+     .line 425
+     goto :goto_c
+ 
+@@ -1433,7 +1175,6 @@
+     :cond_17
+     const/16 v1, 0xc
+ 
+-    .line 427
+     .line 428
+     goto :goto_d
+ 
+@@ -1441,19 +1182,15 @@
+     :sswitch_f
+     const-string v11, "subMaxTaskNum"
+ 
+-    .line 430
+     .line 431
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 432
+-    .line 433
+     .line 434
+     move-result v1
+ 
+     .line 435
+     if-nez v1, :cond_18
+ 
+-    .line 436
+     .line 437
+     goto :goto_c
+ 
+@@ -1461,7 +1198,6 @@
+     :cond_18
+     const/16 v1, 0xb
+ 
+-    .line 439
+     .line 440
+     goto :goto_d
+ 
+@@ -1469,19 +1205,15 @@
+     :sswitch_10
+     const-string v11, "subReTryNum"
+ 
+-    .line 442
+     .line 443
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 444
+-    .line 445
+     .line 446
+     move-result v1
+ 
+     .line 447
+     if-nez v1, :cond_19
+ 
+-    .line 448
+     .line 449
+     goto :goto_c
+ 
+@@ -1489,7 +1221,6 @@
+     :cond_19
+     const/16 v1, 0xa
+ 
+-    .line 451
+     .line 452
+     goto :goto_d
+ 
+@@ -1497,15 +1228,12 @@
+     :sswitch_11
+     invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 454
+-    .line 455
+     .line 456
+     move-result v1
+ 
+     .line 457
+     if-nez v1, :cond_1a
+ 
+-    .line 458
+     .line 459
+     goto :goto_c
+ 
+@@ -1513,7 +1241,6 @@
+     :cond_1a
+     const/16 v1, 0x9
+ 
+-    .line 461
+     .line 462
+     goto :goto_d
+ 
+@@ -1521,19 +1248,15 @@
+     :sswitch_12
+     const-string v11, "ca"
+ 
+-    .line 464
+     .line 465
+     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 466
+-    .line 467
+     .line 468
+     move-result v1
+ 
+     .line 469
+     if-nez v1, :cond_1b
+ 
+-    .line 470
+     .line 471
+     goto :goto_c
+ 
+@@ -1541,7 +1264,6 @@
+     :cond_1b
+     const/16 v16, 0x8
+ 
+-    .line 473
+     .line 474
+     goto :goto_e
+ 
+@@ -1549,19 +1271,15 @@
+     :sswitch_13
+     invoke-virtual {v1, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 476
+-    .line 477
+     .line 478
+     move-result v1
+ 
+     .line 479
+     if-nez v1, :cond_1c
+ 
+-    .line 480
+     .line 481
+     goto/16 :goto_c
+ 
+-    .line 482
+     .line 483
+     :cond_1c
+     const/4 v1, 0x7
+@@ -1573,19 +1291,15 @@
+     :sswitch_14
+     invoke-virtual {v1, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 486
+-    .line 487
+     .line 488
+     move-result v1
+ 
+     .line 489
+     if-nez v1, :cond_1d
+ 
+-    .line 490
+     .line 491
+     goto/16 :goto_c
+ 
+-    .line 492
+     .line 493
+     :cond_1d
+     const/4 v1, 0x6
+@@ -1594,7 +1308,6 @@
+     :goto_d
+     move/from16 v16, v1
+ 
+-    .line 495
+     .line 496
+     goto :goto_e
+ 
+@@ -1602,24 +1315,19 @@
+     :sswitch_15
+     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 498
+-    .line 499
+     .line 500
+     move-result v1
+ 
+     .line 501
+     if-nez v1, :cond_1e
+ 
+-    .line 502
+     .line 503
+     goto/16 :goto_c
+ 
+-    .line 504
+     .line 505
+     :cond_1e
+     const/16 v16, 0x5
+ 
+-    .line 506
+     .line 507
+     goto :goto_e
+ 
+@@ -1627,24 +1335,19 @@
+     :sswitch_16
+     invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 509
+-    .line 510
+     .line 511
+     move-result v1
+ 
+     .line 512
+     if-nez v1, :cond_1f
+ 
+-    .line 513
+     .line 514
+     goto/16 :goto_c
+ 
+-    .line 515
+     .line 516
+     :cond_1f
+     move/from16 v16, v9
+ 
+-    .line 517
+     .line 518
+     goto :goto_e
+ 
+@@ -1652,24 +1355,19 @@
+     :sswitch_17
+     invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 520
+-    .line 521
+     .line 522
+     move-result v1
+ 
+     .line 523
+     if-nez v1, :cond_20
+ 
+-    .line 524
+     .line 525
+     goto/16 :goto_c
+ 
+-    .line 526
+     .line 527
+     :cond_20
+     const/16 v16, 0x3
+ 
+-    .line 528
+     .line 529
+     goto :goto_e
+ 
+@@ -1677,24 +1375,19 @@
+     :sswitch_18
+     invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 531
+-    .line 532
+     .line 533
+     move-result v1
+ 
+     .line 534
+     if-nez v1, :cond_21
+ 
+-    .line 535
+     .line 536
+     goto/16 :goto_c
+ 
+-    .line 537
+     .line 538
+     :cond_21
+     const/16 v16, 0x2
+ 
+-    .line 539
+     .line 540
+     goto :goto_e
+ 
+@@ -1702,24 +1395,19 @@
+     :sswitch_19
+     invoke-virtual {v1, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 542
+-    .line 543
+     .line 544
+     move-result v1
+ 
+     .line 545
+     if-nez v1, :cond_22
+ 
+-    .line 546
+     .line 547
+     goto/16 :goto_c
+ 
+-    .line 548
+     .line 549
+     :cond_22
+     move/from16 v16, v7
+ 
+-    .line 550
+     .line 551
+     goto :goto_e
+ 
+@@ -1727,34 +1415,26 @@
+     :sswitch_1a
+     invoke-virtual {v1, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 553
+-    .line 554
+     .line 555
+     move-result v1
+ 
+     .line 556
+     if-nez v1, :cond_23
+ 
+-    .line 557
+     .line 558
+     goto/16 :goto_c
+ 
+-    .line 559
+     .line 560
+     :cond_23
+     const/16 v16, 0x0
+ 
+-    .line 561
+     .line 562
+     :goto_e
+     const/16 v1, 0x7d0
+ 
+-    .line 563
+     .line 564
+     packed-switch v16, :pswitch_data_2
+ 
+-    .line 565
+-    .line 566
+     .line 567
+     :cond_24
+     :goto_f
+@@ -1764,20 +1444,15 @@
+     :pswitch_9
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkLong(Ljava/lang/String;)Z
+ 
+-    .line 569
+-    .line 570
+     .line 571
+     move-result v1
+ 
+     .line 572
+     if-eqz v1, :cond_25
+ 
+-    .line 573
+     .line 574
+     invoke-static {v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+ 
+-    .line 575
+-    .line 576
+     .line 577
+     move-result-wide v1
+ 
+@@ -1788,29 +1463,22 @@
+     :cond_25
+     const-wide/16 v1, 0x3e8
+ 
+-    .line 580
+     .line 581
+     :goto_10
+     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 582
+-    .line 583
+     .line 584
+     move-result-object v1
+ 
+     .line 585
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 586
+     .line 587
+     const-string v3, "updateInterval"
+ 
+-    .line 588
+     .line 589
+     invoke-direct {v0, v3, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 590
+-    .line 591
+     .line 592
+     return-void
+ 
+@@ -1818,27 +1486,21 @@
+     :pswitch_a
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 594
+-    .line 595
+     .line 596
+     move-result v1
+ 
+     .line 597
+     if-eqz v1, :cond_27
+ 
+-    .line 598
+     .line 599
+     invoke-static {v3}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+ 
+-    .line 600
+-    .line 601
+     .line 602
+     move-result v1
+ 
+     .line 603
+     if-eqz v1, :cond_26
+ 
+-    .line 604
+     .line 605
+     goto :goto_11
+ 
+@@ -1858,24 +1520,18 @@
+     :goto_12
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 610
+-    .line 611
+     .line 612
+     move-result-object v1
+ 
+     .line 613
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 614
+     .line 615
+     const-string v3, "isConvertSpeed"
+ 
+-    .line 616
+     .line 617
+     invoke-direct {v0, v3, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 618
+-    .line 619
+     .line 620
+     return-void
+ 
+@@ -1883,20 +1539,15 @@
+     :pswitch_b
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 622
+-    .line 623
+     .line 624
+     move-result v2
+ 
+     .line 625
+     if-eqz v2, :cond_28
+ 
+-    .line 626
+     .line 627
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 628
+-    .line 629
+     .line 630
+     move-result v1
+ 
+@@ -1904,20 +1555,15 @@
+     :cond_28
+     const-string v2, "subReTryInterval"
+ 
+-    .line 632
+     .line 633
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 634
+-    .line 635
+     .line 636
+     move-result-object v1
+ 
+     .line 637
+     invoke-direct {v0, v2, v1, v9}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 638
+-    .line 639
+     .line 640
+     return-void
+ 
+@@ -1925,20 +1571,15 @@
+     :pswitch_c
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 642
+-    .line 643
+     .line 644
+     move-result v2
+ 
+     .line 645
+     if-eqz v2, :cond_29
+ 
+-    .line 646
+     .line 647
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 648
+-    .line 649
+     .line 650
+     move-result v2
+ 
+@@ -1953,7 +1594,6 @@
+     :goto_13
+     if-ge v2, v1, :cond_2a
+ 
+-    .line 654
+     .line 655
+     goto :goto_14
+ 
+@@ -1965,24 +1605,18 @@
+     :goto_14
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 658
+-    .line 659
+     .line 660
+     move-result-object v1
+ 
+     .line 661
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 662
+     .line 663
+     const-string v3, "reTryInterval"
+ 
+-    .line 664
+     .line 665
+     invoke-direct {v0, v3, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 666
+-    .line 667
+     .line 668
+     return-void
+ 
+@@ -1990,20 +1624,15 @@
+     :pswitch_d
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 670
+-    .line 671
+     .line 672
+     move-result v1
+ 
+     .line 673
+     if-eqz v1, :cond_2b
+ 
+-    .line 674
+     .line 675
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 676
+-    .line 677
+     .line 678
+     move-result v5
+ 
+@@ -2018,24 +1647,18 @@
+     :goto_15
+     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 682
+-    .line 683
+     .line 684
+     move-result-object v1
+ 
+     .line 685
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 686
+     .line 687
+     const-string v3, "maxSpeed"
+ 
+-    .line 688
+     .line 689
+     invoke-direct {v0, v3, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 690
+-    .line 691
+     .line 692
+     return-void
+ 
+@@ -2043,28 +1666,21 @@
+     :pswitch_e
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 694
+-    .line 695
+     .line 696
+     move-result v1
+ 
+     .line 697
+     if-eqz v1, :cond_2c
+ 
+-    .line 698
+     .line 699
+     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 700
+-    .line 701
+     .line 702
+     move-result-object v1
+ 
+     .line 703
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 704
+-    .line 705
+     .line 706
+     move-result v5
+ 
+@@ -2079,20 +1695,15 @@
+     :goto_16
+     const-string v1, "useHeadRequest"
+ 
+-    .line 710
+     .line 711
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 712
+-    .line 713
+     .line 714
+     move-result-object v2
+ 
+     .line 715
+     invoke-direct {v0, v1, v2, v7}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 716
+-    .line 717
+     .line 718
+     return-void
+ 
+@@ -2100,20 +1711,15 @@
+     :pswitch_f
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 720
+-    .line 721
+     .line 722
+     move-result v1
+ 
+     .line 723
+     if-eqz v1, :cond_2d
+ 
+-    .line 724
+     .line 725
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 726
+-    .line 727
+     .line 728
+     move-result v6
+ 
+@@ -2128,20 +1734,15 @@
+     :goto_17
+     const-string v1, "subMaxTaskNum"
+ 
+-    .line 732
+     .line 733
+     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 734
+-    .line 735
+     .line 736
+     move-result-object v2
+ 
+     .line 737
+     invoke-direct {v0, v1, v2, v9}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 738
+-    .line 739
+     .line 740
+     return-void
+ 
+@@ -2149,20 +1750,15 @@
+     :pswitch_10
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 742
+-    .line 743
+     .line 744
+     move-result v1
+ 
+     .line 745
+     if-eqz v1, :cond_2e
+ 
+-    .line 746
+     .line 747
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 748
+-    .line 749
+     .line 750
+     move-result v15
+ 
+@@ -2177,20 +1773,15 @@
+     :goto_18
+     const-string v1, "subReTryNum"
+ 
+-    .line 754
+     .line 755
+     invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 756
+-    .line 757
+     .line 758
+     move-result-object v2
+ 
+     .line 759
+     invoke-direct {v0, v1, v2, v9}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 760
+-    .line 761
+     .line 762
+     return-void
+ 
+@@ -2198,28 +1789,21 @@
+     :pswitch_11
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 764
+-    .line 765
+     .line 766
+     move-result v1
+ 
+     .line 767
+     if-eqz v1, :cond_2f
+ 
+-    .line 768
+     .line 769
+     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 770
+-    .line 771
+     .line 772
+     move-result-object v1
+ 
+     .line 773
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 774
+-    .line 775
+     .line 776
+     move-result v5
+ 
+@@ -2234,16 +1818,12 @@
+     :goto_19
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 780
+-    .line 781
+     .line 782
+     move-result-object v1
+ 
+     .line 783
+     invoke-direct {v0, v12, v1, v9}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 784
+-    .line 785
+     .line 786
+     return-void
+ 
+@@ -2251,53 +1831,39 @@
+     :pswitch_12
+     const-string v1, "name"
+ 
+-    .line 788
+     .line 789
+     invoke-interface {v2, v1}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 790
+-    .line 791
+     .line 792
+     move-result-object v1
+ 
+     .line 793
+     const-string v3, "path"
+ 
+-    .line 794
+     .line 795
+     invoke-interface {v2, v3}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 796
+-    .line 797
+     .line 798
+     move-result-object v2
+ 
+     .line 799
+     const-string v3, "caName"
+ 
+-    .line 800
+     .line 801
+     iget v4, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 802
+     .line 803
+     invoke-direct {v0, v3, v1, v4}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 804
+-    .line 805
+     .line 806
+     const-string v1, "caPath"
+ 
+-    .line 807
+     .line 808
+     iget v3, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 809
+     .line 810
+     invoke-direct {v0, v1, v2, v3}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 811
+-    .line 812
+     .line 813
+     return-void
+ 
+@@ -2305,24 +1871,18 @@
+     :pswitch_13
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 815
+-    .line 816
+     .line 817
+     move-result v1
+ 
+     .line 818
+     const/16 v2, 0x2710
+ 
+-    .line 819
+     .line 820
+     if-eqz v1, :cond_30
+ 
+-    .line 821
+     .line 822
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 823
+-    .line 824
+     .line 825
+     move-result v1
+ 
+@@ -2337,7 +1897,6 @@
+     :goto_1a
+     if-ge v1, v2, :cond_31
+ 
+-    .line 829
+     .line 830
+     goto :goto_1b
+ 
+@@ -2349,20 +1908,15 @@
+     :goto_1b
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 833
+-    .line 834
+     .line 835
+     move-result-object v1
+ 
+     .line 836
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 837
+     .line 838
+     invoke-direct {v0, v13, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 839
+-    .line 840
+     .line 841
+     return-void
+ 
+@@ -2370,28 +1924,21 @@
+     :pswitch_14
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkBoolean(Ljava/lang/String;)Z
+ 
+-    .line 843
+-    .line 844
+     .line 845
+     move-result v1
+ 
+     .line 846
+     if-eqz v1, :cond_32
+ 
+-    .line 847
+     .line 848
+     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+ 
+-    .line 849
+-    .line 850
+     .line 851
+     move-result-object v1
+ 
+     .line 852
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 853
+-    .line 854
+     .line 855
+     move-result v5
+ 
+@@ -2406,16 +1953,12 @@
+     :goto_1c
+     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 859
+-    .line 860
+     .line 861
+     move-result-object v1
+ 
+     .line 862
+     invoke-direct {v0, v14, v1, v7}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 863
+-    .line 864
+     .line 865
+     return-void
+ 
+@@ -2423,20 +1966,15 @@
+     :pswitch_15
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 867
+-    .line 868
+     .line 869
+     move-result v1
+ 
+     .line 870
+     if-eqz v1, :cond_33
+ 
+-    .line 871
+     .line 872
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 873
+-    .line 874
+     .line 875
+     move-result v1
+ 
+@@ -2447,25 +1985,19 @@
+     :cond_33
+     const/16 v1, 0x1388
+ 
+-    .line 878
+     .line 879
+     :goto_1d
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 880
+-    .line 881
+     .line 882
+     move-result-object v1
+ 
+     .line 883
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 884
+     .line 885
+     invoke-direct {v0, v4, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 886
+-    .line 887
+     .line 888
+     return-void
+ 
+@@ -2473,20 +2005,15 @@
+     :pswitch_16
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 890
+-    .line 891
+     .line 892
+     move-result v1
+ 
+     .line 893
+     if-eqz v1, :cond_34
+ 
+-    .line 894
+     .line 895
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 896
+-    .line 897
+     .line 898
+     move-result v1
+ 
+@@ -2501,20 +2028,15 @@
+     :goto_1e
+     if-ge v1, v7, :cond_35
+ 
+-    .line 902
+     .line 903
+     iget-object v1, v0, Lcom/arialyy/aria/core/config/XMLReader;->TAG:Ljava/lang/String;
+ 
+-    .line 904
+     .line 905
+     const-string v2, "\u4efb\u52a1\u961f\u5217\u6570\u4e0d\u80fd\u5c0f\u4e8e 1"
+ 
+-    .line 906
+     .line 907
+     invoke-static {v1, v2}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 908
+-    .line 909
+     .line 910
+     const/4 v4, 0x2
+ 
+@@ -2529,20 +2051,15 @@
+     :goto_1f
+     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 914
+-    .line 915
+     .line 916
+     move-result-object v1
+ 
+     .line 917
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 918
+     .line 919
+     invoke-direct {v0, v5, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 920
+-    .line 921
+     .line 922
+     return-void
+ 
+@@ -2550,47 +2067,36 @@
+     :pswitch_17
+     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 924
+-    .line 925
+     .line 926
+     move-result v1
+ 
+     .line 927
+     const-string v2, "now"
+ 
+-    .line 928
+     .line 929
+     if-nez v1, :cond_36
+ 
+-    .line 930
+     .line 931
+     invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 932
+-    .line 933
+     .line 934
+     move-result v1
+ 
+     .line 935
+     if-nez v1, :cond_37
+ 
+-    .line 936
+     .line 937
+     const-string v1, "wait"
+ 
+-    .line 938
+     .line 939
+     invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 940
+-    .line 941
+     .line 942
+     move-result v1
+ 
+     .line 943
+     if-eqz v1, :cond_36
+ 
+-    .line 944
+     .line 945
+     goto :goto_20
+ 
+@@ -2603,12 +2109,9 @@
+     :goto_20
+     iget v1, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 948
+     .line 949
+     invoke-direct {v0, v6, v3, v1}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 950
+-    .line 951
+     .line 952
+     return-void
+ 
+@@ -2616,20 +2119,15 @@
+     :pswitch_18
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 954
+-    .line 955
+     .line 956
+     move-result v1
+ 
+     .line 957
+     if-eqz v1, :cond_38
+ 
+-    .line 958
+     .line 959
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 960
+-    .line 961
+     .line 962
+     move-result v5
+ 
+@@ -2644,20 +2142,15 @@
+     :goto_21
+     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 966
+-    .line 967
+     .line 968
+     move-result-object v1
+ 
+     .line 969
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 970
+     .line 971
+     invoke-direct {v0, v8, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 972
+-    .line 973
+     .line 974
+     return-void
+ 
+@@ -2665,20 +2158,15 @@
+     :pswitch_19
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 976
+-    .line 977
+     .line 978
+     move-result v1
+ 
+     .line 979
+     if-eqz v1, :cond_39
+ 
+-    .line 980
+     .line 981
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 982
+-    .line 983
+     .line 984
+     move-result v1
+ 
+@@ -2689,16 +2177,13 @@
+     :cond_39
+     const/16 v1, 0x2000
+ 
+-    .line 987
+     .line 988
+     :goto_22
+     const/16 v2, 0x800
+ 
+-    .line 989
+     .line 990
+     if-ge v1, v2, :cond_3a
+ 
+-    .line 991
+     .line 992
+     move v1, v2
+ 
+@@ -2706,20 +2191,15 @@
+     :cond_3a
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 994
+-    .line 995
+     .line 996
+     move-result-object v1
+ 
+     .line 997
+     iget v2, v0, Lcom/arialyy/aria/core/config/XMLReader;->mType:I
+ 
+-    .line 998
+     .line 999
+     invoke-direct {v0, v10, v1, v2}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 1000
+-    .line 1001
+     .line 1002
+     return-void
+ 
+@@ -2727,20 +2207,15 @@
+     :pswitch_1a
+     invoke-direct {v0, v3}, Lcom/arialyy/aria/core/config/XMLReader;->checkInt(Ljava/lang/String;)Z
+ 
+-    .line 1004
+-    .line 1005
+     .line 1006
+     move-result v1
+ 
+     .line 1007
+     if-eqz v1, :cond_3b
+ 
+-    .line 1008
+     .line 1009
+     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 1010
+-    .line 1011
+     .line 1012
+     move-result v6
+ 
+@@ -2755,20 +2230,15 @@
+     :goto_23
+     if-ge v6, v7, :cond_3c
+ 
+-    .line 1016
+     .line 1017
+     iget-object v1, v0, Lcom/arialyy/aria/core/config/XMLReader;->TAG:Ljava/lang/String;
+ 
+-    .line 1018
+     .line 1019
+     const-string v2, "\u4e0b\u8f7d\u7ebf\u7a0b\u6570\u4e0d\u80fd\u5c0f\u4e8e 1"
+ 
+-    .line 1020
+     .line 1021
+     invoke-static {v1, v2}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 1022
+-    .line 1023
+     .line 1024
+     move v6, v7
+ 
+@@ -2776,16 +2246,12 @@
+     :cond_3c
+     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 1026
+-    .line 1027
+     .line 1028
+     move-result-object v1
+ 
+     .line 1029
+     invoke-direct {v0, v15, v1, v7}, Lcom/arialyy/aria/core/config/XMLReader;->setField(Ljava/lang/String;Ljava/lang/Object;I)V
+ 
+-    .line 1030
+-    .line 1031
+     .line 1032
+     return-void
+ 
+@@ -2798,23 +2264,6 @@
+         0x551ac888 -> :sswitch_0
+     .end sparse-switch
+ 
+-    .line 1034
+-    .line 1035
+-    .line 1036
+-    .line 1037
+-    .line 1038
+-    .line 1039
+-    .line 1040
+-    .line 1041
+-    .line 1042
+-    .line 1043
+-    .line 1044
+-    .line 1045
+-    .line 1046
+-    .line 1047
+-    .line 1048
+-    .line 1049
+-    .line 1050
+     .line 1051
+     :pswitch_data_0
+     .packed-switch 0x0
+@@ -2824,17 +2273,6 @@
+         :pswitch_0
+     .end packed-switch
+ 
+-    .line 1052
+-    .line 1053
+-    .line 1054
+-    .line 1055
+-    .line 1056
+-    .line 1057
+-    .line 1058
+-    .line 1059
+-    .line 1060
+-    .line 1061
+-    .line 1062
+     .line 1063
+     :sswitch_data_1
+     .sparse-switch
+@@ -2845,27 +2283,6 @@
+         0x76f472a0 -> :sswitch_4
+     .end sparse-switch
+ 
+-    .line 1064
+-    .line 1065
+-    .line 1066
+-    .line 1067
+-    .line 1068
+-    .line 1069
+-    .line 1070
+-    .line 1071
+-    .line 1072
+-    .line 1073
+-    .line 1074
+-    .line 1075
+-    .line 1076
+-    .line 1077
+-    .line 1078
+-    .line 1079
+-    .line 1080
+-    .line 1081
+-    .line 1082
+-    .line 1083
+-    .line 1084
+     .line 1085
+     :pswitch_data_1
+     .packed-switch 0x0
+@@ -2876,19 +2293,6 @@
+         :pswitch_4
+     .end packed-switch
+ 
+-    .line 1086
+-    .line 1087
+-    .line 1088
+-    .line 1089
+-    .line 1090
+-    .line 1091
+-    .line 1092
+-    .line 1093
+-    .line 1094
+-    .line 1095
+-    .line 1096
+-    .line 1097
+-    .line 1098
+     .line 1099
+     :sswitch_data_2
+     .sparse-switch
+@@ -2912,79 +2316,6 @@
+         0x55dda8ae -> :sswitch_9
+     .end sparse-switch
+ 
+-    .line 1100
+-    .line 1101
+-    .line 1102
+-    .line 1103
+-    .line 1104
+-    .line 1105
+-    .line 1106
+-    .line 1107
+-    .line 1108
+-    .line 1109
+-    .line 1110
+-    .line 1111
+-    .line 1112
+-    .line 1113
+-    .line 1114
+-    .line 1115
+-    .line 1116
+-    .line 1117
+-    .line 1118
+-    .line 1119
+-    .line 1120
+-    .line 1121
+-    .line 1122
+-    .line 1123
+-    .line 1124
+-    .line 1125
+-    .line 1126
+-    .line 1127
+-    .line 1128
+-    .line 1129
+-    .line 1130
+-    .line 1131
+-    .line 1132
+-    .line 1133
+-    .line 1134
+-    .line 1135
+-    .line 1136
+-    .line 1137
+-    .line 1138
+-    .line 1139
+-    .line 1140
+-    .line 1141
+-    .line 1142
+-    .line 1143
+-    .line 1144
+-    .line 1145
+-    .line 1146
+-    .line 1147
+-    .line 1148
+-    .line 1149
+-    .line 1150
+-    .line 1151
+-    .line 1152
+-    .line 1153
+-    .line 1154
+-    .line 1155
+-    .line 1156
+-    .line 1157
+-    .line 1158
+-    .line 1159
+-    .line 1160
+-    .line 1161
+-    .line 1162
+-    .line 1163
+-    .line 1164
+-    .line 1165
+-    .line 1166
+-    .line 1167
+-    .line 1168
+-    .line 1169
+-    .line 1170
+-    .line 1171
+-    .line 1172
+     .line 1173
+     :pswitch_data_2
+     .packed-switch 0x0

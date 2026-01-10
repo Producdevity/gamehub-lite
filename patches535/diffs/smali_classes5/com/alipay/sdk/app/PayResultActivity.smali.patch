@@ -1,0 +1,683 @@
+--- a/smali_classes5/com/alipay/sdk/app/PayResultActivity.smali
++++ b/smali_classes5/com/alipay/sdk/app/PayResultActivity.smali
+@@ -26,16 +26,12 @@
+     .line 1
+     new-instance v0, Ljava/util/HashMap;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/alipay/sdk/app/PayResultActivity;->b:Ljava/util/HashMap;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -46,15 +42,12 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     iput-object v0, p0, Lcom/alipay/sdk/app/PayResultActivity;->a:Lcom/alipay/sdk/m/w/a;
+ 
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -65,29 +58,21 @@
+     .line 1
+     new-instance v0, Landroid/os/Handler;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v1, Lcom/alipay/sdk/app/PayResultActivity$a;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, p0}, Lcom/alipay/sdk/app/PayResultActivity$a;-><init>(Landroid/app/Activity;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     int-to-long p0, p1
+ 
+     .line 12
+     invoke-virtual {v0, v1, p0, p1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -98,160 +83,112 @@
+     .line 1
+     const-string v0, "UTF-8"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+     .line 7
+     if-nez v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     if-nez v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     new-instance v1, Landroid/content/Intent;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     :try_start_0
+     const-string v2, "hk.alipay.wallet"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 26
+     .line 27
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     const-string v3, "alipayhk://platformapi/startApp?appId=20000125&schemePaySession="
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-static {p1, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p1
+ 
+     .line 39
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     const-string p1, "&orderSuffix="
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-static {p2, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p1
+ 
+     .line 51
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     const-string p1, "&packageName="
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-static {p3, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p1
+ 
+     .line 63
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     const-string p1, "&externalPkgName="
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-static {p3, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object p1
+ 
+     .line 75
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p1
+ 
+     .line 82
+     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p1
+ 
+@@ -260,8 +197,6 @@
+     :try_end_0
+     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     goto :goto_0
+ 
+@@ -272,21 +207,16 @@
+     .line 91
+     invoke-static {p1}, Lcom/alipay/sdk/m/y/f;->d(Ljava/lang/Throwable;)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     :goto_0
+     if-eqz p0, :cond_0
+ 
+-    .line 95
+     .line 96
+     :try_start_1
+     invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     goto :goto_1
+ 
+@@ -294,8 +224,6 @@
+     :catchall_0
+     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     :cond_0
+     :goto_1
+@@ -308,24 +236,18 @@
+     .line 1
+     invoke-static {}, Lcom/alipay/sdk/m/l/b;->a()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     sput-object v0, Lcom/alipay/sdk/app/PayResultActivity$b;->b:Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Lcom/alipay/sdk/app/PayResultActivity;->b:Ljava/util/HashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0, p0}, Lcom/alipay/sdk/app/PayResultActivity;->e(Ljava/util/HashMap;Ljava/lang/String;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ .end method
+@@ -336,16 +258,12 @@
+     .line 1
+     sput-object p0, Lcom/alipay/sdk/app/PayResultActivity$b;->b:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     sget-object p0, Lcom/alipay/sdk/app/PayResultActivity;->b:Ljava/util/HashMap;
+ 
+-    .line 4
+     .line 5
+     invoke-static {p0, p1}, Lcom/alipay/sdk/app/PayResultActivity;->e(Ljava/util/HashMap;Ljava/lang/String;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -359,11 +277,9 @@
+     .line 2
+     if-eqz p0, :cond_2
+ 
+-    .line 3
+     .line 4
+     if-nez p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     goto :goto_0
+ 
+@@ -371,15 +287,12 @@
+     :cond_0
+     invoke-virtual {p0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     if-nez p0, :cond_1
+ 
+-    .line 12
+     .line 13
+     return v0
+ 
+@@ -391,8 +304,6 @@
+     :try_start_0
+     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     monitor-exit p0
+ 
+@@ -428,117 +339,86 @@
+     .line 1
+     const-string v0, "orderSuffix"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v1
+ 
+     .line 14
+     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v1
+ 
+     .line 18
+     const/16 v2, 0x12c
+ 
+-    .line 19
+     .line 20
+     if-nez v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     const-string v1, "phonecashier.pay.hash"
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     sput-object v1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+     .line 34
+     const-string v1, "externalPkgName"
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v1
+ 
+     .line 40
+     invoke-static {p1}, Lcom/alipay/sdk/m/w/a$a;->a(Landroid/content/Intent;)Lcom/alipay/sdk/m/w/a;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p1
+ 
+     .line 44
+     iput-object p1, p0, Lcom/alipay/sdk/app/PayResultActivity;->a:Lcom/alipay/sdk/m/w/a;
+ 
+-    .line 45
+     .line 46
+     if-nez p1, :cond_0
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     :cond_0
+     sget-object p1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 52
+     .line 53
+     invoke-static {p0, p1, v0, v1}, Lcom/alipay/sdk/app/PayResultActivity;->b(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-static {p0, v2}, Lcom/alipay/sdk/app/PayResultActivity;->a(Landroid/app/Activity;I)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     return-void
+ 
+@@ -546,72 +426,55 @@
+     :cond_1
+     iget-object v0, p0, Lcom/alipay/sdk/app/PayResultActivity;->a:Lcom/alipay/sdk/m/w/a;
+ 
+-    .line 61
+     .line 62
+     if-nez v0, :cond_2
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     :cond_2
+     const-string v0, "phonecashier.pay.result"
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+     .line 73
+     const-string v1, "phonecashier.pay.resultOrderHash"
+ 
+-    .line 74
+     .line 75
+     const/4 v3, 0x0
+ 
+     .line 76
+     invoke-virtual {p1, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result p1
+ 
+     .line 80
+     if-eqz p1, :cond_5
+ 
+-    .line 81
+     .line 82
+     sget-object v1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 83
+     .line 84
+     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v3
+ 
+     .line 88
+     invoke-static {v1, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v1
+ 
+     .line 92
+     if-nez v1, :cond_3
+ 
+-    .line 93
+     .line 94
+     goto :goto_1
+ 
+@@ -619,24 +482,18 @@
+     :cond_3
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result p1
+ 
+     .line 99
+     if-nez p1, :cond_4
+ 
+-    .line 100
+     .line 101
+     sget-object p1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 102
+     .line 103
+     invoke-static {v0, p1}, Lcom/alipay/sdk/app/PayResultActivity;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     goto :goto_0
+ 
+@@ -644,26 +501,19 @@
+     :cond_4
+     sget-object p1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 108
+     .line 109
+     invoke-static {p1}, Lcom/alipay/sdk/app/PayResultActivity;->c(Ljava/lang/String;)V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     :goto_0
+     const-string p1, ""
+ 
+-    .line 113
+     .line 114
+     sput-object p1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 115
+     .line 116
+     invoke-static {p0, v2}, Lcom/alipay/sdk/app/PayResultActivity;->a(Landroid/app/Activity;I)V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     return-void
+ 
+@@ -672,85 +522,59 @@
+     :goto_1
+     iget-object v0, p0, Lcom/alipay/sdk/app/PayResultActivity;->a:Lcom/alipay/sdk/m/w/a;
+ 
+-    .line 121
+     .line 122
+     const-string v1, "biz"
+ 
+-    .line 123
+     .line 124
+     const-string v3, "SchemePayWrongHashEx"
+ 
+-    .line 125
+     .line 126
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 127
+     .line 128
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     const-string v5, "Expected "
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     sget-object v5, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 137
+     .line 138
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     const-string v5, ", got "
+ 
+-    .line 142
+     .line 143
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     move-result-object p1
+ 
+     .line 153
+     invoke-static {v0, v1, v3, p1}, Lcom/alipay/sdk/m/m/a;->h(Lcom/alipay/sdk/m/w/a;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     sget-object p1, Lcom/alipay/sdk/app/PayResultActivity$b;->a:Ljava/lang/String;
+ 
+-    .line 157
+     .line 158
+     invoke-static {p1}, Lcom/alipay/sdk/app/PayResultActivity;->c(Ljava/lang/String;)V
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     invoke-static {p0, v2}, Lcom/alipay/sdk/app/PayResultActivity;->a(Landroid/app/Activity;I)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     return-void
+ 
+@@ -758,8 +582,6 @@
+     :catchall_0
+     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     return-void
+ .end method

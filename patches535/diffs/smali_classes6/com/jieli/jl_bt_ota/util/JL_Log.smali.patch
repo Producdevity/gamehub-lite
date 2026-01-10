@@ -1,0 +1,1065 @@
+--- a/smali_classes6/com/jieli/jl_bt_ota/util/JL_Log.smali
++++ b/smali_classes6/com/jieli/jl_bt_ota/util/JL_Log.smali
+@@ -19,9 +19,9 @@
+ 
+ .field public static c:Z = true
+ 
+-.field public static d:Z = false
++.field public static d:Z
+ 
+-.field public static e:Z = false
++.field public static e:Z
+ 
+ .field public static f:Ljava/lang/String;
+ 
+@@ -41,28 +41,21 @@
+     .line 1
+     new-instance v0, Ljava/text/SimpleDateFormat;
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     const-string v2, "yyyyMMddHHmmss.SSS"
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v0, v2, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     sput-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->g:Ljava/text/SimpleDateFormat;
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -73,7 +66,6 @@
+     .line 1
+     sput-object p0, Lcom/jieli/jl_bt_ota/util/JL_Log;->h:Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -84,7 +76,6 @@
+     .line 1
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->f:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -98,39 +89,33 @@
+     .line 2
+     if-eq p0, v0, :cond_4
+ 
+-    .line 3
+     .line 4
+     const/4 v0, 0x2
+ 
+     .line 5
+     if-eq p0, v0, :cond_3
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x3
+ 
+     .line 8
+     if-eq p0, v0, :cond_2
+ 
+-    .line 9
+     .line 10
+     const/4 v0, 0x4
+ 
+     .line 11
+     if-eq p0, v0, :cond_1
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x5
+ 
+     .line 14
+     if-eq p0, v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     const-string p0, ""
+ 
+-    .line 17
+     .line 18
+     return-object p0
+ 
+@@ -138,7 +123,6 @@
+     :cond_0
+     const-string p0, "e"
+ 
+-    .line 20
+     .line 21
+     return-object p0
+ 
+@@ -146,7 +130,6 @@
+     :cond_1
+     const-string p0, "w"
+ 
+-    .line 23
+     .line 24
+     return-object p0
+ 
+@@ -154,7 +137,6 @@
+     :cond_2
+     const-string p0, "i"
+ 
+-    .line 26
+     .line 27
+     return-object p0
+ 
+@@ -162,7 +144,6 @@
+     :cond_3
+     const-string p0, "d"
+ 
+-    .line 29
+     .line 30
+     return-object p0
+ 
+@@ -170,7 +151,6 @@
+     :cond_4
+     const-string p0, "v"
+ 
+-    .line 32
+     .line 33
+     return-object p0
+ .end method
+@@ -181,8 +161,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->l(Landroid/content/Context;[Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -196,7 +174,6 @@
+     .line 1
+     sput-object p0, Lcom/jieli/jl_bt_ota/util/JL_Log;->f:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -207,24 +184,18 @@
+     .line 1
+     sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+ 
+-    .line 2
+     .line 3
+     filled-new-array {p0, p1}, [Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     const-string p1, "[%s] >>> %s"
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0, p1, p0}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -238,52 +209,36 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Lcom/jieli/jl_bt_ota/util/JL_Log;->p()Ljava/lang/String;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+     .line 10
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const-string v1, "   "
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     const-string p0, "null"
+ 
+-    .line 25
+     .line 26
+     if-nez p1, :cond_0
+ 
+-    .line 27
+     .line 28
+     move-object p1, p0
+ 
+@@ -291,21 +246,15 @@
+     :cond_0
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     const-string p1, " :  "
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     if-nez p2, :cond_1
+ 
+-    .line 38
+     .line 39
+     move-object p2, p0
+ 
+@@ -313,22 +262,15 @@
+     :cond_1
+     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     const-string p0, "\n"
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p0
+ 
+@@ -342,32 +284,24 @@
+     .line 1
+     invoke-static {p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->m(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     sget-boolean v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->c:Z
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_6
+ 
+-    .line 8
+     .line 9
+     sget-boolean v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->d:Z
+ 
+-    .line 10
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-static {p0, p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->n(ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     goto :goto_0
+ 
+@@ -378,35 +312,30 @@
+     .line 18
+     if-eq p0, v0, :cond_5
+ 
+-    .line 19
+     .line 20
+     const/4 v0, 0x2
+ 
+     .line 21
+     if-eq p0, v0, :cond_4
+ 
+-    .line 22
+     .line 23
+     const/4 v0, 0x3
+ 
+     .line 24
+     if-eq p0, v0, :cond_3
+ 
+-    .line 25
+     .line 26
+     const/4 v0, 0x4
+ 
+     .line 27
+     if-eq p0, v0, :cond_2
+ 
+-    .line 28
+     .line 29
+     const/4 v0, 0x5
+ 
+     .line 30
+     if-eq p0, v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     return-void
+ 
+@@ -414,8 +343,6 @@
+     :cond_1
+     invoke-static {p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -423,8 +350,6 @@
+     :cond_2
+     invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -432,8 +357,6 @@
+     :cond_3
+     invoke-static {p1, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -441,8 +364,6 @@
+     :cond_4
+     invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     goto :goto_0
+ 
+@@ -450,15 +371,11 @@
+     :cond_5
+     invoke-static {p1, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :cond_6
+     :goto_0
+     invoke-static {p0, p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->o(ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-void
+ .end method
+@@ -469,23 +386,18 @@
+     .line 1
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->h:Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0}, Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;->c(Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -498,20 +410,15 @@
+     :goto_0
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->i:Landroid/content/Context;
+ 
+-    .line 14
+     .line 15
+     if-nez v0, :cond_3
+ 
+-    .line 16
+     .line 17
+     if-nez p0, :cond_2
+ 
+-    .line 18
+     .line 19
+     invoke-static {}, Lcom/jieli/jl_bt_ota/util/CommonUtil;->i()Landroid/content/Context;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+@@ -519,30 +426,22 @@
+     :cond_2
+     sput-object p0, Lcom/jieli/jl_bt_ota/util/JL_Log;->i:Landroid/content/Context;
+ 
+-    .line 24
+     .line 25
+     :cond_3
+     new-instance p0, Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;
+ 
+-    .line 26
+     .line 27
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->i:Landroid/content/Context;
+ 
+-    .line 28
+     .line 29
+     invoke-direct {p0, v0}, Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;-><init>(Landroid/content/Context;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     sput-object p0, Lcom/jieli/jl_bt_ota/util/JL_Log;->h:Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {p0}, Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;->start()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     return-void
+ .end method
+@@ -553,11 +452,9 @@
+     .line 1
+     sget-boolean v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->e:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     goto :goto_0
+ 
+@@ -565,51 +462,37 @@
+     :cond_0
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->h:Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;
+ 
+-    .line 7
+     .line 8
+     if-nez v0, :cond_1
+ 
+-    .line 9
+     .line 10
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->i:Landroid/content/Context;
+ 
+-    .line 11
+     .line 12
+     invoke-static {v0}, Lcom/jieli/jl_bt_ota/util/JL_Log;->i(Landroid/content/Context;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const-wide/16 v0, 0x14
+ 
+-    .line 16
+     .line 17
+     invoke-static {v0, v1}, Landroid/os/SystemClock;->sleep(J)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     :cond_1
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->h:Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;
+ 
+-    .line 21
+     .line 22
+     if-eqz v0, :cond_2
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     invoke-virtual {v0, p0}, Lcom/jieli/jl_bt_ota/util/JL_Log$SaveLogFileThread;->d([B)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     :cond_2
+     :goto_0
+@@ -622,8 +505,6 @@
+     .line 1
+     invoke-static {}, Lcom/jieli/jl_bt_ota/util/JL_Log;->p()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -640,47 +521,37 @@
+     .line 2
+     if-eqz p0, :cond_6
+ 
+-    .line 3
+     .line 4
+     if-eqz p1, :cond_6
+ 
+-    .line 5
+     .line 6
+     array-length v1, p1
+ 
+     .line 7
+     if-nez v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto/16 :goto_2
+ 
+-    .line 10
+     .line 11
+     :cond_0
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     if-eqz p0, :cond_6
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Ljava/io/File;->exists()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v1
+ 
+     .line 21
+     if-nez v1, :cond_1
+ 
+-    .line 22
+     .line 23
+     goto :goto_2
+ 
+@@ -688,37 +559,27 @@
+     :cond_1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-direct {v0, p0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     const-string v1, "/"
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result p0
+ 
+@@ -728,32 +589,24 @@
+     .line 44
+     if-eqz p0, :cond_2
+ 
+-    .line 45
+     .line 46
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->lastIndexOf(Ljava/lang/String;)I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v3
+ 
+     .line 52
+     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->substring(II)Ljava/lang/String;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v0
+ 
+     .line 56
+     invoke-direct {p0, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-object v0, p0
+ 
+@@ -765,115 +618,82 @@
+     :goto_0
+     if-ge v2, p0, :cond_5
+ 
+-    .line 62
+     .line 63
+     aget-object v3, p1, v2
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v4
+ 
+     .line 77
+     invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-virtual {v3}, Ljava/io/File;->exists()Z
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v4
+ 
+     .line 84
+     if-eqz v4, :cond_3
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v3}, Ljava/io/File;->isFile()Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v4
+ 
+     .line 90
+     if-eqz v4, :cond_4
+ 
+-    .line 91
+     .line 92
+     :cond_3
+     invoke-virtual {v3}, Ljava/io/File;->mkdir()Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v3
+ 
+     .line 96
+     if-nez v3, :cond_4
+ 
+-    .line 97
+     .line 98
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 99
+     .line 100
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     const-string p1, "create dir failed. filePath = "
+ 
+-    .line 104
+     .line 105
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+     .line 115
+     const-string p1, "jieli"
+ 
+-    .line 116
+     .line 117
+     invoke-static {p1, p0}, Lcom/jieli/jl_bt_ota/util/JL_Log;->x(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     goto :goto_1
+ 
+@@ -881,7 +701,6 @@
+     :cond_4
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 122
+     .line 123
+     goto :goto_0
+ 
+@@ -890,8 +709,6 @@
+     :goto_1
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object p0
+ 
+@@ -910,31 +727,21 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "ota:"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+@@ -948,36 +755,27 @@
+     .line 1
+     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+ 
+-    .line 4
+     .line 5
+     invoke-static {p0}, Lcom/jieli/jl_bt_ota/util/JL_Log;->c(I)Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     filled-new-array {p0, p1, p2}, [Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     const-string p1, "%s\t%s\t%s%n"
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0, v1, p1, p0}, Ljava/io/PrintStream;->printf(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -988,32 +786,24 @@
+     .line 1
+     invoke-static {p0}, Lcom/jieli/jl_bt_ota/util/JL_Log;->c(I)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {v0, p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->g(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     sget-object p2, Lcom/jieli/jl_bt_ota/util/JL_Log;->j:Lcom/jieli/jl_bt_ota/util/JL_Log$ILogOutput;
+ 
+-    .line 10
+     .line 11
+     if-eqz p2, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-interface {p2, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log$ILogOutput;->a(Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ 
+@@ -1021,11 +811,9 @@
+     :cond_0
+     sget p2, Lcom/jieli/jl_bt_ota/util/JL_Log;->a:I
+ 
+-    .line 18
+     .line 19
+     if-ge p0, p2, :cond_1
+ 
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -1033,8 +821,6 @@
+     :cond_1
+     invoke-static {p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->j(Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -1045,28 +831,21 @@
+     .line 1
+     sget-object v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->g:Ljava/text/SimpleDateFormat;
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-virtual {v1}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v1
+ 
+     .line 11
+     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+@@ -1083,8 +862,6 @@
+     .line 2
+     invoke-static {v0, p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->h(ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -1095,16 +872,12 @@
+     .line 1
+     invoke-static {p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->q(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -1118,8 +891,6 @@
+     .line 2
+     invoke-static {v0, p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->h(ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -1130,16 +901,12 @@
+     .line 1
+     invoke-static {p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->s(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -1153,8 +920,6 @@
+     .line 2
+     invoke-static {v0, p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->h(ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -1165,16 +930,12 @@
+     .line 1
+     invoke-static {p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->u(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -1185,7 +946,6 @@
+     .line 1
+     sget-boolean v0, Lcom/jieli/jl_bt_ota/util/JL_Log;->c:Z
+ 
+-    .line 2
+     .line 3
+     return v0
+ .end method
+@@ -1199,8 +959,6 @@
+     .line 2
+     invoke-static {v0, p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->h(ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -1211,16 +969,12 @@
+     .line 1
+     invoke-static {p1, p2}, Lcom/jieli/jl_bt_ota/util/JL_Log;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->x(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method

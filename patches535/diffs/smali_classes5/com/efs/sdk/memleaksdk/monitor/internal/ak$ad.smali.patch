@@ -1,0 +1,199 @@
+--- a/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/ak$ad.smali
++++ b/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/ak$ad.smali
+@@ -31,8 +31,6 @@
+     .line 2
+     invoke-direct {p0, p1, p2, v0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak;-><init>(Ljava/lang/String;IB)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -57,187 +55,135 @@
+     .line 1
+     const-string p0, "references"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ak;->ao:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;
+ 
+-    .line 7
+     .line 8
+     const-string v0, "mNextServedView"
+ 
+-    .line 9
+     .line 10
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$a;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$a;
+ 
+-    .line 11
+     .line 12
+     const-string v2, "android.view.inputmethod.InputMethodManager"
+ 
+-    .line 13
+     .line 14
+     const-string v3, "When we detach a view that receives keyboard input, the InputMethodManager leaks a reference to it until a new view asks for keyboard input. Tracked here: https://code.google.com/p/android/issues/detail?id=171190 Hack: https://gist.github.com/pyricau/4df64341cc978a7de414"
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0, v2, v0, v3, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const-string v0, "mServedView"
+ 
+-    .line 24
+     .line 25
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$b;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$b;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v2, v0, v3, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const-string v0, "mServedInputConnection"
+ 
+-    .line 35
+     .line 36
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$c;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$c;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0, v2, v0, v3, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v0
+ 
+     .line 42
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-string v0, "HUAWEI added a mLastSrvView field to InputMethodManager that leaks a reference to the last served view."
+ 
+-    .line 46
+     .line 47
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$d;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$d;
+ 
+-    .line 48
+     .line 49
+     const-string v3, "mLastSrvView"
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {p0, v2, v3, v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v0
+ 
+     .line 55
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     const-string v0, "The singleton InputMethodManager is holding a reference to mCurRootView long after the activity has been destroyed. Observed on ICS MR1: https://github.com/square/leakcanary/issues/1#issuecomment-100579429 Hack: https://gist.github.com/pyricau/4df64341cc978a7de414"
+ 
+-    .line 59
+     .line 60
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$e;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$e;
+ 
+-    .line 61
+     .line 62
+     const-string v3, "mCurRootView"
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0, v2, v3, v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v0
+ 
+     .line 68
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     const-string v0, "Android Q Beta has a leak where InputMethodManager.mImeInsetsConsumer isn\'t set to\nnull when the activity is destroyed."
+ 
+-    .line 72
+     .line 73
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$f;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$f;
+ 
+-    .line 74
+     .line 75
+     const-string v3, "mImeInsetsConsumer"
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p0, v2, v3, v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v0
+ 
+     .line 81
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     const-string v0, "In Android Q Beta InputMethodManager keeps its EditableInputConnection after the\nactivity has been destroyed."
+ 
+-    .line 85
+     .line 86
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$g;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$ad$g;
+ 
+-    .line 87
+     .line 88
+     const-string v3, "mCurrentInputConnection"
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {p0, v2, v3, v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p0
+ 
+     .line 94
+     invoke-interface {p1, p0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     return-void
+ .end method

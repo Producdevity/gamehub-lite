@@ -1,0 +1,236 @@
+--- a/smali_classes9/in/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop.smali
++++ b/smali_classes9/in/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop.smali
+@@ -68,23 +68,18 @@
+     :goto_0
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->cancelRequested:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     const-wide/16 v0, 0x64
+ 
+-    .line 6
+     .line 7
+     :try_start_0
+     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
+     :try_end_0
+     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     goto :goto_1
+ 
+@@ -95,29 +90,22 @@
+     .line 12
+     invoke-static {}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->i()Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     const-string v2, "Thread interrupted"
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v1, v2, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :goto_1
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->cancelRequested:Z
+ 
+-    .line 22
+     .line 23
+     if-eqz v0, :cond_1
+ 
+-    .line 24
+     .line 25
+     goto :goto_2
+ 
+@@ -126,20 +114,15 @@
+     :try_start_1
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->this$0:Lin/dragonbra/javasteam/networking/steam3/TcpConnection;
+ 
+-    .line 27
+     .line 28
+     invoke-static {v0}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->c(Lin/dragonbra/javasteam/networking/steam3/TcpConnection;)Lin/dragonbra/javasteam/util/stream/BinaryReader;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+     .line 32
+     invoke-virtual {v0}, Ljava/io/InputStream;->available()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+     :try_end_1
+@@ -148,52 +131,39 @@
+     .line 36
+     if-lez v0, :cond_0
+ 
+-    .line 37
+     .line 38
+     :try_start_2
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->this$0:Lin/dragonbra/javasteam/networking/steam3/TcpConnection;
+ 
+-    .line 39
+     .line 40
+     invoke-static {v0}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->d(Lin/dragonbra/javasteam/networking/steam3/TcpConnection;)[B
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+     .line 44
+     iget-object v1, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->this$0:Lin/dragonbra/javasteam/networking/steam3/TcpConnection;
+ 
+-    .line 45
+     .line 46
+     new-instance v2, Lin/dragonbra/javasteam/networking/steam3/NetMsgEventArgs;
+ 
+-    .line 47
+     .line 48
+     iget-object v3, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->this$0:Lin/dragonbra/javasteam/networking/steam3/TcpConnection;
+ 
+-    .line 49
+     .line 50
+     invoke-static {v3}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->a(Lin/dragonbra/javasteam/networking/steam3/TcpConnection;)Ljava/net/InetSocketAddress;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v3
+ 
+     .line 54
+     invoke-direct {v2, v0, v3}, Lin/dragonbra/javasteam/networking/steam3/NetMsgEventArgs;-><init>([BLjava/net/InetSocketAddress;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v1, v2}, Lin/dragonbra/javasteam/networking/steam3/Connection;->onNetMsgReceived(Lin/dragonbra/javasteam/networking/steam3/NetMsgEventArgs;)V
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_0
+ 
+@@ -204,20 +174,15 @@
+     .line 62
+     invoke-static {}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->i()Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v1
+ 
+     .line 66
+     const-string v2, "Socket exception occurred while reading packet"
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v1, v2, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto :goto_2
+ 
+@@ -228,60 +193,45 @@
+     .line 73
+     invoke-static {}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->i()Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v1
+ 
+     .line 77
+     const-string v2, "Socket exception while polling"
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {v1, v2, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     :cond_2
+     :goto_2
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->cancelRequested:Z
+ 
+-    .line 83
+     .line 84
+     if-eqz v0, :cond_3
+ 
+-    .line 85
+     .line 86
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->this$0:Lin/dragonbra/javasteam/networking/steam3/TcpConnection;
+ 
+-    .line 87
+     .line 88
+     invoke-static {v0}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->f(Lin/dragonbra/javasteam/networking/steam3/TcpConnection;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     :cond_3
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->this$0:Lin/dragonbra/javasteam/networking/steam3/TcpConnection;
+ 
+-    .line 92
+     .line 93
+     iget-boolean v1, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->cancelRequested:Z
+ 
+-    .line 94
+     .line 95
+     if-eqz v1, :cond_4
+ 
+-    .line 96
+     .line 97
+     iget-boolean p0, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->userRequested:Z
+ 
+-    .line 98
+     .line 99
+     if-eqz p0, :cond_4
+ 
+-    .line 100
+     .line 101
+     const/4 p0, 0x1
+ 
+@@ -296,8 +246,6 @@
+     :goto_3
+     invoke-static {v0, p0}, Lin/dragonbra/javasteam/networking/steam3/TcpConnection;->e(Lin/dragonbra/javasteam/networking/steam3/TcpConnection;Z)V
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     return-void
+ .end method
+@@ -308,14 +256,12 @@
+     .line 1
+     iput-boolean p1, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->userRequested:Z
+ 
+-    .line 2
+     .line 3
+     const/4 p1, 0x1
+ 
+     .line 4
+     iput-boolean p1, p0, Lin/dragonbra/javasteam/networking/steam3/TcpConnection$NetLoop;->cancelRequested:Z
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method

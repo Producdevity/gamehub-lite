@@ -1,0 +1,2531 @@
+--- a/smali_classes4/androidx/media3/common/util/GlUtil.smali
++++ b/smali_classes4/androidx/media3/common/util/GlUtil.smali
+@@ -60,89 +60,66 @@
+     .line 1
+     const/16 v0, 0xf
+ 
+-    .line 2
+     .line 3
+     new-array v1, v0, [I
+ 
+-    .line 4
+     .line 5
+     fill-array-data v1, :array_0
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sput-object v1, Landroidx/media3/common/util/GlUtil;->EGL_CONFIG_ATTRIBUTES_RGBA_8888:[I
+ 
+-    .line 9
+     .line 10
+     new-array v0, v0, [I
+ 
+-    .line 11
+     .line 12
+     fill-array-data v0, :array_1
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     sput-object v0, Landroidx/media3/common/util/GlUtil;->EGL_CONFIG_ATTRIBUTES_RGBA_1010102:[I
+ 
+-    .line 16
+     .line 17
+     const/16 v0, 0x3340
+ 
+-    .line 18
+     .line 19
+     const/16 v1, 0x309d
+ 
+-    .line 20
+     .line 21
+     const/16 v2, 0x3038
+ 
+-    .line 22
+     .line 23
+     filled-new-array {v1, v0, v2, v2}, [I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+     .line 27
+     sput-object v0, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_BT2020_PQ:[I
+ 
+-    .line 28
+     .line 29
+     const/16 v0, 0x3540
+ 
+-    .line 30
+     .line 31
+     filled-new-array {v1, v0, v2, v2}, [I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     sput-object v0, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_BT2020_HLG:[I
+ 
+-    .line 36
+     .line 37
+     filled-new-array {v2}, [I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v0
+ 
+     .line 41
+     sput-object v0, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_NONE:[I
+ 
+-    .line 42
+     .line 43
+     return-void
+ 
+-    .line 44
+     nop
+ 
+     .line 45
+@@ -165,39 +142,6 @@
+         0x3038
+     .end array-data
+ 
+-    .line 46
+-    .line 47
+-    .line 48
+-    .line 49
+-    .line 50
+-    .line 51
+-    .line 52
+-    .line 53
+-    .line 54
+-    .line 55
+-    .line 56
+-    .line 57
+-    .line 58
+-    .line 59
+-    .line 60
+-    .line 61
+-    .line 62
+-    .line 63
+-    .line 64
+-    .line 65
+-    .line 66
+-    .line 67
+-    .line 68
+-    .line 69
+-    .line 70
+-    .line 71
+-    .line 72
+-    .line 73
+-    .line 74
+-    .line 75
+-    .line 76
+-    .line 77
+-    .line 78
+     .line 79
+     :array_1
+     .array-data 4
+@@ -225,8 +169,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -245,27 +187,21 @@
+     .line 2
+     new-array v1, v0, [I
+ 
+-    .line 3
+     .line 4
+     const/16 v2, 0xd33
+ 
+-    .line 5
+     .line 6
+     const/4 v3, 0x0
+ 
+     .line 7
+     invoke-static {v2, v1, v3}, Landroid/opengl/GLES20;->glGetIntegerv(I[II)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     aget v1, v1, v3
+ 
+-    .line 11
+     .line 12
+     if-lez v1, :cond_0
+ 
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -277,28 +213,21 @@
+     :goto_0
+     const-string v2, "Create a OpenGL context first or run the GL methods on an OpenGL thread."
+ 
+-    .line 17
+     .line 18
+     invoke-static {v0, v2}, Landroidx/media3/common/util/Assertions;->checkState(ZLjava/lang/Object;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     if-ltz p0, :cond_2
+ 
+-    .line 22
+     .line 23
+     if-ltz p1, :cond_2
+ 
+-    .line 24
+     .line 25
+     if-gt p0, v1, :cond_1
+ 
+-    .line 26
+     .line 27
+     if-gt p1, v1, :cond_1
+ 
+-    .line 28
+     .line 29
+     return-void
+ 
+@@ -306,43 +235,30 @@
+     :cond_1
+     new-instance p0, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 31
+     .line 32
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const-string v0, "width or height is greater than GL_MAX_TEXTURE_SIZE "
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p1
+ 
+     .line 49
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     throw p0
+ 
+@@ -350,16 +266,12 @@
+     :cond_2
+     new-instance p0, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 54
+     .line 55
+     const-string p1, "width or height is less than 0"
+ 
+-    .line 56
+     .line 57
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     throw p0
+ .end method
+@@ -375,20 +287,15 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, p0, v0
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {}, Landroid/opengl/GLES20;->glFinish()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -399,17 +306,12 @@
+     .line 12
+     const-wide/16 v1, -0x1
+ 
+-    .line 13
+     .line 14
+     invoke-static {p0, p1, v0, v1, v2}, Landroid/opengl/GLES30;->glWaitSync(JIJ)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -425,74 +327,48 @@
+     .line 1
+     invoke-static {p0, p1}, Landroid/opengl/GLES20;->glBindTexture(II)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     const/16 p1, 0x2800
+ 
+-    .line 8
+     .line 9
+     invoke-static {p0, p1, p2}, Landroid/opengl/GLES20;->glTexParameteri(III)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const/16 p1, 0x2801
+ 
+-    .line 16
+     .line 17
+     invoke-static {p0, p1, p2}, Landroid/opengl/GLES20;->glTexParameteri(III)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const/16 p1, 0x2802
+ 
+-    .line 24
+     .line 25
+     const p2, 0x812f
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {p0, p1, p2}, Landroid/opengl/GLES20;->glTexParameteri(III)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const/16 p1, 0x2803
+ 
+-    .line 35
+     .line 36
+     invoke-static {p0, p1, p2}, Landroid/opengl/GLES20;->glTexParameteri(III)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-void
+ .end method
+@@ -508,139 +384,96 @@
+     .line 1
+     move-object/from16 v0, p1
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p3
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x1
+ 
+     .line 6
+     new-array v2, v2, [I
+ 
+-    .line 7
+     .line 8
+     const v3, 0x8ca6
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/4 v4, 0x0
+ 
+     .line 12
+     invoke-static {v3, v2, v4}, Landroid/opengl/GLES20;->glGetIntegerv(I[II)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const v3, 0x8ca8
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-static {v3, p0}, Landroid/opengl/GLES20;->glBindFramebuffer(II)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     const p0, 0x8ca9
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move/from16 v3, p2
+ 
+-    .line 31
+     .line 32
+     invoke-static {p0, v3}, Landroid/opengl/GLES20;->glBindFramebuffer(II)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     iget v5, v0, Landroidx/media3/common/util/GlRect;->left:I
+ 
+-    .line 39
+     .line 40
+     iget v6, v0, Landroidx/media3/common/util/GlRect;->bottom:I
+ 
+-    .line 41
+     .line 42
+     iget v7, v0, Landroidx/media3/common/util/GlRect;->right:I
+ 
+-    .line 43
+     .line 44
+     iget v8, v0, Landroidx/media3/common/util/GlRect;->top:I
+ 
+-    .line 45
+     .line 46
+     iget v9, v1, Landroidx/media3/common/util/GlRect;->left:I
+ 
+-    .line 47
+     .line 48
+     iget v10, v1, Landroidx/media3/common/util/GlRect;->bottom:I
+ 
+-    .line 49
+     .line 50
+     iget v11, v1, Landroidx/media3/common/util/GlRect;->right:I
+ 
+-    .line 51
+     .line 52
+     iget v12, v1, Landroidx/media3/common/util/GlRect;->top:I
+ 
+-    .line 53
+     .line 54
+     const/16 v13, 0x4000
+ 
+-    .line 55
+     .line 56
+     const/16 v14, 0x2601
+ 
+-    .line 57
+     .line 58
+     invoke-static/range {v5 .. v14}, Landroid/opengl/GLES30;->glBlitFramebuffer(IIIIIIIIII)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     const p0, 0x8d40
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     aget v0, v2, v4
+ 
+-    .line 68
+     .line 69
+     invoke-static {p0, v0}, Landroid/opengl/GLES20;->glBindFramebuffer(II)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     return-void
+ .end method
+@@ -656,19 +489,15 @@
+     .line 1
+     invoke-static {}, Landroid/opengl/EGL14;->eglGetError()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     const/16 v1, 0x3000
+ 
+-    .line 6
+     .line 7
+     if-ne v0, v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -676,56 +505,39 @@
+     :cond_0
+     new-instance v1, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 11
+     .line 12
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const-string p0, ", error code: 0x"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+     .line 29
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     invoke-direct {v1, p0}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     throw v1
+ .end method
+@@ -741,12 +553,9 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v1, 0x0
+ 
+@@ -754,77 +563,55 @@
+     :goto_0
+     invoke-static {}, Landroid/opengl/GLES20;->glGetError()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v2
+ 
+     .line 11
+     if-eqz v2, :cond_2
+ 
+-    .line 12
+     .line 13
+     if-eqz v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/16 v1, 0xa
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     :cond_0
+     invoke-static {v2}, Landroid/opengl/GLU;->gluErrorString(I)Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     if-nez v1, :cond_1
+ 
+-    .line 25
+     .line 26
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 27
+     .line 28
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     const-string v3, "error code: 0x"
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v2
+ 
+     .line 40
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+@@ -832,17 +619,12 @@
+     :cond_1
+     const-string v2, "glError: "
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const/4 v1, 0x1
+ 
+@@ -853,7 +635,6 @@
+     :cond_2
+     if-nez v1, :cond_3
+ 
+-    .line 58
+     .line 59
+     return-void
+ 
+@@ -861,20 +642,15 @@
+     :cond_3
+     new-instance v1, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     invoke-direct {v1, v0}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     throw v1
+ .end method
+@@ -890,7 +666,6 @@
+     .line 1
+     if-eqz p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     return-void
+ 
+@@ -898,12 +673,9 @@
+     :cond_0
+     new-instance p0, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     throw p0
+ .end method
+@@ -922,31 +694,21 @@
+     .line 2
+     invoke-static {v0, v0, v0, v0}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     const/high16 v0, 0x3f800000    # 1.0f
+ 
+-    .line 6
+     .line 7
+     invoke-static {v0}, Landroid/opengl/GLES20;->glClearDepthf(F)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/16 v0, 0x4100
+ 
+-    .line 11
+     .line 12
+     invoke-static {v0}, Landroid/opengl/GLES20;->glClear(I)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -957,16 +719,12 @@
+     .line 1
+     const/16 v0, 0x10
+ 
+-    .line 2
+     .line 3
+     new-array v0, v0, [F
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0}, Landroidx/media3/common/util/GlUtil;->setToIdentity([F)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-object v0
+ .end method
+@@ -1185,15 +943,12 @@
+     .line 2
+     if-eq p2, v0, :cond_7
+ 
+-    .line 3
+     .line 4
+     const/16 v0, 0xa
+ 
+-    .line 5
+     .line 6
+     if-ne p2, v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     goto :goto_1
+ 
+@@ -1207,11 +962,9 @@
+     .line 11
+     if-eq p2, v0, :cond_2
+ 
+-    .line 12
+     .line 13
+     if-ne p2, v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -1219,43 +972,30 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 17
+     .line 18
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const-string p3, "Unsupported color transfer: "
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p1
+ 
+     .line 35
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     throw p0
+ 
+@@ -1264,15 +1004,12 @@
+     :goto_0
+     sget-object v0, Landroidx/media3/common/util/GlUtil;->EGL_CONFIG_ATTRIBUTES_RGBA_1010102:[I
+ 
+-    .line 40
+     .line 41
+     if-eqz p3, :cond_3
+ 
+-    .line 42
+     .line 43
+     sget-object p2, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_NONE:[I
+ 
+-    .line 44
+     .line 45
+     goto :goto_2
+ 
+@@ -1280,23 +1017,18 @@
+     :cond_3
+     if-ne p2, v1, :cond_5
+ 
+-    .line 47
+     .line 48
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->isBt2020PqExtensionSupported()Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result p2
+ 
+     .line 52
+     if-eqz p2, :cond_4
+ 
+-    .line 53
+     .line 54
+     sget-object p2, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_BT2020_PQ:[I
+ 
+-    .line 55
+     .line 56
+     goto :goto_2
+ 
+@@ -1304,16 +1036,12 @@
+     :cond_4
+     new-instance p0, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 58
+     .line 59
+     const-string p1, "BT.2020 PQ OpenGL output isn\'t supported."
+ 
+-    .line 60
+     .line 61
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     throw p0
+ 
+@@ -1321,19 +1049,15 @@
+     :cond_5
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->isBt2020HlgExtensionSupported()Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result p2
+ 
+     .line 69
+     if-eqz p2, :cond_6
+ 
+-    .line 70
+     .line 71
+     sget-object p2, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_BT2020_HLG:[I
+ 
+-    .line 72
+     .line 73
+     goto :goto_2
+ 
+@@ -1341,16 +1065,12 @@
+     :cond_6
+     new-instance p0, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 75
+     .line 76
+     const-string p1, "BT.2020 HLG OpenGL output isn\'t supported."
+ 
+-    .line 77
+     .line 78
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     throw p0
+ 
+@@ -1359,17 +1079,13 @@
+     :goto_1
+     sget-object v0, Landroidx/media3/common/util/GlUtil;->EGL_CONFIG_ATTRIBUTES_RGBA_8888:[I
+ 
+-    .line 83
+     .line 84
+     sget-object p2, Landroidx/media3/common/util/GlUtil;->EGL_WINDOW_SURFACE_ATTRIBUTES_NONE:[I
+ 
+-    .line 85
+     .line 86
+     :goto_2
+     invoke-static {p0, v0}, Landroidx/media3/common/util/GlUtil;->getEglConfig(Landroid/opengl/EGLDisplay;[I)Landroid/opengl/EGLConfig;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p3
+ 
+@@ -1379,20 +1095,15 @@
+     .line 91
+     invoke-static {p0, p3, p1, p2, v0}, Landroid/opengl/EGL14;->eglCreateWindowSurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Ljava/lang/Object;[II)Landroid/opengl/EGLSurface;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object p0
+ 
+     .line 95
+     const-string p1, "Error creating a new EGL surface"
+ 
+-    .line 96
+     .line 97
+     invoke-static {p1}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     return-object p0
+ .end method
+@@ -1408,25 +1119,18 @@
+     .line 1
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->generateTexture()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     const v1, 0x8d65
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/16 v2, 0x2601
+ 
+-    .line 9
+     .line 10
+     invoke-static {v1, v0, v2}, Landroidx/media3/common/util/GlUtil;->bindTexture(III)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return v0
+ .end method
+@@ -1445,62 +1149,42 @@
+     .line 2
+     new-array v1, v0, [I
+ 
+-    .line 3
+     .line 4
+     const/4 v2, 0x0
+ 
+     .line 5
+     invoke-static {v0, v1, v2}, Landroid/opengl/GLES20;->glGenFramebuffers(I[II)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     aget v0, v1, v2
+ 
+-    .line 12
+     .line 13
+     const v3, 0x8d40
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {v3, v0}, Landroid/opengl/GLES20;->glBindFramebuffer(II)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const v0, 0x8ce0
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     const/16 v4, 0xde1
+ 
+-    .line 26
+     .line 27
+     invoke-static {v3, v0, v4, p0, v2}, Landroid/opengl/GLES20;->glFramebufferTexture2D(IIIII)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     aget p0, v1, v2
+ 
+-    .line 34
+     .line 35
+     return p0
+ .end method
+@@ -1516,12 +1200,9 @@
+     .line 1
+     sget-object v0, Landroidx/media3/common/util/GlUtil;->EGL_CONFIG_ATTRIBUTES_RGBA_8888:[I
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->isSurfacelessContextExtensionSupported()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+@@ -1531,11 +1212,9 @@
+     .line 8
+     if-eqz v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_SURFACE:Landroid/opengl/EGLSurface;
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -1543,8 +1222,6 @@
+     :cond_0
+     invoke-static {p1, v2, v2, v0}, Landroidx/media3/common/util/GlUtil;->createPbufferSurface(Landroid/opengl/EGLDisplay;II[I)Landroid/opengl/EGLSurface;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+@@ -1552,8 +1229,6 @@
+     :goto_0
+     invoke-static {p1, p0, v0, v2, v2}, Landroidx/media3/common/util/GlUtil;->focusEglSurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;Landroid/opengl/EGLSurface;II)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-object v0
+ .end method
+@@ -1569,54 +1244,39 @@
+     .line 1
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->getContextMajorVersion()J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+     .line 5
+     const-wide/16 v2, 0x3
+ 
+-    .line 6
+     .line 7
+     cmp-long v0, v0, v2
+ 
+-    .line 8
+     .line 9
+     if-ltz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const v0, 0x9117
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const/4 v1, 0x0
+ 
+     .line 15
+     invoke-static {v0, v1}, Landroid/opengl/GLES30;->glFenceSync(II)J
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-wide v0
+ 
+     .line 19
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-static {}, Landroid/opengl/GLES20;->glFlush()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-wide v0
+ 
+@@ -1624,7 +1284,6 @@
+     :cond_0
+     const-wide/16 v0, 0x0
+ 
+-    .line 30
+     .line 31
+     return-wide v0
+ .end method
+@@ -1640,28 +1299,21 @@
+     .line 1
+     const/16 v0, 0x3056
+ 
+-    .line 2
+     .line 3
+     const/16 v1, 0x3038
+ 
+-    .line 4
+     .line 5
+     const/16 v2, 0x3057
+ 
+-    .line 6
+     .line 7
+     filled-new-array {v2, p1, v0, p2, v1}, [I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p1
+ 
+     .line 11
+     invoke-static {p0, p3}, Landroidx/media3/common/util/GlUtil;->getEglConfig(Landroid/opengl/EGLDisplay;[I)Landroid/opengl/EGLConfig;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p2
+ 
+@@ -1671,20 +1323,15 @@
+     .line 16
+     invoke-static {p0, p2, p1, p3}, Landroid/opengl/EGL14;->eglCreatePbufferSurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;[II)Landroid/opengl/EGLSurface;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     const-string p1, "Error creating a new EGL Pbuffer surface"
+ 
+-    .line 21
+     .line 22
+     invoke-static {p1}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-object p0
+ .end method
+@@ -1703,71 +1350,48 @@
+     .line 2
+     new-array v1, v0, [I
+ 
+-    .line 3
+     .line 4
+     const/4 v2, 0x0
+ 
+     .line 5
+     invoke-static {v0, v1, v2}, Landroid/opengl/GLES20;->glGenBuffers(I[II)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     aget v0, v1, v2
+ 
+-    .line 12
+     .line 13
+     const v3, 0x88eb
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {v3, v0}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const/4 v0, 0x0
+ 
+     .line 23
+     const v4, 0x88e9
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-static {v3, p0, v0, v4}, Landroid/opengl/GLES20;->glBufferData(IILjava/nio/Buffer;I)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-static {v3, v2}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     aget p0, v1, v2
+ 
+-    .line 39
+     .line 40
+     return p0
+ .end method
+@@ -1783,18 +1407,12 @@
+     .line 1
+     const v0, 0x8059
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const v1, 0x8368
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-static {p0, p1, v0, v1}, Landroidx/media3/common/util/GlUtil;->createTextureUninitialized(IIII)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -1866,40 +1484,30 @@
+     .line 1
+     invoke-static {p0, p1}, Landroidx/media3/common/util/GlUtil;->assertValidTextureSize(II)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->generateTexture()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     const/16 v1, 0xde1
+ 
+-    .line 9
+     .line 10
+     const/16 v2, 0x2601
+ 
+-    .line 11
+     .line 12
+     invoke-static {v1, v0, v2}, Landroidx/media3/common/util/GlUtil;->bindTexture(III)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const/16 v9, 0x1908
+ 
+-    .line 16
+     .line 17
+     const/4 v11, 0x0
+ 
+     .line 18
+     const/16 v3, 0xde1
+ 
+-    .line 19
+     .line 20
+     const/4 v4, 0x0
+ 
+@@ -1921,13 +1529,9 @@
+     .line 26
+     invoke-static/range {v3 .. v11}, Landroid/opengl/GLES20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return v0
+ .end method
+@@ -1945,8 +1549,6 @@
+     .line 1
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -1959,7 +1561,6 @@
+     .line 7
+     new-array v0, v0, [F
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x0
+ 
+@@ -1970,36 +1571,27 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v4
+ 
+     .line 15
+     if-ge v3, v4, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v4
+ 
+     .line 21
+     mul-int/lit8 v5, v3, 0x4
+ 
+-    .line 22
+     .line 23
+     invoke-static {v4, v2, v0, v5, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -2019,8 +1611,6 @@
+     .line 1
+     filled-new-array {p0}, [I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -2033,13 +1623,9 @@
+     .line 7
+     invoke-static {v1, p0, v0}, Landroid/opengl/GLES20;->glDeleteBuffers(I[II)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -2055,8 +1641,6 @@
+     .line 1
+     filled-new-array {p0}, [I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -2069,13 +1653,9 @@
+     .line 7
+     invoke-static {v1, p0, v0}, Landroid/opengl/GLES20;->glDeleteFramebuffers(I[II)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -2091,8 +1671,6 @@
+     .line 1
+     filled-new-array {p0}, [I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -2105,13 +1683,9 @@
+     .line 7
+     invoke-static {v1, p0, v0}, Landroid/opengl/GLES20;->glDeleteRenderbuffers(I[II)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -2127,13 +1701,9 @@
+     .line 1
+     invoke-static {p0, p1}, Landroidx/media3/common/util/GlUtil;->deleteSyncObjectQuietly(J)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -2144,8 +1714,6 @@
+     .line 1
+     invoke-static {p0, p1}, Landroid/opengl/GLES30;->glDeleteSync(J)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -2161,8 +1729,6 @@
+     .line 1
+     filled-new-array {p0}, [I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -2175,13 +1741,9 @@
+     .line 7
+     invoke-static {v1, p0, v0}, Landroid/opengl/GLES20;->glDeleteTextures(I[II)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -2205,23 +1767,18 @@
+     .line 1
+     if-eqz p0, :cond_2
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0}, Landroid/opengl/EGLDisplay;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -2229,88 +1786,61 @@
+     :cond_0
+     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_SURFACE:Landroid/opengl/EGLSurface;
+ 
+-    .line 13
+     .line 14
+     sget-object v1, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+ 
+-    .line 15
+     .line 16
+     invoke-static {p0, v0, v0, v1}, Landroid/opengl/EGL14;->eglMakeCurrent(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;Landroid/opengl/EGLSurface;Landroid/opengl/EGLContext;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string v0, "Error releasing context"
+ 
+-    .line 20
+     .line 21
+     invoke-static {v0}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     if-eqz p1, :cond_1
+ 
+-    .line 25
+     .line 26
+     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p1, v0}, Landroid/opengl/EGLContext;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+     .line 32
+     if-nez v0, :cond_1
+ 
+-    .line 33
+     .line 34
+     invoke-static {p0, p1}, Landroid/opengl/EGL14;->eglDestroyContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;)Z
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const-string p1, "Error destroying context"
+ 
+-    .line 38
+     .line 39
+     invoke-static {p1}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :cond_1
+     invoke-static {}, Landroid/opengl/EGL14;->eglReleaseThread()Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-string p1, "Error releasing thread"
+ 
+-    .line 46
+     .line 47
+     invoke-static {p1}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-static {p0}, Landroid/opengl/EGL14;->eglTerminate(Landroid/opengl/EGLDisplay;)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     const-string p0, "Error terminating display"
+ 
+-    .line 54
+     .line 55
+     invoke-static {p0}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     :cond_2
+     :goto_0
+@@ -2336,23 +1866,18 @@
+     .line 1
+     if-eqz p0, :cond_2
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0}, Landroid/opengl/EGLDisplay;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -2360,23 +1885,18 @@
+     :cond_0
+     if-eqz p1, :cond_2
+ 
+-    .line 13
+     .line 14
+     sget-object v0, Landroid/opengl/EGL14;->EGL_NO_SURFACE:Landroid/opengl/EGLSurface;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p1, v0}, Landroid/opengl/EGLSurface;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-eqz v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -2384,17 +1904,12 @@
+     :cond_1
+     invoke-static {p0, p1}, Landroid/opengl/EGL14;->eglDestroySurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     const-string p0, "Error destroying surface"
+ 
+-    .line 27
+     .line 28
+     invoke-static {p0}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     :cond_2
+     :goto_0
+@@ -2430,8 +1945,6 @@
+     .line 7
+     invoke-static/range {v0 .. v5}, Landroidx/media3/common/util/GlUtil;->focusRenderTarget(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;Landroid/opengl/EGLSurface;III)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -2447,8 +1960,6 @@
+     .line 1
+     invoke-static/range {p0 .. p5}, Landroidx/media3/common/util/GlUtil;->focusRenderTarget(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;Landroid/opengl/EGLSurface;III)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -2467,54 +1978,37 @@
+     .line 2
+     new-array v0, v0, [I
+ 
+-    .line 3
+     .line 4
+     const v1, 0x8ca6
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     const/4 v2, 0x0
+ 
+     .line 8
+     invoke-static {v1, v0, v2}, Landroid/opengl/GLES20;->glGetIntegerv(I[II)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     aget v0, v0, v2
+ 
+-    .line 12
+     .line 13
+     if-eq v0, p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const v0, 0x8d40
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-static {v0, p0}, Landroid/opengl/GLES20;->glBindFramebuffer(II)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :cond_0
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-static {v2, v2, p1, p2}, Landroid/opengl/GLES20;->glViewport(IIII)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     return-void
+ .end method
+@@ -2530,22 +2024,15 @@
+     .line 1
+     invoke-static {p0, p2, p2, p1}, Landroid/opengl/EGL14;->eglMakeCurrent(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;Landroid/opengl/EGLSurface;Landroid/opengl/EGLContext;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string p0, "Error making context current"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p0}, Landroidx/media3/common/util/GlUtil;->checkEglException(Ljava/lang/String;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-static {p3, p4, p5}, Landroidx/media3/common/util/GlUtil;->focusFramebufferUsingCurrentContext(III)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ .end method
+@@ -2564,24 +2051,18 @@
+     .line 2
+     new-array v1, v0, [I
+ 
+-    .line 3
+     .line 4
+     const/4 v2, 0x0
+ 
+     .line 5
+     invoke-static {v0, v1, v2}, Landroid/opengl/GLES20;->glGenTextures(I[II)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     aget v0, v1, v2
+ 
+-    .line 12
+     .line 13
+     return v0
+ .end method
+@@ -2600,44 +2081,33 @@
+     .line 2
+     new-array v0, v0, [I
+ 
+-    .line 3
+     .line 4
+     const/4 v1, 0x0
+ 
+     .line 5
+     invoke-static {v1}, Landroid/opengl/EGL14;->eglGetDisplay(I)Landroid/opengl/EGLDisplay;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v2
+ 
+     .line 9
+     invoke-static {}, Landroid/opengl/EGL14;->eglGetCurrentContext()Landroid/opengl/EGLContext;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v3
+ 
+     .line 13
+     const/16 v4, 0x3098
+ 
+-    .line 14
+     .line 15
+     invoke-static {v2, v3, v4, v0, v1}, Landroid/opengl/EGL14;->eglQueryContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;I[II)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     aget v0, v0, v1
+ 
+-    .line 22
+     .line 23
+     int-to-long v0, v0
+ 
+@@ -2651,8 +2121,6 @@
+     .line 1
+     invoke-static {}, Landroid/opengl/EGL14;->eglGetCurrentContext()Landroid/opengl/EGLContext;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -2674,20 +2142,15 @@
+     .line 2
+     invoke-static {v0}, Landroid/opengl/EGL14;->eglGetDisplay(I)Landroid/opengl/EGLDisplay;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object v1
+ 
+     .line 6
+     sget-object v2, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v1, v2}, Landroid/opengl/EGLDisplay;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v2
+ 
+@@ -2700,42 +2163,30 @@
+     .line 14
+     const-string v4, "No EGL display."
+ 
+-    .line 15
+     .line 16
+     invoke-static {v2, v4}, Landroidx/media3/common/util/GlUtil;->checkGlException(ZLjava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     new-array v2, v3, [I
+ 
+-    .line 20
+     .line 21
+     new-array v3, v3, [I
+ 
+-    .line 22
+     .line 23
+     invoke-static {v1, v2, v0, v3, v0}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v0
+ 
+     .line 27
+     const-string v2, "Error in eglInitialize."
+ 
+-    .line 28
+     .line 29
+     invoke-static {v0, v2}, Landroidx/media3/common/util/GlUtil;->checkGlException(ZLjava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-object v1
+ .end method
+@@ -2754,11 +2205,9 @@
+     .line 2
+     new-array v4, v0, [Landroid/opengl/EGLConfig;
+ 
+-    .line 3
+     .line 4
+     new-array v7, v0, [I
+ 
+-    .line 5
+     .line 6
+     const/4 v8, 0x0
+ 
+@@ -2780,22 +2229,18 @@
+     .line 12
+     invoke-static/range {v1 .. v8}, Landroid/opengl/EGL14;->eglChooseConfig(Landroid/opengl/EGLDisplay;[II[Landroid/opengl/EGLConfig;II[II)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p0
+ 
+     .line 16
+     if-eqz p0, :cond_0
+ 
+-    .line 17
+     .line 18
+     const/4 p0, 0x0
+ 
+     .line 19
+     aget-object p0, v4, p0
+ 
+-    .line 20
+     .line 21
+     return-object p0
+ 
+@@ -2803,16 +2248,12 @@
+     :cond_0
+     new-instance p0, Landroidx/media3/common/util/GlUtil$GlException;
+ 
+-    .line 23
+     .line 24
+     const-string p1, "eglChooseConfig failed."
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/GlUtil$GlException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     throw p0
+ .end method
+@@ -2823,16 +2264,12 @@
+     .line 1
+     const/16 v0, 0x10
+ 
+-    .line 2
+     .line 3
+     new-array v0, v0, [F
+ 
+-    .line 4
+     .line 5
+     fill-array-data v0, :array_0
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-object v0
+ 
+@@ -2864,16 +2301,12 @@
+     .line 1
+     const/16 v0, 0x10
+ 
+-    .line 2
+     .line 3
+     new-array v0, v0, [F
+ 
+-    .line 4
+     .line 5
+     fill-array-data v0, :array_0
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-object v0
+ 
+@@ -2910,12 +2343,9 @@
+     .line 1
+     const-string v0, "EGL_EXT_gl_colorspace_bt2020_hlg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/GlUtil;->isExtensionSupported(Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -2934,31 +2364,24 @@
+     .line 1
+     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 2
+     .line 3
+     const/16 v1, 0x21
+ 
+-    .line 4
+     .line 5
+     if-lt v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const-string v0, "EGL_EXT_gl_colorspace_bt2020_pq"
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0}, Landroidx/media3/common/util/GlUtil;->isExtensionSupported(Ljava/lang/String;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x1
+ 
+@@ -2987,12 +2410,9 @@
+     .line 2
+     if-ne p0, v0, :cond_0
+ 
+-    .line 3
+     .line 4
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->isBt2020PqExtensionSupported()Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p0
+ 
+@@ -3006,12 +2426,9 @@
+     .line 10
+     if-ne p0, v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->isBt2020HlgExtensionSupported()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p0
+ 
+@@ -3037,39 +2454,30 @@
+     .line 1
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->getDefaultEglDisplay()Landroid/opengl/EGLDisplay;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     const/16 v1, 0x3055
+ 
+-    .line 6
+     .line 7
+     invoke-static {v0, v1}, Landroid/opengl/EGL14;->eglQueryString(Landroid/opengl/EGLDisplay;I)Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, p0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+     .line 17
+     if-eqz p0, :cond_0
+ 
+-    .line 18
+     .line 19
+     const/4 p0, 0x1
+ 
+@@ -3095,12 +2503,9 @@
+     .line 1
+     const-string p0, "EGL_EXT_protected_content"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Landroidx/media3/common/util/GlUtil;->isExtensionSupported(Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -3119,12 +2524,9 @@
+     .line 1
+     const-string v0, "EGL_KHR_surfaceless_context"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/GlUtil;->isExtensionSupported(Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -3138,20 +2540,15 @@
+     .line 1
+     invoke-static {}, Landroid/opengl/EGL14;->eglGetCurrentContext()Landroid/opengl/EGLContext;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     sget-object v1, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+ 
+-    .line 6
+     .line 7
+     invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+@@ -3161,38 +2558,28 @@
+     .line 12
+     const/16 v2, 0x1f03
+ 
+-    .line 13
+     .line 14
+     if-eqz v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     :try_start_0
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->getDefaultEglDisplay()Landroid/opengl/EGLDisplay;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     invoke-static {v0}, Landroidx/media3/common/util/GlUtil;->createEglContext(Landroid/opengl/EGLDisplay;)Landroid/opengl/EGLContext;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v3
+ 
+     .line 24
+     invoke-static {v3, v0}, Landroidx/media3/common/util/GlUtil;->createFocusedPlaceholderEglSurface(Landroid/opengl/EGLContext;Landroid/opengl/EGLDisplay;)Landroid/opengl/EGLSurface;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-static {v2}, Landroid/opengl/GLES20;->glGetString(I)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+@@ -3201,8 +2588,6 @@
+     :try_end_0
+     .catch Landroidx/media3/common/util/GlUtil$GlException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -3214,8 +2599,6 @@
+     :cond_0
+     invoke-static {v2}, Landroid/opengl/GLES20;->glGetString(I)Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v2
+ 
+@@ -3223,23 +2606,18 @@
+     :goto_0
+     if-eqz v2, :cond_1
+ 
+-    .line 41
+     .line 42
+     const-string v0, "GL_EXT_YUV_target"
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v2, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+     .line 48
+     if-eqz v0, :cond_1
+ 
+-    .line 49
+     .line 50
+     const/4 v0, 0x1
+ 
+@@ -3265,18 +2643,12 @@
+     .line 1
+     const v0, 0x88eb
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {v0, p0}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 p0, 0x1
+ 
+@@ -3286,30 +2658,21 @@
+     .line 12
+     invoke-static {v0, v1, p1, p0}, Landroid/opengl/GLES30;->glMapBufferRange(IIII)Ljava/nio/Buffer;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     check-cast p0, Ljava/nio/ByteBuffer;
+ 
+-    .line 17
+     .line 18
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-static {v0, v1}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-object p0
+ .end method
+@@ -3328,37 +2691,24 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Landroidx/media3/common/util/GlUtil;->focusFramebufferUsingCurrentContext(III)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const p0, 0x88eb
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-static {p0, p3}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const p3, 0x8ce0
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {p3}, Landroid/opengl/GLES30;->glReadBuffer(I)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const/16 v5, 0x1401
+ 
+-    .line 20
+     .line 21
+     const/4 v6, 0x0
+ 
+@@ -3371,7 +2721,6 @@
+     .line 24
+     const/16 v4, 0x1908
+ 
+-    .line 25
+     .line 26
+     move v2, p1
+ 
+@@ -3381,26 +2730,18 @@
+     .line 28
+     invoke-static/range {v0 .. v6}, Landroid/opengl/GLES30;->glReadPixels(IIIIIII)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const/4 p1, 0x0
+ 
+     .line 35
+     invoke-static {p0, p1}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ .end method
+@@ -3416,50 +2757,36 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     invoke-static {v0, v1}, Landroidx/media3/common/util/GlUtil;->assertValidTextureSize(II)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/16 v0, 0x2601
+ 
+-    .line 13
+     .line 14
+     const/16 v1, 0xde1
+ 
+-    .line 15
+     .line 16
+     invoke-static {v1, p0, v0}, Landroidx/media3/common/util/GlUtil;->bindTexture(III)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const/4 p0, 0x0
+ 
+     .line 20
+     invoke-static {v1, p0, p1, p0}, Landroid/opengl/GLUtils;->texImage2D(IILandroid/graphics/Bitmap;I)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     return-void
+ .end method
+@@ -3473,8 +2800,6 @@
+     .line 2
+     invoke-static {p0, v0}, Landroid/opengl/Matrix;->setIdentityM([FI)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -3493,41 +2818,27 @@
+     .line 1
+     const v0, 0x88eb
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {v0, p0}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-static {v0}, Landroid/opengl/GLES30;->glUnmapBuffer(I)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const/4 p0, 0x0
+ 
+     .line 17
+     invoke-static {v0, p0}, Landroid/opengl/GLES20;->glBindBuffer(II)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-static {}, Landroidx/media3/common/util/GlUtil;->checkGlError()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method

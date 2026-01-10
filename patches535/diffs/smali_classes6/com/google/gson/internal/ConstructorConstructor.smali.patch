@@ -1,0 +1,1632 @@
+--- a/smali_classes6/com/google/gson/internal/ConstructorConstructor.smali
++++ b/smali_classes6/com/google/gson/internal/ConstructorConstructor.smali
+@@ -47,20 +47,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/gson/internal/ConstructorConstructor;->instanceCreators:Ljava/util/Map;
+ 
+-    .line 5
+     .line 6
+     iput-boolean p2, p0, Lcom/google/gson/internal/ConstructorConstructor;->useJdkUnsafe:Z
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/google/gson/internal/ConstructorConstructor;->reflectionFilters:Ljava/util/List;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -71,12 +66,9 @@
+     .line 1
+     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -87,12 +79,9 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -103,12 +92,9 @@
+     .line 1
+     new-instance v0, Ljava/util/LinkedHashMap;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -127,59 +113,42 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Class;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isInterface(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-eqz v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v1, "Interfaces can\'t be instantiated! Register an InstanceCreator or a TypeAdapter for this type. Interface name: "
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+     .line 25
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+@@ -190,77 +159,54 @@
+     :cond_0
+     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+ 
+     .line 37
+     if-eqz v0, :cond_1
+ 
+-    .line 38
+     .line 39
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 40
+     .line 41
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     const-string v1, "Abstract classes can\'t be instantiated! Adjust the R8 configuration or register an InstanceCreator or a TypeAdapter for this type. Class name: "
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+     .line 53
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     const-string p0, "\nSee "
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const-string p0, "r8-abstract-class"
+ 
+-    .line 62
+     .line 63
+     invoke-static {p0}, Lcom/google/gson/internal/TroubleshootingGuide;->createUrl(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object p0
+ 
+     .line 67
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p0
+ 
+@@ -281,12 +227,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -298,12 +241,9 @@
+     :try_start_0
+     sget-object v0, Lcom/google/gson/internal/UnsafeAllocator;->INSTANCE:Lcom/google/gson/internal/UnsafeAllocator;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p0}, Lcom/google/gson/internal/UnsafeAllocator;->newInstance(Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+     :try_end_0
+@@ -319,52 +259,36 @@
+     .line 9
+     new-instance v1, Ljava/lang/RuntimeException;
+ 
+-    .line 10
+     .line 11
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v3, "Unable to create instance of "
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     const-string p0, ". Registering an InstanceCreator or a TypeAdapter for this type, or adding a no-args constructor may fix this problem."
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     invoke-direct {v1, p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     throw v1
+ .end method
+@@ -375,27 +299,21 @@
+     .line 1
+     instance-of v0, p0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "Invalid EnumMap type: "
+ 
+-    .line 4
+     .line 5
+     if-eqz v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     move-object v0, p0
+ 
+     .line 8
+     check-cast v0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {v0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+@@ -405,28 +323,21 @@
+     .line 15
+     aget-object v0, v0, v2
+ 
+-    .line 16
+     .line 17
+     instance-of v2, v0, Ljava/lang/Class;
+ 
+-    .line 18
+     .line 19
+     if-eqz v2, :cond_0
+ 
+-    .line 20
+     .line 21
+     new-instance p0, Ljava/util/EnumMap;
+ 
+-    .line 22
+     .line 23
+     check-cast v0, Ljava/lang/Class;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, v0}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-object p0
+ 
+@@ -434,47 +345,33 @@
+     :cond_0
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 30
+     .line 31
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     throw v0
+ 
+@@ -482,47 +379,33 @@
+     :cond_1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 55
+     .line 56
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 57
+     .line 58
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p0
+ 
+     .line 68
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object p0
+ 
+     .line 75
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     throw v0
+ .end method
+@@ -533,8 +416,6 @@
+     .line 1
+     invoke-interface {p0, p1}, Lcom/google/gson/InstanceCreator;->createInstance(Ljava/lang/reflect/Type;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -548,12 +429,9 @@
+     .line 1
+     new-instance v0, Ljava/util/concurrent/ConcurrentSkipListMap;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentSkipListMap;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -564,14 +442,12 @@
+     .line 1
+     instance-of v0, p0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -579,12 +455,9 @@
+     :cond_0
+     check-cast p0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {p0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -597,7 +470,6 @@
+     .line 15
+     if-nez v0, :cond_1
+ 
+-    .line 16
+     .line 17
+     return v2
+ 
+@@ -605,23 +477,18 @@
+     :cond_1
+     aget-object p0, p0, v2
+ 
+-    .line 19
+     .line 20
+     invoke-static {p0}, Lcom/google/gson/internal/GsonTypes;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     const-class v0, Ljava/lang/String;
+ 
+-    .line 25
+     .line 26
+     if-ne p0, v0, :cond_2
+ 
+-    .line 27
+     .line 28
+     return v1
+ 
+@@ -636,8 +503,6 @@
+     .line 1
+     invoke-interface {p0, p1}, Lcom/google/gson/InstanceCreator;->createInstance(Ljava/lang/reflect/Type;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -651,12 +516,9 @@
+     .line 1
+     new-instance v0, Ljava/util/TreeMap;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -667,12 +529,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -683,12 +542,9 @@
+     .line 1
+     new-instance v0, Ljava/util/LinkedHashSet;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -699,27 +555,21 @@
+     .line 1
+     instance-of v0, p0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "Invalid EnumSet type: "
+ 
+-    .line 4
+     .line 5
+     if-eqz v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     move-object v0, p0
+ 
+     .line 8
+     check-cast v0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {v0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+@@ -729,24 +579,18 @@
+     .line 15
+     aget-object v0, v0, v2
+ 
+-    .line 16
+     .line 17
+     instance-of v2, v0, Ljava/lang/Class;
+ 
+-    .line 18
+     .line 19
+     if-eqz v2, :cond_0
+ 
+-    .line 20
+     .line 21
+     check-cast v0, Ljava/lang/Class;
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 
+@@ -757,47 +601,33 @@
+     :cond_0
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 29
+     .line 30
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 31
+     .line 32
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+     .line 42
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+     .line 49
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     throw v0
+ 
+@@ -805,47 +635,33 @@
+     :cond_1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 54
+     .line 55
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 56
+     .line 57
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object p0
+ 
+     .line 67
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p0
+ 
+     .line 74
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     throw v0
+ .end method
+@@ -856,12 +672,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -885,28 +698,21 @@
+     .line 1
+     const-class v0, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     new-instance p0, Lcom/google/gson/internal/q;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p0}, Lcom/google/gson/internal/q;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-object p0
+ 
+@@ -914,28 +720,21 @@
+     :cond_0
+     const-class v0, Ljava/util/LinkedHashSet;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     if-eqz v0, :cond_1
+ 
+-    .line 22
+     .line 23
+     new-instance p0, Lcom/google/gson/internal/r;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0}, Lcom/google/gson/internal/r;-><init>()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-object p0
+ 
+@@ -943,28 +742,21 @@
+     :cond_1
+     const-class v0, Ljava/util/TreeSet;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v0
+ 
+     .line 35
+     if-eqz v0, :cond_2
+ 
+-    .line 36
+     .line 37
+     new-instance p0, Lcom/google/gson/internal/s;
+ 
+-    .line 38
+     .line 39
+     invoke-direct {p0}, Lcom/google/gson/internal/s;-><init>()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-object p0
+ 
+@@ -972,28 +764,21 @@
+     :cond_2
+     const-class v0, Ljava/util/ArrayDeque;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result p0
+ 
+     .line 49
+     if-eqz p0, :cond_3
+ 
+-    .line 50
+     .line 51
+     new-instance p0, Lcom/google/gson/internal/t;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0}, Lcom/google/gson/internal/t;-><init>()V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     return-object p0
+ 
+@@ -1024,16 +809,12 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Class;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+@@ -1043,7 +824,6 @@
+     .line 10
+     if-eqz v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     return-object v1
+ 
+@@ -1052,8 +832,6 @@
+     :try_start_0
+     invoke-virtual {p0, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+     :try_end_0
+@@ -1062,51 +840,39 @@
+     .line 17
+     sget-object v2, Lcom/google/gson/ReflectionAccessFilter$FilterResult;->ALLOW:Lcom/google/gson/ReflectionAccessFilter$FilterResult;
+ 
+-    .line 18
+     .line 19
+     if-eq p1, v2, :cond_2
+ 
+-    .line 20
+     .line 21
+     invoke-static {v0, v1}, Lcom/google/gson/internal/ReflectionAccessFilterHelper;->canAccess(Ljava/lang/reflect/AccessibleObject;Ljava/lang/Object;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     if-eqz v1, :cond_1
+ 
+-    .line 26
+     .line 27
+     sget-object v1, Lcom/google/gson/ReflectionAccessFilter$FilterResult;->BLOCK_ALL:Lcom/google/gson/ReflectionAccessFilter$FilterResult;
+ 
+-    .line 28
+     .line 29
+     if-ne p1, v1, :cond_2
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0}, Ljava/lang/reflect/Constructor;->getModifiers()I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v1
+ 
+     .line 35
+     invoke-static {v1}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v1
+ 
+     .line 39
+     if-eqz v1, :cond_1
+ 
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -1114,52 +880,36 @@
+     :cond_1
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 43
+     .line 44
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     const-string v0, "Unable to invoke no-args constructor of "
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const-string p0, "; constructor is not accessible and ReflectionAccessFilter does not permit making it accessible. Register an InstanceCreator or a TypeAdapter for this type, change the visibility of the constructor or adjust the access filter."
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object p0
+ 
+     .line 64
+     new-instance p1, Lcom/google/gson/internal/j;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p1, p0}, Lcom/google/gson/internal/j;-><init>(Ljava/lang/String;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     return-object p1
+ 
+@@ -1168,28 +918,21 @@
+     :goto_0
+     if-ne p1, v2, :cond_3
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0}, Lcom/google/gson/internal/reflect/ReflectionHelper;->tryMakeAccessible(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+ 
+     .line 76
+     if-eqz p0, :cond_3
+ 
+-    .line 77
+     .line 78
+     new-instance p1, Lcom/google/gson/internal/k;
+ 
+-    .line 79
+     .line 80
+     invoke-direct {p1, p0}, Lcom/google/gson/internal/k;-><init>(Ljava/lang/String;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     return-object p1
+ 
+@@ -1197,12 +940,9 @@
+     :cond_3
+     new-instance p0, Lcom/google/gson/internal/m;
+ 
+-    .line 85
+     .line 86
+     invoke-direct {p0, v0}, Lcom/google/gson/internal/m;-><init>(Ljava/lang/reflect/Constructor;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     return-object p0
+ 
+@@ -1229,24 +969,18 @@
+     .line 1
+     const-class v0, Ljava/util/Collection;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-static {p1}, Lcom/google/gson/internal/ConstructorConstructor;->newCollectionConstructor(Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -1257,24 +991,18 @@
+     :cond_0
+     const-class v0, Ljava/util/Map;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-eqz v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-static {p0, p1}, Lcom/google/gson/internal/ConstructorConstructor;->newMapConstructor(Ljava/lang/reflect/Type;Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -1310,40 +1038,30 @@
+     .line 1
+     const-class v0, Lcom/google/gson/internal/LinkedTreeMap;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-static {p0}, Lcom/google/gson/internal/ConstructorConstructor;->hasStringKeyType(Ljava/lang/reflect/Type;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     new-instance p0, Lcom/google/gson/internal/e;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {p0}, Lcom/google/gson/internal/e;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-object p0
+ 
+@@ -1351,28 +1069,21 @@
+     :cond_0
+     const-class p0, Ljava/util/LinkedHashMap;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p1, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result p0
+ 
+     .line 27
+     if-eqz p0, :cond_1
+ 
+-    .line 28
+     .line 29
+     new-instance p0, Lcom/google/gson/internal/f;
+ 
+-    .line 30
+     .line 31
+     invoke-direct {p0}, Lcom/google/gson/internal/f;-><init>()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-object p0
+ 
+@@ -1380,28 +1091,21 @@
+     :cond_1
+     const-class p0, Ljava/util/TreeMap;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p1, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result p0
+ 
+     .line 41
+     if-eqz p0, :cond_2
+ 
+-    .line 42
+     .line 43
+     new-instance p0, Lcom/google/gson/internal/g;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p0}, Lcom/google/gson/internal/g;-><init>()V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     return-object p0
+ 
+@@ -1409,28 +1113,21 @@
+     :cond_2
+     const-class p0, Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {p1, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result p0
+ 
+     .line 55
+     if-eqz p0, :cond_3
+ 
+-    .line 56
+     .line 57
+     new-instance p0, Lcom/google/gson/internal/h;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0}, Lcom/google/gson/internal/h;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     return-object p0
+ 
+@@ -1438,28 +1135,21 @@
+     :cond_3
+     const-class p0, Ljava/util/concurrent/ConcurrentSkipListMap;
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {p1, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result p0
+ 
+     .line 69
+     if-eqz p0, :cond_4
+ 
+-    .line 70
+     .line 71
+     new-instance p0, Lcom/google/gson/internal/i;
+ 
+-    .line 72
+     .line 73
+     invoke-direct {p0}, Lcom/google/gson/internal/i;-><init>()V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     return-object p0
+ 
+@@ -1489,28 +1179,21 @@
+     .line 1
+     const-class v0, Ljava/util/EnumSet;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     new-instance p1, Lcom/google/gson/internal/c;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p1, p0}, Lcom/google/gson/internal/c;-><init>(Ljava/lang/reflect/Type;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-object p1
+ 
+@@ -1518,20 +1201,15 @@
+     :cond_0
+     const-class v0, Ljava/util/EnumMap;
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v0, :cond_1
+ 
+-    .line 18
+     .line 19
+     new-instance p1, Lcom/google/gson/internal/d;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p1, p0}, Lcom/google/gson/internal/d;-><init>(Ljava/lang/reflect/Type;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-object p1
+ 
+@@ -1560,20 +1238,15 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/google/gson/internal/ConstructorConstructor;->useJdkUnsafe:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance p0, Lcom/google/gson/internal/u;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1}, Lcom/google/gson/internal/u;-><init>(Ljava/lang/Class;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-object p0
+ 
+@@ -1581,48 +1254,33 @@
+     :cond_0
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v0, "Unable to create instance of "
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     const-string v0, "; usage of JDK Unsafe is disabled. Registering an InstanceCreator or a TypeAdapter for this type, adding a no-args constructor, or enabling usage of JDK Unsafe may fix this problem."
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     invoke-virtual {p1}, Ljava/lang/Class;->getDeclaredConstructors()[Ljava/lang/reflect/Constructor;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p1
+ 
+@@ -1632,35 +1290,24 @@
+     .line 38
+     if-nez p1, :cond_1
+ 
+-    .line 39
+     .line 40
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const-string p0, " Or adjust your R8 configuration to keep the no-args constructor of the class."
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -1668,12 +1315,9 @@
+     :cond_1
+     new-instance p1, Lcom/google/gson/internal/b;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p1, p0}, Lcom/google/gson/internal/b;-><init>(Ljava/lang/String;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     return-object p1
+ .end method
+@@ -1684,12 +1328,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -1700,12 +1341,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/internal/LinkedTreeMap;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/gson/internal/LinkedTreeMap;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -1716,12 +1354,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -1732,12 +1367,9 @@
+     .line 1
+     new-instance v0, Ljava/util/TreeSet;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/TreeSet;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -1748,11 +1380,9 @@
+     .line 1
+     const-string v0, "\' with no args"
+ 
+-    .line 2
+     .line 3
+     const-string v1, "Failed to invoke constructor \'"
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x0
+ 
+@@ -1760,8 +1390,6 @@
+     :try_start_0
+     invoke-virtual {p0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+     :try_end_0
+@@ -1779,8 +1407,6 @@
+     .line 12
+     invoke-static {p0}, Lcom/google/gson/internal/reflect/ReflectionHelper;->createExceptionForUnexpectedIllegalAccess(Ljava/lang/IllegalAccessException;)Ljava/lang/RuntimeException;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -1794,60 +1420,42 @@
+     .line 18
+     new-instance v3, Ljava/lang/RuntimeException;
+ 
+-    .line 19
+     .line 20
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {p0}, Lcom/google/gson/internal/reflect/ReflectionHelper;->constructorToString(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+     .line 42
+     invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v0
+ 
+     .line 46
+     invoke-direct {v3, p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw v3
+ 
+@@ -1858,52 +1466,36 @@
+     .line 51
+     new-instance v3, Ljava/lang/RuntimeException;
+ 
+-    .line 52
+     .line 53
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 54
+     .line 55
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-static {p0}, Lcom/google/gson/internal/reflect/ReflectionHelper;->constructorToString(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object p0
+ 
+     .line 75
+     invoke-direct {v3, p0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     throw v3
+ .end method
+@@ -1914,12 +1506,9 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayDeque;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -1930,12 +1519,9 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/JsonIOException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -2155,12 +1741,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/gson/internal/ConstructorConstructor;->instanceCreators:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 

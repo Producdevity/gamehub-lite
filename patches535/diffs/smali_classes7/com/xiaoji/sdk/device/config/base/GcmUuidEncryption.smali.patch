@@ -1,0 +1,347 @@
+--- a/smali_classes7/com/xiaoji/sdk/device/config/base/GcmUuidEncryption.smali
++++ b/smali_classes7/com/xiaoji/sdk/device/config/base/GcmUuidEncryption.smali
+@@ -27,16 +27,12 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, ""
+ 
+-    .line 5
+     .line 6
+     iput-object v0, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->uuidEncryptResultStr:Ljava/lang/String;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -47,14 +43,12 @@
+     .line 1
+     if-eqz p1, :cond_3
+ 
+-    .line 2
+     .line 3
+     array-length p0, p1
+ 
+     .line 4
+     if-nez p0, :cond_0
+ 
+-    .line 5
+     .line 6
+     goto :goto_1
+ 
+@@ -62,12 +56,9 @@
+     :cond_0
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     array-length v0, p1
+ 
+@@ -78,32 +69,24 @@
+     :goto_0
+     if-ge v1, v0, :cond_2
+ 
+-    .line 15
+     .line 16
+     aget-byte v2, p1, v1
+ 
+-    .line 17
+     .line 18
+     sget-object v3, Lkotlin/jvm/internal/StringCompanionObject;->a:Lkotlin/jvm/internal/StringCompanionObject;
+ 
+-    .line 19
+     .line 20
+     and-int/lit16 v2, v2, 0xff
+ 
+-    .line 21
+     .line 22
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v2
+ 
+     .line 26
+     filled-new-array {v2}, [Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+@@ -113,37 +96,27 @@
+     .line 31
+     invoke-static {v2, v3}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v2
+ 
+     .line 35
+     const-string v4, "0x%02x"
+ 
+-    .line 36
+     .line 37
+     invoke-static {v4, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v2
+ 
+     .line 41
+     const-string v4, "format(format, *args)"
+ 
+-    .line 42
+     .line 43
+     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     array-length v2, p1
+ 
+@@ -153,21 +126,16 @@
+     .line 51
+     if-ge v1, v2, :cond_1
+ 
+-    .line 52
+     .line 53
+     const-string v2, ","
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     :cond_1
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 59
+     .line 60
+     goto :goto_0
+ 
+@@ -175,54 +143,39 @@
+     :cond_2
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     const-string p1, "toString(...)"
+ 
+-    .line 66
+     .line 67
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p1
+ 
+     .line 74
+     const-string v0, "getDefault(...)"
+ 
+-    .line 75
+     .line 76
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {p0, p1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p0
+ 
+     .line 83
+     const-string p1, "this as java.lang.String).toUpperCase(locale)"
+ 
+-    .line 84
+     .line 85
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     return-object p0
+ 
+@@ -231,7 +184,6 @@
+     :goto_1
+     const-string p0, ""
+ 
+-    .line 90
+     .line 91
+     return-object p0
+ .end method
+@@ -248,42 +200,33 @@
+     .line 1
+     const-string v0, "sourceData"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->sourceData:[B
+ 
+-    .line 7
+     .line 8
+     array-length v0, p1
+ 
+     .line 9
+     const/16 v1, 0xd
+ 
+-    .line 10
+     .line 11
+     if-lt v0, v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x0
+ 
+     .line 14
+     aget-byte v0, p1, v0
+ 
+-    .line 15
+     .line 16
+     const/16 v1, 0x51
+ 
+-    .line 17
+     .line 18
+     if-ne v0, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     array-length v0, p1
+ 
+@@ -296,23 +239,18 @@
+     .line 23
+     invoke-static {p1, v1, v0}, Ljava/util/Arrays;->copyOfRange([BII)[B
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     invoke-direct {p0, p1}, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->uuidBytesToString([B)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iput-object p1, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->uuidEncryptResultStr:Ljava/lang/String;
+ 
+-    .line 32
+     .line 33
+     :cond_0
+     return-void
+@@ -326,7 +264,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->sourceData:[B
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -339,7 +276,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->uuidEncryptResultStr:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -354,7 +290,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->sourceData:[B
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -369,16 +304,12 @@
+     .line 1
+     const-string v0, "<set-?>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->uuidEncryptResultStr:Ljava/lang/String;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -391,35 +322,24 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "UUID\u52a0\u5bc6\u7ed3\u679c:"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/xiaoji/sdk/device/config/base/GcmUuidEncryption;->uuidEncryptResultStr:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 

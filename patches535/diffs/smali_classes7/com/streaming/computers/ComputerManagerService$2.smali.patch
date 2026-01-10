@@ -1,0 +1,198 @@
+--- a/smali_classes7/com/streaming/computers/ComputerManagerService$2.smali
++++ b/smali_classes7/com/streaming/computers/ComputerManagerService$2.smali
+@@ -27,16 +27,12 @@
+     .line 1
+     iput-object p1, p0, Lcom/streaming/computers/ComputerManagerService$2;->b:Lcom/streaming/computers/ComputerManagerService;
+ 
+-    .line 2
+     .line 3
+     iput-object p2, p0, Lcom/streaming/computers/ComputerManagerService$2;->a:Lcom/streaming/computers/PollingTuple;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -56,48 +52,37 @@
+     :goto_0
+     invoke-virtual {p0}, Ljava/lang/Thread;->isInterrupted()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v2
+ 
+     .line 7
+     if-nez v2, :cond_1
+ 
+-    .line 8
+     .line 9
+     iget-object v2, p0, Lcom/streaming/computers/ComputerManagerService$2;->b:Lcom/streaming/computers/ComputerManagerService;
+ 
+-    .line 10
+     .line 11
+     invoke-static {v2}, Lcom/streaming/computers/ComputerManagerService;->f(Lcom/streaming/computers/ComputerManagerService;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v2
+ 
+     .line 15
+     if-eqz v2, :cond_1
+ 
+-    .line 16
+     .line 17
+     iget-object v2, p0, Lcom/streaming/computers/ComputerManagerService$2;->a:Lcom/streaming/computers/PollingTuple;
+ 
+-    .line 18
+     .line 19
+     iget-object v3, v2, Lcom/streaming/computers/PollingTuple;->a:Ljava/lang/Thread;
+ 
+-    .line 20
+     .line 21
+     if-ne v3, p0, :cond_1
+ 
+-    .line 22
+     .line 23
+     :try_start_0
+     iget-object v2, v2, Lcom/streaming/computers/PollingTuple;->c:Ljava/lang/Object;
+ 
+-    .line 24
+     .line 25
+     monitor-enter v2
+     :try_end_0
+@@ -107,93 +92,66 @@
+     :try_start_1
+     iget-object v3, p0, Lcom/streaming/computers/ComputerManagerService$2;->b:Lcom/streaming/computers/ComputerManagerService;
+ 
+-    .line 27
+     .line 28
+     iget-object v4, p0, Lcom/streaming/computers/ComputerManagerService$2;->a:Lcom/streaming/computers/PollingTuple;
+ 
+-    .line 29
+     .line 30
+     iget-object v4, v4, Lcom/streaming/computers/PollingTuple;->b:Lcom/streaming/nvstream/http/ComputerDetails;
+ 
+-    .line 31
+     .line 32
+     invoke-static {v3, v4, v0, v1}, Lcom/streaming/computers/ComputerManagerService;->n(Lcom/streaming/computers/ComputerManagerService;Lcom/streaming/nvstream/http/ComputerDetails;ZI)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v3
+ 
+     .line 36
+     if-nez v3, :cond_0
+ 
+-    .line 37
+     .line 38
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 39
+     .line 40
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     iget-object v4, p0, Lcom/streaming/computers/ComputerManagerService$2;->a:Lcom/streaming/computers/PollingTuple;
+ 
+-    .line 44
+     .line 45
+     iget-object v4, v4, Lcom/streaming/computers/PollingTuple;->b:Lcom/streaming/nvstream/http/ComputerDetails;
+ 
+-    .line 46
+     .line 47
+     iget-object v4, v4, Lcom/streaming/nvstream/http/ComputerDetails;->name:Ljava/lang/String;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     const-string v4, " is offline (try "
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string v4, ")"
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v3
+ 
+     .line 69
+     invoke-static {v3}, Lcom/streaming/LimeLog;->c(Ljava/lang/String;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 73
+     .line 74
+     goto :goto_1
+ 
+@@ -208,19 +166,15 @@
+     :cond_0
+     iget-object v1, p0, Lcom/streaming/computers/ComputerManagerService$2;->a:Lcom/streaming/computers/PollingTuple;
+ 
+-    .line 78
+     .line 79
+     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-wide v3
+ 
+     .line 83
+     iput-wide v3, v1, Lcom/streaming/computers/PollingTuple;->d:J
+ 
+-    .line 84
+     .line 85
+     move v1, v0
+ 
+@@ -233,15 +187,12 @@
+     .line 87
+     const-wide/16 v2, 0x5dc
+ 
+-    .line 88
+     .line 89
+     :try_start_2
+     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
+     :try_end_2
+     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     goto :goto_0
+ 

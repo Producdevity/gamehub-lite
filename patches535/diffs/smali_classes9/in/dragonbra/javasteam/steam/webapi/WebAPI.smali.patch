@@ -1,0 +1,676 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/webapi/WebAPI.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/webapi/WebAPI.smali
+@@ -32,36 +32,27 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {p2}, Lokhttp3/HttpUrl;->parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p2
+ 
+     .line 8
+     iput-object p2, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->baseAddress:Lokhttp3/HttpUrl;
+ 
+-    .line 9
+     .line 10
+     if-eqz p2, :cond_0
+ 
+-    .line 11
+     .line 12
+     iput-object p3, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->_interface:Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     iput-object p4, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->webAPIKey:Ljava/lang/String;
+ 
+-    .line 15
+     .line 16
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->client:Lokhttp3/OkHttpClient;
+ 
+-    .line 17
+     .line 18
+     return-void
+ 
+@@ -69,12 +60,9 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     throw p0
+ .end method
+@@ -85,8 +73,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->parseResponse(Lokhttp3/Response;)Lin/dragonbra/javasteam/types/KeyValue;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -113,39 +99,30 @@
+     .line 1
+     if-eqz p1, :cond_8
+ 
+-    .line 2
+     .line 3
+     const-string v0, "GET"
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-nez v1, :cond_1
+ 
+-    .line 10
+     .line 11
+     const-string v1, "POST"
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     if-eqz v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -153,16 +130,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 21
+     .line 22
+     const-string p1, "only GET and POST is supported right now"
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     throw p0
+ 
+@@ -171,205 +144,146 @@
+     :goto_0
+     if-eqz p2, :cond_7
+ 
+-    .line 29
+     .line 30
+     if-nez p4, :cond_2
+ 
+-    .line 31
+     .line 32
+     new-instance p4, Ljava/util/HashMap;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p4}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     :cond_2
+     const-string v1, "format"
+ 
+-    .line 38
+     .line 39
+     const-string v2, "vdf"
+ 
+-    .line 40
+     .line 41
+     invoke-interface {p4, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->webAPIKey:Ljava/lang/String;
+ 
+-    .line 45
+     .line 46
+     if-eqz v1, :cond_3
+ 
+-    .line 47
+     .line 48
+     const-string v2, "key"
+ 
+-    .line 49
+     .line 50
+     invoke-interface {p4, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     :cond_3
+     new-instance v1, Lokhttp3/Request$Builder;
+ 
+-    .line 54
+     .line 55
+     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 59
+     .line 60
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     const-string v3, "JavaSteam-"
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-static {}, Lin/dragonbra/javasteam/util/Versions;->getVersion()Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v3
+ 
+     .line 72
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v2
+ 
+     .line 79
+     const-string v3, "User-Agent"
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {v1, v3, v2}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     iget-object v2, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->baseAddress:Lokhttp3/HttpUrl;
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v2}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v2
+ 
+     .line 90
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->_interface:Ljava/lang/String;
+ 
+-    .line 91
+     .line 92
+     invoke-virtual {v2, p0}, Lokhttp3/HttpUrl$Builder;->addPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p0
+ 
+     .line 96
+     invoke-virtual {p0, p2}, Lokhttp3/HttpUrl$Builder;->addPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p0
+ 
+     .line 100
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     const-string v2, "v"
+ 
+-    .line 106
+     .line 107
+     invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object p2
+ 
+     .line 117
+     invoke-virtual {p0, p2}, Lokhttp3/HttpUrl$Builder;->addPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p0
+ 
+     .line 121
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result p1
+ 
+     .line 125
+     if-eqz p1, :cond_5
+ 
+-    .line 126
+     .line 127
+     invoke-interface {p4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object p1
+ 
+     .line 131
+     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object p1
+ 
+@@ -377,64 +291,48 @@
+     :goto_1
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result p2
+ 
+     .line 139
+     if-eqz p2, :cond_4
+ 
+-    .line 140
+     .line 141
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result-object p2
+ 
+     .line 145
+     check-cast p2, Ljava/util/Map$Entry;
+ 
+-    .line 146
+     .line 147
+     invoke-interface {p2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-object p3
+ 
+     .line 151
+     check-cast p3, Ljava/lang/String;
+ 
+-    .line 152
+     .line 153
+     invoke-static {p3}, Lin/dragonbra/javasteam/util/WebHelpers;->urlEncode(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result-object p3
+ 
+     .line 157
+     invoke-interface {p2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result-object p2
+ 
+     .line 161
+     check-cast p2, Ljava/lang/String;
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {p0, p3, p2}, Lokhttp3/HttpUrl$Builder;->addEncodedQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     goto :goto_1
+ 
+@@ -442,8 +340,6 @@
+     :cond_4
+     invoke-virtual {v1}, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     goto :goto_3
+ 
+@@ -451,25 +347,18 @@
+     :cond_5
+     new-instance p1, Lokhttp3/FormBody$Builder;
+ 
+-    .line 172
+     .line 173
+     invoke-direct {p1}, Lokhttp3/FormBody$Builder;-><init>()V
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     invoke-interface {p4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object p2
+ 
+     .line 180
+     invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result-object p2
+ 
+@@ -477,64 +366,48 @@
+     :goto_2
+     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     move-result p3
+ 
+     .line 188
+     if-eqz p3, :cond_6
+ 
+-    .line 189
+     .line 190
+     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     move-result-object p3
+ 
+     .line 194
+     check-cast p3, Ljava/util/Map$Entry;
+ 
+-    .line 195
+     .line 196
+     invoke-interface {p3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-object p4
+ 
+     .line 200
+     check-cast p4, Ljava/lang/String;
+ 
+-    .line 201
+     .line 202
+     invoke-static {p4}, Lin/dragonbra/javasteam/util/WebHelpers;->urlEncode(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     move-result-object p4
+ 
+     .line 206
+     invoke-interface {p3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result-object p3
+ 
+     .line 210
+     check-cast p3, Ljava/lang/String;
+ 
+-    .line 211
+     .line 212
+     invoke-virtual {p1, p4, p3}, Lokhttp3/FormBody$Builder;->addEncoded(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     goto :goto_2
+ 
+@@ -542,38 +415,28 @@
+     :cond_6
+     invoke-virtual {p1}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     move-result-object p1
+ 
+     .line 220
+     invoke-virtual {v1, p1}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     :goto_3
+     invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result-object p0
+ 
+     .line 227
+     invoke-virtual {v1, p0}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     move-result-object p0
+ 
+     .line 231
+     invoke-virtual {p0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+ 
+-    .line 232
+-    .line 233
+     .line 234
+     move-result-object p0
+ 
+@@ -584,16 +447,12 @@
+     :cond_7
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 237
+     .line 238
+     const-string p1, "function is null"
+ 
+-    .line 239
+     .line 240
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     throw p0
+ 
+@@ -601,16 +460,12 @@
+     :cond_8
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 245
+     .line 246
+     const-string p1, "httpMethod is null"
+ 
+-    .line 247
+     .line 248
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     throw p0
+ .end method
+@@ -621,26 +476,19 @@
+     .line 1
+     new-instance p0, Lin/dragonbra/javasteam/types/KeyValue;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Lin/dragonbra/javasteam/types/KeyValue;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     invoke-virtual {p1}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     invoke-virtual {p1}, Lokhttp3/ResponseBody;->byteStream()Ljava/io/InputStream;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+     :try_end_0
+@@ -652,20 +500,15 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     if-eqz p1, :cond_0
+ 
+-    .line 18
+     .line 19
+     :try_start_2
+     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+     :try_end_2
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :cond_0
+     return-object p0
+@@ -677,15 +520,12 @@
+     .line 24
+     if-eqz p1, :cond_1
+ 
+-    .line 25
+     .line 26
+     :try_start_3
+     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     goto :goto_0
+ 
+@@ -697,8 +537,6 @@
+     :try_start_4
+     invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_1
+     :goto_0
+@@ -713,16 +551,12 @@
+     .line 36
+     new-instance p1, Ljava/lang/IllegalStateException;
+ 
+-    .line 37
+     .line 38
+     const-string v0, "An internal error occurred when attempting to parse the response from the WebAPI server. This can indicate a change in the VDF format."
+ 
+-    .line 39
+     .line 40
+     invoke-direct {p1, v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     throw p1
+ .end method
+@@ -1272,7 +1106,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->baseAddress:Lokhttp3/HttpUrl;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1283,7 +1116,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->_interface:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1294,7 +1126,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/webapi/WebAPI;->webAPIKey:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

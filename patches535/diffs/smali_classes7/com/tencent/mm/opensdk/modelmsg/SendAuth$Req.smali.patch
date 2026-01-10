@@ -1,0 +1,289 @@
+--- a/smali_classes7/com/tencent/mm/opensdk/modelmsg/SendAuth$Req.smali
++++ b/smali_classes7/com/tencent/mm/opensdk/modelmsg/SendAuth$Req.smali
+@@ -70,50 +70,39 @@
+     .line 1
+     iget-object v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->scope:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     const-string v2, "MicroMsg.SDK.SendAuth.Req"
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_2
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Ljava/lang/String;->length()I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-eqz v0, :cond_2
+ 
+-    .line 13
+     .line 14
+     iget-object v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->scope:Ljava/lang/String;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Ljava/lang/String;->length()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     const/16 v3, 0x400
+ 
+-    .line 21
+     .line 22
+     if-le v0, v3, :cond_0
+ 
+-    .line 23
+     .line 24
+     goto :goto_1
+ 
+@@ -121,33 +110,25 @@
+     :cond_0
+     iget-object p0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->state:Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     if-eqz p0, :cond_1
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Ljava/lang/String;->length()I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p0
+ 
+     .line 33
+     if-le p0, v3, :cond_1
+ 
+-    .line 34
+     .line 35
+     const-string p0, "checkArgs fail, state is invalid"
+ 
+-    .line 36
+     .line 37
+     :goto_0
+     invoke-static {v2, p0}, Lcom/tencent/mm/opensdk/utils/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     return v1
+ 
+@@ -163,7 +144,6 @@
+     :goto_1
+     const-string p0, "checkArgs fail, scope is invalid"
+ 
+-    .line 44
+     .line 45
+     goto :goto_0
+ .end method
+@@ -174,106 +154,78 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/tencent/mm/opensdk/modelbase/BaseReq;->fromBundle(Landroid/os/Bundle;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "_wxapi_sendauth_req_scope"
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     iput-object v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->scope:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     const-string v0, "_wxapi_sendauth_req_state"
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     iput-object v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->state:Ljava/lang/String;
+ 
+-    .line 19
+     .line 20
+     const-string v0, "_wxapi_sendauth_req_ext_data"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     iput-object v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->extData:Ljava/lang/String;
+ 
+-    .line 27
+     .line 28
+     const-string v0, "_wxapi_sendauth_req_isoption1"
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;)Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v0
+ 
+     .line 34
+     iput-boolean v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->isOption1:Z
+ 
+-    .line 35
+     .line 36
+     const-string v0, "_wxapi_sendauth_req_non_automatic"
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v0
+ 
+     .line 42
+     iput-boolean v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->nonAutomatic:Z
+ 
+-    .line 43
+     .line 44
+     new-instance v0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Options;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {v0}, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Options;-><init>()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     iput-object v0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->options:Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Options;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v0, p1}, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Options;->fromBundle(Landroid/os/Bundle;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     return-void
+ .end method
+@@ -294,86 +246,60 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/tencent/mm/opensdk/modelbase/BaseReq;->toBundle(Landroid/os/Bundle;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "_wxapi_sendauth_req_scope"
+ 
+-    .line 5
+     .line 6
+     iget-object v1, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->scope:Ljava/lang/String;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "_wxapi_sendauth_req_state"
+ 
+-    .line 12
+     .line 13
+     iget-object v1, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->state:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v0, "_wxapi_sendauth_req_ext_data"
+ 
+-    .line 19
+     .line 20
+     iget-object v1, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->extData:Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     const-string v0, "_wxapi_sendauth_req_isoption1"
+ 
+-    .line 26
+     .line 27
+     iget-boolean v1, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->isOption1:Z
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     const-string v0, "_wxapi_sendauth_req_non_automatic"
+ 
+-    .line 33
+     .line 34
+     iget-boolean v1, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->nonAutomatic:Z
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     iget-object p0, p0, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Req;->options:Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Options;
+ 
+-    .line 40
+     .line 41
+     if-eqz p0, :cond_0
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p0, p1}, Lcom/tencent/mm/opensdk/modelmsg/SendAuth$Options;->toBundle(Landroid/os/Bundle;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     :cond_0
+     return-void

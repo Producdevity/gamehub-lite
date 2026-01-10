@@ -1,0 +1,2189 @@
+--- a/smali_classes6/com/luck/picture/lib/basic/PictureSelectionModel.smali
++++ b/smali_classes6/com/luck/picture/lib/basic/PictureSelectionModel.smali
+@@ -16,51 +16,36 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selector:Lcom/luck/picture/lib/basic/PictureSelector;
+ 
+-    .line 5
+     .line 6
+     new-instance p1, Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {p1}, Lcom/luck/picture/lib/config/SelectorConfig;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iput-object p1, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectorProviders;->getInstance()Lcom/luck/picture/lib/config/SelectorProviders;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     invoke-virtual {v0, p1}, Lcom/luck/picture/lib/config/SelectorProviders;->addSelectorConfigQueue(Lcom/luck/picture/lib/config/SelectorConfig;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     iput p2, p1, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 21
+     .line 22
+     iget p1, p1, Lcom/luck/picture/lib/config/SelectorConfig;->maxVideoSelectNum:I
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0, p1}, Lcom/luck/picture/lib/basic/PictureSelectionModel;->setMaxVideoSelectNum(I)Lcom/luck/picture/lib/basic/PictureSelectionModel;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -73,61 +58,48 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selector:Lcom/luck/picture/lib/basic/PictureSelector;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/luck/picture/lib/basic/PictureSelector;->getActivity()Landroid/app/Activity;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-eqz v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     instance-of v0, v0, Lcom/luck/picture/lib/basic/IBridgePictureBehavior;
+ 
+-    .line 10
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     iget-object p0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+     .line 16
+     iput-boolean v0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->isResultListenerBack:Z
+ 
+-    .line 17
+     .line 18
+     const/4 v0, 0x1
+ 
+     .line 19
+     iput-boolean v0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->isActivityResultBack:Z
+ 
+-    .line 20
+     .line 21
+     const/4 v0, 0x0
+ 
+     .line 22
+     iput-object v0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->onResultCallListener:Lcom/luck/picture/lib/interfaces/OnResultCallbackListener;
+ 
+-    .line 23
+     .line 24
+     new-instance p0, Lcom/luck/picture/lib/PictureSelectorFragment;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Lcom/luck/picture/lib/PictureSelectorFragment;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-object p0
+ 
+@@ -135,47 +107,33 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 31
+     .line 32
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const-string v1, "Use only build PictureSelectorFragment,Activity or Fragment interface needs to be implemented "
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     const-class v1, Lcom/luck/picture/lib/basic/IBridgePictureBehavior;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     throw p0
+ 
+@@ -183,16 +141,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 56
+     .line 57
+     const-string v0, "Activity cannot be null"
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     throw p0
+ .end method
+@@ -212,62 +166,48 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selector:Lcom/luck/picture/lib/basic/PictureSelector;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/luck/picture/lib/basic/PictureSelector;->getActivity()Landroid/app/Activity;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-eqz v0, :cond_4
+ 
+-    .line 8
+     .line 9
+     if-eqz p2, :cond_3
+ 
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 12
+     .line 13
+     const/4 v1, 0x1
+ 
+     .line 14
+     iput-boolean v1, p0, Lcom/luck/picture/lib/config/SelectorConfig;->isResultListenerBack:Z
+ 
+-    .line 15
+     .line 16
+     const/4 v1, 0x0
+ 
+     .line 17
+     iput-boolean v1, p0, Lcom/luck/picture/lib/config/SelectorConfig;->isActivityResultBack:Z
+ 
+-    .line 18
+     .line 19
+     iput-object p2, p0, Lcom/luck/picture/lib/config/SelectorConfig;->onResultCallListener:Lcom/luck/picture/lib/interfaces/OnResultCallbackListener;
+ 
+-    .line 20
+     .line 21
+     instance-of p0, v0, Landroidx/fragment/app/FragmentActivity;
+ 
+-    .line 22
+     .line 23
+     if-eqz p0, :cond_0
+ 
+-    .line 24
+     .line 25
+     check-cast v0, Landroidx/fragment/app/FragmentActivity;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+@@ -282,103 +222,76 @@
+     :goto_0
+     if-eqz p0, :cond_2
+ 
+-    .line 34
+     .line 35
+     new-instance p2, Lcom/luck/picture/lib/PictureSelectorFragment;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {p2}, Lcom/luck/picture/lib/PictureSelectorFragment;-><init>()V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p2}, Lcom/luck/picture/lib/PictureSelectorFragment;->getFragmentTag()Ljava/lang/String;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+     .line 44
+     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->n0(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     if-eqz v0, :cond_1
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->q()Landroidx/fragment/app/FragmentTransaction;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v1
+ 
+     .line 54
+     invoke-virtual {v1, v0}, Landroidx/fragment/app/FragmentTransaction;->r(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     invoke-virtual {v0}, Landroidx/fragment/app/FragmentTransaction;->j()I
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :cond_1
+     invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->q()Landroidx/fragment/app/FragmentTransaction;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     invoke-virtual {p2}, Lcom/luck/picture/lib/PictureSelectorFragment;->getFragmentTag()Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v0
+ 
+     .line 69
+     invoke-virtual {p0, p1, p2, v0}, Landroidx/fragment/app/FragmentTransaction;->c(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+ 
+     .line 73
+     invoke-virtual {p2}, Lcom/luck/picture/lib/PictureSelectorFragment;->getFragmentTag()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p1
+ 
+     .line 77
+     invoke-virtual {p0, p1}, Landroidx/fragment/app/FragmentTransaction;->g(Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p0
+ 
+     .line 81
+     invoke-virtual {p0}, Landroidx/fragment/app/FragmentTransaction;->j()I
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     return-object p2
+ 
+@@ -386,16 +299,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 86
+     .line 87
+     const-string p1, "FragmentManager cannot be null"
+ 
+-    .line 88
+     .line 89
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     throw p0
+ 
+@@ -403,16 +312,12 @@
+     :cond_3
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 94
+     .line 95
+     const-string p1, "OnResultCallbackListener cannot be null"
+ 
+-    .line 96
+     .line 97
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     throw p0
+ 
+@@ -420,16 +325,12 @@
+     :cond_4
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 102
+     .line 103
+     const-string p1, "Activity cannot be null"
+ 
+-    .line 104
+     .line 105
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     throw p0
+ .end method
+@@ -799,11 +700,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isAutoVideoPlay:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -814,11 +713,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isAutomaticTitleRecyclerTop:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -829,11 +726,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isBmp:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -844,11 +739,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isCameraAroundState:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -859,11 +752,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isCameraForegroundService:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -874,11 +765,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isCameraRotateImage:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -892,35 +781,28 @@
+     .line 2
+     if-eqz p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     iget-object v1, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 5
+     .line 6
+     iput-boolean v0, v1, Lcom/luck/picture/lib/config/SelectorConfig;->isFastSlidingSelect:Z
+ 
+-    .line 7
+     .line 8
+     :cond_0
+     iget-object v1, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 9
+     .line 10
+     iget v2, v1, Lcom/luck/picture/lib/config/SelectorConfig;->selectionMode:I
+ 
+-    .line 11
+     .line 12
+     const/4 v3, 0x1
+ 
+     .line 13
+     if-ne v2, v3, :cond_1
+ 
+-    .line 14
+     .line 15
+     if-eqz p1, :cond_1
+ 
+-    .line 16
+     .line 17
+     move v0, v3
+ 
+@@ -928,7 +810,6 @@
+     :cond_1
+     iput-boolean v0, v1, Lcom/luck/picture/lib/config/SelectorConfig;->isDirectReturnSingle:Z
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ .end method
+@@ -939,11 +820,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isDisplayCamera:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -954,11 +833,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isDisplayTimeAxis:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -969,11 +846,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isEmptyResultReturn:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -986,11 +861,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isSyncWidthAndHeight:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1001,22 +874,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget-boolean v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isDirectReturnSingle:Z
+ 
+-    .line 4
+     .line 5
+     if-eqz v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p1, 0x0
+ 
+     .line 8
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isFastSlidingSelect:Z
+ 
+-    .line 9
+     .line 10
+     return-object p0
+ 
+@@ -1024,7 +893,6 @@
+     :cond_0
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isFastSlidingSelect:Z
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -1035,11 +903,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isFilterSizeDuration:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1050,11 +916,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isGif:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1065,11 +929,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isHeic:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1080,11 +942,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isLoopAutoPlay:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1095,11 +955,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isMaxSelectEnabledMask:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1110,11 +968,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isNewKeyBackMode:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1125,11 +981,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isOnlySandboxDir:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1140,11 +994,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isOpenClickSound:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1155,11 +1007,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isOriginalControl:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1170,11 +1020,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isOriginalSkipCompress:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1259,11 +1107,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isPageSyncAsCount:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1274,11 +1120,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isPreloadFirst:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1289,11 +1133,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isEnablePreviewAudio:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1304,11 +1146,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isPreviewFullScreenMode:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1319,11 +1159,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isEnablePreviewImage:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1334,11 +1172,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isEnablePreviewVideo:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1349,34 +1185,27 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAudio()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-ne v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object p1, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x0
+ 
+     .line 14
+     iput-boolean v0, p1, Lcom/luck/picture/lib/config/SelectorConfig;->isPreviewZoomEffect:Z
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ 
+@@ -1384,11 +1213,9 @@
+     :cond_0
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 18
+     .line 19
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isPreviewZoomEffect:Z
+ 
+-    .line 20
+     .line 21
+     return-object p0
+ .end method
+@@ -1399,11 +1226,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isQuickCapture:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1414,11 +1239,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isSelectZoomAnim:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1429,11 +1252,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isSyncCover:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1444,11 +1265,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isSyncWidthAndHeight:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1459,11 +1278,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isUseSystemVideoPlayer:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1474,11 +1291,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isPauseResumePlay:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1489,11 +1304,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isWebp:Z
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1504,27 +1317,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAll()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v2
+ 
+     .line 9
+     if-ne v1, v2, :cond_0
+ 
+-    .line 10
+     .line 11
+     if-eqz p1, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 p1, 0x1
+ 
+@@ -1539,7 +1346,6 @@
+     :goto_0
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isWithVideoImage:Z
+ 
+-    .line 17
+     .line 18
+     return-object p0
+ .end method
+@@ -1550,31 +1356,24 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAudio()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-eq v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 12
+     .line 13
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onBitmapWatermarkListener:Lcom/luck/picture/lib/interfaces/OnBitmapWatermarkEventListener;
+ 
+-    .line 14
+     .line 15
+     :cond_0
+     return-object p0
+@@ -1586,11 +1385,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->viewLifecycle:Lcom/luck/picture/lib/basic/IBridgeViewLifecycle;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1601,11 +1398,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->cameraImageFormat:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1616,11 +1411,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->cameraImageFormatForQ:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1631,11 +1424,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onCameraInterceptListener:Lcom/luck/picture/lib/interfaces/OnCameraInterceptListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1646,11 +1437,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->cameraVideoFormat:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1661,11 +1450,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->cameraVideoFormatForQ:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1734,11 +1521,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onCustomLoadingListener:Lcom/luck/picture/lib/interfaces/OnCustomLoadingListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1749,11 +1534,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->defaultAlbumName:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1764,11 +1547,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->defaultLanguage:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1779,11 +1560,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onEditMediaEventListener:Lcom/luck/picture/lib/interfaces/OnMediaEditInterceptListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1796,18 +1575,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->loaderDataEngine:Lcom/luck/picture/lib/engine/ExtendLoaderEngine;
+ 
+-    .line 4
+     .line 5
+     const/4 p1, 0x1
+ 
+     .line 6
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isLoaderDataEngine:Z
+ 
+-    .line 7
+     .line 8
+     return-object p0
+ .end method
+@@ -1818,24 +1594,18 @@
+     .line 1
+     const-wide/32 v0, 0x100000
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     cmp-long v0, p1, v0
+ 
+-    .line 5
+     .line 6
+     if-ltz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 9
+     .line 10
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMaxFileSize:J
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ 
+@@ -1843,18 +1613,15 @@
+     :cond_0
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 14
+     .line 15
+     const-wide/16 v1, 0x400
+ 
+-    .line 16
+     .line 17
+     mul-long/2addr p1, v1
+ 
+     .line 18
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMaxFileSize:J
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ .end method
+@@ -1865,24 +1632,18 @@
+     .line 1
+     const-wide/32 v0, 0x100000
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     cmp-long v0, p1, v0
+ 
+-    .line 5
+     .line 6
+     if-ltz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 9
+     .line 10
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMinFileSize:J
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ 
+@@ -1890,18 +1651,15 @@
+     :cond_0
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 14
+     .line 15
+     const-wide/16 v1, 0x400
+ 
+-    .line 16
+     .line 17
+     mul-long/2addr p1, v1
+ 
+     .line 18
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMinFileSize:J
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ .end method
+@@ -1912,15 +1670,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     mul-int/lit16 p1, p1, 0x3e8
+ 
+-    .line 4
+     .line 5
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterVideoMaxSecond:I
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ .end method
+@@ -1931,15 +1686,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     mul-int/lit16 p1, p1, 0x3e8
+ 
+-    .line 4
+     .line 5
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterVideoMinSecond:I
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ .end method
+@@ -1950,11 +1702,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onItemSelectAnimListener:Lcom/luck/picture/lib/interfaces/OnGridItemSelectAnimListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1965,11 +1715,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->imageEngine:Lcom/luck/picture/lib/engine/ImageEngine;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1980,11 +1728,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->imageSpanCount:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -1995,11 +1741,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     if-eqz p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v1, 0x1
+ 
+@@ -2014,11 +1758,9 @@
+     :goto_0
+     iput-boolean v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isInjectLayoutResource:Z
+ 
+-    .line 9
+     .line 10
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onLayoutResourceListener:Lcom/luck/picture/lib/interfaces/OnInjectLayoutResourceListener;
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ .end method
+@@ -2029,11 +1771,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->language:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2044,18 +1784,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->loaderFactory:Lcom/luck/picture/lib/basic/IBridgeLoaderFactory;
+ 
+-    .line 4
+     .line 5
+     const/4 p1, 0x1
+ 
+     .line 6
+     iput-boolean p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isLoaderFactoryEngine:Z
+ 
+-    .line 7
+     .line 8
+     return-object p0
+ .end method
+@@ -2066,11 +1803,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->interpolatorFactory:Lcom/luck/picture/lib/basic/InterpolatorFactory;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2081,18 +1816,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectionMode:I
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x1
+ 
+     .line 6
+     if-ne v1, v2, :cond_0
+ 
+-    .line 7
+     .line 8
+     move p1, v2
+ 
+@@ -2100,7 +1832,6 @@
+     :cond_0
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->maxSelectNum:I
+ 
+-    .line 10
+     .line 11
+     return-object p0
+ .end method
+@@ -2111,23 +1842,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofVideo()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v2
+ 
+     .line 9
+     if-ne v1, v2, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 p1, 0x0
+ 
+@@ -2135,7 +1861,6 @@
+     :cond_0
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->maxVideoSelectNum:I
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method
+@@ -2146,11 +1871,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->minAudioSelectNum:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2161,11 +1884,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->minSelectNum:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2176,11 +1897,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->minVideoSelectNum:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2191,11 +1910,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->ofAllCameraType:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2206,11 +1923,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->outPutAudioDir:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2221,11 +1936,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->outPutAudioFileName:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2236,11 +1949,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->outPutCameraDir:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2251,11 +1962,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->outPutCameraImageFileName:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2266,11 +1975,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->outPutCameraVideoFileName:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2281,11 +1988,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onPermissionDeniedListener:Lcom/luck/picture/lib/interfaces/OnPermissionDeniedListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2296,11 +2001,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onPermissionDescriptionListener:Lcom/luck/picture/lib/interfaces/OnPermissionDescriptionListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2311,11 +2014,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onPermissionsEventListener:Lcom/luck/picture/lib/interfaces/OnPermissionsInterceptListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2326,11 +2027,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onPreviewInterceptListener:Lcom/luck/picture/lib/interfaces/OnPreviewInterceptListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2341,11 +2040,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onQueryFilterListener:Lcom/luck/picture/lib/interfaces/OnQueryFilterListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2363,56 +2060,42 @@
+     :goto_0
+     if-ge v1, v0, :cond_3
+ 
+-    .line 4
+     .line 5
+     aget-object v2, p1, v1
+ 
+-    .line 6
+     .line 7
+     invoke-static {v2}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasImage(Ljava/lang/String;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v3
+ 
+     .line 11
+     if-eqz v3, :cond_0
+ 
+-    .line 12
+     .line 13
+     iget-object v3, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 14
+     .line 15
+     iget-object v3, v3, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v3, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v3
+ 
+     .line 21
+     if-nez v3, :cond_2
+ 
+-    .line 22
+     .line 23
+     iget-object v3, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 24
+     .line 25
+     iget-object v3, v3, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 26
+     .line 27
+     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     goto :goto_1
+ 
+@@ -2420,48 +2103,36 @@
+     :cond_0
+     invoke-static {v2}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasVideo(Ljava/lang/String;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v3
+ 
+     .line 35
+     if-eqz v3, :cond_1
+ 
+-    .line 36
+     .line 37
+     iget-object v3, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 38
+     .line 39
+     iget-object v3, v3, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyVideoList:Ljava/util/List;
+ 
+-    .line 40
+     .line 41
+     invoke-interface {v3, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v3
+ 
+     .line 45
+     if-nez v3, :cond_2
+ 
+-    .line 46
+     .line 47
+     iget-object v3, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 48
+     .line 49
+     iget-object v3, v3, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyVideoList:Ljava/util/List;
+ 
+-    .line 50
+     .line 51
+     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     goto :goto_1
+ 
+@@ -2469,54 +2140,41 @@
+     :cond_1
+     invoke-static {v2}, Lcom/luck/picture/lib/config/PictureMimeType;->isHasAudio(Ljava/lang/String;)Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v3
+ 
+     .line 59
+     if-eqz v3, :cond_2
+ 
+-    .line 60
+     .line 61
+     iget-object v3, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 62
+     .line 63
+     iget-object v3, v3, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyAudioList:Ljava/util/List;
+ 
+-    .line 64
+     .line 65
+     invoke-interface {v3, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result v3
+ 
+     .line 69
+     if-nez v3, :cond_2
+ 
+-    .line 70
+     .line 71
+     iget-object v3, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 72
+     .line 73
+     iget-object v3, v3, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyAudioList:Ljava/util/List;
+ 
+-    .line 74
+     .line 75
+     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     :cond_2
+     :goto_1
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 79
+     .line 80
+     goto :goto_0
+ 
+@@ -2531,11 +2189,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->sandboxDir:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2546,23 +2202,18 @@
+     .line 1
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 8
+     .line 9
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->sortOrder:Ljava/lang/String;
+ 
+-    .line 10
+     .line 11
+     :cond_0
+     return-object p0
+@@ -2574,11 +2225,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onRecordAudioListener:Lcom/luck/picture/lib/interfaces/OnRecordAudioInterceptListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2589,11 +2238,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->recordVideoMaxSecond:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2604,11 +2251,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->recordVideoMinSecond:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2619,11 +2264,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->animationMode:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2634,11 +2277,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->requestedOrientation:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2717,11 +2358,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onSelectAnimListener:Lcom/luck/picture/lib/interfaces/OnSelectAnimListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2732,11 +2371,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onSelectFilterListener:Lcom/luck/picture/lib/interfaces/OnSelectFilterListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2747,11 +2384,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onSelectLimitTipsListener:Lcom/luck/picture/lib/interfaces/OnSelectLimitTipsListener;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -2762,15 +2397,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     mul-int/lit16 p1, p1, 0x3e8
+ 
+-    .line 4
+     .line 5
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectMaxDurationSecond:I
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ .end method
+@@ -2781,24 +2413,18 @@
+     .line 1
+     const-wide/32 v0, 0x100000
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     cmp-long v0, p1, v0
+ 
+-    .line 5
+     .line 6
+     if-ltz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 9
+     .line 10
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectMaxFileSize:J
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ 
+@@ -2806,18 +2432,15 @@
+     :cond_0
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 14
+     .line 15
+     const-wide/16 v1, 0x400
+ 
+-    .line 16
+     .line 17
+     mul-long/2addr p1, v1
+ 
+     .line 18
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectMaxFileSize:J
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ .end method
+@@ -2828,15 +2451,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     mul-int/lit16 p1, p1, 0x3e8
+ 
+-    .line 4
+     .line 5
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectMinDurationSecond:I
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ .end method
+@@ -2847,24 +2467,18 @@
+     .line 1
+     const-wide/32 v0, 0x100000
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     cmp-long v0, p1, v0
+ 
+-    .line 5
+     .line 6
+     if-ltz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 9
+     .line 10
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectMinFileSize:J
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ 
+@@ -2872,18 +2486,15 @@
+     :cond_0
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 14
+     .line 15
+     const-wide/16 v1, 0x400
+ 
+-    .line 16
+     .line 17
+     mul-long/2addr p1, v1
+ 
+     .line 18
+     iput-wide p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectMinFileSize:J
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ .end method
+@@ -2903,7 +2514,6 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ 
+@@ -2911,35 +2521,27 @@
+     :cond_0
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 5
+     .line 6
+     iget v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectionMode:I
+ 
+-    .line 7
+     .line 8
+     const/4 v2, 0x1
+ 
+     .line 9
+     if-ne v1, v2, :cond_1
+ 
+-    .line 10
+     .line 11
+     iget-boolean v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isDirectReturnSingle:Z
+ 
+-    .line 12
+     .line 13
+     if-eqz v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     iget-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectedResult:Ljava/util/ArrayList;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1}, Ljava/util/ArrayList;->clear()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-object p0
+ 
+@@ -2947,17 +2549,12 @@
+     :cond_1
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v1, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v0, v1}, Lcom/luck/picture/lib/config/SelectorConfig;->addAllSelectResult(Ljava/util/ArrayList;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-object p0
+ .end method
+@@ -2968,18 +2565,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectionMode:I
+ 
+-    .line 4
+     .line 5
+     const/4 v1, 0x1
+ 
+     .line 6
+     if-ne p1, v1, :cond_0
+ 
+-    .line 7
+     .line 8
+     goto :goto_0
+ 
+@@ -2987,12 +2581,10 @@
+     :cond_0
+     iget v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->maxSelectNum:I
+ 
+-    .line 10
+     .line 11
+     :goto_0
+     iput v1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->maxSelectNum:I
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -3003,15 +2595,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 4
+     .line 5
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->selectorStyle:Lcom/luck/picture/lib/style/PictureSelectorStyle;
+ 
+-    .line 6
+     .line 7
+     :cond_0
+     return-object p0
+@@ -3023,35 +2612,27 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     array-length v0, p1
+ 
+     .line 4
+     if-lez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 7
+     .line 8
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->skipCropList:Ljava/util/List;
+ 
+-    .line 9
+     .line 10
+     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     :cond_0
+     return-object p0
+@@ -3063,11 +2644,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->videoPlayerEngine:Lcom/luck/picture/lib/engine/VideoPlayerEngine;
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -3080,11 +2659,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->videoQuality:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -3095,31 +2672,24 @@
+     .line 1
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     iget v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAudio()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-eq v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Lcom/luck/picture/lib/basic/PictureSelectionModel;->selectionConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 12
+     .line 13
+     iput-object p1, v0, Lcom/luck/picture/lib/config/SelectorConfig;->onVideoThumbnailEventListener:Lcom/luck/picture/lib/interfaces/OnVideoThumbnailEventListener;
+ 
+-    .line 14
+     .line 15
+     :cond_0
+     return-object p0

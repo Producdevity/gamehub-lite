@@ -1,0 +1,601 @@
+--- a/smali_classes4/androidx/media3/extractor/metadata/emsg/EventMessage.smali
++++ b/smali_classes4/androidx/media3/extractor/metadata/emsg/EventMessage.smali
+@@ -50,69 +50,51 @@
+     .line 1
+     new-instance v0, Landroidx/media3/common/Format$Builder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/common/Format$Builder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "application/id3"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Landroidx/media3/common/Format$Builder;->setSampleMimeType(Ljava/lang/String;)Landroidx/media3/common/Format$Builder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-virtual {v0}, Landroidx/media3/common/Format$Builder;->build()Landroidx/media3/common/Format;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     sput-object v0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->ID3_FORMAT:Landroidx/media3/common/Format;
+ 
+-    .line 17
+     .line 18
+     new-instance v0, Landroidx/media3/common/Format$Builder;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v0}, Landroidx/media3/common/Format$Builder;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const-string v1, "application/x-scte35"
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v0, v1}, Landroidx/media3/common/Format$Builder;->setSampleMimeType(Ljava/lang/String;)Landroidx/media3/common/Format$Builder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     invoke-virtual {v0}, Landroidx/media3/common/Format$Builder;->build()Landroidx/media3/common/Format;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     sput-object v0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->SCTE35_FORMAT:Landroidx/media3/common/Format;
+ 
+-    .line 34
+     .line 35
+     return-void
+ .end method
+@@ -123,28 +105,21 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->schemeIdUri:Ljava/lang/String;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->value:Ljava/lang/String;
+ 
+-    .line 7
+     .line 8
+     iput-wide p3, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->durationMs:J
+ 
+-    .line 9
+     .line 10
+     iput-wide p5, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->id:J
+ 
+-    .line 11
+     .line 12
+     iput-object p7, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->messageData:[B
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -164,7 +139,6 @@
+     .line 2
+     if-ne p0, p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return v0
+ 
+@@ -175,23 +149,18 @@
+     .line 6
+     if-eqz p1, :cond_2
+ 
+-    .line 7
+     .line 8
+     const-class v2, Landroidx/media3/extractor/metadata/emsg/EventMessage;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v3
+ 
+     .line 14
+     if-eq v2, v3, :cond_1
+ 
+-    .line 15
+     .line 16
+     goto :goto_0
+ 
+@@ -199,99 +168,75 @@
+     :cond_1
+     check-cast p1, Landroidx/media3/extractor/metadata/emsg/EventMessage;
+ 
+-    .line 18
+     .line 19
+     iget-wide v2, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->durationMs:J
+ 
+-    .line 20
+     .line 21
+     iget-wide v4, p1, Landroidx/media3/extractor/metadata/emsg/EventMessage;->durationMs:J
+ 
+-    .line 22
+     .line 23
+     cmp-long v2, v2, v4
+ 
+-    .line 24
+     .line 25
+     if-nez v2, :cond_2
+ 
+-    .line 26
+     .line 27
+     iget-wide v2, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->id:J
+ 
+-    .line 28
+     .line 29
+     iget-wide v4, p1, Landroidx/media3/extractor/metadata/emsg/EventMessage;->id:J
+ 
+-    .line 30
+     .line 31
+     cmp-long v2, v2, v4
+ 
+-    .line 32
+     .line 33
+     if-nez v2, :cond_2
+ 
+-    .line 34
+     .line 35
+     iget-object v2, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->schemeIdUri:Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     iget-object v3, p1, Landroidx/media3/extractor/metadata/emsg/EventMessage;->schemeIdUri:Ljava/lang/String;
+ 
+-    .line 38
+     .line 39
+     invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v2
+ 
+     .line 43
+     if-eqz v2, :cond_2
+ 
+-    .line 44
+     .line 45
+     iget-object v2, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->value:Ljava/lang/String;
+ 
+-    .line 46
+     .line 47
+     iget-object v3, p1, Landroidx/media3/extractor/metadata/emsg/EventMessage;->value:Ljava/lang/String;
+ 
+-    .line 48
+     .line 49
+     invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v2
+ 
+     .line 53
+     if-eqz v2, :cond_2
+ 
+-    .line 54
+     .line 55
+     iget-object p0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->messageData:[B
+ 
+-    .line 56
+     .line 57
+     iget-object p1, p1, Landroidx/media3/extractor/metadata/emsg/EventMessage;->messageData:[B
+ 
+-    .line 58
+     .line 59
+     invoke-static {p0, p1}, Ljava/util/Arrays;->equals([B[B)Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result p0
+ 
+     .line 63
+     if-eqz p0, :cond_2
+ 
+-    .line 64
+     .line 65
+     return v0
+ 
+@@ -309,19 +254,15 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/extractor/metadata/emsg/EventMessage;->getWrappedMetadataFormat()Landroidx/media3/common/Format;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object p0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->messageData:[B
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ 
+@@ -341,17 +282,12 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->schemeIdUri:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+@@ -361,8 +297,6 @@
+     .line 11
+     sparse-switch v0, :sswitch_data_0
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -370,19 +304,15 @@
+     :sswitch_0
+     const-string v0, "https://developer.apple.com/streaming/emsg-id3"
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+     .line 21
+     if-nez p0, :cond_0
+ 
+-    .line 22
+     .line 23
+     goto :goto_0
+ 
+@@ -397,19 +327,15 @@
+     :sswitch_1
+     const-string v0, "https://aomedia.org/emsg/ID3"
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result p0
+ 
+     .line 32
+     if-nez p0, :cond_1
+ 
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -424,19 +350,15 @@
+     :sswitch_2
+     const-string v0, "urn:scte:scte35:2014:bin"
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result p0
+ 
+     .line 43
+     if-nez p0, :cond_2
+ 
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -448,8 +370,6 @@
+     :goto_0
+     packed-switch v1, :pswitch_data_0
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const/4 p0, 0x0
+ 
+@@ -460,7 +380,6 @@
+     :pswitch_0
+     sget-object p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->ID3_FORMAT:Landroidx/media3/common/Format;
+ 
+-    .line 53
+     .line 54
+     return-object p0
+ 
+@@ -468,11 +387,9 @@
+     :pswitch_1
+     sget-object p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->SCTE35_FORMAT:Landroidx/media3/common/Format;
+ 
+-    .line 56
+     .line 57
+     return-object p0
+ 
+-    .line 58
+     nop
+ 
+     .line 59
+@@ -483,19 +400,6 @@
+         0x4db418c9 -> :sswitch_0
+     .end sparse-switch
+ 
+-    .line 60
+-    .line 61
+-    .line 62
+-    .line 63
+-    .line 64
+-    .line 65
+-    .line 66
+-    .line 67
+-    .line 68
+-    .line 69
+-    .line 70
+-    .line 71
+-    .line 72
+     .line 73
+     :pswitch_data_0
+     .packed-switch 0x0
+@@ -511,27 +415,21 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->hashCode:I
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->schemeIdUri:Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x0
+ 
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+@@ -546,27 +444,21 @@
+     :goto_0
+     const/16 v2, 0x20f
+ 
+-    .line 17
+     .line 18
+     add-int/2addr v2, v0
+ 
+     .line 19
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 20
+     .line 21
+     iget-object v0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->value:Ljava/lang/String;
+ 
+-    .line 22
+     .line 23
+     if-eqz v0, :cond_1
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v1
+ 
+@@ -577,19 +469,15 @@
+     .line 30
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 31
+     .line 32
+     iget-wide v0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->durationMs:J
+ 
+-    .line 33
+     .line 34
+     const/16 v3, 0x20
+ 
+-    .line 35
+     .line 36
+     ushr-long v4, v0, v3
+ 
+-    .line 37
+     .line 38
+     xor-long/2addr v0, v4
+ 
+@@ -602,15 +490,12 @@
+     .line 41
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 42
+     .line 43
+     iget-wide v0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->id:J
+ 
+-    .line 44
+     .line 45
+     ushr-long v3, v0, v3
+ 
+-    .line 46
+     .line 47
+     xor-long/2addr v0, v3
+ 
+@@ -623,16 +508,12 @@
+     .line 50
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 51
+     .line 52
+     iget-object v0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->messageData:[B
+ 
+-    .line 53
+     .line 54
+     invoke-static {v0}, Ljava/util/Arrays;->hashCode([B)I
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v0
+ 
+@@ -642,12 +523,10 @@
+     .line 59
+     iput v2, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->hashCode:I
+ 
+-    .line 60
+     .line 61
+     :cond_2
+     iget p0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->hashCode:I
+ 
+-    .line 62
+     .line 63
+     return p0
+ .end method
+@@ -658,89 +537,60 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "EMSG: scheme="
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v1, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->schemeIdUri:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v1, ", id="
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget-wide v1, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->id:J
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     const-string v1, ", durationMs="
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iget-wide v1, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->durationMs:J
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     const-string v1, ", value="
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     iget-object p0, p0, Landroidx/media3/extractor/metadata/emsg/EventMessage;->value:Ljava/lang/String;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 

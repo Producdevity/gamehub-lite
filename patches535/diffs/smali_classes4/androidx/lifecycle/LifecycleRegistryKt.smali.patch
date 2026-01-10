@@ -1,0 +1,220 @@
+--- a/smali_classes4/androidx/lifecycle/LifecycleRegistryKt.smali
++++ b/smali_classes4/androidx/lifecycle/LifecycleRegistryKt.smali
+@@ -15,37 +15,27 @@
+     .line 1
+     const-string v0, "current"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "next"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
+ 
+-    .line 12
+     .line 13
+     if-ne p1, v0, :cond_1
+ 
+-    .line 14
+     .line 15
+     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
+ 
+-    .line 16
+     .line 17
+     if-eq p2, v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -53,83 +43,57 @@
+     :cond_0
+     new-instance p1, Ljava/lang/IllegalStateException;
+ 
+-    .line 21
+     .line 22
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     const-string v1, "State must be at least \'"
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     sget-object v1, Landroidx/lifecycle/Lifecycle$State;->CREATED:Landroidx/lifecycle/Lifecycle$State;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const-string v1, "\' to be moved to \'"
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-string p2, "\' in component "
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+     .line 57
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+     .line 61
+     invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     throw p1
+ 
+@@ -138,15 +102,12 @@
+     :goto_0
+     sget-object v0, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
+ 
+-    .line 66
+     .line 67
+     if-ne p1, v0, :cond_3
+ 
+-    .line 68
+     .line 69
+     if-ne p1, p2, :cond_2
+ 
+-    .line 70
+     .line 71
+     goto :goto_1
+ 
+@@ -154,79 +115,54 @@
+     :cond_2
+     new-instance p1, Ljava/lang/IllegalStateException;
+ 
+-    .line 73
+     .line 74
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 75
+     .line 76
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     const-string v2, "State is \'"
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     const-string v0, "\' and cannot be moved to `"
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     const-string p2, "` in component "
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object p0
+ 
+     .line 107
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object p0
+ 
+     .line 111
+     invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     throw p1
+ 

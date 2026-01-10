@@ -1,0 +1,1517 @@
+--- a/smali_classes5/com/google/android/gms/internal/cast/zzbf.smali
++++ b/smali_classes5/com/google/android/gms/internal/cast/zzbf.smali
+@@ -29,20 +29,15 @@
+     .line 1
+     new-instance v0, Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "MediaRouterProxy"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Lcom/google/android/gms/cast/internal/Logger;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sput-object v0, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -53,61 +48,45 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/gms/internal/cast/zzal;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/HashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 10
+     .line 11
+     iput-object p2, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 12
+     .line 13
+     iput-object p3, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzc:Lcom/google/android/gms/cast/framework/CastOptions;
+ 
+-    .line 14
+     .line 15
+     sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 16
+     .line 17
+     const/16 v0, 0x20
+ 
+-    .line 18
+     .line 19
+     const/4 v1, 0x0
+ 
+     .line 20
+     if-gt p2, v0, :cond_0
+ 
+-    .line 21
+     .line 22
+     sget-object p0, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 23
+     .line 24
+     new-array p1, v1, [Ljava/lang/Object;
+ 
+-    .line 25
+     .line 26
+     const-string p2, "Don\'t need to set MediaRouterParams for Android S v2 or below"
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0, p2, p1}, Lcom/google/android/gms/cast/internal/Logger;->i(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-void
+ 
+@@ -115,139 +94,100 @@
+     :cond_0
+     sget-object p2, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 33
+     .line 34
+     new-array v0, v1, [Ljava/lang/Object;
+ 
+-    .line 35
+     .line 36
+     const-string v2, "Set up MediaRouterParams based on module flag and CastOptions for Android T or above"
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p2, v2, v0}, Lcom/google/android/gms/cast/internal/Logger;->d(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     new-instance p2, Lcom/google/android/gms/internal/cast/zzbn;
+ 
+-    .line 42
+     .line 43
+     invoke-direct {p2, p3}, Lcom/google/android/gms/internal/cast/zzbn;-><init>(Lcom/google/android/gms/cast/framework/CastOptions;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     iput-object p2, p0, Lcom/google/android/gms/internal/cast/zzbf;->zze:Lcom/google/android/gms/internal/cast/zzbn;
+ 
+-    .line 47
+     .line 48
+     new-instance p2, Landroid/content/Intent;
+ 
+-    .line 49
+     .line 50
+     const-class v0, Landroidx/mediarouter/media/MediaTransferReceiver;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {p2, p1, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     invoke-virtual {p2, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p1
+ 
+     .line 66
+     invoke-virtual {p1, p2, v1}, Landroid/content/pm/PackageManager;->queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object p1
+ 
+     .line 70
+     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p1
+ 
+     .line 74
+     xor-int/lit8 p2, p1, 0x1
+ 
+-    .line 75
+     .line 76
+     iput-boolean p2, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzf:Z
+ 
+-    .line 77
+     .line 78
+     if-nez p1, :cond_1
+ 
+-    .line 79
+     .line 80
+     sget-object p1, Lcom/google/android/gms/internal/cast/zzml;->zzJ:Lcom/google/android/gms/internal/cast/zzml;
+ 
+-    .line 81
+     .line 82
+     invoke-static {p1}, Lcom/google/android/gms/internal/cast/zzo;->zzd(Lcom/google/android/gms/internal/cast/zzml;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     :cond_1
+     const-string p1, "com.google.android.gms.cast.FLAG_OUTPUT_SWITCHER_ENABLED"
+ 
+-    .line 86
+     .line 87
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p1
+ 
+     .line 91
+     invoke-virtual {p4, p1}, Lcom/google/android/gms/cast/internal/zzn;->zza([Ljava/lang/String;)Lcom/google/android/gms/tasks/Task;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object p1
+ 
+     .line 95
+     new-instance p2, Lcom/google/android/gms/internal/cast/zzbc;
+ 
+-    .line 96
+     .line 97
+     invoke-direct {p2, p0, p3}, Lcom/google/android/gms/internal/cast/zzbc;-><init>(Lcom/google/android/gms/internal/cast/zzbf;Lcom/google/android/gms/cast/framework/CastOptions;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     invoke-virtual {p1, p2}, Lcom/google/android/gms/tasks/Task;->addOnCompleteListener(Lcom/google/android/gms/tasks/OnCompleteListener;)Lcom/google/android/gms/tasks/Task;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     return-void
+ .end method
+@@ -262,23 +202,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast v0, Ljava/util/Set;
+ 
+-    .line 8
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto :goto_1
+ 
+@@ -286,8 +221,6 @@
+     :cond_0
+     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+@@ -295,36 +228,27 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-eqz v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     check-cast v1, Landroidx/mediarouter/media/MediaRouter$Callback;
+ 
+-    .line 27
+     .line 28
+     iget-object v2, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v2, p1, v1, p2}, Landroidx/mediarouter/media/MediaRouter;->b(Landroidx/mediarouter/media/MediaRouteSelector;Landroidx/mediarouter/media/MediaRouter$Callback;I)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -344,23 +268,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     check-cast p1, Ljava/util/Set;
+ 
+-    .line 8
+     .line 9
+     if-nez p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto :goto_1
+ 
+@@ -368,8 +287,6 @@
+     :cond_0
+     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+@@ -377,36 +294,27 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-eqz v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     check-cast v0, Landroidx/mediarouter/media/MediaRouter$Callback;
+ 
+-    .line 27
+     .line 28
+     iget-object v1, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v1, v0}, Landroidx/mediarouter/media/MediaRouter;->s(Landroidx/mediarouter/media/MediaRouter$Callback;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -426,20 +334,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->m()Ljava/util/List;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -447,52 +350,39 @@
+     :cond_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     if-eqz v0, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     check-cast v0, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v1
+ 
+     .line 27
+     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v1
+ 
+     .line 31
+     if-eqz v1, :cond_0
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->i()Landroid/os/Bundle;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+@@ -513,20 +403,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->n()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -544,15 +429,12 @@
+     .line 1
+     invoke-static {p1}, Landroidx/mediarouter/media/MediaRouteSelector;->d(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     if-nez p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -560,28 +442,21 @@
+     :cond_0
+     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     if-ne v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1, p2}, Lcom/google/android/gms/internal/cast/zzbf;->zzt(Landroidx/mediarouter/media/MediaRouteSelector;I)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -589,34 +464,24 @@
+     :cond_1
+     new-instance v0, Lcom/google/android/gms/internal/cast/zzed;
+ 
+-    .line 23
+     .line 24
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     invoke-direct {v0, v1}, Lcom/google/android/gms/internal/cast/zzed;-><init>(Landroid/os/Looper;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     new-instance v1, Lcom/google/android/gms/internal/cast/zzbe;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v1, p0, p1, p2}, Lcom/google/android/gms/internal/cast/zzbe;-><init>(Lcom/google/android/gms/internal/cast/zzbf;Landroidx/mediarouter/media/MediaRouteSelector;I)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ .end method
+@@ -631,15 +496,12 @@
+     .line 1
+     invoke-static {p1}, Landroidx/mediarouter/media/MediaRouteSelector;->d(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     if-nez p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -647,68 +509,49 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-nez v0, :cond_1
+ 
+-    .line 15
+     .line 16
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 17
+     .line 18
+     new-instance v1, Ljava/util/HashSet;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 27
+     .line 28
+     invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     check-cast p0, Ljava/util/Set;
+ 
+-    .line 33
+     .line 34
+     new-instance p1, Lcom/google/android/gms/internal/cast/zzat;
+ 
+-    .line 35
+     .line 36
+     invoke-direct {p1, p2}, Lcom/google/android/gms/internal/cast/zzat;-><init>(Lcom/google/android/gms/internal/cast/zzao;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-void
+ .end method
+@@ -719,20 +562,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+@@ -740,32 +578,24 @@
+     :cond_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-eqz v1, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     check-cast v1, Ljava/util/Set;
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v1
+ 
+@@ -773,36 +603,27 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v2
+ 
+     .line 31
+     if-eqz v2, :cond_0
+ 
+-    .line 32
+     .line 33
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v2
+ 
+     .line 37
+     check-cast v2, Landroidx/mediarouter/media/MediaRouter$Callback;
+ 
+-    .line 38
+     .line 39
+     iget-object v3, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v3, v2}, Landroidx/mediarouter/media/MediaRouter;->s(Landroidx/mediarouter/media/MediaRouter$Callback;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -810,12 +631,9 @@
+     :cond_1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 46
+     .line 47
+     invoke-interface {p0}, Ljava/util/Map;->clear()V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return-void
+ .end method
+@@ -830,15 +648,12 @@
+     .line 1
+     invoke-static {p1}, Landroidx/mediarouter/media/MediaRouteSelector;->d(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     if-nez p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -846,28 +661,21 @@
+     :cond_0
+     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     if-ne v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Lcom/google/android/gms/internal/cast/zzbf;->zzu(Landroidx/mediarouter/media/MediaRouteSelector;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -875,34 +683,24 @@
+     :cond_1
+     new-instance v0, Lcom/google/android/gms/internal/cast/zzed;
+ 
+-    .line 23
+     .line 24
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     invoke-direct {v0, v1}, Lcom/google/android/gms/internal/cast/zzed;-><init>(Landroid/os/Looper;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     new-instance v1, Lcom/google/android/gms/internal/cast/zzbd;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v1, p0, p1}, Lcom/google/android/gms/internal/cast/zzbd;-><init>(Lcom/google/android/gms/internal/cast/zzbf;Landroidx/mediarouter/media/MediaRouteSelector;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ .end method
+@@ -913,20 +711,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->g()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {p0, v0}, Landroidx/mediarouter/media/MediaRouter;->u(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -937,41 +730,30 @@
+     .line 1
+     sget-object v0, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 2
+     .line 3
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     const-string v2, "select route with routeId = %s"
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v0, v2, v1}, Lcom/google/android/gms/cast/internal/Logger;->d(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter;->m()Ljava/util/List;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+@@ -979,76 +761,57 @@
+     :cond_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+     .line 26
+     if-eqz v1, :cond_1
+ 
+-    .line 27
+     .line 28
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     check-cast v1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v2
+ 
+     .line 38
+     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v2
+ 
+     .line 42
+     if-eqz v2, :cond_0
+ 
+-    .line 43
+     .line 44
+     sget-object p1, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 45
+     .line 46
+     const/4 v0, 0x0
+ 
+     .line 47
+     new-array v0, v0, [Ljava/lang/Object;
+ 
+-    .line 48
+     .line 49
+     const-string v2, "media route is found and selected"
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {p1, v2, v0}, Lcom/google/android/gms/cast/internal/Logger;->d(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {p0, v1}, Landroidx/mediarouter/media/MediaRouter;->u(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     :cond_1
+     return-void
+@@ -1060,12 +823,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter;->y(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1076,59 +836,45 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter;->f()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->n()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result p0
+ 
+     .line 27
+     if-eqz p0, :cond_0
+ 
+-    .line 28
+     .line 29
+     const/4 p0, 0x1
+ 
+@@ -1149,59 +895,45 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter;->g()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->n()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->k()Ljava/lang/String;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result p0
+ 
+     .line 27
+     if-eqz p0, :cond_0
+ 
+-    .line 28
+     .line 29
+     const/4 p0, 0x1
+ 
+@@ -1226,15 +958,12 @@
+     .line 1
+     invoke-static {p1}, Landroidx/mediarouter/media/MediaRouteSelector;->d(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     if-nez p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+@@ -1245,12 +974,9 @@
+     :cond_0
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p1, p2}, Landroidx/mediarouter/media/MediaRouter;->q(Landroidx/mediarouter/media/MediaRouteSelector;I)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p0
+ 
+@@ -1266,7 +992,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zze:Lcom/google/android/gms/internal/cast/zzbn;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1277,7 +1002,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzd:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -1285,8 +1009,6 @@
+     :try_start_0
+     invoke-direct {p0, p1, p2}, Lcom/google/android/gms/internal/cast/zzbf;->zzt(Landroidx/mediarouter/media/MediaRouteSelector;I)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     monitor-exit v0
+ 
+@@ -1312,8 +1034,6 @@
+     .line 1
+     invoke-virtual {p2}, Lcom/google/android/gms/tasks/Task;->isSuccessful()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -1326,39 +1046,30 @@
+     .line 7
+     if-eqz v0, :cond_2
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p2}, Lcom/google/android/gms/tasks/Task;->getResult()Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p2
+ 
+     .line 13
+     check-cast p2, Landroid/os/Bundle;
+ 
+-    .line 14
+     .line 15
+     const-string v0, "com.google.android.gms.cast.FLAG_OUTPUT_SWITCHER_ENABLED"
+ 
+-    .line 16
+     .line 17
+     if-eqz p2, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p2, v0}, Landroid/os/BaseBundle;->containsKey(Ljava/lang/String;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v3
+ 
+     .line 23
+     if-eqz v3, :cond_0
+ 
+-    .line 24
+     .line 25
+     move v3, v2
+ 
+@@ -1373,15 +1084,12 @@
+     :goto_0
+     sget-object v4, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 29
+     .line 30
+     if-eq v2, v3, :cond_1
+ 
+-    .line 31
+     .line 32
+     const-string v5, "not existed"
+ 
+-    .line 33
+     .line 34
+     goto :goto_1
+ 
+@@ -1389,34 +1097,25 @@
+     :cond_1
+     const-string v5, "existed"
+ 
+-    .line 36
+     .line 37
+     :goto_1
+     filled-new-array {v5}, [Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v5
+ 
+     .line 41
+     const-string v6, "The module-to-client output switcher flag %s"
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v4, v6, v5}, Lcom/google/android/gms/cast/internal/Logger;->d(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     if-eqz v3, :cond_2
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p2, v0}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;)Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result p2
+ 
+@@ -1431,64 +1130,48 @@
+     :goto_2
+     sget-object v0, Lcom/google/android/gms/internal/cast/zzbf;->zza:Lcom/google/android/gms/cast/internal/Logger;
+ 
+-    .line 55
+     .line 56
+     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v3
+ 
+     .line 60
+     invoke-virtual {p1}, Lcom/google/android/gms/cast/framework/CastOptions;->zzh()Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v4
+ 
+     .line 64
+     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v4
+ 
+     .line 68
+     filled-new-array {v3, v4}, [Ljava/lang/Object;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v3
+ 
+     .line 72
+     const-string v4, "Set up output switcher flags: %b (from module), %b (from CastOptions)"
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {v0, v4, v3}, Lcom/google/android/gms/cast/internal/Logger;->i(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     if-eqz p2, :cond_3
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {p1}, Lcom/google/android/gms/cast/framework/CastOptions;->zzh()Z
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result p1
+ 
+     .line 83
+     if-eqz p1, :cond_3
+ 
+-    .line 84
+     .line 85
+     move v1, v2
+ 
+@@ -1496,19 +1179,15 @@
+     :cond_3
+     iget-object p1, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 87
+     .line 88
+     if-eqz p1, :cond_5
+ 
+-    .line 89
+     .line 90
+     iget-object p2, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzc:Lcom/google/android/gms/cast/framework/CastOptions;
+ 
+-    .line 91
+     .line 92
+     if-nez p2, :cond_4
+ 
+-    .line 93
+     .line 94
+     goto :goto_3
+ 
+@@ -1516,165 +1195,120 @@
+     :cond_4
+     invoke-virtual {p2}, Lcom/google/android/gms/cast/framework/CastOptions;->zzf()Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v2
+ 
+     .line 99
+     invoke-virtual {p2}, Lcom/google/android/gms/cast/framework/CastOptions;->zze()Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p2
+ 
+     .line 103
+     new-instance v3, Landroidx/mediarouter/media/MediaRouterParams$Builder;
+ 
+-    .line 104
+     .line 105
+     invoke-direct {v3}, Landroidx/mediarouter/media/MediaRouterParams$Builder;-><init>()V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     invoke-virtual {v3, v1}, Landroidx/mediarouter/media/MediaRouterParams$Builder;->b(Z)Landroidx/mediarouter/media/MediaRouterParams$Builder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object v3
+ 
+     .line 112
+     invoke-virtual {v3, v2}, Landroidx/mediarouter/media/MediaRouterParams$Builder;->d(Z)Landroidx/mediarouter/media/MediaRouterParams$Builder;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v3
+ 
+     .line 116
+     invoke-virtual {v3, p2}, Landroidx/mediarouter/media/MediaRouterParams$Builder;->c(Z)Landroidx/mediarouter/media/MediaRouterParams$Builder;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v3
+ 
+     .line 120
+     invoke-virtual {v3}, Landroidx/mediarouter/media/MediaRouterParams$Builder;->a()Landroidx/mediarouter/media/MediaRouterParams;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v3
+ 
+     .line 124
+     invoke-virtual {p1, v3}, Landroidx/mediarouter/media/MediaRouter;->w(Landroidx/mediarouter/media/MediaRouterParams;)V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     iget-boolean p1, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzf:Z
+ 
+-    .line 128
+     .line 129
+     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object p1
+ 
+     .line 133
+     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v1
+ 
+     .line 137
+     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result-object v3
+ 
+     .line 141
+     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result-object p2
+ 
+     .line 145
+     filled-new-array {p1, v1, v3, p2}, [Ljava/lang/Object;
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result-object p1
+ 
+     .line 149
+     const-string p2, "media transfer = %b, session transfer = %b, transfer to local = %b, in-app output switcher = %b"
+ 
+-    .line 150
+     .line 151
+     invoke-virtual {v0, p2, p1}, Lcom/google/android/gms/cast/internal/Logger;->i(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     if-eqz v2, :cond_5
+ 
+-    .line 155
+     .line 156
+     iget-object p1, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 157
+     .line 158
+     new-instance p2, Lcom/google/android/gms/internal/cast/zzbb;
+ 
+-    .line 159
+     .line 160
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zze:Lcom/google/android/gms/internal/cast/zzbn;
+ 
+-    .line 161
+     .line 162
+     invoke-static {p0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object p0
+ 
+     .line 166
+     check-cast p0, Lcom/google/android/gms/internal/cast/zzbn;
+ 
+-    .line 167
+     .line 168
+     invoke-direct {p2, p0}, Lcom/google/android/gms/internal/cast/zzbb;-><init>(Lcom/google/android/gms/internal/cast/zzbn;)V
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     invoke-virtual {p1, p2}, Landroidx/mediarouter/media/MediaRouter;->setOnPrepareTransferListener(Landroidx/mediarouter/media/MediaRouter$OnPrepareTransferListener;)V
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     sget-object p0, Lcom/google/android/gms/internal/cast/zzml;->zzK:Lcom/google/android/gms/internal/cast/zzml;
+ 
+-    .line 175
+     .line 176
+     invoke-static {p0}, Lcom/google/android/gms/internal/cast/zzo;->zzd(Lcom/google/android/gms/internal/cast/zzml;)V
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     :cond_5
+     :goto_3
+@@ -1687,8 +1321,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/android/gms/internal/cast/zzbf;->zzu(Landroidx/mediarouter/media/MediaRouteSelector;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -1703,12 +1335,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzb:Landroidx/mediarouter/media/MediaRouter;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter;->v(Landroid/support/v4/media/session/MediaSessionCompat;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1719,7 +1348,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/google/android/gms/internal/cast/zzbf;->zzf:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method

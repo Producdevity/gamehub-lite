@@ -1,0 +1,833 @@
+--- a/smali_classes5/com/github/luben/zstd/ZstdInputStreamNoFinalizer.smali
++++ b/smali_classes5/com/github/luben/zstd/ZstdInputStreamNoFinalizer.smali
+@@ -38,13 +38,9 @@
+     .line 1
+     invoke-static {}, Lcom/github/luben/zstd/util/Native;->load()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->recommendedDInSize()J
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-wide v0
+ 
+@@ -54,7 +50,6 @@
+     .line 9
+     sput v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcBuffSize:I
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -196,21 +191,17 @@
+     :try_start_0
+     iget-boolean v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->isClosed:Z
+ 
+-    .line 3
+     .line 4
+     if-nez v0, :cond_1
+ 
+-    .line 5
+     .line 6
+     iget-boolean v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->needRead:Z
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 7
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     monitor-exit p0
+ 
+@@ -225,12 +216,9 @@
+     :try_start_1
+     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Ljava/io/InputStream;->available()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+     :try_end_1
+@@ -254,16 +242,12 @@
+     :try_start_2
+     new-instance v0, Ljava/io/IOException;
+ 
+-    .line 24
+     .line 25
+     const-string v1, "Stream closed"
+ 
+-    .line 26
+     .line 27
+     invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     throw v0
+ 
+@@ -294,11 +278,9 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 3
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     monitor-exit p0
+ 
+@@ -313,40 +295,29 @@
+     :try_start_1
+     iput-boolean v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->isClosed:Z
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->bufferPool:Lcom/github/luben/zstd/BufferPool;
+ 
+-    .line 12
+     .line 13
+     iget-object v1, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcByteBuffer:Ljava/nio/ByteBuffer;
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v0, v1}, Lcom/github/luben/zstd/BufferPool;->release(Ljava/nio/ByteBuffer;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-wide v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->stream:J
+ 
+-    .line 19
+     .line 20
+     invoke-static {v0, v1}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->freeDStream(J)I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     monitor-exit p0
+ 
+@@ -379,7 +350,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 3
+     .line 4
+     monitor-exit p0
+ 
+@@ -588,31 +558,24 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v3, p1
+ 
+-    .line 4
+     .line 5
+     move/from16 v1, p2
+ 
+-    .line 6
+     .line 7
+     move/from16 v2, p3
+ 
+-    .line 8
+     .line 9
+     iget-boolean v4, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->isClosed:Z
+ 
+-    .line 10
+     .line 11
+     if-nez v4, :cond_c
+ 
+-    .line 12
+     .line 13
+     if-ltz v1, :cond_b
+ 
+-    .line 14
+     .line 15
+     array-length v4, v3
+ 
+@@ -622,103 +585,80 @@
+     .line 17
+     if-gt v2, v4, :cond_b
+ 
+-    .line 18
+     .line 19
+     add-int v4, v1, v2
+ 
+-    .line 20
+     .line 21
+     int-to-long v7, v1
+ 
+     .line 22
+     iput-wide v7, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 23
+     .line 24
+     const-wide/16 v1, -0x1
+ 
+-    .line 25
+     .line 26
+     :goto_0
+     iget-wide v5, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 27
+     .line 28
+     int-to-long v9, v4
+ 
+     .line 29
+     cmp-long v11, v5, v9
+ 
+-    .line 30
+     .line 31
+     if-gez v11, :cond_a
+ 
+-    .line 32
+     .line 33
+     cmp-long v1, v1, v5
+ 
+-    .line 34
+     .line 35
+     if-gez v1, :cond_a
+ 
+-    .line 36
+     .line 37
+     iget-boolean v1, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->needRead:Z
+ 
+-    .line 38
+     .line 39
+     const/4 v11, 0x0
+ 
+     .line 40
+     if-eqz v1, :cond_5
+ 
+-    .line 41
+     .line 42
+     iget-object v1, v0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v1}, Ljava/io/InputStream;->available()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v1
+ 
+     .line 48
+     if-gtz v1, :cond_0
+ 
+-    .line 49
+     .line 50
+     iget-wide v1, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 51
+     .line 52
+     cmp-long v1, v1, v7
+ 
+-    .line 53
+     .line 54
+     if-nez v1, :cond_5
+ 
+-    .line 55
+     .line 56
+     :cond_0
+     iget-object v1, v0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
+ 
+-    .line 57
+     .line 58
+     iget-object v2, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->src:[B
+ 
+-    .line 59
+     .line 60
+     sget v5, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcBuffSize:I
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v1, v2, v11, v5}, Ljava/io/InputStream;->read([BII)I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v1
+ 
+@@ -728,38 +668,30 @@
+     .line 67
+     iput-wide v1, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcSize:J
+ 
+-    .line 68
+     .line 69
+     const-wide/16 v5, 0x0
+ 
+-    .line 70
+     .line 71
+     iput-wide v5, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcPos:J
+ 
+-    .line 72
+     .line 73
+     cmp-long v1, v1, v5
+ 
+-    .line 74
+     .line 75
+     if-gez v1, :cond_4
+ 
+-    .line 76
+     .line 77
+     iput-wide v5, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcSize:J
+ 
+-    .line 78
+     .line 79
+     iget-boolean v1, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->frameFinished:Z
+ 
+-    .line 80
+     .line 81
+     const/4 v2, -0x1
+ 
+     .line 82
+     if-eqz v1, :cond_1
+ 
+-    .line 83
+     .line 84
+     return v2
+ 
+@@ -767,15 +699,12 @@
+     :cond_1
+     iget-boolean v1, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->isContinuous:Z
+ 
+-    .line 86
+     .line 87
+     if-eqz v1, :cond_3
+ 
+-    .line 88
+     .line 89
+     iget-wide v3, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 90
+     .line 91
+     sub-long/2addr v3, v7
+ 
+@@ -788,15 +717,12 @@
+     .line 94
+     iput-wide v3, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcSize:J
+ 
+-    .line 95
+     .line 96
+     cmp-long v0, v3, v5
+ 
+-    .line 97
+     .line 98
+     if-lez v0, :cond_2
+ 
+-    .line 99
+     .line 100
+     long-to-int v0, v3
+ 
+@@ -811,24 +737,18 @@
+     :cond_3
+     new-instance v0, Lcom/github/luben/zstd/ZstdIOException;
+ 
+-    .line 104
+     .line 105
+     invoke-static {}, Lcom/github/luben/zstd/Zstd;->errCorruptionDetected()J
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-wide v1
+ 
+     .line 109
+     const-string v3, "Truncated source"
+ 
+-    .line 110
+     .line 111
+     invoke-direct {v0, v1, v2, v3}, Lcom/github/luben/zstd/ZstdIOException;-><init>(JLjava/lang/String;)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     throw v0
+ 
+@@ -836,32 +756,25 @@
+     :cond_4
+     iput-boolean v11, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->frameFinished:Z
+ 
+-    .line 116
+     .line 117
+     :cond_5
+     iget-wide v12, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 118
+     .line 119
+     iget-wide v1, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->stream:J
+ 
+-    .line 120
+     .line 121
+     iget-object v5, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->src:[B
+ 
+-    .line 122
+     .line 123
+     iget-wide v14, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcSize:J
+ 
+-    .line 124
+     .line 125
+     long-to-int v6, v14
+ 
+     .line 126
+     invoke-direct/range {v0 .. v6}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->decompressStream(J[BI[BI)I
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result v1
+ 
+@@ -871,42 +784,33 @@
+     .line 131
+     invoke-static {v5, v6}, Lcom/github/luben/zstd/Zstd;->isError(J)Z
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result v2
+ 
+     .line 135
+     if-nez v2, :cond_9
+ 
+-    .line 136
+     .line 137
+     const/4 v2, 0x1
+ 
+     .line 138
+     if-nez v1, :cond_7
+ 
+-    .line 139
+     .line 140
+     iput-boolean v2, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->frameFinished:Z
+ 
+-    .line 141
+     .line 142
+     iget-wide v3, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcPos:J
+ 
+-    .line 143
+     .line 144
+     iget-wide v5, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->srcSize:J
+ 
+-    .line 145
+     .line 146
+     cmp-long v1, v3, v5
+ 
+-    .line 147
+     .line 148
+     if-nez v1, :cond_6
+ 
+-    .line 149
+     .line 150
+     move v11, v2
+ 
+@@ -914,11 +818,9 @@
+     :cond_6
+     iput-boolean v11, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->needRead:Z
+ 
+-    .line 152
+     .line 153
+     iget-wide v0, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 154
+     .line 155
+     sub-long/2addr v0, v7
+ 
+@@ -932,15 +834,12 @@
+     :cond_7
+     iget-wide v5, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->dstPos:J
+ 
+-    .line 159
+     .line 160
+     cmp-long v1, v5, v9
+ 
+-    .line 161
+     .line 162
+     if-gez v1, :cond_8
+ 
+-    .line 163
+     .line 164
+     move v11, v2
+ 
+@@ -948,24 +847,19 @@
+     :cond_8
+     iput-boolean v11, v0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->needRead:Z
+ 
+-    .line 166
+     .line 167
+     move-wide v1, v12
+ 
+     .line 168
+     goto/16 :goto_0
+ 
+-    .line 169
+     .line 170
+     :cond_9
+     new-instance v0, Lcom/github/luben/zstd/ZstdIOException;
+ 
+-    .line 171
+     .line 172
+     invoke-direct {v0, v5, v6}, Lcom/github/luben/zstd/ZstdIOException;-><init>(J)V
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     throw v0
+ 
+@@ -983,74 +877,51 @@
+     :cond_b
+     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+ 
+-    .line 180
+     .line 181
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 182
+     .line 183
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     const-string v5, "Requested length "
+ 
+-    .line 187
+     .line 188
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     const-string v2, " from offset "
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     const-string v1, " in buffer of size "
+ 
+-    .line 203
+     .line 204
+     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     array-length v1, v3
+ 
+     .line 208
+     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result-object v1
+ 
+     .line 215
+     invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     throw v0
+ 
+@@ -1058,16 +929,12 @@
+     :cond_c
+     new-instance v0, Ljava/io/IOException;
+ 
+-    .line 220
+     .line 221
+     const-string v1, "Stream closed"
+ 
+-    .line 222
+     .line 223
+     invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     throw v0
+ .end method
+@@ -1084,7 +951,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 3
+     .line 4
+     monitor-exit p0
+ 
+@@ -1256,12 +1122,9 @@
+     :try_start_0
+     iget-wide v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->stream:J
+ 
+-    .line 3
+     .line 4
+     invoke-static {v0, v1, p1}, Lcom/github/luben/zstd/Zstd;->setDecompressionLongMax(JI)I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+@@ -1271,8 +1134,6 @@
+     .line 9
+     invoke-static {v0, v1}, Lcom/github/luben/zstd/Zstd;->isError(J)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p1
+     :try_end_0
+@@ -1281,7 +1142,6 @@
+     .line 13
+     if-nez p1, :cond_0
+ 
+-    .line 14
+     .line 15
+     monitor-exit p0
+ 
+@@ -1293,12 +1153,9 @@
+     :try_start_1
+     new-instance p1, Lcom/github/luben/zstd/ZstdIOException;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p1, v0, v1}, Lcom/github/luben/zstd/ZstdIOException;-><init>(J)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     throw p1
+ 
+@@ -1330,12 +1187,9 @@
+     :try_start_0
+     iget-wide v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->stream:J
+ 
+-    .line 3
+     .line 4
+     invoke-static {v0, v1, p1}, Lcom/github/luben/zstd/Zstd;->setRefMultipleDDicts(JZ)I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+@@ -1345,8 +1199,6 @@
+     .line 9
+     invoke-static {v0, v1}, Lcom/github/luben/zstd/Zstd;->isError(J)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p1
+     :try_end_0
+@@ -1355,7 +1207,6 @@
+     .line 13
+     if-nez p1, :cond_0
+ 
+-    .line 14
+     .line 15
+     monitor-exit p0
+ 
+@@ -1367,12 +1218,9 @@
+     :try_start_1
+     new-instance p1, Lcom/github/luben/zstd/ZstdIOException;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p1, v0, v1}, Lcom/github/luben/zstd/ZstdIOException;-><init>(J)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     throw p1
+ 
+@@ -1406,23 +1254,18 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 3
+     .line 4
+     if-nez v0, :cond_4
+ 
+-    .line 5
+     .line 6
+     const-wide/16 v0, 0x0
+ 
+-    .line 7
+     .line 8
+     cmp-long v2, p1, v0
+ 
+-    .line 9
+     .line 10
+     if-gtz v2, :cond_0
+ 
+-    .line 11
+     .line 12
+     monitor-exit p0
+ 
+@@ -1434,8 +1277,6 @@
+     :try_start_1
+     invoke-static {}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->recommendedDOutSize()J
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-wide v2
+ 
+@@ -1448,11 +1289,9 @@
+     .line 20
+     cmp-long v3, v3, p1
+ 
+-    .line 21
+     .line 22
+     if-lez v3, :cond_1
+ 
+-    .line 23
+     .line 24
+     long-to-int v2, p1
+ 
+@@ -1460,12 +1299,9 @@
+     :cond_1
+     iget-object v3, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->bufferPool:Lcom/github/luben/zstd/BufferPool;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v3, v2}, Lcom/github/luben/zstd/Zstd;->getArrayBackedBuffer(Lcom/github/luben/zstd/BufferPool;I)Ljava/nio/ByteBuffer;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v3
+     :try_end_1
+@@ -1475,8 +1311,6 @@
+     :try_start_2
+     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->array()[B
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v4
+ 
+@@ -1487,19 +1321,15 @@
+     :goto_0
+     cmp-long v7, v5, v0
+ 
+-    .line 37
+     .line 38
+     if-lez v7, :cond_3
+ 
+-    .line 39
+     .line 40
+     int-to-long v7, v2
+ 
+     .line 41
+     invoke-static {v7, v8, v5, v6}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-wide v7
+ 
+@@ -1512,8 +1342,6 @@
+     .line 47
+     invoke-virtual {p0, v4, v8, v7}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->read([BII)I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v7
+     :try_end_2
+@@ -1522,7 +1350,6 @@
+     .line 51
+     if-gez v7, :cond_2
+ 
+-    .line 52
+     .line 53
+     goto :goto_1
+ 
+@@ -1549,14 +1376,11 @@
+     :try_start_3
+     iget-object v0, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->bufferPool:Lcom/github/luben/zstd/BufferPool;
+ 
+-    .line 60
+     .line 61
+     invoke-interface {v0, v3}, Lcom/github/luben/zstd/BufferPool;->release(Ljava/nio/ByteBuffer;)V
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     sub-long/2addr p1, v5
+ 
+@@ -1578,12 +1402,9 @@
+     :try_start_4
+     iget-object p2, p0, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->bufferPool:Lcom/github/luben/zstd/BufferPool;
+ 
+-    .line 70
+     .line 71
+     invoke-interface {p2, v3}, Lcom/github/luben/zstd/BufferPool;->release(Ljava/nio/ByteBuffer;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     throw p1
+ 
+@@ -1591,16 +1412,12 @@
+     :cond_4
+     new-instance p1, Ljava/io/IOException;
+ 
+-    .line 76
+     .line 77
+     const-string p2, "Stream closed"
+ 
+-    .line 78
+     .line 79
+     invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     throw p1
+ 

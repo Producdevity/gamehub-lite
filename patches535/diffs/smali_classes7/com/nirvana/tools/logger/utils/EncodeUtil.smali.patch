@@ -1,0 +1,534 @@
+--- a/smali_classes7/com/nirvana/tools/logger/utils/EncodeUtil.smali
++++ b/smali_classes7/com/nirvana/tools/logger/utils/EncodeUtil.smali
+@@ -9,8 +9,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -21,8 +19,6 @@
+     .line 1
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -32,7 +28,6 @@
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return-object v1
+ 
+@@ -41,29 +36,21 @@
+     :try_start_0
+     new-instance v0, Ljava/lang/StringBuffer;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0, p0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Ljava/lang/String;->length()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+     .line 18
+     div-int/lit8 v2, v2, 0x2
+ 
+-    .line 19
+     .line 20
+     invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v2
+ 
+@@ -77,60 +64,45 @@
+     :goto_0
+     invoke-virtual {p0}, Ljava/lang/String;->length()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v5
+ 
+     .line 30
+     if-ge v4, v5, :cond_1
+ 
+-    .line 31
+     .line 32
+     add-int/lit8 v5, v4, 0x1
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuffer;->substring(II)Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v6
+ 
+     .line 38
+     const/16 v7, 0x10
+ 
+-    .line 39
+     .line 40
+     invoke-static {v6, v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v6
+ 
+     .line 44
+     shl-int/lit8 v6, v6, 0x4
+ 
+-    .line 45
+     .line 46
+     add-int/lit8 v4, v4, 0x2
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v0, v5, v4}, Ljava/lang/StringBuffer;->substring(II)Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v5
+ 
+     .line 52
+     invoke-static {v5, v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v5
+ 
+@@ -143,8 +115,6 @@
+     .line 58
+     invoke-virtual {v2, v5}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     goto :goto_0
+ 
+@@ -159,8 +129,6 @@
+     :cond_1
+     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->array()[B
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p0
+ 
+@@ -174,40 +142,33 @@
+     .line 70
+     if-ge v0, v2, :cond_4
+ 
+-    .line 71
+     .line 72
+     array-length v2, p0
+ 
+     .line 73
+     add-int/lit8 v2, v2, -0x1
+ 
+-    .line 74
+     .line 75
+     if-ne v0, v2, :cond_2
+ 
+-    .line 76
+     .line 77
+     array-length v2, p0
+ 
+     .line 78
+     add-int/lit8 v2, v2, -0x1
+ 
+-    .line 79
+     .line 80
+     aget-byte v4, p0, v2
+ 
+-    .line 81
+     .line 82
+     xor-int/lit8 v4, v4, 0x62
+ 
+-    .line 83
+     .line 84
+     int-to-byte v4, v4
+ 
+     .line 85
+     aput-byte v4, p0, v2
+ 
+-    .line 86
+     .line 87
+     goto :goto_2
+ 
+@@ -215,19 +176,15 @@
+     :cond_2
+     aget-byte v2, p0, v0
+ 
+-    .line 89
+     .line 90
+     add-int/lit8 v4, v0, 0x1
+ 
+-    .line 91
+     .line 92
+     aget-byte v4, p0, v4
+ 
+-    .line 93
+     .line 94
+     if-eq v2, v4, :cond_3
+ 
+-    .line 95
+     .line 96
+     xor-int/2addr v2, v4
+ 
+@@ -237,13 +194,11 @@
+     .line 98
+     aput-byte v2, p0, v0
+ 
+-    .line 99
+     .line 100
+     :cond_3
+     :goto_2
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 101
+     .line 102
+     goto :goto_1
+ 
+@@ -254,31 +209,25 @@
+     .line 104
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 105
+     .line 106
+     :goto_3
+     if-ltz v0, :cond_7
+ 
+-    .line 107
+     .line 108
+     if-nez v0, :cond_5
+ 
+-    .line 109
+     .line 110
+     aget-byte v2, p0, v3
+ 
+-    .line 111
+     .line 112
+     xor-int/lit8 v2, v2, 0x45
+ 
+-    .line 113
+     .line 114
+     int-to-byte v2, v2
+ 
+     .line 115
+     aput-byte v2, p0, v3
+ 
+-    .line 116
+     .line 117
+     goto :goto_4
+ 
+@@ -286,19 +235,15 @@
+     :cond_5
+     aget-byte v2, p0, v0
+ 
+-    .line 119
+     .line 120
+     add-int/lit8 v4, v0, -0x1
+ 
+-    .line 121
+     .line 122
+     aget-byte v4, p0, v4
+ 
+-    .line 123
+     .line 124
+     if-eq v2, v4, :cond_6
+ 
+-    .line 125
+     .line 126
+     xor-int/2addr v2, v4
+ 
+@@ -308,13 +253,11 @@
+     .line 128
+     aput-byte v2, p0, v0
+ 
+-    .line 129
+     .line 130
+     :cond_6
+     :goto_4
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 131
+     .line 132
+     goto :goto_3
+ 
+@@ -322,18 +265,14 @@
+     :cond_7
+     new-instance v0, Ljava/lang/String;
+ 
+-    .line 134
+     .line 135
+     const-string v2, "UTF-8"
+ 
+-    .line 136
+     .line 137
+     invoke-direct {v0, p0, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     return-object v0
+ 
+@@ -341,8 +280,6 @@
+     :goto_5
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     return-object v1
+ .end method
+@@ -353,15 +290,12 @@
+     .line 1
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+@@ -372,8 +306,6 @@
+     :cond_0
+     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -390,26 +322,21 @@
+     :goto_0
+     if-ge v2, v0, :cond_3
+ 
+-    .line 17
+     .line 18
+     if-nez v2, :cond_1
+ 
+-    .line 19
+     .line 20
+     aget-byte v3, p0, v1
+ 
+-    .line 21
+     .line 22
+     xor-int/lit8 v3, v3, 0x45
+ 
+-    .line 23
+     .line 24
+     int-to-byte v3, v3
+ 
+     .line 25
+     aput-byte v3, p0, v1
+ 
+-    .line 26
+     .line 27
+     goto :goto_1
+ 
+@@ -417,19 +344,15 @@
+     :cond_1
+     aget-byte v3, p0, v2
+ 
+-    .line 29
+     .line 30
+     add-int/lit8 v4, v2, -0x1
+ 
+-    .line 31
+     .line 32
+     aget-byte v4, p0, v4
+ 
+-    .line 33
+     .line 34
+     if-eq v3, v4, :cond_2
+ 
+-    .line 35
+     .line 36
+     xor-int/2addr v3, v4
+ 
+@@ -439,13 +362,11 @@
+     .line 38
+     aput-byte v3, p0, v2
+ 
+-    .line 39
+     .line 40
+     :cond_2
+     :goto_1
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 41
+     .line 42
+     goto :goto_0
+ 
+@@ -453,7 +374,6 @@
+     :cond_3
+     add-int/lit8 v2, v0, -0x1
+ 
+-    .line 44
+     .line 45
+     move v3, v2
+ 
+@@ -461,26 +381,21 @@
+     :goto_2
+     if-ltz v3, :cond_6
+ 
+-    .line 47
+     .line 48
+     if-ne v3, v2, :cond_4
+ 
+-    .line 49
+     .line 50
+     aget-byte v4, p0, v3
+ 
+-    .line 51
+     .line 52
+     xor-int/lit8 v4, v4, 0x62
+ 
+-    .line 53
+     .line 54
+     int-to-byte v4, v4
+ 
+     .line 55
+     aput-byte v4, p0, v3
+ 
+-    .line 56
+     .line 57
+     goto :goto_3
+ 
+@@ -488,19 +403,15 @@
+     :cond_4
+     aget-byte v4, p0, v3
+ 
+-    .line 59
+     .line 60
+     add-int/lit8 v5, v3, 0x1
+ 
+-    .line 61
+     .line 62
+     aget-byte v5, p0, v5
+ 
+-    .line 63
+     .line 64
+     if-eq v4, v5, :cond_5
+ 
+-    .line 65
+     .line 66
+     xor-int/2addr v4, v5
+ 
+@@ -510,13 +421,11 @@
+     .line 68
+     aput-byte v4, p0, v3
+ 
+-    .line 69
+     .line 70
+     :cond_5
+     :goto_3
+     add-int/lit8 v3, v3, -0x1
+ 
+-    .line 71
+     .line 72
+     goto :goto_2
+ 
+@@ -524,43 +433,31 @@
+     :cond_6
+     const-string v2, ""
+ 
+-    .line 74
+     .line 75
+     :goto_4
+     if-ge v1, v0, :cond_7
+ 
+-    .line 76
+     .line 77
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 78
+     .line 79
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     aget-byte v2, p0, v1
+ 
+-    .line 86
+     .line 87
+     and-int/lit16 v2, v2, 0xff
+ 
+-    .line 88
+     .line 89
+     or-int/lit16 v2, v2, -0x100
+ 
+-    .line 90
+     .line 91
+     invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v2
+ 
+@@ -570,28 +467,21 @@
+     .line 96
+     invoke-virtual {v2, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v2
+ 
+     .line 100
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object v2
+ 
+     .line 107
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 108
+     .line 109
+     goto :goto_4
+ 

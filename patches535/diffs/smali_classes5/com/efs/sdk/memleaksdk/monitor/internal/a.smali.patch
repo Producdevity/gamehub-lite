@@ -1,0 +1,148 @@
+--- a/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/a.smali
++++ b/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/a.smali
+@@ -9,20 +9,15 @@
+     .line 1
+     if-nez p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     const-string p0, "JavaMonitorManager"
+ 
+-    .line 4
+     .line 5
+     const-string p1, "JavaMonitorManager init failed: context is null."
+ 
+-    .line 6
+     .line 7
+     invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -31,71 +26,51 @@
+     :try_start_0
+     invoke-static {}, Lcom/efs/sdk/memleaksdk/MemLeakManager;->getMemLeakConfigManager()Lcom/efs/sdk/memleaksdk/MemLeakConfigManager;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     if-eqz v0, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-static {}, Lcom/efs/sdk/memleaksdk/MemLeakManager;->getMemLeakConfigManager()Lcom/efs/sdk/memleaksdk/MemLeakConfigManager;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     invoke-virtual {v0}, Lcom/efs/sdk/memleaksdk/MemLeakConfigManager;->enableTracer()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     if-eqz v0, :cond_1
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     check-cast v0, Landroid/app/Application;
+ 
+-    .line 32
+     .line 33
+     invoke-static {v0}, Lcom/efs/sdk/memleaksdk/monitor/UMonitor;->init(Landroid/app/Application;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     new-instance v0, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {v0}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;-><init>()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     const v1, 0x3f4ccccd    # 0.8f
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-virtual {v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;->setHeapThreshold(F)Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+@@ -105,52 +80,38 @@
+     .line 49
+     invoke-virtual {v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;->setEnableHprofDumpAnalysis(Z)Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v0
+ 
+     .line 53
+     new-instance v1, Lcom/efs/sdk/memleaksdk/monitor/internal/a$1;
+ 
+-    .line 54
+     .line 55
+     invoke-direct {v1, p0, p1}, Lcom/efs/sdk/memleaksdk/monitor/internal/a$1;-><init>(Landroid/content/Context;Lcom/efs/sdk/base/EfsReporter;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;->setReporter(Lcom/efs/sdk/memleaksdk/monitor/UMonitorReporter;)Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p0
+ 
+     .line 62
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava$Builder;->build()Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p0
+ 
+     .line 66
+     invoke-static {p0}, Lcom/efs/sdk/memleaksdk/monitor/UMonitor;->initJavaMonitor(Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     const-wide/16 p0, 0x7d0
+ 
+-    .line 70
+     .line 71
+     invoke-static {p0, p1}, Lcom/efs/sdk/memleaksdk/monitor/UMonitor;->startJavaMonitor(J)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     :catchall_0
+     :cond_1

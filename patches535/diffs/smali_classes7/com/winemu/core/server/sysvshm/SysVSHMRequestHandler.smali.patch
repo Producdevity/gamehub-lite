@@ -1,0 +1,319 @@
+--- a/smali_classes7/com/winemu/core/server/sysvshm/SysVSHMRequestHandler.smali
++++ b/smali_classes7/com/winemu/core/server/sysvshm/SysVSHMRequestHandler.smali
+@@ -13,8 +13,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -27,36 +25,27 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/winemu/core/server/socket/Client;->e()Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     check-cast p0, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Lcom/winemu/core/server/socket/Client;->c()Lcom/winemu/core/server/socket/SocketInputStream;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {p1}, Lcom/winemu/core/server/socket/Client;->d()Lcom/winemu/core/server/socket/SocketOutputStream;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/SocketInputStream;->a()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+@@ -69,7 +58,6 @@
+     .line 21
+     if-ge v1, v2, :cond_0
+ 
+-    .line 22
+     .line 23
+     return v3
+ 
+@@ -77,8 +65,6 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/SocketInputStream;->e()B
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v1
+ 
+@@ -88,25 +74,21 @@
+     .line 29
+     if-eqz v1, :cond_6
+ 
+-    .line 30
+     .line 31
+     if-eq v1, v2, :cond_4
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x2
+ 
+     .line 34
+     if-eq v1, v3, :cond_3
+ 
+-    .line 35
+     .line 36
+     const/4 v3, 0x3
+ 
+     .line 37
+     if-eq v1, v3, :cond_1
+ 
+-    .line 38
+     .line 39
+     goto :goto_2
+ 
+@@ -114,16 +96,12 @@
+     :cond_1
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/SocketInputStream;->h()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v0
+ 
+     .line 44
+     invoke-virtual {p1}, Lcom/winemu/core/server/socket/SocketOutputStream;->e()Lcom/winemu/core/server/socket/SocketStreamLock;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v1
+ 
+@@ -131,8 +109,6 @@
+     :try_start_0
+     invoke-virtual {p0, v0}, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;->getSize(I)I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result p0
+ 
+@@ -141,17 +117,12 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     if-eqz v1, :cond_7
+ 
+-    .line 56
+     .line 57
+     invoke-interface {v1}, Lcom/winemu/core/server/socket/SocketStreamLock;->close()V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -162,15 +133,12 @@
+     .line 62
+     if-eqz v1, :cond_2
+ 
+-    .line 63
+     .line 64
+     :try_start_1
+     invoke-interface {v1}, Lcom/winemu/core/server/socket/SocketStreamLock;->close()V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_1
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     goto :goto_0
+ 
+@@ -181,8 +149,6 @@
+     .line 69
+     invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     :cond_2
+     :goto_0
+@@ -192,16 +158,12 @@
+     :cond_3
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/SocketInputStream;->h()I
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result p1
+ 
+     .line 77
+     invoke-virtual {p0, p1}, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;->delete(I)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     goto :goto_2
+ 
+@@ -209,16 +171,12 @@
+     :cond_4
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/SocketInputStream;->h()I
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result v0
+ 
+     .line 85
+     invoke-virtual {p1}, Lcom/winemu/core/server/socket/SocketOutputStream;->e()Lcom/winemu/core/server/socket/SocketStreamLock;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v1
+ 
+@@ -226,13 +184,9 @@
+     :try_start_2
+     invoke-virtual {p1, v3}, Lcom/winemu/core/server/socket/SocketOutputStream;->h(B)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     invoke-virtual {p0, v0}, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;->getFd(I)I
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result p0
+ 
+@@ -241,17 +195,12 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_2
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     if-eqz v1, :cond_7
+ 
+-    .line 100
+     .line 101
+     invoke-interface {v1}, Lcom/winemu/core/server/socket/SocketStreamLock;->close()V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     goto :goto_2
+ 
+@@ -262,15 +211,12 @@
+     .line 106
+     if-eqz v1, :cond_5
+ 
+-    .line 107
+     .line 108
+     :try_start_3
+     invoke-interface {v1}, Lcom/winemu/core/server/socket/SocketStreamLock;->close()V
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_3
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     goto :goto_1
+ 
+@@ -281,8 +227,6 @@
+     .line 113
+     invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     :cond_5
+     :goto_1
+@@ -292,24 +236,18 @@
+     :cond_6
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/SocketInputStream;->k()J
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-wide v0
+ 
+     .line 121
+     invoke-virtual {p0, v0, v1}, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;->get(J)I
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result p0
+ 
+     .line 125
+     invoke-virtual {p1}, Lcom/winemu/core/server/socket/SocketOutputStream;->e()Lcom/winemu/core/server/socket/SocketStreamLock;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object v0
+ 
+@@ -319,17 +257,12 @@
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_4
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     if-eqz v0, :cond_7
+ 
+-    .line 133
+     .line 134
+     invoke-interface {v0}, Lcom/winemu/core/server/socket/SocketStreamLock;->close()V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     :cond_7
+     :goto_2
+@@ -342,15 +275,12 @@
+     .line 139
+     if-eqz v0, :cond_8
+ 
+-    .line 140
+     .line 141
+     :try_start_5
+     invoke-interface {v0}, Lcom/winemu/core/server/socket/SocketStreamLock;->close()V
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_5
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     goto :goto_3
+ 
+@@ -361,8 +291,6 @@
+     .line 146
+     invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     :cond_8
+     :goto_3

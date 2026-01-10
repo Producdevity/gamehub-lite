@@ -1,0 +1,1139 @@
+--- a/smali_classes4/androidx/room/util/DBUtil__DBUtil_androidKt.smali
++++ b/smali_classes4/androidx/room/util/DBUtil__DBUtil_androidKt.smali
+@@ -18,26 +18,18 @@
+     .line 1
+     const-string v0, "db"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Landroidx/sqlite/driver/SupportSQLiteConnection;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0, p0}, Landroidx/sqlite/driver/SupportSQLiteConnection;-><init>(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-static {v0}, Landroidx/room/util/DBUtil;->a(Landroidx/sqlite/SQLiteConnection;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -48,36 +40,27 @@
+     .line 1
+     invoke-interface {p2}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p2
+ 
+     .line 5
+     sget-object v0, Landroidx/room/TransactionElement;->b:Landroidx/room/TransactionElement$Key;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p2, v0}, Lkotlin/coroutines/CoroutineContext;->get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p2
+ 
+     .line 11
+     check-cast p2, Landroidx/room/TransactionElement;
+ 
+-    .line 12
+     .line 13
+     if-eqz p2, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p2}, Landroidx/room/TransactionElement;->b()Lkotlin/coroutines/ContinuationInterceptor;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p2
+ 
+@@ -92,32 +75,24 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inCompatibilityMode()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     if-eqz v0, :cond_3
+ 
+-    .line 26
+     .line 27
+     if-eqz p2, :cond_1
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getQueryContext()Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     invoke-interface {p0, p2}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+@@ -128,12 +103,9 @@
+     :cond_1
+     if-eqz p1, :cond_2
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getTransactionContext$room_runtime()Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+@@ -144,8 +116,6 @@
+     :cond_2
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getQueryContext()Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+@@ -156,15 +126,12 @@
+     :cond_3
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getQueryContext()Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+     .line 54
+     if-eqz p2, :cond_4
+ 
+-    .line 55
+     .line 56
+     goto :goto_1
+ 
+@@ -172,13 +139,10 @@
+     :cond_4
+     sget-object p2, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
+ 
+-    .line 58
+     .line 59
+     :goto_1
+     invoke-interface {p0, p2}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p0
+ 
+@@ -192,59 +156,42 @@
+     .line 1
+     const-string v0, "db"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "block"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->assertNotMainThread()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getSuspendingTransactionContext()Ljava/lang/ThreadLocal;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     check-cast v0, Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 26
+     .line 27
+     if-nez v0, :cond_0
+ 
+-    .line 28
+     .line 29
+     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
+ 
+-    .line 30
+     .line 31
+     :cond_0
+     move-object v2, v0
+@@ -252,7 +199,6 @@
+     .line 32
+     new-instance v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performBlocking$1;
+ 
+-    .line 33
+     .line 34
+     const/4 v7, 0x0
+ 
+@@ -271,13 +217,9 @@
+     .line 39
+     invoke-direct/range {v1 .. v7}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performBlocking$1;-><init>(Lkotlin/coroutines/CoroutineContext;Landroidx/room/RoomDatabase;ZZLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-static {v1}, Landroidx/room/coroutines/RunBlockingUninterruptible_androidKt;->a(Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -291,41 +233,33 @@
+     .line 1
+     instance-of v1, p2, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v1, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v1, p2
+ 
+     .line 6
+     check-cast v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;
+ 
+-    .line 7
+     .line 8
+     iget v2, v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v4, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v6, v2, v4
+ 
+-    .line 13
+     .line 14
+     if-eqz v6, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v2, v4
+ 
+     .line 17
+     iput v2, v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 18
+     .line 19
+     :goto_0
+     move-object v6, v1
+@@ -337,12 +271,9 @@
+     :cond_0
+     new-instance v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v1, p2}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;-><init>(Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -350,19 +281,15 @@
+     :goto_1
+     iget-object v0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->result:Ljava/lang/Object;
+ 
+-    .line 28
+     .line 29
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v7
+ 
+     .line 33
+     iget v1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 34
+     .line 35
+     const/4 v2, 0x4
+ 
+@@ -381,28 +308,21 @@
+     .line 40
+     if-eqz v1, :cond_5
+ 
+-    .line 41
+     .line 42
+     if-eq v1, v9, :cond_4
+ 
+-    .line 43
+     .line 44
+     if-eq v1, v8, :cond_3
+ 
+-    .line 45
+     .line 46
+     if-eq v1, v4, :cond_2
+ 
+-    .line 47
+     .line 48
+     if-ne v1, v2, :cond_1
+ 
+-    .line 49
+     .line 50
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-object v0
+ 
+@@ -410,16 +330,12 @@
+     :cond_1
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 55
+     .line 56
+     const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 57
+     .line 58
+     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     throw v0
+ 
+@@ -427,24 +343,18 @@
+     :cond_2
+     iget-object v1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 63
+     .line 64
+     check-cast v1, Lkotlin/jvm/functions/Function1;
+ 
+-    .line 65
+     .line 66
+     iget-object v3, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 67
+     .line 68
+     check-cast v3, Landroidx/room/RoomDatabase;
+ 
+-    .line 69
+     .line 70
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_2
+ 
+@@ -452,8 +362,6 @@
+     :cond_3
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     return-object v0
+ 
+@@ -461,8 +369,6 @@
+     :cond_4
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     return-object v0
+ 
+@@ -470,45 +376,33 @@
+     :cond_5
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inCompatibilityMode()Z
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result v0
+ 
+     .line 89
+     if-eqz v0, :cond_7
+ 
+-    .line 90
+     .line 91
+     new-instance v0, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$2;
+ 
+-    .line 92
+     .line 93
+     invoke-direct {v0, p0, p1, v10}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$2;-><init>(Landroidx/room/RoomDatabase;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     iput v9, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 97
+     .line 98
+     invoke-static {p0, v0, v6}, Landroidx/room/RoomDatabaseKt;->g(Landroidx/room/RoomDatabase;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v0
+ 
+     .line 102
+     if-ne v0, v7, :cond_6
+ 
+-    .line 103
+     .line 104
+     goto :goto_3
+ 
+@@ -520,43 +414,33 @@
+     :cond_7
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inCompatibilityMode()Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result v0
+ 
+     .line 110
+     if-eqz v0, :cond_9
+ 
+-    .line 111
+     .line 112
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->isOpenInternal$room_runtime()Z
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result v0
+ 
+     .line 116
+     if-eqz v0, :cond_9
+ 
+-    .line 117
+     .line 118
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inTransaction()Z
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result v0
+ 
+     .line 122
+     if-eqz v0, :cond_9
+ 
+-    .line 123
+     .line 124
+     new-instance v0, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$lambda$3$$inlined$internalPerform$1;
+ 
+-    .line 125
+     .line 126
+     const/4 v2, 0x0
+ 
+@@ -575,27 +459,21 @@
+     .line 131
+     invoke-direct/range {v0 .. v5}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$lambda$3$$inlined$internalPerform$1;-><init>(ZZLandroidx/room/RoomDatabase;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     iput v8, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 135
+     .line 136
+     const/4 v1, 0x0
+ 
+     .line 137
+     invoke-virtual {p0, v1, v0, v6}, Landroidx/room/RoomDatabase;->useConnection(ZLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result-object v0
+ 
+     .line 141
+     if-ne v0, v7, :cond_8
+ 
+-    .line 142
+     .line 143
+     goto :goto_3
+ 
+@@ -607,27 +485,21 @@
+     :cond_9
+     iput-object p0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 146
+     .line 147
+     iput-object p1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 148
+     .line 149
+     iput v4, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 150
+     .line 151
+     invoke-static {p0, v9, v6}, Landroidx/room/util/DBUtil;->c(Landroidx/room/RoomDatabase;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object v0
+ 
+     .line 155
+     if-ne v0, v7, :cond_a
+ 
+-    .line 156
+     .line 157
+     goto :goto_3
+ 
+@@ -642,40 +514,30 @@
+     :goto_2
+     check-cast v0, Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 161
+     .line 162
+     new-instance v4, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$$inlined$compatCoroutineExecute$DBUtil__DBUtil_androidKt$1;
+ 
+-    .line 163
+     .line 164
+     invoke-direct {v4, v10, v3, v1}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$$inlined$compatCoroutineExecute$DBUtil__DBUtil_androidKt$1;-><init>(Lkotlin/coroutines/Continuation;Landroidx/room/RoomDatabase;Lkotlin/jvm/functions/Function1;)V
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     iput-object v10, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 168
+     .line 169
+     iput-object v10, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 170
+     .line 171
+     iput v2, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performInTransactionSuspending$1;->label:I
+ 
+-    .line 172
+     .line 173
+     invoke-static {v0, v4, v6}, Lkotlinx/coroutines/BuildersKt;->g(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-object v0
+ 
+     .line 177
+     if-ne v0, v7, :cond_b
+ 
+-    .line 178
+     .line 179
+     :goto_3
+     return-object v7
+@@ -691,45 +553,36 @@
+     .line 1
+     move-object/from16 v0, p4
+ 
+-    .line 2
+     .line 3
+     instance-of v1, v0, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;
+ 
+-    .line 4
+     .line 5
+     if-eqz v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     move-object v1, v0
+ 
+     .line 8
+     check-cast v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;
+ 
+-    .line 9
+     .line 10
+     iget v2, v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->label:I
+ 
+-    .line 11
+     .line 12
+     const/high16 v3, -0x80000000
+ 
+-    .line 13
+     .line 14
+     and-int v4, v2, v3
+ 
+-    .line 15
+     .line 16
+     if-eqz v4, :cond_0
+ 
+-    .line 17
+     .line 18
+     sub-int/2addr v2, v3
+ 
+     .line 19
+     iput v2, v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->label:I
+ 
+-    .line 20
+     .line 21
+     :goto_0
+     move-object v6, v1
+@@ -741,12 +594,9 @@
+     :cond_0
+     new-instance v1, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {v1, v0}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;-><init>(Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -754,19 +604,15 @@
+     :goto_1
+     iget-object v0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->result:Ljava/lang/Object;
+ 
+-    .line 30
+     .line 31
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v7
+ 
+     .line 35
+     iget v1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->label:I
+ 
+-    .line 36
+     .line 37
+     const/4 v2, 0x3
+ 
+@@ -779,24 +625,18 @@
+     .line 40
+     if-eqz v1, :cond_4
+ 
+-    .line 41
+     .line 42
+     if-eq v1, v8, :cond_3
+ 
+-    .line 43
+     .line 44
+     if-eq v1, v3, :cond_2
+ 
+-    .line 45
+     .line 46
+     if-ne v1, v2, :cond_1
+ 
+-    .line 47
+     .line 48
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     return-object v0
+ 
+@@ -804,16 +644,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 53
+     .line 54
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 55
+     .line 56
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     throw p0
+ 
+@@ -821,32 +657,24 @@
+     :cond_2
+     iget-boolean p0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->Z$1:Z
+ 
+-    .line 61
+     .line 62
+     iget-boolean p1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->Z$0:Z
+ 
+-    .line 63
+     .line 64
+     iget-object v1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 65
+     .line 66
+     check-cast v1, Lkotlin/jvm/functions/Function1;
+ 
+-    .line 67
+     .line 68
+     iget-object v3, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 69
+     .line 70
+     check-cast v3, Landroidx/room/RoomDatabase;
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move v12, p0
+ 
+@@ -867,8 +695,6 @@
+     :cond_3
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     return-object v0
+ 
+@@ -876,48 +702,36 @@
+     :cond_4
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inCompatibilityMode()Z
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v0
+ 
+     .line 91
+     if-eqz v0, :cond_6
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->isOpenInternal$room_runtime()Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v0
+ 
+     .line 97
+     if-eqz v0, :cond_6
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->inTransaction()Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v0
+ 
+     .line 103
+     if-eqz v0, :cond_6
+ 
+-    .line 104
+     .line 105
+     new-instance v0, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$lambda$1$$inlined$internalPerform$1;
+ 
+-    .line 106
+     .line 107
+     const/4 v4, 0x0
+ 
+@@ -930,35 +744,27 @@
+     .line 110
+     move/from16 v1, p2
+ 
+-    .line 111
+     .line 112
+     move-object/from16 v5, p3
+ 
+-    .line 113
+     .line 114
+     invoke-direct/range {v0 .. v5}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$lambda$1$$inlined$internalPerform$1;-><init>(ZZLandroidx/room/RoomDatabase;Lkotlin/coroutines/Continuation;Lkotlin/jvm/functions/Function1;)V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-object v2, v0
+ 
+     .line 118
+     iput v8, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->label:I
+ 
+-    .line 119
+     .line 120
+     invoke-virtual {p0, p1, v2, v6}, Landroidx/room/RoomDatabase;->useConnection(ZLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p0
+ 
+     .line 124
+     if-ne p0, v7, :cond_5
+ 
+-    .line 125
+     .line 126
+     goto :goto_4
+ 
+@@ -970,43 +776,33 @@
+     :cond_6
+     move/from16 v4, p2
+ 
+-    .line 129
+     .line 130
+     iput-object p0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 131
+     .line 132
+     move-object/from16 v5, p3
+ 
+-    .line 133
+     .line 134
+     iput-object v5, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 135
+     .line 136
+     iput-boolean p1, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->Z$0:Z
+ 
+-    .line 137
+     .line 138
+     iput-boolean v4, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->Z$1:Z
+ 
+-    .line 139
+     .line 140
+     iput v3, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->label:I
+ 
+-    .line 141
+     .line 142
+     invoke-static {p0, v4, v6}, Landroidx/room/util/DBUtil;->c(Landroidx/room/RoomDatabase;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object v3
+ 
+     .line 146
+     if-ne v3, v7, :cond_7
+ 
+-    .line 147
+     .line 148
+     goto :goto_4
+ 
+@@ -1030,46 +826,36 @@
+     :goto_3
+     check-cast v0, Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 155
+     .line 156
+     new-instance v8, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$$inlined$compatCoroutineExecute$DBUtil__DBUtil_androidKt$1;
+ 
+-    .line 157
+     .line 158
+     const/4 v9, 0x0
+ 
+     .line 159
+     invoke-direct/range {v8 .. v13}, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$$inlined$compatCoroutineExecute$DBUtil__DBUtil_androidKt$1;-><init>(Lkotlin/coroutines/Continuation;Landroidx/room/RoomDatabase;ZZLkotlin/jvm/functions/Function1;)V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     const/4 p0, 0x0
+ 
+     .line 163
+     iput-object p0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 164
+     .line 165
+     iput-object p0, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 166
+     .line 167
+     iput v2, v6, Landroidx/room/util/DBUtil__DBUtil_androidKt$performSuspending$1;->label:I
+ 
+-    .line 168
+     .line 169
+     invoke-static {v0, v8, v6}, Lkotlinx/coroutines/BuildersKt;->g(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result-object p0
+ 
+     .line 173
+     if-ne p0, v7, :cond_8
+ 
+-    .line 174
+     .line 175
+     :goto_4
+     return-object v7
+@@ -1085,81 +871,60 @@
+     .line 1
+     const-string v0, "db"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "sqLiteQuery"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p1, p3}, Landroidx/room/RoomDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     if-eqz p2, :cond_1
+ 
+-    .line 16
+     .line 17
+     instance-of p1, p0, Landroid/database/AbstractWindowedCursor;
+ 
+-    .line 18
+     .line 19
+     if-eqz p1, :cond_1
+ 
+-    .line 20
+     .line 21
+     move-object p1, p0
+ 
+     .line 22
+     check-cast p1, Landroid/database/AbstractWindowedCursor;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p1}, Landroid/database/AbstractCursor;->getCount()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result p2
+ 
+     .line 28
+     invoke-virtual {p1}, Landroid/database/AbstractWindowedCursor;->hasWindow()Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result p3
+ 
+     .line 32
+     if-eqz p3, :cond_0
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {p1}, Landroid/database/AbstractWindowedCursor;->getWindow()Landroid/database/CursorWindow;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p1
+ 
+     .line 38
+     invoke-virtual {p1}, Landroid/database/CursorWindow;->getNumRows()I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p1
+ 
+@@ -1174,12 +939,9 @@
+     :goto_0
+     if-ge p1, p2, :cond_1
+ 
+-    .line 45
+     .line 46
+     invoke-static {p0}, Landroidx/room/util/CursorUtil;->a(Landroid/database/Cursor;)Landroid/database/Cursor;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+@@ -1194,26 +956,18 @@
+     .line 1
+     const-string v0, "databaseFile"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Ljava/io/FileInputStream;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+@@ -1224,58 +978,42 @@
+     :try_start_0
+     invoke-static {p0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     const-wide/16 v4, 0x4
+ 
+-    .line 21
+     .line 22
+     const/4 v6, 0x1
+ 
+     .line 23
+     const-wide/16 v2, 0x3c
+ 
+-    .line 24
+     .line 25
+     invoke-virtual/range {v1 .. v6}, Ljava/nio/channels/FileChannel;->tryLock(JJZ)Ljava/nio/channels/FileLock;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-wide/16 v2, 0x3c
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v1, v2, v3}, Ljava/nio/channels/FileChannel;->position(J)Ljava/nio/channels/FileChannel;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {v1, v0}, Ljava/nio/channels/FileChannel;->read(Ljava/nio/ByteBuffer;)I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v2
+ 
+     .line 37
+     if-ne v2, p0, :cond_0
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getInt()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result p0
+     :try_end_0
+@@ -1287,8 +1025,6 @@
+     .line 47
+     invoke-static {v1, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return p0
+ 
+@@ -1307,16 +1043,12 @@
+     :try_start_1
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 55
+     .line 56
+     const-string v0, "Bad database header, unable to read 4 bytes at offset 60"
+ 
+-    .line 57
+     .line 58
+     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     throw p0
+     :try_end_1
+@@ -1336,8 +1068,6 @@
+     .line 64
+     invoke-static {v1, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     throw v0
+ .end method

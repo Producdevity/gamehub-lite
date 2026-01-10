@@ -1,0 +1,260 @@
+--- a/smali_classes5/com/github/luben/zstd/RecyclingBufferPool.smali
++++ b/smali_classes5/com/github/luben/zstd/RecyclingBufferPool.smali
+@@ -32,21 +32,15 @@
+     .line 1
+     new-instance v0, Lcom/github/luben/zstd/RecyclingBufferPool;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/github/luben/zstd/RecyclingBufferPool;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/github/luben/zstd/RecyclingBufferPool;->INSTANCE:Lcom/github/luben/zstd/BufferPool;
+ 
+-    .line 7
+     .line 8
+     invoke-static {}, Lcom/github/luben/zstd/ZstdOutputStreamNoFinalizer;->recommendedCOutSize()J
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-wide v0
+ 
+@@ -56,8 +50,6 @@
+     .line 13
+     invoke-static {}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->recommendedDInSize()J
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-wide v1
+ 
+@@ -67,16 +59,12 @@
+     .line 18
+     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+     .line 22
+     invoke-static {}, Lcom/github/luben/zstd/ZstdInputStreamNoFinalizer;->recommendedDOutSize()J
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-wide v1
+ 
+@@ -86,15 +74,12 @@
+     .line 27
+     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v0
+ 
+     .line 31
+     sput v0, Lcom/github/luben/zstd/RecyclingBufferPool;->buffSize:I
+ 
+-    .line 32
+     .line 33
+     return-void
+ .end method
+@@ -105,21 +90,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/github/luben/zstd/RecyclingBufferPool;->pool:Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -132,41 +111,31 @@
+     .line 1
+     sget v0, Lcom/github/luben/zstd/RecyclingBufferPool;->buffSize:I
+ 
+-    .line 2
+     .line 3
+     if-gt p1, v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     :cond_0
+     iget-object p1, p0, Lcom/github/luben/zstd/RecyclingBufferPool;->pool:Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->poll()Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p1
+ 
+     .line 11
+     check-cast p1, Ljava/lang/ref/SoftReference;
+ 
+-    .line 12
+     .line 13
+     if-nez p1, :cond_1
+ 
+-    .line 14
+     .line 15
+     sget p0, Lcom/github/luben/zstd/RecyclingBufferPool;->buffSize:I
+ 
+-    .line 16
+     .line 17
+     invoke-static {p0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+@@ -177,19 +146,15 @@
+     :cond_1
+     invoke-virtual {p1}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     check-cast p1, Ljava/nio/ByteBuffer;
+ 
+-    .line 27
+     .line 28
+     if-eqz p1, :cond_0
+ 
+-    .line 29
+     .line 30
+     return-object p1
+ 
+@@ -197,66 +162,45 @@
+     :cond_2
+     new-instance p0, Ljava/lang/RuntimeException;
+ 
+-    .line 32
+     .line 33
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     const-string v2, "Unsupported buffer size: "
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     const-string p1, ". Supported buffer sizes: "
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     const-string p1, " or smaller."
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p1
+ 
+     .line 63
+     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     throw p0
+ .end method
+@@ -267,42 +211,30 @@
+     .line 1
+     invoke-virtual {p1}, Ljava/nio/Buffer;->capacity()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     sget v1, Lcom/github/luben/zstd/RecyclingBufferPool;->buffSize:I
+ 
+-    .line 6
+     .line 7
+     if-lt v0, v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object p0, p0, Lcom/github/luben/zstd/RecyclingBufferPool;->pool:Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 13
+     .line 14
+     new-instance v0, Ljava/lang/ref/SoftReference;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0, p1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p0, v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->add(Ljava/lang/Object;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :cond_0
+     return-void

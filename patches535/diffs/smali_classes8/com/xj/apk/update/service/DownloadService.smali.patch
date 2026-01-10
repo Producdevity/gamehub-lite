@@ -1,0 +1,1904 @@
+--- a/smali_classes8/com/xj/apk/update/service/DownloadService.smali
++++ b/smali_classes8/com/xj/apk/update/service/DownloadService.smali
+@@ -25,8 +25,6 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -37,7 +35,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -50,32 +47,24 @@
+     .line 1
+     const-string v0, "content"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+     .line 9
+     const-string v2, "manager"
+ 
+-    .line 10
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-object v0, v1
+ 
+@@ -83,32 +72,24 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getShowNotification$module_apkUpdate_release()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     if-eqz v0, :cond_2
+ 
+-    .line 22
+     .line 23
+     sget-object v3, Lcom/xj/apk/update/util/NotificationUtil;->a:Lcom/xj/apk/update/util/NotificationUtil$Companion;
+ 
+-    .line 24
+     .line 25
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 26
+     .line 27
+     if-nez v0, :cond_1
+ 
+-    .line 28
+     .line 29
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-object v0, v1
+ 
+@@ -116,40 +97,30 @@
+     :cond_1
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getSmallIcon$module_apkUpdate_release()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v5
+ 
+     .line 37
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v0
+ 
+     .line 41
+     sget v4, Lcom/xj/language/R$string;->app_update_start_downloading:I
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v6
+ 
+     .line 47
+     const-string v0, "getString(...)"
+ 
+-    .line 48
+     .line 49
+     invoke-static {v6, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-object v4, p0
+ 
+@@ -165,8 +136,6 @@
+     .line 56
+     invoke-virtual/range {v3 .. v9}, Lcom/xj/apk/update/util/NotificationUtil$Companion;->i(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;II)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     goto :goto_0
+ 
+@@ -187,16 +156,12 @@
+     :goto_0
+     iget-object p0, v4, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 65
+     .line 66
+     if-nez p0, :cond_3
+ 
+-    .line 67
+     .line 68
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto :goto_1
+ 
+@@ -208,16 +173,12 @@
+     :goto_1
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getOnDownloadListeners$module_apkUpdate_release()Ljava/util/List;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p0
+ 
+     .line 77
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p0
+ 
+@@ -225,32 +186,24 @@
+     :goto_2
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result p1
+ 
+     .line 85
+     if-eqz p1, :cond_4
+ 
+-    .line 86
+     .line 87
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p1
+ 
+     .line 91
+     check-cast p1, Lcom/xj/apk/update/listener/OnDownloadListener;
+ 
+-    .line 92
+     .line 93
+     invoke-interface {p1, v7, v8, v9}, Lcom/xj/apk/update/listener/OnDownloadListener;->a(Ljava/lang/String;II)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     goto :goto_2
+ 
+@@ -265,88 +218,63 @@
+     .line 1
+     const-string v0, "apk"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const-string v2, "apk \u4e0b\u8f7d\u5230 "
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+     .line 27
+     const-string v1, "APK\u66f4\u65b0"
+ 
+-    .line 28
+     .line 29
+     filled-new-array {v1, v0}, [Ljava/lang/Object;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 37
+     .line 38
+     const/4 v1, 0x0
+ 
+     .line 39
+     const-string v2, "manager"
+ 
+-    .line 40
+     .line 41
+     if-nez v0, :cond_0
+ 
+-    .line 42
+     .line 43
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-object v0, v1
+ 
+@@ -357,21 +285,15 @@
+     .line 48
+     invoke-virtual {v0, v3}, Lcom/xj/apk/update/manager/DownloadManager;->setDownloadState(Z)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 52
+     .line 53
+     if-nez v0, :cond_1
+ 
+-    .line 54
+     .line 55
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-object v0, v1
+ 
+@@ -379,25 +301,18 @@
+     :cond_1
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getShowNotification$module_apkUpdate_release()Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     sget-object v3, Lcom/xj/apk/update/util/NotificationUtil;->a:Lcom/xj/apk/update/util/NotificationUtil$Companion;
+ 
+-    .line 63
+     .line 64
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 65
+     .line 66
+     if-nez v0, :cond_2
+ 
+-    .line 67
+     .line 68
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-object v0, v1
+ 
+@@ -405,82 +320,60 @@
+     :cond_2
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getSmallIcon$module_apkUpdate_release()I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v5
+ 
+     .line 76
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v0
+ 
+     .line 80
+     sget v4, Lcom/xj/language/R$string;->app_update_download_completed:I
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v6
+ 
+     .line 86
+     const-string v0, "getString(...)"
+ 
+-    .line 87
+     .line 88
+     invoke-static {v6, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v4
+ 
+     .line 95
+     sget v7, Lcom/xj/language/R$string;->app_update_click_hint:I
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v7
+ 
+     .line 101
+     invoke-static {v7, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     sget-object v0, Lcom/xj/apk/update/config/Constant;->a:Lcom/xj/apk/update/config/Constant;
+ 
+-    .line 105
+     .line 106
+     invoke-virtual {v0}, Lcom/xj/apk/update/config/Constant;->b()Ljava/lang/String;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v8
+ 
+     .line 110
+     invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-object v4, p0
+ 
+@@ -490,21 +383,15 @@
+     .line 115
+     invoke-virtual/range {v3 .. v9}, Lcom/xj/apk/update/util/NotificationUtil$Companion;->f(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     iget-object p0, v4, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 119
+     .line 120
+     if-nez p0, :cond_3
+ 
+-    .line 121
+     .line 122
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-object p0, v1
+ 
+@@ -512,51 +399,37 @@
+     :cond_3
+     invoke-virtual {p0}, Lcom/xj/apk/update/manager/DownloadManager;->getJumpInstallPage$module_apkUpdate_release()Z
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result p0
+ 
+     .line 130
+     if-eqz p0, :cond_4
+ 
+-    .line 131
+     .line 132
+     sget-object p0, Lcom/xj/apk/update/util/ApkUtil;->a:Lcom/xj/apk/update/util/ApkUtil$Companion;
+ 
+-    .line 133
+     .line 134
+     invoke-virtual {v0}, Lcom/xj/apk/update/config/Constant;->b()Ljava/lang/String;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object p1
+ 
+     .line 138
+     invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     invoke-virtual {p0, v4, p1, v9}, Lcom/xj/apk/update/util/ApkUtil$Companion;->c(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     :cond_4
+     iget-object p0, v4, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 145
+     .line 146
+     if-nez p0, :cond_5
+ 
+-    .line 147
+     .line 148
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     goto :goto_0
+ 
+@@ -568,16 +441,12 @@
+     :goto_0
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getOnDownloadListeners$module_apkUpdate_release()Ljava/util/List;
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result-object p0
+ 
+     .line 157
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result-object p0
+ 
+@@ -585,32 +454,24 @@
+     :goto_1
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result p1
+ 
+     .line 165
+     if-eqz p1, :cond_6
+ 
+-    .line 166
+     .line 167
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     move-result-object p1
+ 
+     .line 171
+     check-cast p1, Lcom/xj/apk/update/listener/OnDownloadListener;
+ 
+-    .line 172
+     .line 173
+     invoke-interface {p1, v9}, Lcom/xj/apk/update/listener/OnDownloadListener;->b(Ljava/io/File;)V
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     goto :goto_1
+ 
+@@ -618,8 +479,6 @@
+     :cond_6
+     invoke-virtual {v4}, Lcom/xj/apk/update/service/DownloadService;->g()V
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     return-void
+ .end method
+@@ -630,44 +489,33 @@
+     .line 1
+     const-string v0, "APK\u66f4\u65b0"
+ 
+-    .line 2
+     .line 3
+     const-string v1, "download cancel"
+ 
+-    .line 4
+     .line 5
+     filled-new-array {v0, v1}, [Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->w([Ljava/lang/Object;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 13
+     .line 14
+     const/4 v1, 0x0
+ 
+     .line 15
+     const-string v2, "manager"
+ 
+-    .line 16
+     .line 17
+     if-nez v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-object v0, v1
+ 
+@@ -678,21 +526,15 @@
+     .line 24
+     invoke-virtual {v0, v3}, Lcom/xj/apk/update/manager/DownloadManager;->setDownloadState(Z)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 28
+     .line 29
+     if-nez v0, :cond_1
+ 
+-    .line 30
+     .line 31
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-object v0, v1
+ 
+@@ -700,38 +542,28 @@
+     :cond_1
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getShowNotification$module_apkUpdate_release()Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v0
+ 
+     .line 39
+     if-eqz v0, :cond_2
+ 
+-    .line 40
+     .line 41
+     sget-object v0, Lcom/xj/apk/update/util/NotificationUtil;->a:Lcom/xj/apk/update/util/NotificationUtil$Companion;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v0, p0}, Lcom/xj/apk/update/util/NotificationUtil$Companion;->c(Landroid/content/Context;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     :cond_2
+     iget-object p0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 47
+     .line 48
+     if-nez p0, :cond_3
+ 
+-    .line 49
+     .line 50
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     goto :goto_0
+ 
+@@ -743,16 +575,12 @@
+     :goto_0
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getOnDownloadListeners$module_apkUpdate_release()Ljava/util/List;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p0
+ 
+     .line 59
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p0
+ 
+@@ -760,32 +588,24 @@
+     :goto_1
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v0
+ 
+     .line 67
+     if-eqz v0, :cond_4
+ 
+-    .line 68
+     .line 69
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+     .line 73
+     check-cast v0, Lcom/xj/apk/update/listener/OnDownloadListener;
+ 
+-    .line 74
+     .line 75
+     invoke-interface {v0}, Lcom/xj/apk/update/listener/OnDownloadListener;->cancel()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     goto :goto_1
+ 
+@@ -800,23 +620,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     const-string v2, "manager"
+ 
+-    .line 5
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-object v0, v1
+ 
+@@ -824,16 +639,12 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getApkMD5$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     invoke-static {v0}, Lkotlin/text/StringsKt;->C0(Ljava/lang/CharSequence;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+@@ -843,7 +654,6 @@
+     .line 21
+     if-eqz v0, :cond_1
+ 
+-    .line 22
+     .line 23
+     return v3
+ 
+@@ -851,20 +661,15 @@
+     :cond_1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 25
+     .line 26
+     iget-object v4, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 27
+     .line 28
+     if-nez v4, :cond_2
+ 
+-    .line 29
+     .line 30
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-object v4, v1
+ 
+@@ -872,24 +677,18 @@
+     :cond_2
+     invoke-virtual {v4}, Lcom/xj/apk/update/manager/DownloadManager;->getDownloadPath$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v4
+ 
+     .line 38
+     iget-object v5, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 39
+     .line 40
+     if-nez v5, :cond_3
+ 
+-    .line 41
+     .line 42
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-object v5, v1
+ 
+@@ -897,53 +696,39 @@
+     :cond_3
+     invoke-virtual {v5}, Lcom/xj/apk/update/manager/DownloadManager;->getApkName$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v5
+ 
+     .line 50
+     invoke-direct {v0, v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v4
+ 
+     .line 57
+     if-eqz v4, :cond_5
+ 
+-    .line 58
+     .line 59
+     sget-object v3, Lcom/xj/apk/update/util/FileUtil;->a:Lcom/xj/apk/update/util/FileUtil$Companion;
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {v3, v0}, Lcom/xj/apk/update/util/FileUtil$Companion;->b(Ljava/io/File;)Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v0
+ 
+     .line 65
+     iget-object p0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 66
+     .line 67
+     if-nez p0, :cond_4
+ 
+-    .line 68
+     .line 69
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     goto :goto_0
+ 
+@@ -955,8 +740,6 @@
+     :goto_0
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getApkMD5$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p0
+ 
+@@ -966,8 +749,6 @@
+     .line 79
+     invoke-static {v0, p0, v1}, Lkotlin/text/StringsKt;->Q(Ljava/lang/String;Ljava/lang/String;Z)Z
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result p0
+ 
+@@ -989,23 +770,18 @@
+     :try_start_0
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 3
+     .line 4
+     const/4 v1, 0x0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const-string v0, "manager"
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-object v0, v1
+ 
+@@ -1024,28 +800,21 @@
+     :goto_0
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getDownloadState()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-eqz v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     const-string v0, "APK\u66f4\u65b0"
+ 
+-    .line 23
+     .line 24
+     const-string v1, "\u6b63\u5728\u4e0b\u8f7d\uff0c\u8bf7\u91cd\u65b0\u4e0b\u8f7d\uff01"
+ 
+-    .line 25
+     .line 26
+     filled-new-array {v0, v1}, [Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+@@ -1054,8 +823,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     monitor-exit p0
+ 
+@@ -1067,20 +834,15 @@
+     :try_start_1
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 36
+     .line 37
+     if-nez v0, :cond_2
+ 
+-    .line 38
+     .line 39
+     const-string v0, "manager"
+ 
+-    .line 40
+     .line 41
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-object v0, v1
+ 
+@@ -1088,32 +850,24 @@
+     :cond_2
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getHttpManager$module_apkUpdate_release()Lcom/xj/apk/update/http/BaseHttpDownloadManager;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     if-nez v0, :cond_5
+ 
+-    .line 50
+     .line 51
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 52
+     .line 53
+     if-nez v0, :cond_3
+ 
+-    .line 54
+     .line 55
+     const-string v0, "manager"
+ 
+-    .line 56
+     .line 57
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-object v0, v1
+ 
+@@ -1121,24 +875,18 @@
+     :cond_3
+     new-instance v2, Lcom/xj/apk/update/http/HttpDownloadManager;
+ 
+-    .line 62
+     .line 63
+     iget-object v3, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 64
+     .line 65
+     if-nez v3, :cond_4
+ 
+-    .line 66
+     .line 67
+     const-string v3, "manager"
+ 
+-    .line 68
+     .line 69
+     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-object v3, v1
+ 
+@@ -1146,56 +894,40 @@
+     :cond_4
+     invoke-virtual {v3}, Lcom/xj/apk/update/manager/DownloadManager;->getDownloadPath$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v3
+ 
+     .line 77
+     invoke-direct {v2, v3}, Lcom/xj/apk/update/http/HttpDownloadManager;-><init>(Ljava/lang/String;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-virtual {v0, v2}, Lcom/xj/apk/update/manager/DownloadManager;->setHttpManager$module_apkUpdate_release(Lcom/xj/apk/update/http/BaseHttpDownloadManager;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     :cond_5
+     new-instance v0, Lcom/xj/apk/update/service/DownloadService$download$1;
+ 
+-    .line 84
+     .line 85
+     invoke-direct {v0, p0, v1}, Lcom/xj/apk/update/service/DownloadService$download$1;-><init>(Lcom/xj/apk/update/service/DownloadService;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     const/4 v2, 0x1
+ 
+     .line 89
+     invoke-static {v1, v0, v2, v1}, Lcom/drake/net/utils/ScopeKt;->h(Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/drake/net/scope/NetCoroutineScope;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 93
+     .line 94
+     if-nez v0, :cond_6
+ 
+-    .line 95
+     .line 96
+     const-string v0, "manager"
+ 
+-    .line 97
+     .line 98
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     goto :goto_1
+ 
+@@ -1209,8 +941,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     monitor-exit p0
+ 
+@@ -1234,80 +964,57 @@
+     .line 1
+     const-string v0, "e"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v1, "download error: "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     const-string v1, "APK\u66f4\u65b0"
+ 
+-    .line 24
+     .line 25
+     filled-new-array {v1, v0}, [Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->l([Ljava/lang/Object;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 33
+     .line 34
+     const/4 v1, 0x0
+ 
+     .line 35
+     const-string v2, "manager"
+ 
+-    .line 36
+     .line 37
+     if-nez v0, :cond_0
+ 
+-    .line 38
+     .line 39
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-object v0, v1
+ 
+@@ -1318,21 +1025,15 @@
+     .line 44
+     invoke-virtual {v0, v3}, Lcom/xj/apk/update/manager/DownloadManager;->setDownloadState(Z)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 48
+     .line 49
+     if-nez v0, :cond_1
+ 
+-    .line 50
+     .line 51
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-object v0, v1
+ 
+@@ -1340,32 +1041,24 @@
+     :cond_1
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getShowNotification$module_apkUpdate_release()Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v0
+ 
+     .line 59
+     if-eqz v0, :cond_3
+ 
+-    .line 60
+     .line 61
+     sget-object v0, Lcom/xj/apk/update/util/NotificationUtil;->a:Lcom/xj/apk/update/util/NotificationUtil$Companion;
+ 
+-    .line 62
+     .line 63
+     iget-object v3, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 64
+     .line 65
+     if-nez v3, :cond_2
+ 
+-    .line 66
+     .line 67
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-object v3, v1
+ 
+@@ -1373,84 +1066,61 @@
+     :cond_2
+     invoke-virtual {v3}, Lcom/xj/apk/update/manager/DownloadManager;->getSmallIcon$module_apkUpdate_release()I
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v3
+ 
+     .line 75
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v4
+ 
+     .line 79
+     sget v5, Lcom/xj/language/R$string;->app_update_download_error:I
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v4
+ 
+     .line 85
+     const-string v5, "getString(...)"
+ 
+-    .line 86
+     .line 87
+     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v6
+ 
+     .line 94
+     sget v7, Lcom/xj/language/R$string;->app_update_continue_downloading:I
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v6
+ 
+     .line 100
+     invoke-static {v6, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-virtual {v0, p0, v3, v4, v6}, Lcom/xj/apk/update/util/NotificationUtil$Companion;->g(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     :cond_3
+     iget-object p0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 107
+     .line 108
+     if-nez p0, :cond_4
+ 
+-    .line 109
+     .line 110
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     goto :goto_0
+ 
+@@ -1462,16 +1132,12 @@
+     :goto_0
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getOnDownloadListeners$module_apkUpdate_release()Ljava/util/List;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p0
+ 
+     .line 119
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object p0
+ 
+@@ -1479,32 +1145,24 @@
+     :goto_1
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result v0
+ 
+     .line 127
+     if-eqz v0, :cond_5
+ 
+-    .line 128
+     .line 129
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object v0
+ 
+     .line 133
+     check-cast v0, Lcom/xj/apk/update/listener/OnDownloadListener;
+ 
+-    .line 134
+     .line 135
+     invoke-interface {v0, p1}, Lcom/xj/apk/update/listener/OnDownloadListener;->error(Ljava/lang/Throwable;)V
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     goto :goto_1
+ 
+@@ -1519,7 +1177,6 @@
+     .line 1
+     sget-object v0, Lcom/xj/apk/update/manager/DownloadManager;->Companion:Lcom/xj/apk/update/manager/DownloadManager$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+@@ -1529,36 +1186,27 @@
+     .line 5
+     invoke-static {v0, v2, v1, v2}, Lcom/xj/apk/update/manager/DownloadManager$Companion;->b(Lcom/xj/apk/update/manager/DownloadManager$Companion;Lcom/xj/apk/update/manager/DownloadManager$Builder;ILjava/lang/Object;)Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     const-string v1, "APK\u66f4\u65b0"
+ 
+-    .line 10
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const-string p0, "DownloadManager=null \u51fa\u73b0\u5f02\u5e38\uff0c\u8bf7\u68c0\u67e5\u60a8\u7684\u4ee3\u7801\uff01"
+ 
+-    .line 14
+     .line 15
+     filled-new-array {v1, p0}, [Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-static {p0}, Lcom/blankj/utilcode/util/LogUtils;->l([Ljava/lang/Object;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ 
+@@ -1566,44 +1214,33 @@
+     :cond_0
+     iput-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 24
+     .line 25
+     sget-object v3, Lcom/xj/apk/update/util/FileUtil;->a:Lcom/xj/apk/update/util/FileUtil$Companion;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getDownloadPath$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     invoke-virtual {v3, v0}, Lcom/xj/apk/update/util/FileUtil$Companion;->a(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     sget-object v0, Lcom/xj/apk/update/util/NotificationUtil;->a:Lcom/xj/apk/update/util/NotificationUtil$Companion;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v0, p0}, Lcom/xj/apk/update/util/NotificationUtil$Companion;->e(Landroid/content/Context;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v0
+ 
+     .line 40
+     if-eqz v0, :cond_1
+ 
+-    .line 41
+     .line 42
+     const-string v0, "\u901a\u77e5\u5f00\u5173\u72b6\u6001\uff1a\u6253\u5f00"
+ 
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -1611,71 +1248,52 @@
+     :cond_1
+     const-string v0, "\u901a\u77e5\u5f00\u5173\u72b6\u6001\uff1a\u5173\u95ed"
+ 
+-    .line 46
+     .line 47
+     :goto_0
+     filled-new-array {v1, v0}, [Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p0}, Lcom/xj/apk/update/service/DownloadService;->d()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v0
+ 
+     .line 58
+     if-eqz v0, :cond_4
+ 
+-    .line 59
+     .line 60
+     const-string v0, "Apk \u5df2\u7ecf\u5b58\u5728\uff0c\u8bf7\u76f4\u63a5\u5b89\u88c5\u3002"
+ 
+-    .line 61
+     .line 62
+     filled-new-array {v1, v0}, [Ljava/lang/Object;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 70
+     .line 71
+     iget-object v1, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 72
+     .line 73
+     const-string v3, "manager"
+ 
+-    .line 74
+     .line 75
+     if-nez v1, :cond_2
+ 
+-    .line 76
+     .line 77
+     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-object v1, v2
+ 
+@@ -1683,24 +1301,18 @@
+     :cond_2
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getDownloadPath$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v1
+ 
+     .line 85
+     iget-object v4, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 86
+     .line 87
+     if-nez v4, :cond_3
+ 
+-    .line 88
+     .line 89
+     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     goto :goto_1
+ 
+@@ -1712,21 +1324,15 @@
+     :goto_1
+     invoke-virtual {v2}, Lcom/xj/apk/update/manager/DownloadManager;->getApkName$module_apkUpdate_release()Ljava/lang/String;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v2
+ 
+     .line 98
+     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-virtual {p0, v0}, Lcom/xj/apk/update/service/DownloadService;->b(Ljava/io/File;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     return-void
+ 
+@@ -1734,25 +1340,18 @@
+     :cond_4
+     const-string v0, "Apk \u4e0d\u5b58\u5728\u5c06\u5f00\u59cb\u4e0b\u8f7d\u3002"
+ 
+-    .line 106
+     .line 107
+     filled-new-array {v1, v0}, [Ljava/lang/Object;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v0
+ 
+     .line 111
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     invoke-virtual {p0}, Lcom/xj/apk/update/service/DownloadService;->e()V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     return-void
+ .end method
+@@ -1763,20 +1362,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const-string v0, "manager"
+ 
+-    .line 6
+     .line 7
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 v0, 0x0
+ 
+@@ -1784,13 +1378,9 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->release$module_apkUpdate_release()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Landroid/app/Service;->stopSelf()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -1811,7 +1401,6 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     const/4 p0, 0x2
+ 
+@@ -1822,13 +1411,9 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/xj/apk/update/service/DownloadService;->f()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-super {p0, p1, p2, p3}, Landroid/app/Service;->onStartCommand(Landroid/content/Intent;II)I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p0
+ 
+@@ -1842,44 +1427,33 @@
+     .line 1
+     const-string v0, "APK\u66f4\u65b0"
+ 
+-    .line 2
+     .line 3
+     const-string v1, "\u4e0b\u8f7d\u5f00\u59cb"
+ 
+-    .line 4
+     .line 5
+     filled-new-array {v0, v1}, [Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->w([Ljava/lang/Object;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 13
+     .line 14
+     const/4 v1, 0x0
+ 
+     .line 15
+     const-string v2, "manager"
+ 
+-    .line 16
+     .line 17
+     if-nez v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-object v0, v1
+ 
+@@ -1887,42 +1461,31 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getShowBgdToast$module_apkUpdate_release()Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v0
+ 
+     .line 27
+     if-eqz v0, :cond_1
+ 
+-    .line 28
+     .line 29
+     sget-object v0, Lcom/xj/common/utils/toast/Toaster;->a:Lcom/xj/common/utils/toast/Toaster;
+ 
+-    .line 30
+     .line 31
+     sget v3, Lcom/xj/language/R$string;->app_update_background_downloading:I
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0, v3}, Lcom/xj/common/utils/toast/Toaster;->a(I)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     :cond_1
+     iget-object v0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 37
+     .line 38
+     if-nez v0, :cond_2
+ 
+-    .line 39
+     .line 40
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-object v0, v1
+ 
+@@ -1930,32 +1493,24 @@
+     :cond_2
+     invoke-virtual {v0}, Lcom/xj/apk/update/manager/DownloadManager;->getShowNotification$module_apkUpdate_release()Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+     .line 48
+     if-eqz v0, :cond_4
+ 
+-    .line 49
+     .line 50
+     sget-object v0, Lcom/xj/apk/update/util/NotificationUtil;->a:Lcom/xj/apk/update/util/NotificationUtil$Companion;
+ 
+-    .line 51
+     .line 52
+     iget-object v3, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 53
+     .line 54
+     if-nez v3, :cond_3
+ 
+-    .line 55
+     .line 56
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-object v3, v1
+ 
+@@ -1963,84 +1518,61 @@
+     :cond_3
+     invoke-virtual {v3}, Lcom/xj/apk/update/manager/DownloadManager;->getSmallIcon$module_apkUpdate_release()I
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v3
+ 
+     .line 64
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v4
+ 
+     .line 68
+     sget v5, Lcom/xj/language/R$string;->app_update_start_download:I
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v4
+ 
+     .line 74
+     const-string v5, "getString(...)"
+ 
+-    .line 75
+     .line 76
+     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v6
+ 
+     .line 83
+     sget v7, Lcom/xj/language/R$string;->app_update_start_download_hint:I
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v6
+ 
+     .line 89
+     invoke-static {v6, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     invoke-virtual {v0, p0, v3, v4, v6}, Lcom/xj/apk/update/util/NotificationUtil$Companion;->h(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     :cond_4
+     iget-object p0, p0, Lcom/xj/apk/update/service/DownloadService;->a:Lcom/xj/apk/update/manager/DownloadManager;
+ 
+-    .line 96
+     .line 97
+     if-nez p0, :cond_5
+ 
+-    .line 98
+     .line 99
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     goto :goto_0
+ 
+@@ -2052,16 +1584,12 @@
+     :goto_0
+     invoke-virtual {v1}, Lcom/xj/apk/update/manager/DownloadManager;->getOnDownloadListeners$module_apkUpdate_release()Ljava/util/List;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p0
+ 
+     .line 108
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object p0
+ 
+@@ -2069,32 +1597,24 @@
+     :goto_1
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result v0
+ 
+     .line 116
+     if-eqz v0, :cond_6
+ 
+-    .line 117
+     .line 118
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object v0
+ 
+     .line 122
+     check-cast v0, Lcom/xj/apk/update/listener/OnDownloadListener;
+ 
+-    .line 123
+     .line 124
+     invoke-interface {v0}, Lcom/xj/apk/update/listener/OnDownloadListener;->start()V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     goto :goto_1
+ 

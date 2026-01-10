@@ -1,0 +1,205 @@
+--- a/smali_classes7/com/nirvana/tools/jsoner/JsonType.smali
++++ b/smali_classes7/com/nirvana/tools/jsoner/JsonType.smali
+@@ -33,8 +33,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -53,28 +51,21 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     instance-of v0, p0, Ljava/lang/Class;
+ 
+-    .line 6
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     check-cast p0, Ljava/lang/reflect/ParameterizedType;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+@@ -84,12 +75,9 @@
+     .line 16
+     aget-object p0, p0, v0
+ 
+-    .line 17
+     .line 18
+     invoke-static {p0}, Lcom/nirvana/tools/jsoner/JsonHelper;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+@@ -100,16 +88,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/RuntimeException;
+ 
+-    .line 24
+     .line 25
+     const-string v0, "Missing type parameter."
+ 
+-    .line 26
+     .line 27
+     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     throw p0
+ .end method
+@@ -120,35 +104,27 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {v0}, Lcom/nirvana/tools/jsoner/JsonType;->getSuperclassTypeParameter(Ljava/lang/Class;)Ljava/lang/reflect/Type;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {v0}, Lcom/nirvana/tools/jsoner/JsonHelper;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     iput-object v0, p0, Lcom/nirvana/tools/jsoner/JsonType;->mGenericsClz:Ljava/lang/Class;
+ 
+-    .line 14
+     .line 15
+     if-eqz v0, :cond_0
+ 
+-    .line 16
+     .line 17
+     const/4 v1, 0x0
+ 
+@@ -156,8 +132,6 @@
+     :try_start_0
+     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+@@ -166,7 +140,6 @@
+     :try_end_0
+     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 23
+     .line 24
+     return-void
+ 
+@@ -177,8 +150,6 @@
+     .line 26
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-void
+ 
+@@ -186,16 +157,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 31
+     .line 32
+     const-string v0, "JsonType\'s generics is not recognizable!"
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     throw p0
+ .end method
+@@ -213,28 +180,22 @@
+     .line 1
+     iget-object v0, p0, Lcom/nirvana/tools/jsoner/JsonType;->mConstructor:Ljava/lang/reflect/Constructor;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/nirvana/tools/jsoner/JsonType;->setup()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :cond_0
+     iget-object v0, p0, Lcom/nirvana/tools/jsoner/JsonType;->mConstructor:Ljava/lang/reflect/Constructor;
+ 
+-    .line 9
+     .line 10
+     const/4 v1, 0x0
+ 
+     .line 11
+     if-eqz v0, :cond_1
+ 
+-    .line 12
+     .line 13
+     const/4 v2, 0x1
+ 
+@@ -242,17 +203,12 @@
+     :try_start_0
+     invoke-virtual {v0, v2}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget-object p0, p0, Lcom/nirvana/tools/jsoner/JsonType;->mConstructor:Ljava/lang/reflect/Constructor;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+     :try_end_0
+@@ -270,8 +226,6 @@
+     .line 25
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     :cond_1
+     return-object v1

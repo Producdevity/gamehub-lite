@@ -1,0 +1,734 @@
+--- a/smali_classes9/in/dragonbra/javasteam/util/stream/MemoryStream.smali
++++ b/smali_classes9/in/dragonbra/javasteam/util/stream/MemoryStream.smali
+@@ -237,15 +237,12 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x0
+ 
+     .line 4
+     invoke-static {p0, p1, p2, v0}, Ljava/util/Arrays;->fill([BIIB)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -256,44 +253,33 @@
+     .line 1
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->capacity:I
+ 
+-    .line 2
+     .line 3
+     if-le p1, v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/16 v0, 0x100
+ 
+-    .line 6
+     .line 7
+     invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p1
+ 
+     .line 11
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->capacity:I
+ 
+-    .line 12
+     .line 13
+     mul-int/lit8 v0, v0, 0x2
+ 
+-    .line 14
+     .line 15
+     invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p1
+ 
+     .line 19
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->setCapacity(I)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const/4 p0, 0x1
+ 
+@@ -316,12 +302,9 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/util/stream/MemoryStream$OutputStreamWrapper;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/util/stream/MemoryStream$OutputStreamWrapper;-><init>(Lin/dragonbra/javasteam/util/stream/MemoryStream;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -336,13 +319,11 @@
+     :try_start_0
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 3
+     .line 4
+     iget v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 5
+     .line 6
+     sub-int/2addr v0, v1
+ 
+@@ -379,15 +360,12 @@
+     .line 1
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->bufferVisible:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ 
+@@ -395,16 +373,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 9
+     .line 10
+     const-string v0, "Cannot call getBuffer()."
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     throw p0
+ .end method
+@@ -415,11 +389,9 @@
+     .line 1
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->capacity:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->origin:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr v0, p0
+ 
+@@ -433,11 +405,9 @@
+     .line 1
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->origin:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr v0, p0
+ 
+@@ -454,11 +424,9 @@
+     .line 1
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->origin:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr v0, p0
+ 
+@@ -475,11 +443,9 @@
+     .line 1
+     iget p1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 2
+     .line 3
+     iput p1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->mark:I
+ 
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -619,8 +585,6 @@
+     .line 1
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->toByteArray()[B
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -638,13 +602,11 @@
+     :try_start_0
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->mark:I
+ 
+-    .line 3
+     .line 4
+     iput v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 5
+     .line 6
+     monitor-exit p0
+ 
+@@ -671,44 +633,36 @@
+     .line 1
+     sget-object v0, Lin/dragonbra/javasteam/util/stream/MemoryStream$1;->$SwitchMap$in$dragonbra$javasteam$util$stream$SeekOrigin:[I
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p3}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p3
+ 
+     .line 7
+     aget p3, v0, p3
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x1
+ 
+     .line 10
+     if-eq p3, v0, :cond_2
+ 
+-    .line 11
+     .line 12
+     const/4 v0, 0x2
+ 
+     .line 13
+     if-eq p3, v0, :cond_1
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x3
+ 
+     .line 16
+     if-ne p3, v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget p3, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -716,16 +670,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 22
+     .line 23
+     const-string p1, "loc"
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     throw p0
+ 
+@@ -733,7 +683,6 @@
+     :cond_1
+     iget p3, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -741,7 +690,6 @@
+     :cond_2
+     iget p3, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->origin:I
+ 
+-    .line 33
+     .line 34
+     :goto_0
+     long-to-int p1, p1
+@@ -752,7 +700,6 @@
+     .line 36
+     iput p3, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 37
+     .line 38
+     int-to-long p0, p3
+ 
+@@ -766,26 +713,21 @@
+     .line 1
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->expandable:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_3
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     array-length v1, v0
+ 
+     .line 10
+     if-ne p1, v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     return-void
+ 
+@@ -793,27 +735,21 @@
+     :cond_0
+     if-lez p1, :cond_1
+ 
+-    .line 14
+     .line 15
+     new-array v1, p1, [B
+ 
+-    .line 16
+     .line 17
+     if-eqz v0, :cond_2
+ 
+-    .line 18
+     .line 19
+     iget v2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 20
+     .line 21
+     const/4 v3, 0x0
+ 
+     .line 22
+     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -826,11 +762,9 @@
+     :goto_0
+     iput-object v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 28
+     .line 29
+     iput p1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->capacity:I
+ 
+-    .line 30
+     .line 31
+     return-void
+ 
+@@ -838,16 +772,12 @@
+     :cond_3
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 33
+     .line 34
+     const-string p1, "Cannot expand this MemoryStream"
+ 
+-    .line 35
+     .line 36
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     throw p0
+ .end method
+@@ -858,75 +788,58 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, p1, v0
+ 
+-    .line 4
+     .line 5
+     if-ltz v0, :cond_3
+ 
+-    .line 6
+     .line 7
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->writable:Z
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_2
+ 
+-    .line 10
+     .line 11
+     long-to-int p1, p1
+ 
+     .line 12
+     iget p2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->origin:I
+ 
+-    .line 13
+     .line 14
+     add-int/2addr p1, p2
+ 
+     .line 15
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->expand(I)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p2
+ 
+     .line 19
+     if-nez p2, :cond_0
+ 
+-    .line 20
+     .line 21
+     iget p2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 22
+     .line 23
+     if-le p1, p2, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, p2, p1}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->clearBuffer(II)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     :cond_0
+     iput p1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 29
+     .line 30
+     iget p2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 31
+     .line 32
+     if-le p2, p1, :cond_1
+ 
+-    .line 33
+     .line 34
+     iput p1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 35
+     .line 36
+     :cond_1
+     return-void
+@@ -935,16 +848,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 38
+     .line 39
+     const-string p1, "Cannot write to this stream."
+ 
+-    .line 40
+     .line 41
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     throw p0
+ 
+@@ -952,16 +861,12 @@
+     :cond_3
+     new-instance p0, Ljava/lang/IndexOutOfBoundsException;
+ 
+-    .line 46
+     .line 47
+     const-string p1, "MemoryStream length must be non-negative."
+ 
+-    .line 48
+     .line 49
+     invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     throw p0
+ .end method
+@@ -972,7 +877,6 @@
+     .line 1
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->origin:I
+ 
+-    .line 2
+     .line 3
+     long-to-int p1, p1
+ 
+@@ -982,7 +886,6 @@
+     .line 5
+     iput v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -997,16 +900,12 @@
+     :try_start_0
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 3
+     .line 4
+     sget-object v1, Lin/dragonbra/javasteam/util/stream/SeekOrigin;->CURRENT:Lin/dragonbra/javasteam/util/stream/SeekOrigin;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1, p2, v1}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->seek(JLin/dragonbra/javasteam/util/stream/SeekOrigin;)J
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-wide p1
+     :try_end_0
+@@ -1044,23 +943,18 @@
+     .line 1
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 2
+     .line 3
+     new-array v1, v0, [B
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 6
+     .line 7
+     const/4 v2, 0x0
+ 
+     .line 8
+     invoke-static {p0, v2, v1, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-object v1
+ .end method
+@@ -1071,85 +965,64 @@
+     .line 1
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->writable:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 6
+     .line 7
+     add-int/2addr v0, p3
+ 
+     .line 8
+     iget v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 9
+     .line 10
+     if-le v0, v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, v0}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->expand(I)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     if-nez v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 19
+     .line 20
+     iget v2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 21
+     .line 22
+     if-le v1, v2, :cond_0
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0, v2, v0}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->clearBuffer(II)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_0
+     iget-object v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 28
+     .line 29
+     iget v2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 30
+     .line 31
+     invoke-static {p1, p2, v1, v2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iput v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 35
+     .line 36
+     iget p1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 37
+     .line 38
+     if-le v0, p1, :cond_1
+ 
+-    .line 39
+     .line 40
+     iput v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 41
+     .line 42
+     :cond_1
+     return-void
+@@ -1158,16 +1031,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 44
+     .line 45
+     const-string p1, "Cannot write to this stream."
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     throw p0
+ .end method
+@@ -1178,82 +1047,62 @@
+     .line 1
+     iget-boolean v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->writable:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     iget v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 6
+     .line 7
+     iget v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 8
+     .line 9
+     if-lt v0, v1, :cond_1
+ 
+-    .line 10
+     .line 11
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 12
+     .line 13
+     invoke-direct {p0, v0}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->expand(I)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     if-nez v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     iget v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 20
+     .line 21
+     iget v2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 22
+     .line 23
+     if-le v1, v2, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, v2, v1}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->clearBuffer(II)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     :cond_0
+     iput v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->length:I
+ 
+-    .line 29
+     .line 30
+     :cond_1
+     iget-object v0, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->buffer:[B
+ 
+-    .line 31
+     .line 32
+     iget v1, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 33
+     .line 34
+     add-int/lit8 v2, v1, 0x1
+ 
+-    .line 35
+     .line 36
+     iput v2, p0, Lin/dragonbra/javasteam/util/stream/MemoryStream;->position:I
+ 
+-    .line 37
+     .line 38
+     aput-byte p1, v0, v1
+ 
+-    .line 39
+     .line 40
+     return-void
+ 
+@@ -1261,16 +1110,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 42
+     .line 43
+     const-string p1, "Cannot write to this stream."
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     throw p0
+ .end method

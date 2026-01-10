@@ -1,0 +1,273 @@
+--- a/smali_classes5/com/dylanc/activityresult/launcher/CropPictureContract.smali
++++ b/smali_classes5/com/dylanc/activityresult/launcher/CropPictureContract.smali
+@@ -28,114 +28,81 @@
+     .line 1
+     const-string v0, "context"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "input"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Landroid/content/Intent;
+ 
+-    .line 12
+     .line 13
+     const-string v1, "com.android.camera.action.CROP"
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     sget-object v1, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->e()Landroid/content/ContentValues;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     invoke-virtual {p1, v1, v2}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p1
+ 
+     .line 32
+     invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v1, "context.contentResolver.\u2026utContentValues\n      )!!"
+ 
+-    .line 36
+     .line 37
+     invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     iput-object p1, p0, Lcom/dylanc/activityresult/launcher/CropPictureContract;->a:Landroid/net/Uri;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->c()Landroid/net/Uri;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p1
+ 
+     .line 46
+     const-string v1, "image/*"
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     iget-object p0, p0, Lcom/dylanc/activityresult/launcher/CropPictureContract;->a:Landroid/net/Uri;
+ 
+-    .line 52
+     .line 53
+     if-nez p0, :cond_0
+ 
+-    .line 54
+     .line 55
+     const-string p0, "outputUri"
+ 
+-    .line 56
+     .line 57
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->y(Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const/4 p0, 0x0
+ 
+@@ -143,133 +110,96 @@
+     :cond_0
+     const-string p1, "output"
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v0, p1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     const-string p0, "aspectX"
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->a()I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result p1
+ 
+     .line 72
+     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     const-string p0, "aspectY"
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->b()I
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result p1
+ 
+     .line 81
+     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     const-string p0, "outputX"
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->f()I
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result p1
+ 
+     .line 90
+     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     const-string p0, "outputY"
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->g()I
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result p1
+ 
+     .line 99
+     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     sget-object p0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p0
+ 
+     .line 108
+     const-string p1, "outputFormat"
+ 
+-    .line 109
+     .line 110
+     invoke-virtual {v0, p1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     const-string p0, "return-data"
+ 
+-    .line 114
+     .line 115
+     const/4 p1, 0x0
+ 
+     .line 116
+     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     const/4 p0, 0x1
+ 
+     .line 120
+     invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-virtual {p2}, Lcom/dylanc/activityresult/launcher/CropPictureRequest;->d()Lcom/dylanc/callbacks/Callback1;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p0
+ 
+     .line 127
+     if-nez p0, :cond_1
+ 
+-    .line 128
+     .line 129
+     return-object v0
+ 
+@@ -277,8 +207,6 @@
+     :cond_1
+     invoke-interface {p0, v0}, Lcom/dylanc/callbacks/Callback1;->invoke(Ljava/lang/Object;)V
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     return-object v0
+ .end method
+@@ -289,12 +217,9 @@
+     .line 1
+     check-cast p2, Lcom/dylanc/activityresult/launcher/CropPictureRequest;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/dylanc/activityresult/launcher/CropPictureContract;->a(Landroid/content/Context;Lcom/dylanc/activityresult/launcher/CropPictureRequest;)Landroid/content/Intent;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 

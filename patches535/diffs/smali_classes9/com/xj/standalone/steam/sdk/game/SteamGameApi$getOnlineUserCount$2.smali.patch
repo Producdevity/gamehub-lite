@@ -1,0 +1,519 @@
+--- a/smali_classes9/com/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2.smali
++++ b/smali_classes9/com/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2.smali
+@@ -63,15 +63,12 @@
+     .line 1
+     iput p1, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->$appId:I
+ 
+-    .line 2
+     .line 3
+     const/4 p1, 0x2
+ 
+     .line 4
+     invoke-direct {p0, p1, p2}, Lkotlin/coroutines/jvm/internal/SuspendLambda;-><init>(ILkotlin/coroutines/Continuation;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -95,16 +92,12 @@
+     .line 1
+     new-instance p1, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->$appId:I
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p1, p0, p2}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;-><init>(ILkotlin/coroutines/Continuation;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-object p1
+ .end method
+@@ -160,87 +153,63 @@
+     .line 1
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget v0, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->label:I
+ 
+-    .line 5
+     .line 6
+     if-nez v0, :cond_8
+ 
+-    .line 7
+     .line 8
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-static {}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi;->f()Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     iget v0, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->$appId:I
+ 
+-    .line 16
+     .line 17
+     invoke-static {v0}, Lkotlin/coroutines/jvm/internal/Boxing;->e(I)Ljava/lang/Integer;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     invoke-virtual {p1, v0}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p1
+ 
+     .line 25
+     check-cast p1, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;
+ 
+-    .line 26
+     .line 27
+     if-eqz p1, :cond_0
+ 
+-    .line 28
+     .line 29
+     const-wide/32 v0, 0x36ee80
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {p1, v0, v1}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;->b(J)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+ 
+     .line 36
+     if-nez v0, :cond_0
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;->a()J
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-wide p0
+ 
+     .line 42
+     invoke-static {p0, p1}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -251,179 +220,130 @@
+     :cond_0
+     const-wide/16 v0, -0x1
+ 
+-    .line 48
+     .line 49
+     :try_start_0
+     sget-object v2, Lcom/xj/standalone/steam/sdk/SteamApiUrls;->a:Lcom/xj/standalone/steam/sdk/SteamApiUrls;
+ 
+-    .line 50
+     .line 51
+     iget v3, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->$appId:I
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {v2, v3}, Lcom/xj/standalone/steam/sdk/SteamApiUrls;->e(I)Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v2
+ 
+     .line 57
+     new-instance v3, Lokhttp3/Request$Builder;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v3}, Lokhttp3/Request$Builder;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {v3, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v2
+ 
+     .line 66
+     const-string v3, "User-Agent"
+ 
+-    .line 67
+     .line 68
+     const-string v4, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v2, v3, v4}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v2
+ 
+     .line 74
+     invoke-virtual {v2}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v2
+ 
+     .line 78
+     sget-object v3, Lcom/xj/standalone/steam/sdk/game/SteamGameApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamGameApi;
+ 
+-    .line 79
+     .line 80
+     invoke-static {v3}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi;->d(Lcom/xj/standalone/steam/sdk/game/SteamGameApi;)Lokhttp3/OkHttpClient;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v4
+ 
+     .line 84
+     invoke-virtual {v4, v2}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v2
+ 
+     .line 88
+     invoke-interface {v2}, Lokhttp3/Call;->execute()Lokhttp3/Response;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v2
+ 
+     .line 92
+     invoke-virtual {v2}, Lokhttp3/Response;->isSuccessful()Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v4
+ 
+     .line 96
+     if-nez v4, :cond_2
+ 
+-    .line 97
+     .line 98
+     if-eqz p1, :cond_1
+ 
+-    .line 99
+     .line 100
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;->a()J
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-wide v4
+ 
+     .line 104
+     iget p0, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->$appId:I
+ 
+-    .line 105
+     .line 106
+     invoke-static {v3}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi;->e(Lcom/xj/standalone/steam/sdk/game/SteamGameApi;)Lcom/xj/common/service/Logger;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v2
+ 
+     .line 110
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 111
+     .line 112
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     const-string v6, "getOnlineUserCount use expired cache: appId="
+ 
+-    .line 116
+     .line 117
+     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     const-string p0, ", count="
+ 
+-    .line 124
+     .line 125
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object p0
+ 
+     .line 135
+     invoke-interface {v2, p0}, Lcom/xj/common/service/Logger;->d(Ljava/lang/String;)V
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     goto :goto_0
+ 
+@@ -435,8 +355,6 @@
+     :goto_0
+     invoke-static {v4, v5}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object p0
+ 
+@@ -447,145 +365,107 @@
+     :cond_2
+     invoke-virtual {v2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result-object v3
+ 
+     .line 149
+     if-eqz v3, :cond_3
+ 
+-    .line 150
+     .line 151
+     invoke-virtual {v3}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object v3
+ 
+     .line 155
+     if-nez v3, :cond_4
+ 
+-    .line 156
+     .line 157
+     :cond_3
+     const-string v3, ""
+ 
+-    .line 158
+     .line 159
+     :cond_4
+     invoke-virtual {v2}, Lokhttp3/Response;->close()V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     invoke-static {v3}, Lkotlin/text/StringsKt;->C0(Ljava/lang/CharSequence;)Z
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result v2
+ 
+     .line 166
+     if-nez v2, :cond_5
+ 
+-    .line 167
+     .line 168
+     const-class v2, Lcom/google/gson/JsonObject;
+ 
+-    .line 169
+     .line 170
+     invoke-static {v3, v2}, Lcom/blankj/utilcode/util/GsonUtils;->d(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result-object v2
+ 
+     .line 174
+     check-cast v2, Lcom/google/gson/JsonObject;
+ 
+-    .line 175
+     .line 176
+     const-string v3, "response"
+ 
+-    .line 177
+     .line 178
+     invoke-virtual {v2, v3}, Lcom/google/gson/JsonObject;->getAsJsonObject(Ljava/lang/String;)Lcom/google/gson/JsonObject;
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result-object v2
+ 
+     .line 182
+     const-string v3, "player_count"
+ 
+-    .line 183
+     .line 184
+     invoke-virtual {v2, v3}, Lcom/google/gson/JsonObject;->getAsJsonPrimitive(Ljava/lang/String;)Lcom/google/gson/JsonPrimitive;
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     move-result-object v2
+ 
+     .line 188
+     invoke-virtual {v2}, Lcom/google/gson/JsonPrimitive;->getAsLong()J
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result-wide v2
+ 
+     .line 192
+     invoke-static {}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi;->f()Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result-object v4
+ 
+     .line 196
+     iget p0, p0, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$getOnlineUserCount$2;->$appId:I
+ 
+-    .line 197
+     .line 198
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->e(I)Ljava/lang/Integer;
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     move-result-object p0
+ 
+     .line 202
+     new-instance v5, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;
+ 
+-    .line 203
+     .line 204
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     move-result-wide v6
+ 
+     .line 208
+     invoke-direct {v5, v2, v3, v6, v7}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;-><init>(JJ)V
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     invoke-interface {v4, p0, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     invoke-static {v2, v3}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     move-result-object p0
+ 
+@@ -596,12 +476,9 @@
+     :cond_5
+     if-eqz p1, :cond_6
+ 
+-    .line 220
+     .line 221
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;->a()J
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     move-result-wide v2
+ 
+@@ -616,8 +493,6 @@
+     :goto_1
+     invoke-static {v2, v3}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     move-result-object p0
+     :try_end_0
+@@ -630,12 +505,9 @@
+     :catch_0
+     if-eqz p1, :cond_7
+ 
+-    .line 233
+     .line 234
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/sdk/game/SteamGameApi$OnlineCountCache;->a()J
+ 
+-    .line 235
+-    .line 236
+     .line 237
+     move-result-wide v0
+ 
+@@ -643,8 +515,6 @@
+     :cond_7
+     invoke-static {v0, v1}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 239
+-    .line 240
+     .line 241
+     move-result-object p0
+ 
+@@ -655,16 +525,12 @@
+     :cond_8
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 244
+     .line 245
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 246
+     .line 247
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     throw p0
+ .end method

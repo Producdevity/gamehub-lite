@@ -1,0 +1,572 @@
+--- a/smali_classes7/com/nirvana/tools/logger/utils/LocalDeviceUtil.smali
++++ b/smali_classes7/com/nirvana/tools/logger/utils/LocalDeviceUtil.smali
+@@ -28,8 +28,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -40,47 +38,34 @@
+     .line 1
+     const/16 v0, 0x10
+ 
+-    .line 2
+     .line 3
+     new-array v0, v0, [C
+ 
+-    .line 4
+     .line 5
+     fill-array-data v0, :array_0
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :try_start_0
+     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     const-string v1, "MD5"
+ 
+-    .line 13
+     .line 14
+     invoke-static {v1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     invoke-virtual {v1, p0}, Ljava/security/MessageDigest;->update([B)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v1}, Ljava/security/MessageDigest;->digest()[B
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+@@ -90,11 +75,9 @@
+     .line 26
+     shl-int/lit8 v2, v1, 0x1
+ 
+-    .line 27
+     .line 28
+     new-array v2, v2, [C
+ 
+-    .line 29
+     .line 30
+     const/4 v3, 0x0
+ 
+@@ -105,51 +88,39 @@
+     :goto_0
+     if-ge v3, v1, :cond_0
+ 
+-    .line 33
+     .line 34
+     aget-byte v5, p0, v3
+ 
+-    .line 35
+     .line 36
+     add-int/lit8 v6, v4, 0x1
+ 
+-    .line 37
+     .line 38
+     ushr-int/lit8 v7, v5, 0x4
+ 
+-    .line 39
+     .line 40
+     and-int/lit8 v7, v7, 0xf
+ 
+-    .line 41
+     .line 42
+     aget-char v7, v0, v7
+ 
+-    .line 43
+     .line 44
+     aput-char v7, v2, v4
+ 
+-    .line 45
+     .line 46
+     add-int/lit8 v4, v4, 0x2
+ 
+-    .line 47
+     .line 48
+     and-int/lit8 v5, v5, 0xf
+ 
+-    .line 49
+     .line 50
+     aget-char v5, v0, v5
+ 
+-    .line 51
+     .line 52
+     aput-char v5, v2, v6
+ 
+-    .line 53
+     .line 54
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 55
+     .line 56
+     goto :goto_0
+ 
+@@ -157,14 +128,11 @@
+     :cond_0
+     new-instance p0, Ljava/lang/String;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0, v2}, Ljava/lang/String;-><init>([C)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     return-object p0
+ 
+@@ -203,68 +171,49 @@
+     .line 1
+     const-string p0, "default"
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     const-string v2, "0000000000000000"
+ 
+-    .line 27
+     .line 28
+     invoke-static {v1, v2}, Lcom/nirvana/tools/core/EncryptUtils;->encrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+     :try_end_0
+@@ -273,7 +222,6 @@
+     .line 36
+     if-eqz v0, :cond_0
+ 
+-    .line 37
+     .line 38
+     return-object p0
+ 
+@@ -288,8 +236,6 @@
+     .line 41
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-object p0
+ .end method
+@@ -300,68 +246,49 @@
+     .line 1
+     const-string p0, "default"
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     const-string v2, "0000000000000000"
+ 
+-    .line 27
+     .line 28
+     invoke-static {v1, v2}, Lcom/nirvana/tools/core/EncryptUtils;->encrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+     :try_end_0
+@@ -370,7 +297,6 @@
+     .line 36
+     if-eqz v0, :cond_0
+ 
+-    .line 37
+     .line 38
+     return-object p0
+ 
+@@ -385,8 +311,6 @@
+     .line 41
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-object p0
+ .end method
+@@ -397,65 +321,49 @@
+     .line 1
+     sget-object v0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-static {p0}, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->getSaveDeviceId(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     sput-object v0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-eqz v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-static {p0}, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->createDeviceId(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     sput-object v0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     invoke-static {p0, v0}, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->saveDeviceId(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     :cond_0
+     sget-object p0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 31
+     .line 32
+     return-object p0
+ .end method
+@@ -466,27 +374,21 @@
+     .line 1
+     const-string v0, "AUTH_DEVICEID_UUID"
+ 
+-    .line 2
+     .line 3
+     const-string v1, ""
+ 
+-    .line 4
+     .line 5
+     const-string v2, "AUTH_DEVICEINFO"
+ 
+-    .line 6
+     .line 7
+     invoke-static {p0, v2, v0, v1}, Lcom/nirvana/tools/logger/utils/UTSharedPreferencesHelper;->get(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -497,27 +399,21 @@
+     .line 1
+     const-string v0, "AUTH_UMAAID_UUID"
+ 
+-    .line 2
+     .line 3
+     const-string v1, ""
+ 
+-    .line 4
+     .line 5
+     const-string v2, "AUTH_DEVICEINFO"
+ 
+-    .line 6
+     .line 7
+     invoke-static {p0, v2, v0, v1}, Lcom/nirvana/tools/logger/utils/UTSharedPreferencesHelper;->get(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -528,65 +424,49 @@
+     .line 1
+     sget-object v0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-static {p0}, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->getSaveUmaaId(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     sput-object v0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-eqz v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-static {p0}, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->createUmaaId(Landroid/content/Context;)Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     sput-object v0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     invoke-static {p0, v0}, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->saveUmaaId(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     :cond_0
+     sget-object p0, Lcom/nirvana/tools/logger/utils/LocalDeviceUtil;->mDeviceId:Ljava/lang/String;
+ 
+-    .line 31
+     .line 32
+     return-object p0
+ .end method
+@@ -597,19 +477,15 @@
+     .line 1
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     if-nez p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -617,16 +493,12 @@
+     :cond_0
+     const-string v0, "AUTH_DEVICEINFO"
+ 
+-    .line 11
+     .line 12
+     const-string v1, "AUTH_DEVICEID_UUID"
+ 
+-    .line 13
+     .line 14
+     invoke-static {p0, v0, v1, p1}, Lcom/nirvana/tools/logger/utils/UTSharedPreferencesHelper;->put(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     :cond_1
+     :goto_0
+@@ -639,19 +511,15 @@
+     .line 1
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     if-nez p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -659,16 +527,12 @@
+     :cond_0
+     const-string v0, "AUTH_DEVICEINFO"
+ 
+-    .line 11
+     .line 12
+     const-string v1, "AUTH_UMAAID_UUID"
+ 
+-    .line 13
+     .line 14
+     invoke-static {p0, v0, v1, p1}, Lcom/nirvana/tools/logger/utils/UTSharedPreferencesHelper;->put(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     :cond_1
+     :goto_0

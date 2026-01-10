@@ -1,0 +1,1299 @@
+--- a/smali_classes4/androidx/recyclerview/widget/GapWorker.smali
++++ b/smali_classes4/androidx/recyclerview/widget/GapWorker.smali
+@@ -70,29 +70,21 @@
+     .line 1
+     new-instance v0, Ljava/lang/ThreadLocal;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/ThreadLocal;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Landroidx/recyclerview/widget/GapWorker;->sGapWorker:Ljava/lang/ThreadLocal;
+ 
+-    .line 7
+     .line 8
+     new-instance v0, Landroidx/recyclerview/widget/GapWorker$1;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0}, Landroidx/recyclerview/widget/GapWorker$1;-><init>()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     sput-object v0, Landroidx/recyclerview/widget/GapWorker;->sTaskComparator:Ljava/util/Comparator;
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -103,34 +95,24 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -141,12 +123,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -163,52 +142,39 @@
+     :goto_0
+     if-ge v2, v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     iget-object v4, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v4
+ 
+     .line 18
+     check-cast v4, Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v4}, Landroid/view/View;->getWindowVisibility()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v5
+ 
+     .line 24
+     if-nez v5, :cond_0
+ 
+-    .line 25
+     .line 26
+     iget-object v5, v4, Landroidx/recyclerview/widget/RecyclerView;->mPrefetchRegistry:Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v5, v4, v1}, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->collectPrefetchPositionsFromView(Landroidx/recyclerview/widget/RecyclerView;Z)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iget-object v4, v4, Landroidx/recyclerview/widget/RecyclerView;->mPrefetchRegistry:Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;
+ 
+-    .line 32
+     .line 33
+     iget v4, v4, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mCount:I
+ 
+-    .line 34
+     .line 35
+     add-int/2addr v3, v4
+ 
+@@ -216,7 +182,6 @@
+     :cond_0
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -224,12 +189,9 @@
+     :cond_1
+     iget-object v2, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->ensureCapacity(I)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move v2, v1
+ 
+@@ -240,35 +202,27 @@
+     :goto_1
+     if-ge v2, v0, :cond_6
+ 
+-    .line 47
+     .line 48
+     iget-object v4, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v4
+ 
+     .line 54
+     check-cast v4, Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v4}, Landroid/view/View;->getWindowVisibility()I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v5
+ 
+     .line 60
+     if-eqz v5, :cond_2
+ 
+-    .line 61
+     .line 62
+     goto :goto_5
+ 
+@@ -276,28 +230,21 @@
+     :cond_2
+     iget-object v5, v4, Landroidx/recyclerview/widget/RecyclerView;->mPrefetchRegistry:Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;
+ 
+-    .line 64
+     .line 65
+     iget v6, v5, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mPrefetchDx:I
+ 
+-    .line 66
+     .line 67
+     invoke-static {v6}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v6
+ 
+     .line 71
+     iget v7, v5, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mPrefetchDy:I
+ 
+-    .line 72
+     .line 73
+     invoke-static {v7}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result v7
+ 
+@@ -311,49 +258,36 @@
+     :goto_2
+     iget v8, v5, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mCount:I
+ 
+-    .line 80
+     .line 81
+     mul-int/lit8 v8, v8, 0x2
+ 
+-    .line 82
+     .line 83
+     if-ge v7, v8, :cond_5
+ 
+-    .line 84
+     .line 85
+     iget-object v8, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v8
+ 
+     .line 91
+     if-lt v3, v8, :cond_3
+ 
+-    .line 92
+     .line 93
+     new-instance v8, Landroidx/recyclerview/widget/GapWorker$Task;
+ 
+-    .line 94
+     .line 95
+     invoke-direct {v8}, Landroidx/recyclerview/widget/GapWorker$Task;-><init>()V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     iget-object v9, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 99
+     .line 100
+     invoke-virtual {v9, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     goto :goto_3
+ 
+@@ -361,36 +295,28 @@
+     :cond_3
+     iget-object v8, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 105
+     .line 106
+     invoke-virtual {v8, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v8
+ 
+     .line 110
+     check-cast v8, Landroidx/recyclerview/widget/GapWorker$Task;
+ 
+-    .line 111
+     .line 112
+     :goto_3
+     iget-object v9, v5, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mPrefetchArray:[I
+ 
+-    .line 113
+     .line 114
+     add-int/lit8 v10, v7, 0x1
+ 
+-    .line 115
+     .line 116
+     aget v10, v9, v10
+ 
+-    .line 117
+     .line 118
+     if-gt v10, v6, :cond_4
+ 
+-    .line 119
+     .line 120
+     const/4 v11, 0x1
+ 
+@@ -405,35 +331,27 @@
+     :goto_4
+     iput-boolean v11, v8, Landroidx/recyclerview/widget/GapWorker$Task;->neededNextFrame:Z
+ 
+-    .line 124
+     .line 125
+     iput v6, v8, Landroidx/recyclerview/widget/GapWorker$Task;->viewVelocity:I
+ 
+-    .line 126
+     .line 127
+     iput v10, v8, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
+ 
+-    .line 128
+     .line 129
+     iput-object v4, v8, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 130
+     .line 131
+     aget v9, v9, v7
+ 
+-    .line 132
+     .line 133
+     iput v9, v8, Landroidx/recyclerview/widget/GapWorker$Task;->position:I
+ 
+-    .line 134
+     .line 135
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 136
+     .line 137
+     add-int/lit8 v7, v7, 0x2
+ 
+-    .line 138
+     .line 139
+     goto :goto_2
+ 
+@@ -442,7 +360,6 @@
+     :goto_5
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 141
+     .line 142
+     goto :goto_1
+ 
+@@ -450,16 +367,12 @@
+     :cond_6
+     iget-object p0, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 144
+     .line 145
+     sget-object v0, Landroidx/recyclerview/widget/GapWorker;->sTaskComparator:Ljava/util/Comparator;
+ 
+-    .line 146
+     .line 147
+     invoke-static {p0, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     return-void
+ .end method
+@@ -470,18 +383,12 @@
+     .line 1
+     iget-boolean v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->neededNextFrame:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const-wide v0, 0x7fffffffffffffffL
+ 
+-    .line 6
+-    .line 7
+-    .line 8
+-    .line 9
+     .line 10
+     goto :goto_0
+ 
+@@ -493,76 +400,57 @@
+     :goto_0
+     iget-object v2, p1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 13
+     .line 14
+     iget p1, p1, Landroidx/recyclerview/widget/GapWorker$Task;->position:I
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p0, v2, p1, v0, v1}, Landroidx/recyclerview/widget/GapWorker;->prefetchPositionWithDeadline(Landroidx/recyclerview/widget/RecyclerView;IJ)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     if-eqz p1, :cond_1
+ 
+-    .line 21
+     .line 22
+     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mNestedRecyclerView:Ljava/lang/ref/WeakReference;
+ 
+-    .line 23
+     .line 24
+     if-eqz v0, :cond_1
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isBound()Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     if-eqz v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isInvalid()Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+ 
+     .line 36
+     if-nez v0, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mNestedRecyclerView:Ljava/lang/ref/WeakReference;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p1
+ 
+     .line 44
+     check-cast p1, Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1, p2, p3}, Landroidx/recyclerview/widget/GapWorker;->prefetchInnerRecyclerViewWithDeadline(Landroidx/recyclerview/widget/RecyclerView;J)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     :cond_1
+     return-void
+@@ -578,43 +466,33 @@
+     :goto_0
+     iget-object v1, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 3
+     .line 4
+     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-ge v0, v1, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget-object v1, p0, Landroidx/recyclerview/widget/GapWorker;->mTasks:Ljava/util/ArrayList;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     check-cast v1, Landroidx/recyclerview/widget/GapWorker$Task;
+ 
+-    .line 17
+     .line 18
+     iget-object v2, v1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 19
+     .line 20
+     if-nez v2, :cond_0
+ 
+-    .line 21
+     .line 22
+     goto :goto_1
+ 
+@@ -622,17 +500,12 @@
+     :cond_0
+     invoke-direct {p0, v1, p1, p2}, Landroidx/recyclerview/widget/GapWorker;->flushTaskWithDeadline(Landroidx/recyclerview/widget/GapWorker$Task;J)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v1}, Landroidx/recyclerview/widget/GapWorker$Task;->clear()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -648,12 +521,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView;->mChildHelper:Landroidx/recyclerview/widget/ChildHelper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/recyclerview/widget/ChildHelper;->getUnfilteredChildCount()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -667,47 +537,36 @@
+     :goto_0
+     if-ge v2, v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     iget-object v3, p0, Landroidx/recyclerview/widget/RecyclerView;->mChildHelper:Landroidx/recyclerview/widget/ChildHelper;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v3, v2}, Landroidx/recyclerview/widget/ChildHelper;->getUnfilteredChildAt(I)Landroid/view/View;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v3
+ 
+     .line 17
+     invoke-static {v3}, Landroidx/recyclerview/widget/RecyclerView;->getChildViewHolderInt(Landroid/view/View;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v3
+ 
+     .line 21
+     iget v4, v3, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPosition:I
+ 
+-    .line 22
+     .line 23
+     if-ne v4, p1, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v3}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isInvalid()Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v3
+ 
+     .line 29
+     if-nez v3, :cond_0
+ 
+-    .line 30
+     .line 31
+     const/4 p0, 0x1
+ 
+@@ -718,7 +577,6 @@
+     :cond_0
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -737,7 +595,6 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     goto :goto_2
+ 
+@@ -745,73 +602,53 @@
+     :cond_0
+     iget-boolean v0, p1, Landroidx/recyclerview/widget/RecyclerView;->mDataSetHasChangedAfterLayout:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_1
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView;->mChildHelper:Landroidx/recyclerview/widget/ChildHelper;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0}, Landroidx/recyclerview/widget/ChildHelper;->getUnfilteredChildCount()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-eqz v0, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->removeAndRecycleViews()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     :cond_1
+     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView;->mPrefetchRegistry:Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;
+ 
+-    .line 20
+     .line 21
+     const/4 v1, 0x1
+ 
+     .line 22
+     invoke-virtual {v0, p1, v1}, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->collectPrefetchPositionsFromView(Landroidx/recyclerview/widget/RecyclerView;Z)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget v1, v0, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mCount:I
+ 
+-    .line 26
+     .line 27
+     if-eqz v1, :cond_4
+ 
+-    .line 28
+     .line 29
+     const-wide v1, 0x7fffffffffffffffL
+ 
+-    .line 30
+-    .line 31
+-    .line 32
+-    .line 33
+     .line 34
+     cmp-long v1, p2, v1
+ 
+-    .line 35
+     .line 36
+     if-nez v1, :cond_2
+ 
+-    .line 37
+     .line 38
+     :try_start_0
+     const-string v1, "RV Nested Prefetch"
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -819,26 +656,19 @@
+     :cond_2
+     const-string v1, "RV Nested Prefetch forced - needed next frame"
+ 
+-    .line 42
+     .line 43
+     :goto_0
+     invoke-static {v1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView;->mState:Landroidx/recyclerview/widget/RecyclerView$State;
+ 
+-    .line 47
+     .line 48
+     iget-object v2, p1, Landroidx/recyclerview/widget/RecyclerView;->mAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v1, v2}, Landroidx/recyclerview/widget/RecyclerView$State;->prepareForNestedPrefetch(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     const/4 v1, 0x0
+ 
+@@ -846,34 +676,26 @@
+     :goto_1
+     iget v2, v0, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mCount:I
+ 
+-    .line 55
+     .line 56
+     mul-int/lit8 v2, v2, 0x2
+ 
+-    .line 57
+     .line 58
+     if-ge v1, v2, :cond_3
+ 
+-    .line 59
+     .line 60
+     iget-object v2, v0, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mPrefetchArray:[I
+ 
+-    .line 61
+     .line 62
+     aget v2, v2, v1
+ 
+-    .line 63
+     .line 64
+     invoke-direct {p0, p1, v2, p2, p3}, Landroidx/recyclerview/widget/GapWorker;->prefetchPositionWithDeadline(Landroidx/recyclerview/widget/RecyclerView;IJ)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     add-int/lit8 v1, v1, 0x2
+ 
+-    .line 68
+     .line 69
+     goto :goto_1
+ 
+@@ -881,8 +703,6 @@
+     :cond_3
+     invoke-static {}, Landroid/os/Trace;->endSection()V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -893,8 +713,6 @@
+     .line 75
+     invoke-static {}, Landroid/os/Trace;->endSection()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     throw p0
+ 
+@@ -910,15 +728,12 @@
+     .line 1
+     invoke-static {p1, p2}, Landroidx/recyclerview/widget/GapWorker;->isPrefetchPositionAttached(Landroidx/recyclerview/widget/RecyclerView;I)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+@@ -929,47 +744,34 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/recyclerview/widget/RecyclerView;->mRecycler:Landroidx/recyclerview/widget/RecyclerView$Recycler;
+ 
+-    .line 10
+     .line 11
+     const-wide v0, 0x7fffffffffffffffL
+ 
+-    .line 12
+-    .line 13
+-    .line 14
+-    .line 15
+     .line 16
+     cmp-long v0, p3, v0
+ 
+-    .line 17
+     .line 18
+     const/4 v1, 0x0
+ 
+     .line 19
+     if-nez v0, :cond_1
+ 
+-    .line 20
+     .line 21
+     :try_start_0
+     invoke-static {}, Landroidx/core/os/TraceCompat;->c()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     if-eqz v0, :cond_1
+ 
+-    .line 26
+     .line 27
+     const-string v0, "RV Prefetch forced - needed next frame"
+ 
+-    .line 28
+     .line 29
+     invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -985,53 +787,39 @@
+     :goto_0
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->onEnterLayoutOrScroll()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p0, p2, v1, p3, p4}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->tryGetViewHolderForPositionByDeadline(IZJ)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p2
+ 
+     .line 42
+     if-eqz p2, :cond_3
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isBound()Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result p3
+ 
+     .line 48
+     if-eqz p3, :cond_2
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isInvalid()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result p3
+ 
+     .line 54
+     if-nez p3, :cond_2
+ 
+-    .line 55
+     .line 56
+     iget-object p3, p2, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {p0, p3}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->recycleView(Landroid/view/View;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     goto :goto_1
+ 
+@@ -1041,20 +829,14 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :cond_3
+     :goto_1
+     invoke-virtual {p1, v1}, Landroidx/recyclerview/widget/RecyclerView;->onExitLayoutOrScroll(Z)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-static {}, Landroid/os/Trace;->endSection()V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     return-object p2
+ 
+@@ -1062,13 +844,9 @@
+     :goto_2
+     invoke-virtual {p1, v1}, Landroidx/recyclerview/widget/RecyclerView;->onExitLayoutOrScroll(Z)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-static {}, Landroid/os/Trace;->endSection()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     throw p0
+ .end method
+@@ -1081,27 +859,21 @@
+     .line 1
+     sget-boolean v0, Landroidx/recyclerview/widget/RecyclerView;->sDebugAssertionsEnabled:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1109,16 +881,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 15
+     .line 16
+     const-string p1, "RecyclerView already present in worker list!"
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     throw p0
+ 
+@@ -1127,12 +895,9 @@
+     :goto_0
+     iget-object p0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -1143,39 +908,30 @@
+     .line 1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->isAttachedToWindow()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_2
+ 
+-    .line 6
+     .line 7
+     sget-boolean v0, Landroidx/recyclerview/widget/RecyclerView;->sDebugAssertionsEnabled:Z
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-eqz v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1183,16 +939,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 21
+     .line 22
+     const-string p1, "attempting to post unregistered view!"
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     throw p0
+ 
+@@ -1201,46 +953,34 @@
+     :goto_0
+     iget-wide v0, p0, Landroidx/recyclerview/widget/GapWorker;->mPostTimeNs:J
+ 
+-    .line 29
+     .line 30
+     const-wide/16 v2, 0x0
+ 
+-    .line 31
+     .line 32
+     cmp-long v0, v0, v2
+ 
+-    .line 33
+     .line 34
+     if-nez v0, :cond_2
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->getNanoTime()J
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-wide v0
+ 
+     .line 40
+     iput-wide v0, p0, Landroidx/recyclerview/widget/GapWorker;->mPostTimeNs:J
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p1, p0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     :cond_2
+     iget-object p0, p1, Landroidx/recyclerview/widget/RecyclerView;->mPrefetchRegistry:Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p0, p2, p3}, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->setPrefetchVector(II)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return-void
+ .end method
+@@ -1251,13 +991,9 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/recyclerview/widget/GapWorker;->buildTaskList()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0, p1, p2}, Landroidx/recyclerview/widget/GapWorker;->flushTasksWithDeadline(J)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -1268,27 +1004,21 @@
+     .line 1
+     iget-object p0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+     .line 7
+     sget-boolean p1, Landroidx/recyclerview/widget/RecyclerView;->sDebugAssertionsEnabled:Z
+ 
+-    .line 8
+     .line 9
+     if-eqz p1, :cond_1
+ 
+-    .line 10
+     .line 11
+     if-eqz p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1296,16 +1026,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 15
+     .line 16
+     const-string p1, "RecyclerView removal failed!"
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     throw p0
+ 
+@@ -1321,26 +1047,19 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     const-string v2, "RV Prefetch"
+ 
+-    .line 4
+     .line 5
+     invoke-static {v2}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     iget-object v2, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v2
+     :try_end_0
+@@ -1349,17 +1068,13 @@
+     .line 14
+     if-eqz v2, :cond_0
+ 
+-    .line 15
+     .line 16
+     :goto_0
+     iput-wide v0, p0, Landroidx/recyclerview/widget/GapWorker;->mPostTimeNs:J
+ 
+-    .line 17
+     .line 18
+     invoke-static {}, Landroid/os/Trace;->endSection()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -1368,12 +1083,9 @@
+     :try_start_1
+     iget-object v2, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v2
+ 
+@@ -1387,48 +1099,36 @@
+     :goto_1
+     if-ge v3, v2, :cond_2
+ 
+-    .line 31
+     .line 32
+     iget-object v6, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v6
+ 
+     .line 38
+     check-cast v6, Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v6}, Landroid/view/View;->getWindowVisibility()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v7
+ 
+     .line 44
+     if-nez v7, :cond_1
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v6}, Landroid/view/View;->getDrawingTime()J
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-wide v6
+ 
+     .line 50
+     invoke-static {v6, v7, v4, v5}, Ljava/lang/Math;->max(JJ)J
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-wide v4
+ 
+@@ -1447,7 +1147,6 @@
+     :goto_2
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 58
+     .line 59
+     goto :goto_1
+ 
+@@ -1455,11 +1154,9 @@
+     :cond_2
+     cmp-long v2, v4, v0
+ 
+-    .line 61
+     .line 62
+     if-nez v2, :cond_3
+ 
+-    .line 63
+     .line 64
+     goto :goto_0
+ 
+@@ -1467,19 +1164,15 @@
+     :cond_3
+     sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v2, v4, v5}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-wide v2
+ 
+     .line 71
+     iget-wide v4, p0, Landroidx/recyclerview/widget/GapWorker;->mFrameIntervalNs:J
+ 
+-    .line 72
+     .line 73
+     add-long/2addr v2, v4
+ 
+@@ -1488,8 +1181,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     goto :goto_0
+ 
+@@ -1497,12 +1188,9 @@
+     :goto_3
+     iput-wide v0, p0, Landroidx/recyclerview/widget/GapWorker;->mPostTimeNs:J
+ 
+-    .line 79
+     .line 80
+     invoke-static {}, Landroid/os/Trace;->endSection()V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     throw v2
+ .end method

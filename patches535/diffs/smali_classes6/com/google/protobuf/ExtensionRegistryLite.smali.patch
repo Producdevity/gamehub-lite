@@ -1,0 +1,175 @@
+--- a/smali_classes6/com/google/protobuf/ExtensionRegistryLite.smali
++++ b/smali_classes6/com/google/protobuf/ExtensionRegistryLite.smali
+@@ -17,7 +17,7 @@
+ 
+ .field static final EXTENSION_CLASS_NAME:Ljava/lang/String; = "com.google.protobuf.Extension"
+ 
+-.field private static volatile eagerlyParseMessageSets:Z = false
++.field private static volatile eagerlyParseMessageSets:Z
+ 
+ .field private static volatile emptyRegistry:Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+@@ -42,19 +42,15 @@
+     .line 1
+     new-instance v0, Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/google/protobuf/ExtensionRegistryLite;-><init>(Z)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/google/protobuf/ExtensionRegistryLite;->EMPTY_REGISTRY_LITE:Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -126,15 +122,12 @@
+     .line 1
+     sget-boolean v0, Lcom/google/protobuf/Protobuf;->assumeLiteRuntime:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     sget-object v0, Lcom/google/protobuf/ExtensionRegistryLite;->EMPTY_REGISTRY_LITE:Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 6
+     .line 7
+     return-object v0
+ 
+@@ -142,15 +135,12 @@
+     :cond_0
+     sget-object v0, Lcom/google/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 9
+     .line 10
+     if-nez v0, :cond_2
+ 
+-    .line 11
+     .line 12
+     const-class v1, Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 13
+     .line 14
+     monitor-enter v1
+ 
+@@ -158,23 +148,18 @@
+     :try_start_0
+     sget-object v0, Lcom/google/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 16
+     .line 17
+     if-nez v0, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-static {}, Lcom/google/protobuf/ExtensionRegistryFactory;->createEmpty()Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     sput-object v0, Lcom/google/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -213,7 +198,6 @@
+     .line 1
+     sget-boolean v0, Lcom/google/protobuf/ExtensionRegistryLite;->eagerlyParseMessageSets:Z
+ 
+-    .line 2
+     .line 3
+     return v0
+ .end method
+@@ -224,20 +208,15 @@
+     .line 1
+     sget-boolean v0, Lcom/google/protobuf/Protobuf;->assumeLiteRuntime:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v0, Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0}, Lcom/google/protobuf/ExtensionRegistryLite;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-object v0
+ 
+@@ -245,8 +224,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/ExtensionRegistryFactory;->create()Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+@@ -260,7 +237,6 @@
+     .line 1
+     sput-boolean p0, Lcom/google/protobuf/ExtensionRegistryLite;->eagerlyParseMessageSets:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -409,28 +385,21 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     new-instance v0, Lcom/google/protobuf/ExtensionRegistryLite$ObjectIntPair;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, p1, p2}, Lcom/google/protobuf/ExtensionRegistryLite$ObjectIntPair;-><init>(Ljava/lang/Object;I)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     check-cast p0, Lcom/google/protobuf/GeneratedMessageLite$GeneratedExtension;
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method
+@@ -441,12 +410,9 @@
+     .line 1
+     new-instance v0, Lcom/google/protobuf/ExtensionRegistryLite;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/protobuf/ExtensionRegistryLite;-><init>(Lcom/google/protobuf/ExtensionRegistryLite;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method

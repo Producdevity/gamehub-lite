@@ -1,0 +1,1010 @@
+--- a/smali_classes5/com/arialyy/aria/core/command/ResumeThread.smali
++++ b/smali_classes5/com/arialyy/aria/core/command/ResumeThread.smali
+@@ -31,49 +31,36 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     invoke-static {v0}, Lcom/arialyy/aria/util/CommonUtil;->getClassName(Ljava/lang/Class;)Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     iput-object v0, p0, Lcom/arialyy/aria/core/command/ResumeThread;->TAG:Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iput-object v0, p0, Lcom/arialyy/aria/core/command/ResumeThread;->mWaitList:Ljava/util/List;
+ 
+-    .line 20
+     .line 21
+     iput-boolean p1, p0, Lcom/arialyy/aria/core/command/ResumeThread;->isDownloadCmd:Z
+ 
+-    .line 22
+     .line 23
+     iput-object p2, p0, Lcom/arialyy/aria/core/command/ResumeThread;->sqlCondition:Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -84,39 +71,30 @@
+     .line 1
+     if-eqz p1, :cond_1
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getEntity()Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-eqz v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     invoke-interface {p1}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-eqz v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -124,12 +102,9 @@
+     :cond_0
+     iget-object p0, p0, Lcom/arialyy/aria/core/command/ResumeThread;->mWaitList:Ljava/util/List;
+ 
+-    .line 21
+     .line 22
+     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :cond_1
+     :goto_0
+@@ -145,72 +120,54 @@
+     .line 2
+     if-ne p1, v0, :cond_0
+ 
+-    .line 3
+     .line 4
+     iget-object p1, p0, Lcom/arialyy/aria/core/command/ResumeThread;->sqlCondition:Ljava/lang/String;
+ 
+-    .line 5
+     .line 6
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     const-string v0, "NOT(isGroupChild) AND NOT(isComplete) AND %s ORDER BY stopTime DESC"
+ 
+-    .line 11
+     .line 12
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+     .line 16
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     const-class v0, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 21
+     .line 22
+     invoke-static {v0, p1}, Lcom/arialyy/aria/orm/DbEntity;->findDatas(Ljava/lang/Class;[Ljava/lang/String;)Ljava/util/List;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     if-eqz p1, :cond_2
+ 
+-    .line 27
+     .line 28
+     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+     .line 32
+     if-nez v0, :cond_2
+ 
+-    .line 33
+     .line 34
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p1
+ 
+@@ -218,60 +175,45 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v0
+ 
+     .line 42
+     if-eqz v0, :cond_2
+ 
+-    .line 43
+     .line 44
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     check-cast v0, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 49
+     .line 50
+     invoke-static {}, Lcom/arialyy/aria/core/manager/TaskWrapperManager;->getInstance()Lcom/arialyy/aria/core/manager/TaskWrapperManager;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v1
+ 
+     .line 54
+     const-class v2, Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsEntity;->getId()J
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-wide v3
+ 
+     .line 60
+     invoke-virtual {v1, v2, v3, v4}, Lcom/arialyy/aria/core/manager/TaskWrapperManager;->getNormalTaskWrapper(Ljava/lang/Class;J)Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v0
+ 
+     .line 64
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/command/ResumeThread;->addResumeEntity(Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     goto :goto_0
+ 
+@@ -282,72 +224,54 @@
+     .line 69
+     const-string v1, "NOT(isComplete) AND %s ORDER BY stopTime DESC"
+ 
+-    .line 70
+     .line 71
+     if-ne p1, v0, :cond_1
+ 
+-    .line 72
+     .line 73
+     iget-object p1, p0, Lcom/arialyy/aria/core/command/ResumeThread;->sqlCondition:Ljava/lang/String;
+ 
+-    .line 74
+     .line 75
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p1
+ 
+     .line 79
+     invoke-static {v1, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p1
+ 
+     .line 83
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object p1
+ 
+     .line 87
+     const-class v0, Lcom/arialyy/aria/core/download/DownloadGroupEntity;
+ 
+-    .line 88
+     .line 89
+     invoke-static {v0, p1}, Lcom/arialyy/aria/orm/DbEntity;->findDatas(Ljava/lang/Class;[Ljava/lang/String;)Ljava/util/List;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p1
+ 
+     .line 93
+     if-eqz p1, :cond_2
+ 
+-    .line 94
+     .line 95
+     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v0
+ 
+     .line 99
+     if-nez v0, :cond_2
+ 
+-    .line 100
+     .line 101
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object p1
+ 
+@@ -355,60 +279,45 @@
+     :goto_1
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result v0
+ 
+     .line 109
+     if-eqz v0, :cond_2
+ 
+-    .line 110
+     .line 111
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v0
+ 
+     .line 115
+     check-cast v0, Lcom/arialyy/aria/core/download/DownloadGroupEntity;
+ 
+-    .line 116
+     .line 117
+     invoke-static {}, Lcom/arialyy/aria/core/manager/TaskWrapperManager;->getInstance()Lcom/arialyy/aria/core/manager/TaskWrapperManager;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object v1
+ 
+     .line 121
+     const-class v2, Lcom/arialyy/aria/core/download/DGTaskWrapper;
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsEntity;->getId()J
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-wide v3
+ 
+     .line 127
+     invoke-virtual {v1, v2, v3, v4}, Lcom/arialyy/aria/core/manager/TaskWrapperManager;->getGroupWrapper(Ljava/lang/Class;J)Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object v0
+ 
+     .line 131
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/command/ResumeThread;->addResumeEntity(Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;)V
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     goto :goto_1
+ 
+@@ -419,68 +328,51 @@
+     .line 136
+     if-ne p1, v0, :cond_2
+ 
+-    .line 137
+     .line 138
+     iget-object p1, p0, Lcom/arialyy/aria/core/command/ResumeThread;->sqlCondition:Ljava/lang/String;
+ 
+-    .line 139
+     .line 140
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object p1
+ 
+     .line 144
+     invoke-static {v1, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object p1
+ 
+     .line 148
+     filled-new-array {p1}, [Ljava/lang/String;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result-object p1
+ 
+     .line 152
+     const-class v0, Lcom/arialyy/aria/core/upload/UploadEntity;
+ 
+-    .line 153
+     .line 154
+     invoke-static {v0, p1}, Lcom/arialyy/aria/orm/DbEntity;->findDatas(Ljava/lang/Class;[Ljava/lang/String;)Ljava/util/List;
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result-object p1
+ 
+     .line 158
+     if-eqz p1, :cond_2
+ 
+-    .line 159
+     .line 160
+     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result v0
+ 
+     .line 164
+     if-nez v0, :cond_2
+ 
+-    .line 165
+     .line 166
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object p1
+ 
+@@ -488,60 +380,45 @@
+     :goto_2
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result v0
+ 
+     .line 174
+     if-eqz v0, :cond_2
+ 
+-    .line 175
+     .line 176
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object v0
+ 
+     .line 180
+     check-cast v0, Lcom/arialyy/aria/core/upload/UploadEntity;
+ 
+-    .line 181
+     .line 182
+     invoke-static {}, Lcom/arialyy/aria/core/manager/TaskWrapperManager;->getInstance()Lcom/arialyy/aria/core/manager/TaskWrapperManager;
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result-object v1
+ 
+     .line 186
+     const-class v2, Lcom/arialyy/aria/core/upload/UTaskWrapper;
+ 
+-    .line 187
+     .line 188
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsEntity;->getId()J
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result-wide v3
+ 
+     .line 192
+     invoke-virtual {v1, v2, v3, v4}, Lcom/arialyy/aria/core/manager/TaskWrapperManager;->getNormalTaskWrapper(Ljava/lang/Class;J)Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result-object v0
+ 
+     .line 196
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/command/ResumeThread;->addResumeEntity(Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;)V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     goto :goto_2
+ 
+@@ -556,8 +433,6 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -567,21 +442,18 @@
+     .line 6
+     if-eq p0, v0, :cond_1
+ 
+-    .line 7
+     .line 8
+     const/4 v0, 0x6
+ 
+     .line 9
+     if-eq p0, v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     const/4 v0, 0x4
+ 
+     .line 12
+     if-ne p0, v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -594,44 +466,33 @@
+     :goto_0
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getOptionParams()Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getEntity()Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getKey()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     invoke-static {p1}, Lcom/arialyy/aria/util/CommonUtil;->getFtpUrlInfo(Ljava/lang/String;)Lcom/arialyy/aria/core/FtpUrlEntity;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p1
+ 
+     .line 32
+     const-string v0, "urlEntity"
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {p0, v0, p1}, Lcom/arialyy/aria/core/TaskOptionParams;->setParams(Ljava/lang/String;Ljava/lang/Object;)Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     return-void
+ .end method
+@@ -642,46 +503,34 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/command/ResumeThread;->mWaitList:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_b
+ 
+-    .line 4
+     .line 5
+     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto/16 :goto_3
+ 
+-    .line 12
+     .line 13
+     :cond_0
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-object v1, p0, Lcom/arialyy/aria/core/command/ResumeThread;->mWaitList:Ljava/util/List;
+ 
+-    .line 19
+     .line 20
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+@@ -689,40 +538,30 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v2
+ 
+     .line 28
+     if-eqz v2, :cond_a
+ 
+-    .line 29
+     .line 30
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v2
+ 
+     .line 34
+     check-cast v2, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 35
+     .line 36
+     instance-of v3, v2, Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 37
+     .line 38
+     if-eqz v3, :cond_1
+ 
+-    .line 39
+     .line 40
+     invoke-static {}, Lcom/arialyy/aria/core/queue/DTaskQueue;->getInstance()Lcom/arialyy/aria/core/queue/DTaskQueue;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v3
+ 
+@@ -733,16 +572,12 @@
+     :cond_1
+     instance-of v3, v2, Lcom/arialyy/aria/core/upload/UTaskWrapper;
+ 
+-    .line 46
+     .line 47
+     if-eqz v3, :cond_2
+ 
+-    .line 48
+     .line 49
+     invoke-static {}, Lcom/arialyy/aria/core/queue/UTaskQueue;->getInstance()Lcom/arialyy/aria/core/queue/UTaskQueue;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v3
+ 
+@@ -753,16 +588,12 @@
+     :cond_2
+     instance-of v3, v2, Lcom/arialyy/aria/core/download/DGTaskWrapper;
+ 
+-    .line 55
+     .line 56
+     if-eqz v3, :cond_3
+ 
+-    .line 57
+     .line 58
+     invoke-static {}, Lcom/arialyy/aria/core/queue/DGroupTaskQueue;->getInstance()Lcom/arialyy/aria/core/queue/DGroupTaskQueue;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v3
+ 
+@@ -777,20 +608,15 @@
+     :goto_1
+     if-nez v3, :cond_4
+ 
+-    .line 65
+     .line 66
+     iget-object v2, p0, Lcom/arialyy/aria/core/command/ResumeThread;->TAG:Ljava/lang/String;
+ 
+-    .line 67
+     .line 68
+     const-string v3, "\u4efb\u52a1\u7c7b\u578b\u9519\u8bef"
+ 
+-    .line 69
+     .line 70
+     invoke-static {v2, v3}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -798,35 +624,27 @@
+     :cond_4
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getEntity()Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v4
+ 
+     .line 78
+     if-eqz v4, :cond_9
+ 
+-    .line 79
+     .line 80
+     invoke-interface {v2}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v4
+ 
+     .line 84
+     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v4
+ 
+     .line 88
+     if-eqz v4, :cond_5
+ 
+-    .line 89
+     .line 90
+     goto :goto_2
+ 
+@@ -834,36 +652,27 @@
+     :cond_5
+     invoke-interface {v2}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v4
+ 
+     .line 95
+     invoke-virtual {v3, v4}, Lcom/arialyy/aria/core/queue/AbsTaskQueue;->getTask(Ljava/lang/String;)Lcom/arialyy/aria/core/task/AbsTask;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object v4
+ 
+     .line 99
+     if-eqz v4, :cond_6
+ 
+-    .line 100
+     .line 101
+     iget-object v2, p0, Lcom/arialyy/aria/core/command/ResumeThread;->TAG:Ljava/lang/String;
+ 
+-    .line 102
+     .line 103
+     const-string v3, "\u4efb\u52a1\u5df2\u5b58\u5728"
+ 
+-    .line 104
+     .line 105
+     invoke-static {v2, v3}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     goto :goto_0
+ 
+@@ -871,23 +680,18 @@
+     :cond_6
+     invoke-interface {v3}, Lcom/arialyy/aria/core/queue/ITaskQueue;->getMaxTaskNum()I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v4
+ 
+     .line 113
+     invoke-virtual {v3, v2}, Lcom/arialyy/aria/core/queue/AbsTaskQueue;->createTask(Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;)Lcom/arialyy/aria/core/task/AbsTask;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object v5
+ 
+     .line 117
+     if-nez v5, :cond_7
+ 
+-    .line 118
+     .line 119
+     goto :goto_0
+ 
+@@ -895,25 +699,18 @@
+     :cond_7
+     invoke-direct {p0, v2}, Lcom/arialyy/aria/core/command/ResumeThread;->handleWrapper(Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;)V
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-virtual {v3}, Lcom/arialyy/aria/core/queue/AbsTaskQueue;->getCurrentExePoolNum()I
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result v6
+ 
+     .line 127
+     if-ge v6, v4, :cond_8
+ 
+-    .line 128
+     .line 129
+     invoke-virtual {v3, v5}, Lcom/arialyy/aria/core/queue/AbsTaskQueue;->startTask(Lcom/arialyy/aria/core/task/AbsTask;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     goto :goto_0
+ 
+@@ -921,8 +718,6 @@
+     :cond_8
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getEntity()Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v3
+ 
+@@ -932,26 +727,18 @@
+     .line 138
+     invoke-virtual {v3, v4}, Lcom/arialyy/aria/core/common/AbsEntity;->setState(I)V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     invoke-direct {p0, v5}, Lcom/arialyy/aria/core/command/ResumeThread;->sendWaitState(Lcom/arialyy/aria/core/task/AbsTask;)V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getEntity()Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object v2
+ 
+     .line 148
+     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     goto :goto_0
+ 
+@@ -960,38 +747,28 @@
+     :goto_2
+     iget-object v2, p0, Lcom/arialyy/aria/core/command/ResumeThread;->TAG:Ljava/lang/String;
+ 
+-    .line 153
+     .line 154
+     const-string v3, "\u4efb\u52a1\u5b9e\u4f53\u4e3a\u7a7a\u6216key\u4e3a\u7a7a"
+ 
+-    .line 155
+     .line 156
+     invoke-static {v2, v3}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     goto/16 :goto_0
+ 
+-    .line 160
+     .line 161
+     :cond_a
+     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result p0
+ 
+     .line 165
+     if-nez p0, :cond_b
+ 
+-    .line 166
+     .line 167
+     invoke-static {v0}, Lcom/arialyy/aria/orm/DbEntity;->updateManyData(Ljava/util/List;)V
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     :cond_b
+     :goto_3
+@@ -1004,12 +781,9 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/task/AbsTask;->getTaskWrapper()Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1019,33 +793,24 @@
+     .line 8
+     invoke-virtual {p0, v0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->setState(I)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/task/AbsTask;->getOutHandler()Landroid/os/Handler;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     const/16 v0, 0xa
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, v0, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_0
+     return-void
+@@ -1059,27 +824,21 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/arialyy/aria/core/command/ResumeThread;->isDownloadCmd:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v0, 0x1
+ 
+     .line 6
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/command/ResumeThread;->findTaskData(I)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const/4 v0, 0x2
+ 
+     .line 10
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/command/ResumeThread;->findTaskData(I)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1090,14 +849,10 @@
+     .line 15
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/command/ResumeThread;->findTaskData(I)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :goto_0
+     invoke-direct {p0}, Lcom/arialyy/aria/core/command/ResumeThread;->resumeWaitTask()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method

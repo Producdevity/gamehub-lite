@@ -1,0 +1,276 @@
+--- a/smali_classes6/com/google/common/graph/ImmutableValueGraph.smali
++++ b/smali_classes6/com/google/common/graph/ImmutableValueGraph.smali
+@@ -50,32 +50,24 @@
+     .line 1
+     invoke-static {p1}, Lcom/google/common/graph/ValueGraphBuilder;->from(Lcom/google/common/graph/ValueGraph;)Lcom/google/common/graph/ValueGraphBuilder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {p1}, Lcom/google/common/graph/ImmutableValueGraph;->getNodeConnections(Lcom/google/common/graph/ValueGraph;)Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-interface {p1}, Lcom/google/common/graph/ValueGraph;->edges()Ljava/util/Set;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     invoke-interface {p1}, Ljava/util/Set;->size()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p1
+ 
+@@ -85,8 +77,6 @@
+     .line 18
+     invoke-direct {p0, v0, v1, v2, v3}, Lcom/google/common/graph/StandardValueGraph;-><init>(Lcom/google/common/graph/AbstractGraphBuilder;Ljava/util/Map;J)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -110,37 +100,27 @@
+     .line 1
+     new-instance v0, Lcom/google/common/graph/x;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1}, Lcom/google/common/graph/x;-><init>(Lcom/google/common/graph/ValueGraph;Ljava/lang/Object;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-interface {p0}, Lcom/google/common/graph/ValueGraph;->isDirected()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-eqz v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-interface {p0, p1}, Lcom/google/common/graph/ValueGraph;->incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     invoke-static {p1, p0, v0}, Lcom/google/common/graph/DirectedGraphConnections;->ofImmutable(Ljava/lang/Object;Ljava/lang/Iterable;Lcom/google/common/base/Function;)Lcom/google/common/graph/DirectedGraphConnections;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -151,24 +131,18 @@
+     :cond_0
+     invoke-interface {p0, p1}, Lcom/google/common/graph/ValueGraph;->adjacentNodes(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+     .line 25
+     invoke-static {p0, v0}, Lcom/google/common/collect/Maps;->asMap(Ljava/util/Set;Lcom/google/common/base/Function;)Ljava/util/Map;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+     .line 29
+     invoke-static {p0}, Lcom/google/common/graph/UndirectedGraphConnections;->ofImmutable(Ljava/util/Map;)Lcom/google/common/graph/UndirectedGraphConnections;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+@@ -249,16 +223,12 @@
+     .line 2
+     invoke-interface {p0, p1, p2, v0}, Lcom/google/common/graph/ValueGraph;->edgeValueOrDefault(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+     .line 6
+     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -284,24 +254,18 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->builder()Lcom/google/common/collect/ImmutableMap$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {p0}, Lcom/google/common/graph/ValueGraph;->nodes()Ljava/util/Set;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+@@ -309,36 +273,27 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     if-eqz v2, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     invoke-static {p0, v2}, Lcom/google/common/graph/ImmutableValueGraph;->connectionsOf(Lcom/google/common/graph/ValueGraph;Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v3
+ 
+     .line 27
+     invoke-virtual {v0, v2, v3}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -346,8 +301,6 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p0
+ 
+@@ -363,8 +316,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/StandardValueGraph;->adjacentNodes(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -378,8 +329,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/StandardValueGraph;->allowsSelfLoops()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -485,8 +434,6 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/graph/ElementOrder;->stable()Lcom/google/common/graph/ElementOrder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -500,8 +447,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/StandardValueGraph;->incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -515,8 +460,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/StandardValueGraph;->isDirected()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -530,8 +473,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/StandardValueGraph;->nodeOrder()Lcom/google/common/graph/ElementOrder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -545,8 +486,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/StandardValueGraph;->nodes()Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -560,8 +499,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/StandardValueGraph;->predecessors(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -575,8 +512,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/StandardValueGraph;->successors(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 

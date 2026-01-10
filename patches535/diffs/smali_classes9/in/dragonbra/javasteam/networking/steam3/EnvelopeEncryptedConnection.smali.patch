@@ -1,0 +1,1030 @@
+--- a/smali_classes9/in/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection.smali
++++ b/smali_classes9/in/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection.smali
+@@ -64,19 +64,15 @@
+     .line 1
+     const-class v0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/log/LogManager;->getLogger(Ljava/lang/Class;)Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -87,98 +83,69 @@
+     .line 1
+     invoke-direct {p0}, Lin/dragonbra/javasteam/networking/steam3/Connection;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$1;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$1;-><init>(Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->onConnected:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 10
+     .line 11
+     new-instance v1, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$2;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1, p0}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$2;-><init>(Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v1, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->onDisconnected:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 17
+     .line 18
+     new-instance v2, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$3;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v2, p0}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$3;-><init>(Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iput-object v2, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->onNetMsgReceived:Lin/dragonbra/javasteam/util/event/EventHandler;
+ 
+-    .line 24
+     .line 25
+     if-eqz p1, :cond_0
+ 
+-    .line 26
+     .line 27
+     iput-object p1, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 28
+     .line 29
+     iput-object p2, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->universe:Lin/dragonbra/javasteam/enums/EUniverse;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getNetMsgReceived()Lin/dragonbra/javasteam/util/event/Event;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p0
+ 
+     .line 35
+     invoke-virtual {p0, v2}, Lin/dragonbra/javasteam/util/event/Event;->addEventHandler(Lin/dragonbra/javasteam/util/event/EventHandler;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getConnected()Lin/dragonbra/javasteam/util/event/Event;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+     .line 42
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/util/event/Event;->addEventHandler(Lin/dragonbra/javasteam/util/event/EventHandler;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getDisconnected()Lin/dragonbra/javasteam/util/event/Event;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+     .line 49
+     invoke-virtual {p0, v1}, Lin/dragonbra/javasteam/util/event/Event;->addEventHandler(Lin/dragonbra/javasteam/util/event/EventHandler;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     return-void
+ 
+@@ -186,16 +153,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 54
+     .line 55
+     const-string p1, "inner connection is null"
+ 
+-    .line 56
+     .line 57
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     throw p0
+ .end method
+@@ -206,7 +169,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->encryption:Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -217,7 +179,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->state:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -228,7 +189,6 @@
+     .line 1
+     iput-object p1, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->encryption:Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -239,7 +199,6 @@
+     .line 1
+     iput-object p1, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->state:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -250,8 +209,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->handleEncryptRequest(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -262,53 +219,39 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/base/Msg;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lin/dragonbra/javasteam/generated/MsgChannelEncryptRequest;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/Msg;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/Msg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     check-cast p1, Lin/dragonbra/javasteam/generated/MsgChannelEncryptRequest;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgChannelEncryptRequest;->getUniverse()Lin/dragonbra/javasteam/enums/EUniverse;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/Msg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v1
+ 
+     .line 22
+     check-cast v1, Lin/dragonbra/javasteam/generated/MsgChannelEncryptRequest;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/generated/MsgChannelEncryptRequest;->getProtocolVersion()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v1
+ 
+@@ -318,183 +261,128 @@
+     .line 29
+     sget-object v3, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 30
+     .line 31
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     const-string v5, "Got encryption request. Universe: "
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     const-string v5, " Protocol ver: "
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-virtual {v4, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v4
+ 
+     .line 56
+     invoke-virtual {v3, v4}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     const-wide/16 v6, 0x1
+ 
+-    .line 60
+     .line 61
+     cmp-long v4, v1, v6
+ 
+-    .line 62
+     .line 63
+     if-eqz v4, :cond_0
+ 
+-    .line 64
+     .line 65
+     const-string v4, "Encryption handshake protocol version mismatch!"
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v3, v4}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     :cond_0
+     iget-object v4, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->universe:Lin/dragonbra/javasteam/enums/EUniverse;
+ 
+-    .line 71
+     .line 72
+     if-eq p1, v4, :cond_1
+ 
+-    .line 73
+     .line 74
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 75
+     .line 76
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     const-string v6, "Expected universe "
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     iget-object v6, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->universe:Lin/dragonbra/javasteam/enums/EUniverse;
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     const-string v6, " but server reported universe "
+ 
+-    .line 90
+     .line 91
+     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v4
+ 
+     .line 101
+     invoke-virtual {v3, v4}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     :cond_1
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->getPayload()Lin/dragonbra/javasteam/util/stream/MemoryStream;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object v4
+ 
+     .line 108
+     invoke-virtual {v4}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->getLength()J
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-wide v6
+ 
+     .line 112
+     const-wide/16 v8, 0x10
+ 
+-    .line 113
+     .line 114
+     cmp-long v4, v6, v8
+ 
+-    .line 115
+     .line 116
+     if-ltz v4, :cond_2
+ 
+-    .line 117
+     .line 118
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->getPayload()Lin/dragonbra/javasteam/util/stream/MemoryStream;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object v0
+ 
+     .line 122
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->toByteArray()[B
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v0
+ 
+@@ -509,8 +397,6 @@
+     :goto_0
+     invoke-static {p1}, Lin/dragonbra/javasteam/util/KeyDictionary;->getPublicKey(Lin/dragonbra/javasteam/enums/EUniverse;)[B
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object v4
+ 
+@@ -520,97 +406,67 @@
+     .line 133
+     if-nez v4, :cond_3
+ 
+-    .line 134
+     .line 135
+     new-instance v7, Ljava/lang/StringBuilder;
+ 
+-    .line 136
+     .line 137
+     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     const-string v8, "HandleEncryptRequest got request for invalid universe! Universe: "
+ 
+-    .line 141
+     .line 142
+     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     invoke-virtual {v7, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result-object p1
+ 
+     .line 158
+     invoke-virtual {v3, p1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     invoke-virtual {p0, v6}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->disconnect(Z)V
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     :cond_3
+     new-instance p1, Lin/dragonbra/javasteam/base/Msg;
+ 
+-    .line 165
+     .line 166
+     const-class v1, Lin/dragonbra/javasteam/generated/MsgChannelEncryptResponse;
+ 
+-    .line 167
+     .line 168
+     invoke-direct {p1, v1}, Lin/dragonbra/javasteam/base/Msg;-><init>(Ljava/lang/Class;)V
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     const/16 v1, 0x20
+ 
+-    .line 172
+     .line 173
+     invoke-static {v1}, Lin/dragonbra/javasteam/util/crypto/CryptoHelper;->generateRandomBlock(I)[B
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-object v1
+ 
+     .line 177
+     new-instance v2, Lin/dragonbra/javasteam/util/crypto/RSACrypto;
+ 
+-    .line 178
+     .line 179
+     invoke-direct {v2, v4}, Lin/dragonbra/javasteam/util/crypto/RSACrypto;-><init>([B)V
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     if-eqz v0, :cond_4
+ 
+-    .line 183
+     .line 184
+     array-length v3, v1
+ 
+@@ -623,15 +479,12 @@
+     .line 187
+     new-array v3, v3, [B
+ 
+-    .line 188
+     .line 189
+     array-length v4, v1
+ 
+     .line 190
+     invoke-static {v1, v6, v3, v6, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     array-length v4, v1
+ 
+@@ -641,13 +494,9 @@
+     .line 195
+     invoke-static {v0, v6, v3, v4, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     invoke-virtual {v2, v3}, Lin/dragonbra/javasteam/util/crypto/RSACrypto;->encrypt([B)[B
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     move-result-object v2
+ 
+@@ -658,8 +507,6 @@
+     :cond_4
+     invoke-virtual {v2, v1}, Lin/dragonbra/javasteam/util/crypto/RSACrypto;->encrypt([B)[B
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result-object v2
+ 
+@@ -667,8 +514,6 @@
+     :goto_1
+     invoke-static {v2}, Lin/dragonbra/javasteam/util/crypto/CryptoHelper;->crcHash([B)[B
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     move-result-object v3
+ 
+@@ -676,20 +521,14 @@
+     :try_start_0
+     invoke-virtual {p1, v2}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->writeBytes([B)V
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     invoke-virtual {p1, v3}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->writeBytes([B)V
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     invoke-virtual {p1, v6}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->writeInt(I)V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     goto :goto_2
+ 
+@@ -700,30 +539,22 @@
+     .line 222
+     sget-object v3, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 223
+     .line 224
+     invoke-virtual {v3, v2}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/Throwable;)V
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     :goto_2
+     if-eqz v0, :cond_5
+ 
+-    .line 228
+     .line 229
+     new-instance v0, Lin/dragonbra/javasteam/networking/steam3/NetFilterEncryptionWithHMAC;
+ 
+-    .line 230
+     .line 231
+     invoke-direct {v0, v1}, Lin/dragonbra/javasteam/networking/steam3/NetFilterEncryptionWithHMAC;-><init>([B)V
+ 
+-    .line 232
+-    .line 233
+     .line 234
+     iput-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->encryption:Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;
+ 
+-    .line 235
+     .line 236
+     goto :goto_3
+ 
+@@ -731,38 +562,28 @@
+     :cond_5
+     new-instance v0, Lin/dragonbra/javasteam/networking/steam3/NetFilterEncryption;
+ 
+-    .line 238
+     .line 239
+     invoke-direct {v0, v1}, Lin/dragonbra/javasteam/networking/steam3/NetFilterEncryption;-><init>([B)V
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     iput-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->encryption:Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;
+ 
+-    .line 243
+     .line 244
+     :goto_3
+     sget-object v0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;->CHALLENGED:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 245
+     .line 246
+     iput-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->state:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 247
+     .line 248
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/base/Msg;->serialize()[B
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     move-result-object p1
+ 
+     .line 252
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->send([B)V
+ 
+-    .line 253
+-    .line 254
+     .line 255
+     return-void
+ .end method
+@@ -773,133 +594,96 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/base/Msg;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lin/dragonbra/javasteam/generated/MsgChannelEncryptResult;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/Msg;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sget-object p1, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 9
+     .line 10
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const-string v2, "Encryption result: "
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/Msg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v2
+ 
+     .line 24
+     check-cast v2, Lin/dragonbra/javasteam/generated/MsgChannelEncryptResult;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/generated/MsgChannelEncryptResult;->getResult()Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+     .line 30
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v1
+ 
+     .line 37
+     invoke-virtual {p1, v1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/Msg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+     .line 44
+     check-cast v0, Lin/dragonbra/javasteam/generated/MsgChannelEncryptResult;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/generated/MsgChannelEncryptResult;->getResult()Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     sget-object v1, Lin/dragonbra/javasteam/enums/EResult;->OK:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 51
+     .line 52
+     if-ne v0, v1, :cond_0
+ 
+-    .line 53
+     .line 54
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->encryption:Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;
+ 
+-    .line 55
+     .line 56
+     if-eqz v0, :cond_0
+ 
+-    .line 57
+     .line 58
+     sget-object p1, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;->ENCRYPTED:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 59
+     .line 60
+     iput-object p1, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->state:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 61
+     .line 62
+     iget-object p1, p0, Lin/dragonbra/javasteam/networking/steam3/Connection;->connected:Lin/dragonbra/javasteam/util/event/Event;
+ 
+-    .line 63
+     .line 64
+     sget-object v0, Lin/dragonbra/javasteam/util/event/EventArgs;->EMPTY:Lin/dragonbra/javasteam/util/event/EventArgs;
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p1, p0, v0}, Lin/dragonbra/javasteam/util/event/Event;->handleEvent(Ljava/lang/Object;Lin/dragonbra/javasteam/util/event/EventArgs;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     return-void
+ 
+@@ -907,20 +691,15 @@
+     :cond_0
+     const-string v0, "Encryption channel setup failed"
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p1, v0}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     const/4 p1, 0x0
+ 
+     .line 76
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->disconnect(Z)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     return-void
+ .end method
+@@ -931,8 +710,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->handleEncryptResult(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -943,12 +720,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->state:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -958,28 +732,24 @@
+     .line 8
+     if-eqz p0, :cond_4
+ 
+-    .line 9
+     .line 10
+     const/4 v1, 0x1
+ 
+     .line 11
+     if-eq p0, v1, :cond_3
+ 
+-    .line 12
+     .line 13
+     const/4 v2, 0x2
+ 
+     .line 14
+     if-eq p0, v2, :cond_1
+ 
+-    .line 15
+     .line 16
+     const/4 p1, 0x3
+ 
+     .line 17
+     if-ne p0, p1, :cond_0
+ 
+-    .line 18
+     .line 19
+     return v1
+ 
+@@ -987,16 +757,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 21
+     .line 22
+     const-string p1, "Unreachable - landed up in undefined state."
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     throw p0
+ 
+@@ -1004,11 +770,9 @@
+     :cond_1
+     sget-object p0, Lin/dragonbra/javasteam/enums/EMsg;->ChannelEncryptResult:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 29
+     .line 30
+     if-ne p1, p0, :cond_2
+ 
+-    .line 31
+     .line 32
+     return v1
+ 
+@@ -1020,11 +784,9 @@
+     :cond_3
+     sget-object p0, Lin/dragonbra/javasteam/enums/EMsg;->ChannelEncryptRequest:Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 35
+     .line 36
+     if-ne p1, p0, :cond_4
+ 
+-    .line 37
+     .line 38
+     return v1
+ 
+@@ -1039,8 +801,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->isExpectedEMsg(Lin/dragonbra/javasteam/enums/EMsg;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1054,7 +814,6 @@
+     .line 1
+     sget-object v0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -1067,12 +826,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lin/dragonbra/javasteam/networking/steam3/Connection;->connect(Ljava/net/InetSocketAddress;I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1083,12 +839,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->disconnect(Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1099,12 +852,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getCurrentEndPoint()Ljava/net/InetSocketAddress;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1118,12 +868,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getLocalIP()Ljava/net/InetAddress;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1137,12 +884,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/networking/steam3/Connection;->getProtocolTypes()Lin/dragonbra/javasteam/networking/steam3/ProtocolTypes;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1156,24 +900,18 @@
+     .line 1
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->state:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;->ENCRYPTED:Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection$EncryptionState;
+ 
+-    .line 4
+     .line 5
+     if-ne v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->encryption:Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {v0, p1}, Lin/dragonbra/javasteam/networking/steam3/INetFilterEncryption;->processOutgoing([B)[B
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+@@ -1181,12 +919,9 @@
+     :cond_0
+     iget-object p0, p0, Lin/dragonbra/javasteam/networking/steam3/EnvelopeEncryptedConnection;->inner:Lin/dragonbra/javasteam/networking/steam3/Connection;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/networking/steam3/Connection;->send([B)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method

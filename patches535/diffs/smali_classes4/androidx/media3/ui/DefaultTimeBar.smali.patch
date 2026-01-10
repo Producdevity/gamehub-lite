@@ -1,0 +1,3173 @@
+--- a/smali_classes4/androidx/media3/ui/DefaultTimeBar.smali
++++ b/smali_classes4/androidx/media3/ui/DefaultTimeBar.smali
+@@ -798,41 +798,30 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p1
+ 
+     .line 8
+     check-cast p1, Ljava/lang/Float;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p1
+ 
+     .line 14
+     iput p1, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberScale:F
+ 
+-    .line 15
+     .line 16
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -846,8 +835,6 @@
+     .line 2
+     invoke-direct {p0, v0}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -864,7 +851,6 @@
+     .line 3
+     const/high16 p0, 0x3f000000    # 0.5f
+ 
+-    .line 4
+     .line 5
+     add-float/2addr p1, p0
+ 
+@@ -881,19 +867,15 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v2, 0x0
+ 
+-    .line 4
+     .line 5
+     cmp-long v0, v0, v2
+ 
+-    .line 6
+     .line 7
+     if-gtz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -901,71 +883,54 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 11
+     .line 12
+     iget v1, v0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 13
+     .line 14
+     iget v0, v0, Landroid/graphics/Rect;->left:I
+ 
+-    .line 15
+     .line 16
+     iget-object v2, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 17
+     .line 18
+     iget v2, v2, Landroid/graphics/Rect;->right:I
+ 
+-    .line 19
+     .line 20
+     invoke-static {v1, v0, v2}, Landroidx/media3/common/util/Util;->constrainValue(III)I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v0
+ 
+     .line 24
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v1}, Landroid/graphics/Rect;->centerY()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v1
+ 
+     .line 30
+     iget-object v2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 31
+     .line 32
+     if-nez v2, :cond_4
+ 
+-    .line 33
+     .line 34
+     iget-boolean v2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 35
+     .line 36
+     if-nez v2, :cond_3
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0}, Landroid/view/View;->isFocused()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v2
+ 
+     .line 42
+     if-eqz v2, :cond_1
+ 
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -973,19 +938,15 @@
+     :cond_1
+     invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v2
+ 
+     .line 49
+     if-eqz v2, :cond_2
+ 
+-    .line 50
+     .line 51
+     iget v2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberEnabledSize:I
+ 
+-    .line 52
+     .line 53
+     goto :goto_1
+ 
+@@ -993,7 +954,6 @@
+     :cond_2
+     iget v2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDisabledSize:I
+ 
+-    .line 55
+     .line 56
+     goto :goto_1
+ 
+@@ -1002,7 +962,6 @@
+     :goto_0
+     iget v2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDraggedSize:I
+ 
+-    .line 58
+     .line 59
+     :goto_1
+     int-to-float v2, v2
+@@ -1010,14 +969,12 @@
+     .line 60
+     iget v3, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberScale:F
+ 
+-    .line 61
+     .line 62
+     mul-float/2addr v2, v3
+ 
+     .line 63
+     const/high16 v3, 0x40000000    # 2.0f
+ 
+-    .line 64
+     .line 65
+     div-float/2addr v2, v3
+ 
+@@ -1036,12 +993,9 @@
+     .line 70
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberPaint:Landroid/graphics/Paint;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p1, v0, v1, v2, p0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     return-void
+ 
+@@ -1049,8 +1003,6 @@
+     :cond_4
+     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v2
+ 
+@@ -1060,7 +1012,6 @@
+     .line 81
+     iget v3, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberScale:F
+ 
+-    .line 82
+     .line 83
+     mul-float/2addr v2, v3
+ 
+@@ -1070,12 +1021,9 @@
+     .line 85
+     iget-object v3, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v3
+ 
+@@ -1085,7 +1033,6 @@
+     .line 92
+     iget v4, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberScale:F
+ 
+-    .line 93
+     .line 94
+     mul-float/2addr v3, v4
+ 
+@@ -1095,23 +1042,18 @@
+     .line 96
+     iget-object v4, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 97
+     .line 98
+     div-int/lit8 v2, v2, 0x2
+ 
+-    .line 99
+     .line 100
+     sub-int v5, v0, v2
+ 
+-    .line 101
+     .line 102
+     div-int/lit8 v3, v3, 0x2
+ 
+-    .line 103
+     .line 104
+     sub-int v6, v1, v3
+ 
+-    .line 105
+     .line 106
+     add-int/2addr v0, v2
+ 
+@@ -1121,17 +1063,12 @@
+     .line 108
+     invoke-virtual {v4, v5, v6, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     return-void
+ .end method
+@@ -1142,35 +1079,27 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     iget-object v1, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     iget-object v2, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v2}, Landroid/graphics/Rect;->centerY()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v2
+ 
+     .line 15
+     div-int/lit8 v3, v1, 0x2
+ 
+-    .line 16
+     .line 17
+     sub-int/2addr v2, v3
+ 
+@@ -1180,27 +1109,21 @@
+     .line 19
+     iget-wide v3, v0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 20
+     .line 21
+     const-wide/16 v5, 0x0
+ 
+-    .line 22
+     .line 23
+     cmp-long v3, v3, v5
+ 
+-    .line 24
+     .line 25
+     if-gtz v3, :cond_0
+ 
+-    .line 26
+     .line 27
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 28
+     .line 29
+     iget v4, v3, Landroid/graphics/Rect;->left:I
+ 
+-    .line 30
+     .line 31
+     int-to-float v6, v4
+ 
+@@ -1210,7 +1133,6 @@
+     .line 33
+     iget v2, v3, Landroid/graphics/Rect;->right:I
+ 
+-    .line 34
+     .line 35
+     int-to-float v8, v2
+ 
+@@ -1220,16 +1142,12 @@
+     .line 37
+     iget-object v10, v0, Landroidx/media3/ui/DefaultTimeBar;->unplayedPaint:Landroid/graphics/Paint;
+ 
+-    .line 38
+     .line 39
+     move-object/from16 v5, p1
+ 
+-    .line 40
+     .line 41
+     invoke-virtual/range {v5 .. v10}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ 
+@@ -1237,59 +1155,45 @@
+     :cond_0
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->bufferedBar:Landroid/graphics/Rect;
+ 
+-    .line 46
+     .line 47
+     iget v4, v3, Landroid/graphics/Rect;->left:I
+ 
+-    .line 48
+     .line 49
+     iget v3, v3, Landroid/graphics/Rect;->right:I
+ 
+-    .line 50
+     .line 51
+     iget-object v5, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 52
+     .line 53
+     iget v5, v5, Landroid/graphics/Rect;->left:I
+ 
+-    .line 54
+     .line 55
+     invoke-static {v5, v3}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v5
+ 
+     .line 59
+     iget-object v6, v0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 60
+     .line 61
+     iget v6, v6, Landroid/graphics/Rect;->right:I
+ 
+-    .line 62
+     .line 63
+     invoke-static {v5, v6}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v5
+ 
+     .line 67
+     iget-object v6, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 68
+     .line 69
+     iget v6, v6, Landroid/graphics/Rect;->right:I
+ 
+-    .line 70
+     .line 71
+     if-ge v5, v6, :cond_1
+ 
+-    .line 72
+     .line 73
+     int-to-float v12, v5
+ 
+@@ -1305,41 +1209,31 @@
+     .line 77
+     iget-object v5, v0, Landroidx/media3/ui/DefaultTimeBar;->unplayedPaint:Landroid/graphics/Paint;
+ 
+-    .line 78
+     .line 79
+     move-object/from16 v11, p1
+ 
+-    .line 80
+     .line 81
+     move-object/from16 v16, v5
+ 
+-    .line 82
+     .line 83
+     invoke-virtual/range {v11 .. v16}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     :cond_1
+     iget-object v5, v0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 87
+     .line 88
+     iget v5, v5, Landroid/graphics/Rect;->right:I
+ 
+-    .line 89
+     .line 90
+     invoke-static {v4, v5}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result v4
+ 
+     .line 94
+     if-le v3, v4, :cond_2
+ 
+-    .line 95
+     .line 96
+     int-to-float v12, v4
+ 
+@@ -1355,45 +1249,34 @@
+     .line 100
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->bufferedPaint:Landroid/graphics/Paint;
+ 
+-    .line 101
+     .line 102
+     move-object/from16 v11, p1
+ 
+-    .line 103
+     .line 104
+     move-object/from16 v16, v3
+ 
+-    .line 105
+     .line 106
+     invoke-virtual/range {v11 .. v16}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     :cond_2
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result v3
+ 
+     .line 115
+     if-lez v3, :cond_3
+ 
+-    .line 116
+     .line 117
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 118
+     .line 119
+     iget v4, v3, Landroid/graphics/Rect;->left:I
+ 
+-    .line 120
+     .line 121
+     int-to-float v12, v4
+ 
+@@ -1403,7 +1286,6 @@
+     .line 123
+     iget v3, v3, Landroid/graphics/Rect;->right:I
+ 
+-    .line 124
+     .line 125
+     int-to-float v14, v3
+ 
+@@ -1413,29 +1295,22 @@
+     .line 127
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->playedPaint:Landroid/graphics/Paint;
+ 
+-    .line 128
+     .line 129
+     move-object/from16 v11, p1
+ 
+-    .line 130
+     .line 131
+     move-object/from16 v16, v3
+ 
+-    .line 132
+     .line 133
+     invoke-virtual/range {v11 .. v16}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     :cond_3
+     iget v3, v0, Landroidx/media3/ui/DefaultTimeBar;->adGroupCount:I
+ 
+-    .line 137
+     .line 138
+     if-nez v3, :cond_4
+ 
+-    .line 139
+     .line 140
+     goto :goto_3
+ 
+@@ -1443,43 +1318,33 @@
+     :cond_4
+     iget-object v3, v0, Landroidx/media3/ui/DefaultTimeBar;->adGroupTimesMs:[J
+ 
+-    .line 142
+     .line 143
+     invoke-static {v3}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result-object v3
+ 
+     .line 147
+     check-cast v3, [J
+ 
+-    .line 148
+     .line 149
+     iget-object v4, v0, Landroidx/media3/ui/DefaultTimeBar;->playedAdGroups:[Z
+ 
+-    .line 150
+     .line 151
+     invoke-static {v4}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object v4
+ 
+     .line 155
+     check-cast v4, [Z
+ 
+-    .line 156
+     .line 157
+     iget v5, v0, Landroidx/media3/ui/DefaultTimeBar;->adMarkerWidth:I
+ 
+-    .line 158
+     .line 159
+     div-int/lit8 v5, v5, 0x2
+ 
+-    .line 160
+     .line 161
+     const/4 v6, 0x0
+ 
+@@ -1490,40 +1355,30 @@
+     :goto_0
+     iget v8, v0, Landroidx/media3/ui/DefaultTimeBar;->adGroupCount:I
+ 
+-    .line 164
+     .line 165
+     if-ge v7, v8, :cond_6
+ 
+-    .line 166
+     .line 167
+     aget-wide v9, v3, v7
+ 
+-    .line 168
+     .line 169
+     const-wide/16 v11, 0x0
+ 
+-    .line 170
+     .line 171
+     iget-wide v13, v0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 172
+     .line 173
+     invoke-static/range {v9 .. v14}, Landroidx/media3/common/util/Util;->constrainValue(JJJ)J
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-wide v8
+ 
+     .line 177
+     iget-object v10, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 178
+     .line 179
+     invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result v10
+ 
+@@ -1536,7 +1391,6 @@
+     .line 185
+     iget-wide v8, v0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 186
+     .line 187
+     div-long/2addr v10, v8
+ 
+@@ -1549,39 +1403,30 @@
+     .line 190
+     iget-object v9, v0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 191
+     .line 192
+     iget v10, v9, Landroid/graphics/Rect;->left:I
+ 
+-    .line 193
+     .line 194
+     invoke-virtual {v9}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     move-result v9
+ 
+     .line 198
+     iget v11, v0, Landroidx/media3/ui/DefaultTimeBar;->adMarkerWidth:I
+ 
+-    .line 199
+     .line 200
+     sub-int/2addr v9, v11
+ 
+     .line 201
+     invoke-static {v6, v8}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     move-result v8
+ 
+     .line 205
+     invoke-static {v9, v8}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     move-result v8
+ 
+@@ -1591,20 +1436,16 @@
+     .line 210
+     aget-boolean v8, v4, v7
+ 
+-    .line 211
+     .line 212
+     if-eqz v8, :cond_5
+ 
+-    .line 213
+     .line 214
+     iget-object v8, v0, Landroidx/media3/ui/DefaultTimeBar;->playedAdMarkerPaint:Landroid/graphics/Paint;
+ 
+-    .line 215
+     .line 216
+     :goto_1
+     move-object/from16 v16, v8
+ 
+-    .line 217
+     .line 218
+     goto :goto_2
+ 
+@@ -1612,7 +1453,6 @@
+     :cond_5
+     iget-object v8, v0, Landroidx/media3/ui/DefaultTimeBar;->adMarkerPaint:Landroid/graphics/Paint;
+ 
+-    .line 220
+     .line 221
+     goto :goto_1
+ 
+@@ -1626,7 +1466,6 @@
+     .line 224
+     iget v8, v0, Landroidx/media3/ui/DefaultTimeBar;->adMarkerWidth:I
+ 
+-    .line 225
+     .line 226
+     add-int/2addr v10, v8
+ 
+@@ -1639,16 +1478,12 @@
+     .line 229
+     move-object/from16 v11, p1
+ 
+-    .line 230
+     .line 231
+     invoke-virtual/range {v11 .. v16}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+ 
+-    .line 232
+-    .line 233
+     .line 234
+     add-int/lit8 v7, v7, 0x1
+ 
+-    .line 235
+     .line 236
+     goto :goto_0
+ 
+@@ -1664,38 +1499,27 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->keyTimeIncrement:J
+ 
+-    .line 2
+     .line 3
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 4
+-    .line 5
+-    .line 6
+-    .line 7
+     .line 8
+     cmp-long v4, v0, v2
+ 
+-    .line 9
+     .line 10
+     if-nez v4, :cond_1
+ 
+-    .line 11
+     .line 12
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 13
+     .line 14
+     cmp-long v2, v0, v2
+ 
+-    .line 15
+     .line 16
+     if-nez v2, :cond_0
+ 
+-    .line 17
+     .line 18
+     const-wide/16 v0, 0x0
+ 
+-    .line 19
+     .line 20
+     return-wide v0
+ 
+@@ -1703,7 +1527,6 @@
+     :cond_0
+     iget p0, p0, Landroidx/media3/ui/DefaultTimeBar;->keyCountIncrement:I
+ 
+-    .line 22
+     .line 23
+     int-to-long v2, p0
+ 
+@@ -1721,20 +1544,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->formatBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->formatter:Ljava/util/Formatter;
+ 
+-    .line 4
+     .line 5
+     iget-wide v2, p0, Landroidx/media3/ui/DefaultTimeBar;->position:J
+ 
+-    .line 6
+     .line 7
+     invoke-static {v0, v1, v2, v3}, Landroidx/media3/common/util/Util;->getStringForTime(Ljava/lang/StringBuilder;Ljava/util/Formatter;J)Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -1748,38 +1566,27 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-lez v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 10
+     .line 11
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 12
+-    .line 13
+-    .line 14
+-    .line 15
+     .line 16
+     cmp-long v0, v0, v2
+ 
+-    .line 17
+     .line 18
+     if-nez v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -1787,12 +1594,9 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v0
+ 
+@@ -1802,19 +1606,15 @@
+     .line 28
+     iget-wide v2, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 29
+     .line 30
+     mul-long/2addr v0, v2
+ 
+     .line 31
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result p0
+ 
+@@ -1832,7 +1632,6 @@
+     :goto_0
+     const-wide/16 v0, 0x0
+ 
+-    .line 41
+     .line 42
+     return-wide v0
+ .end method
+@@ -1843,7 +1642,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     float-to-int p1, p1
+ 
+@@ -1853,8 +1651,6 @@
+     .line 5
+     invoke-virtual {p0, p1, p2}, Landroid/graphics/Rect;->contains(II)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -1868,34 +1664,27 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     float-to-int p1, p1
+ 
+     .line 4
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 5
+     .line 6
+     iget v1, p0, Landroid/graphics/Rect;->left:I
+ 
+-    .line 7
+     .line 8
+     iget p0, p0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 9
+     .line 10
+     invoke-static {p1, v1, p0}, Landroidx/media3/common/util/Util;->constrainValue(III)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+     .line 14
+     iput p0, v0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -1922,12 +1711,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->touchPosition:Landroid/graphics/Point;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+@@ -1937,8 +1723,6 @@
+     .line 8
+     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p1
+ 
+@@ -1948,12 +1732,9 @@
+     .line 13
+     invoke-virtual {v0, v1, p1}, Landroid/graphics/Point;->set(II)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->touchPosition:Landroid/graphics/Point;
+ 
+-    .line 17
+     .line 18
+     return-object p0
+ .end method
+@@ -1964,22 +1745,18 @@
+     .line 1
+     iget-wide v4, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v0, 0x0
+ 
+-    .line 4
+     .line 5
+     cmp-long v0, v4, v0
+ 
+-    .line 6
+     .line 7
+     const/4 v6, 0x0
+ 
+     .line 8
+     if-gtz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     return v6
+ 
+@@ -1987,15 +1764,12 @@
+     :cond_0
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 12
+     .line 13
+     if-eqz v0, :cond_1
+ 
+-    .line 14
+     .line 15
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubPosition:J
+ 
+-    .line 16
+     .line 17
+     :goto_0
+     move-wide v7, v0
+@@ -2007,7 +1781,6 @@
+     :cond_1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->position:J
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2015,27 +1788,21 @@
+     :goto_1
+     add-long v0, v7, p1
+ 
+-    .line 23
+     .line 24
+     const-wide/16 v2, 0x0
+ 
+-    .line 25
+     .line 26
+     invoke-static/range {v0 .. v5}, Landroidx/media3/common/util/Util;->constrainValue(JJJ)J
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-wide p1
+ 
+     .line 30
+     cmp-long v0, p1, v7
+ 
+-    .line 31
+     .line 32
+     if-nez v0, :cond_2
+ 
+-    .line 33
+     .line 34
+     return v6
+ 
+@@ -2043,16 +1810,12 @@
+     :cond_2
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 36
+     .line 37
+     if-nez v0, :cond_3
+ 
+-    .line 38
+     .line 39
+     invoke-direct {p0, p1, p2}, Landroidx/media3/ui/DefaultTimeBar;->startScrubbing(J)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     goto :goto_2
+ 
+@@ -2060,14 +1823,10 @@
+     :cond_3
+     invoke-direct {p0, p1, p2}, Landroidx/media3/ui/DefaultTimeBar;->updateScrubbing(J)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     :goto_2
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     const/4 p0, 0x1
+ 
+@@ -2127,39 +1886,30 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->lastExclusionRectangle:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-ne v0, p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->lastExclusionRectangle:Landroid/graphics/Rect;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-ne v0, p2, :cond_0
+ 
+-    .line 18
+     .line 19
+     return-void
+ 
+@@ -2167,32 +1917,24 @@
+     :cond_0
+     new-instance v0, Landroid/graphics/Rect;
+ 
+-    .line 21
+     .line 22
+     const/4 v1, 0x0
+ 
+     .line 23
+     invoke-direct {v0, v1, v1, p1, p2}, Landroid/graphics/Rect;-><init>(IIII)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iput-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->lastExclusionRectangle:Landroid/graphics/Rect;
+ 
+-    .line 27
+     .line 28
+     invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p1
+ 
+     .line 32
+     invoke-virtual {p0, p1}, Landroid/view/View;->setSystemGestureExclusionRects(Ljava/util/List;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-void
+ .end method
+@@ -2203,46 +1945,34 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubPosition:J
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+     .line 4
+     iput-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     if-eqz v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v1, v0}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v0
+ 
+@@ -2250,32 +1980,24 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v1
+ 
+     .line 28
+     if-eqz v1, :cond_1
+ 
+-    .line 29
+     .line 30
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v1
+ 
+     .line 34
+     check-cast v1, Landroidx/media3/ui/TimeBar$OnScrubListener;
+ 
+-    .line 35
+     .line 36
+     invoke-interface {v1, p0, p1, p2}, Landroidx/media3/ui/TimeBar$OnScrubListener;->onScrubStart(Landroidx/media3/ui/TimeBar;J)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -2290,56 +2012,40 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbingRunnable:Ljava/lang/Runnable;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x0
+ 
+     .line 7
+     iput-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     if-eqz v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-interface {v1, v0}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :cond_0
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+@@ -2347,36 +2053,27 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v1
+ 
+     .line 34
+     if-eqz v1, :cond_1
+ 
+-    .line 35
+     .line 36
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v1
+ 
+     .line 40
+     check-cast v1, Landroidx/media3/ui/TimeBar$OnScrubListener;
+ 
+-    .line 41
+     .line 42
+     iget-wide v2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubPosition:J
+ 
+-    .line 43
+     .line 44
+     invoke-interface {v1, p0, v2, v3, p1}, Landroidx/media3/ui/TimeBar$OnScrubListener;->onScrubStop(Landroidx/media3/ui/TimeBar;JZ)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     goto :goto_0
+ 
+@@ -2391,41 +2088,30 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedBar:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 9
+     .line 10
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 16
+     .line 17
+     if-eqz v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubPosition:J
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2433,33 +2119,25 @@
+     :cond_0
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->position:J
+ 
+-    .line 23
+     .line 24
+     :goto_0
+     iget-wide v2, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 25
+     .line 26
+     const-wide/16 v4, 0x0
+ 
+-    .line 27
+     .line 28
+     cmp-long v2, v2, v4
+ 
+-    .line 29
+     .line 30
+     if-lez v2, :cond_1
+ 
+-    .line 31
+     .line 32
+     iget-object v2, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result v2
+ 
+@@ -2469,14 +2147,12 @@
+     .line 39
+     iget-wide v4, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedPosition:J
+ 
+-    .line 40
+     .line 41
+     mul-long/2addr v2, v4
+ 
+     .line 42
+     iget-wide v4, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 43
+     .line 44
+     div-long/2addr v2, v4
+ 
+@@ -2486,43 +2162,33 @@
+     .line 46
+     iget-object v3, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedBar:Landroid/graphics/Rect;
+ 
+-    .line 47
+     .line 48
+     iget-object v4, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 49
+     .line 50
+     iget v5, v4, Landroid/graphics/Rect;->left:I
+ 
+-    .line 51
+     .line 52
+     add-int/2addr v5, v2
+ 
+     .line 53
+     iget v2, v4, Landroid/graphics/Rect;->right:I
+ 
+-    .line 54
+     .line 55
+     invoke-static {v5, v2}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v2
+ 
+     .line 59
+     iput v2, v3, Landroid/graphics/Rect;->right:I
+ 
+-    .line 60
+     .line 61
+     iget-object v2, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v2
+ 
+@@ -2535,7 +2201,6 @@
+     .line 69
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 70
+     .line 71
+     div-long/2addr v2, v0
+ 
+@@ -2545,34 +2210,27 @@
+     .line 73
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 74
+     .line 75
+     iget-object v2, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 76
+     .line 77
+     iget v3, v2, Landroid/graphics/Rect;->left:I
+ 
+-    .line 78
+     .line 79
+     add-int/2addr v3, v0
+ 
+     .line 80
+     iget v0, v2, Landroid/graphics/Rect;->right:I
+ 
+-    .line 81
+     .line 82
+     invoke-static {v3, v0}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v0
+ 
+     .line 86
+     iput v0, v1, Landroid/graphics/Rect;->right:I
+ 
+-    .line 87
+     .line 88
+     goto :goto_1
+ 
+@@ -2580,37 +2238,28 @@
+     :cond_1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedBar:Landroid/graphics/Rect;
+ 
+-    .line 90
+     .line 91
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 92
+     .line 93
+     iget v1, v1, Landroid/graphics/Rect;->left:I
+ 
+-    .line 94
+     .line 95
+     iput v1, v0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 96
+     .line 97
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberBar:Landroid/graphics/Rect;
+ 
+-    .line 98
+     .line 99
+     iput v1, v0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 100
+     .line 101
+     :goto_1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 102
+     .line 103
+     invoke-virtual {p0, v0}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     return-void
+ .end method
+@@ -2621,52 +2270,39 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     if-eqz v0, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_0
+     return-void
+@@ -2678,15 +2314,12 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubPosition:J
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, v0, p1
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     goto :goto_1
+ 
+@@ -2694,16 +2327,12 @@
+     :cond_0
+     iput-wide p1, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubPosition:J
+ 
+-    .line 9
+     .line 10
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+@@ -2711,32 +2340,24 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-eqz v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     check-cast v1, Landroidx/media3/ui/TimeBar$OnScrubListener;
+ 
+-    .line 27
+     .line 28
+     invoke-interface {v1, p0, p1, p2}, Landroidx/media3/ui/TimeBar$OnScrubListener;->onScrubMove(Landroidx/media3/ui/TimeBar;J)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -2754,17 +2375,12 @@
+     .line 1
+     invoke-static {p1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -2775,13 +2391,9 @@
+     .line 1
+     invoke-super {p0}, Landroid/view/View;->drawableStateChanged()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->updateDrawableState()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -2792,62 +2404,45 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/ui/DefaultTimeBar;->density:F
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     invoke-static {v0, v1}, Landroidx/media3/ui/DefaultTimeBar;->pxToDp(FI)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_1
+ 
+-    .line 14
+     .line 15
+     iget-wide v1, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 16
+     .line 17
+     const-wide/16 v3, 0x0
+ 
+-    .line 18
+     .line 19
+     cmp-long p0, v1, v3
+ 
+-    .line 20
+     .line 21
+     if-eqz p0, :cond_1
+ 
+-    .line 22
+     .line 23
+     const-wide v3, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 24
+-    .line 25
+-    .line 26
+-    .line 27
+     .line 28
+     cmp-long p0, v1, v3
+ 
+-    .line 29
+     .line 30
+     if-nez p0, :cond_0
+ 
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -2866,10 +2461,6 @@
+     :goto_0
+     const-wide v0, 0x7fffffffffffffffL
+ 
+-    .line 37
+-    .line 38
+-    .line 39
+-    .line 40
+     .line 41
+     return-wide v0
+ .end method
+@@ -2966,21 +2557,15 @@
+     .line 1
+     invoke-super {p0}, Landroid/view/View;->jumpDrawablesToCurrentState()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 5
+     .line 6
+     if-eqz p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     :cond_0
+     return-void
+@@ -2992,23 +2577,15 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->drawTimeBar(Landroid/graphics/Canvas;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->drawPlayhead(Landroid/graphics/Canvas;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -3023,28 +2600,21 @@
+     .line 1
+     invoke-super {p0, p1, p2, p3}, Landroid/view/View;->onFocusChanged(ZILandroid/graphics/Rect;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean p2, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz p2, :cond_0
+ 
+-    .line 7
+     .line 8
+     if-nez p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 p1, 0x0
+ 
+     .line 11
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -3056,13 +2626,9 @@
+     .line 1
+     invoke-super {p0, p1}, Landroid/view/View;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+@@ -3072,38 +2638,28 @@
+     .line 9
+     if-ne v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getProgressText()Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :cond_0
+     const-string p0, "android.widget.SeekBar"
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityRecord;->setClassName(Ljava/lang/CharSequence;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -3114,46 +2670,33 @@
+     .line 1
+     invoke-super {p0, p1}, Landroid/view/View;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "android.widget.SeekBar"
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClassName(Ljava/lang/CharSequence;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getProgressText()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setContentDescription(Ljava/lang/CharSequence;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 17
+     .line 18
+     const-wide/16 v2, 0x0
+ 
+-    .line 19
+     .line 20
+     cmp-long p0, v0, v2
+ 
+-    .line 21
+     .line 22
+     if-gtz p0, :cond_0
+ 
+-    .line 23
+     .line 24
+     return-void
+ 
+@@ -3161,21 +2704,15 @@
+     :cond_0
+     sget-object p0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_FORWARD:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     sget-object p0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_BACKWARD:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-void
+ .end method
+@@ -3186,39 +2723,30 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getPositionIncrement()J
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-wide v0
+ 
+     .line 11
+     const/16 v2, 0x42
+ 
+-    .line 12
+     .line 13
+     const/4 v3, 0x1
+ 
+     .line 14
+     if-eq p1, v2, :cond_0
+ 
+-    .line 15
+     .line 16
+     packed-switch p1, :pswitch_data_0
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -3230,37 +2758,27 @@
+     :pswitch_1
+     invoke-direct {p0, v0, v1}, Landroidx/media3/ui/DefaultTimeBar;->scrubIncrementally(J)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     if-eqz v0, :cond_1
+ 
+-    .line 26
+     .line 27
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbingRunnable:Ljava/lang/Runnable;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0, p1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbingRunnable:Ljava/lang/Runnable;
+ 
+-    .line 33
+     .line 34
+     const-wide/16 v0, 0x3e8
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p0, p1, v0, v1}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return v3
+ 
+@@ -3269,19 +2787,15 @@
+     :pswitch_2
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 41
+     .line 42
+     if-eqz v0, :cond_1
+ 
+-    .line 43
+     .line 44
+     const/4 p1, 0x0
+ 
+     .line 45
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     return v3
+ 
+@@ -3290,15 +2804,12 @@
+     :goto_0
+     invoke-super {p0, p1, p2}, Landroid/view/View;->onKeyDown(ILandroid/view/KeyEvent;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result p0
+ 
+     .line 53
+     return p0
+ 
+-    .line 54
+     nop
+ 
+     .line 55
+@@ -3322,34 +2833,27 @@
+     .line 3
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p1
+ 
+     .line 7
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p2
+ 
+     .line 11
+     sub-int p2, p4, p2
+ 
+-    .line 12
+     .line 13
+     iget-boolean p3, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberPaddingDisabled:Z
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+     .line 16
+     if-eqz p3, :cond_0
+ 
+-    .line 17
+     .line 18
+     move p3, v0
+ 
+@@ -3360,70 +2864,55 @@
+     :cond_0
+     iget p3, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberPadding:I
+ 
+-    .line 21
+     .line 22
+     :goto_0
+     iget v1, p0, Landroidx/media3/ui/DefaultTimeBar;->barGravity:I
+ 
+-    .line 23
+     .line 24
+     const/4 v2, 0x1
+ 
+     .line 25
+     if-ne v1, v2, :cond_1
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v1
+ 
+     .line 31
+     sub-int v1, p5, v1
+ 
+-    .line 32
+     .line 33
+     iget v2, p0, Landroidx/media3/ui/DefaultTimeBar;->touchTargetHeight:I
+ 
+-    .line 34
+     .line 35
+     sub-int/2addr v1, v2
+ 
+     .line 36
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v2
+ 
+     .line 40
+     sub-int v2, p5, v2
+ 
+-    .line 41
+     .line 42
+     iget v3, p0, Landroidx/media3/ui/DefaultTimeBar;->barHeight:I
+ 
+-    .line 43
+     .line 44
+     sub-int/2addr v2, v3
+ 
+     .line 45
+     div-int/lit8 v3, v3, 0x2
+ 
+-    .line 46
+     .line 47
+     sub-int v3, p3, v3
+ 
+-    .line 48
+     .line 49
+     invoke-static {v3, v0}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v0
+ 
+@@ -3437,88 +2926,67 @@
+     :cond_1
+     iget v0, p0, Landroidx/media3/ui/DefaultTimeBar;->touchTargetHeight:I
+ 
+-    .line 56
+     .line 57
+     sub-int v0, p5, v0
+ 
+-    .line 58
+     .line 59
+     div-int/lit8 v1, v0, 0x2
+ 
+-    .line 60
+     .line 61
+     iget v0, p0, Landroidx/media3/ui/DefaultTimeBar;->barHeight:I
+ 
+-    .line 62
+     .line 63
+     sub-int v0, p5, v0
+ 
+-    .line 64
+     .line 65
+     div-int/lit8 v2, v0, 0x2
+ 
+-    .line 66
+     .line 67
+     :goto_1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 68
+     .line 69
+     iget v3, p0, Landroidx/media3/ui/DefaultTimeBar;->touchTargetHeight:I
+ 
+-    .line 70
+     .line 71
+     add-int/2addr v3, v1
+ 
+     .line 72
+     invoke-virtual {v0, p1, v1, p2, v3}, Landroid/graphics/Rect;->set(IIII)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->progressBar:Landroid/graphics/Rect;
+ 
+-    .line 76
+     .line 77
+     iget-object p2, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 78
+     .line 79
+     iget v0, p2, Landroid/graphics/Rect;->left:I
+ 
+-    .line 80
+     .line 81
+     add-int/2addr v0, p3
+ 
+     .line 82
+     iget p2, p2, Landroid/graphics/Rect;->right:I
+ 
+-    .line 83
+     .line 84
+     sub-int/2addr p2, p3
+ 
+     .line 85
+     iget p3, p0, Landroidx/media3/ui/DefaultTimeBar;->barHeight:I
+ 
+-    .line 86
+     .line 87
+     add-int/2addr p3, v2
+ 
+     .line 88
+     invoke-virtual {p1, v0, v2, p2, p3}, Landroid/graphics/Rect;->set(IIII)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     invoke-direct {p0, p4, p5}, Landroidx/media3/ui/DefaultTimeBar;->setSystemGestureExclusionRectsV29(II)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     return-void
+ .end method
+@@ -3529,27 +2997,21 @@
+     .line 1
+     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p2
+ 
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget p2, p0, Landroidx/media3/ui/DefaultTimeBar;->touchTargetHeight:I
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -3557,11 +3019,9 @@
+     :cond_0
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 15
+     .line 16
+     if-ne v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -3569,12 +3029,9 @@
+     :cond_1
+     iget v0, p0, Landroidx/media3/ui/DefaultTimeBar;->touchTargetHeight:I
+ 
+-    .line 20
+     .line 21
+     invoke-static {v0, p2}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p2
+ 
+@@ -3582,21 +3039,15 @@
+     :goto_0
+     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result p1
+ 
+     .line 29
+     invoke-virtual {p0, p1, p2}, Landroid/view/View;->setMeasuredDimension(II)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->updateDrawableState()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-void
+ .end method
+@@ -3607,28 +3058,21 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberDrawable:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0, p1}, Landroidx/media3/ui/DefaultTimeBar;->setDrawableLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+     .line 9
+     if-eqz p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -3640,8 +3084,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -3651,23 +3093,18 @@
+     .line 6
+     if-eqz v0, :cond_6
+ 
+-    .line 7
+     .line 8
+     iget-wide v2, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 9
+     .line 10
+     const-wide/16 v4, 0x0
+ 
+-    .line 11
+     .line 12
+     cmp-long v0, v2, v4
+ 
+-    .line 13
+     .line 14
+     if-gtz v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     goto :goto_1
+ 
+@@ -3675,24 +3112,18 @@
+     :cond_0
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->resolveRelativeTouchPosition(Landroid/view/MotionEvent;)Landroid/graphics/Point;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     iget v2, v0, Landroid/graphics/Point;->x:I
+ 
+-    .line 22
+     .line 23
+     iget v0, v0, Landroid/graphics/Point;->y:I
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v3
+ 
+@@ -3702,25 +3133,21 @@
+     .line 30
+     if-eqz v3, :cond_5
+ 
+-    .line 31
+     .line 32
+     const/4 v5, 0x3
+ 
+     .line 33
+     if-eq v3, v4, :cond_3
+ 
+-    .line 34
+     .line 35
+     const/4 v6, 0x2
+ 
+     .line 36
+     if-eq v3, v6, :cond_1
+ 
+-    .line 37
+     .line 38
+     if-eq v3, v5, :cond_3
+ 
+-    .line 39
+     .line 40
+     goto :goto_1
+ 
+@@ -3728,23 +3155,18 @@
+     :cond_1
+     iget-boolean p1, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 42
+     .line 43
+     if-eqz p1, :cond_6
+ 
+-    .line 44
+     .line 45
+     iget p1, p0, Landroidx/media3/ui/DefaultTimeBar;->fineScrubYThreshold:I
+ 
+-    .line 46
+     .line 47
+     if-ge v0, p1, :cond_2
+ 
+-    .line 48
+     .line 49
+     iget p1, p0, Landroidx/media3/ui/DefaultTimeBar;->lastCoarseScrubXPosition:I
+ 
+-    .line 50
+     .line 51
+     sub-int/2addr v2, p1
+ 
+@@ -3760,8 +3182,6 @@
+     .line 55
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->positionScrubber(F)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     goto :goto_0
+ 
+@@ -3769,39 +3189,28 @@
+     :cond_2
+     iput v2, p0, Landroidx/media3/ui/DefaultTimeBar;->lastCoarseScrubXPosition:I
+ 
+-    .line 60
+     .line 61
+     int-to-float p1, v2
+ 
+     .line 62
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->positionScrubber(F)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :goto_0
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getScrubberPosition()J
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-wide v0
+ 
+     .line 69
+     invoke-direct {p0, v0, v1}, Landroidx/media3/ui/DefaultTimeBar;->updateScrubbing(J)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     return v4
+ 
+@@ -3809,23 +3218,18 @@
+     :cond_3
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 80
+     .line 81
+     if-eqz v0, :cond_6
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result p1
+ 
+     .line 87
+     if-ne p1, v5, :cond_4
+ 
+-    .line 88
+     .line 89
+     move v1, v4
+ 
+@@ -3833,8 +3237,6 @@
+     :cond_4
+     invoke-direct {p0, v1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     return v4
+ 
+@@ -3848,43 +3250,30 @@
+     .line 96
+     invoke-direct {p0, p1, v0}, Landroidx/media3/ui/DefaultTimeBar;->isInSeekBar(FF)Z
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result v0
+ 
+     .line 100
+     if-eqz v0, :cond_6
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->positionScrubber(F)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getScrubberPosition()J
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-wide v0
+ 
+     .line 109
+     invoke-direct {p0, v0, v1}, Landroidx/media3/ui/DefaultTimeBar;->startScrubbing(J)V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     return v4
+ 
+@@ -3904,8 +3293,6 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Landroid/view/View;->performAccessibilityAction(ILandroid/os/Bundle;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p2
+ 
+@@ -3915,7 +3302,6 @@
+     .line 6
+     if-eqz p2, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v0
+ 
+@@ -3923,22 +3309,18 @@
+     :cond_0
+     iget-wide v1, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 10
+     .line 11
+     const-wide/16 v3, 0x0
+ 
+-    .line 12
+     .line 13
+     cmp-long p2, v1, v3
+ 
+-    .line 14
+     .line 15
+     const/4 v1, 0x0
+ 
+     .line 16
+     if-gtz p2, :cond_1
+ 
+-    .line 17
+     .line 18
+     return v1
+ 
+@@ -3946,16 +3328,12 @@
+     :cond_1
+     const/16 p2, 0x2000
+ 
+-    .line 20
+     .line 21
+     if-ne p1, p2, :cond_2
+ 
+-    .line 22
+     .line 23
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getPositionIncrement()J
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-wide p1
+ 
+@@ -3965,20 +3343,15 @@
+     .line 28
+     invoke-direct {p0, p1, p2}, Landroidx/media3/ui/DefaultTimeBar;->scrubIncrementally(J)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result p1
+ 
+     .line 32
+     if-eqz p1, :cond_3
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0, v1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -3986,36 +3359,27 @@
+     :cond_2
+     const/16 p2, 0x1000
+ 
+-    .line 39
+     .line 40
+     if-ne p1, p2, :cond_4
+ 
+-    .line 41
+     .line 42
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getPositionIncrement()J
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-wide p1
+ 
+     .line 46
+     invoke-direct {p0, p1, p2}, Landroidx/media3/ui/DefaultTimeBar;->scrubIncrementally(J)Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result p1
+ 
+     .line 50
+     if-eqz p1, :cond_3
+ 
+-    .line 51
+     .line 52
+     invoke-direct {p0, v1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     :cond_3
+     :goto_0
+@@ -4024,8 +3388,6 @@
+     .line 56
+     invoke-virtual {p0, p1}, Landroid/view/View;->sendAccessibilityEvent(I)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     return v0
+ 
+@@ -4040,12 +3402,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/ui/DefaultTimeBar;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4064,15 +3423,12 @@
+     .line 1
+     if-eqz p3, :cond_1
+ 
+-    .line 2
+     .line 3
+     if-eqz p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     if-eqz p2, :cond_0
+ 
+-    .line 6
+     .line 7
+     goto :goto_0
+ 
+@@ -4092,25 +3448,18 @@
+     :goto_1
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iput p3, p0, Landroidx/media3/ui/DefaultTimeBar;->adGroupCount:I
+ 
+-    .line 15
+     .line 16
+     iput-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->adGroupTimesMs:[J
+ 
+-    .line 17
+     .line 18
+     iput-object p2, p0, Landroidx/media3/ui/DefaultTimeBar;->playedAdGroups:[Z
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -4125,21 +3474,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->adMarkerPaint:Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -4154,21 +3497,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedPaint:Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -4179,15 +3516,12 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedPosition:J
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, v0, p1
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -4195,12 +3529,9 @@
+     :cond_0
+     iput-wide p1, p0, Landroidx/media3/ui/DefaultTimeBar;->bufferedPosition:J
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -4211,15 +3542,12 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, v0, p1
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -4227,44 +3555,31 @@
+     :cond_0
+     iput-wide p1, p0, Landroidx/media3/ui/DefaultTimeBar;->duration:J
+ 
+-    .line 9
+     .line 10
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 11
+     .line 12
+     if-eqz v0, :cond_1
+ 
+-    .line 13
+     .line 14
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 15
+-    .line 16
+-    .line 17
+-    .line 18
+     .line 19
+     cmp-long p1, p1, v0
+ 
+-    .line 20
+     .line 21
+     if-nez p1, :cond_1
+ 
+-    .line 22
+     .line 23
+     const/4 p1, 0x1
+ 
+     .line 24
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_1
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     return-void
+ .end method
+@@ -4275,28 +3590,21 @@
+     .line 1
+     invoke-super {p0, p1}, Landroid/view/View;->setEnabled(Z)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubbing:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     if-nez p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 p1, 0x1
+ 
+     .line 11
+     invoke-direct {p0, p1}, Landroidx/media3/ui/DefaultTimeBar;->stopScrubbing(Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -4308,7 +3616,6 @@
+     .line 1
+     if-lez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+@@ -4323,23 +3630,15 @@
+     :goto_0
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput p1, p0, Landroidx/media3/ui/DefaultTimeBar;->keyCountIncrement:I
+ 
+-    .line 10
+     .line 11
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 12
+-    .line 13
+-    .line 14
+-    .line 15
+     .line 16
+     iput-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->keyTimeIncrement:J
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -4350,15 +3649,12 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, p1, v0
+ 
+-    .line 4
+     .line 5
+     if-lez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x1
+ 
+@@ -4373,19 +3669,15 @@
+     :goto_0
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 v0, -0x1
+ 
+     .line 14
+     iput v0, p0, Landroidx/media3/ui/DefaultTimeBar;->keyCountIncrement:I
+ 
+-    .line 15
+     .line 16
+     iput-wide p1, p0, Landroidx/media3/ui/DefaultTimeBar;->keyTimeIncrement:J
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -4400,21 +3692,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->playedAdMarkerPaint:Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -4429,21 +3715,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->playedPaint:Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -4454,15 +3734,12 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/ui/DefaultTimeBar;->position:J
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, v0, p1
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -4470,25 +3747,18 @@
+     :cond_0
+     iput-wide p1, p0, Landroidx/media3/ui/DefaultTimeBar;->position:J
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->getProgressText()Ljava/lang/String;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     invoke-virtual {p0, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-direct {p0}, Landroidx/media3/ui/DefaultTimeBar;->update()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -4503,21 +3773,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->scrubberPaint:Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -4532,21 +3796,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/ui/DefaultTimeBar;->unplayedPaint:Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Landroidx/media3/ui/DefaultTimeBar;->seekBounds:Landroid/graphics/Rect;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method

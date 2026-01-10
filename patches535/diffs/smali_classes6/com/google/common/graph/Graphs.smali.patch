@@ -1,0 +1,602 @@
+--- a/smali_classes6/com/google/common/graph/Graphs.smali
++++ b/smali_classes6/com/google/common/graph/Graphs.smali
+@@ -28,8 +28,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/common/graph/GraphsBridgeMethods;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -54,27 +52,21 @@
+     .line 1
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->isDirected()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-nez p0, :cond_1
+ 
+-    .line 6
+     .line 7
+     invoke-static {p2, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-nez p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1148,49 +1140,36 @@
+     .line 1
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->nodes()Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     const-string v1, "Node %s is not an element of this graph."
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-static {p0}, Lcom/google/common/graph/Traverser;->forGraph(Lcom/google/common/graph/SuccessorsFunction;)Lcom/google/common/graph/Traverser;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     invoke-virtual {p0, p1}, Lcom/google/common/graph/Traverser;->breadthFirst(Ljava/lang/Object;)Ljava/lang/Iterable;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     invoke-static {p0}, Lcom/google/common/collect/ImmutableSet;->copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -1217,76 +1196,55 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayDeque;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v1, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, p2}, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-interface {v0, v1}, Ljava/util/Deque;->addLast(Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result p2
+ 
+     .line 18
+     if-nez p2, :cond_5
+ 
+-    .line 19
+     .line 20
+     invoke-interface {v0}, Ljava/util/Deque;->removeLast()Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p2
+ 
+     .line 24
+     check-cast p2, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;
+ 
+-    .line 25
+     .line 26
+     invoke-interface {v0}, Ljava/util/Deque;->peekLast()Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v1
+ 
+     .line 30
+     check-cast v1, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;
+ 
+-    .line 31
+     .line 32
+     invoke-interface {v0, p2}, Ljava/util/Deque;->addLast(Ljava/lang/Object;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-object v2, p2, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;->node:Ljava/lang/Object;
+ 
+-    .line 36
+     .line 37
+     if-nez v1, :cond_0
+ 
+-    .line 38
+     .line 39
+     const/4 v1, 0x0
+ 
+@@ -1297,41 +1255,31 @@
+     :cond_0
+     iget-object v1, v1, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;->node:Ljava/lang/Object;
+ 
+-    .line 42
+     .line 43
+     :goto_1
+     iget-object v3, p2, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;->remainingSuccessors:Ljava/util/Queue;
+ 
+-    .line 44
+     .line 45
+     if-nez v3, :cond_3
+ 
+-    .line 46
+     .line 47
+     invoke-interface {p1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v3
+ 
+     .line 51
+     check-cast v3, Lcom/google/common/graph/Graphs$NodeVisitState;
+ 
+-    .line 52
+     .line 53
+     sget-object v4, Lcom/google/common/graph/Graphs$NodeVisitState;->COMPLETE:Lcom/google/common/graph/Graphs$NodeVisitState;
+ 
+-    .line 54
+     .line 55
+     if-ne v3, v4, :cond_1
+ 
+-    .line 56
+     .line 57
+     invoke-interface {v0}, Ljava/util/Deque;->removeLast()Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_0
+ 
+@@ -1339,11 +1287,9 @@
+     :cond_1
+     sget-object v4, Lcom/google/common/graph/Graphs$NodeVisitState;->PENDING:Lcom/google/common/graph/Graphs$NodeVisitState;
+ 
+-    .line 62
+     .line 63
+     if-ne v3, v4, :cond_2
+ 
+-    .line 64
+     .line 65
+     const/4 p0, 0x1
+ 
+@@ -1354,84 +1300,61 @@
+     :cond_2
+     invoke-interface {p1, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     new-instance v3, Ljava/util/ArrayDeque;
+ 
+-    .line 71
+     .line 72
+     invoke-interface {p0, v2}, Lcom/google/common/graph/Graph;->successors(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v4
+ 
+     .line 76
+     invoke-direct {v3, v4}, Ljava/util/ArrayDeque;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     iput-object v3, p2, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;->remainingSuccessors:Ljava/util/Queue;
+ 
+-    .line 80
+     .line 81
+     :cond_3
+     iget-object v3, p2, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;->remainingSuccessors:Ljava/util/Queue;
+ 
+-    .line 82
+     .line 83
+     invoke-interface {v3}, Ljava/util/Collection;->isEmpty()Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v3
+ 
+     .line 87
+     if-nez v3, :cond_4
+ 
+-    .line 88
+     .line 89
+     iget-object p2, p2, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;->remainingSuccessors:Ljava/util/Queue;
+ 
+-    .line 90
+     .line 91
+     invoke-interface {p2}, Ljava/util/Queue;->remove()Ljava/lang/Object;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object p2
+ 
+     .line 95
+     invoke-static {p0, p2, v1}, Lcom/google/common/graph/Graphs;->canTraverseWithoutReusingEdge(Lcom/google/common/graph/Graph;Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v1
+ 
+     .line 99
+     if-eqz v1, :cond_4
+ 
+-    .line 100
+     .line 101
+     new-instance v1, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;
+ 
+-    .line 102
+     .line 103
+     invoke-direct {v1, p2}, Lcom/google/common/graph/Graphs$NodeAndRemainingSuccessors;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-interface {v0, v1}, Ljava/util/Deque;->addLast(Ljava/lang/Object;)V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     goto :goto_0
+ 
+@@ -1439,17 +1362,12 @@
+     :cond_4
+     invoke-interface {v0}, Ljava/util/Deque;->removeLast()Ljava/lang/Object;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     sget-object p2, Lcom/google/common/graph/Graphs$NodeVisitState;->COMPLETE:Lcom/google/common/graph/Graphs$NodeVisitState;
+ 
+-    .line 114
+     .line 115
+     invoke-interface {p1, v2, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     goto :goto_0
+ 
+@@ -1478,8 +1396,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/common/graph/GraphBuilder;->from(Lcom/google/common/graph/Graph;)Lcom/google/common/graph/GraphBuilder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -1489,44 +1405,33 @@
+     .line 6
+     invoke-virtual {v0, v1}, Lcom/google/common/graph/GraphBuilder;->allowsSelfLoops(Z)Lcom/google/common/graph/GraphBuilder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {v0}, Lcom/google/common/graph/GraphBuilder;->immutable()Lcom/google/common/graph/ImmutableGraph$Builder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->isDirected()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+     .line 18
+     if-eqz v2, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->nodes()Ljava/util/Set;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+@@ -1534,36 +1439,27 @@
+     :cond_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v2
+ 
+     .line 32
+     if-eqz v2, :cond_4
+ 
+-    .line 33
+     .line 34
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v2
+ 
+     .line 38
+     invoke-static {p0, v2}, Lcom/google/common/graph/Graphs;->reachableNodes(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v3
+ 
+     .line 42
+     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v3
+ 
+@@ -1571,28 +1467,21 @@
+     :goto_0
+     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v4
+ 
+     .line 50
+     if-eqz v4, :cond_0
+ 
+-    .line 51
+     .line 52
+     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v4
+ 
+     .line 56
+     invoke-virtual {v0, v2, v4}, Lcom/google/common/graph/ImmutableGraph$Builder;->putEdge(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/graph/ImmutableGraph$Builder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     goto :goto_0
+ 
+@@ -1600,25 +1489,18 @@
+     :cond_1
+     new-instance v2, Ljava/util/HashSet;
+ 
+-    .line 61
+     .line 62
+     invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->nodes()Ljava/util/Set;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v3
+ 
+     .line 69
+     invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v3
+ 
+@@ -1626,53 +1508,39 @@
+     :cond_2
+     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result v4
+ 
+     .line 77
+     if-eqz v4, :cond_4
+ 
+-    .line 78
+     .line 79
+     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v4
+ 
+     .line 83
+     invoke-interface {v2, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v5
+ 
+     .line 87
+     if-nez v5, :cond_2
+ 
+-    .line 88
+     .line 89
+     invoke-static {p0, v4}, Lcom/google/common/graph/Graphs;->reachableNodes(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v4
+ 
+     .line 93
+     invoke-interface {v2, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v5
+ 
+@@ -1683,40 +1551,30 @@
+     :goto_1
+     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v7
+ 
+     .line 105
+     if-eqz v7, :cond_2
+ 
+-    .line 106
+     .line 107
+     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v7
+ 
+     .line 111
+     add-int/lit8 v8, v6, 0x1
+ 
+-    .line 112
+     .line 113
+     invoke-static {v4, v6}, Lcom/google/common/collect/Iterables;->limit(Ljava/lang/Iterable;I)Ljava/lang/Iterable;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object v6
+ 
+     .line 117
+     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object v6
+ 
+@@ -1724,28 +1582,21 @@
+     :goto_2
+     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v9
+ 
+     .line 125
+     if-eqz v9, :cond_3
+ 
+-    .line 126
+     .line 127
+     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object v9
+ 
+     .line 131
+     invoke-virtual {v0, v7, v9}, Lcom/google/common/graph/ImmutableGraph$Builder;->putEdge(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/graph/ImmutableGraph$Builder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     goto :goto_2
+ 
+@@ -1760,8 +1611,6 @@
+     :cond_4
+     invoke-virtual {v0}, Lcom/google/common/graph/ImmutableGraph$Builder;->build()Lcom/google/common/graph/ImmutableGraph;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result-object p0
+ 

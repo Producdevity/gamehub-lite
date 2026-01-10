@@ -1,0 +1,860 @@
+--- a/smali_classes4/androidx/room/coroutines/PassthroughConnection.smali
++++ b/smali_classes4/androidx/room/coroutines/PassthroughConnection.smali
+@@ -39,41 +39,30 @@
+     .line 1
+     const-string v0, "delegate"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p1, p0, Landroidx/room/coroutines/PassthroughConnection;->a:Lkotlin/jvm/functions/Function2;
+ 
+-    .line 10
+     .line 11
+     iput-object p2, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 12
+     .line 13
+     new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 14
+     .line 15
+     const/4 p2, 0x0
+ 
+     .line 16
+     invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iput-object p1, p0, Landroidx/room/coroutines/PassthroughConnection;->c:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -84,8 +73,6 @@
+     .line 1
+     invoke-virtual {p0, p1, p2, p3}, Landroidx/room/coroutines/PassthroughConnection;->g(Landroidx/room/Transactor$SQLiteTransactionType;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -101,7 +88,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -112,41 +98,33 @@
+     .line 1
+     instance-of v0, p3, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -154,29 +132,22 @@
+     :cond_0
+     new-instance v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;-><init>(Landroidx/room/coroutines/PassthroughConnection;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p3, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x2
+ 
+@@ -186,20 +157,15 @@
+     .line 35
+     if-eqz v2, :cond_3
+ 
+-    .line 36
+     .line 37
+     if-eq v2, v4, :cond_2
+ 
+-    .line 38
+     .line 39
+     if-ne v2, v3, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-object p3
+ 
+@@ -207,16 +173,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 46
+     .line 47
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 48
+     .line 49
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     throw p0
+ 
+@@ -224,27 +186,21 @@
+     :cond_2
+     iget-object p1, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 54
+     .line 55
+     move-object p2, p1
+ 
+     .line 56
+     check-cast p2, Lkotlin/jvm/functions/Function1;
+ 
+-    .line 57
+     .line 58
+     iget-object p1, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 59
+     .line 60
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 61
+     .line 62
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     goto :goto_1
+ 
+@@ -252,32 +208,24 @@
+     :cond_3
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     iput-object p1, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 70
+     .line 71
+     iput-object p2, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 72
+     .line 73
+     iput v4, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->label:I
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {p0, v0}, Landroidx/room/coroutines/PassthroughConnection;->d(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p3
+ 
+     .line 79
+     if-ne p3, v1, :cond_4
+ 
+-    .line 80
+     .line 81
+     goto :goto_2
+ 
+@@ -286,12 +234,9 @@
+     :goto_1
+     check-cast p3, Ljava/lang/Boolean;
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result p3
+ 
+@@ -301,48 +246,36 @@
+     .line 89
+     if-eqz p3, :cond_6
+ 
+-    .line 90
+     .line 91
+     iget-object p3, p0, Landroidx/room/coroutines/PassthroughConnection;->a:Lkotlin/jvm/functions/Function2;
+ 
+-    .line 92
+     .line 93
+     if-eqz p3, :cond_6
+ 
+-    .line 94
+     .line 95
+     new-instance v4, Landroidx/room/coroutines/PassthroughConnection$usePrepared$2;
+ 
+-    .line 96
+     .line 97
+     invoke-direct {v4, p0, p1, p2, v2}, Landroidx/room/coroutines/PassthroughConnection$usePrepared$2;-><init>(Landroidx/room/coroutines/PassthroughConnection;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     iput-object v2, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 101
+     .line 102
+     iput-object v2, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 103
+     .line 104
+     iput v3, v0, Landroidx/room/coroutines/PassthroughConnection$usePrepared$1;->label:I
+ 
+-    .line 105
+     .line 106
+     invoke-interface {p3, v4, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p0
+ 
+     .line 110
+     if-ne p0, v1, :cond_5
+ 
+-    .line 111
+     .line 112
+     :goto_2
+     return-object v1
+@@ -355,12 +288,9 @@
+     :cond_6
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 115
+     .line 116
+     invoke-interface {p0, p1}, Landroidx/sqlite/SQLiteConnection;->m0(Ljava/lang/String;)Landroidx/sqlite/SQLiteStatement;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object p0
+ 
+@@ -368,8 +298,6 @@
+     :try_start_0
+     invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p1
+     :try_end_0
+@@ -378,8 +306,6 @@
+     .line 124
+     invoke-static {p0, v2}, Lkotlin/jdk7/AutoCloseableKt;->a(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     return-object p1
+ 
+@@ -400,8 +326,6 @@
+     .line 131
+     invoke-static {p0, p1}, Lkotlin/jdk7/AutoCloseableKt;->a(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     throw p2
+ .end method
+@@ -412,36 +336,27 @@
+     .line 1
+     iget-object v0, p0, Landroidx/room/coroutines/PassthroughConnection;->a:Lkotlin/jvm/functions/Function2;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v1, Landroidx/room/coroutines/PassthroughConnection$withTransaction$2;
+ 
+-    .line 6
+     .line 7
+     const/4 v2, 0x0
+ 
+     .line 8
+     invoke-direct {v1, p0, p1, p2, v2}, Landroidx/room/coroutines/PassthroughConnection$withTransaction$2;-><init>(Landroidx/room/coroutines/PassthroughConnection;Landroidx/room/Transactor$SQLiteTransactionType;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-interface {v0, v1, p3}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-object p0
+ 
+@@ -449,8 +364,6 @@
+     :cond_0
+     invoke-virtual {p0, p1, p2, p3}, Landroidx/room/coroutines/PassthroughConnection;->g(Landroidx/room/Transactor$SQLiteTransactionType;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+@@ -464,27 +377,21 @@
+     .line 1
+     iget-object p1, p0, Landroidx/room/coroutines/PassthroughConnection;->d:Landroidx/room/Transactor$SQLiteTransactionType;
+ 
+-    .line 2
+     .line 3
+     if-nez p1, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p0}, Landroidx/sqlite/SQLiteConnection;->n()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-eqz p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -504,8 +411,6 @@
+     :goto_1
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+@@ -519,7 +424,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -530,41 +434,33 @@
+     .line 1
+     instance-of v0, p3, Landroidx/room/coroutines/PassthroughConnection$transaction$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -572,33 +468,25 @@
+     :cond_0
+     new-instance v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Landroidx/room/coroutines/PassthroughConnection$transaction$1;-><init>(Landroidx/room/coroutines/PassthroughConnection;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p3, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const-string v3, "ROLLBACK TRANSACTION"
+ 
+-    .line 34
+     .line 35
+     const/4 v4, 0x1
+ 
+@@ -608,23 +496,18 @@
+     .line 37
+     if-eqz v2, :cond_2
+ 
+-    .line 38
+     .line 39
+     if-ne v2, v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     iget v4, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->I$0:I
+ 
+-    .line 42
+     .line 43
+     :try_start_0
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     goto :goto_2
+ 
+@@ -639,16 +522,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 50
+     .line 51
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     throw p0
+ 
+@@ -656,55 +535,42 @@
+     :cond_2
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     sget-object p3, Landroidx/room/coroutines/PassthroughConnection$WhenMappings;->a:[I
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v2
+ 
+     .line 66
+     aget p3, p3, v2
+ 
+-    .line 67
+     .line 68
+     if-eq p3, v4, :cond_5
+ 
+-    .line 69
+     .line 70
+     const/4 v2, 0x2
+ 
+     .line 71
+     if-eq p3, v2, :cond_4
+ 
+-    .line 72
+     .line 73
+     const/4 v2, 0x3
+ 
+     .line 74
+     if-ne p3, v2, :cond_3
+ 
+-    .line 75
+     .line 76
+     iget-object p3, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 77
+     .line 78
+     const-string v2, "BEGIN EXCLUSIVE TRANSACTION"
+ 
+-    .line 79
+     .line 80
+     invoke-static {p3, v2}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     goto :goto_1
+ 
+@@ -712,12 +578,9 @@
+     :cond_3
+     new-instance p0, Lkotlin/NoWhenBranchMatchedException;
+ 
+-    .line 85
+     .line 86
+     invoke-direct {p0}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     throw p0
+ 
+@@ -725,16 +588,12 @@
+     :cond_4
+     iget-object p3, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 91
+     .line 92
+     const-string v2, "BEGIN IMMEDIATE TRANSACTION"
+ 
+-    .line 93
+     .line 94
+     invoke-static {p3, v2}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     goto :goto_1
+ 
+@@ -742,61 +601,45 @@
+     :cond_5
+     iget-object p3, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 99
+     .line 100
+     const-string v2, "BEGIN DEFERRED TRANSACTION"
+ 
+-    .line 101
+     .line 102
+     invoke-static {p3, v2}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     :goto_1
+     iget-object p3, p0, Landroidx/room/coroutines/PassthroughConnection;->c:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 106
+     .line 107
+     invoke-virtual {p3}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result p3
+ 
+     .line 111
+     if-lez p3, :cond_6
+ 
+-    .line 112
+     .line 113
+     iput-object p1, p0, Landroidx/room/coroutines/PassthroughConnection;->d:Landroidx/room/Transactor$SQLiteTransactionType;
+ 
+-    .line 114
+     .line 115
+     :cond_6
+     :try_start_1
+     new-instance p1, Landroidx/room/coroutines/PassthroughConnection$PassthroughTransactor;
+ 
+-    .line 116
+     .line 117
+     invoke-direct {p1, p0}, Landroidx/room/coroutines/PassthroughConnection$PassthroughTransactor;-><init>(Landroidx/room/coroutines/PassthroughConnection;)V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     iput v4, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->I$0:I
+ 
+-    .line 121
+     .line 122
+     iput v4, v0, Landroidx/room/coroutines/PassthroughConnection$transaction$1;->label:I
+ 
+-    .line 123
+     .line 124
+     invoke-interface {p2, p1, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object p3
+     :try_end_1
+@@ -805,7 +648,6 @@
+     .line 128
+     if-ne p3, v1, :cond_7
+ 
+-    .line 129
+     .line 130
+     return-object v1
+ 
+@@ -814,41 +656,31 @@
+     :goto_2
+     iget-object p1, p0, Landroidx/room/coroutines/PassthroughConnection;->c:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result p1
+ 
+     .line 137
+     if-nez p1, :cond_8
+ 
+-    .line 138
+     .line 139
+     iput-object v5, p0, Landroidx/room/coroutines/PassthroughConnection;->d:Landroidx/room/Transactor$SQLiteTransactionType;
+ 
+-    .line 140
+     .line 141
+     :cond_8
+     if-eqz v4, :cond_9
+ 
+-    .line 142
+     .line 143
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 144
+     .line 145
+     const-string p1, "END TRANSACTION"
+ 
+-    .line 146
+     .line 147
+     invoke-static {p0, p1}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     return-object p3
+ 
+@@ -856,12 +688,9 @@
+     :cond_9
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 152
+     .line 153
+     invoke-static {p0, v3}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     return-object p3
+ 
+@@ -870,20 +699,15 @@
+     :try_start_2
+     instance-of p2, p1, Landroidx/room/coroutines/ConnectionPool$RollbackException;
+ 
+-    .line 158
+     .line 159
+     if-eqz p2, :cond_b
+ 
+-    .line 160
+     .line 161
+     check-cast p1, Landroidx/room/coroutines/ConnectionPool$RollbackException;
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {p1}, Landroidx/room/coroutines/ConnectionPool$RollbackException;->getResult()Ljava/lang/Object;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object p1
+     :try_end_2
+@@ -892,33 +716,25 @@
+     .line 167
+     iget-object p2, p0, Landroidx/room/coroutines/PassthroughConnection;->c:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 168
+     .line 169
+     invoke-virtual {p2}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result p2
+ 
+     .line 173
+     if-nez p2, :cond_a
+ 
+-    .line 174
+     .line 175
+     iput-object v5, p0, Landroidx/room/coroutines/PassthroughConnection;->d:Landroidx/room/Transactor$SQLiteTransactionType;
+ 
+-    .line 176
+     .line 177
+     :cond_a
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 178
+     .line 179
+     invoke-static {p0, v3}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     return-object p1
+ 
+@@ -957,23 +773,18 @@
+     :try_start_4
+     iget-object p3, p0, Landroidx/room/coroutines/PassthroughConnection;->c:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 192
+     .line 193
+     invoke-virtual {p3}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result p3
+ 
+     .line 197
+     if-nez p3, :cond_c
+ 
+-    .line 198
+     .line 199
+     iput-object v5, p0, Landroidx/room/coroutines/PassthroughConnection;->d:Landroidx/room/Transactor$SQLiteTransactionType;
+ 
+-    .line 200
+     .line 201
+     goto :goto_5
+ 
+@@ -989,14 +800,11 @@
+     :goto_5
+     iget-object p0, p0, Landroidx/room/coroutines/PassthroughConnection;->b:Landroidx/sqlite/SQLiteConnection;
+ 
+-    .line 205
+     .line 206
+     invoke-static {p0, v3}, Landroidx/sqlite/SQLite;->a(Landroidx/sqlite/SQLiteConnection;Ljava/lang/String;)V
+     :try_end_4
+     .catch Landroid/database/SQLException; {:try_start_4 .. :try_end_4} :catch_0
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     goto :goto_7
+ 
+@@ -1004,12 +812,9 @@
+     :goto_6
+     if-eqz p2, :cond_d
+ 
+-    .line 211
+     .line 212
+     invoke-static {p2, p0}, Lkotlin/ExceptionsKt;->a(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     :goto_7
+     throw p1

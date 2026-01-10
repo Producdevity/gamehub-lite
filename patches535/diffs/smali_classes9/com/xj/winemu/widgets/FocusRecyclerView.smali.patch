@@ -1,0 +1,1921 @@
+--- a/smali_classes9/com/xj/winemu/widgets/FocusRecyclerView.smali
++++ b/smali_classes9/com/xj/winemu/widgets/FocusRecyclerView.smali
+@@ -207,16 +207,12 @@
+     .line 1
+     invoke-static {p0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -230,24 +226,18 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->g:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Ljava/lang/Number;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Ljava/lang/Number;->intValue()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -261,8 +251,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->A(Landroid/content/Context;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -276,8 +264,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->getFocusedChild()Landroid/view/View;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -290,7 +276,6 @@
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     move v3, v1
+ 
+@@ -305,52 +290,36 @@
+     :goto_0
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     const-string v5, "changeFocusViewWhenScroll , curView null ? = "
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     const-string v3, " "
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v4
+ 
+     .line 34
+     invoke-direct {p0, v4}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     if-nez v0, :cond_1
+ 
+-    .line 38
+     .line 39
+     return v2
+ 
+@@ -358,99 +327,69 @@
+     :cond_1
+     invoke-virtual {v0}, Landroid/view/View;->getTop()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v4
+ 
+     .line 44
+     invoke-virtual {v0}, Landroid/view/View;->getBottom()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v5
+ 
+     .line 48
+     iget-boolean v6, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->f:Z
+ 
+-    .line 49
+     .line 50
+     new-instance v7, Ljava/lang/StringBuilder;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const-string v8, "changeFocusViewWhenScroll top = "
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     const-string v4, ",bottom = "
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     const-string v4, ",isScrollingTop = "
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v4
+ 
+     .line 83
+     invoke-direct {p0, v4}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v4
+ 
+     .line 90
+     if-nez v4, :cond_2
+ 
+-    .line 91
+     .line 92
+     return v2
+ 
+@@ -458,20 +397,15 @@
+     :cond_2
+     invoke-virtual {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->x()Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v5
+ 
+     .line 97
+     if-eqz v5, :cond_3
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {p0}, Landroid/view/View;->getMeasuredHeight()I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v5
+ 
+@@ -482,8 +416,6 @@
+     :cond_3
+     invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result v5
+ 
+@@ -494,27 +426,21 @@
+     .line 109
+     iget-wide v7, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->l:D
+ 
+-    .line 110
+     .line 111
+     mul-double/2addr v7, v5
+ 
+     .line 112
+     iget-boolean v9, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->f:Z
+ 
+-    .line 113
+     .line 114
+     const-string v10, "changeFocusViewWhenScroll \uff0c\u7126\u70b9\u63a7\u4ef6\u8fd8\u5728RecyclerView\u7684\u8303\u56f4\u4e4b\u5185"
+ 
+-    .line 115
+     .line 116
+     if-nez v9, :cond_4
+ 
+-    .line 117
+     .line 118
+     invoke-virtual {v0}, Landroid/view/View;->getBottom()I
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result v9
+ 
+@@ -524,16 +450,12 @@
+     .line 123
+     cmpl-double v9, v11, v7
+ 
+-    .line 124
+     .line 125
+     if-lez v9, :cond_4
+ 
+-    .line 126
+     .line 127
+     invoke-direct {p0, v10}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     return v2
+ 
+@@ -541,16 +463,12 @@
+     :cond_4
+     iget-boolean v9, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->f:Z
+ 
+-    .line 132
+     .line 133
+     if-eqz v9, :cond_5
+ 
+-    .line 134
+     .line 135
+     invoke-virtual {v0}, Landroid/view/View;->getTop()I
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result v9
+ 
+@@ -563,16 +481,12 @@
+     .line 141
+     cmpg-double v5, v11, v5
+ 
+-    .line 142
+     .line 143
+     if-gez v5, :cond_5
+ 
+-    .line 144
+     .line 145
+     invoke-direct {p0, v10}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     return v2
+ 
+@@ -580,34 +494,27 @@
+     :cond_5
+     instance-of v5, v4, Landroidx/recyclerview/widget/GridLayoutManager;
+ 
+-    .line 150
+     .line 151
+     const/4 v6, -0x1
+ 
+     .line 152
+     if-eqz v5, :cond_6
+ 
+-    .line 153
+     .line 154
+     move-object v1, v4
+ 
+     .line 155
+     check-cast v1, Landroidx/recyclerview/widget/GridLayoutManager;
+ 
+-    .line 156
+     .line 157
+     invoke-virtual {v1}, Landroidx/recyclerview/widget/GridLayoutManager;->getSpanCount()I
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result v1
+ 
+     .line 161
+     invoke-virtual {v4, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result v0
+ 
+@@ -618,16 +525,12 @@
+     :cond_6
+     instance-of v5, v4, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 167
+     .line 168
+     if-eqz v5, :cond_7
+ 
+-    .line 169
+     .line 170
+     invoke-virtual {v4, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result v0
+ 
+@@ -638,31 +541,24 @@
+     :cond_7
+     instance-of v1, v4, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
+ 
+-    .line 176
+     .line 177
+     if-eqz v1, :cond_8
+ 
+-    .line 178
+     .line 179
+     move-object v1, v4
+ 
+     .line 180
+     check-cast v1, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
+ 
+-    .line 181
+     .line 182
+     invoke-virtual {v1}, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;->getSpanCount()I
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result v1
+ 
+     .line 186
+     invoke-virtual {v4, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     move-result v0
+ 
+@@ -680,48 +576,33 @@
+     :goto_2
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 194
+     .line 195
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     const-string v5, "changeFocusViewWhenScroll , preViewPosition = "
+ 
+-    .line 199
+     .line 200
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     move-result-object v3
+ 
+     .line 213
+     invoke-direct {p0, v3}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     if-ne v0, v6, :cond_9
+ 
+-    .line 217
+     .line 218
+     return v2
+ 
+@@ -729,16 +610,12 @@
+     :cond_9
+     iget-boolean v2, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->f:Z
+ 
+-    .line 220
+     .line 221
+     if-eqz v2, :cond_a
+ 
+-    .line 222
+     .line 223
+     invoke-direct {p0, v0, v1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->v(II)Z
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result p0
+ 
+@@ -749,8 +626,6 @@
+     :cond_a
+     invoke-direct {p0, v0, v1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->s(II)Z
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     move-result p0
+ 
+@@ -767,65 +642,45 @@
+     .line 2
+     invoke-virtual {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->k(Z)I
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v1
+ 
+     .line 6
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v3, "findNextFocusViewWhenScrolling2Bottom , lastVisiblePosition = "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string v3, " , preViewPosition = "
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+     .line 31
+     invoke-direct {p0, v2}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     if-ne v1, p1, :cond_0
+ 
+-    .line 35
+     .line 36
+     return v0
+ 
+@@ -833,15 +688,12 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v1
+ 
+     .line 41
+     if-nez v1, :cond_1
+ 
+-    .line 42
+     .line 43
+     return v0
+ 
+@@ -852,8 +704,6 @@
+     .line 45
+     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result p2
+ 
+@@ -866,12 +716,9 @@
+     .line 51
+     if-le p1, p2, :cond_2
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result p1
+ 
+@@ -882,20 +729,15 @@
+     :cond_2
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p2
+ 
+     .line 62
+     if-eqz p2, :cond_3
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p2, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p2
+ 
+@@ -910,76 +752,52 @@
+     :goto_0
+     if-eqz p2, :cond_4
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p2}, Landroid/view/View;->requestFocus()Z
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     :cond_4
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 76
+     .line 77
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     const-string v3, "changeFocusViewWhenScroll2Bottom , view = "
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     const-string v3, " , nextFocusViewPosition = "
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     const-string p1, " "
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object p1
+ 
+     .line 105
+     invoke-direct {p0, p1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     if-eqz p2, :cond_5
+ 
+-    .line 109
+     .line 110
+     return v2
+ 
+@@ -997,65 +815,45 @@
+     .line 2
+     invoke-virtual {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->j(Z)I
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v1
+ 
+     .line 6
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v3, "findNextFocusViewWhenScrolling2Top , firstVisiblePosition = "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string v3, " , preViewPosition = "
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+     .line 31
+     invoke-direct {p0, v2}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     if-ne v1, p1, :cond_0
+ 
+-    .line 35
+     .line 36
+     return v0
+ 
+@@ -1066,7 +864,6 @@
+     .line 38
+     if-gez p1, :cond_1
+ 
+-    .line 39
+     .line 40
+     move p1, v0
+ 
+@@ -1074,20 +871,15 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p2
+ 
+     .line 45
+     if-eqz p2, :cond_2
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p2, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p2
+ 
+@@ -1102,76 +894,52 @@
+     :goto_0
+     if-eqz p2, :cond_3
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {p2}, Landroid/view/View;->requestFocus()Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     :cond_3
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 59
+     .line 60
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     const-string v2, "changeFocusViewWhenScroll2Top , view = "
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     const-string v2, " , nextFocusViewPosition = "
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     const-string p1, " "
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p1
+ 
+     .line 88
+     invoke-direct {p0, p1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     if-eqz p2, :cond_4
+ 
+-    .line 92
+     .line 93
+     const/4 p0, 0x1
+ 
+@@ -1189,11 +957,9 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->a:Z
+ 
+-    .line 2
+     .line 3
+     if-nez p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -1201,12 +967,9 @@
+     :cond_0
+     const-string p0, "FocusRecyclerView"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p0, p1}, Lcom/xj/common/utils/XjLog;->c(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -1363,62 +1126,42 @@
+     .line 1
+     invoke-super {p0, p1}, Landroid/view/ViewGroup;->clearChildFocus(Landroid/view/View;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->e:Z
+ 
+-    .line 5
+     .line 6
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v2, "clearChildFocus , child = "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string p1, " \uff0c isScrolling = "
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     invoke-direct {p0, p1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method
+@@ -1429,44 +1172,30 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "dispatchKeyEvent , "
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -1480,16 +1209,12 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->h:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-super {p0, p1}, Landroid/view/View;->dispatchKeyEventPreIme(Landroid/view/KeyEvent;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -1500,39 +1225,30 @@
+     :cond_0
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-wide v0
+ 
+     .line 14
+     if-eqz p1, :cond_4
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v2
+ 
+     .line 20
+     if-nez v2, :cond_4
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v2
+ 
+     .line 26
+     if-nez v2, :cond_1
+ 
+-    .line 27
+     .line 28
+     goto :goto_1
+ 
+@@ -1540,38 +1256,30 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->isComputingLayout()Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v2
+ 
+     .line 33
+     if-nez v2, :cond_3
+ 
+-    .line 34
+     .line 35
+     iget-wide v2, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->j:J
+ 
+-    .line 36
+     .line 37
+     sub-long v2, v0, v2
+ 
+-    .line 38
+     .line 39
+     iget v4, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->i:I
+ 
+-    .line 40
+     .line 41
+     int-to-long v4, v4
+ 
+     .line 42
+     cmp-long v2, v2, v4
+ 
+-    .line 43
+     .line 44
+     if-gtz v2, :cond_2
+ 
+-    .line 45
+     .line 46
+     goto :goto_0
+ 
+@@ -1579,48 +1287,33 @@
+     :cond_2
+     iput-wide v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->j:J
+ 
+-    .line 48
+     .line 49
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     const-string v1, "dispatchKeyEventPreIme , "
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-super {p0, p1}, Landroid/view/View;->dispatchKeyEventPreIme(Landroid/view/KeyEvent;)Z
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result p0
+ 
+@@ -1640,8 +1333,6 @@
+     :goto_1
+     invoke-super {p0, p1}, Landroid/view/View;->dispatchKeyEventPreIme(Landroid/view/KeyEvent;)Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result p0
+ 
+@@ -1655,48 +1346,33 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->e:Z
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const-string v2, "findFocus , isScrolling = "
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-super {p0}, Landroid/view/View;->findFocus()Landroid/view/View;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 
+@@ -1713,7 +1389,6 @@
+     .line 2
+     iget v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->k:F
+ 
+-    .line 3
+     .line 4
+     mul-float/2addr p1, v0
+ 
+@@ -1732,8 +1407,6 @@
+     .line 9
+     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView;->fling(II)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -1960,17 +1633,12 @@
+     .line 1
+     invoke-super {p0, p1}, Landroid/view/ViewGroup;->focusableViewAvailable(Landroid/view/View;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string p1, "focusableViewAvailable"
+ 
+-    .line 5
+     .line 6
+     invoke-direct {p0, p1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -1981,7 +1649,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->c:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1992,7 +1659,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->b:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2003,11 +1669,9 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->m:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     goto :goto_0
+ 
+@@ -2015,15 +1679,12 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->getFocusedChild()Landroid/view/View;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     if-nez v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -2031,8 +1692,6 @@
+     :cond_1
+     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+@@ -2042,7 +1701,6 @@
+     .line 18
+     if-ne p0, v0, :cond_2
+ 
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -2050,11 +1708,9 @@
+     :cond_2
+     if-ne p0, p2, :cond_3
+ 
+-    .line 22
+     .line 23
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 24
+     .line 25
+     return p1
+ 
+@@ -2062,11 +1718,9 @@
+     :cond_3
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 27
+     .line 28
+     if-ne p2, p1, :cond_4
+ 
+-    .line 29
+     .line 30
+     return p0
+ 
+@@ -2082,7 +1736,6 @@
+     .line 1
+     iget p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->d:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2093,7 +1746,6 @@
+     .line 1
+     iget-wide v0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->l:D
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -2104,29 +1756,21 @@
+     .line 1
+     const-string v0, "getFocusables"
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0, p1}, Landroid/view/View;->getFocusables(I)Ljava/util/ArrayList;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     const-string p1, "getFocusables(...)"
+ 
+-    .line 11
+     .line 12
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-object p0
+ .end method
+@@ -2139,17 +1783,12 @@
+     .line 1
+     const-string v0, "getFocusedChild"
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0}, Landroid/view/ViewGroup;->getFocusedChild()Landroid/view/View;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -2163,7 +1802,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->h:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2174,7 +1812,6 @@
+     .line 1
+     iget p0, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->i:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -2185,17 +1822,12 @@
+     .line 1
+     const-string v0, "getNextFocusUpId"
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0}, Landroid/view/View;->getNextFocusUpId()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -2209,28 +1841,21 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     instance-of v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     check-cast p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/LinearLayoutManager;->getOrientation()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p0
+ 
+@@ -2241,20 +1866,15 @@
+     :cond_0
+     instance-of v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
+ 
+-    .line 17
+     .line 18
+     if-eqz v0, :cond_1
+ 
+-    .line 19
+     .line 20
+     check-cast p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/StaggeredGridLayoutManager;->getOrientation()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+ 
+@@ -2275,32 +1895,24 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     instance-of v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     if-eqz p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     check-cast p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/LinearLayoutManager;->findFirstCompletelyVisibleItemPosition()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+@@ -2311,12 +1923,9 @@
+     :cond_0
+     check-cast p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/LinearLayoutManager;->findFirstVisibleItemPosition()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+@@ -2337,32 +1946,24 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     instance-of v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     if-eqz p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     check-cast p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/LinearLayoutManager;->findLastCompletelyVisibleItemPosition()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+@@ -2373,12 +1974,9 @@
+     :cond_0
+     check-cast p0, Landroidx/recyclerview/widget/LinearLayoutManager;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/LinearLayoutManager;->findLastVisibleItemPosition()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+@@ -2399,8 +1997,6 @@
+     .line 1
+     invoke-super {p0}, Landroidx/recyclerview/widget/RecyclerView;->onAttachedToWindow()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -2411,8 +2007,6 @@
+     .line 1
+     invoke-super {p0}, Landroidx/recyclerview/widget/RecyclerView;->onDetachedFromWindow()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -2423,44 +2017,30 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "onKeyDown , "
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-super {p0, p1, p2}, Landroid/view/View;->onKeyDown(ILandroid/view/KeyEvent;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -2474,17 +2054,12 @@
+     .line 1
+     const-string v0, "onRequestFocusInDescendants"
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView;->onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -2498,12 +2073,9 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->onScrollStateChanged(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     if-eqz p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     const/4 p1, 0x1
+ 
+@@ -2518,7 +2090,6 @@
+     :goto_0
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->e:Z
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -2529,13 +2100,9 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView;->onScrolled(II)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->x()Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+@@ -2548,11 +2115,9 @@
+     .line 10
+     if-eqz v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     if-gez p2, :cond_0
+ 
+-    .line 13
+     .line 14
+     move p1, v2
+ 
+@@ -2567,19 +2132,15 @@
+     :goto_0
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->f:Z
+ 
+-    .line 18
+     .line 19
+     invoke-static {p2}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     if-lez p1, :cond_3
+ 
+-    .line 24
+     .line 25
+     :goto_1
+     move v1, v2
+@@ -2591,7 +2152,6 @@
+     :cond_1
+     if-gez p1, :cond_2
+ 
+-    .line 28
+     .line 29
+     move p2, v2
+ 
+@@ -2606,19 +2166,15 @@
+     :goto_2
+     iput-boolean p2, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->f:Z
+ 
+-    .line 33
+     .line 34
+     invoke-static {p1}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result p1
+ 
+     .line 38
+     if-lez p1, :cond_3
+ 
+-    .line 39
+     .line 40
+     goto :goto_1
+ 
+@@ -2627,24 +2183,18 @@
+     :goto_3
+     iput-boolean v1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->e:Z
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p0}, Landroid/view/View;->hasFocus()Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p1
+ 
+     .line 47
+     if-eqz p1, :cond_4
+ 
+-    .line 48
+     .line 49
+     invoke-direct {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->o()Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :cond_4
+     return-void
+@@ -2656,18 +2206,13 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :cond_0
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->onTouchEvent(Landroid/view/MotionEvent;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -2681,17 +2226,12 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView;->requestChildFocus(Landroid/view/View;Landroid/view/View;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string p1, "requestChildFocus"
+ 
+-    .line 5
+     .line 6
+     invoke-direct {p0, p1}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -2702,17 +2242,12 @@
+     .line 1
+     const-string v0, "requestFocus"
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0, p1, p2}, Landroid/view/View;->requestFocus(ILandroid/graphics/Rect;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -2726,17 +2261,12 @@
+     .line 1
+     const-string v0, "restoreDefaultFocus"
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->z(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0}, Landroid/view/View;->restoreDefaultFocus()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -2750,7 +2280,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->c:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2761,7 +2290,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->b:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2772,7 +2300,6 @@
+     .line 1
+     iput p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->d:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2783,7 +2310,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->a:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2794,12 +2320,9 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->m:Z
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setChildrenDrawingOrderEnabled(Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -2810,7 +2333,6 @@
+     .line 1
+     iput-wide p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->l:D
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2821,7 +2343,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->h:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2832,7 +2353,6 @@
+     .line 1
+     iput p1, p0, Lcom/xj/winemu/widgets/FocusRecyclerView;->i:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -2843,8 +2363,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/winemu/widgets/FocusRecyclerView;->getOrientation()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -2854,7 +2372,6 @@
+     .line 6
+     if-ne p0, v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v0
+ 

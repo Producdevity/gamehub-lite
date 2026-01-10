@@ -1,0 +1,332 @@
+--- a/smali_classes7/com/uber/autodispose/AutoDisposingObserverImpl.smali
++++ b/smali_classes7/com/uber/autodispose/AutoDisposingObserverImpl.smali
+@@ -69,55 +69,39 @@
+     .line 1
+     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scopeDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 17
+     .line 18
+     new-instance v0, Lcom/uber/autodispose/AtomicThrowable;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v0}, Lcom/uber/autodispose/AtomicThrowable;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iput-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->error:Lcom/uber/autodispose/AtomicThrowable;
+ 
+-    .line 24
+     .line 25
+     iput-object p1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scope:Lio/reactivex/CompletableSource;
+ 
+-    .line 26
+     .line 27
+     iput-object p2, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->delegate:Lio/reactivex/Observer;
+ 
+-    .line 28
+     .line 29
+     return-void
+ .end method
+@@ -137,7 +121,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->delegate:Lio/reactivex/Observer;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -148,21 +131,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scopeDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lcom/uber/autodispose/AutoDisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 7
+     .line 8
+     invoke-static {p0}, Lcom/uber/autodispose/AutoDisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -173,23 +150,18 @@
+     .line 1
+     iget-object p0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     sget-object v0, Lcom/uber/autodispose/AutoDisposableHelper;->DISPOSED:Lcom/uber/autodispose/AutoDisposableHelper;
+ 
+-    .line 8
+     .line 9
+     if-ne p0, v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 p0, 0x1
+ 
+@@ -210,50 +182,36 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/uber/autodispose/AutoDisposingObserverImpl;->isDisposed()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 8
+     .line 9
+     sget-object v1, Lcom/uber/autodispose/AutoDisposableHelper;->DISPOSED:Lcom/uber/autodispose/AutoDisposableHelper;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scopeDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 15
+     .line 16
+     invoke-static {v0}, Lcom/uber/autodispose/AutoDisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->delegate:Lio/reactivex/Observer;
+ 
+-    .line 20
+     .line 21
+     iget-object v1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->error:Lcom/uber/autodispose/AtomicThrowable;
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0, p0, v1}, Lcom/uber/autodispose/HalfSerializer;->a(Lio/reactivex/Observer;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/uber/autodispose/AtomicThrowable;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_0
+     return-void
+@@ -265,50 +223,36 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/uber/autodispose/AutoDisposingObserverImpl;->isDisposed()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 8
+     .line 9
+     sget-object v1, Lcom/uber/autodispose/AutoDisposableHelper;->DISPOSED:Lcom/uber/autodispose/AutoDisposableHelper;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scopeDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 15
+     .line 16
+     invoke-static {v0}, Lcom/uber/autodispose/AutoDisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->delegate:Lio/reactivex/Observer;
+ 
+-    .line 20
+     .line 21
+     iget-object v1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->error:Lcom/uber/autodispose/AtomicThrowable;
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0, p1, p0, v1}, Lcom/uber/autodispose/HalfSerializer;->c(Lio/reactivex/Observer;Ljava/lang/Throwable;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/uber/autodispose/AtomicThrowable;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_0
+     return-void
+@@ -325,57 +269,42 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/uber/autodispose/AutoDisposingObserverImpl;->isDisposed()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->delegate:Lio/reactivex/Observer;
+ 
+-    .line 8
+     .line 9
+     iget-object v1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->error:Lcom/uber/autodispose/AtomicThrowable;
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0, p1, p0, v1}, Lcom/uber/autodispose/HalfSerializer;->e(Lio/reactivex/Observer;Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/uber/autodispose/AtomicThrowable;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_0
+ 
+-    .line 16
+     .line 17
+     iget-object p1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 18
+     .line 19
+     sget-object v0, Lcom/uber/autodispose/AutoDisposableHelper;->DISPOSED:Lcom/uber/autodispose/AutoDisposableHelper;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iget-object p0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scopeDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 25
+     .line 26
+     invoke-static {p0}, Lcom/uber/autodispose/AutoDisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     :cond_0
+     return-void
+@@ -387,59 +316,42 @@
+     .line 1
+     new-instance v0, Lcom/uber/autodispose/AutoDisposingObserverImpl$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/uber/autodispose/AutoDisposingObserverImpl$1;-><init>(Lcom/uber/autodispose/AutoDisposingObserverImpl;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scopeDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 7
+     .line 8
+     const-class v2, Lcom/uber/autodispose/AutoDisposingObserverImpl;
+ 
+-    .line 9
+     .line 10
+     invoke-static {v1, v0, v2}, Lcom/uber/autodispose/AutoDisposeEndConsumerHelper;->c(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;Ljava/lang/Class;)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     if-eqz v1, :cond_0
+ 
+-    .line 15
+     .line 16
+     iget-object v1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->delegate:Lio/reactivex/Observer;
+ 
+-    .line 17
+     .line 18
+     invoke-interface {v1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget-object v1, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->scope:Lio/reactivex/CompletableSource;
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v1, v0}, Lio/reactivex/CompletableSource;->a(Lio/reactivex/CompletableObserver;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iget-object p0, p0, Lcom/uber/autodispose/AutoDisposingObserverImpl;->mainDisposable:Ljava/util/concurrent/atomic/AtomicReference;
+ 
+-    .line 27
+     .line 28
+     invoke-static {p0, p1, v2}, Lcom/uber/autodispose/AutoDisposeEndConsumerHelper;->c(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;Ljava/lang/Class;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     :cond_0
+     return-void

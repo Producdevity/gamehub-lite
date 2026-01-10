@@ -1,0 +1,227 @@
+--- a/smali_classes5/com/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher.smali
++++ b/smali_classes5/com/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher.smali
+@@ -43,19 +43,15 @@
+     .line 1
+     const-string v0, "_data"
+ 
+-    .line 2
+     .line 3
+     filled-new-array {v0}, [Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->PROJECTION:[Ljava/lang/String;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -66,16 +62,12 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->context:Landroid/content/Context;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->uri:Landroid/net/Uri;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -113,7 +105,6 @@
+     .line 1
+     const-class p0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -126,7 +117,6 @@
+     .line 1
+     sget-object p0, Lcom/bumptech/glide/load/DataSource;->LOCAL:Lcom/bumptech/glide/load/DataSource;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -155,23 +145,18 @@
+     .line 1
+     iget-object p1, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->context:Landroid/content/Context;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     iget-object v1, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->uri:Landroid/net/Uri;
+ 
+-    .line 8
+     .line 9
+     sget-object v2, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->PROJECTION:[Ljava/lang/String;
+ 
+-    .line 10
+     .line 11
+     const/4 v4, 0x0
+ 
+@@ -184,8 +169,6 @@
+     .line 14
+     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+@@ -195,37 +178,28 @@
+     .line 19
+     if-eqz p1, :cond_1
+ 
+-    .line 20
+     .line 21
+     :try_start_0
+     invoke-interface {p1}, Landroid/database/Cursor;->moveToFirst()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     if-eqz v1, :cond_0
+ 
+-    .line 26
+     .line 27
+     const-string v0, "_data"
+ 
+-    .line 28
+     .line 29
+     invoke-interface {p1, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v0
+ 
+     .line 33
+     invoke-interface {p1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v0
+     :try_end_0
+@@ -249,8 +223,6 @@
+     :goto_0
+     invoke-interface {p1}, Landroid/database/Cursor;->close()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     goto :goto_2
+ 
+@@ -258,8 +230,6 @@
+     :goto_1
+     invoke-interface {p1}, Landroid/database/Cursor;->close()V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     throw p0
+ 
+@@ -268,64 +238,45 @@
+     :goto_2
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result p1
+ 
+     .line 53
+     if-eqz p1, :cond_2
+ 
+-    .line 54
+     .line 55
+     new-instance p1, Ljava/io/FileNotFoundException;
+ 
+-    .line 56
+     .line 57
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     const-string v1, "Failed to find file path for: "
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;->uri:Landroid/net/Uri;
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+ 
+     .line 76
+     invoke-direct {p1, p0}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     return-void
+ 
+@@ -333,17 +284,12 @@
+     :cond_2
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 84
+     .line 85
+     invoke-direct {p0, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-interface {p2, p0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     return-void
+ .end method

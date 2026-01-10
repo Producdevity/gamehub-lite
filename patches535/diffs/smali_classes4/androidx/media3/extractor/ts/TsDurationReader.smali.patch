@@ -1,0 +1,633 @@
+--- a/smali_classes4/androidx/media3/extractor/ts/TsDurationReader.smali
++++ b/smali_classes4/androidx/media3/extractor/ts/TsDurationReader.smali
+@@ -34,61 +34,42 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->timestampSearchBytes:I
+ 
+-    .line 5
+     .line 6
+     new-instance p1, Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 7
+     .line 8
+     const-wide/16 v0, 0x0
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p1, v0, v1}, Landroidx/media3/common/util/TimestampAdjuster;-><init>(J)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     iput-object p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->pcrTimestampAdjuster:Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 14
+     .line 15
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 16
+-    .line 17
+-    .line 18
+-    .line 19
+     .line 20
+     iput-wide v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->firstPcrValue:J
+ 
+-    .line 21
+     .line 22
+     iput-wide v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->lastPcrValue:J
+ 
+-    .line 23
+     .line 24
+     iput-wide v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->durationUs:J
+ 
+-    .line 25
+     .line 26
+     new-instance p1, Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p1}, Landroidx/media3/common/util/ParsableByteArray;-><init>()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iput-object p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 32
+     .line 33
+     return-void
+ .end method
+@@ -99,28 +80,21 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Landroidx/media3/common/util/Util;->EMPTY_BYTE_ARRAY:[B
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0, v1}, Landroidx/media3/common/util/ParsableByteArray;->reset([B)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v0, 0x1
+ 
+     .line 9
+     iput-boolean v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->isDurationRead:Z
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->resetPeekPosition()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const/4 p0, 0x0
+ 
+@@ -139,23 +113,18 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->timestampSearchBytes:I
+ 
+-    .line 2
+     .line 3
+     int-to-long v0, v0
+ 
+     .line 4
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getLength()J
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-wide v2
+ 
+     .line 8
+     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-wide v0
+ 
+@@ -165,8 +134,6 @@
+     .line 13
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getPosition()J
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-wide v1
+ 
+@@ -179,18 +146,15 @@
+     .line 19
+     cmp-long v1, v1, v4
+ 
+-    .line 20
+     .line 21
+     const/4 v2, 0x1
+ 
+     .line 22
+     if-eqz v1, :cond_0
+ 
+-    .line 23
+     .line 24
+     iput-wide v4, p2, Landroidx/media3/extractor/PositionHolder;->position:J
+ 
+-    .line 25
+     .line 26
+     return v2
+ 
+@@ -198,54 +162,39 @@
+     :cond_0
+     iget-object p2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p2, v0}, Landroidx/media3/common/util/ParsableByteArray;->reset(I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->resetPeekPosition()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-object p2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p2
+ 
+     .line 41
+     invoke-interface {p1, p2, v3, v0}, Landroidx/media3/extractor/ExtractorInput;->peekFully([BII)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     iget-object p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1, p3}, Landroidx/media3/extractor/ts/TsDurationReader;->readFirstPcrValueFromBuffer(Landroidx/media3/common/util/ParsableByteArray;I)J
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-wide p1
+ 
+     .line 50
+     iput-wide p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->firstPcrValue:J
+ 
+-    .line 51
+     .line 52
+     iput-boolean v2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->isFirstPcrValueRead:Z
+ 
+-    .line 53
+     .line 54
+     return v3
+ .end method
+@@ -256,16 +205,12 @@
+     .line 1
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+@@ -273,34 +218,24 @@
+     :goto_0
+     const-wide v1, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 10
+-    .line 11
+-    .line 12
+-    .line 13
+     .line 14
+     if-ge p0, v0, :cond_2
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v3
+ 
+     .line 20
+     aget-byte v3, v3, p0
+ 
+-    .line 21
+     .line 22
+     const/16 v4, 0x47
+ 
+-    .line 23
+     .line 24
+     if-eq v3, v4, :cond_0
+ 
+-    .line 25
+     .line 26
+     goto :goto_1
+ 
+@@ -308,19 +243,15 @@
+     :cond_0
+     invoke-static {p1, p0, p2}, Landroidx/media3/extractor/ts/TsUtil;->readPcrFromPacket(Landroidx/media3/common/util/ParsableByteArray;II)J
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-wide v3
+ 
+     .line 31
+     cmp-long v1, v3, v1
+ 
+-    .line 32
+     .line 33
+     if-eqz v1, :cond_1
+ 
+-    .line 34
+     .line 35
+     return-wide v3
+ 
+@@ -329,7 +260,6 @@
+     :goto_1
+     add-int/lit8 p0, p0, 0x1
+ 
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -349,23 +279,18 @@
+     .line 1
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getLength()J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+     .line 5
+     iget v2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->timestampSearchBytes:I
+ 
+-    .line 6
+     .line 7
+     int-to-long v2, v2
+ 
+     .line 8
+     invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-wide v2
+ 
+@@ -381,26 +306,21 @@
+     .line 15
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getPosition()J
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-wide v3
+ 
+     .line 19
+     cmp-long v3, v3, v0
+ 
+-    .line 20
+     .line 21
+     const/4 v4, 0x1
+ 
+     .line 22
+     if-eqz v3, :cond_0
+ 
+-    .line 23
+     .line 24
+     iput-wide v0, p2, Landroidx/media3/extractor/PositionHolder;->position:J
+ 
+-    .line 25
+     .line 26
+     return v4
+ 
+@@ -408,26 +328,18 @@
+     :cond_0
+     iget-object p2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p2, v2}, Landroidx/media3/common/util/ParsableByteArray;->reset(I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->resetPeekPosition()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-object p2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p2
+ 
+@@ -437,28 +349,21 @@
+     .line 42
+     invoke-interface {p1, p2, v0, v2}, Landroidx/media3/extractor/ExtractorInput;->peekFully([BII)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     iget-object p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, p1, p3}, Landroidx/media3/extractor/ts/TsDurationReader;->readLastPcrValueFromBuffer(Landroidx/media3/common/util/ParsableByteArray;I)J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide p1
+ 
+     .line 51
+     iput-wide p1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->lastPcrValue:J
+ 
+-    .line 52
+     .line 53
+     iput-boolean v4, p0, Landroidx/media3/extractor/ts/TsDurationReader;->isLastPcrValueRead:Z
+ 
+-    .line 54
+     .line 55
+     return v0
+ .end method
+@@ -469,55 +374,40 @@
+     .line 1
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     add-int/lit16 v1, v0, -0xbc
+ 
+-    .line 10
+     .line 11
+     :goto_0
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 12
+-    .line 13
+-    .line 14
+-    .line 15
+     .line 16
+     if-lt v1, p0, :cond_2
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v4
+ 
+     .line 22
+     invoke-static {v4, p0, v0, v1}, Landroidx/media3/extractor/ts/TsUtil;->isStartOfTsPacket([BIII)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v4
+ 
+     .line 26
+     if-nez v4, :cond_0
+ 
+-    .line 27
+     .line 28
+     goto :goto_1
+ 
+@@ -525,19 +415,15 @@
+     :cond_0
+     invoke-static {p1, v1, p2}, Landroidx/media3/extractor/ts/TsUtil;->readPcrFromPacket(Landroidx/media3/common/util/ParsableByteArray;II)J
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-wide v4
+ 
+     .line 33
+     cmp-long v2, v4, v2
+ 
+-    .line 34
+     .line 35
+     if-eqz v2, :cond_1
+ 
+-    .line 36
+     .line 37
+     return-wide v4
+ 
+@@ -546,7 +432,6 @@
+     :goto_1
+     add-int/lit8 v1, v1, -0x1
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -563,7 +448,6 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->durationUs:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -574,7 +458,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->pcrTimestampAdjuster:Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -585,7 +468,6 @@
+     .line 1
+     iget-boolean p0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->isDurationRead:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -601,12 +483,9 @@
+     .line 1
+     if-gtz p3, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/ts/TsDurationReader;->finishReadDuration(Landroidx/media3/extractor/ExtractorInput;)I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -617,16 +496,12 @@
+     :cond_0
+     iget-boolean v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->isLastPcrValueRead:Z
+ 
+-    .line 9
+     .line 10
+     if-nez v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, p1, p2, p3}, Landroidx/media3/extractor/ts/TsDurationReader;->readLastPcrValue(Landroidx/media3/extractor/ExtractorInput;Landroidx/media3/extractor/PositionHolder;I)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p0
+ 
+@@ -637,27 +512,18 @@
+     :cond_1
+     iget-wide v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->lastPcrValue:J
+ 
+-    .line 18
+     .line 19
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 20
+-    .line 21
+-    .line 22
+-    .line 23
+     .line 24
+     cmp-long v0, v0, v2
+ 
+-    .line 25
+     .line 26
+     if-nez v0, :cond_2
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/ts/TsDurationReader;->finishReadDuration(Landroidx/media3/extractor/ExtractorInput;)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result p0
+ 
+@@ -668,16 +534,12 @@
+     :cond_2
+     iget-boolean v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->isFirstPcrValueRead:Z
+ 
+-    .line 34
+     .line 35
+     if-nez v0, :cond_3
+ 
+-    .line 36
+     .line 37
+     invoke-direct {p0, p1, p2, p3}, Landroidx/media3/extractor/ts/TsDurationReader;->readFirstPcrValue(Landroidx/media3/extractor/ExtractorInput;Landroidx/media3/extractor/PositionHolder;I)I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result p0
+ 
+@@ -688,20 +550,15 @@
+     :cond_3
+     iget-wide p2, p0, Landroidx/media3/extractor/ts/TsDurationReader;->firstPcrValue:J
+ 
+-    .line 43
+     .line 44
+     cmp-long v0, p2, v2
+ 
+-    .line 45
+     .line 46
+     if-nez v0, :cond_4
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/ts/TsDurationReader;->finishReadDuration(Landroidx/media3/extractor/ExtractorInput;)I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result p0
+ 
+@@ -712,28 +569,21 @@
+     :cond_4
+     iget-object v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->pcrTimestampAdjuster:Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v0, p2, p3}, Landroidx/media3/common/util/TimestampAdjuster;->adjustTsTimestamp(J)J
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-wide p2
+ 
+     .line 59
+     iget-object v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->pcrTimestampAdjuster:Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 60
+     .line 61
+     iget-wide v1, p0, Landroidx/media3/extractor/ts/TsDurationReader;->lastPcrValue:J
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v0, v1, v2}, Landroidx/media3/common/util/TimestampAdjuster;->adjustTsTimestampGreaterThanPreviousTimestamp(J)J
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-wide v0
+ 
+@@ -743,12 +593,9 @@
+     .line 68
+     iput-wide v0, p0, Landroidx/media3/extractor/ts/TsDurationReader;->durationUs:J
+ 
+-    .line 69
+     .line 70
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/ts/TsDurationReader;->finishReadDuration(Landroidx/media3/extractor/ExtractorInput;)I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p0
+ 

@@ -1,0 +1,434 @@
+--- a/smali_classes7/com/nirvana/tools/core/ExecutorManager.smali
++++ b/smali_classes7/com/nirvana/tools/core/ExecutorManager.smali
+@@ -44,110 +44,78 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/HashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mWorkerQueue:Ljava/util/HashMap;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 12
+     .line 13
+     new-instance v1, Lcom/nirvana/tools/core/ExecutorManager$1;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v1, p0}, Lcom/nirvana/tools/core/ExecutorManager$1;-><init>(Lcom/nirvana/tools/core/ExecutorManager;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     new-instance v2, Ljava/util/concurrent/ThreadPoolExecutor$CallerRunsPolicy;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v2}, Ljava/util/concurrent/ThreadPoolExecutor$CallerRunsPolicy;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const/4 v3, 0x4
+ 
+     .line 24
+     invoke-direct {v0, v3, v1, v2}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;-><init>(ILjava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iput-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->threadExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 28
+     .line 29
+     const-wide/16 v1, 0x2
+ 
+-    .line 30
+     .line 31
+     sget-object v4, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0, v1, v2, v4}, Ljava/util/concurrent/ThreadPoolExecutor;->setKeepAliveTime(JLjava/util/concurrent/TimeUnit;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     iget-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->threadExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v0, v3}, Ljava/util/concurrent/ThreadPoolExecutor;->setMaximumPoolSize(I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     iget-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->threadExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 42
+     .line 43
+     const/4 v1, 0x1
+ 
+     .line 44
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/ThreadPoolExecutor;->allowCoreThreadTimeOut(Z)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     new-instance v0, Landroid/os/Handler;
+ 
+-    .line 48
+     .line 49
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v1
+ 
+     .line 53
+     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     iput-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mMainHandler:Landroid/os/Handler;
+ 
+-    .line 57
+     .line 58
+     return-void
+ .end method
+@@ -159,46 +127,32 @@
+     :try_start_0
+     new-instance v0, Ljava/io/StringWriter;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v1, Ljava/io/PrintWriter;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p0, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     invoke-virtual {v0}, Ljava/io/StringWriter;->close()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-object p0
+ 
+@@ -206,7 +160,6 @@
+     :catch_0
+     const-string p0, "ErrorInfoFromException"
+ 
+-    .line 26
+     .line 27
+     return-object p0
+ .end method
+@@ -217,15 +170,12 @@
+     .line 1
+     sget-object v0, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const-class v0, Ljava/util/concurrent/ThreadPoolExecutor;
+ 
+-    .line 6
+     .line 7
+     monitor-enter v0
+ 
+@@ -233,24 +183,18 @@
+     :try_start_0
+     sget-object v1, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 9
+     .line 10
+     if-nez v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     new-instance v1, Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v1}, Lcom/nirvana/tools/core/ExecutorManager;-><init>()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     sput-object v1, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -283,7 +227,6 @@
+     :goto_2
+     sget-object v0, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 27
+     .line 28
+     return-object v0
+ .end method
+@@ -301,13 +244,9 @@
+     .line 1
+     invoke-super {p0}, Ljava/lang/Object;->finalize()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Lcom/nirvana/tools/core/ExecutorManager;->release()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -318,7 +257,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mWorkerQueue:Ljava/util/HashMap;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -326,19 +264,15 @@
+     :try_start_0
+     iget-object p0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mWorkerQueue:Ljava/util/HashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     check-cast p0, Lcom/nirvana/tools/core/Worker;
+ 
+-    .line 11
+     .line 12
+     monitor-exit v0
+ 
+@@ -444,7 +378,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mWorkerQueue:Ljava/util/HashMap;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -452,24 +385,18 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/nirvana/tools/core/ExecutorManager;->mWorkerQueue:Ljava/util/HashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v1, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-eqz v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, p1}, Lcom/nirvana/tools/core/ExecutorManager;->getWorker(Ljava/lang/String;)Lcom/nirvana/tools/core/Worker;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -490,21 +417,15 @@
+     :cond_0
+     new-instance v1, Lcom/nirvana/tools/core/Worker;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v1, p1}, Lcom/nirvana/tools/core/Worker;-><init>(Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object p0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mWorkerQueue:Ljava/util/HashMap;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     monitor-exit v0
+ 
+@@ -527,15 +448,12 @@
+     .line 1
+     sget-object p0, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const-class p0, Ljava/util/concurrent/ThreadPoolExecutor;
+ 
+-    .line 6
+     .line 7
+     monitor-enter p0
+ 
+@@ -543,24 +461,18 @@
+     :try_start_0
+     sget-object v0, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 9
+     .line 10
+     if-eqz v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     sget-object v0, Lcom/nirvana/tools/core/ExecutorManager;->mInstance:Lcom/nirvana/tools/core/ExecutorManager;
+ 
+-    .line 13
+     .line 14
+     iget-object v0, v0, Lcom/nirvana/tools/core/ExecutorManager;->threadExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->shutdown()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -599,12 +511,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/nirvana/tools/core/ExecutorManager;->mMainHandler:Landroid/os/Handler;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -615,12 +524,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/nirvana/tools/core/ExecutorManager;->threadExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/ThreadPoolExecutor;->remove(Ljava/lang/Runnable;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -640,12 +546,9 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, v0, v1}, Lcom/nirvana/tools/core/ExecutorManager;->scheduleFutureDelay(Ljava/lang/Runnable;J)Ljava/util/concurrent/RunnableScheduledFuture;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -668,15 +571,12 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v2, p2, v0
+ 
+-    .line 4
+     .line 5
+     if-gez v2, :cond_0
+ 
+-    .line 6
+     .line 7
+     move-wide p2, v0
+ 
+@@ -684,23 +584,18 @@
+     :cond_0
+     iget-object p0, p0, Lcom/nirvana/tools/core/ExecutorManager;->threadExecutor:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 9
+     .line 10
+     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, p1, p2, p3, v0}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     check-cast p0, Ljava/util/concurrent/RunnableScheduledFuture;
+ 
+-    .line 17
+     .line 18
+     return-object p0
+ .end method

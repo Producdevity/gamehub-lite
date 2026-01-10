@@ -1,0 +1,341 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/connection/ConnectorImpl.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/connection/ConnectorImpl.smali
+@@ -21,20 +21,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->a:Lcom/polidea/rxandroidble2/internal/serialization/ClientOperationQueue;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->b:Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -45,8 +40,6 @@
+     .line 1
+     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -54,32 +47,24 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     check-cast v0, Lcom/polidea/rxandroidble2/internal/connection/ConnectionSubscriptionWatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v0}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionSubscriptionWatcher;->b()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -94,154 +79,114 @@
+     .line 1
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->b:Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;
+ 
+-    .line 2
+     .line 3
+     iget-boolean v1, p1, Lcom/polidea/rxandroidble2/ConnectionSetup;->a:Z
+ 
+-    .line 4
+     .line 5
+     invoke-interface {v0, v1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;->a(Z)Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     iget-boolean v1, p1, Lcom/polidea/rxandroidble2/ConnectionSetup;->b:Z
+ 
+-    .line 10
+     .line 11
+     invoke-interface {v0, v1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;->c(Z)Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     iget-object p1, p1, Lcom/polidea/rxandroidble2/ConnectionSetup;->c:Lcom/polidea/rxandroidble2/Timeout;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v0, p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;->b(Lcom/polidea/rxandroidble2/Timeout;)Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p1
+ 
+     .line 21
+     invoke-interface {p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent$Builder;->build()Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p1
+ 
+     .line 25
+     invoke-interface {p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;->a()Ljava/util/Set;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     invoke-static {p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->g(Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;)Lio/reactivex/Observable;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     invoke-static {p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->f(Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;)Lio/reactivex/Observable;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v2
+ 
+     .line 37
+     invoke-virtual {v1, v2}, Lio/reactivex/Observable;->b0(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v1
+ 
+     .line 41
+     invoke-virtual {p0, p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->e(Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;)Lio/reactivex/Observable;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p1
+ 
+     .line 45
+     invoke-virtual {v1, p1}, Lio/reactivex/Observable;->t(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p1
+ 
+     .line 49
+     new-instance v1, Lcom/polidea/rxandroidble2/internal/connection/b;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {v1, v0}, Lcom/polidea/rxandroidble2/internal/connection/b;-><init>(Ljava/util/Set;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p1, v1}, Lio/reactivex/Observable;->A(Lio/reactivex/functions/Consumer;)Lio/reactivex/Observable;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p1
+ 
+     .line 58
+     new-instance v1, Lcom/polidea/rxandroidble2/internal/connection/c;
+ 
+-    .line 59
+     .line 60
+     invoke-direct {v1, v0}, Lcom/polidea/rxandroidble2/internal/connection/c;-><init>(Ljava/util/Set;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     invoke-virtual {p1, v1}, Lio/reactivex/Observable;->w(Lio/reactivex/functions/Action;)Lio/reactivex/Observable;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object p1
+ 
+     .line 67
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p1, v0}, Lio/reactivex/Observable;->w0(Lio/reactivex/Scheduler;)Lio/reactivex/Observable;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p1
+ 
+     .line 73
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {p1, p0}, Lio/reactivex/Observable;->K0(Lio/reactivex/Scheduler;)Lio/reactivex/Observable;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p0
+ 
+@@ -255,8 +200,6 @@
+     .line 1
+     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -264,32 +207,24 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+     .line 9
+     if-eqz p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     check-cast p1, Lcom/polidea/rxandroidble2/internal/connection/ConnectionSubscriptionWatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionSubscriptionWatcher;->c()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -304,16 +239,12 @@
+     .line 1
+     invoke-interface {p0}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;->b()Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;->o()Lio/reactivex/Observable;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -327,22 +258,15 @@
+     .line 1
+     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/d;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/connection/d;-><init>(Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-static {v0}, Lio/reactivex/Observable;->P(Ljava/util/concurrent/Callable;)Lio/reactivex/Observable;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -358,17 +282,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/connection/a;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1}, Lcom/polidea/rxandroidble2/internal/connection/a;-><init>(Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;Lcom/polidea/rxandroidble2/ConnectionSetup;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lio/reactivex/Observable;->q(Ljava/util/concurrent/Callable;)Lio/reactivex/Observable;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -382,20 +301,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/connection/ConnectorImpl;->a:Lcom/polidea/rxandroidble2/internal/serialization/ClientOperationQueue;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionComponent;->d()Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     invoke-interface {p0, p1}, Lcom/polidea/rxandroidble2/internal/serialization/ClientOperationQueue;->a(Lcom/polidea/rxandroidble2/internal/operations/Operation;)Lio/reactivex/Observable;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 

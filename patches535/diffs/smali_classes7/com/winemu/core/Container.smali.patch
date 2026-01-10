@@ -1,0 +1,600 @@
+--- a/smali_classes7/com/winemu/core/Container.smali
++++ b/smali_classes7/com/winemu/core/Container.smali
+@@ -31,19 +31,15 @@
+     .line 1
+     new-instance v0, Lcom/winemu/core/Container$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/winemu/core/Container$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/winemu/core/Container;->c:Lcom/winemu/core/Container$Companion;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -54,34 +50,24 @@
+     .line 1
+     const-string v0, "containerPath"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p1, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 10
+     .line 11
+     new-instance p1, Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {p1}, Lcom/winemu/core/BottleMetadata;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object p1, p0, Lcom/winemu/core/Container;->b:Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -94,7 +80,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -105,7 +90,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/winemu/core/Container;->b:Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -116,20 +100,15 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     const-string v1, "patch_version.txt"
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 p0, 0x0
+ 
+@@ -137,47 +116,36 @@
+     :try_start_0
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     const/4 v1, 0x1
+ 
+     .line 18
+     invoke-static {v0, p0, v1, p0}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     invoke-static {v0}, Lkotlin/text/StringsKt;->J1(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     invoke-static {v0}, Lkotlin/text/StringsKt;->x(Ljava/lang/String;)Ljava/lang/Integer;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+     :try_end_0
+@@ -195,12 +163,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/winemu/core/Container;->b:Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/winemu/core/BottleMetadata;->getWinePath()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -214,89 +179,66 @@
+     .line 1
+     new-instance v0, Lcom/google/gson/Gson;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/gson/Gson;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     iget-object v2, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     const-string v3, "metadata.json"
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v2
+ 
+     .line 19
+     if-eqz v2, :cond_1
+ 
+-    .line 20
+     .line 21
+     new-instance v2, Ljava/io/FileReader;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v2, v1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :try_start_0
+     const-class v1, Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v0, v2, v1}, Lcom/google/gson/Gson;->fromJson(Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+     .line 32
+     check-cast v0, Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 33
+     .line 34
+     if-eqz v0, :cond_0
+ 
+-    .line 35
+     .line 36
+     iput-object v0, p0, Lcom/winemu/core/Container;->b:Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 37
+     .line 38
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 39
+     .line 40
+     const/4 v0, 0x0
+ 
+     .line 41
+     invoke-static {v2, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-object p0
+ 
+@@ -312,16 +254,12 @@
+     :try_start_1
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 48
+     .line 49
+     const-string v0, "Failed to parse metadata"
+ 
+-    .line 50
+     .line 51
+     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     throw p0
+     :try_end_1
+@@ -341,8 +279,6 @@
+     .line 57
+     invoke-static {v2, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     throw v0
+ 
+@@ -350,16 +286,12 @@
+     :cond_1
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 62
+     .line 63
+     const-string v0, "Metadata file not found"
+ 
+-    .line 64
+     .line 65
+     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     throw p0
+ .end method
+@@ -370,7 +302,6 @@
+     .line 1
+     if-ne p0, p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     const/4 p0, 0x1
+ 
+@@ -381,31 +312,24 @@
+     :cond_0
+     if-eqz p1, :cond_2
+ 
+-    .line 6
+     .line 7
+     const-class v0, Lcom/winemu/core/Container;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-nez v0, :cond_1
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -413,20 +337,15 @@
+     :cond_1
+     check-cast p1, Lcom/winemu/core/Container;
+ 
+-    .line 21
+     .line 22
+     iget-object p0, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 23
+     .line 24
+     iget-object p1, p1, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 25
+     .line 26
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result p0
+ 
+@@ -448,114 +367,82 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-nez v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 15
+     .line 16
+     iget-object v1, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 17
+     .line 18
+     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_0
+     new-instance v0, Lcom/google/gson/Gson;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v0}, Lcom/google/gson/Gson;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 30
+     .line 31
+     iget-object v2, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 32
+     .line 33
+     const-string v3, "metadata.json"
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     iget-object p0, p0, Lcom/winemu/core/Container;->b:Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v0, p0}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+     .line 44
+     new-instance v0, Ljava/io/FileWriter;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {v0, v1}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     :try_start_0
+     invoke-virtual {v0, p0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 53
+     .line 54
+     const/4 p0, 0x0
+ 
+     .line 55
+     invoke-static {v0, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     return-void
+ 
+@@ -576,8 +463,6 @@
+     .line 62
+     invoke-static {v0, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     throw v1
+ .end method
+@@ -588,44 +473,31 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 12
+     .line 13
+     iget-object p0, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     const-string v1, "patch_version.txt"
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     :try_start_0
+     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+@@ -640,8 +512,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-void
+ 
+@@ -652,51 +522,36 @@
+     .line 31
+     new-instance p1, Ljava/io/IOException;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v0
+ 
+     .line 37
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 38
+     .line 39
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     const-string v2, "Failed to set patch version: "
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+     .line 54
+     invoke-direct {p1, v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     throw p1
+ .end method
+@@ -707,20 +562,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/winemu/core/Container;->a:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-static {p0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 

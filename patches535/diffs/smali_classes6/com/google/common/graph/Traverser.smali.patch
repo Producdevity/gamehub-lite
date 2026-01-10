@@ -1,0 +1,144 @@
+--- a/smali_classes6/com/google/common/graph/Traverser.smali
++++ b/smali_classes6/com/google/common/graph/Traverser.smali
+@@ -94,12 +94,9 @@
+     .line 1
+     new-instance v0, Lcom/google/common/graph/Traverser$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p0}, Lcom/google/common/graph/Traverser$1;-><init>(Lcom/google/common/graph/SuccessorsFunction;Lcom/google/common/graph/SuccessorsFunction;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -121,78 +118,59 @@
+     .line 1
+     instance-of v0, p0, Lcom/google/common/graph/BaseGraph;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p0
+ 
+     .line 6
+     check-cast v0, Lcom/google/common/graph/BaseGraph;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {v0}, Lcom/google/common/graph/BaseGraph;->isDirected()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     const-string v1, "Undirected graphs can never be trees."
+ 
+-    .line 13
+     .line 14
+     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     :cond_0
+     instance-of v0, p0, Lcom/google/common/graph/Network;
+ 
+-    .line 18
+     .line 19
+     if-eqz v0, :cond_1
+ 
+-    .line 20
+     .line 21
+     move-object v0, p0
+ 
+     .line 22
+     check-cast v0, Lcom/google/common/graph/Network;
+ 
+-    .line 23
+     .line 24
+     invoke-interface {v0}, Lcom/google/common/graph/Network;->isDirected()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v0
+ 
+     .line 28
+     const-string v1, "Undirected networks can never be trees."
+ 
+-    .line 29
+     .line 30
+     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     :cond_1
+     new-instance v0, Lcom/google/common/graph/Traverser$2;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v0, p0, p0}, Lcom/google/common/graph/Traverser$2;-><init>(Lcom/google/common/graph/SuccessorsFunction;Lcom/google/common/graph/SuccessorsFunction;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-object v0
+ .end method
+@@ -212,16 +190,12 @@
+     .line 1
+     invoke-static {p1}, Lcom/google/common/collect/ImmutableSet;->copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+@@ -229,32 +203,24 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     if-eqz v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     iget-object v2, p0, Lcom/google/common/graph/Traverser;->successorFunction:Lcom/google/common/graph/SuccessorsFunction;
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v2, v1}, Lcom/google/common/graph/SuccessorsFunction;->successors(Ljava/lang/Object;)Ljava/lang/Iterable;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     goto :goto_0
+ 

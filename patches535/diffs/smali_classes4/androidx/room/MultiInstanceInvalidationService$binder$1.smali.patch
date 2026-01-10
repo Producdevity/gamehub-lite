@@ -1,0 +1,517 @@
+--- a/smali_classes4/androidx/room/MultiInstanceInvalidationService$binder$1.smali
++++ b/smali_classes4/androidx/room/MultiInstanceInvalidationService$binder$1.smali
+@@ -28,12 +28,9 @@
+     .line 1
+     iput-object p1, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Landroidx/room/IMultiInstanceInvalidationService$Stub;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -46,28 +43,21 @@
+     .line 1
+     const-string v0, "tables"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     iget-object p0, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 13
+     .line 14
+     monitor-enter v0
+ 
+@@ -75,50 +65,38 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->b()Ljava/util/Map;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v1
+ 
+     .line 27
+     check-cast v1, Ljava/lang/String;
+ 
+-    .line 28
+     .line 29
+     if-nez v1, :cond_0
+ 
+-    .line 30
+     .line 31
+     const-string p0, "ROOM"
+ 
+-    .line 32
+     .line 33
+     const-string p1, "Remote invalidation client ID not registered"
+ 
+-    .line 34
+     .line 35
+     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     monitor-exit v0
+ 
+@@ -137,16 +115,12 @@
+     :try_start_1
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v2
+ 
+     .line 46
+     invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v2
+     :try_end_1
+@@ -159,74 +133,55 @@
+     :goto_0
+     if-ge v3, v2, :cond_3
+ 
+-    .line 52
+     .line 53
+     :try_start_2
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v4
+ 
+     .line 57
+     invoke-virtual {v4, v3}, Landroid/os/RemoteCallbackList;->getBroadcastCookie(I)Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v4
+ 
+     .line 61
+     const-string v5, "null cannot be cast to non-null type kotlin.Int"
+ 
+-    .line 62
+     .line 63
+     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     check-cast v4, Ljava/lang/Integer;
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v5
+ 
+     .line 72
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->b()Ljava/util/Map;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v6
+ 
+     .line 76
+     invoke-interface {v6, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v4
+ 
+     .line 80
+     check-cast v4, Ljava/lang/String;
+ 
+-    .line 81
+     .line 82
+     if-eq p1, v5, :cond_2
+ 
+-    .line 83
+     .line 84
+     invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v4
+     :try_end_2
+@@ -235,7 +190,6 @@
+     .line 88
+     if-nez v4, :cond_1
+ 
+-    .line 89
+     .line 90
+     goto :goto_1
+ 
+@@ -244,35 +198,27 @@
+     :try_start_3
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v4
+ 
+     .line 95
+     invoke-virtual {v4, v3}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object v4
+ 
+     .line 99
+     check-cast v4, Landroidx/room/IMultiInstanceInvalidationCallback;
+ 
+-    .line 100
+     .line 101
+     invoke-interface {v4, p2}, Landroidx/room/IMultiInstanceInvalidationCallback;->a([Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     sget-object v4, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_3
+     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 105
+     .line 106
+     goto :goto_1
+ 
+@@ -291,24 +237,19 @@
+     :try_start_4
+     const-string v5, "ROOM"
+ 
+-    .line 111
+     .line 112
+     const-string v6, "Error invoking a remote callback"
+ 
+-    .line 113
+     .line 114
+     invoke-static {v5, v6, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_1
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     :cond_2
+     :goto_1
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 118
+     .line 119
+     goto :goto_0
+ 
+@@ -317,16 +258,12 @@
+     :try_start_5
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p0
+ 
+     .line 124
+     invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     throw p1
+ 
+@@ -334,22 +271,17 @@
+     :cond_3
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object p0
+ 
+     .line 132
+     invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_0
+ 
+-    .line 136
+     .line 137
+     monitor-exit v0
+ 
+@@ -370,19 +302,15 @@
+     .line 1
+     const-string v0, "callback"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x0
+ 
+     .line 7
+     if-nez p2, :cond_0
+ 
+-    .line 8
+     .line 9
+     return v0
+ 
+@@ -390,19 +318,15 @@
+     :cond_0
+     iget-object v1, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v1}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     iget-object p0, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 17
+     .line 18
+     monitor-enter v1
+ 
+@@ -410,77 +334,57 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->c()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v2
+ 
+     .line 23
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p0, v2}, Landroidx/room/MultiInstanceInvalidationService;->d(I)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->c()I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v2
+ 
+     .line 32
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v3
+ 
+     .line 36
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v4
+ 
+     .line 40
+     invoke-virtual {v3, p1, v4}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result p1
+ 
+     .line 44
+     if-eqz p1, :cond_1
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->b()Ljava/util/Map;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p1
+ 
+     .line 54
+     invoke-interface {p0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move v0, v2
+ 
+@@ -498,27 +402,20 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->c()I
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result p1
+ 
+     .line 65
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {p0, p1}, Landroidx/room/MultiInstanceInvalidationService;->d(I)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->c()I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     :goto_0
+     monitor-exit v1
+@@ -540,28 +437,21 @@
+     .line 1
+     const-string v0, "callback"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     iget-object p0, p0, Landroidx/room/MultiInstanceInvalidationService$binder$1;->a:Landroidx/room/MultiInstanceInvalidationService;
+ 
+-    .line 13
+     .line 14
+     monitor-enter v0
+ 
+@@ -569,37 +459,27 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->a()Landroid/os/RemoteCallbackList;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     invoke-virtual {v1, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Landroidx/room/MultiInstanceInvalidationService;->b()Ljava/util/Map;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p1
+ 
+     .line 30
+     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -608,7 +488,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 35
+     .line 36
+     monitor-exit v0
+ 

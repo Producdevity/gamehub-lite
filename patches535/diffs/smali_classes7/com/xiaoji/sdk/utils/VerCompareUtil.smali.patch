@@ -1,0 +1,240 @@
+--- a/smali_classes7/com/xiaoji/sdk/utils/VerCompareUtil.smali
++++ b/smali_classes7/com/xiaoji/sdk/utils/VerCompareUtil.smali
+@@ -13,21 +13,16 @@
+     .line 2
+     if-eqz p0, :cond_8
+ 
+-    .line 3
+     .line 4
+     if-nez p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     goto/16 :goto_3
+ 
+-    .line 7
+     .line 8
+     :cond_0
+     invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v1
+ 
+@@ -37,7 +32,6 @@
+     .line 13
+     if-eqz v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     return v2
+ 
+@@ -45,20 +39,15 @@
+     :cond_1
+     const-string v1, "\\."
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     invoke-virtual {p1, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+@@ -71,8 +60,6 @@
+     .line 28
+     invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v1
+ 
+@@ -86,28 +73,21 @@
+     :goto_0
+     if-ge v3, v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     aget-object v4, p0, v3
+ 
+-    .line 37
+     .line 38
+     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v4
+ 
+     .line 42
+     aget-object v5, p1, v3
+ 
+-    .line 43
+     .line 44
+     invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v5
+ 
+@@ -117,11 +97,9 @@
+     .line 49
+     if-nez v4, :cond_2
+ 
+-    .line 50
+     .line 51
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 52
+     .line 53
+     goto :goto_0
+ 
+@@ -129,64 +107,45 @@
+     :cond_2
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 55
+     .line 56
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     const-string v5, "diff:"
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     const-string v5, " index:"
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v1
+ 
+     .line 79
+     const-string v5, "VerCompareUtil"
+ 
+-    .line 80
+     .line 81
+     invoke-static {v5, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     const/4 v1, 0x1
+ 
+     .line 85
+     if-nez v4, :cond_7
+ 
+-    .line 86
+     .line 87
+     move v4, v3
+ 
+@@ -197,23 +156,18 @@
+     .line 89
+     if-ge v4, v5, :cond_4
+ 
+-    .line 90
+     .line 91
+     aget-object v5, p0, v4
+ 
+-    .line 92
+     .line 93
+     invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v5
+ 
+     .line 97
+     if-lez v5, :cond_3
+ 
+-    .line 98
+     .line 99
+     return v1
+ 
+@@ -221,7 +175,6 @@
+     :cond_3
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 101
+     .line 102
+     goto :goto_1
+ 
+@@ -233,23 +186,18 @@
+     .line 104
+     if-ge v3, p0, :cond_6
+ 
+-    .line 105
+     .line 106
+     aget-object p0, p1, v3
+ 
+-    .line 107
+     .line 108
+     invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result p0
+ 
+     .line 112
+     if-lez p0, :cond_5
+ 
+-    .line 113
+     .line 114
+     return v0
+ 
+@@ -257,7 +205,6 @@
+     :cond_5
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 116
+     .line 117
+     goto :goto_2
+ 
+@@ -269,7 +216,6 @@
+     :cond_7
+     if-lez v4, :cond_8
+ 
+-    .line 120
+     .line 121
+     return v1
+ 

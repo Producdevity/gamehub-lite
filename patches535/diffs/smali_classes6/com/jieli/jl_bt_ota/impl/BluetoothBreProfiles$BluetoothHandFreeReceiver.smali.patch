@@ -1,0 +1,511 @@
+--- a/smali_classes6/com/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver.smali
++++ b/smali_classes6/com/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver.smali
+@@ -47,57 +47,42 @@
+     .line 1
+     if-eqz p2, :cond_4
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     const-string v0, "android.bluetooth.device.extra.DEVICE"
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     check-cast v0, Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 14
+     .line 15
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+     .line 19
+     if-nez v1, :cond_4
+ 
+-    .line 20
+     .line 21
+     if-eqz v0, :cond_4
+ 
+-    .line 22
+     .line 23
+     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v1
+ 
+@@ -110,8 +95,6 @@
+     .line 32
+     sparse-switch v1, :sswitch_data_0
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     :goto_0
+     move p1, v3
+@@ -123,19 +106,15 @@
+     :sswitch_0
+     const-string v1, "android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result p1
+ 
+     .line 43
+     if-nez p1, :cond_0
+ 
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -150,19 +129,15 @@
+     :sswitch_1
+     const-string v1, "android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result p1
+ 
+     .line 54
+     if-nez p1, :cond_1
+ 
+-    .line 55
+     .line 56
+     goto :goto_0
+ 
+@@ -177,19 +152,15 @@
+     :sswitch_2
+     const-string v1, "android.bluetooth.device.action.UUID"
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result p1
+ 
+     .line 65
+     if-nez p1, :cond_2
+ 
+-    .line 66
+     .line 67
+     goto :goto_0
+ 
+@@ -201,111 +172,79 @@
+     :goto_1
+     const-string v1, ", state : "
+ 
+-    .line 70
+     .line 71
+     const-string v4, "device : "
+ 
+-    .line 72
+     .line 73
+     const-string v5, "android.bluetooth.profile.extra.STATE"
+ 
+-    .line 74
+     .line 75
+     packed-switch p1, :pswitch_data_0
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     goto/16 :goto_3
+ 
+-    .line 79
+     .line 80
+     :pswitch_0
+     :try_start_0
+     invoke-virtual {p2, v5, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result p1
+ 
+     .line 84
+     iget-object p2, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 85
+     .line 86
+     iget-object p2, p2, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->a:Ljava/lang/String;
+ 
+-    .line 87
+     .line 88
+     const-string v2, "A2DP#ACTION_CONNECTION_STATE_CHANGED"
+ 
+-    .line 89
+     .line 90
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 91
+     .line 92
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     iget-object v4, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 99
+     .line 100
+     invoke-virtual {v4, v0}, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->B(Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object v4
+ 
+     .line 104
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object v1
+ 
+     .line 117
+     invoke-static {p2, v2, v1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     iget-object p0, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p0, v0, p1}, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->u(Landroid/bluetooth/BluetoothDevice;I)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     return-void
+ 
+@@ -316,99 +255,70 @@
+     .line 127
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     goto/16 :goto_3
+ 
+-    .line 131
+     .line 132
+     :pswitch_1
+     :try_start_1
+     invoke-virtual {p2, v5, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result p1
+ 
+     .line 136
+     iget-object p2, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 137
+     .line 138
+     iget-object p2, p2, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->a:Ljava/lang/String;
+ 
+-    .line 139
+     .line 140
+     const-string v2, "HFP#ACTION_CONNECTION_STATE_CHANGED"
+ 
+-    .line 141
+     .line 142
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 143
+     .line 144
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     iget-object v4, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 151
+     .line 152
+     invoke-virtual {v4, v0}, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->B(Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result-object v4
+ 
+     .line 156
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object v1
+ 
+     .line 169
+     invoke-static {p2, v2, v1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     iget-object p0, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {p0, v0, p1}, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->z(Landroid/bluetooth/BluetoothDevice;I)V
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     return-void
+ 
+@@ -419,8 +329,6 @@
+     .line 179
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     goto :goto_3
+ 
+@@ -428,40 +336,30 @@
+     :pswitch_2
+     const-string p1, "android.bluetooth.device.extra.UUID"
+ 
+-    .line 184
+     .line 185
+     invoke-virtual {p2, p1}, Landroid/content/Intent;->getParcelableArrayExtra(Ljava/lang/String;)[Landroid/os/Parcelable;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object p1
+ 
+     .line 189
+     const-string p2, "ACTION_UUID"
+ 
+-    .line 190
+     .line 191
+     if-nez p1, :cond_3
+ 
+-    .line 192
+     .line 193
+     iget-object p0, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 194
+     .line 195
+     iget-object p0, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->a:Ljava/lang/String;
+ 
+-    .line 196
+     .line 197
+     const-string p1, "No uuids."
+ 
+-    .line 198
+     .line 199
+     invoke-static {p0, p2, p1}, Lcom/jieli/jl_bt_ota/util/JL_Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     return-void
+ 
+@@ -472,7 +370,6 @@
+     .line 204
+     new-array v0, v0, [Landroid/os/ParcelUuid;
+ 
+-    .line 205
+     .line 206
+     :goto_2
+     array-length v1, p1
+@@ -480,91 +377,66 @@
+     .line 207
+     if-ge v2, v1, :cond_4
+ 
+-    .line 208
+     .line 209
+     aget-object v1, p1, v2
+ 
+-    .line 210
+     .line 211
+     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result-object v1
+ 
+     .line 215
+     invoke-static {v1}, Landroid/os/ParcelUuid;->fromString(Ljava/lang/String;)Landroid/os/ParcelUuid;
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move-result-object v1
+ 
+     .line 219
+     aput-object v1, v0, v2
+ 
+-    .line 220
+     .line 221
+     iget-object v1, p0, Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles$BluetoothHandFreeReceiver;->a:Lcom/jieli/jl_bt_ota/impl/BluetoothBreProfiles;
+ 
+-    .line 222
+     .line 223
+     iget-object v1, v1, Lcom/jieli/jl_bt_ota/impl/BluetoothBase;->a:Ljava/lang/String;
+ 
+-    .line 224
+     .line 225
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 226
+     .line 227
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     const-string v4, "uuid : "
+ 
+-    .line 231
+     .line 232
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     aget-object v4, v0, v2
+ 
+-    .line 236
+     .line 237
+     invoke-virtual {v4}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
+ 
+-    .line 238
+-    .line 239
+     .line 240
+     move-result-object v4
+ 
+     .line 241
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 245
+-    .line 246
+     .line 247
+     move-result-object v3
+ 
+     .line 248
+     invoke-static {v1, p2, v3}, Lcom/jieli/jl_bt_ota/util/JL_Log;->r(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 252
+     .line 253
+     goto :goto_2
+ 
+@@ -581,19 +453,6 @@
+         0x4a286686 -> :sswitch_0
+     .end sparse-switch
+ 
+-    .line 256
+-    .line 257
+-    .line 258
+-    .line 259
+-    .line 260
+-    .line 261
+-    .line 262
+-    .line 263
+-    .line 264
+-    .line 265
+-    .line 266
+-    .line 267
+-    .line 268
+     .line 269
+     :pswitch_data_0
+     .packed-switch 0x0

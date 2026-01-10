@@ -1,0 +1,294 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/operations/ConnectOperation.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/operations/ConnectOperation.smali
+@@ -36,36 +36,27 @@
+     .line 1
+     invoke-direct {p0}, Lcom/polidea/rxandroidble2/internal/QueueOperation;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->a:Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->b:Lcom/polidea/rxandroidble2/internal/util/BleConnectionCompat;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->c:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 9
+     .line 10
+     iput-object p4, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->d:Lcom/polidea/rxandroidble2/internal/connection/BluetoothGattProvider;
+ 
+-    .line 11
+     .line 12
+     iput-object p5, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->e:Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;
+ 
+-    .line 13
+     .line 14
+     iput-boolean p6, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->f:Z
+ 
+-    .line 15
+     .line 16
+     iput-object p7, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->g:Lcom/polidea/rxandroidble2/internal/connection/ConnectionStateChangeListener;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -78,82 +69,60 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p2}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$1;-><init>(Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;Lcom/polidea/rxandroidble2/internal/serialization/QueueReleaseInterface;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->g()Lio/reactivex/Single;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+     .line 10
+     invoke-virtual {p0}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->i()Lio/reactivex/SingleTransformer;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v2
+ 
+     .line 14
+     invoke-virtual {v1, v2}, Lio/reactivex/Single;->e(Lio/reactivex/SingleTransformer;)Lio/reactivex/Single;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     invoke-virtual {v1, v0}, Lio/reactivex/Single;->i(Lio/reactivex/functions/Action;)Lio/reactivex/Single;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     invoke-static {p1}, Lcom/polidea/rxandroidble2/internal/util/DisposableUtil;->b(Lio/reactivex/ObservableEmitter;)Lio/reactivex/observers/DisposableSingleObserver;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     invoke-virtual {v0, v1}, Lio/reactivex/Single;->E(Lio/reactivex/SingleObserver;)Lio/reactivex/SingleObserver;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     check-cast v0, Lio/reactivex/observers/DisposableSingleObserver;
+ 
+-    .line 31
+     .line 32
+     invoke-interface {p1, v0}, Lio/reactivex/ObservableEmitter;->setDisposable(Lio/reactivex/disposables/Disposable;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-boolean p0, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->f:Z
+ 
+-    .line 36
+     .line 37
+     if-eqz p0, :cond_0
+ 
+-    .line 38
+     .line 39
+     invoke-interface {p2}, Lcom/polidea/rxandroidble2/internal/serialization/QueueReleaseInterface;->release()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :cond_0
+     return-void
+@@ -165,16 +134,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/exceptions/BleDisconnectedException;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->a:Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -184,8 +149,6 @@
+     .line 10
+     invoke-direct {v0, p1, p0, v1}, Lcom/polidea/rxandroidble2/exceptions/BleDisconnectedException;-><init>(Ljava/lang/Throwable;Ljava/lang/String;I)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-object v0
+ .end method
+@@ -196,17 +159,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$5;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$5;-><init>(Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lio/reactivex/Single;->s(Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -220,17 +178,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$4;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$4;-><init>(Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lio/reactivex/Single;->f(Lio/reactivex/SingleOnSubscribe;)Lio/reactivex/Single;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -244,17 +197,12 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$3;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$3;-><init>(Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {v0}, Lio/reactivex/Single;->s(Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -268,12 +216,9 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$2;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation$2;-><init>(Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -284,78 +229,54 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "ConnectOperation{"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->a:Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     invoke-static {v1}, Lcom/polidea/rxandroidble2/internal/logger/LoggerUtil;->d(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     const-string v1, ", autoConnect="
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-boolean p0, p0, Lcom/polidea/rxandroidble2/internal/operations/ConnectOperation;->f:Z
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const/16 p0, 0x7d
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 

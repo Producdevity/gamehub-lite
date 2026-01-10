@@ -1,0 +1,1759 @@
+--- a/smali_classes5/com/bumptech/glide/load/resource/bitmap/TransformationUtils.smali
++++ b/smali_classes5/com/bumptech/glide/load/resource/bitmap/TransformationUtils.smali
+@@ -45,205 +45,153 @@
+     .line 1
+     new-instance v0, Landroid/graphics/Paint;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x6
+ 
+     .line 4
+     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->DEFAULT_PAINT:Landroid/graphics/Paint;
+ 
+-    .line 8
+     .line 9
+     new-instance v0, Landroid/graphics/Paint;
+ 
+-    .line 10
+     .line 11
+     const/4 v1, 0x7
+ 
+     .line 12
+     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->CIRCLE_CROP_SHAPE_PAINT:Landroid/graphics/Paint;
+ 
+-    .line 16
+     .line 17
+     new-instance v0, Ljava/util/HashSet;
+ 
+-    .line 18
+     .line 19
+     const-string v29, "XT1078"
+ 
+-    .line 20
+     .line 21
+     const-string v30, "XT1079"
+ 
+-    .line 22
+     .line 23
+     const-string v2, "XT1085"
+ 
+-    .line 24
+     .line 25
+     const-string v3, "XT1092"
+ 
+-    .line 26
+     .line 27
+     const-string v4, "XT1093"
+ 
+-    .line 28
+     .line 29
+     const-string v5, "XT1094"
+ 
+-    .line 30
+     .line 31
+     const-string v6, "XT1095"
+ 
+-    .line 32
+     .line 33
+     const-string v7, "XT1096"
+ 
+-    .line 34
+     .line 35
+     const-string v8, "XT1097"
+ 
+-    .line 36
+     .line 37
+     const-string v9, "XT1098"
+ 
+-    .line 38
+     .line 39
+     const-string v10, "XT1031"
+ 
+-    .line 40
+     .line 41
+     const-string v11, "XT1028"
+ 
+-    .line 42
+     .line 43
+     const-string v12, "XT937C"
+ 
+-    .line 44
+     .line 45
+     const-string v13, "XT1032"
+ 
+-    .line 46
+     .line 47
+     const-string v14, "XT1008"
+ 
+-    .line 48
+     .line 49
+     const-string v15, "XT1033"
+ 
+-    .line 50
+     .line 51
+     const-string v16, "XT1035"
+ 
+-    .line 52
+     .line 53
+     const-string v17, "XT1034"
+ 
+-    .line 54
+     .line 55
+     const-string v18, "XT939G"
+ 
+-    .line 56
+     .line 57
+     const-string v19, "XT1039"
+ 
+-    .line 58
+     .line 59
+     const-string v20, "XT1040"
+ 
+-    .line 60
+     .line 61
+     const-string v21, "XT1042"
+ 
+-    .line 62
+     .line 63
+     const-string v22, "XT1045"
+ 
+-    .line 64
+     .line 65
+     const-string v23, "XT1063"
+ 
+-    .line 66
+     .line 67
+     const-string v24, "XT1064"
+ 
+-    .line 68
+     .line 69
+     const-string v25, "XT1068"
+ 
+-    .line 70
+     .line 71
+     const-string v26, "XT1069"
+ 
+-    .line 72
+     .line 73
+     const-string v27, "XT1072"
+ 
+-    .line 74
+     .line 75
+     const-string v28, "XT1077"
+ 
+-    .line 76
+     .line 77
+     filled-new-array/range {v2 .. v30}, [Ljava/lang/String;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v2
+ 
+     .line 81
+     invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v2
+ 
+     .line 85
+     invoke-direct {v0, v2}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->MODELS_REQUIRING_BITMAP_LOCK:Ljava/util/Set;
+ 
+-    .line 89
+     .line 90
+     sget-object v2, Landroid/os/Build;->MODEL:Ljava/lang/String;
+ 
+-    .line 91
+     .line 92
+     invoke-interface {v0, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v0
+ 
+     .line 96
+     if-eqz v0, :cond_0
+ 
+-    .line 97
+     .line 98
+     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
+ 
+-    .line 99
+     .line 100
+     invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     goto :goto_0
+ 
+@@ -251,48 +199,34 @@
+     :cond_0
+     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils$NoLock;
+ 
+-    .line 105
+     .line 106
+     invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils$NoLock;-><init>()V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     :goto_0
+     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->BITMAP_DRAWABLE_LOCK:Ljava/util/concurrent/locks/Lock;
+ 
+-    .line 110
+     .line 111
+     new-instance v0, Landroid/graphics/Paint;
+ 
+-    .line 112
+     .line 113
+     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->CIRCLE_CROP_BITMAP_PAINT:Landroid/graphics/Paint;
+ 
+-    .line 117
+     .line 118
+     new-instance v1, Landroid/graphics/PorterDuffXfermode;
+ 
+-    .line 119
+     .line 120
+     sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+ 
+-    .line 121
+     .line 122
+     invoke-direct {v1, v2}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     return-void
+ .end method
+@@ -303,8 +237,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -323,43 +255,30 @@
+     .line 1
+     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->BITMAP_DRAWABLE_LOCK:Ljava/util/concurrent/locks/Lock;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     new-instance v1, Landroid/graphics/Canvas;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, p1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->DEFAULT_PAINT:Landroid/graphics/Paint;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1, p0, p2, p1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {v1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->clear(Landroid/graphics/Canvas;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ 
+@@ -370,12 +289,9 @@
+     .line 24
+     sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->BITMAP_DRAWABLE_LOCK:Ljava/util/concurrent/locks/Lock;
+ 
+-    .line 25
+     .line 26
+     invoke-interface {p1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     throw p0
+ .end method
+@@ -394,27 +310,21 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-ne v0, p2, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-ne v0, p3, :cond_0
+ 
+-    .line 12
+     .line 13
+     return-object p1
+ 
+@@ -422,17 +332,12 @@
+     :cond_0
+     new-instance v0, Landroid/graphics/Matrix;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v1
+ 
+@@ -442,8 +347,6 @@
+     .line 24
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v2
+ 
+@@ -456,19 +359,15 @@
+     .line 30
+     const/high16 v4, 0x3f000000    # 0.5f
+ 
+-    .line 31
+     .line 32
+     if-le v1, v2, :cond_1
+ 
+-    .line 33
+     .line 34
+     int-to-float v1, p3
+ 
+     .line 35
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v2
+ 
+@@ -484,8 +383,6 @@
+     .line 42
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v5
+ 
+@@ -520,8 +417,6 @@
+     .line 55
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v2
+ 
+@@ -537,8 +432,6 @@
+     .line 62
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v5
+ 
+@@ -558,8 +451,6 @@
+     :goto_0
+     invoke-virtual {v0, v1, v1}, Landroid/graphics/Matrix;->setScale(FF)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     add-float/2addr v3, v4
+ 
+@@ -581,34 +472,24 @@
+     .line 79
+     invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getNonNullConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v1
+ 
+     .line 86
+     invoke-interface {p0, p2, p3, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p0
+ 
+     .line 90
+     invoke-static {p1, p0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->setAlpha(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     invoke-static {p1, p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->applyMatrix(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Matrix;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     return-object p0
+ .end method
+@@ -627,8 +508,6 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -638,44 +517,33 @@
+     .line 6
+     const-string v2, "TransformationUtils"
+ 
+-    .line 7
+     .line 8
+     if-gt v0, p2, :cond_1
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-gt v0, p3, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p0
+ 
+     .line 20
+     if-eqz p0, :cond_0
+ 
+-    .line 21
+     .line 22
+     const-string p0, "requested target size larger or equal to input, returning input"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_0
+     return-object p1
+@@ -684,30 +552,22 @@
+     :cond_1
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+     .line 32
+     if-eqz v0, :cond_2
+ 
+-    .line 33
+     .line 34
+     const-string v0, "requested target size too big for input, fit centering instead"
+ 
+-    .line 35
+     .line 36
+     invoke-static {v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :cond_2
+     invoke-static {p0, p1, p2, p3}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->fitCenter(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+@@ -729,8 +589,6 @@
+     .line 1
+     invoke-static {p2, p3}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p2
+ 
+@@ -740,24 +598,18 @@
+     .line 6
+     const/high16 v0, 0x40000000    # 2.0f
+ 
+-    .line 7
+     .line 8
+     div-float v1, p3, v0
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v2
+ 
+     .line 14
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v3
+ 
+@@ -767,19 +619,15 @@
+     .line 19
+     div-float v4, p3, v2
+ 
+-    .line 20
+     .line 21
+     int-to-float v3, v3
+ 
+     .line 22
+     div-float v5, p3, v3
+ 
+-    .line 23
+     .line 24
+     invoke-static {v4, v5}, Ljava/lang/Math;->max(FF)F
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v4
+ 
+@@ -792,7 +640,6 @@
+     .line 30
+     sub-float v3, p3, v2
+ 
+-    .line 31
+     .line 32
+     div-float/2addr v3, v0
+ 
+@@ -805,7 +652,6 @@
+     .line 35
+     new-instance v0, Landroid/graphics/RectF;
+ 
+-    .line 36
+     .line 37
+     add-float/2addr v2, v3
+ 
+@@ -815,29 +661,21 @@
+     .line 39
+     invoke-direct {v0, v3, p3, v2, v4}, Landroid/graphics/RectF;-><init>(FFFF)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-static {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getAlphaSafeBitmap(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p3
+ 
+     .line 46
+     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getAlphaSafeConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v2
+ 
+     .line 50
+     invoke-interface {p0, p2, p2, v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p2
+ 
+@@ -847,77 +685,54 @@
+     .line 55
+     invoke-virtual {p2, v2}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->BITMAP_DRAWABLE_LOCK:Ljava/util/concurrent/locks/Lock;
+ 
+-    .line 59
+     .line 60
+     invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->lock()V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     :try_start_0
+     new-instance v3, Landroid/graphics/Canvas;
+ 
+-    .line 64
+     .line 65
+     invoke-direct {v3, p2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     sget-object v4, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->CIRCLE_CROP_SHAPE_PAINT:Landroid/graphics/Paint;
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v3, v1, v1, v1, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->CIRCLE_CROP_BITMAP_PAINT:Landroid/graphics/Paint;
+ 
+-    .line 74
+     .line 75
+     const/4 v4, 0x0
+ 
+     .line 76
+     invoke-virtual {v3, p3, v4, v0, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-static {v3}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->clear(Landroid/graphics/Canvas;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-virtual {p3, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result p1
+ 
+     .line 89
+     if-nez p1, :cond_0
+ 
+-    .line 90
+     .line 91
+     invoke-interface {p0, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     :cond_0
+     return-object p2
+@@ -929,12 +744,9 @@
+     .line 96
+     sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->BITMAP_DRAWABLE_LOCK:Ljava/util/concurrent/locks/Lock;
+ 
+-    .line 97
+     .line 98
+     invoke-interface {p1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     throw p0
+ .end method
+@@ -948,8 +760,6 @@
+     .line 2
+     invoke-virtual {p0, v0}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -968,8 +778,6 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -979,44 +787,33 @@
+     .line 6
+     const-string v2, "TransformationUtils"
+ 
+-    .line 7
+     .line 8
+     if-ne v0, p2, :cond_0
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-ne v0, p3, :cond_0
+ 
+-    .line 15
+     .line 16
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p0
+ 
+     .line 20
+     if-eqz p0, :cond_1
+ 
+-    .line 21
+     .line 22
+     const-string p0, "requested target size matches input, returning input"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-object p1
+ 
+@@ -1027,8 +824,6 @@
+     .line 29
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v3
+ 
+@@ -1044,8 +839,6 @@
+     .line 36
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v4
+ 
+@@ -1058,16 +851,12 @@
+     .line 42
+     invoke-static {v0, v3}, Ljava/lang/Math;->min(FF)F
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v0
+ 
+     .line 46
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v3
+ 
+@@ -1080,16 +869,12 @@
+     .line 52
+     invoke-static {v3}, Ljava/lang/Math;->round(F)I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v3
+ 
+     .line 56
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v4
+ 
+@@ -1102,56 +887,42 @@
+     .line 62
+     invoke-static {v4}, Ljava/lang/Math;->round(F)I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v4
+ 
+     .line 66
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v5
+ 
+     .line 70
+     if-ne v5, v3, :cond_2
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v3
+ 
+     .line 76
+     if-ne v3, v4, :cond_2
+ 
+-    .line 77
+     .line 78
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result p0
+ 
+     .line 82
+     if-eqz p0, :cond_1
+ 
+-    .line 83
+     .line 84
+     const-string p0, "adjusted target size matches input, returning input"
+ 
+-    .line 85
+     .line 86
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     :cond_1
+     return-object p1
+@@ -1160,8 +931,6 @@
+     :cond_2
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result v3
+ 
+@@ -1177,8 +946,6 @@
+     .line 97
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result v4
+ 
+@@ -1194,266 +961,181 @@
+     .line 104
+     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getNonNullConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object v5
+ 
+     .line 108
+     invoke-interface {p0, v3, v4, v5}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object p0
+ 
+     .line 112
+     invoke-static {p1, p0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->setAlpha(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result v1
+ 
+     .line 119
+     if-eqz v1, :cond_3
+ 
+-    .line 120
+     .line 121
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 122
+     .line 123
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     const-string v3, "request: "
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     const-string p2, "x"
+ 
+-    .line 135
+     .line 136
+     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object p3
+ 
+     .line 146
+     invoke-static {v2, p3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     new-instance p3, Ljava/lang/StringBuilder;
+ 
+-    .line 150
+     .line 151
+     invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     const-string v1, "toFit:   "
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result v1
+ 
+     .line 163
+     invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result v1
+ 
+     .line 173
+     invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object p3
+ 
+     .line 180
+     invoke-static {v2, p3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     new-instance p3, Ljava/lang/StringBuilder;
+ 
+-    .line 184
+     .line 185
+     invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     const-string v1, "toReuse: "
+ 
+-    .line 189
+     .line 190
+     invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result v1
+ 
+     .line 197
+     invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result p2
+ 
+     .line 207
+     invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     move-result-object p2
+ 
+     .line 214
+     invoke-static {v2, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 218
+     .line 219
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     const-string p3, "minPct:   "
+ 
+-    .line 223
+     .line 224
+     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     move-result-object p2
+ 
+     .line 234
+     invoke-static {v2, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 235
+-    .line 236
+     .line 237
+     :cond_3
+     new-instance p2, Landroid/graphics/Matrix;
+ 
+-    .line 238
+     .line 239
+     invoke-direct {p2}, Landroid/graphics/Matrix;-><init>()V
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     invoke-virtual {p2, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     invoke-static {p1, p0, p2}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->applyMatrix(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Matrix;)V
+ 
+-    .line 246
+-    .line 247
+     .line 248
+     return-object p0
+ .end method
+@@ -1472,31 +1154,24 @@
+     .line 1
+     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getAlphaSafeConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     if-eqz v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     return-object p1
+ 
+@@ -1504,36 +1179,27 @@
+     :cond_0
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v2
+ 
+     .line 24
+     invoke-interface {p0, v1, v2, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     new-instance v0, Landroid/graphics/Canvas;
+ 
+-    .line 29
+     .line 30
+     invoke-direct {v0, p0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     const/4 v1, 0x0
+ 
+@@ -1543,8 +1209,6 @@
+     .line 35
+     invoke-virtual {v0, p1, v2, v2, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-object p0
+ .end method
+@@ -1561,27 +1225,21 @@
+     .line 1
+     sget-object v0, Landroid/graphics/Bitmap$Config;->RGBA_F16:Landroid/graphics/Bitmap$Config;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-virtual {v0, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-eqz p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     return-object v0
+ 
+@@ -1589,7 +1247,6 @@
+     :cond_0
+     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ .end method
+@@ -1600,7 +1257,6 @@
+     .line 1
+     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->BITMAP_DRAWABLE_LOCK:Ljava/util/concurrent/locks/Lock;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -1611,8 +1267,6 @@
+     .line 1
+     packed-switch p0, :pswitch_data_0
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 p0, 0x0
+ 
+@@ -1623,7 +1277,6 @@
+     :pswitch_0
+     const/16 p0, 0x10e
+ 
+-    .line 7
+     .line 8
+     return p0
+ 
+@@ -1631,7 +1284,6 @@
+     :pswitch_1
+     const/16 p0, 0x5a
+ 
+-    .line 10
+     .line 11
+     return p0
+ 
+@@ -1639,7 +1291,6 @@
+     :pswitch_2
+     const/16 p0, 0xb4
+ 
+-    .line 13
+     .line 14
+     return p0
+ 
+@@ -1667,20 +1318,15 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -1691,7 +1337,6 @@
+     :cond_0
+     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method
+@@ -1704,28 +1349,21 @@
+     .line 1
+     const/high16 v0, 0x43340000    # 180.0f
+ 
+-    .line 2
+     .line 3
+     const/high16 v1, 0x42b40000    # 90.0f
+ 
+-    .line 4
+     .line 5
+     const/high16 v2, -0x3d4c0000    # -90.0f
+ 
+-    .line 6
+     .line 7
+     const/high16 v3, 0x3f800000    # 1.0f
+ 
+-    .line 8
+     .line 9
+     const/high16 v4, -0x40800000    # -1.0f
+ 
+-    .line 10
+     .line 11
+     packed-switch p0, :pswitch_data_0
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1733,8 +1371,6 @@
+     :pswitch_0
+     invoke-virtual {p1, v2}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ 
+@@ -1742,13 +1378,9 @@
+     :pswitch_1
+     invoke-virtual {p1, v2}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ 
+@@ -1756,8 +1388,6 @@
+     :pswitch_2
+     invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-void
+ 
+@@ -1765,13 +1395,9 @@
+     :pswitch_3
+     invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-void
+ 
+@@ -1779,13 +1405,9 @@
+     :pswitch_4
+     invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ 
+@@ -1793,8 +1415,6 @@
+     :pswitch_5
+     invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return-void
+ 
+@@ -1802,12 +1422,9 @@
+     :pswitch_6
+     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->setScale(FF)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     return-void
+ 
+-    .line 52
+     nop
+ 
+     .line 53
+@@ -1829,8 +1446,6 @@
+     .line 1
+     packed-switch p0, :pswitch_data_0
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 p0, 0x0
+ 
+@@ -1844,7 +1459,6 @@
+     .line 7
+     return p0
+ 
+-    .line 8
+     nop
+ 
+     .line 9
+@@ -1870,38 +1484,28 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     new-instance v6, Landroid/graphics/Matrix;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v6}, Landroid/graphics/Matrix;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     int-to-float p1, p1
+ 
+     .line 9
+     invoke-virtual {v6, p1}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v4
+ 
+     .line 16
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v5
+     :try_end_0
+@@ -1923,8 +1527,6 @@
+     :try_start_1
+     invoke-static/range {v1 .. v7}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+     :try_end_1
+@@ -1961,28 +1563,21 @@
+     .line 36
+     const-string v0, "TransformationUtils"
+ 
+-    .line 37
+     .line 38
+     invoke-static {v0, p1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p1
+ 
+     .line 42
+     if-eqz p1, :cond_1
+ 
+-    .line 43
+     .line 44
+     const-string p1, "Exception when trying to orient image"
+ 
+-    .line 45
+     .line 46
+     invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     goto :goto_2
+ 
+@@ -2010,15 +1605,12 @@
+     .line 1
+     invoke-static {p2}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->isExifOrientationRequired(I)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-object p1
+ 
+@@ -2026,26 +1618,18 @@
+     :cond_0
+     new-instance v0, Landroid/graphics/Matrix;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-static {p2, v0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->initializeMatrixForRotation(ILandroid/graphics/Matrix;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     new-instance p2, Landroid/graphics/RectF;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v1
+ 
+@@ -2055,8 +1639,6 @@
+     .line 23
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v2
+ 
+@@ -2069,98 +1651,72 @@
+     .line 29
+     invoke-direct {p2, v3, v3, v1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v0, p2}, Landroid/graphics/Matrix;->mapRect(Landroid/graphics/RectF;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {p2}, Landroid/graphics/RectF;->width()F
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v1
+ 
+     .line 39
+     invoke-static {v1}, Ljava/lang/Math;->round(F)I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v1
+ 
+     .line 43
+     invoke-virtual {p2}, Landroid/graphics/RectF;->height()F
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v2
+ 
+     .line 47
+     invoke-static {v2}, Ljava/lang/Math;->round(F)I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v2
+ 
+     .line 51
+     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getNonNullConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v3
+ 
+     .line 55
+     invoke-interface {p0, v1, v2, v3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p0
+ 
+     .line 59
+     iget v1, p2, Landroid/graphics/RectF;->left:F
+ 
+-    .line 60
+     .line 61
+     neg-float v1, v1
+ 
+     .line 62
+     iget p2, p2, Landroid/graphics/RectF;->top:F
+ 
+-    .line 63
+     .line 64
+     neg-float p2, p2
+ 
+     .line 65
+     invoke-virtual {v0, v1, p2}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {p1}, Landroid/graphics/Bitmap;->hasAlpha()Z
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result p2
+ 
+     .line 72
+     invoke-virtual {p0, p2}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-static {p1, p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->applyMatrix(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Matrix;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     return-object p0
+ .end method
+@@ -2383,16 +1939,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/graphics/Bitmap;->hasAlpha()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-virtual {p1, p0}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method

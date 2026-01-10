@@ -1,0 +1,1425 @@
+--- a/smali_classes5/com/blankj/utilcode/util/NetworkUtils.smali
++++ b/smali_classes5/com/blankj/utilcode/util/NetworkUtils.smali
+@@ -29,16 +29,12 @@
+     .line 1
+     new-instance v0, Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/blankj/utilcode/util/NetworkUtils;->a:Ljava/util/Set;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -49,7 +45,6 @@
+     .line 1
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils;->a:Ljava/util/Set;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -60,8 +55,6 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->x()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -72,7 +65,6 @@
+     .line 1
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils;->c:Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -83,7 +75,6 @@
+     .line 1
+     sput-object p0, Lcom/blankj/utilcode/util/NetworkUtils;->c:Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -94,8 +85,6 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->y()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -106,8 +95,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/blankj/utilcode/util/NetworkUtils;->v(Ljava/util/List;Ljava/util/List;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -121,8 +108,6 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->z()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -133,31 +118,24 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     const-string v1, "connectivity"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     check-cast v0, Landroid/net/ConnectivityManager;
+ 
+-    .line 12
+     .line 13
+     if-nez v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+@@ -168,8 +146,6 @@
+     :cond_0
+     invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+@@ -184,16 +160,12 @@
+     :try_start_0
+     invoke-static {p0}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+     :try_end_0
+@@ -209,12 +181,9 @@
+     .line 11
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const-string p0, ""
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ .end method
+@@ -226,70 +195,53 @@
+     :try_start_0
+     invoke-static {}, Ljava/net/NetworkInterface;->getNetworkInterfaces()Ljava/util/Enumeration;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     new-instance v1, Ljava/util/LinkedList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v2
+ 
+     .line 14
+     if-eqz v2, :cond_2
+ 
+-    .line 15
+     .line 16
+     invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v2
+ 
+     .line 20
+     check-cast v2, Ljava/net/NetworkInterface;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v2}, Ljava/net/NetworkInterface;->isUp()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v3
+ 
+     .line 26
+     if-eqz v3, :cond_0
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v2}, Ljava/net/NetworkInterface;->isLoopback()Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v3
+ 
+     .line 32
+     if-eqz v3, :cond_1
+ 
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -297,8 +249,6 @@
+     :cond_1
+     invoke-virtual {v2}, Ljava/net/NetworkInterface;->getInetAddresses()Ljava/util/Enumeration;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v2
+ 
+@@ -306,32 +256,24 @@
+     :goto_1
+     invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v3
+ 
+     .line 43
+     if-eqz v3, :cond_0
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v3
+ 
+     .line 49
+     check-cast v3, Ljava/net/InetAddress;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v1, v3}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     goto :goto_1
+ 
+@@ -339,8 +281,6 @@
+     :cond_2
+     invoke-virtual {v1}, Ljava/util/AbstractCollection;->iterator()Ljava/util/Iterator;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+@@ -348,56 +288,42 @@
+     :cond_3
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v1
+ 
+     .line 63
+     if-eqz v1, :cond_7
+ 
+-    .line 64
+     .line 65
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v1
+ 
+     .line 69
+     check-cast v1, Ljava/net/InetAddress;
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v1}, Ljava/net/InetAddress;->isLoopbackAddress()Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v2
+ 
+     .line 75
+     if-nez v2, :cond_3
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {v1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v1
+ 
+     .line 81
+     const/16 v2, 0x3a
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(I)I
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v2
+ 
+@@ -407,7 +333,6 @@
+     .line 88
+     if-gez v2, :cond_4
+ 
+-    .line 89
+     .line 90
+     const/4 v2, 0x1
+ 
+@@ -422,11 +347,9 @@
+     :goto_2
+     if-eqz p0, :cond_5
+ 
+-    .line 94
+     .line 95
+     if-eqz v2, :cond_3
+ 
+-    .line 96
+     .line 97
+     return-object v1
+ 
+@@ -434,28 +357,21 @@
+     :cond_5
+     if-nez v2, :cond_3
+ 
+-    .line 99
+     .line 100
+     const/16 p0, 0x25
+ 
+-    .line 101
+     .line 102
+     invoke-virtual {v1, p0}, Ljava/lang/String;->indexOf(I)I
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result p0
+ 
+     .line 106
+     if-gez p0, :cond_6
+ 
+-    .line 107
+     .line 108
+     invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object p0
+ 
+@@ -466,16 +382,12 @@
+     :cond_6
+     invoke-virtual {v1, v3, p0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object p0
+ 
+     .line 117
+     invoke-virtual {p0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p0
+     :try_end_0
+@@ -491,13 +403,10 @@
+     .line 123
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     :cond_7
+     const-string p0, ""
+ 
+-    .line 127
+     .line 128
+     return-object p0
+ .end method
+@@ -508,19 +417,15 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->s()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_ETHERNET:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 8
+     .line 9
+     return-object v0
+ 
+@@ -528,32 +433,24 @@
+     :cond_0
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->h()Landroid/net/NetworkInfo;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     if-eqz v0, :cond_5
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-eqz v1, :cond_5
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+@@ -563,11 +460,9 @@
+     .line 27
+     if-ne v1, v2, :cond_1
+ 
+-    .line 28
+     .line 29
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_WIFI:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 30
+     .line 31
+     return-object v0
+ 
+@@ -575,85 +470,64 @@
+     :cond_1
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v1
+ 
+     .line 36
+     if-nez v1, :cond_4
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getSubtype()I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v1
+ 
+     .line 42
+     packed-switch v1, :pswitch_data_0
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     :pswitch_0
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getSubtypeName()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     const-string v1, "TD-SCDMA"
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v1
+ 
+     .line 55
+     if-nez v1, :cond_3
+ 
+-    .line 56
+     .line 57
+     const-string v1, "WCDMA"
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v1
+ 
+     .line 63
+     if-nez v1, :cond_3
+ 
+-    .line 64
+     .line 65
+     const-string v1, "CDMA2000"
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v0
+ 
+     .line 71
+     if-eqz v0, :cond_2
+ 
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -661,7 +535,6 @@
+     :cond_2
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_UNKNOWN:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 75
+     .line 76
+     return-object v0
+ 
+@@ -670,7 +543,6 @@
+     :goto_0
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_3G:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 78
+     .line 79
+     return-object v0
+ 
+@@ -678,7 +550,6 @@
+     :pswitch_1
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_5G:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 81
+     .line 82
+     return-object v0
+ 
+@@ -686,7 +557,6 @@
+     :pswitch_2
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_4G:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 84
+     .line 85
+     return-object v0
+ 
+@@ -694,7 +564,6 @@
+     :pswitch_3
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_3G:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 87
+     .line 88
+     return-object v0
+ 
+@@ -702,7 +571,6 @@
+     :pswitch_4
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_2G:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 90
+     .line 91
+     return-object v0
+ 
+@@ -710,7 +578,6 @@
+     :cond_4
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_UNKNOWN:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 93
+     .line 94
+     return-object v0
+ 
+@@ -718,11 +585,9 @@
+     :cond_5
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;->NETWORK_NO:Lcom/blankj/utilcode/util/NetworkUtils$NetworkType;
+ 
+-    .line 96
+     .line 97
+     return-object v0
+ 
+-    .line 98
+     nop
+ 
+     .line 99
+@@ -757,31 +622,24 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     const-string v1, "wifi"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     check-cast v0, Landroid/net/wifi/WifiManager;
+ 
+-    .line 12
+     .line 13
+     if-nez v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+@@ -792,8 +650,6 @@
+     :cond_0
+     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+@@ -807,24 +663,18 @@
+     .line 1
+     new-instance v0, Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->l()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-nez v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -832,44 +682,33 @@
+     :cond_0
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     const-string v2, "wifi"
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v1
+ 
+     .line 23
+     check-cast v1, Landroid/net/wifi/WifiManager;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     if-eqz v1, :cond_1
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;->c(Ljava/util/List;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_1
+     :goto_0
+@@ -882,30 +721,24 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->o()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x0
+ 
+     .line 8
+     invoke-static {v0}, Lcom/blankj/utilcode/util/NetworkUtils;->q(Ljava/lang/String;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-eqz v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -931,12 +764,9 @@
+     .line 1
+     const-string v0, ""
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lcom/blankj/utilcode/util/NetworkUtils;->p(Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -950,19 +780,15 @@
+     .line 1
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const-string p0, "www.baidu.com"
+ 
+-    .line 8
+     .line 9
+     :cond_0
+     const/4 v0, 0x0
+@@ -971,8 +797,6 @@
+     :try_start_0
+     invoke-static {p0}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+     :try_end_0
+@@ -981,7 +805,6 @@
+     .line 14
+     if-eqz p0, :cond_1
+ 
+-    .line 15
+     .line 16
+     const/4 p0, 0x1
+ 
+@@ -999,8 +822,6 @@
+     .line 20
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return v0
+ .end method
+@@ -1011,37 +832,28 @@
+     .line 1
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const-string p0, "223.5.5.5"
+ 
+-    .line 8
+     .line 9
+     :cond_0
+     const-string v0, "ping -c 1 %s"
+ 
+-    .line 10
+     .line 11
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-static {v0, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -1051,19 +863,15 @@
+     .line 20
+     invoke-static {p0, v0}, Lcom/blankj/utilcode/util/ShellUtils;->a(Ljava/lang/String;Z)Lcom/blankj/utilcode/util/ShellUtils$CommandResult;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     iget p0, p0, Lcom/blankj/utilcode/util/ShellUtils$CommandResult;->a:I
+ 
+-    .line 25
+     .line 26
+     if-nez p0, :cond_1
+ 
+-    .line 27
+     .line 28
+     const/4 p0, 0x1
+ 
+@@ -1081,27 +889,21 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->h()Landroid/net/NetworkInfo;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x1
+ 
+@@ -1124,16 +926,12 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils$NetworkChangedReceiver;->a()Lcom/blankj/utilcode/util/NetworkUtils$NetworkChangedReceiver;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p0}, Lcom/blankj/utilcode/util/NetworkUtils$NetworkChangedReceiver;->registerListener(Lcom/blankj/utilcode/util/NetworkUtils$OnNetworkStatusChangedListener;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -1144,34 +942,27 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     const-string v1, "connectivity"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     check-cast v0, Landroid/net/ConnectivityManager;
+ 
+-    .line 12
+     .line 13
+     const/4 v1, 0x0
+ 
+     .line 14
+     if-nez v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     return v1
+ 
+@@ -1179,19 +970,15 @@
+     :cond_0
+     const/16 v2, 0x9
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v0, v2}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     if-nez v0, :cond_1
+ 
+-    .line 24
+     .line 25
+     return v1
+ 
+@@ -1199,15 +986,12 @@
+     :cond_1
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     if-nez v0, :cond_2
+ 
+-    .line 31
+     .line 32
+     return v1
+ 
+@@ -1215,19 +999,15 @@
+     :cond_2
+     sget-object v2, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
+ 
+-    .line 34
+     .line 35
+     if-eq v0, v2, :cond_4
+ 
+-    .line 36
+     .line 37
+     sget-object v2, Landroid/net/NetworkInfo$State;->CONNECTING:Landroid/net/NetworkInfo$State;
+ 
+-    .line 38
+     .line 39
+     if-ne v0, v2, :cond_3
+ 
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -1250,39 +1030,30 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->h()Landroid/net/NetworkInfo;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+     .line 11
+     if-eqz v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-nez v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     const/4 v0, 0x1
+ 
+@@ -1303,83 +1074,63 @@
+     .line 1
+     if-eqz p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     if-eqz p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     iget-object v1, p1, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0, v1}, Lcom/blankj/utilcode/util/UtilsBridge;->h(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     iget-object v0, p0, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
+ 
+-    .line 16
+     .line 17
+     iget-object v1, p1, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
+ 
+-    .line 18
+     .line 19
+     invoke-static {v0, v1}, Lcom/blankj/utilcode/util/UtilsBridge;->h(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     if-eqz v0, :cond_0
+ 
+-    .line 24
+     .line 25
+     iget-object v0, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     iget-object v1, p1, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+ 
+-    .line 28
+     .line 29
+     invoke-static {v0, v1}, Lcom/blankj/utilcode/util/UtilsBridge;->h(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v0
+ 
+     .line 33
+     if-eqz v0, :cond_0
+ 
+-    .line 34
+     .line 35
+     iget p0, p0, Landroid/net/wifi/ScanResult;->level:I
+ 
+-    .line 36
+     .line 37
+     iget p1, p1, Landroid/net/wifi/ScanResult;->level:I
+ 
+-    .line 38
+     .line 39
+     if-ne p0, p1, :cond_0
+ 
+-    .line 40
+     .line 41
+     const/4 p0, 0x1
+ 
+@@ -1400,16 +1151,12 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils$NetworkChangedReceiver;->a()Lcom/blankj/utilcode/util/NetworkUtils$NetworkChangedReceiver;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p0}, Lcom/blankj/utilcode/util/NetworkUtils$NetworkChangedReceiver;->unregisterListener(Lcom/blankj/utilcode/util/NetworkUtils$OnNetworkStatusChangedListener;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -1423,11 +1170,9 @@
+     .line 2
+     if-nez p0, :cond_0
+ 
+-    .line 3
+     .line 4
+     if-nez p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v0
+ 
+@@ -1438,11 +1183,9 @@
+     .line 8
+     if-eqz p0, :cond_5
+ 
+-    .line 9
+     .line 10
+     if-nez p1, :cond_1
+ 
+-    .line 11
+     .line 12
+     goto :goto_1
+ 
+@@ -1450,23 +1193,18 @@
+     :cond_1
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     invoke-interface {p1}, Ljava/util/List;->size()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v3
+ 
+     .line 21
+     if-eq v2, v3, :cond_2
+ 
+-    .line 22
+     .line 23
+     return v1
+ 
+@@ -1478,51 +1216,39 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v3
+ 
+     .line 29
+     if-ge v2, v3, :cond_4
+ 
+-    .line 30
+     .line 31
+     invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v3
+ 
+     .line 35
+     check-cast v3, Landroid/net/wifi/ScanResult;
+ 
+-    .line 36
+     .line 37
+     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v4
+ 
+     .line 41
+     check-cast v4, Landroid/net/wifi/ScanResult;
+ 
+-    .line 42
+     .line 43
+     invoke-static {v3, v4}, Lcom/blankj/utilcode/util/NetworkUtils;->u(Landroid/net/wifi/ScanResult;Landroid/net/wifi/ScanResult;)Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v3
+ 
+     .line 47
+     if-nez v3, :cond_3
+ 
+-    .line 48
+     .line 49
+     return v1
+ 
+@@ -1530,7 +1256,6 @@
+     :cond_3
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 51
+     .line 52
+     goto :goto_0
+ 
+@@ -1550,27 +1275,21 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->l()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->n()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x1
+ 
+@@ -1591,51 +1310,36 @@
+     .line 1
+     new-instance v0, Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/blankj/utilcode/util/NetworkUtils;->c:Lcom/blankj/utilcode/util/NetworkUtils$WifiScanResults;
+ 
+-    .line 7
+     .line 8
+     new-instance v1, Ljava/util/Timer;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v1}, Ljava/util/Timer;-><init>()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     sput-object v1, Lcom/blankj/utilcode/util/NetworkUtils;->b:Ljava/util/Timer;
+ 
+-    .line 14
+     .line 15
+     new-instance v2, Lcom/blankj/utilcode/util/NetworkUtils$8;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v2}, Lcom/blankj/utilcode/util/NetworkUtils$8;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const-wide/16 v3, 0x0
+ 
+-    .line 21
+     .line 22
+     const-wide/16 v5, 0xbb8
+ 
+-    .line 23
+     .line 24
+     invoke-virtual/range {v1 .. v6}, Ljava/util/Timer;->schedule(Ljava/util/TimerTask;JJ)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -1646,15 +1350,12 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/NetworkUtils;->l()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -1662,32 +1363,24 @@
+     :cond_0
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     const-string v1, "wifi"
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     check-cast v0, Landroid/net/wifi/WifiManager;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->startScan()Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -1698,23 +1391,18 @@
+     .line 1
+     sget-object v0, Lcom/blankj/utilcode/util/NetworkUtils;->b:Ljava/util/Timer;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+     .line 9
+     sput-object v0, Lcom/blankj/utilcode/util/NetworkUtils;->b:Ljava/util/Timer;
+ 
+-    .line 10
+     .line 11
+     :cond_0
+     return-void

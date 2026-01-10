@@ -1,0 +1,160 @@
+--- a/smali_classes4/androidx/media3/exoplayer/hls/offline/HlsDownloader.smali
++++ b/smali_classes4/androidx/media3/exoplayer/hls/offline/HlsDownloader.smali
+@@ -118,44 +118,33 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/List;->size()I
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v0
+ 
+     .line 6
+     if-ge p0, v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-interface {p1, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     check-cast v0, Landroid/net/Uri;
+ 
+-    .line 13
+     .line 14
+     invoke-static {v0}, Landroidx/media3/exoplayer/offline/SegmentDownloader;->getCompressibleDataSpec(Landroid/net/Uri;)Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     invoke-interface {p2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     add-int/lit8 p0, p0, 0x1
+ 
+-    .line 22
+     .line 23
+     goto :goto_0
+ 
+@@ -183,112 +172,82 @@
+     .line 1
+     iget-object p0, p1, Landroidx/media3/exoplayer/hls/playlist/HlsPlaylist;->baseUri:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     iget-wide v0, p1, Landroidx/media3/exoplayer/hls/playlist/HlsMediaPlaylist;->startTimeUs:J
+ 
+-    .line 4
+     .line 5
+     iget-wide v2, p2, Landroidx/media3/exoplayer/hls/playlist/HlsMediaPlaylist$SegmentBase;->relativeStartTimeUs:J
+ 
+-    .line 6
+     .line 7
+     add-long/2addr v0, v2
+ 
+     .line 8
+     iget-object p1, p2, Landroidx/media3/exoplayer/hls/playlist/HlsMediaPlaylist$SegmentBase;->fullSegmentEncryptionKeyUri:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     if-eqz p1, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-static {p0, p1}, Landroidx/media3/common/util/UriUtil;->resolveToUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+     .line 16
+     invoke-virtual {p3, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p3
+ 
+     .line 20
+     if-eqz p3, :cond_0
+ 
+-    .line 21
+     .line 22
+     new-instance p3, Landroidx/media3/exoplayer/offline/SegmentDownloader$Segment;
+ 
+-    .line 23
+     .line 24
+     invoke-static {p1}, Landroidx/media3/exoplayer/offline/SegmentDownloader;->getCompressibleDataSpec(Landroid/net/Uri;)Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     invoke-direct {p3, v0, v1, p1}, Landroidx/media3/exoplayer/offline/SegmentDownloader$Segment;-><init>(JLandroidx/media3/datasource/DataSpec;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {p4, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_0
+     iget-object p1, p2, Landroidx/media3/exoplayer/hls/playlist/HlsMediaPlaylist$SegmentBase;->url:Ljava/lang/String;
+ 
+-    .line 35
+     .line 36
+     invoke-static {p0, p1}, Landroidx/media3/common/util/UriUtil;->resolveToUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v3
+ 
+     .line 40
+     new-instance v2, Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 41
+     .line 42
+     iget-wide v4, p2, Landroidx/media3/exoplayer/hls/playlist/HlsMediaPlaylist$SegmentBase;->byteRangeOffset:J
+ 
+-    .line 43
+     .line 44
+     iget-wide v6, p2, Landroidx/media3/exoplayer/hls/playlist/HlsMediaPlaylist$SegmentBase;->byteRangeLength:J
+ 
+-    .line 45
+     .line 46
+     invoke-direct/range {v2 .. v7}, Landroidx/media3/datasource/DataSpec;-><init>(Landroid/net/Uri;JJ)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     new-instance p0, Landroidx/media3/exoplayer/offline/SegmentDownloader$Segment;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {p0, v0, v1, v2}, Landroidx/media3/exoplayer/offline/SegmentDownloader$Segment;-><init>(JLandroidx/media3/datasource/DataSpec;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p4, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     return-void
+ .end method

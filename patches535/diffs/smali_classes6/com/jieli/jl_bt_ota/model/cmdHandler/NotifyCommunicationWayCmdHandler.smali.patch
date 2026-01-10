@@ -1,0 +1,249 @@
+--- a/smali_classes6/com/jieli/jl_bt_ota/model/cmdHandler/NotifyCommunicationWayCmdHandler.smali
++++ b/smali_classes6/com/jieli/jl_bt_ota/model/cmdHandler/NotifyCommunicationWayCmdHandler.smali
+@@ -13,8 +13,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -30,7 +28,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object p0
+ 
+@@ -38,19 +35,15 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->b()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     const/16 v1, 0xb
+ 
+-    .line 10
+     .line 11
+     if-eq v0, v1, :cond_1
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ 
+@@ -58,16 +51,12 @@
+     :cond_1
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->d()[B
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->g()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+@@ -80,27 +69,21 @@
+     .line 24
+     if-ne v0, v1, :cond_4
+ 
+-    .line 25
+     .line 26
+     if-eqz p0, :cond_3
+ 
+-    .line 27
+     .line 28
+     array-length p2, p0
+ 
+     .line 29
+     if-lez p2, :cond_3
+ 
+-    .line 30
+     .line 31
+     aget-byte p2, p0, v2
+ 
+-    .line 32
+     .line 33
+     invoke-static {p2}, Lcom/jieli/jl_bt_ota/util/CHexConver;->d(B)I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result p2
+ 
+@@ -110,16 +93,12 @@
+     .line 38
+     if-le v0, v1, :cond_2
+ 
+-    .line 39
+     .line 40
+     aget-byte p0, p0, v1
+ 
+-    .line 41
+     .line 42
+     invoke-static {p0}, Lcom/jieli/jl_bt_ota/util/CHexConver;->d(B)I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v2
+ 
+@@ -141,34 +120,24 @@
+     :goto_0
+     new-instance p2, Lcom/jieli/jl_bt_ota/model/command/NotifyCommunicationWayCmd;
+ 
+-    .line 51
+     .line 52
+     new-instance v0, Lcom/jieli/jl_bt_ota/model/parameter/NotifyCommunicationWayParam;
+ 
+-    .line 53
+     .line 54
+     invoke-direct {v0, v2, p0}, Lcom/jieli/jl_bt_ota/model/parameter/NotifyCommunicationWayParam;-><init>(II)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-direct {p2, v0}, Lcom/jieli/jl_bt_ota/model/command/NotifyCommunicationWayCmd;-><init>(Lcom/jieli/jl_bt_ota/model/parameter/NotifyCommunicationWayParam;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->c()I
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result p0
+ 
+     .line 64
+     invoke-virtual {p2, p0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->g(I)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p0
+ 
+@@ -179,58 +148,43 @@
+     :cond_4
+     new-instance v0, Lcom/jieli/jl_bt_ota/model/response/NotifyCommunicationWayResponse;
+ 
+-    .line 70
+     .line 71
+     invoke-direct {v0}, Lcom/jieli/jl_bt_ota/model/response/NotifyCommunicationWayResponse;-><init>()V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-virtual {v0, p0}, Lcom/jieli/jl_bt_ota/model/base/BaseResponse;->b([B)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     if-eqz p0, :cond_5
+ 
+-    .line 78
+     .line 79
+     array-length v3, p0
+ 
+     .line 80
+     if-lt v3, v1, :cond_5
+ 
+-    .line 81
+     .line 82
+     aget-byte p0, p0, v2
+ 
+-    .line 83
+     .line 84
+     invoke-static {p0}, Lcom/jieli/jl_bt_ota/util/CHexConver;->d(B)I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result p0
+ 
+     .line 88
+     invoke-virtual {v0, p0}, Lcom/jieli/jl_bt_ota/model/response/NotifyCommunicationWayResponse;->f(I)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     :cond_5
+     instance-of p0, p2, Lcom/jieli/jl_bt_ota/model/command/NotifyCommunicationWayCmd;
+ 
+-    .line 92
+     .line 93
+     if-eqz p0, :cond_6
+ 
+-    .line 94
+     .line 95
+     check-cast p2, Lcom/jieli/jl_bt_ota/model/command/NotifyCommunicationWayCmd;
+ 
+-    .line 96
+     .line 97
+     goto :goto_1
+ 
+@@ -238,53 +192,37 @@
+     :cond_6
+     new-instance p2, Lcom/jieli/jl_bt_ota/model/command/NotifyCommunicationWayCmd;
+ 
+-    .line 99
+     .line 100
+     new-instance p0, Lcom/jieli/jl_bt_ota/model/parameter/NotifyCommunicationWayParam;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p0, v2, v2}, Lcom/jieli/jl_bt_ota/model/parameter/NotifyCommunicationWayParam;-><init>(II)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     invoke-direct {p2, p0}, Lcom/jieli/jl_bt_ota/model/command/NotifyCommunicationWayCmd;-><init>(Lcom/jieli/jl_bt_ota/model/parameter/NotifyCommunicationWayParam;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     :goto_1
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->c()I
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result p0
+ 
+     .line 112
+     invoke-virtual {p2, p0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->g(I)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->f()I
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result p0
+ 
+     .line 119
+     invoke-virtual {p2, p0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->j(I)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     invoke-virtual {p2, v0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->i(Lcom/jieli/jl_bt_ota/model/base/CommonResponse;)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     return-object p2
+ .end method

@@ -1,0 +1,1320 @@
+--- a/smali_classes5/com/arialyy/aria/core/loader/AbsNormalLoader.smali
++++ b/smali_classes5/com/arialyy/aria/core/loader/AbsNormalLoader.smali
+@@ -80,72 +80,54 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     invoke-static {v0}, Lcom/arialyy/aria/util/CommonUtil;->getClassName(Ljava/lang/Class;)Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     iput-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iput-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 20
+     .line 21
+     const-wide/16 v0, 0x3e8
+ 
+-    .line 22
+     .line 23
+     iput-wide v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mUpdateInterval:J
+ 
+-    .line 24
+     .line 25
+     const/4 v0, 0x0
+ 
+     .line 26
+     iput-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isCancel:Z
+ 
+-    .line 27
+     .line 28
+     iput-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isStop:Z
+ 
+-    .line 29
+     .line 30
+     iput-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isRuning:Z
+ 
+-    .line 31
+     .line 32
+     iput-object p2, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mListener:Lcom/arialyy/aria/core/listener/IEventListener;
+ 
+-    .line 33
+     .line 34
+     iput-object p1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 35
+     .line 36
+     return-void
+ .end method
+@@ -156,8 +138,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->closeTimer()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -168,7 +148,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mListener:Lcom/arialyy/aria/core/listener/IEventListener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -183,34 +162,26 @@
+     :try_start_0
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTimer:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 3
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isShutdown()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+     .line 10
+     if-nez v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTimer:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->shutdown()V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     goto :goto_0
+ 
+@@ -246,28 +217,21 @@
+     .line 1
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->closeTimer()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_1
+ 
+-    .line 7
+     .line 8
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-eqz v0, :cond_1
+ 
+-    .line 13
+     .line 14
+     const/4 v0, 0x0
+ 
+@@ -275,44 +239,33 @@
+     :goto_0
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v1
+ 
+     .line 21
+     if-ge v0, v1, :cond_0
+ 
+-    .line 22
+     .line 23
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 24
+     .line 25
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     check-cast v1, Lcom/arialyy/aria/core/task/IThreadTask;
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v1}, Lcom/arialyy/aria/core/task/IThreadTask;->breakTask()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -320,12 +273,9 @@
+     :cond_0
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 38
+     .line 39
+     invoke-interface {p0}, Ljava/util/List;->clear()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :cond_1
+     return-void
+@@ -337,15 +287,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isBreak()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -353,55 +300,39 @@
+     :cond_0
+     invoke-static {}, Landroid/os/Looper;->prepare()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     if-eq v0, v1, :cond_1
+ 
+-    .line 20
+     .line 21
+     const/4 v1, 0x1
+ 
+     .line 22
+     iput-boolean v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isRuning:Z
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->resetState()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onPostPre()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {p0, v0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->handleTask(Landroid/os/Looper;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-static {}, Landroid/os/Looper;->loop()V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-void
+ 
+@@ -409,16 +340,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalThreadStateException;
+ 
+-    .line 38
+     .line 39
+     const-string v0, "\u4e0d\u80fd\u5728\u4e3b\u7ebf\u7a0b\u7a0b\u5e8f\u4e2d\u8c03\u7528Loader"
+ 
+-    .line 40
+     .line 41
+     invoke-direct {p0, v0}, Ljava/lang/IllegalThreadStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     throw p0
+ .end method
+@@ -435,44 +362,33 @@
+     :try_start_0
+     iget-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isCancel:Z
+ 
+-    .line 3
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 7
+     .line 8
+     const-string v1, "\u4efb\u52a1\u3010%s\u3011\u6b63\u5728\u5220\u9664\uff0c\u5220\u9664\u4efb\u52a1\u5931\u8d25"
+ 
+-    .line 9
+     .line 10
+     iget-object v2, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 11
+     .line 12
+     invoke-interface {v2}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     filled-new-array {v2}, [Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v2
+ 
+     .line 20
+     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+@@ -481,8 +397,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     monitor-exit p0
+ 
+@@ -501,34 +415,25 @@
+     :try_start_1
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mInfoTask:Lcom/arialyy/aria/core/loader/IInfoTask;
+ 
+-    .line 32
+     .line 33
+     if-eqz v0, :cond_1
+ 
+-    .line 34
+     .line 35
+     invoke-interface {v0}, Lcom/arialyy/aria/core/loader/IInfoTask;->cancel()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :cond_1
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->closeTimer()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     const/4 v0, 0x1
+ 
+     .line 42
+     iput-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isCancel:Z
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onCancel()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     const/4 v0, 0x0
+ 
+@@ -536,61 +441,46 @@
+     :goto_0
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 49
+     .line 50
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v1
+ 
+     .line 54
+     if-ge v0, v1, :cond_3
+ 
+-    .line 55
+     .line 56
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 57
+     .line 58
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v1
+ 
+     .line 62
+     check-cast v1, Lcom/arialyy/aria/core/task/IThreadTask;
+ 
+-    .line 63
+     .line 64
+     if-eqz v1, :cond_2
+ 
+-    .line 65
+     .line 66
+     invoke-interface {v1}, Lcom/arialyy/aria/core/task/IThreadTask;->isThreadComplete()Z
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v2
+ 
+     .line 70
+     if-nez v2, :cond_2
+ 
+-    .line 71
+     .line 72
+     invoke-interface {v1}, Lcom/arialyy/aria/core/task/IThreadTask;->cancel()V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     :cond_2
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 76
+     .line 77
+     goto :goto_0
+ 
+@@ -598,49 +488,35 @@
+     :cond_3
+     invoke-static {}, Lcom/arialyy/aria/core/manager/ThreadTaskManager;->getInstance()Lcom/arialyy/aria/core/manager/ThreadTaskManager;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v0
+ 
+     .line 82
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 83
+     .line 84
+     invoke-interface {v1}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v1
+ 
+     .line 88
+     invoke-virtual {v0, v1}, Lcom/arialyy/aria/core/manager/ThreadTaskManager;->removeTaskThread(Ljava/lang/String;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onPostCancel()V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onDestroy()V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mListener:Lcom/arialyy/aria/core/listener/IEventListener;
+ 
+-    .line 98
+     .line 99
+     invoke-interface {v0}, Lcom/arialyy/aria/core/listener/IEventListener;->onCancel()V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     monitor-exit p0
+ 
+@@ -664,35 +540,27 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mRecordHandler:Lcom/arialyy/aria/core/loader/IRecordHandler;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_3
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mInfoTask:Lcom/arialyy/aria/core/loader/IInfoTask;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_2
+ 
+-    .line 8
+     .line 9
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mStateManager:Lcom/arialyy/aria/core/inf/IThreadStateManager;
+ 
+-    .line 10
+     .line 11
+     if-eqz v0, :cond_1
+ 
+-    .line 12
+     .line 13
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTTBuilder:Lcom/arialyy/aria/core/loader/IThreadTaskBuilder;
+ 
+-    .line 14
+     .line 15
+     if-eqz p0, :cond_0
+ 
+-    .line 16
+     .line 17
+     return-void
+ 
+@@ -700,16 +568,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 19
+     .line 20
+     const-string v0, "\u7ebf\u7a0b\u4efb\u52a1\u7ec4\u4ef6\u4e3a\u7a7a"
+ 
+-    .line 21
+     .line 22
+     invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     throw p0
+ 
+@@ -717,16 +581,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 27
+     .line 28
+     const-string v0, "\u4efb\u52a1\u72b6\u6001\u7ba1\u7406\u7ec4\u4ef6\u4e3a\u7a7a"
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     throw p0
+ 
+@@ -734,16 +594,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 35
+     .line 36
+     const-string v0, "\u6587\u4ef6\u4fe1\u606f\u7ec4\u4ef6\u4e3a\u7a7a"
+ 
+-    .line 37
+     .line 38
+     invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     throw p0
+ 
+@@ -751,16 +607,12 @@
+     :cond_3
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 43
+     .line 44
+     const-string v0, "\u4efb\u52a1\u8bb0\u5f55\u7ec4\u4ef6\u4e3a\u7a7a"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw p0
+ .end method
+@@ -771,7 +623,6 @@
+     .line 1
+     const-wide/16 v0, 0x3e8
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -785,12 +636,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -804,7 +652,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mListener:Lcom/arialyy/aria/core/listener/IEventListener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -815,7 +662,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mStateManager:Lcom/arialyy/aria/core/inf/IThreadStateManager;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -834,7 +680,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -848,19 +693,15 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isCancel:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isStop:Z
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -876,106 +717,75 @@
+     :goto_0
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string v2, "isCancel = "
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iget-boolean v2, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isCancel:Z
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-string v2, ", isStop = "
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iget-boolean v2, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isStop:Z
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v1
+ 
+     .line 43
+     invoke-static {v0, v1}, Lcom/arialyy/aria/util/ALog;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 47
+     .line 48
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 49
+     .line 50
+     invoke-interface {p0}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+     .line 54
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 
+     .line 58
+     const-string v1, "\u4efb\u52a1\u3010%s\u3011\u5df2\u505c\u6b62\u6216\u53d6\u6d88\u4e86"
+ 
+-    .line 59
+     .line 60
+     invoke-static {v1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object p0
+ 
+     .line 64
+     invoke-static {v0, p0}, Lcom/arialyy/aria/util/ALog;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     const/4 p0, 0x1
+ 
+@@ -993,45 +803,35 @@
+     :try_start_0
+     invoke-static {}, Lcom/arialyy/aria/core/manager/ThreadTaskManager;->getInstance()Lcom/arialyy/aria/core/manager/ThreadTaskManager;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object v0
+ 
+     .line 6
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {v1}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v1
+ 
+     .line 12
+     invoke-virtual {v0, v1}, Lcom/arialyy/aria/core/manager/ThreadTaskManager;->taskIsRunning(Ljava/lang/String;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-eqz v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isRuning:Z
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 19
+     .line 20
+     if-eqz v0, :cond_0
+ 
+-    .line 21
+     .line 22
+     const/4 v0, 0x1
+ 
+@@ -1083,7 +883,6 @@
+     .line 2
+     iput-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isRuning:Z
+ 
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -1122,49 +921,36 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {v1}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     filled-new-array {v1}, [Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     const-string v2, "\u4efb\u52a1\u3010%s\u3011\u5f00\u59cb\u91cd\u8bd5"
+ 
+-    .line 14
+     .line 15
+     invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     invoke-static {v0, v1}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->startFlow()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -1175,61 +961,45 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->checkComponent()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isRunning()Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 13
+     .line 14
+     invoke-interface {p0}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     const-string v1, "\u4efb\u52a1\u3010%s\u3011\u6b63\u5728\u6267\u884c\uff0c\u542f\u52a8\u4efb\u52a1\u5931\u8d25"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     invoke-static {v0, p0}, Lcom/arialyy/aria/util/ALog;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-void
+ 
+@@ -1237,8 +1007,6 @@
+     :cond_0
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->startFlow()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-void
+ .end method
+@@ -1249,28 +1017,21 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, p1, v0
+ 
+-    .line 4
+     .line 5
+     if-gez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object p0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 8
+     .line 9
+     const-string p1, "\u66f4\u65b0\u95f4\u9694\u4e0d\u80fd\u5c0f\u4e8e0\uff0c\u9ed8\u8ba4\u4e3a1000\u6beb\u79d2"
+ 
+-    .line 10
+     .line 11
+     invoke-static {p0, p1}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1278,7 +1039,6 @@
+     :cond_0
+     iput-wide p1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mUpdateInterval:J
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -1293,8 +1053,6 @@
+     :try_start_0
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isBreak()Z
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v0
+     :try_end_0
+@@ -1303,7 +1061,6 @@
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     monitor-exit p0
+ 
+@@ -1315,117 +1072,87 @@
+     :try_start_1
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     const-string v1, "\u542f\u52a8\u5b9a\u65f6\u5668\uff0cdelayTimer = %s, updateInterval = %s"
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->delayTimer()J
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-wide v2
+ 
+     .line 18
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+     .line 22
+     iget-wide v3, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mUpdateInterval:J
+ 
+-    .line 23
+     .line 24
+     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v3
+ 
+     .line 28
+     filled-new-array {v2, v3}, [Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v2
+ 
+     .line 32
+     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+     .line 36
+     invoke-static {v0, v1}, Lcom/arialyy/aria/util/ALog;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->closeTimer()V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :try_start_2
+     new-instance v2, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 43
+     .line 44
+     const/4 v0, 0x1
+ 
+     .line 45
+     invoke-direct {v2, v0}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;-><init>(I)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     iput-object v2, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTimer:Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+ 
+-    .line 49
+     .line 50
+     new-instance v3, Lcom/arialyy/aria/core/loader/AbsNormalLoader$1;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {v3, p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader$1;-><init>(Lcom/arialyy/aria/core/loader/AbsNormalLoader;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->delayTimer()J
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-wide v4
+ 
+     .line 59
+     iget-wide v6, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mUpdateInterval:J
+ 
+-    .line 60
+     .line 61
+     sget-object v8, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 62
+     .line 63
+     invoke-virtual/range {v2 .. v8}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+     :try_end_2
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     goto :goto_0
+ 
+@@ -1444,23 +1171,17 @@
+     :try_start_3
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->TAG:Ljava/lang/String;
+ 
+-    .line 71
+     .line 72
+     const-string v2, "\u542f\u52a8\u5b9a\u65f6\u5668\u5931\u8d25"
+ 
+-    .line 73
+     .line 74
+     invoke-static {v1, v2}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     :goto_0
+     monitor-exit p0
+@@ -1491,11 +1212,9 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 3
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     monitor-exit p0
+ 
+@@ -1507,16 +1226,12 @@
+     :try_start_1
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mInfoTask:Lcom/arialyy/aria/core/loader/IInfoTask;
+ 
+-    .line 9
+     .line 10
+     if-eqz v0, :cond_1
+ 
+-    .line 11
+     .line 12
+     invoke-interface {v0}, Lcom/arialyy/aria/core/loader/IInfoTask;->stop()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -1532,20 +1247,15 @@
+     :goto_0
+     invoke-direct {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->closeTimer()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     const/4 v0, 0x1
+ 
+     .line 22
+     iput-boolean v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->isStop:Z
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onStop()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     const/4 v0, 0x0
+ 
+@@ -1553,61 +1263,46 @@
+     :goto_1
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 29
+     .line 30
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v1
+ 
+     .line 34
+     if-ge v0, v1, :cond_3
+ 
+-    .line 35
+     .line 36
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTask:Ljava/util/List;
+ 
+-    .line 37
+     .line 38
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v1
+ 
+     .line 42
+     check-cast v1, Lcom/arialyy/aria/core/task/IThreadTask;
+ 
+-    .line 43
+     .line 44
+     if-eqz v1, :cond_2
+ 
+-    .line 45
+     .line 46
+     invoke-interface {v1}, Lcom/arialyy/aria/core/task/IThreadTask;->isThreadComplete()Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v2
+ 
+     .line 50
+     if-nez v2, :cond_2
+ 
+-    .line 51
+     .line 52
+     invoke-interface {v1}, Lcom/arialyy/aria/core/task/IThreadTask;->stop()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     :cond_2
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 56
+     .line 57
+     goto :goto_1
+ 
+@@ -1615,47 +1310,33 @@
+     :cond_3
+     invoke-static {}, Lcom/arialyy/aria/core/manager/ThreadTaskManager;->getInstance()Lcom/arialyy/aria/core/manager/ThreadTaskManager;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v0
+ 
+     .line 62
+     iget-object v1, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 63
+     .line 64
+     invoke-interface {v1}, Lcom/arialyy/aria/core/wrapper/ITaskWrapper;->getKey()Ljava/lang/String;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v1
+ 
+     .line 68
+     invoke-virtual {v0, v1}, Lcom/arialyy/aria/core/manager/ThreadTaskManager;->removeTaskThread(Ljava/lang/String;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onPostStop()V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->onDestroy()V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     iget-object v0, p0, Lcom/arialyy/aria/core/loader/AbsNormalLoader;->mListener:Lcom/arialyy/aria/core/listener/IEventListener;
+ 
+-    .line 78
+     .line 79
+     invoke-interface {p0}, Lcom/arialyy/aria/core/loader/ILoader;->getCurrentProgress()J
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-wide v1
+ 
+@@ -1664,8 +1345,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     monitor-exit p0
+ 

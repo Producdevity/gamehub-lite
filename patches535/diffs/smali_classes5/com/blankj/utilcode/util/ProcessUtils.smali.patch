@@ -1,0 +1,462 @@
+--- a/smali_classes5/com/blankj/utilcode/util/ProcessUtils.smali
++++ b/smali_classes5/com/blankj/utilcode/util/ProcessUtils.smali
+@@ -10,23 +10,18 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/ProcessUtils;->c()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-nez v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     return-object v0
+ 
+@@ -34,23 +29,18 @@
+     :cond_0
+     invoke-static {}, Lcom/blankj/utilcode/util/ProcessUtils;->b()Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-nez v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     return-object v0
+ 
+@@ -58,8 +48,6 @@
+     :cond_1
+     invoke-static {}, Lcom/blankj/utilcode/util/ProcessUtils;->d()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+@@ -73,36 +61,28 @@
+     .line 1
+     const-string v0, ""
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     const-string v2, "activity"
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     check-cast v1, Landroid/app/ActivityManager;
+ 
+-    .line 14
+     .line 15
+     if-nez v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     return-object v0
+ 
+@@ -110,27 +90,21 @@
+     :cond_0
+     invoke-virtual {v1}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v1
+ 
+     .line 22
+     if-eqz v1, :cond_3
+ 
+-    .line 23
+     .line 24
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v2
+ 
+     .line 28
+     if-nez v2, :cond_1
+ 
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -138,16 +112,12 @@
+     :cond_1
+     invoke-static {}, Landroid/os/Process;->myPid()I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v2
+ 
+     .line 35
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v1
+ 
+@@ -155,45 +125,35 @@
+     :cond_2
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v3
+ 
+     .line 43
+     if-eqz v3, :cond_3
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v3
+ 
+     .line 49
+     check-cast v3, Landroid/app/ActivityManager$RunningAppProcessInfo;
+ 
+-    .line 50
+     .line 51
+     iget v4, v3, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+ 
+-    .line 52
+     .line 53
+     if-ne v4, v2, :cond_2
+ 
+-    .line 54
+     .line 55
+     iget-object v3, v3, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 56
+     .line 57
+     if-eqz v3, :cond_2
+ 
+-    .line 58
+     .line 59
+     return-object v3
+ 
+@@ -211,91 +171,63 @@
+     :try_start_0
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const-string v2, "/proc/"
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-static {}, Landroid/os/Process;->myPid()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const-string v2, "/cmdline"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     new-instance v1, Ljava/io/BufferedReader;
+ 
+-    .line 33
+     .line 34
+     new-instance v2, Ljava/io/FileReader;
+ 
+-    .line 35
+     .line 36
+     invoke-direct {v2, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-direct {v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v0
+ 
+     .line 46
+     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+@@ -304,8 +236,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-object v0
+ 
+@@ -316,12 +246,9 @@
+     .line 55
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     const-string v0, ""
+ 
+-    .line 59
+     .line 60
+     return-object v0
+ .end method
+@@ -333,28 +260,21 @@
+     :try_start_0
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     const-string v2, "mLoadedApk"
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v1, v2}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+@@ -364,77 +284,57 @@
+     .line 16
+     invoke-virtual {v1, v2}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v1
+ 
+     .line 27
+     const-string v3, "mActivityThread"
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v1, v3}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     invoke-virtual {v1, v2}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v0
+ 
+     .line 40
+     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v1
+ 
+     .line 44
+     const-string v2, "getProcessName"
+ 
+-    .line 45
+     .line 46
+     const/4 v3, 0x0
+ 
+     .line 47
+     invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v1
+ 
+     .line 51
+     invoke-virtual {v1, v0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v0
+ 
+@@ -443,7 +343,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 56
+     .line 57
+     return-object v0
+ 
+@@ -454,12 +353,9 @@
+     .line 59
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     const-string v0, ""
+ 
+-    .line 63
+     .line 64
+     return-object v0
+ .end method
+@@ -470,32 +366,24 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {}, Lcom/blankj/utilcode/util/ProcessUtils;->a()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 

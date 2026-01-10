@@ -1,0 +1,2210 @@
+--- a/smali_classes4/androidx/media3/extractor/text/webvtt/WebvttCssParser.smali
++++ b/smali_classes4/androidx/media3/extractor/text/webvtt/WebvttCssParser.smali
+@@ -60,35 +60,27 @@
+     .line 1
+     const-string v0, "\\[voice=\"([^\"]*)\"\\]"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->VOICE_NAME_PATTERN:Ljava/util/regex/Pattern;
+ 
+-    .line 8
+     .line 9
+     const-string v0, "^((?:[0-9]*\\.)?[0-9]+)(px|em|%)$"
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     sput-object v0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->FONT_SIZE_PATTERN:Ljava/util/regex/Pattern;
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -99,34 +91,24 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Landroidx/media3/common/util/ParsableByteArray;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->stringBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -137,15 +119,12 @@
+     .line 1
+     invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     goto :goto_1
+ 
+@@ -153,12 +132,9 @@
+     :cond_0
+     const/16 p0, 0x5b
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p2, p0}, Ljava/lang/String;->indexOf(I)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -174,70 +150,52 @@
+     .line 17
+     if-eq p0, v0, :cond_2
+ 
+-    .line 18
+     .line 19
+     sget-object v3, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->VOICE_NAME_PATTERN:Ljava/util/regex/Pattern;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p2, p0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v4
+ 
+     .line 25
+     invoke-virtual {v3, v4}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v3
+ 
+     .line 29
+     invoke-virtual {v3}, Ljava/util/regex/Matcher;->matches()Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v4
+ 
+     .line 33
+     if-eqz v4, :cond_1
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v3, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v3
+ 
+     .line 39
+     invoke-static {v3}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v3
+ 
+     .line 43
+     check-cast v3, Ljava/lang/String;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p1, v3}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setTargetVoice(Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     :cond_1
+     invoke-virtual {p2, v1, p0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p2
+ 
+@@ -245,64 +203,48 @@
+     :cond_2
+     const-string p0, "\\."
+ 
+-    .line 53
+     .line 54
+     invoke-static {p2, p0}, Landroidx/media3/common/util/Util;->split(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 
+     .line 58
+     aget-object p2, p0, v1
+ 
+-    .line 59
+     .line 60
+     const/16 v3, 0x23
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p2, v3}, Ljava/lang/String;->indexOf(I)I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v3
+ 
+     .line 66
+     if-eq v3, v0, :cond_3
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p2, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v0
+ 
+     .line 72
+     invoke-virtual {p1, v0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setTargetTagName(Ljava/lang/String;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     add-int/2addr v3, v2
+ 
+     .line 76
+     invoke-virtual {p2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object p2
+ 
+     .line 80
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setTargetId(Ljava/lang/String;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     goto :goto_0
+ 
+@@ -310,8 +252,6 @@
+     :cond_3
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setTargetTagName(Ljava/lang/String;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     :goto_0
+     array-length p2, p0
+@@ -319,27 +259,21 @@
+     .line 88
+     if-le p2, v2, :cond_4
+ 
+-    .line 89
+     .line 90
+     array-length p2, p0
+ 
+     .line 91
+     invoke-static {p0, v2, p2}, Landroidx/media3/common/util/Util;->nullSafeArrayCopyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object p0
+ 
+     .line 95
+     check-cast p0, [Ljava/lang/String;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setTargetClasses([Ljava/lang/String;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     :cond_4
+     :goto_1
+@@ -352,102 +286,79 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v2
+ 
+     .line 13
+     add-int/lit8 v3, v0, 0x2
+ 
+-    .line 14
+     .line 15
+     if-gt v3, v1, :cond_2
+ 
+-    .line 16
+     .line 17
+     add-int/lit8 v3, v0, 0x1
+ 
+-    .line 18
+     .line 19
+     aget-byte v4, v2, v0
+ 
+-    .line 20
+     .line 21
+     const/16 v5, 0x2f
+ 
+-    .line 22
+     .line 23
+     if-ne v4, v5, :cond_2
+ 
+-    .line 24
+     .line 25
+     add-int/lit8 v0, v0, 0x2
+ 
+-    .line 26
+     .line 27
+     aget-byte v3, v2, v3
+ 
+-    .line 28
+     .line 29
+     const/16 v4, 0x2a
+ 
+-    .line 30
+     .line 31
+     if-ne v3, v4, :cond_2
+ 
+-    .line 32
+     .line 33
+     :goto_0
+     add-int/lit8 v3, v0, 0x1
+ 
+-    .line 34
+     .line 35
+     if-ge v3, v1, :cond_1
+ 
+-    .line 36
+     .line 37
+     aget-byte v6, v2, v0
+ 
+-    .line 38
+     .line 39
+     int-to-char v6, v6
+ 
+     .line 40
+     if-ne v6, v4, :cond_0
+ 
+-    .line 41
+     .line 42
+     aget-byte v6, v2, v3
+ 
+-    .line 43
+     .line 44
+     int-to-char v6, v6
+ 
+     .line 45
+     if-ne v6, v5, :cond_0
+ 
+-    .line 46
+     .line 47
+     add-int/lit8 v0, v0, 0x2
+ 
+-    .line 48
+     .line 49
+     move v1, v0
+ 
+@@ -465,8 +376,6 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v0
+ 
+@@ -476,8 +385,6 @@
+     .line 58
+     invoke-virtual {p0, v1}, Landroidx/media3/common/util/ParsableByteArray;->skipBytes(I)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const/4 p0, 0x1
+ 
+@@ -498,59 +405,45 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-static {p0, v0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->peekCharAtPosition(Landroidx/media3/common/util/ParsableByteArray;I)C
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     const/16 v1, 0x9
+ 
+-    .line 10
+     .line 11
+     if-eq v0, v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/16 v1, 0xa
+ 
+-    .line 14
+     .line 15
+     if-eq v0, v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     const/16 v1, 0xc
+ 
+-    .line 18
+     .line 19
+     if-eq v0, v1, :cond_0
+ 
+-    .line 20
+     .line 21
+     const/16 v1, 0xd
+ 
+-    .line 22
+     .line 23
+     if-eq v0, v1, :cond_0
+ 
+-    .line 24
+     .line 25
+     const/16 v1, 0x20
+ 
+-    .line 26
+     .line 27
+     if-eq v0, v1, :cond_0
+ 
+-    .line 28
+     .line 29
+     const/4 p0, 0x0
+ 
+@@ -564,8 +457,6 @@
+     .line 32
+     invoke-virtual {p0, v0}, Landroidx/media3/common/util/ParsableByteArray;->skipBytes(I)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return v0
+ .end method
+@@ -576,84 +467,60 @@
+     .line 1
+     sget-object v0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->FONT_SIZE_PATTERN:Ljava/util/regex/Pattern;
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Lcom/google/common/base/Ascii;->toLowerCase(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-virtual {v0, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-nez v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const-string v0, "Invalid font-size: \'"
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     const-string p0, "\'."
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+     .line 39
+     const-string p1, "WebvttCssParser"
+ 
+-    .line 40
+     .line 41
+     invoke-static {p1, p0}, Landroidx/media3/common/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ 
+@@ -664,33 +531,24 @@
+     .line 46
+     invoke-virtual {v0, p0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v1
+ 
+     .line 50
+     invoke-static {v1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v1
+ 
+     .line 54
+     check-cast v1, Ljava/lang/String;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v2
+ 
+@@ -703,8 +561,6 @@
+     .line 65
+     sparse-switch v2, :sswitch_data_0
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     goto :goto_0
+ 
+@@ -712,19 +568,15 @@
+     :sswitch_0
+     const-string v2, "px"
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v1
+ 
+     .line 75
+     if-nez v1, :cond_1
+ 
+-    .line 76
+     .line 77
+     goto :goto_0
+ 
+@@ -739,19 +591,15 @@
+     :sswitch_1
+     const-string v2, "em"
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v1
+ 
+     .line 86
+     if-nez v1, :cond_2
+ 
+-    .line 87
+     .line 88
+     goto :goto_0
+ 
+@@ -766,19 +614,15 @@
+     :sswitch_2
+     const-string v2, "%"
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v1
+ 
+     .line 97
+     if-nez v1, :cond_3
+ 
+-    .line 98
+     .line 99
+     goto :goto_0
+ 
+@@ -790,17 +634,12 @@
+     :goto_0
+     packed-switch v4, :pswitch_data_0
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 105
+     .line 106
+     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     throw p0
+ 
+@@ -808,8 +647,6 @@
+     :pswitch_0
+     invoke-virtual {p1, v3}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setFontSizeUnit(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     goto :goto_1
+ 
+@@ -817,8 +654,6 @@
+     :pswitch_1
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setFontSizeUnit(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     goto :goto_1
+ 
+@@ -829,46 +664,34 @@
+     .line 119
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setFontSizeUnit(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     :goto_1
+     invoke-virtual {v0, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object p0
+ 
+     .line 126
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result-object p0
+ 
+     .line 130
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 131
+     .line 132
+     invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result p0
+ 
+     .line 136
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setFontSize(F)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     return-void
+ 
+-    .line 140
+     nop
+ 
+     .line 141
+@@ -879,17 +702,6 @@
+         0xe08 -> :sswitch_0
+     .end sparse-switch
+ 
+-    .line 142
+-    .line 143
+-    .line 144
+-    .line 145
+-    .line 146
+-    .line 147
+-    .line 148
+-    .line 149
+-    .line 150
+-    .line 151
+-    .line 152
+     :pswitch_data_0
+     .packed-switch 0x0
+         :pswitch_2
+@@ -907,21 +719,15 @@
+     .line 2
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->setLength(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+@@ -929,109 +735,84 @@
+     :goto_0
+     if-ge v1, v2, :cond_5
+ 
+-    .line 14
+     .line 15
+     if-nez v0, :cond_5
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v3
+ 
+     .line 21
+     aget-byte v3, v3, v1
+ 
+-    .line 22
+     .line 23
+     int-to-char v3, v3
+ 
+     .line 24
+     const/16 v4, 0x41
+ 
+-    .line 25
+     .line 26
+     if-lt v3, v4, :cond_0
+ 
+-    .line 27
+     .line 28
+     const/16 v4, 0x5a
+ 
+-    .line 29
+     .line 30
+     if-le v3, v4, :cond_4
+ 
+-    .line 31
+     .line 32
+     :cond_0
+     const/16 v4, 0x61
+ 
+-    .line 33
+     .line 34
+     if-lt v3, v4, :cond_1
+ 
+-    .line 35
+     .line 36
+     const/16 v4, 0x7a
+ 
+-    .line 37
+     .line 38
+     if-le v3, v4, :cond_4
+ 
+-    .line 39
+     .line 40
+     :cond_1
+     const/16 v4, 0x30
+ 
+-    .line 41
+     .line 42
+     if-lt v3, v4, :cond_2
+ 
+-    .line 43
+     .line 44
+     const/16 v4, 0x39
+ 
+-    .line 45
+     .line 46
+     if-le v3, v4, :cond_4
+ 
+-    .line 47
+     .line 48
+     :cond_2
+     const/16 v4, 0x23
+ 
+-    .line 49
+     .line 50
+     if-eq v3, v4, :cond_4
+ 
+-    .line 51
+     .line 52
+     const/16 v4, 0x2d
+ 
+-    .line 53
+     .line 54
+     if-eq v3, v4, :cond_4
+ 
+-    .line 55
+     .line 56
+     const/16 v4, 0x2e
+ 
+-    .line 57
+     .line 58
+     if-eq v3, v4, :cond_4
+ 
+-    .line 59
+     .line 60
+     const/16 v4, 0x5f
+ 
+-    .line 61
+     .line 62
+     if-ne v3, v4, :cond_3
+ 
+-    .line 63
+     .line 64
+     goto :goto_1
+ 
+@@ -1047,12 +828,9 @@
+     :goto_1
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     goto :goto_0
+ 
+@@ -1060,8 +838,6 @@
+     :cond_5
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result v0
+ 
+@@ -1071,13 +847,9 @@
+     .line 78
+     invoke-virtual {p0, v1}, Landroidx/media3/common/util/ParsableByteArray;->skipBytes(I)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p0
+ 
+@@ -1093,20 +865,15 @@
+     .line 1
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->skipWhitespaceAndComments(Landroidx/media3/common/util/ParsableByteArray;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 p0, 0x0
+ 
+@@ -1117,23 +884,18 @@
+     :cond_0
+     invoke-static {p0, p1}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseIdentifier(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+     .line 16
+     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-nez v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     return-object p1
+ 
+@@ -1141,26 +903,18 @@
+     :cond_1
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-string v0, ""
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->readUnsignedByte()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result p0
+ 
+@@ -1170,13 +924,9 @@
+     .line 38
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p0
+ 
+@@ -1192,12 +942,9 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v1, 0x0
+ 
+@@ -1205,27 +952,21 @@
+     :goto_0
+     if-nez v1, :cond_3
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+     .line 13
+     invoke-static {p0, p1}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v3
+ 
+     .line 17
+     if-nez v3, :cond_0
+ 
+-    .line 18
+     .line 19
+     const/4 p0, 0x0
+ 
+@@ -1236,35 +977,27 @@
+     :cond_0
+     const-string v4, "}"
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v4
+ 
+     .line 27
+     if-nez v4, :cond_2
+ 
+-    .line 28
+     .line 29
+     const-string v4, ";"
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v4
+ 
+     .line 35
+     if-eqz v4, :cond_1
+ 
+-    .line 36
+     .line 37
+     goto :goto_1
+ 
+@@ -1272,8 +1005,6 @@
+     :cond_1
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -1282,8 +1013,6 @@
+     :goto_1
+     invoke-virtual {p0, v2}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const/4 v1, 0x1
+ 
+@@ -1294,8 +1023,6 @@
+     :cond_3
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -1311,13 +1038,9 @@
+     .line 1
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->skipWhitespaceAndComments(Landroidx/media3/common/util/ParsableByteArray;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+@@ -1330,7 +1053,6 @@
+     .line 10
+     if-ge v0, v2, :cond_0
+ 
+-    .line 11
+     .line 12
+     return-object v1
+ 
+@@ -1338,27 +1060,21 @@
+     :cond_0
+     invoke-virtual {p0, v2}, Landroidx/media3/common/util/ParsableByteArray;->readString(I)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     const-string v2, "::cue"
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     if-nez v0, :cond_1
+ 
+-    .line 24
+     .line 25
+     return-object v1
+ 
+@@ -1366,23 +1082,18 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     invoke-static {p0, p1}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v2
+ 
+     .line 34
+     if-nez v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     return-object v1
+ 
+@@ -1390,28 +1101,21 @@
+     :cond_2
+     const-string v3, "{"
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v3
+ 
+     .line 43
+     if-eqz v3, :cond_3
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p0, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const-string p0, ""
+ 
+-    .line 49
+     .line 50
+     return-object p0
+ 
+@@ -1419,24 +1123,18 @@
+     :cond_3
+     const-string v0, "("
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v0
+ 
+     .line 57
+     if-eqz v0, :cond_4
+ 
+-    .line 58
+     .line 59
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->readCueTarget(Landroidx/media3/common/util/ParsableByteArray;)Ljava/lang/String;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v0
+ 
+@@ -1451,27 +1149,21 @@
+     :goto_0
+     invoke-static {p0, p1}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p0
+ 
+     .line 69
+     const-string p1, ")"
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result p0
+ 
+     .line 75
+     if-nez p0, :cond_5
+ 
+-    .line 76
+     .line 77
+     return-object v1
+ 
+@@ -1486,128 +1178,96 @@
+     .line 1
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->skipWhitespaceAndComments(Landroidx/media3/common/util/ParsableByteArray;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {p0, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseIdentifier(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v1
+ 
+     .line 12
+     if-eqz v1, :cond_0
+ 
+-    .line 13
+     .line 14
+     goto/16 :goto_2
+ 
+-    .line 15
+     .line 16
+     :cond_0
+     const-string v1, ":"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p0, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+     .line 22
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+     .line 26
+     if-nez v1, :cond_1
+ 
+-    .line 27
+     .line 28
+     goto/16 :goto_2
+ 
+-    .line 29
+     .line 30
+     :cond_1
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->skipWhitespaceAndComments(Landroidx/media3/common/util/ParsableByteArray;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-static {p0, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parsePropertyValue(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v1
+ 
+     .line 37
+     if-eqz v1, :cond_f
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v2
+ 
+     .line 43
+     if-eqz v2, :cond_2
+ 
+-    .line 44
+     .line 45
+     goto/16 :goto_2
+ 
+-    .line 46
+     .line 47
+     :cond_2
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v2
+ 
+     .line 51
+     invoke-static {p0, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p2
+ 
+     .line 55
+     const-string v3, ";"
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v3
+ 
+     .line 61
+     if-eqz v3, :cond_3
+ 
+-    .line 62
+     .line 63
+     goto :goto_0
+ 
+@@ -1615,54 +1275,40 @@
+     :cond_3
+     const-string v3, "}"
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result p2
+ 
+     .line 70
+     if-eqz p2, :cond_f
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p0, v2}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     :goto_0
+     const-string p0, "color"
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result p0
+ 
+     .line 81
+     if-eqz p0, :cond_4
+ 
+-    .line 82
+     .line 83
+     invoke-static {v1}, Landroidx/media3/common/util/ColorParser;->parseCssColor(Ljava/lang/String;)I
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result p0
+ 
+     .line 87
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setFontColor(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     return-void
+ 
+@@ -1670,32 +1316,24 @@
+     :cond_4
+     const-string p0, "background-color"
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result p0
+ 
+     .line 97
+     if-eqz p0, :cond_5
+ 
+-    .line 98
+     .line 99
+     invoke-static {v1}, Landroidx/media3/common/util/ColorParser;->parseCssColor(Ljava/lang/String;)I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p0
+ 
+     .line 103
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setBackgroundColor(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     return-void
+ 
+@@ -1703,12 +1341,9 @@
+     :cond_5
+     const-string p0, "ruby-position"
+ 
+-    .line 108
+     .line 109
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result p0
+ 
+@@ -1718,28 +1353,21 @@
+     .line 114
+     if-eqz p0, :cond_7
+ 
+-    .line 115
+     .line 116
+     const-string p0, "over"
+ 
+-    .line 117
+     .line 118
+     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result p0
+ 
+     .line 122
+     if-eqz p0, :cond_6
+ 
+-    .line 123
+     .line 124
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setRubyPosition(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     return-void
+ 
+@@ -1747,27 +1375,21 @@
+     :cond_6
+     const-string p0, "under"
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result p0
+ 
+     .line 134
+     if-eqz p0, :cond_f
+ 
+-    .line 135
+     .line 136
+     const/4 p0, 0x2
+ 
+     .line 137
+     invoke-virtual {p1, p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setRubyPosition(I)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     return-void
+ 
+@@ -1775,51 +1397,39 @@
+     :cond_7
+     const-string p0, "text-combine-upright"
+ 
+-    .line 142
+     .line 143
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result p0
+ 
+     .line 147
+     if-eqz p0, :cond_a
+ 
+-    .line 148
+     .line 149
+     const-string p0, "all"
+ 
+-    .line 150
+     .line 151
+     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result p0
+ 
+     .line 155
+     if-nez p0, :cond_9
+ 
+-    .line 156
+     .line 157
+     const-string p0, "digits"
+ 
+-    .line 158
+     .line 159
+     invoke-virtual {v1, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result p0
+ 
+     .line 163
+     if-eqz p0, :cond_8
+ 
+-    .line 164
+     .line 165
+     goto :goto_1
+ 
+@@ -1832,8 +1442,6 @@
+     :goto_1
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setCombineUpright(Z)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     return-void
+ 
+@@ -1841,40 +1449,30 @@
+     :cond_a
+     const-string p0, "text-decoration"
+ 
+-    .line 172
+     .line 173
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result p0
+ 
+     .line 177
+     if-eqz p0, :cond_b
+ 
+-    .line 178
+     .line 179
+     const-string p0, "underline"
+ 
+-    .line 180
+     .line 181
+     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result p0
+ 
+     .line 185
+     if-eqz p0, :cond_f
+ 
+-    .line 186
+     .line 187
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setUnderline(Z)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     return-void
+ 
+@@ -1882,24 +1480,18 @@
+     :cond_b
+     const-string p0, "font-family"
+ 
+-    .line 192
+     .line 193
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result p0
+ 
+     .line 197
+     if-eqz p0, :cond_c
+ 
+-    .line 198
+     .line 199
+     invoke-virtual {p1, v1}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setFontFamily(Ljava/lang/String;)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     return-void
+ 
+@@ -1907,40 +1499,30 @@
+     :cond_c
+     const-string p0, "font-weight"
+ 
+-    .line 204
+     .line 205
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     move-result p0
+ 
+     .line 209
+     if-eqz p0, :cond_d
+ 
+-    .line 210
+     .line 211
+     const-string p0, "bold"
+ 
+-    .line 212
+     .line 213
+     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     move-result p0
+ 
+     .line 217
+     if-eqz p0, :cond_f
+ 
+-    .line 218
+     .line 219
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setBold(Z)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     return-void
+ 
+@@ -1948,40 +1530,30 @@
+     :cond_d
+     const-string p0, "font-style"
+ 
+-    .line 224
+     .line 225
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 226
+-    .line 227
+     .line 228
+     move-result p0
+ 
+     .line 229
+     if-eqz p0, :cond_e
+ 
+-    .line 230
+     .line 231
+     const-string p0, "italic"
+ 
+-    .line 232
+     .line 233
+     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     move-result p0
+ 
+     .line 237
+     if-eqz p0, :cond_f
+ 
+-    .line 238
+     .line 239
+     invoke-virtual {p1, p2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;->setItalic(Z)Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     return-void
+ 
+@@ -1989,24 +1561,18 @@
+     :cond_e
+     const-string p0, "font-size"
+ 
+-    .line 244
+     .line 245
+     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 246
+-    .line 247
+     .line 248
+     move-result p0
+ 
+     .line 249
+     if-eqz p0, :cond_f
+ 
+-    .line 250
+     .line 251
+     invoke-static {v1, p1}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseFontSize(Ljava/lang/String;Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;)V
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     :cond_f
+     :goto_2
+@@ -2019,15 +1585,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     aget-byte p0, p0, p1
+ 
+-    .line 6
+     .line 7
+     int-to-char p0, p0
+ 
+@@ -2041,16 +1604,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+@@ -2064,38 +1623,30 @@
+     :goto_0
+     if-ge v0, v1, :cond_1
+ 
+-    .line 12
+     .line 13
+     if-nez v3, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v3
+ 
+     .line 19
+     add-int/lit8 v4, v0, 0x1
+ 
+-    .line 20
+     .line 21
+     aget-byte v0, v3, v0
+ 
+-    .line 22
+     .line 23
+     int-to-char v0, v0
+ 
+     .line 24
+     const/16 v3, 0x29
+ 
+-    .line 25
+     .line 26
+     if-ne v0, v3, :cond_0
+ 
+-    .line 27
+     .line 28
+     const/4 v0, 0x1
+ 
+@@ -2120,12 +1671,9 @@
+     :cond_1
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v1
+ 
+@@ -2135,16 +1683,12 @@
+     .line 41
+     invoke-virtual {p0, v0}, Landroidx/media3/common/util/ParsableByteArray;->readString(I)Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p0
+ 
+     .line 45
+     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+@@ -2159,23 +1703,18 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->readLine()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -2195,43 +1734,33 @@
+     :goto_1
+     invoke-virtual {p0}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v2
+ 
+     .line 7
+     if-lez v2, :cond_2
+ 
+-    .line 8
+     .line 9
+     if-eqz v1, :cond_2
+ 
+-    .line 10
+     .line 11
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->maybeSkipWhitespace(Landroidx/media3/common/util/ParsableByteArray;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-nez v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-static {p0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->maybeSkipComment(Landroidx/media3/common/util/ParsableByteArray;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v1
+ 
+     .line 21
+     if-eqz v1, :cond_1
+ 
+-    .line 22
+     .line 23
+     goto :goto_0
+ 
+@@ -2265,125 +1794,92 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->stringBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     invoke-static {p1}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->skipStyleBlock(Landroidx/media3/common/util/ParsableByteArray;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v2, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v3
+ 
+     .line 20
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     invoke-virtual {v2, v3, p1}, Landroidx/media3/common/util/ParsableByteArray;->reset([BI)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget-object p1, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p1, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     :cond_0
+     :goto_0
+     iget-object v0, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 38
+     .line 39
+     iget-object v2, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->stringBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 40
+     .line 41
+     invoke-static {v0, v2}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseSelector(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     if-eqz v0, :cond_6
+ 
+-    .line 46
+     .line 47
+     iget-object v2, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 48
+     .line 49
+     iget-object v3, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->stringBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 50
+     .line 51
+     invoke-static {v2, v3}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v2
+ 
+     .line 55
+     const-string v3, "{"
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v2
+ 
+     .line 61
+     if-nez v2, :cond_1
+ 
+-    .line 62
+     .line 63
+     goto :goto_4
+ 
+@@ -2391,17 +1887,12 @@
+     :cond_1
+     new-instance v2, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {v2}, Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;-><init>()V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-direct {p0, v2, v0}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->applySelectorToStyle(Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;Ljava/lang/String;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     const/4 v0, 0x0
+ 
+@@ -2412,55 +1903,42 @@
+     :goto_1
+     const-string v4, "}"
+ 
+-    .line 75
+     .line 76
+     if-nez v3, :cond_5
+ 
+-    .line 77
+     .line 78
+     iget-object v0, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {v0}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v0
+ 
+     .line 84
+     iget-object v3, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 85
+     .line 86
+     iget-object v5, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->stringBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 87
+     .line 88
+     invoke-static {v3, v5}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseNextToken(Landroidx/media3/common/util/ParsableByteArray;Ljava/lang/StringBuilder;)Ljava/lang/String;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v3
+ 
+     .line 92
+     if-eqz v3, :cond_3
+ 
+-    .line 93
+     .line 94
+     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result v4
+ 
+     .line 98
+     if-eqz v4, :cond_2
+ 
+-    .line 99
+     .line 100
+     goto :goto_2
+ 
+@@ -2480,29 +1958,21 @@
+     :goto_3
+     if-nez v4, :cond_4
+ 
+-    .line 105
+     .line 106
+     iget-object v5, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 107
+     .line 108
+     invoke-virtual {v5, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     iget-object v0, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->styleInput:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 112
+     .line 113
+     iget-object v5, p0, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->stringBuilder:Ljava/lang/StringBuilder;
+ 
+-    .line 114
+     .line 115
+     invoke-static {v0, v2, v5}, Landroidx/media3/extractor/text/webvtt/WebvttCssParser;->parseStyleDeclaration(Landroidx/media3/common/util/ParsableByteArray;Landroidx/media3/extractor/text/webvtt/WebvttCssStyle;Ljava/lang/StringBuilder;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     :cond_4
+     move-object v0, v3
+@@ -2517,20 +1987,15 @@
+     :cond_5
+     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v0
+ 
+     .line 125
+     if-eqz v0, :cond_0
+ 
+-    .line 126
+     .line 127
+     invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     goto :goto_0
+ 

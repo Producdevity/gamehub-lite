@@ -1,0 +1,5774 @@
+--- a/smali_classes7/com/winemu/ui/UnifiedHUDView.smali
++++ b/smali_classes7/com/winemu/ui/UnifiedHUDView.smali
+@@ -115,54 +115,39 @@
+     .line 1
+     const-string v0, "context"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const-string v0, "N/A"
+ 
+-    .line 10
+     .line 11
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     const/high16 v0, 0x7fc00000    # Float.NaN
+ 
+-    .line 14
+     .line 15
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->f:F
+ 
+-    .line 16
+     .line 17
+     new-instance v0, Ljava/util/LinkedList;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 23
+     .line 24
+     new-instance v1, Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 25
+     .line 26
+     const/16 v10, 0xff
+ 
+-    .line 27
+     .line 28
+     const/4 v11, 0x0
+ 
+@@ -193,603 +178,426 @@
+     .line 37
+     invoke-direct/range {v1 .. v11}, Lcom/winemu/ui/HUDConfig;-><init>(ZZZZZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     iput-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 41
+     .line 42
+     const/4 v0, -0x1
+ 
+     .line 43
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 44
+     .line 45
+     const-string v0, "  0%"
+ 
+-    .line 46
+     .line 47
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->p:Ljava/lang/String;
+ 
+-    .line 48
+     .line 49
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->q:Ljava/lang/String;
+ 
+-    .line 50
+     .line 51
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->r:Ljava/lang/String;
+ 
+-    .line 52
+     .line 53
+     const-string v0, "0.0W"
+ 
+-    .line 54
+     .line 55
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 56
+     .line 57
+     const-string v0, "0.0\u00b0C"
+ 
+-    .line 58
+     .line 59
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->t:Ljava/lang/String;
+ 
+-    .line 60
+     .line 61
+     const-string v0, "0"
+ 
+-    .line 62
+     .line 63
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 64
+     .line 65
+     new-instance v0, Landroid/graphics/Paint;
+ 
+-    .line 66
+     .line 67
+     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v1
+ 
+     .line 74
+     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v1
+ 
+     .line 78
+     iget v1, v1, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 79
+     .line 80
+     const/high16 v2, 0x41100000    # 9.0f
+ 
+-    .line 81
+     .line 82
+     mul-float/2addr v1, v2
+ 
+     .line 83
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTextSize(F)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     const/4 v1, 0x1
+ 
+     .line 87
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setFakeBoldText(Z)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     sget-object v3, Landroid/graphics/Typeface;->MONOSPACE:Landroid/graphics/Typeface;
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     const v4, 0x3ca3d70a    # 0.02f
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-virtual {v0, v4}, Landroid/graphics/Paint;->setLetterSpacing(F)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     iput-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 105
+     .line 106
+     new-instance v5, Landroid/graphics/Paint;
+ 
+-    .line 107
+     .line 108
+     invoke-direct {v5}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v6
+ 
+     .line 115
+     invoke-virtual {v6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object v6
+ 
+     .line 119
+     iget v6, v6, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 120
+     .line 121
+     mul-float/2addr v6, v2
+ 
+     .line 122
+     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setTextSize(F)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-virtual {v5, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     invoke-virtual {v5, v1}, Landroid/graphics/Paint;->setFakeBoldText(Z)V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v5, v3}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-virtual {v5, v4}, Landroid/graphics/Paint;->setLetterSpacing(F)V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     sget-object v4, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+ 
+-    .line 138
+     .line 139
+     invoke-virtual {v5, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     const/high16 v6, 0x40400000    # 3.0f
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     const/high16 v7, -0x1000000
+ 
+-    .line 148
+     .line 149
+     invoke-virtual {v5, v7}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     iput-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 153
+     .line 154
+     new-instance v5, Landroid/graphics/Paint;
+ 
+-    .line 155
+     .line 156
+     invoke-direct {v5}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result-object v8
+ 
+     .line 163
+     invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object v8
+ 
+     .line 167
+     iget v8, v8, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 168
+     .line 169
+     mul-float/2addr v8, v2
+ 
+     .line 170
+     invoke-virtual {v5, v8}, Landroid/graphics/Paint;->setTextSize(F)V
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     invoke-virtual {v5, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     const/4 v8, 0x0
+ 
+     .line 177
+     invoke-static {v3, v8}, Landroid/graphics/Typeface;->create(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     move-result-object v9
+ 
+     .line 181
+     invoke-virtual {v5, v9}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     const/4 v9, 0x0
+ 
+     .line 185
+     invoke-virtual {v5, v9}, Landroid/graphics/Paint;->setLetterSpacing(F)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     iput-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 189
+     .line 190
+     new-instance v5, Landroid/graphics/Paint;
+ 
+-    .line 191
+     .line 192
+     invoke-direct {v5}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     move-result-object p1
+ 
+     .line 199
+     invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object p1
+ 
+     .line 203
+     iget p1, p1, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 204
+     .line 205
+     mul-float/2addr p1, v2
+ 
+     .line 206
+     invoke-virtual {v5, p1}, Landroid/graphics/Paint;->setTextSize(F)V
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     invoke-virtual {v5, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     invoke-static {v3, v8}, Landroid/graphics/Typeface;->create(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     move-result-object p1
+ 
+     .line 216
+     invoke-virtual {v5, p1}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     invoke-virtual {v5, v9}, Landroid/graphics/Paint;->setLetterSpacing(F)V
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     invoke-virtual {v5, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+ 
+-    .line 226
+-    .line 227
+     .line 228
+     invoke-virtual {v5, v7}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     iput-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 232
+     .line 233
+     new-instance p1, Landroid/graphics/Paint;
+ 
+-    .line 234
+     .line 235
+     invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     const/16 v2, 0xff
+ 
+-    .line 239
+     .line 240
+     invoke-static {v8, v2, v8}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     move-result v2
+ 
+     .line 244
+     invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 245
+-    .line 246
+     .line 247
+     const/high16 v2, 0x40200000    # 2.5f
+ 
+-    .line 248
+     .line 249
+     invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+ 
+-    .line 250
+-    .line 251
+     .line 252
+     invoke-virtual {p1, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+ 
+-    .line 253
+-    .line 254
+     .line 255
+     invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->H:Landroid/graphics/Paint;
+ 
+-    .line 259
+     .line 260
+     new-instance p1, Landroid/graphics/Paint;
+ 
+-    .line 261
+     .line 262
+     invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 263
+-    .line 264
+     .line 265
+     const/16 v3, 0xdc
+ 
+-    .line 266
+     .line 267
+     invoke-static {v3, v3, v3}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 268
+-    .line 269
+     .line 270
+     move-result v3
+ 
+     .line 271
+     invoke-virtual {p1, v3}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 272
+-    .line 273
+     .line 274
+     invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+ 
+-    .line 275
+-    .line 276
+     .line 277
+     invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+ 
+-    .line 278
+-    .line 279
+     .line 280
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->I:Landroid/graphics/Paint;
+ 
+-    .line 281
+     .line 282
+     new-instance p1, Landroid/graphics/Paint;
+ 
+-    .line 283
+     .line 284
+     invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 285
+-    .line 286
+     .line 287
+     invoke-virtual {p1, v8}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 288
+-    .line 289
+     .line 290
+     sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+ 
+-    .line 291
+     .line 292
+     invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+ 
+-    .line 293
+-    .line 294
+     .line 295
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->J:Landroid/graphics/Paint;
+ 
+-    .line 296
+     .line 297
+     new-instance p1, Landroid/graphics/Paint;
+ 
+-    .line 298
+     .line 299
+     invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+ 
+-    .line 300
+-    .line 301
+     .line 302
+     const/16 v2, 0x96
+ 
+-    .line 303
+     .line 304
+     const/16 v3, 0xf3
+ 
+-    .line 305
+     .line 306
+     const/16 v4, 0xa0
+ 
+-    .line 307
+     .line 308
+     const/16 v5, 0x21
+ 
+-    .line 309
+     .line 310
+     invoke-static {v4, v5, v2, v3}, Landroid/graphics/Color;->argb(IIII)I
+ 
+-    .line 311
+-    .line 312
+     .line 313
+     move-result v2
+ 
+     .line 314
+     invoke-virtual {p1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 315
+-    .line 316
+     .line 317
+     invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+ 
+-    .line 318
+-    .line 319
+     .line 320
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->K:Landroid/graphics/Paint;
+ 
+-    .line 321
+     .line 322
+     invoke-virtual {v0}, Landroid/graphics/Paint;->getFontMetrics()Landroid/graphics/Paint$FontMetrics;
+ 
+-    .line 323
+-    .line 324
+     .line 325
+     move-result-object p1
+ 
+     .line 326
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->N:Landroid/graphics/Paint$FontMetrics;
+ 
+-    .line 327
+     .line 328
+     iget v0, p1, Landroid/graphics/Paint$FontMetrics;->descent:F
+ 
+-    .line 329
+     .line 330
+     iget p1, p1, Landroid/graphics/Paint$FontMetrics;->ascent:F
+ 
+-    .line 331
+     .line 332
+     sub-float/2addr v0, p1
+ 
+     .line 333
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 334
+     .line 335
+     const/16 p1, 0xc8
+ 
+-    .line 336
+     .line 337
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->P:I
+ 
+-    .line 338
+     .line 339
+     const/16 p1, 0x14
+ 
+-    .line 340
+     .line 341
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->Q:I
+ 
+-    .line 342
+     .line 343
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 344
+     .line 345
+     const/16 p1, 0x32
+ 
+-    .line 346
+     .line 347
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->S:I
+ 
+-    .line 348
+     .line 349
+     const/high16 p1, 0x41800000    # 16.0f
+ 
+-    .line 350
+     .line 351
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 352
+     .line 353
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->U:F
+ 
+-    .line 354
+     .line 355
+     return-void
+ .end method
+@@ -800,19 +608,15 @@
+     .line 1
+     iget-boolean v0, p0, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget v0, p1, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 6
+     .line 7
+     iget p2, p2, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 8
+     .line 9
+     int-to-float p2, p2
+ 
+@@ -822,7 +626,6 @@
+     .line 11
+     iput v0, p1, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 12
+     .line 13
+     :cond_0
+     const/4 p1, 0x0
+@@ -830,7 +633,6 @@
+     .line 14
+     iput-boolean p1, p0, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
+ 
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -841,19 +643,15 @@
+     .line 1
+     iget-boolean v0, p0, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget v0, p1, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 6
+     .line 7
+     iget p2, p2, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 8
+     .line 9
+     int-to-float p2, p2
+ 
+@@ -863,7 +661,6 @@
+     .line 11
+     iput v0, p1, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 12
+     .line 13
+     :cond_0
+     const/4 p1, 0x0
+@@ -871,7 +668,6 @@
+     .line 14
+     iput-boolean p1, p0, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
+ 
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -884,71 +680,52 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/Collection;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->S:I
+ 
+-    .line 8
+     .line 9
+     if-lt v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 12
+     .line 13
+     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :cond_0
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 17
+     .line 18
+     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p1}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result p1
+ 
+     .line 31
+     if-eqz p1, :cond_1
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     :cond_1
+     return-void
+@@ -960,48 +737,33 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->o()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->i:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v0, "+"
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+@@ -1012,48 +774,34 @@
+     :cond_0
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     :goto_0
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 31
+     .line 32
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v0, " "
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     invoke-virtual {v1, v0}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v0
+ 
+@@ -1066,39 +814,30 @@
+     .line 55
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->e()Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v1
+ 
+     .line 61
+     const-string v2, "100%"
+ 
+-    .line 62
+     .line 63
+     const/4 v3, 0x1
+ 
+     .line 64
+     if-eqz v1, :cond_1
+ 
+-    .line 65
+     .line 66
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->w:F
+ 
+-    .line 67
+     .line 68
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v4, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v4
+ 
+@@ -1122,32 +861,24 @@
+     :goto_1
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {v4}, Lcom/winemu/ui/HUDConfig;->b()Z
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result v4
+ 
+     .line 85
+     if-eqz v4, :cond_2
+ 
+-    .line 86
+     .line 87
+     iget v4, p0, Lcom/winemu/ui/UnifiedHUDView;->x:F
+ 
+-    .line 88
+     .line 89
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 90
+     .line 91
+     invoke-virtual {v5, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v5
+ 
+@@ -1160,37 +891,28 @@
+     .line 97
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 98
+     .line 99
+     :cond_2
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {v4}, Lcom/winemu/ui/HUDConfig;->g()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v4
+ 
+     .line 105
+     if-eqz v4, :cond_3
+ 
+-    .line 106
+     .line 107
+     iget v4, p0, Lcom/winemu/ui/UnifiedHUDView;->y:F
+ 
+-    .line 108
+     .line 109
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {v5, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result v2
+ 
+@@ -1203,49 +925,37 @@
+     .line 117
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 118
+     .line 119
+     :cond_3
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 120
+     .line 121
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->f()Z
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v2
+ 
+     .line 125
+     if-eqz v2, :cond_5
+ 
+-    .line 126
+     .line 127
+     iget-boolean v2, p0, Lcom/winemu/ui/UnifiedHUDView;->g:Z
+ 
+-    .line 128
+     .line 129
+     if-eqz v2, :cond_4
+ 
+-    .line 130
+     .line 131
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 132
+     .line 133
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 134
+     .line 135
+     const-string v5, "CHG"
+ 
+-    .line 136
+     .line 137
+     invoke-virtual {v4, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result v4
+ 
+@@ -1263,20 +973,15 @@
+     :cond_4
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 145
+     .line 146
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 147
+     .line 148
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 149
+     .line 150
+     invoke-virtual {v4, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result v4
+ 
+@@ -1287,41 +992,31 @@
+     :goto_3
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 156
+     .line 157
+     :cond_5
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 158
+     .line 159
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->h()Z
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result v2
+ 
+     .line 163
+     if-eqz v2, :cond_6
+ 
+-    .line 164
+     .line 165
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->A:F
+ 
+-    .line 166
+     .line 167
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 168
+     .line 169
+     const-string v5, "100.0\u00b0C"
+ 
+-    .line 170
+     .line 171
+     invoke-virtual {v4, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result v4
+ 
+@@ -1334,49 +1029,37 @@
+     .line 177
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 178
+     .line 179
+     :cond_6
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 180
+     .line 181
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->c()Z
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result v2
+ 
+     .line 185
+     if-eqz v2, :cond_8
+ 
+-    .line 186
+     .line 187
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->h:I
+ 
+-    .line 188
+     .line 189
+     const/16 v4, 0x3e8
+ 
+-    .line 190
+     .line 191
+     if-lt v2, v4, :cond_7
+ 
+-    .line 192
+     .line 193
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 194
+     .line 195
+     iget-object v4, p0, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 196
+     .line 197
+     invoke-virtual {v2, v4}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result v2
+ 
+@@ -1387,16 +1070,12 @@
+     :cond_7
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 203
+     .line 204
+     const-string v4, "000"
+ 
+-    .line 205
+     .line 206
+     invoke-virtual {v2, v4}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result v2
+ 
+@@ -1404,7 +1083,6 @@
+     :goto_4
+     iget v4, p0, Lcom/winemu/ui/UnifiedHUDView;->B:F
+ 
+-    .line 211
+     .line 212
+     add-float/2addr v4, v2
+ 
+@@ -1414,28 +1092,22 @@
+     .line 214
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 215
+     .line 216
+     :cond_8
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 217
+     .line 218
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result v2
+ 
+     .line 222
+     if-eqz v2, :cond_9
+ 
+-    .line 223
+     .line 224
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->P:I
+ 
+-    .line 225
+     .line 226
+     int-to-float v2, v2
+ 
+@@ -1445,16 +1117,13 @@
+     .line 228
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 229
+     .line 230
+     :cond_9
+     if-le v1, v3, :cond_a
+ 
+-    .line 231
+     .line 232
+     iget p0, p0, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 233
+     .line 234
+     sub-int/2addr v1, v3
+ 
+@@ -1478,48 +1147,33 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->o()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->i:Z
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v0, "+"
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+@@ -1530,53 +1184,40 @@
+     :cond_0
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     :goto_0
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v1, v0}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+ 
+     .line 36
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->e()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v1
+ 
+     .line 42
+     const-string v2, "100%"
+ 
+-    .line 43
+     .line 44
+     if-eqz v1, :cond_1
+ 
+-    .line 45
+     .line 46
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->w:F
+ 
+-    .line 47
+     .line 48
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v3, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v3
+ 
+@@ -1586,8 +1227,6 @@
+     .line 55
+     invoke-static {v0, v1}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v0
+ 
+@@ -1595,32 +1234,24 @@
+     :cond_1
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->b()Z
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v1
+ 
+     .line 65
+     if-eqz v1, :cond_2
+ 
+-    .line 66
+     .line 67
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->x:F
+ 
+-    .line 68
+     .line 69
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v3, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v3
+ 
+@@ -1630,8 +1261,6 @@
+     .line 76
+     invoke-static {v0, v1}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+@@ -1639,32 +1268,24 @@
+     :cond_2
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->g()Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v1
+ 
+     .line 86
+     if-eqz v1, :cond_3
+ 
+-    .line 87
+     .line 88
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->y:F
+ 
+-    .line 89
+     .line 90
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 91
+     .line 92
+     invoke-virtual {v3, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v2
+ 
+@@ -1674,8 +1295,6 @@
+     .line 97
+     invoke-static {v0, v1}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result v0
+ 
+@@ -1683,44 +1302,33 @@
+     :cond_3
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 102
+     .line 103
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->f()Z
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result v1
+ 
+     .line 107
+     if-eqz v1, :cond_5
+ 
+-    .line 108
+     .line 109
+     iget-boolean v1, p0, Lcom/winemu/ui/UnifiedHUDView;->g:Z
+ 
+-    .line 110
+     .line 111
+     if-eqz v1, :cond_4
+ 
+-    .line 112
+     .line 113
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 114
+     .line 115
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 116
+     .line 117
+     const-string v3, "CHG"
+ 
+-    .line 118
+     .line 119
+     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v2
+ 
+@@ -1735,20 +1343,15 @@
+     :cond_4
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 126
+     .line 127
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 128
+     .line 129
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 130
+     .line 131
+     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result v2
+ 
+@@ -1759,8 +1362,6 @@
+     :goto_2
+     invoke-static {v0, v1}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v0
+ 
+@@ -1768,36 +1369,27 @@
+     :cond_5
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 141
+     .line 142
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->h()Z
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result v1
+ 
+     .line 146
+     if-eqz v1, :cond_6
+ 
+-    .line 147
+     .line 148
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->A:F
+ 
+-    .line 149
+     .line 150
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 151
+     .line 152
+     const-string v3, "100.0\u00b0C"
+ 
+-    .line 153
+     .line 154
+     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result v2
+ 
+@@ -1807,8 +1399,6 @@
+     .line 159
+     invoke-static {v0, v1}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result v0
+ 
+@@ -1816,44 +1406,33 @@
+     :cond_6
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 164
+     .line 165
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->c()Z
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result v1
+ 
+     .line 169
+     if-eqz v1, :cond_8
+ 
+-    .line 170
+     .line 171
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->h:I
+ 
+-    .line 172
+     .line 173
+     const/16 v2, 0x3e8
+ 
+-    .line 174
+     .line 175
+     if-lt v1, v2, :cond_7
+ 
+-    .line 176
+     .line 177
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 178
+     .line 179
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 180
+     .line 181
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result v1
+ 
+@@ -1864,16 +1443,12 @@
+     :cond_7
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 187
+     .line 188
+     const-string v2, "000"
+ 
+-    .line 189
+     .line 190
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     move-result v1
+ 
+@@ -1881,15 +1456,12 @@
+     :goto_3
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->B:F
+ 
+-    .line 195
+     .line 196
+     add-float/2addr v2, v1
+ 
+     .line 197
+     invoke-static {v0, v2}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result v0
+ 
+@@ -1897,31 +1469,24 @@
+     :cond_8
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 202
+     .line 203
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result v1
+ 
+     .line 207
+     if-eqz v1, :cond_9
+ 
+-    .line 208
+     .line 209
+     iget p0, p0, Lcom/winemu/ui/UnifiedHUDView;->P:I
+ 
+-    .line 210
+     .line 211
+     int-to-float p0, p0
+ 
+     .line 212
+     invoke-static {v0, p0}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     move-result p0
+ 
+@@ -1939,33 +1504,24 @@
+     .line 1
+     const-string v0, "newConfig"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 7
+     .line 8
+     const/4 p1, 0x0
+ 
+     .line 9
+     iput-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->C:Z
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -1976,12 +1532,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/winemu/ui/HUDConfig;->e()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -1991,7 +1544,6 @@
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 v0, 0x2
+ 
+@@ -2006,124 +1558,95 @@
+     :goto_0
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->b()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v2
+ 
+     .line 19
+     if-eqz v2, :cond_1
+ 
+-    .line 20
+     .line 21
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 22
+     .line 23
+     :cond_1
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->g()Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v2
+ 
+     .line 29
+     if-eqz v2, :cond_2
+ 
+-    .line 30
+     .line 31
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 32
+     .line 33
+     :cond_2
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->f()Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v2
+ 
+     .line 39
+     if-eqz v2, :cond_3
+ 
+-    .line 40
+     .line 41
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 42
+     .line 43
+     :cond_3
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->h()Z
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v2
+ 
+     .line 49
+     if-eqz v2, :cond_4
+ 
+-    .line 50
+     .line 51
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 52
+     .line 53
+     :cond_4
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->c()Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v2
+ 
+     .line 59
+     if-eqz v2, :cond_5
+ 
+-    .line 60
+     .line 61
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 62
+     .line 63
+     :cond_5
+     iget-object p0, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result p0
+ 
+     .line 69
+     if-eqz p0, :cond_6
+ 
+-    .line 70
+     .line 71
+     add-int/2addr v0, v1
+ 
+@@ -2138,24 +1661,18 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     iget-object v1, v0, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 4
+     .line 5
+     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->e1(Ljava/lang/Iterable;)Ljava/util/List;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+@@ -2165,7 +1682,6 @@
+     .line 14
+     if-ge v2, v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     return-void
+ 
+@@ -2173,24 +1689,18 @@
+     :cond_0
+     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->H0(Ljava/lang/Iterable;)Ljava/lang/Float;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v2
+ 
+     .line 21
+     const/high16 v3, 0x3f800000    # 1.0f
+ 
+-    .line 22
+     .line 23
+     if-eqz v2, :cond_1
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v2
+ 
+@@ -2205,8 +1715,6 @@
+     :goto_0
+     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->K0(Ljava/lang/Iterable;)Ljava/lang/Float;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v4
+ 
+@@ -2216,12 +1724,9 @@
+     .line 36
+     if-eqz v4, :cond_2
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v4
+ 
+@@ -2236,16 +1741,12 @@
+     :goto_1
+     sub-float v4, v2, v4
+ 
+-    .line 45
+     .line 46
+     const/high16 v6, 0x41200000    # 10.0f
+ 
+-    .line 47
+     .line 48
+     invoke-static {v4, v6}, Lkotlin/ranges/RangesKt;->d(FF)F
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v4
+ 
+@@ -2255,23 +1756,18 @@
+     .line 53
+     new-instance v6, Landroid/graphics/Path;
+ 
+-    .line 54
+     .line 55
+     invoke-direct {v6}, Landroid/graphics/Path;-><init>()V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     iget v7, v0, Lcom/winemu/ui/UnifiedHUDView;->P:I
+ 
+-    .line 59
+     .line 60
+     int-to-float v7, v7
+ 
+     .line 61
+     iget v8, v0, Lcom/winemu/ui/UnifiedHUDView;->S:I
+ 
+-    .line 62
+     .line 63
+     const/4 v9, 0x1
+ 
+@@ -2287,26 +1783,21 @@
+     .line 67
+     iget v8, v0, Lcom/winemu/ui/UnifiedHUDView;->Q:I
+ 
+-    .line 68
+     .line 69
+     int-to-float v8, v8
+ 
+     .line 70
+     const/high16 v10, 0x40000000    # 2.0f
+ 
+-    .line 71
+     .line 72
+     div-float/2addr v8, v10
+ 
+     .line 73
+     add-float v8, p3, v8
+ 
+-    .line 74
+     .line 75
+     invoke-interface {v1}, Ljava/util/Collection;->size()I
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result v10
+ 
+@@ -2320,19 +1811,15 @@
+     :goto_2
+     if-ge v12, v10, :cond_4
+ 
+-    .line 82
+     .line 83
+     invoke-interface {v1, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v13
+ 
+     .line 87
+     check-cast v13, Ljava/lang/Float;
+ 
+-    .line 88
+     .line 89
+     int-to-float v14, v12
+ 
+@@ -2342,12 +1829,9 @@
+     .line 91
+     add-float v14, p2, v14
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {v13}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v13
+ 
+@@ -2360,15 +1844,12 @@
+     .line 99
+     invoke-static {v13, v5, v3}, Lkotlin/ranges/RangesKt;->m(FFF)F
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v13
+ 
+     .line 103
+     iget v15, v0, Lcom/winemu/ui/UnifiedHUDView;->Q:I
+ 
+-    .line 104
+     .line 105
+     int-to-float v15, v15
+ 
+@@ -2378,16 +1859,12 @@
+     .line 107
+     sub-float v13, v8, v13
+ 
+-    .line 108
+     .line 109
+     if-eqz v9, :cond_3
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {v6, v14, v13}, Landroid/graphics/Path;->moveTo(FF)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move v9, v11
+ 
+@@ -2398,13 +1875,10 @@
+     :cond_3
+     invoke-virtual {v6, v14, v13}, Landroid/graphics/Path;->lineTo(FF)V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     :goto_3
+     add-int/lit8 v12, v12, 0x1
+ 
+-    .line 120
+     .line 121
+     goto :goto_2
+ 
+@@ -2412,16 +1886,12 @@
+     :cond_4
+     iget-object v0, v0, Lcom/winemu/ui/UnifiedHUDView;->H:Landroid/graphics/Paint;
+ 
+-    .line 123
+     .line 124
+     move-object/from16 v1, p1
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {v1, v6, v0}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     return-void
+ .end method
+@@ -2432,8 +1902,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -2443,14 +1911,12 @@
+     .line 6
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 7
+     .line 8
+     div-float/2addr v0, v1
+ 
+     .line 9
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 10
+     .line 11
+     const/4 v2, 0x2
+ 
+@@ -2466,134 +1932,96 @@
+     .line 15
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->N:Landroid/graphics/Paint$FontMetrics;
+ 
+-    .line 16
+     .line 17
+     iget v1, v1, Landroid/graphics/Paint$FontMetrics;->ascent:F
+ 
+-    .line 18
+     .line 19
+     sub-float v7, v0, v1
+ 
+-    .line 20
+     .line 21
+     new-instance v0, Lkotlin/jvm/internal/Ref$FloatRef;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v0}, Lkotlin/jvm/internal/Ref$FloatRef;-><init>()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 27
+     .line 28
+     iget v3, p0, Lcom/winemu/ui/UnifiedHUDView;->U:F
+ 
+-    .line 29
+     .line 30
+     add-float/2addr v1, v3
+ 
+     .line 31
+     iput v1, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 32
+     .line 33
+     new-instance v1, Lkotlin/jvm/internal/Ref$BooleanRef;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v1}, Lkotlin/jvm/internal/Ref$BooleanRef;-><init>()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     const/4 v10, 0x1
+ 
+     .line 39
+     iput-boolean v10, v1, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->o()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-static {v1, v0, p0}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 48
+     .line 49
+     const/16 v4, 0xa0
+ 
+-    .line 50
+     .line 51
+     const/16 v11, 0xff
+ 
+-    .line 52
+     .line 53
+     const/16 v12, 0x50
+ 
+-    .line 54
+     .line 55
+     invoke-static {v11, v12, v4}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v4
+ 
+     .line 59
+     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     iget-boolean v3, p0, Lcom/winemu/ui/UnifiedHUDView;->i:Z
+ 
+-    .line 63
+     .line 64
+     if-eqz v3, :cond_0
+ 
+-    .line 65
+     .line 66
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 67
+     .line 68
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 69
+     .line 70
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     const-string v3, "+"
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v3
+ 
+@@ -2608,7 +2036,6 @@
+     :cond_0
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 88
+     .line 89
+     goto :goto_0
+ 
+@@ -2616,15 +2043,12 @@
+     :goto_1
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 91
+     .line 92
+     iget-object v8, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 93
+     .line 94
+     iget-object v9, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 95
+     .line 96
+     move-object v3, p0
+ 
+@@ -2634,52 +2058,36 @@
+     .line 98
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 102
+     .line 103
+     iget-object p1, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 104
+     .line 105
+     new-instance v6, Ljava/lang/StringBuilder;
+ 
+-    .line 106
+     .line 107
+     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     const-string v5, " "
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object v5
+ 
+     .line 122
+     invoke-virtual {p1, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result p1
+ 
+@@ -2689,40 +2097,30 @@
+     .line 127
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 128
+     .line 129
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 130
+     .line 131
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->e()Z
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result p0
+ 
+     .line 135
+     const-string p1, "100%"
+ 
+-    .line 136
+     .line 137
+     if-eqz p0, :cond_1
+ 
+-    .line 138
+     .line 139
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 143
+     .line 144
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 145
+     .line 146
+     div-int/2addr v5, v2
+ 
+@@ -2735,112 +2133,81 @@
+     .line 149
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 153
+     .line 154
+     const/16 v5, 0x64
+ 
+-    .line 155
+     .line 156
+     invoke-static {v5, v11, v5}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result v5
+ 
+     .line 160
+     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 164
+     .line 165
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 166
+     .line 167
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 168
+     .line 169
+     const-string v5, "GPU"
+ 
+-    .line 170
+     .line 171
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 175
+     .line 176
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->w:F
+ 
+-    .line 177
+     .line 178
+     add-float/2addr p0, v5
+ 
+     .line 179
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 180
+     .line 181
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 182
+     .line 183
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 184
+     .line 185
+     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->p:Ljava/lang/String;
+ 
+-    .line 189
+     .line 190
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 191
+     .line 192
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 193
+     .line 194
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 195
+     .line 196
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 200
+     .line 201
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 202
+     .line 203
+     invoke-virtual {v5, p1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result v5
+ 
+@@ -2850,37 +2217,28 @@
+     .line 208
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 209
+     .line 210
+     :cond_1
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 211
+     .line 212
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->b()Z
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     move-result p0
+ 
+     .line 216
+     if-eqz p0, :cond_2
+ 
+-    .line 217
+     .line 218
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 222
+     .line 223
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 224
+     .line 225
+     div-int/2addr v5, v2
+ 
+@@ -2893,115 +2251,84 @@
+     .line 228
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 232
+     .line 233
+     const/16 v5, 0xb4
+ 
+-    .line 234
+     .line 235
+     const/4 v6, 0x0
+ 
+     .line 236
+     invoke-static {v11, v5, v6}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result v5
+ 
+     .line 240
+     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 244
+     .line 245
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 246
+     .line 247
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 248
+     .line 249
+     const-string v5, "CPU"
+ 
+-    .line 250
+     .line 251
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 255
+     .line 256
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->x:F
+ 
+-    .line 257
+     .line 258
+     add-float/2addr p0, v5
+ 
+     .line 259
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 260
+     .line 261
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 262
+     .line 263
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 264
+     .line 265
+     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 266
+-    .line 267
+     .line 268
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->q:Ljava/lang/String;
+ 
+-    .line 269
+     .line 270
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 271
+     .line 272
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 273
+     .line 274
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 275
+     .line 276
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 277
+-    .line 278
+     .line 279
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 280
+     .line 281
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 282
+     .line 283
+     invoke-virtual {v5, p1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 284
+-    .line 285
+     .line 286
+     move-result v5
+ 
+@@ -3011,41 +2338,31 @@
+     .line 288
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 289
+     .line 290
+     :cond_2
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 291
+     .line 292
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->g()Z
+ 
+-    .line 293
+-    .line 294
+     .line 295
+     move-result p0
+ 
+     .line 296
+     const/16 v13, 0xc8
+ 
+-    .line 297
+     .line 298
+     if-eqz p0, :cond_3
+ 
+-    .line 299
+     .line 300
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 301
+-    .line 302
+     .line 303
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 304
+     .line 305
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 306
+     .line 307
+     div-int/2addr v5, v2
+ 
+@@ -3058,108 +2375,78 @@
+     .line 310
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 311
+-    .line 312
+     .line 313
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 314
+     .line 315
+     invoke-static {v12, v13, v11}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 316
+-    .line 317
+     .line 318
+     move-result v5
+ 
+     .line 319
+     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 320
+-    .line 321
+     .line 322
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 323
+     .line 324
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 325
+     .line 326
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 327
+     .line 328
+     const-string v5, "RAM"
+ 
+-    .line 329
+     .line 330
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 331
+-    .line 332
+     .line 333
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 334
+     .line 335
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->y:F
+ 
+-    .line 336
+     .line 337
+     add-float/2addr p0, v5
+ 
+     .line 338
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 339
+     .line 340
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 341
+     .line 342
+     iget v5, v3, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 343
+     .line 344
+     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 345
+-    .line 346
+     .line 347
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->r:Ljava/lang/String;
+ 
+-    .line 348
+     .line 349
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 350
+     .line 351
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 352
+     .line 353
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 354
+     .line 355
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 356
+-    .line 357
+     .line 358
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 359
+     .line 360
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 361
+     .line 362
+     invoke-virtual {v5, p1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 363
+-    .line 364
+     .line 365
+     move-result p1
+ 
+@@ -3169,37 +2456,28 @@
+     .line 367
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 368
+     .line 369
+     :cond_3
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 370
+     .line 371
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->f()Z
+ 
+-    .line 372
+-    .line 373
+     .line 374
+     move-result p0
+ 
+     .line 375
+     if-eqz p0, :cond_5
+ 
+-    .line 376
+     .line 377
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 378
+-    .line 379
+     .line 380
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 381
+     .line 382
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 383
+     .line 384
+     div-int/2addr p1, v2
+ 
+@@ -3212,125 +2490,90 @@
+     .line 387
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 388
+-    .line 389
+     .line 390
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 391
+     .line 392
+     const/16 p1, 0x78
+ 
+-    .line 393
+     .line 394
+     invoke-static {v13, p1, v11}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 395
+-    .line 396
+     .line 397
+     move-result p1
+ 
+     .line 398
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 399
+-    .line 400
+     .line 401
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 402
+     .line 403
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 404
+     .line 405
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 406
+     .line 407
+     const-string v5, "PWR"
+ 
+-    .line 408
+     .line 409
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 410
+-    .line 411
+     .line 412
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 413
+     .line 414
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 415
+     .line 416
+     add-float/2addr p0, p1
+ 
+     .line 417
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 418
+     .line 419
+     iget-boolean p0, v3, Lcom/winemu/ui/UnifiedHUDView;->g:Z
+ 
+-    .line 420
+     .line 421
+     if-eqz p0, :cond_4
+ 
+-    .line 422
+     .line 423
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 424
+     .line 425
+     const p1, -0xff0100
+ 
+-    .line 426
+-    .line 427
+     .line 428
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 429
+-    .line 430
+     .line 431
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 432
+     .line 433
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 434
+     .line 435
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 436
+     .line 437
+     const-string v5, "CHG"
+ 
+-    .line 438
+     .line 439
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 440
+-    .line 441
+     .line 442
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 443
+     .line 444
+     iget-object p1, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 445
+     .line 446
+     const-string v5, "CHG"
+ 
+-    .line 447
+     .line 448
+     invoke-virtual {p1, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 449
+-    .line 450
+     .line 451
+     move-result p1
+ 
+@@ -3340,7 +2583,6 @@
+     .line 453
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 454
+     .line 455
+     goto :goto_2
+ 
+@@ -3348,54 +2590,39 @@
+     :cond_4
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 457
+     .line 458
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 459
+     .line 460
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 461
+-    .line 462
+     .line 463
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 464
+     .line 465
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 466
+     .line 467
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 468
+     .line 469
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 470
+     .line 471
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 472
+-    .line 473
+     .line 474
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 475
+     .line 476
+     iget-object p1, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 477
+     .line 478
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 479
+     .line 480
+     invoke-virtual {p1, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 481
+-    .line 482
+     .line 483
+     move-result p1
+ 
+@@ -3405,38 +2632,29 @@
+     .line 485
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 486
+     .line 487
+     :cond_5
+     :goto_2
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 488
+     .line 489
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->h()Z
+ 
+-    .line 490
+-    .line 491
+     .line 492
+     move-result p0
+ 
+     .line 493
+     if-eqz p0, :cond_6
+ 
+-    .line 494
+     .line 495
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 496
+-    .line 497
+     .line 498
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 499
+     .line 500
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 501
+     .line 502
+     div-int/2addr p1, v2
+ 
+@@ -3449,112 +2667,81 @@
+     .line 505
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 506
+-    .line 507
+     .line 508
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 509
+     .line 510
+     invoke-static {v11, v12, v12}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 511
+-    .line 512
+     .line 513
+     move-result p1
+ 
+     .line 514
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 515
+-    .line 516
+     .line 517
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 518
+     .line 519
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 520
+     .line 521
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 522
+     .line 523
+     const-string v5, "TMP"
+ 
+-    .line 524
+     .line 525
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 526
+-    .line 527
+     .line 528
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 529
+     .line 530
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->A:F
+ 
+-    .line 531
+     .line 532
+     add-float/2addr p0, p1
+ 
+     .line 533
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 534
+     .line 535
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 536
+     .line 537
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 538
+     .line 539
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 540
+-    .line 541
+     .line 542
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->t:Ljava/lang/String;
+ 
+-    .line 543
+     .line 544
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 545
+     .line 546
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 547
+     .line 548
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 549
+     .line 550
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 551
+-    .line 552
+     .line 553
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 554
+     .line 555
+     iget-object p1, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 556
+     .line 557
+     const-string v5, "100.0\u00b0C"
+ 
+-    .line 558
+     .line 559
+     invoke-virtual {p1, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 560
+-    .line 561
+     .line 562
+     move-result p1
+ 
+@@ -3564,37 +2751,28 @@
+     .line 564
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 565
+     .line 566
+     :cond_6
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 567
+     .line 568
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->c()Z
+ 
+-    .line 569
+-    .line 570
+     .line 571
+     move-result p0
+ 
+     .line 572
+     if-eqz p0, :cond_8
+ 
+-    .line 573
+     .line 574
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 575
+-    .line 576
+     .line 577
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 578
+     .line 579
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 580
+     .line 581
+     div-int/2addr p1, v2
+ 
+@@ -3607,120 +2785,87 @@
+     .line 584
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 585
+-    .line 586
+     .line 587
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 588
+     .line 589
+     invoke-static {v11, v11, v12}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 590
+-    .line 591
+     .line 592
+     move-result p1
+ 
+     .line 593
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 594
+-    .line 595
+     .line 596
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 597
+     .line 598
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 599
+     .line 600
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 601
+     .line 602
+     const-string v5, "FPS"
+ 
+-    .line 603
+     .line 604
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 605
+-    .line 606
+     .line 607
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 608
+     .line 609
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->B:F
+ 
+-    .line 610
+     .line 611
+     add-float/2addr p0, p1
+ 
+     .line 612
+     iput p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 613
+     .line 614
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 615
+     .line 616
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 617
+     .line 618
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 619
+-    .line 620
+     .line 621
+     iget-object v5, v3, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 622
+     .line 623
+     iget v6, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 624
+     .line 625
+     iget-object v8, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 626
+     .line 627
+     iget-object v9, v3, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 628
+     .line 629
+     invoke-virtual/range {v3 .. v9}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 630
+-    .line 631
+     .line 632
+     iget p0, v3, Lcom/winemu/ui/UnifiedHUDView;->h:I
+ 
+-    .line 633
+     .line 634
+     const/16 p1, 0x3e8
+ 
+-    .line 635
+     .line 636
+     if-lt p0, p1, :cond_7
+ 
+-    .line 637
+     .line 638
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 639
+     .line 640
+     iget-object p1, v3, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 641
+     .line 642
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 643
+-    .line 644
+     .line 645
+     move-result p0
+ 
+@@ -3731,16 +2876,12 @@
+     :cond_7
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 648
+     .line 649
+     const-string p1, "000"
+ 
+-    .line 650
+     .line 651
+     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 652
+-    .line 653
+     .line 654
+     move-result p0
+ 
+@@ -3748,44 +2889,34 @@
+     :goto_3
+     iget p1, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 656
+     .line 657
+     add-float/2addr p1, p0
+ 
+     .line 658
+     iput p1, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 659
+     .line 660
+     :cond_8
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 661
+     .line 662
+     invoke-virtual {p0}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 663
+-    .line 664
+     .line 665
+     move-result p0
+ 
+     .line 666
+     if-eqz p0, :cond_9
+ 
+-    .line 667
+     .line 668
+     invoke-static {v1, v0, v3}, Lcom/winemu/ui/UnifiedHUDView;->h(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 669
+-    .line 670
+     .line 671
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 672
+     .line 673
+     iget p1, v3, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 674
+     .line 675
+     div-int/2addr p1, v2
+ 
+@@ -3798,33 +2929,24 @@
+     .line 678
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->i(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 679
+-    .line 680
+     .line 681
+     iget-object p0, v3, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 682
+     .line 683
+     invoke-interface {p0}, Ljava/util/Collection;->size()I
+ 
+-    .line 684
+-    .line 685
+     .line 686
+     move-result p0
+ 
+     .line 687
+     if-le p0, v10, :cond_9
+ 
+-    .line 688
+     .line 689
+     iget p0, v0, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 690
+     .line 691
+     invoke-virtual {v3, v4, p0, v7}, Lcom/winemu/ui/UnifiedHUDView;->f(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 692
+-    .line 693
+     .line 694
+     :cond_9
+     return-void
+@@ -3836,7 +2958,6 @@
+     .line 1
+     iget p0, p0, Lcom/winemu/ui/UnifiedHUDView;->L:F
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -3847,8 +2968,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p3
+ 
+@@ -3858,19 +2977,15 @@
+     .line 6
+     const/high16 v0, 0x40000000    # 2.0f
+ 
+-    .line 7
+     .line 8
+     div-float/2addr p3, v0
+ 
+     .line 9
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 10
+     .line 11
+     const v1, 0x3f4ccccd    # 0.8f
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     mul-float/2addr v0, v1
+ 
+@@ -3886,15 +3001,12 @@
+     .line 18
+     sub-float v3, p3, v0
+ 
+-    .line 19
+     .line 20
+     add-float v5, p3, v0
+ 
+-    .line 21
+     .line 22
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->I:Landroid/graphics/Paint;
+ 
+-    .line 23
+     .line 24
+     move v4, p2
+ 
+@@ -3907,8 +3019,6 @@
+     .line 27
+     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     return-void
+ .end method
+@@ -3919,22 +3029,16 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/winemu/ui/UnifiedHUDView;->M:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1, p2, p3, p4, p6}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :cond_0
+     invoke-virtual {p1, p2, p3, p4, p5}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -3945,141 +3049,102 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->o()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v7, Lkotlin/jvm/internal/Ref$FloatRef;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v7}, Lkotlin/jvm/internal/Ref$FloatRef;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 10
+     .line 11
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 12
+     .line 13
+     add-float/2addr v2, v1
+ 
+     .line 14
+     iget-object v3, p0, Lcom/winemu/ui/UnifiedHUDView;->N:Landroid/graphics/Paint$FontMetrics;
+ 
+-    .line 15
+     .line 16
+     iget v3, v3, Landroid/graphics/Paint$FontMetrics;->descent:F
+ 
+-    .line 17
+     .line 18
+     sub-float/2addr v2, v3
+ 
+     .line 19
+     iput v2, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 20
+     .line 21
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->U:F
+ 
+-    .line 22
+     .line 23
+     add-float v3, v1, v2
+ 
+-    .line 24
+     .line 25
+     new-instance v8, Lkotlin/jvm/internal/Ref$BooleanRef;
+ 
+-    .line 26
+     .line 27
+     invoke-direct {v8}, Lkotlin/jvm/internal/Ref$BooleanRef;-><init>()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     const/4 v9, 0x1
+ 
+     .line 31
+     iput-boolean v9, v8, Lkotlin/jvm/internal/Ref$BooleanRef;->element:Z
+ 
+-    .line 32
+     .line 33
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 37
+     .line 38
+     const/16 v2, 0xa0
+ 
+-    .line 39
+     .line 40
+     const/16 v10, 0xff
+ 
+-    .line 41
+     .line 42
+     const/16 v11, 0x50
+ 
+-    .line 43
+     .line 44
+     invoke-static {v10, v11, v2}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v2
+ 
+     .line 48
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     iget-boolean v1, p0, Lcom/winemu/ui/UnifiedHUDView;->i:Z
+ 
+-    .line 52
+     .line 53
+     if-eqz v1, :cond_0
+ 
+-    .line 54
+     .line 55
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 56
+     .line 57
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     const-string v1, "+"
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v1
+ 
+@@ -4094,7 +3159,6 @@
+     :cond_0
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 77
+     .line 78
+     goto :goto_0
+ 
+@@ -4102,15 +3166,12 @@
+     :goto_1
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 80
+     .line 81
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 82
+     .line 83
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 84
+     .line 85
+     move-object v0, p0
+ 
+@@ -4120,81 +3181,60 @@
+     .line 87
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 91
+     .line 92
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 93
+     .line 94
+     add-float/2addr v1, v2
+ 
+     .line 95
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 96
+     .line 97
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->e()Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v1
+ 
+     .line 103
+     if-eqz v1, :cond_1
+ 
+-    .line 104
+     .line 105
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 109
+     .line 110
+     const/16 v2, 0x64
+ 
+-    .line 111
+     .line 112
+     invoke-static {v2, v10, v2}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result v2
+ 
+     .line 116
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 120
+     .line 121
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 122
+     .line 123
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 124
+     .line 125
+     const-string v2, "GPU"
+ 
+-    .line 126
+     .line 127
+     move-object v0, p0
+ 
+@@ -4204,71 +3244,54 @@
+     .line 129
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move v12, v3
+ 
+     .line 133
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 134
+     .line 135
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 136
+     .line 137
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->p:Ljava/lang/String;
+ 
+-    .line 141
+     .line 142
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->w:F
+ 
+-    .line 143
+     .line 144
+     add-float v3, v12, v1
+ 
+-    .line 145
+     .line 146
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 147
+     .line 148
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 149
+     .line 150
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 151
+     .line 152
+     move-object v1, p1
+ 
+     .line 153
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 157
+     .line 158
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 159
+     .line 160
+     add-float/2addr v1, v2
+ 
+     .line 161
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 162
+     .line 163
+     goto :goto_2
+ 
+@@ -4280,64 +3303,48 @@
+     :goto_2
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 166
+     .line 167
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->b()Z
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     move-result v1
+ 
+     .line 171
+     if-eqz v1, :cond_2
+ 
+-    .line 172
+     .line 173
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 177
+     .line 178
+     const/16 v2, 0xb4
+ 
+-    .line 179
+     .line 180
+     const/4 v3, 0x0
+ 
+     .line 181
+     invoke-static {v10, v2, v3}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result v2
+ 
+     .line 185
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 189
+     .line 190
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 191
+     .line 192
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 193
+     .line 194
+     const-string v2, "CPU"
+ 
+-    .line 195
+     .line 196
+     move-object v0, p0
+ 
+@@ -4350,127 +3357,94 @@
+     .line 199
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 203
+     .line 204
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 205
+     .line 206
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->q:Ljava/lang/String;
+ 
+-    .line 210
+     .line 211
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->x:F
+ 
+-    .line 212
+     .line 213
+     add-float v3, v12, v1
+ 
+-    .line 214
+     .line 215
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 216
+     .line 217
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 218
+     .line 219
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 220
+     .line 221
+     move-object v1, p1
+ 
+     .line 222
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 226
+     .line 227
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 228
+     .line 229
+     add-float/2addr v1, v2
+ 
+     .line 230
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 231
+     .line 232
+     :cond_2
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 233
+     .line 234
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->g()Z
+ 
+-    .line 235
+-    .line 236
+     .line 237
+     move-result v1
+ 
+     .line 238
+     const/16 v13, 0xc8
+ 
+-    .line 239
+     .line 240
+     if-eqz v1, :cond_3
+ 
+-    .line 241
+     .line 242
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 246
+     .line 247
+     invoke-static {v11, v13, v10}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     move-result v2
+ 
+     .line 251
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 255
+     .line 256
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 257
+     .line 258
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 259
+     .line 260
+     const-string v2, "RAM"
+ 
+-    .line 261
+     .line 262
+     move-object v0, p0
+ 
+@@ -4483,127 +3457,94 @@
+     .line 265
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 266
+-    .line 267
+     .line 268
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 269
+     .line 270
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 271
+     .line 272
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 273
+-    .line 274
+     .line 275
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->r:Ljava/lang/String;
+ 
+-    .line 276
+     .line 277
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->y:F
+ 
+-    .line 278
+     .line 279
+     add-float v3, v12, v1
+ 
+-    .line 280
+     .line 281
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 282
+     .line 283
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 284
+     .line 285
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 286
+     .line 287
+     move-object v1, p1
+ 
+     .line 288
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 289
+-    .line 290
+     .line 291
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 292
+     .line 293
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 294
+     .line 295
+     add-float/2addr v1, v2
+ 
+     .line 296
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 297
+     .line 298
+     :cond_3
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 299
+     .line 300
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->f()Z
+ 
+-    .line 301
+-    .line 302
+     .line 303
+     move-result v1
+ 
+     .line 304
+     if-eqz v1, :cond_5
+ 
+-    .line 305
+     .line 306
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 307
+-    .line 308
+     .line 309
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 310
+     .line 311
+     const/16 v2, 0x78
+ 
+-    .line 312
+     .line 313
+     invoke-static {v13, v2, v10}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 314
+-    .line 315
+     .line 316
+     move-result v2
+ 
+     .line 317
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 318
+-    .line 319
+     .line 320
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 321
+     .line 322
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 323
+     .line 324
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 325
+     .line 326
+     const-string v2, "PWR"
+ 
+-    .line 327
+     .line 328
+     move-object v0, p0
+ 
+@@ -4616,54 +3557,39 @@
+     .line 331
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 332
+-    .line 333
+     .line 334
+     iget-boolean v1, p0, Lcom/winemu/ui/UnifiedHUDView;->g:Z
+ 
+-    .line 335
+     .line 336
+     if-eqz v1, :cond_4
+ 
+-    .line 337
+     .line 338
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 339
+     .line 340
+     const v2, -0xff0100
+ 
+-    .line 341
+-    .line 342
+     .line 343
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 344
+-    .line 345
+     .line 346
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 347
+     .line 348
+     add-float v3, v12, v1
+ 
+-    .line 349
+     .line 350
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 351
+     .line 352
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 353
+     .line 354
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 355
+     .line 356
+     const-string v2, "CHG"
+ 
+-    .line 357
+     .line 358
+     move-object v0, p0
+ 
+@@ -4673,8 +3599,6 @@
+     .line 360
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 361
+-    .line 362
+     .line 363
+     goto :goto_3
+ 
+@@ -4682,40 +3606,30 @@
+     :cond_4
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 365
+     .line 366
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 367
+     .line 368
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 369
+-    .line 370
+     .line 371
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 372
+     .line 373
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 374
+     .line 375
+     add-float v3, v12, v1
+ 
+-    .line 376
+     .line 377
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 378
+     .line 379
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 380
+     .line 381
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 382
+     .line 383
+     move-object v0, p0
+ 
+@@ -4725,79 +3639,59 @@
+     .line 385
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 386
+-    .line 387
+     .line 388
+     :goto_3
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 389
+     .line 390
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 391
+     .line 392
+     add-float/2addr v1, v2
+ 
+     .line 393
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 394
+     .line 395
+     :cond_5
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 396
+     .line 397
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->h()Z
+ 
+-    .line 398
+-    .line 399
+     .line 400
+     move-result v1
+ 
+     .line 401
+     if-eqz v1, :cond_6
+ 
+-    .line 402
+     .line 403
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 404
+-    .line 405
+     .line 406
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 407
+     .line 408
+     invoke-static {v10, v11, v11}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 409
+-    .line 410
+     .line 411
+     move-result v2
+ 
+     .line 412
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 413
+-    .line 414
+     .line 415
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 416
+     .line 417
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 418
+     .line 419
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 420
+     .line 421
+     const-string v2, "TMP"
+ 
+-    .line 422
+     .line 423
+     move-object v0, p0
+ 
+@@ -4810,123 +3704,91 @@
+     .line 426
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 427
+-    .line 428
+     .line 429
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 430
+     .line 431
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 432
+     .line 433
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 434
+-    .line 435
+     .line 436
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->t:Ljava/lang/String;
+ 
+-    .line 437
+     .line 438
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->A:F
+ 
+-    .line 439
+     .line 440
+     add-float v3, v12, v1
+ 
+-    .line 441
+     .line 442
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 443
+     .line 444
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 445
+     .line 446
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 447
+     .line 448
+     move-object v1, p1
+ 
+     .line 449
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 450
+-    .line 451
+     .line 452
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 453
+     .line 454
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 455
+     .line 456
+     add-float/2addr v1, v2
+ 
+     .line 457
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 458
+     .line 459
+     :cond_6
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 460
+     .line 461
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->c()Z
+ 
+-    .line 462
+-    .line 463
+     .line 464
+     move-result v1
+ 
+     .line 465
+     if-eqz v1, :cond_7
+ 
+-    .line 466
+     .line 467
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 468
+-    .line 469
+     .line 470
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 471
+     .line 472
+     invoke-static {v10, v10, v11}, Landroid/graphics/Color;->rgb(III)I
+ 
+-    .line 473
+-    .line 474
+     .line 475
+     move-result v2
+ 
+     .line 476
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 477
+-    .line 478
+     .line 479
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 480
+     .line 481
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 482
+     .line 483
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->E:Landroid/graphics/Paint;
+ 
+-    .line 484
+     .line 485
+     const-string v2, "FPS"
+ 
+-    .line 486
+     .line 487
+     move-object v0, p0
+ 
+@@ -4939,114 +3801,85 @@
+     .line 490
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 491
+-    .line 492
+     .line 493
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 494
+     .line 495
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->o:I
+ 
+-    .line 496
+     .line 497
+     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 498
+-    .line 499
+     .line 500
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 501
+     .line 502
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->B:F
+ 
+-    .line 503
+     .line 504
+     add-float v3, v12, v1
+ 
+-    .line 505
+     .line 506
+     iget v4, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 507
+     .line 508
+     iget-object v5, p0, Lcom/winemu/ui/UnifiedHUDView;->F:Landroid/graphics/Paint;
+ 
+-    .line 509
+     .line 510
+     iget-object v6, p0, Lcom/winemu/ui/UnifiedHUDView;->G:Landroid/graphics/Paint;
+ 
+-    .line 511
+     .line 512
+     move-object v1, p1
+ 
+     .line 513
+     invoke-virtual/range {v0 .. v6}, Lcom/winemu/ui/UnifiedHUDView;->j(Landroid/graphics/Canvas;Ljava/lang/String;FFLandroid/graphics/Paint;Landroid/graphics/Paint;)V
+ 
+-    .line 514
+-    .line 515
+     .line 516
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 517
+     .line 518
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 519
+     .line 520
+     add-float/2addr v1, v2
+ 
+     .line 521
+     iput v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 522
+     .line 523
+     :cond_7
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->k:Lcom/winemu/ui/HUDConfig;
+ 
+-    .line 524
+     .line 525
+     invoke-virtual {v1}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 526
+-    .line 527
+     .line 528
+     move-result v1
+ 
+     .line 529
+     if-eqz v1, :cond_8
+ 
+-    .line 530
+     .line 531
+     invoke-static {v8, v7, p0}, Lcom/winemu/ui/UnifiedHUDView;->l(Lkotlin/jvm/internal/Ref$BooleanRef;Lkotlin/jvm/internal/Ref$FloatRef;Lcom/winemu/ui/UnifiedHUDView;)V
+ 
+-    .line 532
+-    .line 533
+     .line 534
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->j:Ljava/util/Queue;
+ 
+-    .line 535
+     .line 536
+     invoke-interface {v1}, Ljava/util/Collection;->size()I
+ 
+-    .line 537
+-    .line 538
+     .line 539
+     move-result v1
+ 
+     .line 540
+     if-le v1, v9, :cond_8
+ 
+-    .line 541
+     .line 542
+     iget v1, v7, Lkotlin/jvm/internal/Ref$FloatRef;->element:F
+ 
+-    .line 543
+     .line 544
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 545
+     .line 546
+     const/4 v3, 0x2
+ 
+@@ -5062,8 +3895,6 @@
+     .line 550
+     invoke-virtual {p0, p1, v12, v1}, Lcom/winemu/ui/UnifiedHUDView;->f(Landroid/graphics/Canvas;FF)V
+ 
+-    .line 551
+-    .line 552
+     .line 553
+     :cond_8
+     return-void
+@@ -5075,47 +3906,34 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->m:Z
+ 
+-    .line 2
+     .line 3
+     xor-int/lit8 v0, v0, 0x1
+ 
+-    .line 4
+     .line 5
+     iput-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->m:Z
+ 
+-    .line 6
+     .line 7
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->n:Lkotlin/jvm/functions/Function1;
+ 
+-    .line 8
+     .line 9
+     if-eqz v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-interface {v1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-void
+ .end method
+@@ -5126,19 +3944,15 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->L:F
+ 
+-    .line 2
+     .line 3
+     const/high16 v1, 0x3e800000    # 0.25f
+ 
+-    .line 4
+     .line 5
+     cmpg-float v0, v0, v1
+ 
+-    .line 6
+     .line 7
+     if-gtz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x1
+ 
+@@ -5153,7 +3967,6 @@
+     :goto_0
+     iput-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->M:Z
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5164,189 +3977,141 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->C:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 6
+     .line 7
+     iget-object v1, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 8
+     .line 9
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     const-string v1, " "
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->v:F
+ 
+-    .line 31
+     .line 32
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 33
+     .line 34
+     const-string v1, "GPU "
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v0
+ 
+     .line 40
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->w:F
+ 
+-    .line 41
+     .line 42
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 43
+     .line 44
+     const-string v1, "CPU "
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v0
+ 
+     .line 50
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->x:F
+ 
+-    .line 51
+     .line 52
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 53
+     .line 54
+     const-string v1, "RAM "
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v0
+ 
+     .line 60
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->y:F
+ 
+-    .line 61
+     .line 62
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 63
+     .line 64
+     const-string v1, "PWR "
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v0
+ 
+     .line 70
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->z:F
+ 
+-    .line 71
+     .line 72
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 73
+     .line 74
+     const-string v1, "TMP "
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->A:F
+ 
+-    .line 81
+     .line 82
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->D:Landroid/graphics/Paint;
+ 
+-    .line 83
+     .line 84
+     const-string v1, "FPS "
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v0
+ 
+     .line 90
+     iput v0, p0, Lcom/winemu/ui/UnifiedHUDView;->B:F
+ 
+-    .line 91
+     .line 92
+     const/4 v0, 0x1
+ 
+     .line 93
+     iput-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->C:Z
+ 
+-    .line 94
+     .line 95
+     :cond_0
+     return-void
+@@ -5358,26 +4123,18 @@
+     .line 1
+     const-string v0, "canvas"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance v0, Landroid/graphics/RectF;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+@@ -5387,8 +4144,6 @@
+     .line 16
+     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v2
+ 
+@@ -5401,55 +4156,42 @@
+     .line 22
+     invoke-direct {v0, v3, v3, v1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v1
+ 
+     .line 37
+     iget v1, v1, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 38
+     .line 39
+     const/high16 v2, 0x40800000    # 4.0f
+ 
+-    .line 40
+     .line 41
+     mul-float/2addr v1, v2
+ 
+     .line 42
+     iget-boolean v2, p0, Lcom/winemu/ui/UnifiedHUDView;->l:Z
+ 
+-    .line 43
+     .line 44
+     if-eqz v2, :cond_0
+ 
+-    .line 45
+     .line 46
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->K:Landroid/graphics/Paint;
+ 
+-    .line 47
+     .line 48
+     goto :goto_0
+ 
+@@ -5457,26 +4199,19 @@
+     :cond_0
+     iget-object v2, p0, Lcom/winemu/ui/UnifiedHUDView;->J:Landroid/graphics/Paint;
+ 
+-    .line 50
+     .line 51
+     :goto_0
+     invoke-virtual {p1, v0, v1, v1, v2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->m:Z
+ 
+-    .line 55
+     .line 56
+     if-eqz v0, :cond_1
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {p0, p1}, Lcom/winemu/ui/UnifiedHUDView;->k(Landroid/graphics/Canvas;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     return-void
+ 
+@@ -5484,8 +4219,6 @@
+     :cond_1
+     invoke-virtual {p0, p1}, Lcom/winemu/ui/UnifiedHUDView;->g(Landroid/graphics/Canvas;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     return-void
+ .end method
+@@ -5496,26 +4229,21 @@
+     .line 1
+     iget-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->m:Z
+ 
+-    .line 2
+     .line 3
+     const/4 p2, 0x2
+ 
+     .line 4
+     if-eqz p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->c()F
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p1
+ 
+     .line 10
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 11
+     .line 12
+     int-to-float p2, p2
+ 
+@@ -5528,7 +4256,6 @@
+     .line 15
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->U:F
+ 
+-    .line 16
+     .line 17
+     mul-float/2addr v0, p2
+ 
+@@ -5541,15 +4268,12 @@
+     .line 20
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->e()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v0
+ 
+     .line 24
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 25
+     .line 26
+     int-to-float v2, v0
+ 
+@@ -5559,7 +4283,6 @@
+     .line 28
+     iget v2, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 29
+     .line 30
+     mul-float/2addr v2, p2
+ 
+@@ -5569,19 +4292,15 @@
+     .line 32
+     iget p2, p0, Lcom/winemu/ui/UnifiedHUDView;->R:I
+ 
+-    .line 33
+     .line 34
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 35
+     .line 36
+     const/4 v2, 0x0
+ 
+     .line 37
+     invoke-static {v0, v2}, Lkotlin/ranges/RangesKt;->e(II)I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v0
+ 
+@@ -5600,8 +4319,6 @@
+     .line 45
+     invoke-virtual {p0, p1, p2}, Landroid/view/View;->setMeasuredDimension(II)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     return-void
+ 
+@@ -5609,11 +4326,9 @@
+     :cond_0
+     iget p1, p0, Lcom/winemu/ui/UnifiedHUDView;->O:F
+ 
+-    .line 50
+     .line 51
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 52
+     .line 53
+     int-to-float p2, p2
+ 
+@@ -5638,15 +4353,12 @@
+     .line 60
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->b()F
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v0
+ 
+     .line 64
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->T:F
+ 
+-    .line 65
+     .line 66
+     mul-float/2addr v1, p2
+ 
+@@ -5656,7 +4368,6 @@
+     .line 68
+     iget v1, p0, Lcom/winemu/ui/UnifiedHUDView;->U:F
+ 
+-    .line 69
+     .line 70
+     mul-float/2addr v1, p2
+ 
+@@ -5669,8 +4380,6 @@
+     .line 73
+     invoke-virtual {p0, p2, p1}, Landroid/view/View;->setMeasuredDimension(II)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     return-void
+ .end method
+@@ -5684,23 +4393,18 @@
+     .line 2
+     const/high16 v1, 0x3f800000    # 1.0f
+ 
+-    .line 3
+     .line 4
+     invoke-static {p1, v0, v1}, Lkotlin/ranges/RangesKt;->m(FFF)F
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+     .line 8
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->L:F
+ 
+-    .line 9
+     .line 10
+     const/16 v0, 0xff
+ 
+-    .line 11
+     .line 12
+     int-to-float v0, v0
+ 
+@@ -5713,33 +4417,24 @@
+     .line 15
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->J:Landroid/graphics/Paint;
+ 
+-    .line 16
+     .line 17
+     const/4 v1, 0x0
+ 
+     .line 18
+     invoke-static {p1, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p1
+ 
+     .line 22
+     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {p0}, Lcom/winemu/ui/UnifiedHUDView;->n()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-void
+ .end method
+@@ -5750,32 +4445,24 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->c:I
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->c:I
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Lkotlin/jvm/internal/StringCompanionObject;->a:Lkotlin/jvm/internal/StringCompanionObject;
+ 
+-    .line 8
+     .line 9
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+@@ -5785,41 +4472,30 @@
+     .line 18
+     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     const-string v0, "%3d%%"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     const-string v0, "format(...)"
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->q:Ljava/lang/String;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :cond_0
+     return-void
+@@ -5831,20 +4507,15 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->g:Z
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->g:Z
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void
+@@ -5856,20 +4527,15 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->i:Z
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->i:Z
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void
+@@ -5881,12 +4547,9 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->l:Z
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5901,70 +4564,53 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     const-string v0, "toUpperCase(...)"
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     if-nez p1, :cond_1
+ 
+-    .line 15
+     .line 16
+     :cond_0
+     const-string p1, "N/A"
+ 
+-    .line 17
+     .line 18
+     :cond_1
+     iget-object v0, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 19
+     .line 20
+     invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v0
+ 
+     .line 24
+     if-nez v0, :cond_2
+ 
+-    .line 25
+     .line 26
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->a:Ljava/lang/String;
+ 
+-    .line 27
+     .line 28
+     const/4 p1, 0x0
+ 
+     .line 29
+     iput-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->C:Z
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_2
+     return-void
+@@ -5976,32 +4622,24 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->h:I
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->h:I
+ 
+-    .line 6
+     .line 7
+     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p1
+ 
+     .line 11
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->u:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :cond_0
+     return-void
+@@ -6013,32 +4651,24 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->b:I
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->b:I
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Lkotlin/jvm/internal/StringCompanionObject;->a:Lkotlin/jvm/internal/StringCompanionObject;
+ 
+-    .line 8
+     .line 9
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+@@ -6048,41 +4678,30 @@
+     .line 18
+     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     const-string v0, "%3d%%"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     const-string v0, "format(...)"
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->p:Ljava/lang/String;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :cond_0
+     return-void
+@@ -6108,16 +4727,12 @@
+     .line 1
+     const-string v0, "listener"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->n:Lkotlin/jvm/functions/Function1;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -6128,15 +4743,12 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->e:F
+ 
+-    .line 2
+     .line 3
+     cmpg-float v0, v0, p1
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -6144,28 +4756,21 @@
+     :cond_0
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->e:F
+ 
+-    .line 9
+     .line 10
+     sget-object v0, Lkotlin/jvm/internal/StringCompanionObject;->a:Lkotlin/jvm/internal/StringCompanionObject;
+ 
+-    .line 11
+     .line 12
+     sget-object v0, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+ 
+-    .line 13
+     .line 14
+     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+@@ -6175,41 +4780,30 @@
+     .line 23
+     invoke-static {p1, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     const-string v1, "%.1fW"
+ 
+-    .line 28
+     .line 29
+     invoke-static {v0, v1, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p1
+ 
+     .line 33
+     const-string v0, "format(...)"
+ 
+-    .line 34
+     .line 35
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->s:Ljava/lang/String;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ .end method
+@@ -6220,32 +4814,24 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->d:I
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->d:I
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Lkotlin/jvm/internal/StringCompanionObject;->a:Lkotlin/jvm/internal/StringCompanionObject;
+ 
+-    .line 8
+     .line 9
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+@@ -6255,41 +4841,30 @@
+     .line 18
+     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     const-string v0, "%3d%%"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     const-string v0, "format(...)"
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->r:Ljava/lang/String;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :cond_0
+     return-void
+@@ -6301,15 +4876,12 @@
+     .line 1
+     iget v0, p0, Lcom/winemu/ui/UnifiedHUDView;->f:F
+ 
+-    .line 2
+     .line 3
+     cmpg-float v0, v0, p1
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -6317,28 +4889,21 @@
+     :cond_0
+     iput p1, p0, Lcom/winemu/ui/UnifiedHUDView;->f:F
+ 
+-    .line 9
+     .line 10
+     sget-object v0, Lkotlin/jvm/internal/StringCompanionObject;->a:Lkotlin/jvm/internal/StringCompanionObject;
+ 
+-    .line 11
+     .line 12
+     sget-object v0, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+ 
+-    .line 13
+     .line 14
+     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+@@ -6348,41 +4913,30 @@
+     .line 23
+     invoke-static {p1, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     const-string v1, "%.1f\u00b0C"
+ 
+-    .line 28
+     .line 29
+     invoke-static {v0, v1, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p1
+ 
+     .line 33
+     const-string v0, "format(...)"
+ 
+-    .line 34
+     .line 35
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     iput-object p1, p0, Lcom/winemu/ui/UnifiedHUDView;->t:Ljava/lang/String;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ .end method
+@@ -6393,25 +4947,18 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/winemu/ui/UnifiedHUDView;->m:Z
+ 
+-    .line 2
+     .line 3
+     if-eq v0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     iput-boolean p1, p0, Lcom/winemu/ui/UnifiedHUDView;->m:Z
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     :cond_0
+     return-void

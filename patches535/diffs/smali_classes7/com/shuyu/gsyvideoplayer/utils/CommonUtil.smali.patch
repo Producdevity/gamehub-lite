@@ -1,0 +1,1504 @@
+--- a/smali_classes7/com/shuyu/gsyvideoplayer/utils/CommonUtil.smali
++++ b/smali_classes7/com/shuyu/gsyvideoplayer/utils/CommonUtil.smali
+@@ -10,8 +10,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -22,41 +20,30 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-eqz v1, :cond_2
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     if-eqz v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0}, Ljava/io/File;->delete()Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -64,8 +51,6 @@
+     :cond_0
+     invoke-virtual {v0}, Ljava/io/File;->list()[Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+@@ -79,56 +64,39 @@
+     :goto_0
+     if-ge v3, v2, :cond_1
+ 
+-    .line 29
+     .line 30
+     aget-object v4, v1, v3
+ 
+-    .line 31
+     .line 32
+     new-instance v5, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     sget-object v6, Ljava/io/File;->separator:Ljava/lang/String;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v4
+ 
+     .line 52
+     invoke-static {v4}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->deleteFile(Ljava/lang/String;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 56
+     .line 57
+     goto :goto_0
+ 
+@@ -136,8 +104,6 @@
+     :cond_1
+     invoke-virtual {v0}, Ljava/io/File;->delete()Z
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :cond_2
+     return-void
+@@ -149,30 +115,24 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     iget p0, p0, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 10
+     .line 11
+     mul-float/2addr p1, p0
+ 
+     .line 12
+     const/high16 p0, 0x3f000000    # 0.5f
+ 
+-    .line 13
+     .line 14
+     add-float/2addr p1, p0
+ 
+@@ -189,65 +149,48 @@
+     .line 1
+     new-instance v0, Landroid/util/TypedValue;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+     .line 10
+     const v2, 0x10102eb
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 v3, 0x1
+ 
+     .line 14
+     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v1
+ 
+     .line 18
+     if-eqz v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     iget v0, v0, Landroid/util/TypedValue;->data:I
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-static {v0, p0}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p0
+ 
+@@ -271,7 +214,6 @@
+     .line 2
+     if-nez p0, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object v0
+ 
+@@ -279,15 +221,12 @@
+     :cond_0
+     instance-of v1, p0, Landroid/app/Activity;
+ 
+-    .line 6
+     .line 7
+     if-eqz v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     check-cast p0, Landroid/app/Activity;
+ 
+-    .line 10
+     .line 11
+     return-object p0
+ 
+@@ -295,28 +234,21 @@
+     :cond_1
+     instance-of v1, p0, Landroidx/appcompat/widget/TintContextWrapper;
+ 
+-    .line 13
+     .line 14
+     if-eqz v1, :cond_2
+ 
+-    .line 15
+     .line 16
+     check-cast p0, Landroidx/appcompat/widget/TintContextWrapper;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -327,28 +259,21 @@
+     :cond_2
+     instance-of v1, p0, Landroid/content/ContextWrapper;
+ 
+-    .line 28
+     .line 29
+     if-eqz v1, :cond_3
+ 
+-    .line 30
+     .line 31
+     check-cast p0, Landroid/content/ContextWrapper;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+@@ -366,8 +291,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityContext(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -384,7 +307,6 @@
+     .line 2
+     if-nez p0, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object v0
+ 
+@@ -392,15 +314,12 @@
+     :cond_0
+     instance-of v1, p0, Landroidx/appcompat/app/AppCompatActivity;
+ 
+-    .line 6
+     .line 7
+     if-eqz v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     check-cast p0, Landroidx/appcompat/app/AppCompatActivity;
+ 
+-    .line 10
+     .line 11
+     return-object p0
+ 
+@@ -408,28 +327,21 @@
+     :cond_1
+     instance-of v1, p0, Landroidx/appcompat/view/ContextThemeWrapper;
+ 
+-    .line 13
+     .line 14
+     if-eqz v1, :cond_2
+ 
+-    .line 15
+     .line 16
+     check-cast p0, Landroidx/appcompat/view/ContextThemeWrapper;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getAppCompActivity(Landroid/content/Context;)Landroidx/appcompat/app/AppCompatActivity;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -447,24 +359,18 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+@@ -474,28 +380,21 @@
+     .line 14
+     if-eq v0, v1, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     invoke-interface {p0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     invoke-virtual {p0}, Landroid/view/Display;->getRotation()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result p0
+ 
+@@ -505,7 +404,6 @@
+     .line 29
+     if-ne p0, v0, :cond_0
+ 
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -528,45 +426,33 @@
+     .line 1
+     const-string v0, "window"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/view/WindowManager;
+ 
+-    .line 8
+     .line 9
+     new-instance v0, Landroid/util/DisplayMetrics;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-interface {p0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     invoke-virtual {p0, v0}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget p0, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+ 
+-    .line 22
+     .line 23
+     return p0
+ .end method
+@@ -577,45 +463,33 @@
+     .line 1
+     const-string v0, "window"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/view/WindowManager;
+ 
+-    .line 8
+     .line 9
+     new-instance v0, Landroid/util/DisplayMetrics;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-interface {p0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     invoke-virtual {p0, v0}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget p0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+ 
+-    .line 22
+     .line 23
+     return p0
+ .end method
+@@ -626,48 +500,36 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     const-string v1, "dimen"
+ 
+-    .line 6
+     .line 7
+     const-string v2, "android"
+ 
+-    .line 8
+     .line 9
+     const-string v3, "status_bar_height"
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0, v3, v1, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     if-lez v0, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -688,55 +550,39 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, p0, v0
+ 
+-    .line 4
+     .line 5
+     const-string v1, " KB/s"
+ 
+-    .line 6
+     .line 7
+     const-wide/16 v2, 0x400
+ 
+-    .line 8
+     .line 9
+     if-ltz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     cmp-long v0, p0, v2
+ 
+-    .line 12
+     .line 13
+     if-gez v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0, p0, p1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+@@ -747,59 +593,42 @@
+     :cond_0
+     cmp-long v0, p0, v2
+ 
+-    .line 32
+     .line 33
+     const-wide/32 v4, 0x100000
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     if-ltz v0, :cond_1
+ 
+-    .line 37
+     .line 38
+     cmp-long v0, p0, v4
+ 
+-    .line 39
+     .line 40
+     if-gez v0, :cond_1
+ 
+-    .line 41
+     .line 42
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 43
+     .line 44
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     div-long/2addr p0, v2
+ 
+     .line 48
+     invoke-static {p0, p1}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p0
+ 
+     .line 52
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p0
+ 
+@@ -810,63 +639,45 @@
+     :cond_1
+     cmp-long v0, p0, v4
+ 
+-    .line 64
+     .line 65
+     if-ltz v0, :cond_2
+ 
+-    .line 66
+     .line 67
+     const-wide/32 v0, 0x40000000
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     cmp-long v0, p0, v0
+ 
+-    .line 71
+     .line 72
+     if-gez v0, :cond_2
+ 
+-    .line 73
+     .line 74
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 75
+     .line 76
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     div-long/2addr p0, v4
+ 
+     .line 80
+     invoke-static {p0, p1}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object p0
+ 
+     .line 84
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     const-string p0, " MB/s"
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p0
+ 
+@@ -877,7 +688,6 @@
+     :cond_2
+     const-string p0, ""
+ 
+-    .line 98
+     .line 99
+     return-object p0
+ .end method
+@@ -888,15 +698,12 @@
+     .line 1
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityNestWrapper(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -904,36 +711,27 @@
+     :cond_0
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityNestWrapper(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     const/16 v0, 0xc02
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -949,78 +747,58 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getAppCompActivity(Landroid/content/Context;)Landroidx/appcompat/app/AppCompatActivity;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-eqz p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1}, Landroidx/appcompat/app/AppCompatActivity;->getSupportActionBar()Landroidx/appcompat/app/ActionBar;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     if-eqz p1, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+     .line 16
+     invoke-virtual {p1, v0}, Landroidx/appcompat/app/ActionBar;->w(Z)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p1}, Landroidx/appcompat/app/ActionBar;->k()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :cond_0
+     if-eqz p2, :cond_3
+ 
+-    .line 23
+     .line 24
+     instance-of p1, p0, Landroidx/fragment/app/FragmentActivity;
+ 
+-    .line 25
+     .line 26
+     const/16 p2, 0x400
+ 
+-    .line 27
+     .line 28
+     if-eqz p1, :cond_1
+ 
+-    .line 29
+     .line 30
+     check-cast p0, Landroidx/fragment/app/FragmentActivity;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     invoke-virtual {p0, p2, p2}, Landroid/view/Window;->setFlags(II)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -1028,28 +806,21 @@
+     :cond_1
+     instance-of p1, p0, Landroid/app/Activity;
+ 
+-    .line 41
+     .line 42
+     if-eqz p1, :cond_2
+ 
+-    .line 43
+     .line 44
+     check-cast p0, Landroid/app/Activity;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     invoke-virtual {p0, p2, p2}, Landroid/view/Window;->setFlags(II)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-void
+ 
+@@ -1057,24 +828,18 @@
+     :cond_2
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityNestWrapper(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 
+     .line 58
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p0
+ 
+     .line 62
+     invoke-virtual {p0, p2, p2}, Landroid/view/Window;->setFlags(II)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :cond_3
+     return-void
+@@ -1086,69 +851,54 @@
+     .line 1
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityContext(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     if-eqz p0, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+ 
+-    .line 16
+     .line 17
+     const/high16 v1, 0x4000000
+ 
+-    .line 18
+     .line 19
+     and-int/2addr v0, v1
+ 
+     .line 20
+     if-nez v0, :cond_0
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     iget p0, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
+ 
+-    .line 27
+     .line 28
+     const/high16 v0, 0x8000000
+ 
+-    .line 29
+     .line 30
+     and-int/2addr p0, v0
+ 
+     .line 31
+     if-eqz p0, :cond_1
+ 
+-    .line 32
+     .line 33
+     :cond_0
+     const/4 p0, 0x1
+@@ -1170,34 +920,27 @@
+     .line 1
+     const-string v0, "connectivity"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/net/ConnectivityManager;
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x1
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     if-nez p0, :cond_0
+ 
+-    .line 15
+     .line 16
+     const/4 p0, 0x0
+ 
+@@ -1208,8 +951,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p0
+ 
+@@ -1223,30 +964,24 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     iget p0, p0, Landroid/util/DisplayMetrics;->density:F
+ 
+-    .line 10
+     .line 11
+     div-float/2addr p1, p0
+ 
+     .line 12
+     const/high16 p0, 0x3f000000    # 0.5f
+ 
+-    .line 13
+     .line 14
+     add-float/2addr p1, p0
+ 
+@@ -1266,7 +1001,6 @@
+     .line 2
+     if-nez p0, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object v0
+ 
+@@ -1274,15 +1008,12 @@
+     :cond_0
+     instance-of v1, p0, Landroid/app/Activity;
+ 
+-    .line 6
+     .line 7
+     if-eqz v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     check-cast p0, Landroid/app/Activity;
+ 
+-    .line 10
+     .line 11
+     return-object p0
+ 
+@@ -1290,28 +1021,21 @@
+     :cond_1
+     instance-of v1, p0, Landroidx/appcompat/widget/TintContextWrapper;
+ 
+-    .line 13
+     .line 14
+     if-eqz v1, :cond_2
+ 
+-    .line 15
+     .line 16
+     check-cast p0, Landroidx/appcompat/widget/TintContextWrapper;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -1322,28 +1046,21 @@
+     :cond_2
+     instance-of v1, p0, Landroid/content/ContextWrapper;
+ 
+-    .line 28
+     .line 29
+     if-eqz v1, :cond_3
+ 
+-    .line 30
+     .line 31
+     check-cast p0, Landroid/content/ContextWrapper;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+@@ -1361,32 +1078,24 @@
+     .line 1
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityNestWrapper(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     invoke-virtual {p0, p1}, Landroid/view/View;->setSystemUiVisibility(I)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -1402,78 +1111,58 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getAppCompActivity(Landroid/content/Context;)Landroidx/appcompat/app/AppCompatActivity;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-eqz p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1}, Landroidx/appcompat/app/AppCompatActivity;->getSupportActionBar()Landroidx/appcompat/app/ActionBar;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     if-eqz p1, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x0
+ 
+     .line 16
+     invoke-virtual {p1, v0}, Landroidx/appcompat/app/ActionBar;->w(Z)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p1}, Landroidx/appcompat/app/ActionBar;->A()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :cond_0
+     if-eqz p2, :cond_3
+ 
+-    .line 23
+     .line 24
+     instance-of p1, p0, Landroidx/fragment/app/FragmentActivity;
+ 
+-    .line 25
+     .line 26
+     const/16 p2, 0x400
+ 
+-    .line 27
+     .line 28
+     if-eqz p1, :cond_1
+ 
+-    .line 29
+     .line 30
+     check-cast p0, Landroidx/fragment/app/FragmentActivity;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     invoke-virtual {p0, p2}, Landroid/view/Window;->clearFlags(I)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -1481,28 +1170,21 @@
+     :cond_1
+     instance-of p1, p0, Landroid/app/Activity;
+ 
+-    .line 41
+     .line 42
+     if-eqz p1, :cond_2
+ 
+-    .line 43
+     .line 44
+     check-cast p0, Landroid/app/Activity;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     invoke-virtual {p0, p2}, Landroid/view/Window;->clearFlags(I)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-void
+ 
+@@ -1510,24 +1192,18 @@
+     :cond_2
+     invoke-static {p0}, Lcom/shuyu/gsyvideoplayer/utils/CommonUtil;->getActivityNestWrapper(Landroid/content/Context;)Landroid/app/Activity;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 
+     .line 58
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p0
+ 
+     .line 62
+     invoke-virtual {p0, p2}, Landroid/view/Window;->clearFlags(I)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :cond_3
+     return-void
+@@ -1539,119 +1215,90 @@
+     .line 1
+     const-wide/16 v0, 0x3e8
+ 
+-    .line 2
+     .line 3
+     div-long/2addr p0, v0
+ 
+     .line 4
+     const-wide/16 v0, 0x3c
+ 
+-    .line 5
+     .line 6
+     rem-long v2, p0, v0
+ 
+-    .line 7
+     .line 8
+     div-long v4, p0, v0
+ 
+-    .line 9
+     .line 10
+     rem-long/2addr v4, v0
+ 
+     .line 11
+     const-wide/16 v0, 0xe10
+ 
+-    .line 12
+     .line 13
+     div-long/2addr p0, v0
+ 
+     .line 14
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     new-instance v1, Ljava/util/Formatter;
+ 
+-    .line 20
+     .line 21
+     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v6
+ 
+     .line 25
+     invoke-direct {v1, v0, v6}, Ljava/util/Formatter;-><init>(Ljava/lang/Appendable;Ljava/util/Locale;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-wide/16 v6, 0x0
+ 
+-    .line 29
+     .line 30
+     cmp-long v0, p0, v6
+ 
+-    .line 31
+     .line 32
+     if-lez v0, :cond_0
+ 
+-    .line 33
+     .line 34
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p1
+ 
+     .line 42
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v0
+ 
+     .line 46
+     filled-new-array {p0, p1, v0}, [Ljava/lang/Object;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     const-string p1, "%d:%02d:%02d"
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v1, p1, p0}, Ljava/util/Formatter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Formatter;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object p0
+ 
+     .line 56
+     invoke-virtual {p0}, Ljava/util/Formatter;->toString()Ljava/lang/String;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p0
+ 
+@@ -1662,44 +1309,33 @@
+     :cond_0
+     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p1
+ 
+     .line 69
+     filled-new-array {p0, p1}, [Ljava/lang/Object;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+ 
+     .line 73
+     const-string p1, "%02d:%02d"
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {v1, p1, p0}, Ljava/util/Formatter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Formatter;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p0
+ 
+     .line 79
+     invoke-virtual {p0}, Ljava/util/Formatter;->toString()Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p0
+ 

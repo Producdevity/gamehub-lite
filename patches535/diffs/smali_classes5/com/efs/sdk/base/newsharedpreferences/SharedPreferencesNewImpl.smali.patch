@@ -1,0 +1,6096 @@
+--- a/smali_classes5/com/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl.smali
++++ b/smali_classes5/com/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl.smali
+@@ -153,27 +153,21 @@
+     .line 1
+     new-instance v0, Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitorSyncObj:Ljava/lang/Object;
+ 
+-    .line 7
+     .line 8
+     const/4 v0, 0x3
+ 
+     .line 9
+     new-array v1, v0, [Landroid/os/HandlerThread;
+ 
+-    .line 10
+     .line 11
+     sput-object v1, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandlerThreadPool:[Landroid/os/HandlerThread;
+ 
+-    .line 12
+     .line 13
+     const/4 v1, 0x0
+ 
+@@ -181,61 +175,45 @@
+     :goto_0
+     if-ge v1, v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     sget-object v2, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandlerThreadPool:[Landroid/os/HandlerThread;
+ 
+-    .line 17
+     .line 18
+     new-instance v3, Landroid/os/HandlerThread;
+ 
+-    .line 19
+     .line 20
+     const-string v4, "newsp"
+ 
+-    .line 21
+     .line 22
+     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v5
+ 
+     .line 26
+     invoke-virtual {v4, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v4
+ 
+     .line 30
+     invoke-direct {v3, v4}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     aput-object v3, v2, v1
+ 
+-    .line 34
+     .line 35
+     sget-object v2, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandlerThreadPool:[Landroid/os/HandlerThread;
+ 
+-    .line 36
+     .line 37
+     aget-object v2, v2, v1
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -243,15 +221,12 @@
+     :cond_0
+     invoke-static {}, Ljava/util/concurrent/Executors;->newCachedThreadPool()Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     sput-object v0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->sCachedThreadPool:Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 50
+     .line 51
+     return-void
+ .end method
+@@ -440,7 +415,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -451,8 +425,6 @@
+     .line 1
+     invoke-direct {p0, p1, p2, p3, p4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->save(Landroid/content/SharedPreferences$Editor;ZZZ)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -463,7 +435,6 @@
+     .line 1
+     iget p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -474,8 +445,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->saveInner(Z)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -486,8 +455,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromDiskLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -498,7 +465,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -509,8 +475,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->tryReload()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -521,16 +485,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Ljava/nio/Buffer;->position()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+@@ -553,23 +513,18 @@
+     :try_start_0
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileChannel:Ljava/nio/channels/FileChannel;
+ 
+-    .line 14
+     .line 15
+     sget-object v3, Ljava/nio/channels/FileChannel$MapMode;->READ_WRITE:Ljava/nio/channels/FileChannel$MapMode;
+ 
+-    .line 16
+     .line 17
+     const-wide/16 v4, 0x0
+ 
+-    .line 18
+     .line 19
+     int-to-long v6, p1
+ 
+     .line 20
+     invoke-virtual/range {v2 .. v7}, Ljava/nio/channels/FileChannel;->map(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+@@ -578,7 +533,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 25
+     .line 26
+     goto :goto_2
+ 
+@@ -592,27 +546,20 @@
+     .line 29
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     :goto_2
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 33
+     .line 34
+     if-eqz p1, :cond_1
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p1, v1}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :cond_1
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 40
+     .line 41
+     return-object p0
+ .end method
+@@ -623,11 +570,9 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mLoaded:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     monitor-enter p0
+ 
+@@ -638,19 +583,15 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 7
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     :try_start_1
+     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -662,8 +603,6 @@
+     :try_start_2
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -695,8 +634,6 @@
+     :goto_2
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->tryReload()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-void
+ .end method
+@@ -711,33 +648,24 @@
+     :try_start_0
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 3
+     .line 4
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+     .line 13
+     if-nez v2, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -756,20 +684,15 @@
+     :goto_0
+     new-instance v2, Ljava/io/FileOutputStream;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v2, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :try_start_1
+     invoke-virtual {v2}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v8
+     :try_end_1
+@@ -779,16 +702,12 @@
+     :try_start_2
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileChannel:Ljava/nio/channels/FileChannel;
+ 
+-    .line 32
+     .line 33
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v0}, Ljava/nio/Buffer;->capacity()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v0
+ 
+@@ -798,25 +717,18 @@
+     .line 40
+     const-wide/16 v4, 0x0
+ 
+-    .line 41
+     .line 42
+     invoke-virtual/range {v3 .. v8}, Ljava/nio/channels/FileChannel;->transferTo(JJLjava/nio/channels/WritableByteChannel;)J
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     :goto_1
+     invoke-direct {p0, v8}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     return-void
+ 
+@@ -848,13 +760,9 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_3
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-direct {p0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     goto :goto_1
+ 
+@@ -865,13 +773,9 @@
+     .line 66
+     invoke-direct {p0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-direct {p0, v8}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     throw v0
+ .end method
+@@ -892,11 +796,9 @@
+     :goto_0
+     if-ge v0, p0, :cond_0
+ 
+-    .line 5
+     .line 6
+     aget-byte v2, p1, v0
+ 
+-    .line 7
+     .line 8
+     xor-int/2addr v1, v2
+ 
+@@ -906,7 +808,6 @@
+     .line 10
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -921,25 +822,19 @@
+     .line 1
+     if-eqz p1, :cond_4
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     instance-of p0, p1, Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -950,20 +845,15 @@
+     :cond_0
+     instance-of p0, p1, Ljava/lang/Boolean;
+ 
+-    .line 15
+     .line 16
+     if-eqz p0, :cond_1
+ 
+-    .line 17
+     .line 18
+     check-cast p1, Ljava/lang/Boolean;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+@@ -976,14 +866,12 @@
+     .line 26
+     new-array p1, p1, [B
+ 
+-    .line 27
+     .line 28
+     const/4 v0, 0x0
+ 
+     .line 29
+     aput-byte p0, p1, v0
+ 
+-    .line 30
+     .line 31
+     return-object p1
+ 
+@@ -991,28 +879,21 @@
+     :cond_1
+     instance-of p0, p1, Ljava/lang/Float;
+ 
+-    .line 33
+     .line 34
+     if-eqz p0, :cond_2
+ 
+-    .line 35
+     .line 36
+     check-cast p1, Ljava/lang/Float;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p0
+ 
+     .line 42
+     invoke-static {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteFloatUtils;->floatToBytes(F)[B
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -1023,28 +904,21 @@
+     :cond_2
+     instance-of p0, p1, Ljava/lang/Integer;
+ 
+-    .line 48
+     .line 49
+     if-eqz p0, :cond_3
+ 
+-    .line 50
+     .line 51
+     check-cast p1, Ljava/lang/Integer;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result p0
+ 
+     .line 57
+     invoke-static {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+@@ -1055,28 +929,21 @@
+     :cond_3
+     instance-of p0, p1, Ljava/lang/Long;
+ 
+-    .line 63
+     .line 64
+     if-eqz p0, :cond_4
+ 
+-    .line 65
+     .line 66
+     check-cast p1, Ljava/lang/Long;
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-wide p0
+ 
+     .line 72
+     invoke-static {p0, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteLongUtils;->longToBytes(J)[B
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+     :try_end_0
+@@ -1092,8 +959,6 @@
+     .line 78
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :cond_4
+     const/4 p0, 0x0
+@@ -1108,22 +973,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, -0x1
+ 
+     .line 4
+     if-eqz v0, :cond_8
+ 
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileChannel:Ljava/nio/channels/FileChannel;
+ 
+-    .line 7
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     goto :goto_4
+ 
+@@ -1131,7 +992,6 @@
+     :cond_0
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSyncObj:Ljava/lang/Object;
+ 
+-    .line 12
+     .line 13
+     monitor-enter v0
+ 
+@@ -1139,80 +999,60 @@
+     :try_start_0
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 15
+     .line 16
+     const/4 v3, 0x0
+ 
+     .line 17
+     invoke-virtual {v2, v3}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const/4 v2, 0x4
+ 
+     .line 21
+     new-array v3, v2, [B
+ 
+-    .line 22
+     .line 23
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, v4, v3}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeBufferGet(Ljava/nio/MappedByteBuffer;[B)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {v3}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->bytesToInt([B)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v4
+ 
+     .line 32
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v5, v2}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->get()B
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v2
+ 
+     .line 43
+     const/16 v5, 0x12
+ 
+-    .line 44
+     .line 45
+     if-eq v2, v5, :cond_1
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, v3}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v3
+ 
+     .line 51
+     if-ne v2, v3, :cond_2
+ 
+-    .line 52
+     .line 53
+     goto :goto_0
+ 
+@@ -1228,29 +1068,22 @@
+     :goto_0
+     if-gez v4, :cond_6
+ 
+-    .line 57
+     .line 58
+     :cond_2
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 59
+     .line 60
+     if-eqz v2, :cond_5
+ 
+-    .line 61
+     .line 62
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 63
+     .line 64
+     if-eqz v3, :cond_3
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v3
+ 
+@@ -1265,16 +1098,12 @@
+     :goto_1
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 73
+     .line 74
+     if-eqz p0, :cond_4
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-wide v4
+ 
+@@ -1285,7 +1114,6 @@
+     :cond_4
+     const-wide/16 v4, 0x0
+ 
+-    .line 82
+     .line 83
+     :goto_2
+     const/4 p0, 0x1
+@@ -1293,8 +1121,6 @@
+     .line 84
+     invoke-interface {v2, v3, p0, v4, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     :cond_5
+     monitor-exit v0
+@@ -1306,12 +1132,9 @@
+     :cond_6
+     const p0, 0x7fffffff
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     if-le v4, p0, :cond_7
+ 
+-    .line 93
+     .line 94
+     move v4, p0
+ 
+@@ -1351,7 +1174,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -1359,53 +1181,39 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v1}, Ljava/util/AbstractMap;->size()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     mul-int/lit8 v1, v1, 0x5
+ 
+-    .line 11
+     .line 12
+     new-array v1, v1, [[B
+ 
+-    .line 13
+     .line 14
+     new-instance v2, Ljava/util/ArrayList;
+ 
+-    .line 15
+     .line 16
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v3}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v3
+ 
+     .line 22
+     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v3}, Ljava/util/Vector;->clear()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     monitor-exit v0
+     :try_end_0
+@@ -1414,8 +1222,6 @@
+     .line 31
+     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v0
+ 
+@@ -1438,72 +1244,54 @@
+     :goto_0
+     if-ltz v0, :cond_1
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v7
+ 
+     .line 46
+     check-cast v7, Ljava/util/Map$Entry;
+ 
+-    .line 47
+     .line 48
+     invoke-interface {v7}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v8
+ 
+     .line 52
+     check-cast v8, Ljava/lang/String;
+ 
+-    .line 53
+     .line 54
+     invoke-interface {v7}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v7
+ 
+     .line 58
+     if-eqz v8, :cond_0
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v9
+ 
+     .line 64
+     invoke-virtual {v9}, Ljava/lang/String;->length()I
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result v9
+ 
+     .line 68
+     if-lez v9, :cond_0
+ 
+-    .line 69
+     .line 70
+     if-eqz v7, :cond_0
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {v8}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v8
+ 
+@@ -1513,23 +1301,18 @@
+     .line 77
+     invoke-static {v9}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v9
+ 
+     .line 81
+     aput-object v9, v1, v6
+ 
+-    .line 82
+     .line 83
+     add-int/lit8 v10, v6, 0x1
+ 
+-    .line 84
+     .line 85
+     aput-object v8, v1, v10
+ 
+-    .line 86
+     .line 87
+     array-length v9, v9
+ 
+@@ -1545,8 +1328,6 @@
+     .line 91
+     invoke-direct {p0, v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getBytes(Ljava/lang/Object;)[B
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v8
+ 
+@@ -1556,27 +1337,21 @@
+     .line 96
+     invoke-static {v9}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v9
+ 
+     .line 100
+     add-int/lit8 v10, v6, 0x2
+ 
+-    .line 101
+     .line 102
+     aput-object v9, v1, v10
+ 
+-    .line 103
+     .line 104
+     add-int/lit8 v10, v6, 0x3
+ 
+-    .line 105
+     .line 106
+     aput-object v8, v1, v10
+ 
+-    .line 107
+     .line 108
+     array-length v9, v9
+ 
+@@ -1592,8 +1367,6 @@
+     .line 112
+     invoke-direct {p0, v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getObjectType(Ljava/lang/Object;)I
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result v7
+ 
+@@ -1603,31 +1376,25 @@
+     .line 117
+     new-array v8, v3, [B
+ 
+-    .line 118
+     .line 119
+     aput-byte v7, v8, v4
+ 
+-    .line 120
+     .line 121
+     add-int/lit8 v7, v6, 0x4
+ 
+-    .line 122
+     .line 123
+     aput-object v8, v1, v7
+ 
+-    .line 124
+     .line 125
+     add-int/2addr v5, v3
+ 
+     .line 126
+     add-int/lit8 v6, v6, 0x5
+ 
+-    .line 127
+     .line 128
+     :cond_0
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 129
+     .line 130
+     goto :goto_0
+ 
+@@ -1635,20 +1402,15 @@
+     :cond_1
+     new-instance p0, Landroid/util/Pair;
+ 
+-    .line 132
+     .line 133
+     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v0
+ 
+     .line 137
+     invoke-direct {p0, v0, v1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     return-object p0
+ 
+@@ -1672,24 +1434,18 @@
+     .line 1
+     new-instance p0, Ljava/util/Random;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/util/Random;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Ljava/util/Random;->nextInt()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+     .line 10
+     if-gez p0, :cond_0
+ 
+-    .line 11
+     .line 12
+     neg-int p0, p0
+ 
+@@ -1697,15 +1453,12 @@
+     :cond_0
+     rem-int/lit8 p0, p0, 0x3
+ 
+-    .line 14
+     .line 15
+     sget-object v0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandlerThreadPool:[Landroid/os/HandlerThread;
+ 
+-    .line 16
+     .line 17
+     aget-object p0, v0, p0
+ 
+-    .line 18
+     .line 19
+     return-object p0
+ .end method
+@@ -1716,8 +1469,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getBCCCode([B)B
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1731,31 +1482,25 @@
+     .line 1
+     if-eqz p1, :cond_5
+ 
+-    .line 2
+     .line 3
+     array-length p0, p1
+ 
+     .line 4
+     if-lez p0, :cond_5
+ 
+-    .line 5
+     .line 6
+     const/4 p0, 0x5
+ 
+     .line 7
+     if-ne p2, p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     :try_start_0
+     new-instance p0, Ljava/lang/String;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p0, p1}, Ljava/lang/String;-><init>([B)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-object p0
+ 
+@@ -1769,18 +1514,15 @@
+     .line 17
+     if-ne p2, p0, :cond_2
+ 
+-    .line 18
+     .line 19
+     const/4 p0, 0x0
+ 
+     .line 20
+     aget-byte p1, p1, p0
+ 
+-    .line 21
+     .line 22
+     if-ne p1, v0, :cond_1
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -1792,8 +1534,6 @@
+     :goto_0
+     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+@@ -1807,20 +1547,15 @@
+     .line 32
+     if-ne p2, p0, :cond_3
+ 
+-    .line 33
+     .line 34
+     invoke-static {p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteFloatUtils;->bytesToFloat([B)F
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result p0
+ 
+     .line 38
+     invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -1831,20 +1566,15 @@
+     :cond_3
+     if-ne p2, v0, :cond_4
+ 
+-    .line 44
+     .line 45
+     invoke-static {p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->bytesToInt([B)I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result p0
+ 
+     .line 49
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -1858,20 +1588,15 @@
+     .line 55
+     if-ne p2, p0, :cond_5
+ 
+-    .line 56
+     .line 57
+     invoke-static {p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteLongUtils;->bytesToLong([B)J
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-wide p0
+ 
+     .line 61
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+     :try_end_0
+@@ -1887,8 +1612,6 @@
+     .line 67
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     :cond_5
+     const/4 p0, 0x0
+@@ -1903,11 +1626,9 @@
+     .line 1
+     instance-of p0, p1, Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x5
+ 
+@@ -1918,11 +1639,9 @@
+     :cond_0
+     instance-of p0, p1, Ljava/lang/Boolean;
+ 
+-    .line 8
+     .line 9
+     if-eqz p0, :cond_1
+ 
+-    .line 10
+     .line 11
+     const/4 p0, 0x4
+ 
+@@ -1933,11 +1652,9 @@
+     :cond_1
+     instance-of p0, p1, Ljava/lang/Float;
+ 
+-    .line 14
+     .line 15
+     if-eqz p0, :cond_2
+ 
+-    .line 16
+     .line 17
+     const/4 p0, 0x2
+ 
+@@ -1948,11 +1665,9 @@
+     :cond_2
+     instance-of p0, p1, Ljava/lang/Integer;
+ 
+-    .line 20
+     .line 21
+     if-eqz p0, :cond_3
+ 
+-    .line 22
+     .line 23
+     const/4 p0, 0x1
+ 
+@@ -1963,11 +1678,9 @@
+     :cond_3
+     instance-of p0, p1, Ljava/lang/Long;
+ 
+-    .line 26
+     .line 27
+     if-eqz p0, :cond_4
+ 
+-    .line 28
+     .line 29
+     const/4 p0, 0x3
+ 
+@@ -2000,43 +1713,33 @@
+     .line 2
+     new-array v1, v0, [B
+ 
+-    .line 3
+     .line 4
+     const/4 v2, 0x0
+ 
+     .line 5
+     invoke-static {p1, p2, v1, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     add-int/lit8 v0, p2, 0x4
+ 
+-    .line 9
+     .line 10
+     aget-byte v0, p1, v0
+ 
+-    .line 11
+     .line 12
+     const/16 v3, 0x12
+ 
+-    .line 13
+     .line 14
+     if-eq v0, v3, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v4
+ 
+     .line 20
+     if-ne v0, v4, :cond_0
+ 
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -2044,16 +1747,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/Exception;
+ 
+-    .line 24
+     .line 25
+     const-string p1, "length string\'s finish mark missing"
+ 
+-    .line 26
+     .line 27
+     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     throw p0
+ 
+@@ -2062,72 +1761,54 @@
+     :goto_0
+     add-int/lit8 p2, p2, 0x5
+ 
+-    .line 32
+     .line 33
+     invoke-static {v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->bytesToInt([B)I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+ 
+     .line 37
+     if-ltz v0, :cond_5
+ 
+-    .line 38
+     .line 39
+     add-int v1, p2, v0
+ 
+-    .line 40
+     .line 41
+     array-length v4, p1
+ 
+     .line 42
+     if-ge v1, v4, :cond_5
+ 
+-    .line 43
+     .line 44
+     const v4, 0x7fffffff
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     if-gt v0, v4, :cond_5
+ 
+-    .line 48
+     .line 49
+     if-eqz v0, :cond_4
+ 
+-    .line 50
+     .line 51
+     new-array v4, v0, [B
+ 
+-    .line 52
+     .line 53
+     invoke-static {p1, p2, v4, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     aget-byte p1, p1, v1
+ 
+-    .line 57
+     .line 58
+     if-eq p1, v3, :cond_3
+ 
+-    .line 59
+     .line 60
+     invoke-direct {p0, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result p0
+ 
+     .line 64
+     if-ne p1, p0, :cond_2
+ 
+-    .line 65
+     .line 66
+     goto :goto_1
+ 
+@@ -2135,16 +1816,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/Exception;
+ 
+-    .line 68
+     .line 69
+     const-string p1, "Stored bytes\' finish mark missing"
+ 
+-    .line 70
+     .line 71
+     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     throw p0
+ 
+@@ -2164,24 +1841,18 @@
+     :goto_2
+     add-int/lit8 p2, p2, 0x1
+ 
+-    .line 79
+     .line 80
+     new-instance p0, Landroid/util/Pair;
+ 
+-    .line 81
+     .line 82
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p1
+ 
+     .line 86
+     invoke-direct {p0, v4, p1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     return-object p0
+ 
+@@ -2189,16 +1860,12 @@
+     :cond_5
+     new-instance p0, Ljava/lang/Exception;
+ 
+-    .line 91
+     .line 92
+     const-string p1, "length string is invalid"
+ 
+-    .line 93
+     .line 94
+     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     throw p0
+ .end method
+@@ -2209,23 +1876,18 @@
+     .line 1
+     iget v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 2
+     .line 3
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 4
+     .line 5
+     const v1, 0x7fffffff
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     rem-int/2addr v0, v1
+ 
+     .line 9
+     iput v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 10
+     .line 11
+     return v0
+ .end method
+@@ -2236,18 +1898,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+     .line 4
+     if-nez v0, :cond_5
+ 
+-    .line 5
+     .line 6
+     const/16 v0, 0xa
+ 
+-    .line 7
+     .line 8
+     const/4 v2, 0x0
+ 
+@@ -2255,63 +1914,45 @@
+     :try_start_0
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v3}, Ljava/io/File;->exists()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v3
+ 
+     .line 15
+     if-nez v3, :cond_0
+ 
+-    .line 16
+     .line 17
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v1
+ 
+     .line 23
+     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 32
+     .line 33
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v1
+ 
+@@ -2329,56 +1970,42 @@
+     :cond_0
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v3}, Ljava/io/File;->length()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v3
+ 
+     .line 51
+     const-wide/16 v5, 0x0
+ 
+-    .line 52
+     .line 53
+     cmp-long v3, v3, v5
+ 
+-    .line 54
+     .line 55
+     if-nez v3, :cond_2
+ 
+-    .line 56
+     .line 57
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 58
+     .line 59
+     if-eqz v1, :cond_1
+ 
+-    .line 60
+     .line 61
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v3
+ 
+     .line 67
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {v4}, Ljava/io/File;->length()J
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-wide v4
+ 
+@@ -2388,8 +2015,6 @@
+     .line 74
+     invoke-interface {v1, v3, v6, v4, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     :cond_1
+     move v1, v2
+@@ -2399,48 +2024,35 @@
+     :goto_0
+     new-instance v3, Ljava/io/RandomAccessFile;
+ 
+-    .line 79
+     .line 80
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 81
+     .line 82
+     const-string v5, "rw"
+ 
+-    .line 83
+     .line 84
+     invoke-direct {v3, v4, v5}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     invoke-virtual {v3}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object v3
+ 
+     .line 91
+     iput-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileChannel:Ljava/nio/channels/FileChannel;
+ 
+-    .line 92
+     .line 93
+     invoke-direct {p0, v0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->allocBuffer(I)Ljava/nio/MappedByteBuffer;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     if-nez v1, :cond_3
+ 
+-    .line 97
+     .line 98
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->initFileHeader()V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     :cond_3
+     return v1
+@@ -2449,81 +2061,57 @@
+     :goto_1
+     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 106
+     .line 107
+     if-eqz v3, :cond_4
+ 
+-    .line 108
+     .line 109
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 110
+     .line 111
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 115
+     .line 116
+     invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object p0
+ 
+     .line 120
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     const-string p0, " "
+ 
+-    .line 124
+     .line 125
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     invoke-virtual {v1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object p0
+ 
+     .line 132
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-object p0
+ 
+     .line 139
+     const-wide/16 v4, -0x1
+ 
+-    .line 140
+     .line 141
+     invoke-interface {v3, p0, v0, v4, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     :cond_4
+     return v2
+@@ -2539,27 +2127,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/16 v0, 0xa
+ 
+-    .line 6
+     .line 7
+     new-array v0, v0, [B
+ 
+-    .line 8
+     .line 9
+     const/4 v1, 0x0
+ 
+     .line 10
+     invoke-static {v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v2
+ 
+@@ -2569,25 +2151,18 @@
+     .line 15
+     invoke-static {v2, v1, v0, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     aput-byte v2, v0, v3
+ 
+-    .line 23
+     .line 24
+     invoke-static {v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+@@ -2597,42 +2172,30 @@
+     .line 29
+     invoke-static {v2, v1, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     const/16 v3, 0x9
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result v2
+ 
+     .line 38
+     aput-byte v2, v0, v3
+ 
+-    .line 39
+     .line 40
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v2, v1}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     :cond_0
+     return-void
+@@ -2650,7 +2213,6 @@
+     .line 3
+     if-eqz p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v2, v0
+ 
+@@ -2661,8 +2223,6 @@
+     :cond_0
+     invoke-direct {p0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->lockFile(Z)Ljava/nio/channels/FileLock;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+@@ -2670,11 +2230,9 @@
+     :goto_0
+     if-nez v2, :cond_2
+ 
+-    .line 12
+     .line 13
+     if-eqz p1, :cond_1
+ 
+-    .line 14
+     .line 15
+     goto :goto_1
+ 
+@@ -2682,12 +2240,9 @@
+     :cond_1
+     if-nez p1, :cond_11
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromBakFile()Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -2700,28 +2255,21 @@
+     :try_start_0
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->reallocBuffer()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 27
+     .line 28
+     if-eqz v3, :cond_a
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v3}, Ljava/nio/Buffer;->capacity()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v3
+ 
+     .line 34
+     if-nez v3, :cond_3
+ 
+-    .line 35
+     .line 36
+     goto :goto_6
+ 
+@@ -2729,8 +2277,6 @@
+     :cond_3
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getContentLength()I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v3
+     :try_end_0
+@@ -2743,21 +2289,16 @@
+     .line 42
+     const-wide/16 v5, 0xa
+ 
+-    .line 43
+     .line 44
+     cmp-long v5, v3, v5
+ 
+-    .line 45
+     .line 46
+     if-gtz v5, :cond_6
+ 
+-    .line 47
+     .line 48
+     :try_start_1
+     invoke-direct {p0, v0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result p1
+     :try_end_1
+@@ -2773,32 +2314,24 @@
+     .line 54
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     :goto_2
+     if-eqz p1, :cond_4
+ 
+-    .line 58
+     .line 59
+     iget p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 60
+     .line 61
+     if-gez p1, :cond_5
+ 
+-    .line 62
+     .line 63
+     :cond_4
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromBakFile()Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     :cond_5
+     if-eqz v2, :cond_11
+ 
+-    .line 67
+     .line 68
+     :goto_3
+     :try_start_2
+@@ -2806,12 +2339,9 @@
+     :try_end_2
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto/16 :goto_a
+ 
+-    .line 72
+     .line 73
+     :catch_1
+     move-exception p0
+@@ -2819,8 +2349,6 @@
+     .line 74
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     return-void
+ 
+@@ -2829,23 +2357,18 @@
+     :try_start_3
+     invoke-virtual {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getModifyID()I
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result v5
+ 
+     .line 82
+     iput v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 83
+     .line 84
+     if-lez v5, :cond_7
+ 
+-    .line 85
+     .line 86
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSyncObj:Ljava/lang/Object;
+ 
+-    .line 87
+     .line 88
+     monitor-enter v5
+     :try_end_3
+@@ -2856,16 +2379,12 @@
+     :try_start_4
+     iget-object v6, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 90
+     .line 91
+     const/16 v7, 0xa
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {v6, v7}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     long-to-int v3, v3
+ 
+@@ -2875,16 +2394,12 @@
+     .line 98
+     new-array v0, v3, [B
+ 
+-    .line 99
+     .line 100
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p0, v3, v0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeBufferGet(Ljava/nio/MappedByteBuffer;[B)Z
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     monitor-exit v5
+ 
+@@ -2913,8 +2428,6 @@
+     :try_start_6
+     invoke-direct {p0, v0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result p1
+     :try_end_6
+@@ -2930,36 +2443,27 @@
+     .line 116
+     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     :goto_5
+     if-eqz p1, :cond_8
+ 
+-    .line 120
+     .line 121
+     if-nez v0, :cond_9
+ 
+-    .line 122
+     .line 123
+     iget p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 124
+     .line 125
+     if-gez p1, :cond_9
+ 
+-    .line 126
+     .line 127
+     :cond_8
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromBakFile()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     :cond_9
+     if-eqz v2, :cond_11
+ 
+-    .line 131
+     .line 132
+     goto :goto_3
+ 
+@@ -2969,8 +2473,6 @@
+     :try_start_7
+     invoke-direct {p0, v0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result p1
+     :try_end_7
+@@ -2986,32 +2488,24 @@
+     .line 139
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     :goto_7
+     if-eqz p1, :cond_b
+ 
+-    .line 143
+     .line 144
+     iget p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 145
+     .line 146
+     if-gez p1, :cond_c
+ 
+-    .line 147
+     .line 148
+     :cond_b
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromBakFile()Z
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     :cond_c
+     if-eqz v2, :cond_11
+ 
+-    .line 152
+     .line 153
+     goto :goto_3
+ 
+@@ -3020,8 +2514,6 @@
+     :try_start_8
+     invoke-direct {p0, v0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result p1
+     :try_end_8
+@@ -3037,36 +2529,27 @@
+     .line 160
+     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     :goto_8
+     if-eqz p1, :cond_d
+ 
+-    .line 164
+     .line 165
+     if-nez v0, :cond_e
+ 
+-    .line 166
+     .line 167
+     iget p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 168
+     .line 169
+     if-gez p1, :cond_e
+ 
+-    .line 170
+     .line 171
+     :cond_d
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromBakFile()Z
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     :cond_e
+     if-eqz v2, :cond_11
+ 
+-    .line 175
+     .line 176
+     goto :goto_3
+ 
+@@ -3075,39 +2558,28 @@
+     :try_start_9
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 178
+     .line 179
+     invoke-virtual {v3}, Ljava/io/File;->delete()Z
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 183
+     .line 184
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 185
+     .line 186
+     invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     invoke-virtual {v3}, Ljava/io/File;->delete()Z
+     :try_end_9
+     .catchall {:try_start_9 .. :try_end_9} :catchall_2
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     :catchall_2
+     :try_start_a
+     invoke-direct {p0, v0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result p1
+     :try_end_a
+@@ -3123,40 +2595,30 @@
+     .line 198
+     invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     :goto_9
+     if-eqz p1, :cond_f
+ 
+-    .line 202
+     .line 203
+     if-nez v0, :cond_10
+ 
+-    .line 204
+     .line 205
+     iget p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 206
+     .line 207
+     if-gez p1, :cond_10
+ 
+-    .line 208
+     .line 209
+     :cond_f
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->loadFromBakFile()Z
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     :cond_10
+     if-eqz v2, :cond_11
+ 
+-    .line 213
+     .line 214
+     goto/16 :goto_3
+ 
+-    .line 215
+     .line 216
+     :cond_11
+     :goto_a
+@@ -3169,11 +2631,9 @@
+     .line 1
+     const-string v0, "#"
+ 
+-    .line 2
+     .line 3
+     const/16 v1, 0xc
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x0
+ 
+@@ -3187,22 +2647,17 @@
+     :try_start_0
+     new-instance v5, Ljava/io/RandomAccessFile;
+ 
+-    .line 9
+     .line 10
+     iget-object v6, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     const-string v7, "r"
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v5, v6, v7}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     const/4 v6, 0x4
+ 
+@@ -3210,17 +2665,12 @@
+     :try_start_1
+     new-array v7, v6, [B
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v5, v7, v2, v6}, Ljava/io/RandomAccessFile;->read([BII)I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-static {v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->bytesToInt([B)I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v6
+     :try_end_1
+@@ -3229,24 +2679,18 @@
+     .line 27
+     const/16 v7, 0xa
+ 
+-    .line 28
+     .line 29
+     if-gt v6, v7, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-direct {p0, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :try_start_2
+     invoke-direct {p0, v4, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+     :try_end_2
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -3257,8 +2701,6 @@
+     .line 39
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :goto_0
+     return v2
+@@ -3267,12 +2709,9 @@
+     :cond_0
+     const v8, 0x7fffffff
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     if-le v6, v8, :cond_1
+ 
+-    .line 47
+     .line 48
+     move v6, v8
+ 
+@@ -3284,24 +2723,18 @@
+     :try_start_3
+     invoke-virtual {v5}, Ljava/io/RandomAccessFile;->length()J
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-wide v10
+ 
+     .line 54
+     cmp-long v8, v8, v10
+ 
+-    .line 55
+     .line 56
+     if-lez v8, :cond_2
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v5}, Ljava/io/RandomAccessFile;->length()J
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-wide v8
+ 
+@@ -3335,34 +2768,24 @@
+     .line 70
+     new-array v4, v6, [B
+ 
+-    .line 71
+     .line 72
+     const-wide/16 v7, 0xa
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {v5, v7, v8}, Ljava/io/RandomAccessFile;->seek(J)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     invoke-virtual {v5, v4}, Ljava/io/RandomAccessFile;->read([B)I
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-direct {p0, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     :try_start_4
+     invoke-direct {p0, v4, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v3
+     :try_end_4
+@@ -3378,64 +2801,43 @@
+     .line 89
+     invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     :goto_2
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 93
+     .line 94
+     if-eqz v2, :cond_4
+ 
+-    .line 95
+     .line 96
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 97
+     .line 98
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 102
+     .line 103
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     const-string p0, ""
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p0
+ 
+@@ -3445,8 +2847,6 @@
+     .line 125
+     invoke-interface {v2, p0, v1, v4, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     goto :goto_6
+ 
+@@ -3464,19 +2864,13 @@
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_2
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-direct {p0, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     :try_start_6
+     invoke-direct {p0, v5, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result v3
+     :try_end_6
+@@ -3492,75 +2886,52 @@
+     .line 143
+     invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     :goto_4
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 147
+     .line 148
+     if-eqz v4, :cond_4
+ 
+-    .line 149
+     .line 150
+     new-instance v7, Ljava/lang/StringBuilder;
+ 
+-    .line 151
+     .line 152
+     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 156
+     .line 157
+     invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     invoke-virtual {v6}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object p0
+ 
+     .line 167
+     invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object p0
+ 
+     .line 180
+     if-nez v5, :cond_3
+ 
+-    .line 181
+     .line 182
+     goto :goto_5
+ 
+@@ -3575,8 +2946,6 @@
+     .line 185
+     invoke-interface {v4, p0, v1, v5, v6}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     :cond_4
+     :goto_6
+@@ -3589,14 +2958,10 @@
+     .line 190
+     invoke-direct {p0, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeClose(Ljava/io/Closeable;)V
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     :try_start_7
+     invoke-direct {p0, v5, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->parseBytesIntoMap([BZ)Z
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result v3
+     :try_end_7
+@@ -3612,75 +2977,52 @@
+     .line 199
+     invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     :goto_7
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 203
+     .line 204
+     if-eqz v4, :cond_6
+ 
+-    .line 205
+     .line 206
+     new-instance v8, Ljava/lang/StringBuilder;
+ 
+-    .line 207
+     .line 208
+     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 212
+     .line 213
+     invoke-virtual {v8, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     invoke-virtual {v6}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     move-result-object p0
+ 
+     .line 223
+     invoke-virtual {v8, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     move-result-object p0
+ 
+     .line 236
+     if-nez v5, :cond_5
+ 
+-    .line 237
+     .line 238
+     goto :goto_8
+ 
+@@ -3695,8 +3037,6 @@
+     .line 241
+     invoke-interface {v4, p0, v1, v2, v3}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     :cond_6
+     throw v7
+@@ -3708,11 +3048,9 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mLoaded:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -3723,20 +3061,15 @@
+     .line 7
+     invoke-direct {p0, v0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->load(Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 v0, 0x1
+ 
+     .line 11
+     iput-boolean v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mLoaded:Z
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -3747,14 +3080,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileChannel:Ljava/nio/channels/FileChannel;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return-object v1
+ 
+@@ -3762,12 +3093,9 @@
+     :cond_0
+     if-eqz p1, :cond_3
+ 
+-    .line 8
+     .line 9
+     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-wide v2
+ 
+@@ -3775,17 +3103,13 @@
+     :cond_1
+     if-nez v1, :cond_4
+ 
+-    .line 14
+     .line 15
+     :try_start_0
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileChannel:Ljava/nio/channels/FileChannel;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1}, Ljava/nio/channels/FileChannel;->tryLock()Ljava/nio/channels/FileLock;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p1
+     :try_end_0
+@@ -3804,25 +3128,19 @@
+     .line 24
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :goto_0
+     if-nez v1, :cond_2
+ 
+-    .line 28
+     .line 29
+     const-wide/16 v4, 0x64
+ 
+-    .line 30
+     .line 31
+     :try_start_1
+     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_1
+ 
+@@ -3833,15 +3151,11 @@
+     .line 36
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :cond_2
+     :goto_1
+     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-wide v4
+ 
+@@ -3851,15 +3165,12 @@
+     .line 44
+     const-wide/16 v6, 0x2710
+ 
+-    .line 45
+     .line 46
+     cmp-long p1, v4, v6
+ 
+-    .line 47
+     .line 48
+     if-lez p1, :cond_1
+ 
+-    .line 49
+     .line 50
+     goto :goto_2
+ 
+@@ -3868,8 +3179,6 @@
+     :try_start_2
+     invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->tryLock()Ljava/nio/channels/FileLock;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p0
+     :try_end_2
+@@ -3885,8 +3194,6 @@
+     .line 57
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     :cond_4
+     :goto_2
+@@ -3902,7 +3209,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return v0
+ 
+@@ -3913,47 +3219,34 @@
+     .line 6
+     check-cast v1, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$EditorImpl;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$EditorImpl;->doClear()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v2
+ 
+     .line 12
+     if-eqz v2, :cond_1
+ 
+-    .line 13
+     .line 14
+     invoke-interface {p2}, Ljava/util/Map;->clear()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v3}, Ljava/util/Vector;->clear()V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :cond_1
+     invoke-virtual {v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$EditorImpl;->getAll()Ljava/util/HashMap;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     invoke-virtual {v1}, Ljava/util/HashMap;->size()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v3
+ 
+@@ -3963,11 +3256,9 @@
+     .line 31
+     if-nez v3, :cond_3
+ 
+-    .line 32
+     .line 33
+     if-eqz v2, :cond_2
+ 
+-    .line 34
+     .line 35
+     return v4
+ 
+@@ -3983,16 +3274,12 @@
+     :try_start_0
+     invoke-virtual {v1}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v0
+ 
+     .line 42
+     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v0
+ 
+@@ -4001,56 +3288,42 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v1
+ 
+     .line 50
+     if-eqz v1, :cond_7
+ 
+-    .line 51
+     .line 52
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v1
+ 
+     .line 56
+     check-cast v1, Ljava/util/Map$Entry;
+ 
+-    .line 57
+     .line 58
+     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v2
+ 
+     .line 62
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 63
+     .line 64
+     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v1
+ 
+     .line 68
+     if-nez v1, :cond_5
+ 
+-    .line 69
+     .line 70
+     invoke-interface {p2, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_1
+ 
+@@ -4065,36 +3338,26 @@
+     :cond_5
+     invoke-interface {p2, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v3
+ 
+     .line 80
+     if-eqz v3, :cond_6
+ 
+-    .line 81
+     .line 82
+     invoke-interface {p2, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     :cond_6
+     invoke-interface {p2, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     :goto_1
+     if-nez p3, :cond_4
+ 
+-    .line 89
+     .line 90
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->notifyDataChanged(Ljava/lang/String;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     goto :goto_0
+ 
+@@ -4121,7 +3384,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -4129,28 +3391,21 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v1}, Ljava/util/Vector;->size()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-lez v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v1}, Ljava/util/Vector;->iterator()Ljava/util/Iterator;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+@@ -4158,39 +3413,30 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     if-eqz v2, :cond_0
+ 
+-    .line 23
+     .line 24
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     check-cast v2, Landroid/content/SharedPreferences$Editor;
+ 
+-    .line 29
+     .line 30
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 31
+     .line 32
+     const/4 v4, 0x1
+ 
+     .line 33
+     invoke-direct {p0, v2, v3, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->merge(Landroid/content/SharedPreferences$Editor;Ljava/util/Map;Z)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -4224,19 +3470,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-lez v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x0
+ 
+@@ -4244,49 +3486,37 @@
+     :goto_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     if-ge v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     check-cast v1, Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
+ 
+-    .line 25
+     .line 26
+     if-eqz v1, :cond_0
+ 
+-    .line 27
+     .line 28
+     invoke-interface {v1, p0, p1}, Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;->onSharedPreferenceChanged(Landroid/content/SharedPreferences;Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     :cond_0
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -4301,54 +3531,42 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getDataBytes()Landroid/util/Pair;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     iget-object v1, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     check-cast v1, [[B
+ 
+-    .line 8
+     .line 9
+     array-length v1, v1
+ 
+     .line 10
+     iget-object v2, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+ 
+-    .line 11
+     .line 12
+     check-cast v2, Ljava/lang/Integer;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+     .line 18
+     add-int/lit8 v2, v2, 0xa
+ 
+-    .line 19
+     .line 20
+     add-int/2addr v2, v1
+ 
+     .line 21
+     const v1, 0x7fffffff
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     if-le v2, v1, :cond_0
+ 
+-    .line 25
+     .line 26
+     move v2, v1
+ 
+@@ -4356,12 +3574,9 @@
+     :cond_0
+     new-array v3, v2, [B
+ 
+-    .line 28
+     .line 29
+     invoke-static {v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v2
+ 
+@@ -4374,40 +3589,30 @@
+     .line 35
+     invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     array-length v4, v2
+ 
+     .line 39
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v2
+ 
+     .line 43
+     aput-byte v2, v3, v4
+ 
+-    .line 44
+     .line 45
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->increaseModifyID()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v2
+ 
+     .line 51
+     invoke-static {v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->intToBytes(I)[B
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v2
+ 
+@@ -4417,8 +3622,6 @@
+     .line 56
+     invoke-static {v2, v5, v3, v4, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     array-length v6, v2
+ 
+@@ -4428,27 +3631,21 @@
+     .line 61
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v2
+ 
+     .line 65
+     aput-byte v2, v3, v4
+ 
+-    .line 66
+     .line 67
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 68
+     .line 69
+     iget-object v0, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+ 
+-    .line 70
+     .line 71
+     check-cast v0, [[B
+ 
+-    .line 72
+     .line 73
+     array-length v2, v0
+ 
+@@ -4459,15 +3656,12 @@
+     :goto_0
+     if-ge v6, v2, :cond_5
+ 
+-    .line 76
+     .line 77
+     aget-object v7, v0, v6
+ 
+-    .line 78
+     .line 79
+     if-eqz v7, :cond_4
+ 
+-    .line 80
+     .line 81
+     array-length v8, v7
+ 
+@@ -4477,19 +3671,15 @@
+     .line 83
+     add-int/lit8 v8, v8, 0x1
+ 
+-    .line 84
+     .line 85
+     if-gt v8, v1, :cond_1
+ 
+-    .line 86
+     .line 87
+     array-length v8, v7
+ 
+     .line 88
+     invoke-static {v7, v5, v3, v4, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     array-length v8, v7
+ 
+@@ -4499,19 +3689,15 @@
+     .line 93
+     invoke-direct {p0, v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v7
+ 
+     .line 97
+     aput-byte v7, v3, v4
+ 
+-    .line 98
+     .line 99
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 100
+     .line 101
+     goto :goto_2
+ 
+@@ -4519,32 +3705,24 @@
+     :cond_1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 103
+     .line 104
+     const-string v1, "Write too much data in "
+ 
+-    .line 105
+     .line 106
+     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 110
+     .line 111
+     const/4 v2, 0x0
+ 
+     .line 112
+     if-eqz v1, :cond_2
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object v1
+ 
+@@ -4559,46 +3737,33 @@
+     :goto_1
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object v0
+ 
+     .line 127
+     const-string v1, "SharedPreferencesNew"
+ 
+-    .line 128
+     .line 129
+     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 133
+     .line 134
+     if-eqz v0, :cond_5
+ 
+-    .line 135
+     .line 136
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 137
+     .line 138
+     if-eqz p0, :cond_3
+ 
+-    .line 139
+     .line 140
+     invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object v2
+ 
+@@ -4609,12 +3774,9 @@
+     .line 145
+     const-wide/16 v4, -0x1
+ 
+-    .line 146
+     .line 147
+     invoke-interface {v0, v2, p0, v4, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     return-object v3
+ 
+@@ -4623,7 +3785,6 @@
+     :goto_2
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 152
+     .line 153
+     goto :goto_0
+ 
+@@ -4638,7 +3799,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -4648,21 +3808,16 @@
+     .line 5
+     if-eqz p2, :cond_0
+ 
+-    .line 6
+     .line 7
+     :try_start_0
+     new-instance v2, Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v2, v3}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -4673,7 +3828,6 @@
+     .line 16
+     goto/16 :goto_8
+ 
+-    .line 17
+     .line 18
+     :cond_0
+     move-object v2, v1
+@@ -4682,24 +3836,18 @@
+     :goto_0
+     if-eqz p2, :cond_1
+ 
+-    .line 20
+     .line 21
+     iget v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 22
+     .line 23
+     if-lez v3, :cond_1
+ 
+-    .line 24
+     .line 25
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v3}, Ljava/util/LinkedHashMap;->clear()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     :cond_1
+     const/4 v3, 0x1
+@@ -4707,18 +3855,15 @@
+     .line 31
+     if-eqz p1, :cond_e
+ 
+-    .line 32
+     .line 33
+     array-length v4, p1
+ 
+     .line 34
+     if-nez v4, :cond_2
+ 
+-    .line 35
+     .line 36
+     goto/16 :goto_7
+ 
+-    .line 37
+     .line 38
+     :cond_2
+     const/4 v4, 0x0
+@@ -4738,121 +3883,91 @@
+     .line 42
+     if-ge v5, v7, :cond_b
+ 
+-    .line 43
+     .line 44
+     :try_start_1
+     invoke-direct {p0, p1, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getOneString([BI)Landroid/util/Pair;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v5
+ 
+     .line 48
+     iget-object v7, v5, Landroid/util/Pair;->second:Ljava/lang/Object;
+ 
+-    .line 49
+     .line 50
+     check-cast v7, Ljava/lang/Integer;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v7
+ 
+     .line 56
+     invoke-direct {p0, p1, v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getOneString([BI)Landroid/util/Pair;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v7
+ 
+     .line 60
+     iget-object v8, v7, Landroid/util/Pair;->second:Ljava/lang/Object;
+ 
+-    .line 61
+     .line 62
+     check-cast v8, Ljava/lang/Integer;
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result v8
+ 
+     .line 68
+     aget-byte v9, p1, v8
+ 
+-    .line 69
+     .line 70
+     add-int/lit8 v10, v8, 0x1
+ 
+-    .line 71
+     .line 72
+     aget-byte v10, p1, v10
+ 
+-    .line 73
+     .line 74
+     add-int/lit8 v8, v8, 0x2
+ 
+-    .line 75
+     .line 76
+     const/16 v11, 0x12
+ 
+-    .line 77
+     .line 78
+     if-eq v10, v11, :cond_4
+ 
+-    .line 79
+     .line 80
+     new-array v11, v3, [B
+ 
+-    .line 81
+     .line 82
+     aput-byte v9, v11, v4
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0, v11}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v11
+ 
+     .line 88
+     if-eq v10, v11, :cond_4
+ 
+-    .line 89
+     .line 90
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 91
+     .line 92
+     if-eqz v3, :cond_c
+ 
+-    .line 93
+     .line 94
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 95
+     .line 96
+     if-eqz v5, :cond_3
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {v5}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v5
+ 
+@@ -4880,50 +3995,37 @@
+     .line 108
+     const/16 v8, 0x8
+ 
+-    .line 109
+     .line 110
+     invoke-interface {v3, v5, v8, v6, v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     goto/16 :goto_6
+ 
+-    .line 114
+     .line 115
+     :cond_4
+     invoke-virtual {p0, v9}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->checkTypeValid(B)Z
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result v10
+ 
+     .line 119
+     if-nez v10, :cond_8
+ 
+-    .line 120
+     .line 121
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 122
+     .line 123
+     if-eqz v5, :cond_6
+ 
+-    .line 124
+     .line 125
+     iget-object v6, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 126
+     .line 127
+     if-eqz v6, :cond_5
+ 
+-    .line 128
+     .line 129
+     invoke-virtual {v6}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object v6
+ 
+@@ -4944,12 +4046,9 @@
+     .line 137
+     const/16 v7, 0x9
+ 
+-    .line 138
+     .line 139
+     invoke-interface {v5, v6, v7, v9, v10}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     :cond_6
+     move v6, v4
+@@ -4966,91 +4065,70 @@
+     :cond_8
+     iget-object v7, v7, Landroid/util/Pair;->first:Ljava/lang/Object;
+ 
+-    .line 146
+     .line 147
+     check-cast v7, [B
+ 
+-    .line 148
+     .line 149
+     invoke-direct {p0, v7, v9}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getObjectByType([BI)Ljava/lang/Object;
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     move-result-object v7
+ 
+     .line 153
+     iget-object v5, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
+ 
+-    .line 154
+     .line 155
+     if-eqz v5, :cond_7
+ 
+-    .line 156
+     .line 157
+     move-object v9, v5
+ 
+     .line 158
+     check-cast v9, [B
+ 
+-    .line 159
+     .line 160
+     array-length v9, v9
+ 
+     .line 161
+     if-lez v9, :cond_7
+ 
+-    .line 162
+     .line 163
+     if-eqz v7, :cond_7
+ 
+-    .line 164
+     .line 165
+     new-instance v9, Ljava/lang/String;
+ 
+-    .line 166
+     .line 167
+     check-cast v5, [B
+ 
+-    .line 168
+     .line 169
+     invoke-direct {v9, v5}, Ljava/lang/String;-><init>([B)V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     if-nez p2, :cond_9
+ 
+-    .line 173
+     .line 174
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 175
+     .line 176
+     invoke-virtual {v5, v9}, Ljava/util/AbstractMap;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result v5
+ 
+     .line 180
+     if-nez v5, :cond_7
+ 
+-    .line 181
+     .line 182
+     :cond_9
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 183
+     .line 184
+     invoke-virtual {v5, v9, v7}, Ljava/util/AbstractMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     goto :goto_4
+ 
+@@ -5059,38 +4137,27 @@
+     :try_start_2
+     invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     iget-object v5, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 192
+     .line 193
+     if-eqz v5, :cond_c
+ 
+-    .line 194
+     .line 195
+     new-instance v6, Ljava/lang/StringBuilder;
+ 
+-    .line 196
+     .line 197
+     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     iget-object v7, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 201
+     .line 202
+     if-eqz v7, :cond_a
+ 
+-    .line 203
+     .line 204
+     invoke-virtual {v7}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     move-result-object v1
+ 
+@@ -5098,35 +4165,24 @@
+     :cond_a
+     invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     const-string v1, "#"
+ 
+-    .line 212
+     .line 213
+     invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     invoke-virtual {v3}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     move-result-object v1
+ 
+     .line 220
+     invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result-object v1
+ 
+@@ -5142,8 +4198,6 @@
+     .line 230
+     invoke-interface {v5, v1, p1, v6, v7}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     goto :goto_6
+ 
+@@ -5156,20 +4210,15 @@
+     :goto_6
+     if-nez v4, :cond_d
+ 
+-    .line 236
+     .line 237
+     if-eqz p2, :cond_d
+ 
+-    .line 238
+     .line 239
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 240
+     .line 241
+     invoke-virtual {p0, v2}, Ljava/util/AbstractMap;->putAll(Ljava/util/Map;)V
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     :cond_d
+     monitor-exit v0
+@@ -5201,11 +4250,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     goto :goto_1
+ 
+@@ -5213,7 +4260,6 @@
+     :cond_0
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSyncObj:Ljava/lang/Object;
+ 
+-    .line 7
+     .line 8
+     monitor-enter v0
+ 
+@@ -5221,39 +4267,30 @@
+     :try_start_0
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getContentLength()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v2}, Ljava/nio/Buffer;->capacity()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v2
+ 
+     .line 19
+     if-le v1, v2, :cond_1
+ 
+-    .line 20
+     .line 21
+     add-int/lit16 v1, v1, 0x400
+ 
+-    .line 22
+     .line 23
+     invoke-direct {p0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->allocBuffer(I)Ljava/nio/MappedByteBuffer;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -5272,8 +4309,6 @@
+     :try_start_1
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     :cond_1
+     :goto_0
+@@ -5302,18 +4337,15 @@
+     .line 2
+     if-eqz p1, :cond_2
+ 
+-    .line 3
+     .line 4
+     if-eqz p2, :cond_2
+ 
+-    .line 5
+     .line 6
+     array-length v0, p2
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -5321,21 +4353,15 @@
+     :cond_0
+     invoke-static {p2, p0}, Ljava/util/Arrays;->fill([BB)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     invoke-virtual {p1}, Ljava/nio/Buffer;->capacity()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v1
+ 
+@@ -5348,7 +4374,6 @@
+     .line 23
+     if-le v0, v1, :cond_1
+ 
+-    .line 24
+     .line 25
+     return p0
+ 
+@@ -5356,8 +4381,6 @@
+     :cond_1
+     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const/4 p0, 0x1
+ 
+@@ -5373,18 +4396,15 @@
+     .line 1
+     if-eqz p1, :cond_2
+ 
+-    .line 2
+     .line 3
+     if-eqz p2, :cond_2
+ 
+-    .line 4
+     .line 5
+     array-length v0, p2
+ 
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     goto :goto_0
+ 
+@@ -5392,16 +4412,12 @@
+     :cond_0
+     invoke-virtual {p1}, Ljava/nio/Buffer;->capacity()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+@@ -5414,12 +4430,9 @@
+     .line 19
+     if-lt v1, v0, :cond_1
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p1
+ 
+@@ -5432,12 +4445,9 @@
+     .line 27
+     add-int/lit16 p1, p1, 0x400
+ 
+-    .line 28
+     .line 29
+     invoke-direct {p0, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->allocBuffer(I)Ljava/nio/MappedByteBuffer;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p1
+ 
+@@ -5445,8 +4455,6 @@
+     :cond_1
+     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     :cond_2
+     :goto_0
+@@ -5459,15 +4467,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-interface {p1}, Ljava/io/Closeable;->close()V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ 
+@@ -5478,8 +4483,6 @@
+     .line 8
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     :cond_0
+     return-void
+@@ -5491,7 +4494,6 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     return-void
+ 
+@@ -5499,7 +4501,6 @@
+     :cond_0
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -5510,39 +4511,30 @@
+     :try_start_0
+     iput v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mCurTryTime:I
+ 
+-    .line 9
+     .line 10
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, p1, v2, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->merge(Landroid/content/SharedPreferences$Editor;Ljava/util/Map;Z)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     if-nez v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1}, Ljava/util/Vector;->size()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     if-nez p1, :cond_2
+ 
+-    .line 25
+     .line 26
+     monitor-exit v0
+ 
+@@ -5560,12 +4552,9 @@
+     :cond_1
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v1, p1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     :cond_2
+     monitor-exit v0
+@@ -5575,12 +4564,9 @@
+     .line 36
+     if-eqz p3, :cond_3
+ 
+-    .line 37
+     .line 38
+     invoke-direct {p0, p2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->saveInner(Z)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ 
+@@ -5588,11 +4574,9 @@
+     :cond_3
+     if-eqz p4, :cond_4
+ 
+-    .line 43
+     .line 44
+     const-wide/16 p3, 0x3e8
+ 
+-    .line 45
+     .line 46
+     goto :goto_0
+ 
+@@ -5600,58 +4584,43 @@
+     :cond_4
+     const-wide/16 p3, 0x0
+ 
+-    .line 48
+     .line 49
+     :goto_0
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSaveRunnable:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$RunnableEx;
+ 
+-    .line 50
+     .line 51
+     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p2
+ 
+     .line 55
+     invoke-virtual {p1, p2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$RunnableEx;->setArg(Ljava/lang/Object;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandler:Landroid/os/Handler;
+ 
+-    .line 59
+     .line 60
+     iget-object p2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSaveRunnable:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$RunnableEx;
+ 
+-    .line 61
+     .line 62
+     invoke-static {p1, p2}, Landroid/os/Message;->obtain(Landroid/os/Handler;Ljava/lang/Runnable;)Landroid/os/Message;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p1
+ 
+     .line 66
+     const/16 p2, 0x533e
+ 
+-    .line 67
+     .line 68
+     iput p2, p1, Landroid/os/Message;->what:I
+ 
+-    .line 69
+     .line 70
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandler:Landroid/os/Handler;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p0, p1, p3, p4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     return-void
+ 
+@@ -5672,7 +4641,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSyncSaveObj:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -5683,8 +4651,6 @@
+     :try_start_0
+     invoke-direct {p0, v1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->lockFile(Z)Ljava/nio/channels/FileLock;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v2
+     :try_end_0
+@@ -5693,7 +4659,6 @@
+     .line 9
+     if-eqz v2, :cond_3
+ 
+-    .line 10
+     .line 11
+     const/4 v3, 0x1
+ 
+@@ -5701,32 +4666,24 @@
+     :try_start_1
+     iput-boolean v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mIsSaving:Z
+ 
+-    .line 13
+     .line 14
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->tryReloadWhenSave()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v3
+ 
+     .line 18
+     if-eqz v3, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mergeWhenReload()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const/4 v3, 0x0
+ 
+     .line 24
+     invoke-direct {p0, v3}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->notifyDataChanged(Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     goto :goto_0
+ 
+@@ -5742,7 +4699,6 @@
+     :goto_0
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 31
+     .line 32
+     monitor-enter v3
+     :try_end_1
+@@ -5752,19 +4708,15 @@
+     :try_start_2
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mEditorList:Ljava/util/Vector;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v4}, Ljava/util/Vector;->size()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v4
+ 
+     .line 39
+     if-gtz v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     monitor-exit v3
+     :try_end_2
+@@ -5777,8 +4729,6 @@
+     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     goto :goto_1
+ 
+@@ -5797,13 +4747,10 @@
+     :try_start_4
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :goto_1
+     iput-boolean v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mIsSaving:Z
+ 
+-    .line 53
+     .line 54
+     monitor-exit v0
+     :try_end_4
+@@ -5830,23 +4777,17 @@
+     :try_start_6
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->obtainTotalBytes()[B
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v3
+ 
+     .line 63
+     invoke-direct {p0, v3, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->saveToMappedBuffer([BZ)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->backup()V
+     :try_end_6
+     .catchall {:try_start_6 .. :try_end_6} :catchall_0
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     goto :goto_5
+ 
+@@ -5857,7 +4798,6 @@
+     :try_end_7
+     .catchall {:try_start_7 .. :try_end_7} :catchall_1
+ 
+-    .line 71
+     .line 72
+     goto :goto_8
+ 
+@@ -5879,39 +4819,29 @@
+     :try_start_a
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 79
+     .line 80
+     if-eqz v3, :cond_2
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p1
+ 
+     .line 86
+     const/16 v4, 0xb
+ 
+-    .line 87
+     .line 88
+     const-wide/16 v5, -0x1
+ 
+-    .line 89
+     .line 90
+     invoke-interface {v3, p1, v4, v5, v6}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+     :try_end_a
+     .catchall {:try_start_a .. :try_end_a} :catchall_3
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     goto :goto_5
+ 
+@@ -5931,8 +4861,6 @@
+     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_1
+     .catchall {:try_start_b .. :try_end_b} :catchall_1
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     goto :goto_2
+ 
+@@ -5946,8 +4874,6 @@
+     :try_end_c
+     .catchall {:try_start_c .. :try_end_c} :catchall_1
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     goto :goto_2
+ 
+@@ -5959,8 +4885,6 @@
+     .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_2
+     .catchall {:try_start_d .. :try_end_d} :catchall_1
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     goto :goto_7
+ 
+@@ -5972,13 +4896,10 @@
+     :try_start_e
+     invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     :goto_7
+     iput-boolean v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mIsSaving:Z
+ 
+-    .line 114
+     .line 115
+     throw p1
+ 
+@@ -5986,44 +4907,33 @@
+     :cond_3
+     iget v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mCurTryTime:I
+ 
+-    .line 117
+     .line 118
+     add-int/lit8 v2, v1, 0x1
+ 
+-    .line 119
+     .line 120
+     iput v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mCurTryTime:I
+ 
+-    .line 121
+     .line 122
+     const/4 v2, 0x6
+ 
+     .line 123
+     if-ge v1, v2, :cond_4
+ 
+-    .line 124
+     .line 125
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandler:Landroid/os/Handler;
+ 
+-    .line 126
+     .line 127
+     new-instance v2, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$3;
+ 
+-    .line 128
+     .line 129
+     invoke-direct {v2, p0, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$3;-><init>(Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;Z)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     const-wide/16 p0, 0x7d0
+ 
+-    .line 133
+     .line 134
+     invoke-virtual {v1, v2, p0, p1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     :cond_4
+     :goto_8
+@@ -6049,7 +4959,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSyncObj:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -6057,37 +4966,27 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 5
+     .line 6
+     const/4 v2, 0x0
+ 
+     .line 7
+     invoke-virtual {v1, v2}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, v1, p1}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeBufferPut(Ljava/nio/MappedByteBuffer;[B)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     if-eqz p2, :cond_0
+ 
+-    .line 16
+     .line 17
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0}, Ljava/nio/MappedByteBuffer;->force()Ljava/nio/MappedByteBuffer;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -6129,7 +5028,6 @@
+     :try_start_0
+     iput-boolean v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mLoaded:Z
+ 
+-    .line 4
+     .line 5
+     monitor-exit p0
+     :try_end_0
+@@ -6138,21 +5036,15 @@
+     .line 6
+     new-instance v0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$5;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0, p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$5;-><init>(Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     if-eqz p1, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ 
+@@ -6160,12 +5052,9 @@
+     :cond_0
+     sget-object p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->sCachedThreadPool:Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p0, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ 
+@@ -6189,68 +5078,51 @@
+     .line 1
+     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+     .line 5
+     iget-wide v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mTryReloadStartTime:J
+ 
+-    .line 6
+     .line 7
+     sub-long/2addr v0, v2
+ 
+     .line 8
+     const-wide/16 v2, 0x3c
+ 
+-    .line 9
+     .line 10
+     cmp-long v0, v0, v2
+ 
+-    .line 11
+     .line 12
+     if-lez v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-wide v0
+ 
+     .line 18
+     iput-wide v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mTryReloadStartTime:J
+ 
+-    .line 19
+     .line 20
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandler:Landroid/os/Handler;
+ 
+-    .line 21
+     .line 22
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mTryReloadRunnable:Ljava/lang/Runnable;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandler:Landroid/os/Handler;
+ 
+-    .line 28
+     .line 29
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mTryReloadRunnable:Ljava/lang/Runnable;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_0
+     return-void
+@@ -6262,31 +5134,24 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getModifyID()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-lez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyID:I
+ 
+-    .line 8
+     .line 9
+     if-eq v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 v0, 0x1
+ 
+     .line 12
+     invoke-direct {p0, v0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->load(Z)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return v0
+ 
+@@ -6312,32 +5177,27 @@
+     .line 3
+     if-eq p1, p0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x2
+ 
+     .line 6
+     if-eq p1, p0, :cond_1
+ 
+-    .line 7
+     .line 8
+     if-eq p1, v0, :cond_1
+ 
+-    .line 9
+     .line 10
+     const/4 p0, 0x3
+ 
+     .line 11
+     if-eq p1, p0, :cond_1
+ 
+-    .line 12
+     .line 13
+     const/4 p0, 0x5
+ 
+     .line 14
+     if-ne p1, p0, :cond_0
+ 
+-    .line 15
+     .line 16
+     goto :goto_0
+ 
+@@ -6360,12 +5220,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -6373,12 +5230,9 @@
+     :try_start_0
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, p1}, Ljava/util/AbstractMap;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -6407,17 +5261,12 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$EditorImpl;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$EditorImpl;-><init>(Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-object v0
+ .end method
+@@ -6436,12 +5285,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -6449,16 +5295,12 @@
+     :try_start_0
+     new-instance v1, Ljava/util/HashMap;
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v1, p0}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     monitor-exit v0
+ 
+@@ -6484,12 +5326,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -6497,28 +5336,21 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     check-cast v1, Ljava/lang/Boolean;
+ 
+-    .line 14
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p2
+     :try_end_0
+@@ -6555,33 +5387,24 @@
+     :goto_1
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 29
+     .line 30
+     if-eqz v2, :cond_3
+ 
+-    .line 31
+     .line 32
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 38
+     .line 39
+     if-eqz v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v4
+ 
+@@ -6596,48 +5419,33 @@
+     :goto_2
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const-string v4, "#"
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p1
+ 
+     .line 65
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 66
+     .line 67
+     if-eqz p0, :cond_2
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-wide v3
+ 
+@@ -6648,17 +5456,13 @@
+     :cond_2
+     const-wide/16 v3, 0x0
+ 
+-    .line 75
+     .line 76
+     :goto_3
+     const/16 p0, 0xd
+ 
+-    .line 77
+     .line 78
+     invoke-interface {v2, p1, p0, v3, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :cond_3
+     monitor-exit v0
+@@ -6682,12 +5486,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -6695,28 +5496,21 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     check-cast v1, Ljava/lang/Float;
+ 
+-    .line 14
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p2
+     :try_end_0
+@@ -6753,33 +5547,24 @@
+     :goto_1
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 29
+     .line 30
+     if-eqz v2, :cond_3
+ 
+-    .line 31
+     .line 32
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 38
+     .line 39
+     if-eqz v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v4
+ 
+@@ -6794,48 +5579,33 @@
+     :goto_2
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const-string v4, "#"
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p1
+ 
+     .line 65
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 66
+     .line 67
+     if-eqz p0, :cond_2
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-wide v3
+ 
+@@ -6846,17 +5616,13 @@
+     :cond_2
+     const-wide/16 v3, 0x0
+ 
+-    .line 75
+     .line 76
+     :goto_3
+     const/16 p0, 0xd
+ 
+-    .line 77
+     .line 78
+     invoke-interface {v2, p1, p0, v3, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :cond_3
+     monitor-exit v0
+@@ -6880,12 +5646,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -6893,28 +5656,21 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     check-cast v1, Ljava/lang/Integer;
+ 
+-    .line 14
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p2
+     :try_end_0
+@@ -6951,33 +5707,24 @@
+     :goto_1
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 29
+     .line 30
+     if-eqz v2, :cond_3
+ 
+-    .line 31
+     .line 32
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 38
+     .line 39
+     if-eqz v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v4
+ 
+@@ -6992,48 +5739,33 @@
+     :goto_2
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const-string v4, "#"
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p1
+ 
+     .line 65
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 66
+     .line 67
+     if-eqz p0, :cond_2
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-wide v3
+ 
+@@ -7044,17 +5776,13 @@
+     :cond_2
+     const-wide/16 v3, 0x0
+ 
+-    .line 75
+     .line 76
+     :goto_3
+     const/16 p0, 0xd
+ 
+-    .line 77
+     .line 78
+     invoke-interface {v2, p1, p0, v3, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :cond_3
+     monitor-exit v0
+@@ -7078,12 +5806,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -7091,28 +5816,21 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     check-cast v1, Ljava/lang/Long;
+ 
+-    .line 14
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-wide p2
+     :try_end_0
+@@ -7149,33 +5867,24 @@
+     :goto_1
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 29
+     .line 30
+     if-eqz v2, :cond_3
+ 
+-    .line 31
+     .line 32
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 38
+     .line 39
+     if-eqz v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v4
+ 
+@@ -7190,48 +5899,33 @@
+     :goto_2
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     const-string v4, "#"
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p1
+ 
+     .line 65
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 66
+     .line 67
+     if-eqz p0, :cond_2
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-wide v3
+ 
+@@ -7242,17 +5936,13 @@
+     :cond_2
+     const-wide/16 v3, 0x0
+ 
+-    .line 75
+     .line 76
+     :goto_3
+     const/16 p0, 0xd
+ 
+-    .line 77
+     .line 78
+     invoke-interface {v2, p1, p0, v3, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     :cond_3
+     monitor-exit v0
+@@ -7276,14 +5966,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, -0x1
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -7291,7 +5979,6 @@
+     :cond_0
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mSyncObj:Ljava/lang/Object;
+ 
+-    .line 8
+     .line 9
+     monitor-enter v0
+ 
+@@ -7299,84 +5986,63 @@
+     :try_start_0
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 11
+     .line 12
+     const/4 v3, 0x5
+ 
+     .line 13
+     invoke-virtual {v2, v3}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const/4 v2, 0x4
+ 
+     .line 17
+     new-array v2, v2, [B
+ 
+-    .line 18
+     .line 19
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p0, v3, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->safeBufferGet(Ljava/nio/MappedByteBuffer;[B)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-static {v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$ByteIntUtils;->bytesToInt([B)I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v3
+ 
+     .line 28
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 29
+     .line 30
+     const/16 v5, 0x9
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v4, v5}, Ljava/nio/MappedByteBuffer;->position(I)Ljava/nio/Buffer;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMappedByteBuffer:Ljava/nio/MappedByteBuffer;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v4}, Ljava/nio/ByteBuffer;->get()B
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v4
+ 
+     .line 41
+     const/16 v5, 0x12
+ 
+-    .line 42
+     .line 43
+     if-eq v4, v5, :cond_1
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p0, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->getMaskByte([B)B
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v2
+ 
+     .line 49
+     if-ne v4, v2, :cond_2
+ 
+-    .line 50
+     .line 51
+     goto :goto_0
+ 
+@@ -7392,48 +6058,37 @@
+     :goto_0
+     if-gez v3, :cond_6
+ 
+-    .line 55
+     .line 56
+     :cond_2
+     iget v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyErrorCnt:I
+ 
+-    .line 57
+     .line 58
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 59
+     .line 60
+     iput v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mModifyErrorCnt:I
+ 
+-    .line 61
+     .line 62
+     const/4 v3, 0x3
+ 
+     .line 63
+     if-ge v2, v3, :cond_5
+ 
+-    .line 64
+     .line 65
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 66
+     .line 67
+     if-eqz v2, :cond_5
+ 
+-    .line 68
+     .line 69
+     iget-object v3, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 70
+     .line 71
+     if-eqz v3, :cond_3
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v3
+ 
+@@ -7448,16 +6103,12 @@
+     :goto_1
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 80
+     .line 81
+     if-eqz p0, :cond_4
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-wide v4
+ 
+@@ -7468,7 +6119,6 @@
+     :cond_4
+     const-wide/16 v4, 0x0
+ 
+-    .line 89
+     .line 90
+     :goto_2
+     const/4 p0, 0x2
+@@ -7476,8 +6126,6 @@
+     .line 91
+     invoke-interface {v2, v3, p0, v4, v5}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     :cond_5
+     monitor-exit v0
+@@ -7508,12 +6156,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->awaitLoadedLocked()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -7521,12 +6166,9 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mMap:Ljava/util/LinkedHashMap;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+@@ -7536,11 +6178,9 @@
+     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 14
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     move-object p2, v1
+ 
+@@ -7566,33 +6206,24 @@
+     .line 23
+     iget-object v2, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 24
+     .line 25
+     if-eqz v2, :cond_3
+ 
+-    .line 26
+     .line 27
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 28
+     .line 29
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     iget-object v4, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 33
+     .line 34
+     if-eqz v4, :cond_1
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v4
+ 
+@@ -7607,48 +6238,33 @@
+     :goto_0
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-string v4, "#"
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p1
+ 
+     .line 60
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFile:Ljava/io/File;
+ 
+-    .line 61
+     .line 62
+     if-eqz p0, :cond_2
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0}, Ljava/io/File;->length()J
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-wide v3
+ 
+@@ -7659,17 +6275,13 @@
+     :cond_2
+     const-wide/16 v3, 0x0
+ 
+-    .line 70
+     .line 71
+     :goto_1
+     const/16 p0, 0xd
+ 
+-    .line 72
+     .line 73
+     invoke-interface {v2, p1, p0, v3, v4}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;->onError(Ljava/lang/String;IJ)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     :cond_3
+     monitor-exit v0
+@@ -7705,16 +6317,12 @@
+     .line 1
+     new-instance p0, Ljava/lang/RuntimeException;
+ 
+-    .line 2
+     .line 3
+     const-string p1, "putStringSet is not supported!"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     throw p0
+ .end method
+@@ -7725,31 +6333,24 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mIsSaving:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mHandler:Landroid/os/Handler;
+ 
+-    .line 6
+     .line 7
+     const/16 v1, 0x533e
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->hasMessages(I)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -7765,8 +6366,6 @@
+     .line 18
+     invoke-direct {p0, v0}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->saveInner(Z)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -7777,11 +6376,9 @@
+     .line 1
+     if-eqz p1, :cond_2
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 4
+     .line 5
+     monitor-enter v0
+ 
+@@ -7789,56 +6386,42 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitor:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 12
+     .line 13
+     if-nez p1, :cond_1
+ 
+-    .line 14
+     .line 15
+     :try_start_1
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 16
+     .line 17
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p1, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p1}, Ljava/io/File;->exists()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+     .line 26
+     if-nez v1, :cond_0
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p1}, Ljava/io/File;->createNewFile()Z
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -7857,30 +6440,23 @@
+     :try_start_2
+     invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :cond_0
+     :goto_0
+     new-instance p1, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;
+ 
+-    .line 39
+     .line 40
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mBackupFilePath:Ljava/lang/String;
+ 
+-    .line 41
+     .line 42
+     const/4 v2, 0x2
+ 
+     .line 43
+     invoke-direct {p1, p0, v1, v2}, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;-><init>(Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;Ljava/lang/String;I)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     iput-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitor:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;
+ 
+-    .line 47
+     .line 48
+     :cond_1
+     monitor-exit v0
+@@ -7890,7 +6466,6 @@
+     .line 49
+     sget-object p1, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitorSyncObj:Ljava/lang/Object;
+ 
+-    .line 50
+     .line 51
+     monitor-enter p1
+ 
+@@ -7898,12 +6473,9 @@
+     :try_start_3
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitor:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p0}, Landroid/os/FileObserver;->startWatching()V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     monitor-exit p1
+ 
+@@ -7944,7 +6516,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mErrorListener:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$OnSharedPreferenceErrorListener;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -7955,11 +6526,9 @@
+     .line 1
+     if-eqz p1, :cond_1
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 4
+     .line 5
+     monitor-enter v0
+ 
+@@ -7967,45 +6536,33 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitor:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;
+ 
+-    .line 12
+     .line 13
+     if-eqz p1, :cond_0
+ 
+-    .line 14
+     .line 15
+     iget-object p1, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mListeners:Ljava/util/ArrayList;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p1
+ 
+     .line 21
+     if-gtz p1, :cond_0
+ 
+-    .line 22
+     .line 23
+     iget-object p0, p0, Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl;->mFileMonitor:Lcom/efs/sdk/base/newsharedpreferences/SharedPreferencesNewImpl$FileMonitor;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p0}, Landroid/os/FileObserver;->stopWatching()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     goto :goto_0
+ 

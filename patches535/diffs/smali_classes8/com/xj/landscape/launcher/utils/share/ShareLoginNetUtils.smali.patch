@@ -1,0 +1,446 @@
+--- a/smali_classes8/com/xj/landscape/launcher/utils/share/ShareLoginNetUtils.smali
++++ b/smali_classes8/com/xj/landscape/launcher/utils/share/ShareLoginNetUtils.smali
+@@ -39,19 +39,15 @@
+     .line 1
+     new-instance v0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->d:Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$Companion;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -100,8 +96,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->f(Ljava/lang/String;Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;)Lkotlin/Unit;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -115,8 +109,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->g(Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;Landroid/os/Message;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -130,7 +122,6 @@
+     .line 1
+     sget-object v0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->e:Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -141,7 +132,6 @@
+     .line 1
+     sput-object p0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->e:Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -153,109 +143,78 @@
+     :try_start_0
+     new-instance v0, Ljava/net/URL;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     const-string v0, "null cannot be cast to non-null type java.net.HttpURLConnection"
+ 
+-    .line 11
+     .line 12
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     check-cast p0, Ljava/net/HttpURLConnection;
+ 
+-    .line 16
+     .line 17
+     const-string v0, "GET"
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0, v0}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const/16 v0, 0x2710
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0, v0}, Ljava/net/URLConnection;->setConnectTimeout(I)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Ljava/net/URLConnection;->setReadTimeout(I)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {p0}, Ljava/net/HttpURLConnection;->getResponseCode()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v0
+ 
+     .line 34
+     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v1
+ 
+     .line 38
+     const/16 v2, 0xc8
+ 
+-    .line 39
+     .line 40
+     if-ne v0, v2, :cond_0
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p0}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+     .line 46
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-virtual {p1, p0}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->i(Ljava/io/InputStream;)Ljava/lang/String;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+     .line 53
+     iput-object p0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
+ 
+-    .line 54
+     .line 55
+     iput v2, v1, Landroid/os/Message;->what:I
+ 
+-    .line 56
+     .line 57
+     goto :goto_0
+ 
+@@ -270,23 +229,18 @@
+     :cond_0
+     const/16 p0, 0x194
+ 
+-    .line 61
+     .line 62
+     iput p0, v1, Landroid/os/Message;->what:I
+ 
+-    .line 63
+     .line 64
+     :goto_0
+     iget-object p0, p1, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->c:Landroid/os/Handler;
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     goto :goto_2
+ 
+@@ -294,26 +248,19 @@
+     :goto_1
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     iget-object p1, p1, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->a:Ljava/lang/String;
+ 
+-    .line 74
+     .line 75
+     const-string v0, "get: "
+ 
+-    .line 76
+     .line 77
+     invoke-static {p1, v0, p0}, Lcom/xj/common/utils/XjLog;->q(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     :goto_2
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 81
+     .line 82
+     return-object p0
+ .end method
+@@ -324,59 +271,42 @@
+     .line 1
+     const-string v0, "p0"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget v0, p1, Landroid/os/Message;->what:I
+ 
+-    .line 7
+     .line 8
+     const/16 v1, 0xc8
+ 
+-    .line 9
+     .line 10
+     if-ne v0, v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+ 
+-    .line 13
+     .line 14
+     const-string v0, "null cannot be cast to non-null type kotlin.String"
+ 
+-    .line 15
+     .line 16
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 20
+     .line 21
+     iget-object p0, p0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->b:Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$OnHttpCallBackListener;
+ 
+-    .line 22
+     .line 23
+     if-eqz p0, :cond_1
+ 
+-    .line 24
+     .line 25
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-interface {p0, p1}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$OnHttpCallBackListener;->onSuccess(Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -384,21 +314,15 @@
+     :cond_0
+     iget-object p0, p0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->b:Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$OnHttpCallBackListener;
+ 
+-    .line 33
+     .line 34
+     if-eqz p0, :cond_1
+ 
+-    .line 35
+     .line 36
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-interface {p0}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$OnHttpCallBackListener;->a()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :cond_1
+     :goto_0
+@@ -416,25 +340,18 @@
+     .line 1
+     const-string v0, "url"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v6, Lcom/xj/landscape/launcher/utils/share/b;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v6, p1, p0}, Lcom/xj/landscape/launcher/utils/share/b;-><init>(Ljava/lang/String;Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/16 v7, 0x1f
+ 
+-    .line 12
+     .line 13
+     const/4 v8, 0x0
+ 
+@@ -456,8 +373,6 @@
+     .line 19
+     invoke-static/range {v1 .. v8}, Lkotlin/concurrent/ThreadsKt;->b(ZZLjava/lang/ClassLoader;Ljava/lang/String;ILkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Thread;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-object p0
+ .end method
+@@ -468,34 +383,24 @@
+     .line 1
+     const-string v0, "success"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "error"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$setOnHttpCallBackListener$1;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p1, p2}, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$setOnHttpCallBackListener$1;-><init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils;->b:Lcom/xj/landscape/launcher/utils/share/ShareLoginNetUtils$OnHttpCallBackListener;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -506,26 +411,19 @@
+     .line 1
+     new-instance p0, Ljava/io/ByteArrayOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/io/ByteArrayOutputStream;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/16 v0, 0x400
+ 
+-    .line 7
+     .line 8
+     new-array v0, v0, [B
+ 
+-    .line 9
+     .line 10
+     :goto_0
+     invoke-virtual {p1, v0}, Ljava/io/InputStream;->read([B)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+@@ -535,15 +433,12 @@
+     .line 15
+     if-eq v1, v2, :cond_0
+ 
+-    .line 16
+     .line 17
+     const/4 v2, 0x0
+ 
+     .line 18
+     invoke-virtual {p0, v0, v2, v1}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -551,33 +446,24 @@
+     :cond_0
+     invoke-virtual {p0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     const-string p1, "toByteArray(...)"
+ 
+-    .line 27
+     .line 28
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     new-instance p1, Ljava/lang/String;
+ 
+-    .line 32
+     .line 33
+     sget-object v0, Lkotlin/text/Charsets;->b:Ljava/nio/charset/Charset;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {p1, p0, v0}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-object p1
+ .end method

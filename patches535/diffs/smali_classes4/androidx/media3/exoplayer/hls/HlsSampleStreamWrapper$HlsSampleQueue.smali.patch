@@ -1,0 +1,313 @@
+--- a/smali_classes4/androidx/media3/exoplayer/hls/HlsSampleStreamWrapper$HlsSampleQueue.smali
++++ b/smali_classes4/androidx/media3/exoplayer/hls/HlsSampleStreamWrapper$HlsSampleQueue.smali
+@@ -81,7 +81,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object p0
+ 
+@@ -89,8 +88,6 @@
+     :cond_0
+     invoke-virtual {p1}, Landroidx/media3/common/Metadata;->length()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+@@ -107,47 +104,36 @@
+     .line 12
+     if-ge v2, v0, :cond_2
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1, v2}, Landroidx/media3/common/Metadata;->get(I)Landroidx/media3/common/Metadata$Entry;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v4
+ 
+     .line 18
+     instance-of v5, v4, Landroidx/media3/extractor/metadata/id3/PrivFrame;
+ 
+-    .line 19
+     .line 20
+     if-eqz v5, :cond_1
+ 
+-    .line 21
+     .line 22
+     check-cast v4, Landroidx/media3/extractor/metadata/id3/PrivFrame;
+ 
+-    .line 23
+     .line 24
+     const-string v5, "com.apple.streaming.transportStreamTimestamp"
+ 
+-    .line 25
+     .line 26
+     iget-object v4, v4, Landroidx/media3/extractor/metadata/id3/PrivFrame;->owner:Ljava/lang/String;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v4
+ 
+     .line 32
+     if-eqz v4, :cond_1
+ 
+-    .line 33
+     .line 34
+     goto :goto_1
+ 
+@@ -155,7 +141,6 @@
+     :cond_1
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -167,7 +152,6 @@
+     :goto_1
+     if-ne v2, v3, :cond_3
+ 
+-    .line 40
+     .line 41
+     return-object p1
+ 
+@@ -178,7 +162,6 @@
+     .line 43
+     if-ne v0, v3, :cond_4
+ 
+-    .line 44
+     .line 45
+     return-object p0
+ 
+@@ -186,24 +169,19 @@
+     :cond_4
+     add-int/lit8 p0, v0, -0x1
+ 
+-    .line 47
+     .line 48
+     new-array p0, p0, [Landroidx/media3/common/Metadata$Entry;
+ 
+-    .line 49
+     .line 50
+     :goto_2
+     if-ge v1, v0, :cond_7
+ 
+-    .line 51
+     .line 52
+     if-eq v1, v2, :cond_6
+ 
+-    .line 53
+     .line 54
+     if-ge v1, v2, :cond_5
+ 
+-    .line 55
+     .line 56
+     move v3, v1
+ 
+@@ -214,25 +192,20 @@
+     :cond_5
+     add-int/lit8 v3, v1, -0x1
+ 
+-    .line 59
+     .line 60
+     :goto_3
+     invoke-virtual {p1, v1}, Landroidx/media3/common/Metadata;->get(I)Landroidx/media3/common/Metadata$Entry;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v4
+ 
+     .line 64
+     aput-object v4, p0, v3
+ 
+-    .line 65
+     .line 66
+     :cond_6
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 67
+     .line 68
+     goto :goto_2
+ 
+@@ -240,12 +213,9 @@
+     :cond_7
+     new-instance p1, Landroidx/media3/common/Metadata;
+ 
+-    .line 70
+     .line 71
+     invoke-direct {p1, p0}, Landroidx/media3/common/Metadata;-><init>([Landroidx/media3/common/Metadata$Entry;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     return-object p1
+ .end method
+@@ -258,11 +228,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/hls/HlsSampleStreamWrapper$HlsSampleQueue;->drmInitData:Landroidx/media3/common/DrmInitData;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     goto :goto_0
+ 
+@@ -270,36 +238,28 @@
+     :cond_0
+     iget-object v0, p1, Landroidx/media3/common/Format;->drmInitData:Landroidx/media3/common/DrmInitData;
+ 
+-    .line 7
+     .line 8
+     :goto_0
+     if-eqz v0, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget-object v1, p0, Landroidx/media3/exoplayer/hls/HlsSampleStreamWrapper$HlsSampleQueue;->overridingDrmInitData:Ljava/util/Map;
+ 
+-    .line 11
+     .line 12
+     iget-object v2, v0, Landroidx/media3/common/DrmInitData;->schemeType:Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     check-cast v1, Landroidx/media3/common/DrmInitData;
+ 
+-    .line 19
+     .line 20
+     if-eqz v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     move-object v0, v1
+ 
+@@ -307,61 +267,46 @@
+     :cond_1
+     iget-object v1, p1, Landroidx/media3/common/Format;->metadata:Landroidx/media3/common/Metadata;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, v1}, Landroidx/media3/exoplayer/hls/HlsSampleStreamWrapper$HlsSampleQueue;->getAdjustedMetadata(Landroidx/media3/common/Metadata;)Landroidx/media3/common/Metadata;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     iget-object v2, p1, Landroidx/media3/common/Format;->drmInitData:Landroidx/media3/common/DrmInitData;
+ 
+-    .line 30
+     .line 31
+     if-ne v0, v2, :cond_2
+ 
+-    .line 32
+     .line 33
+     iget-object v2, p1, Landroidx/media3/common/Format;->metadata:Landroidx/media3/common/Metadata;
+ 
+-    .line 34
+     .line 35
+     if-eq v1, v2, :cond_3
+ 
+-    .line 36
+     .line 37
+     :cond_2
+     invoke-virtual {p1}, Landroidx/media3/common/Format;->buildUpon()Landroidx/media3/common/Format$Builder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p1
+ 
+     .line 41
+     invoke-virtual {p1, v0}, Landroidx/media3/common/Format$Builder;->setDrmInitData(Landroidx/media3/common/DrmInitData;)Landroidx/media3/common/Format$Builder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p1
+ 
+     .line 45
+     invoke-virtual {p1, v1}, Landroidx/media3/common/Format$Builder;->setMetadata(Landroidx/media3/common/Metadata;)Landroidx/media3/common/Format$Builder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p1
+ 
+     .line 49
+     invoke-virtual {p1}, Landroidx/media3/common/Format$Builder;->build()Landroidx/media3/common/Format;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p1
+ 
+@@ -369,8 +314,6 @@
+     :cond_3
+     invoke-super {p0, p1}, Landroidx/media3/exoplayer/source/SampleQueue;->getAdjustedUpstreamFormat(Landroidx/media3/common/Format;)Landroidx/media3/common/Format;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -388,8 +331,6 @@
+     .line 1
+     invoke-super/range {p0 .. p6}, Landroidx/media3/exoplayer/source/SampleQueue;->sampleMetadata(JIIILandroidx/media3/extractor/TrackOutput$CryptoData;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -404,12 +345,9 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/exoplayer/hls/HlsSampleStreamWrapper$HlsSampleQueue;->drmInitData:Landroidx/media3/common/DrmInitData;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/source/SampleQueue;->invalidateUpstreamFormatAdjustment()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -420,15 +358,12 @@
+     .line 1
+     iget p1, p1, Landroidx/media3/exoplayer/hls/HlsMediaChunk;->uid:I
+ 
+-    .line 2
+     .line 3
+     int-to-long v0, p1
+ 
+     .line 4
+     invoke-virtual {p0, v0, v1}, Landroidx/media3/exoplayer/source/SampleQueue;->sourceId(J)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method

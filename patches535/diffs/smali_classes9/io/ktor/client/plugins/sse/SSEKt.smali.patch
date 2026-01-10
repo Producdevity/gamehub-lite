@@ -1,0 +1,1221 @@
+--- a/smali_classes9/io/ktor/client/plugins/sse/SSEKt.smali
++++ b/smali_classes9/io/ktor/client/plugins/sse/SSEKt.smali
+@@ -28,57 +28,42 @@
+     .line 1
+     const-string v0, "io.ktor.client.plugins.sse.SSE"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lio/ktor/util/logging/KtorSimpleLoggerJvmKt;->a(Ljava/lang/String;)Lorg/slf4j/Logger;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Lio/ktor/client/plugins/sse/SSEKt;->a:Lorg/slf4j/Logger;
+ 
+-    .line 8
+     .line 9
+     sget-object v0, Lio/ktor/client/plugins/sse/SSEKt$SSE$1;->INSTANCE:Lio/ktor/client/plugins/sse/SSEKt$SSE$1;
+ 
+-    .line 10
+     .line 11
+     new-instance v1, Lio/ktor/client/plugins/sse/b;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1}, Lio/ktor/client/plugins/sse/b;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v2, "SSE"
+ 
+-    .line 17
+     .line 18
+     invoke-static {v2, v0, v1}, Lio/ktor/client/plugins/api/CreatePluginUtilsKt;->b(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Lio/ktor/client/plugins/api/ClientPlugin;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     sput-object v0, Lio/ktor/client/plugins/sse/SSEKt;->b:Lio/ktor/client/plugins/api/ClientPlugin;
+ 
+-    .line 23
+     .line 24
+     const-class v0, Lio/ktor/client/HttpClient;
+ 
+-    .line 25
+     .line 26
+     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v1
+ 
+@@ -89,8 +74,6 @@
+     :try_start_0
+     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->p(Ljava/lang/Class;)Lkotlin/reflect/KType;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+     :try_end_0
+@@ -107,38 +90,27 @@
+     :goto_0
+     new-instance v3, Lio/ktor/util/reflect/TypeInfo;
+ 
+-    .line 38
+     .line 39
+     invoke-direct {v3, v1, v0}, Lio/ktor/util/reflect/TypeInfo;-><init>(Lkotlin/reflect/KClass;Lkotlin/reflect/KType;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     new-instance v0, Lio/ktor/util/AttributeKey;
+ 
+-    .line 43
+     .line 44
+     const-string v1, "SSEClientForReconnection"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {v0, v1, v3}, Lio/ktor/util/AttributeKey;-><init>(Ljava/lang/String;Lio/ktor/util/reflect/TypeInfo;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     sput-object v0, Lio/ktor/client/plugins/sse/SSEKt;->c:Lio/ktor/util/AttributeKey;
+ 
+-    .line 50
+     .line 51
+     const-class v0, Ljava/lang/Boolean;
+ 
+-    .line 52
+     .line 53
+     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v0
+ 
+@@ -146,12 +118,9 @@
+     :try_start_1
+     sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+ 
+-    .line 58
+     .line 59
+     invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->p(Ljava/lang/Class;)Lkotlin/reflect/KType;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v2
+     :try_end_1
+@@ -161,29 +130,21 @@
+     :catchall_1
+     new-instance v1, Lio/ktor/util/reflect/TypeInfo;
+ 
+-    .line 64
+     .line 65
+     invoke-direct {v1, v0, v2}, Lio/ktor/util/reflect/TypeInfo;-><init>(Lkotlin/reflect/KClass;Lkotlin/reflect/KType;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     new-instance v0, Lio/ktor/util/AttributeKey;
+ 
+-    .line 69
+     .line 70
+     const-string v2, "SSEReconnectionRequestAttr"
+ 
+-    .line 71
+     .line 72
+     invoke-direct {v0, v2, v1}, Lio/ktor/util/AttributeKey;-><init>(Ljava/lang/String;Lio/ktor/util/reflect/TypeInfo;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     sput-object v0, Lio/ktor/client/plugins/sse/SSEKt;->d:Lio/ktor/util/AttributeKey;
+ 
+-    .line 76
+     .line 77
+     return-void
+ .end method
+@@ -194,8 +155,6 @@
+     .line 1
+     invoke-static {p0}, Lio/ktor/client/plugins/sse/SSEKt;->b(Lio/ktor/client/plugins/api/ClientPluginBuilder;)Lkotlin/Unit;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -209,120 +168,90 @@
+     .line 1
+     const-string v0, "$this$createClientPlugin"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->e()Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEConfig;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Lio/ktor/client/plugins/sse/SSEConfig;->c()J
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-wide v3
+ 
+     .line 16
+     invoke-virtual {p0}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->e()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEConfig;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Lio/ktor/client/plugins/sse/SSEConfig;->d()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v5
+ 
+     .line 26
+     invoke-virtual {p0}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->e()Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEConfig;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v0}, Lio/ktor/client/plugins/sse/SSEConfig;->e()Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v6
+ 
+     .line 36
+     invoke-virtual {p0}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->e()Ljava/lang/Object;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v0
+ 
+     .line 40
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEConfig;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v0}, Lio/ktor/client/plugins/sse/SSEConfig;->b()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v7
+ 
+     .line 46
+     invoke-virtual {p0}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->e()Ljava/lang/Object;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEConfig;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v0}, Lio/ktor/client/plugins/sse/SSEConfig;->a()Lio/ktor/client/plugins/sse/SSEBufferPolicy;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v8
+ 
+     .line 56
+     sget-object v0, Lio/ktor/client/plugins/sse/AfterRender;->a:Lio/ktor/client/plugins/sse/AfterRender;
+ 
+-    .line 57
+     .line 58
+     new-instance v1, Lio/ktor/client/plugins/sse/SSEKt$SSE$2$1;
+ 
+-    .line 59
+     .line 60
+     const/4 v9, 0x0
+ 
+@@ -332,62 +261,45 @@
+     .line 62
+     invoke-direct/range {v1 .. v9}, Lio/ktor/client/plugins/sse/SSEKt$SSE$2$1;-><init>(Lio/ktor/client/plugins/api/ClientPluginBuilder;JZZILio/ktor/client/plugins/sse/SSEBufferPolicy;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v2, v0, v1}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->f(Lio/ktor/client/plugins/api/ClientHook;Ljava/lang/Object;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v2}, Lio/ktor/client/plugins/api/ClientPluginBuilder;->b()Lio/ktor/client/HttpClient;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p0
+ 
+     .line 72
+     invoke-virtual {p0}, Lio/ktor/client/HttpClient;->q0()Lio/ktor/client/statement/HttpResponsePipeline;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+ 
+     .line 76
+     sget-object v0, Lio/ktor/client/statement/HttpResponsePipeline;->h:Lio/ktor/client/statement/HttpResponsePipeline$Phases;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v0}, Lio/ktor/client/statement/HttpResponsePipeline$Phases;->c()Lio/ktor/util/pipeline/PipelinePhase;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v0
+ 
+     .line 82
+     new-instance v1, Lio/ktor/client/plugins/sse/SSEKt$SSE$2$2;
+ 
+-    .line 83
+     .line 84
+     const/4 v2, 0x0
+ 
+     .line 85
+     invoke-direct {v1, v2}, Lio/ktor/client/plugins/sse/SSEKt$SSE$2$2;-><init>(Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-virtual {p0, v0, v1}, Lio/ktor/util/pipeline/Pipeline;->l(Lio/ktor/util/pipeline/PipelinePhase;Lkotlin/jvm/functions/Function3;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 92
+     .line 93
+     return-object p0
+ .end method
+@@ -398,8 +310,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lio/ktor/client/plugins/sse/SSEKt;->e(Lio/ktor/client/request/HttpRequestBuilder;Lio/ktor/util/AttributeKey;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -413,41 +323,33 @@
+     .line 1
+     instance-of v0, p1, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -455,33 +357,25 @@
+     :cond_0
+     new-instance v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p1}, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;-><init>(Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const-string v3, " but was "
+ 
+-    .line 34
+     .line 35
+     const/4 v4, 0x2
+ 
+@@ -491,28 +385,21 @@
+     .line 37
+     if-eqz v2, :cond_3
+ 
+-    .line 38
+     .line 39
+     if-eq v2, v5, :cond_2
+ 
+-    .line 40
+     .line 41
+     if-eq v2, v4, :cond_1
+ 
+-    .line 42
+     .line 43
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 44
+     .line 45
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     throw p0
+ 
+@@ -520,66 +407,49 @@
+     :cond_1
+     iget-object p0, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 52
+     .line 53
+     check-cast p0, Lio/ktor/http/ContentType;
+ 
+-    .line 54
+     .line 55
+     iget-object v1, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 56
+     .line 57
+     check-cast v1, Lio/ktor/http/HttpStatusCode;
+ 
+-    .line 58
+     .line 59
+     iget-object v0, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 60
+     .line 61
+     check-cast v0, Lio/ktor/client/statement/HttpResponse;
+ 
+-    .line 62
+     .line 63
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     goto/16 :goto_4
+ 
+-    .line 67
+     .line 68
+     :cond_2
+     iget-object p0, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 69
+     .line 70
+     check-cast p0, Lio/ktor/http/ContentType;
+ 
+-    .line 71
+     .line 72
+     iget-object p0, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 73
+     .line 74
+     check-cast p0, Lio/ktor/http/HttpStatusCode;
+ 
+-    .line 75
+     .line 76
+     iget-object v0, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 77
+     .line 78
+     check-cast v0, Lio/ktor/client/statement/HttpResponse;
+ 
+-    .line 79
+     .line 80
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     goto :goto_1
+ 
+@@ -587,121 +457,88 @@
+     :cond_3
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     invoke-virtual {p0}, Lio/ktor/client/statement/HttpResponse;->e()Lio/ktor/http/HttpStatusCode;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p1
+ 
+     .line 91
+     invoke-static {p0}, Lio/ktor/http/HttpMessagePropertiesKt;->d(Lio/ktor/http/HttpMessage;)Lio/ktor/http/ContentType;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v2
+ 
+     .line 95
+     sget-object v6, Lio/ktor/http/HttpStatusCode;->c:Lio/ktor/http/HttpStatusCode$Companion;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v6}, Lio/ktor/http/HttpStatusCode$Companion;->u()Lio/ktor/http/HttpStatusCode;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v7
+ 
+     .line 101
+     invoke-static {p1, v7}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v7
+ 
+     .line 105
+     if-eqz v7, :cond_5
+ 
+-    .line 106
+     .line 107
+     sget-object p1, Lio/ktor/client/plugins/sse/SSEKt;->a:Lorg/slf4j/Logger;
+ 
+-    .line 108
+     .line 109
+     invoke-static {p1}, Lio/ktor/util/logging/LoggerJvmKt;->a(Lorg/slf4j/Logger;)Z
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v0
+ 
+     .line 113
+     if-eqz v0, :cond_4
+ 
+-    .line 114
+     .line 115
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 116
+     .line 117
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     const-string v1, "Receive status code NoContent for SSE request to "
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-static {p0}, Lio/ktor/client/statement/HttpResponseKt;->e(Lio/ktor/client/statement/HttpResponse;)Lio/ktor/client/request/HttpRequest;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object p0
+ 
+     .line 129
+     invoke-interface {p0}, Lio/ktor/client/request/HttpRequest;->getUrl()Lio/ktor/http/Url;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object p0
+ 
+     .line 133
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object p0
+ 
+     .line 140
+     invoke-interface {p1, p0}, Lorg/slf4j/Logger;->trace(Ljava/lang/String;)V
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     :cond_4
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 144
+     .line 145
+     return-object p0
+ 
+@@ -709,67 +546,51 @@
+     :cond_5
+     invoke-virtual {v6}, Lio/ktor/http/HttpStatusCode$Companion;->A()Lio/ktor/http/HttpStatusCode;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result-object v6
+ 
+     .line 150
+     invoke-static {p1, v6}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result v6
+ 
+     .line 154
+     if-nez v6, :cond_7
+ 
+-    .line 155
+     .line 156
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object v4
+ 
+     .line 160
+     iput-object v4, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 161
+     .line 162
+     iput-object p1, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 163
+     .line 164
+     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result-object v2
+ 
+     .line 168
+     iput-object v2, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 169
+     .line 170
+     iput v5, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->label:I
+ 
+-    .line 171
+     .line 172
+     invoke-static {p0, v0}, Lio/ktor/client/plugins/sse/SSEKt;->j(Lio/ktor/client/statement/HttpResponse;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result-object p0
+ 
+     .line 176
+     if-ne p0, v1, :cond_6
+ 
+-    .line 177
+     .line 178
+     goto :goto_3
+ 
+@@ -790,80 +611,57 @@
+     .line 183
+     check-cast v5, Lio/ktor/client/statement/HttpResponse;
+ 
+-    .line 184
+     .line 185
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 186
+     .line 187
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     const-string v0, "Expected status code "
+ 
+-    .line 191
+     .line 192
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     sget-object v0, Lio/ktor/http/HttpStatusCode;->c:Lio/ktor/http/HttpStatusCode$Companion;
+ 
+-    .line 196
+     .line 197
+     invoke-virtual {v0}, Lio/ktor/http/HttpStatusCode$Companion;->A()Lio/ktor/http/HttpStatusCode;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object v0
+ 
+     .line 201
+     invoke-virtual {v0}, Lio/ktor/http/HttpStatusCode;->h0()I
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     move-result v0
+ 
+     .line 205
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     invoke-virtual {p0}, Lio/ktor/http/HttpStatusCode;->h0()I
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result p0
+ 
+     .line 215
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result-object v7
+ 
+     .line 222
+     new-instance v4, Lio/ktor/client/plugins/sse/SSEClientException;
+ 
+-    .line 223
+     .line 224
+     const/4 v6, 0x0
+ 
+@@ -876,8 +674,6 @@
+     .line 227
+     invoke-direct/range {v4 .. v9}, Lio/ktor/client/plugins/sse/SSEClientException;-><init>(Lio/ktor/client/statement/HttpResponse;Ljava/lang/Throwable;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     throw v4
+ 
+@@ -885,12 +681,9 @@
+     :cond_7
+     if-eqz v2, :cond_8
+ 
+-    .line 232
+     .line 233
+     invoke-virtual {v2}, Lio/ktor/http/ContentType;->j()Lio/ktor/http/ContentType;
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     move-result-object v5
+ 
+@@ -905,71 +698,54 @@
+     :goto_2
+     sget-object v6, Lio/ktor/http/ContentType$Text;->a:Lio/ktor/http/ContentType$Text;
+ 
+-    .line 240
+     .line 241
+     invoke-virtual {v6}, Lio/ktor/http/ContentType$Text;->a()Lio/ktor/http/ContentType;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object v6
+ 
+     .line 245
+     invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 246
+-    .line 247
+     .line 248
+     move-result v5
+ 
+     .line 249
+     if-nez v5, :cond_a
+ 
+-    .line 250
+     .line 251
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     move-result-object v5
+ 
+     .line 255
+     iput-object v5, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 256
+     .line 257
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 258
+-    .line 259
+     .line 260
+     move-result-object p1
+ 
+     .line 261
+     iput-object p1, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 262
+     .line 263
+     iput-object v2, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 264
+     .line 265
+     iput v4, v0, Lio/ktor/client/plugins/sse/SSEKt$checkResponse$1;->label:I
+ 
+-    .line 266
+     .line 267
+     invoke-static {p0, v0}, Lio/ktor/client/plugins/sse/SSEKt;->j(Lio/ktor/client/statement/HttpResponse;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 268
+-    .line 269
+     .line 270
+     move-result-object p1
+ 
+     .line 271
+     if-ne p1, v1, :cond_9
+ 
+-    .line 272
+     .line 273
+     :goto_3
+     return-object v1
+@@ -985,64 +761,45 @@
+     .line 276
+     check-cast v5, Lio/ktor/client/statement/HttpResponse;
+ 
+-    .line 277
+     .line 278
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 279
+     .line 280
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 281
+-    .line 282
+     .line 283
+     const-string v0, "Expected Content-Type "
+ 
+-    .line 284
+     .line 285
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 286
+-    .line 287
+     .line 288
+     sget-object v0, Lio/ktor/http/ContentType$Text;->a:Lio/ktor/http/ContentType$Text;
+ 
+-    .line 289
+     .line 290
+     invoke-virtual {v0}, Lio/ktor/http/ContentType$Text;->a()Lio/ktor/http/ContentType;
+ 
+-    .line 291
+-    .line 292
+     .line 293
+     move-result-object v0
+ 
+     .line 294
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 295
+-    .line 296
+     .line 297
+     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 298
+-    .line 299
+     .line 300
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 301
+-    .line 302
+     .line 303
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 304
+-    .line 305
+     .line 306
+     move-result-object v7
+ 
+     .line 307
+     new-instance v4, Lio/ktor/client/plugins/sse/SSEClientException;
+ 
+-    .line 308
+     .line 309
+     const/4 v6, 0x0
+ 
+@@ -1055,8 +812,6 @@
+     .line 312
+     invoke-direct/range {v4 .. v9}, Lio/ktor/client/plugins/sse/SSEClientException;-><init>(Lio/ktor/client/statement/HttpResponse;Ljava/lang/Throwable;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 313
+-    .line 314
+     .line 315
+     throw v4
+ 
+@@ -1064,7 +819,6 @@
+     :cond_a
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 317
+     .line 318
+     return-object p0
+ .end method
+@@ -1075,16 +829,12 @@
+     .line 1
+     invoke-virtual {p0}, Lio/ktor/client/request/HttpRequestBuilder;->c()Lio/ktor/util/Attributes;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-interface {p0, p1}, Lio/ktor/util/Attributes;->e(Lio/ktor/util/AttributeKey;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -1098,7 +848,6 @@
+     .line 1
+     sget-object v0, Lio/ktor/client/plugins/sse/SSEKt;->a:Lorg/slf4j/Logger;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -1109,7 +858,6 @@
+     .line 1
+     sget-object v0, Lio/ktor/client/plugins/sse/SSEKt;->b:Lio/ktor/client/plugins/api/ClientPlugin;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -1120,7 +868,6 @@
+     .line 1
+     sget-object v0, Lio/ktor/client/plugins/sse/SSEKt;->c:Lio/ktor/util/AttributeKey;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -1131,7 +878,6 @@
+     .line 1
+     sget-object v0, Lio/ktor/client/plugins/sse/SSEKt;->d:Lio/ktor/util/AttributeKey;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -1142,41 +888,33 @@
+     .line 1
+     instance-of v0, p1, Lio/ktor/client/plugins/sse/SSEKt$saved$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1184,53 +922,40 @@
+     :cond_0
+     new-instance v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p1}, Lio/ktor/client/plugins/sse/SSEKt$saved$1;-><init>(Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p0, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p0, Lio/ktor/client/statement/HttpResponse;
+ 
+-    .line 41
+     .line 42
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     goto :goto_1
+ 
+@@ -1238,16 +963,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 47
+     .line 48
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     throw p0
+ 
+@@ -1255,44 +976,33 @@
+     :cond_2
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {p0}, Lio/ktor/client/statement/HttpResponse;->e1()Lio/ktor/client/call/HttpClientCall;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p1
+ 
+     .line 61
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     iput-object p0, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 66
+     .line 67
+     iput v3, v0, Lio/ktor/client/plugins/sse/SSEKt$saved$1;->label:I
+ 
+-    .line 68
+     .line 69
+     invoke-static {p1, v0}, Lio/ktor/client/call/SavedCallKt;->a(Lio/ktor/client/call/HttpClientCall;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p1
+ 
+     .line 73
+     if-ne p1, v1, :cond_3
+ 
+-    .line 74
+     .line 75
+     return-object v1
+ 
+@@ -1301,41 +1011,30 @@
+     :goto_1
+     check-cast p1, Lio/ktor/client/call/HttpClientCall;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p1}, Lio/ktor/client/call/HttpClientCall;->i()Lio/ktor/client/request/HttpRequest;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p0
+ 
+     .line 82
+     invoke-interface {p0}, Lio/ktor/client/request/HttpRequest;->getAttributes()Lio/ktor/util/Attributes;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p0
+ 
+     .line 86
+     invoke-static {}, Lio/ktor/client/plugins/sse/BuildersKt;->h()Lio/ktor/util/AttributeKey;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v0
+ 
+     .line 90
+     invoke-interface {p0, v0}, Lio/ktor/util/Attributes;->c(Lio/ktor/util/AttributeKey;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     invoke-virtual {p1}, Lio/ktor/client/call/HttpClientCall;->j()Lio/ktor/client/statement/HttpResponse;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object p0
+ 

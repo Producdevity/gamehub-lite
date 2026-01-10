@@ -1,0 +1,690 @@
+--- a/smali_classes4/androidx/media3/common/util/ListenerSet.smali
++++ b/smali_classes4/androidx/media3/common/util/ListenerSet.smali
+@@ -188,8 +188,6 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -197,32 +195,24 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     check-cast v0, Landroidx/media3/common/util/ListenerSet$ListenerHolder;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v0, p1, p2}, Landroidx/media3/common/util/ListenerSet$ListenerHolder;->invoke(ILandroidx/media3/common/util/ListenerSet$Event;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -237,8 +227,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Landroidx/media3/common/util/ListenerSet;->handleMessage(Landroid/os/Message;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -252,12 +240,9 @@
+     .line 1
+     iget-object p1, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+@@ -265,8 +250,6 @@
+     :cond_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+@@ -276,44 +259,33 @@
+     .line 12
+     if-eqz v0, :cond_1
+ 
+-    .line 13
+     .line 14
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     check-cast v0, Landroidx/media3/common/util/ListenerSet$ListenerHolder;
+ 
+-    .line 19
+     .line 20
+     iget-object v2, p0, Landroidx/media3/common/util/ListenerSet;->iterationFinishedEvent:Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0, v2}, Landroidx/media3/common/util/ListenerSet$ListenerHolder;->iterationFinished(Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->handler:Landroidx/media3/common/util/HandlerWrapper;
+ 
+-    .line 26
+     .line 27
+     invoke-interface {v0, v1}, Landroidx/media3/common/util/HandlerWrapper;->hasMessages(I)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v0
+ 
+     .line 31
+     if-eqz v0, :cond_0
+ 
+-    .line 32
+     .line 33
+     :cond_1
+     return v1
+@@ -325,11 +297,9 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/common/util/ListenerSet;->throwsWhenUsingWrongThread:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -337,35 +307,27 @@
+     :cond_0
+     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     iget-object p0, p0, Landroidx/media3/common/util/ListenerSet;->handler:Landroidx/media3/common/util/HandlerWrapper;
+ 
+-    .line 11
+     .line 12
+     invoke-interface {p0}, Landroidx/media3/common/util/HandlerWrapper;->getLooper()Landroid/os/Looper;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     invoke-virtual {p0}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     if-ne v0, p0, :cond_1
+ 
+-    .line 21
+     .line 22
+     const/4 p0, 0x1
+ 
+@@ -380,8 +342,6 @@
+     :goto_0
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkState(Z)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-void
+ .end method
+@@ -399,12 +359,9 @@
+     .line 1
+     invoke-static {p1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->releasedLock:Ljava/lang/Object;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -412,11 +369,9 @@
+     :try_start_0
+     iget-boolean v1, p0, Landroidx/media3/common/util/ListenerSet;->released:Z
+ 
+-    .line 8
+     .line 9
+     if-eqz v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     monitor-exit v0
+ 
+@@ -434,21 +389,15 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 16
+     .line 17
+     new-instance v1, Landroidx/media3/common/util/ListenerSet$ListenerHolder;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v1, p1}, Landroidx/media3/common/util/ListenerSet$ListenerHolder;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p0, v1}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     monitor-exit v0
+ 
+@@ -471,17 +420,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/common/util/ListenerSet;->verifyCurrentThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+@@ -489,36 +433,27 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     if-eqz v1, :cond_0
+ 
+-    .line 15
+     .line 16
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     check-cast v1, Landroidx/media3/common/util/ListenerSet$ListenerHolder;
+ 
+-    .line 21
+     .line 22
+     iget-object v2, p0, Landroidx/media3/common/util/ListenerSet;->iterationFinishedEvent:Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v1, v2}, Landroidx/media3/common/util/ListenerSet$ListenerHolder;->release(Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     goto :goto_0
+ 
+@@ -526,12 +461,9 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArraySet;->clear()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ .end method
+@@ -603,24 +535,18 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/common/util/ListenerSet;->verifyCurrentThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->queuedEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+     .line 10
+     if-eqz v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     goto :goto_1
+ 
+@@ -628,78 +554,58 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->handler:Landroidx/media3/common/util/HandlerWrapper;
+ 
+-    .line 14
+     .line 15
+     const/4 v1, 0x1
+ 
+     .line 16
+     invoke-interface {v0, v1}, Landroidx/media3/common/util/HandlerWrapper;->hasMessages(I)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-nez v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->handler:Landroidx/media3/common/util/HandlerWrapper;
+ 
+-    .line 23
+     .line 24
+     invoke-interface {v0, v1}, Landroidx/media3/common/util/HandlerWrapper;->obtainMessage(I)Landroidx/media3/common/util/HandlerWrapper$Message;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     invoke-interface {v0, v1}, Landroidx/media3/common/util/HandlerWrapper;->sendMessageAtFrontOfQueue(Landroidx/media3/common/util/HandlerWrapper$Message;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     :cond_1
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->flushingEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+ 
+     .line 37
+     iget-object v1, p0, Landroidx/media3/common/util/ListenerSet;->flushingEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 38
+     .line 39
+     iget-object v2, p0, Landroidx/media3/common/util/ListenerSet;->queuedEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v1, v2}, Ljava/util/ArrayDeque;->addAll(Ljava/util/Collection;)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     iget-object v1, p0, Landroidx/media3/common/util/ListenerSet;->queuedEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v1}, Ljava/util/ArrayDeque;->clear()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     if-nez v0, :cond_2
+ 
+-    .line 50
+     .line 51
+     goto :goto_1
+ 
+@@ -708,49 +614,36 @@
+     :goto_0
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->flushingEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v0
+ 
+     .line 58
+     if-nez v0, :cond_3
+ 
+-    .line 59
+     .line 60
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->flushingEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->peekFirst()Ljava/lang/Object;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     check-cast v0, Ljava/lang/Runnable;
+ 
+-    .line 67
+     .line 68
+     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->flushingEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->removeFirst()Ljava/lang/Object;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     goto :goto_0
+ 
+@@ -773,39 +666,27 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/common/util/ListenerSet;->verifyCurrentThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 5
+     .line 6
+     iget-object v1, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0, v1}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p0, p0, Landroidx/media3/common/util/ListenerSet;->queuedEvents:Ljava/util/ArrayDeque;
+ 
+-    .line 12
+     .line 13
+     new-instance v1, Landroidx/media3/common/util/e;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v1, v0, p1, p2}, Landroidx/media3/common/util/e;-><init>(Ljava/util/concurrent/CopyOnWriteArraySet;ILandroidx/media3/common/util/ListenerSet$Event;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {p0, v1}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -816,12 +697,9 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/common/util/ListenerSet;->verifyCurrentThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->releasedLock:Ljava/lang/Object;
+ 
+-    .line 5
+     .line 6
+     monitor-enter v0
+ 
+@@ -832,7 +710,6 @@
+     :try_start_0
+     iput-boolean v1, p0, Landroidx/media3/common/util/ListenerSet;->released:Z
+ 
+-    .line 9
+     .line 10
+     monitor-exit v0
+     :try_end_0
+@@ -841,12 +718,9 @@
+     .line 11
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+@@ -854,36 +728,27 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v1
+ 
+     .line 21
+     if-eqz v1, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v1
+ 
+     .line 27
+     check-cast v1, Landroidx/media3/common/util/ListenerSet$ListenerHolder;
+ 
+-    .line 28
+     .line 29
+     iget-object v2, p0, Landroidx/media3/common/util/ListenerSet;->iterationFinishedEvent:Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v1, v2}, Landroidx/media3/common/util/ListenerSet$ListenerHolder;->release(Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -891,12 +756,9 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArraySet;->clear()V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     return-void
+ 
+@@ -925,17 +787,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/common/util/ListenerSet;->verifyCurrentThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+@@ -944,61 +801,45 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     if-eqz v1, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     check-cast v1, Landroidx/media3/common/util/ListenerSet$ListenerHolder;
+ 
+-    .line 21
+     .line 22
+     iget-object v2, v1, Landroidx/media3/common/util/ListenerSet$ListenerHolder;->listener:Ljava/lang/Object;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v2
+ 
+     .line 28
+     if-eqz v2, :cond_0
+ 
+-    .line 29
+     .line 30
+     iget-object v2, p0, Landroidx/media3/common/util/ListenerSet;->iterationFinishedEvent:Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v1, v2}, Landroidx/media3/common/util/ListenerSet$ListenerHolder;->release(Landroidx/media3/common/util/ListenerSet$IterationFinishedEvent;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-object v2, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v2, v1}, Ljava/util/concurrent/CopyOnWriteArraySet;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -1020,13 +861,9 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Landroidx/media3/common/util/ListenerSet;->queueEvent(ILandroidx/media3/common/util/ListenerSet$Event;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/media3/common/util/ListenerSet;->flushEvents()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -1039,7 +876,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/common/util/ListenerSet;->throwsWhenUsingWrongThread:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1050,17 +886,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/common/util/ListenerSet;->verifyCurrentThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Landroidx/media3/common/util/ListenerSet;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArraySet;->size()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 

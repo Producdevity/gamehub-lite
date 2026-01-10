@@ -1,0 +1,506 @@
+--- a/smali_classes8/com/xj/common/utils/SystemUtil.smali
++++ b/smali_classes8/com/xj/common/utils/SystemUtil.smali
+@@ -18,58 +18,42 @@
+     .line 1
+     const-string v0, "/proc/cpuinfo"
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Lcom/xj/common/utils/SystemUtil$CpuInfo;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1}, Lcom/xj/common/utils/SystemUtil$CpuInfo;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     :try_start_0
+     new-instance v2, Ljava/io/FileReader;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v2, v0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     new-instance v0, Ljava/io/BufferedReader;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v0, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     :goto_0
+     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+     .line 22
+     if-eqz v2, :cond_2
+ 
+-    .line 23
+     .line 24
+     const-string v3, "Hardware"
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v3
+ 
+@@ -79,27 +63,21 @@
+     .line 31
+     if-eqz v3, :cond_1
+ 
+-    .line 32
+     .line 33
+     const-string v3, ":"
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v2
+ 
+     .line 39
+     aget-object v2, v2, v4
+ 
+-    .line 40
+     .line 41
+     iput-object v2, v1, Lcom/xj/common/utils/SystemUtil$CpuInfo;->a:Ljava/lang/String;
+ 
+-    .line 42
+     .line 43
+     goto :goto_0
+ 
+@@ -114,30 +92,24 @@
+     :cond_1
+     const-string v3, "processor"
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v2
+ 
+     .line 52
+     if-eqz v2, :cond_0
+ 
+-    .line 53
+     .line 54
+     iget v2, v1, Lcom/xj/common/utils/SystemUtil$CpuInfo;->b:I
+ 
+-    .line 55
+     .line 56
+     add-int/2addr v2, v4
+ 
+     .line 57
+     iput v2, v1, Lcom/xj/common/utils/SystemUtil$CpuInfo;->b:I
+ 
+-    .line 58
+     .line 59
+     goto :goto_0
+ 
+@@ -145,34 +117,26 @@
+     :cond_2
+     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     iget-object v0, v1, Lcom/xj/common/utils/SystemUtil$CpuInfo;->a:Ljava/lang/String;
+ 
+-    .line 64
+     .line 65
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result v0
+ 
+     .line 69
+     if-eqz v0, :cond_3
+ 
+-    .line 70
+     .line 71
+     sget-object v0, Landroid/os/Build;->HARDWARE:Ljava/lang/String;
+ 
+-    .line 72
+     .line 73
+     iput-object v0, v1, Lcom/xj/common/utils/SystemUtil$CpuInfo;->a:Ljava/lang/String;
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 74
+     .line 75
+     :cond_3
+     return-object v1
+@@ -181,8 +145,6 @@
+     :goto_1
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     return-object v1
+ .end method
+@@ -193,7 +155,6 @@
+     .line 1
+     sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -204,113 +165,85 @@
+     .line 1
+     const-class v0, Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     const-string v1, ""
+ 
+-    .line 4
+     .line 5
+     invoke-static {}, Lcom/xj/common/utils/SystemUtil;->d()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v2
+ 
+     .line 9
+     invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v3
+ 
+     .line 13
+     invoke-static {}, Lcom/blankj/utilcode/util/DeviceUtils;->a()Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v4
+ 
+     .line 17
+     invoke-virtual {v4}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v4
+ 
+     .line 21
+     invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v3
+ 
+     .line 25
+     if-nez v3, :cond_2
+ 
+-    .line 26
+     .line 27
+     :try_start_0
+     const-string v3, "android.os.SystemProperties"
+ 
+-    .line 28
+     .line 29
+     invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v3
+ 
+     .line 33
+     const-string v4, "get"
+ 
+-    .line 34
+     .line 35
+     filled-new-array {v0, v0}, [Ljava/lang/Class;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v0
+ 
+     .line 39
+     invoke-virtual {v3, v4, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v0
+ 
+     .line 43
+     const-string v4, "ro.product.marketname"
+ 
+-    .line 44
+     .line 45
+     filled-new-array {v4, v1}, [Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v4
+ 
+     .line 49
+     invoke-virtual {v0, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v4
+ 
+     .line 53
+     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v4
+     :try_end_0
+@@ -320,40 +253,30 @@
+     :try_start_1
+     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v5
+ 
+     .line 61
+     if-eqz v5, :cond_0
+ 
+-    .line 62
+     .line 63
+     const-string v5, "ro.product.model"
+ 
+-    .line 64
+     .line 65
+     filled-new-array {v5, v1}, [Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v1
+ 
+     .line 69
+     invoke-virtual {v0, v3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+     .line 73
+     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v4
+     :try_end_1
+@@ -380,8 +303,6 @@
+     :goto_0
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-object v4, v1
+ 
+@@ -390,63 +311,48 @@
+     :goto_1
+     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v0
+ 
+     .line 90
+     if-nez v0, :cond_1
+ 
+-    .line 91
+     .line 92
+     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v0
+ 
+     .line 96
+     if-nez v0, :cond_1
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {v4}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v0
+ 
+     .line 102
+     invoke-static {}, Lcom/blankj/utilcode/util/DeviceUtils;->a()Ljava/lang/String;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object v1
+ 
+     .line 106
+     invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v1
+ 
+     .line 110
+     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result v0
+ 
+     .line 114
+     if-eqz v0, :cond_1
+ 
+-    .line 115
+     .line 116
+     goto :goto_2
+ 
+@@ -454,44 +360,30 @@
+     :cond_1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 118
+     .line 119
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     invoke-static {}, Lcom/blankj/utilcode/util/DeviceUtils;->a()Ljava/lang/String;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v1
+ 
+     .line 126
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     const-string v1, " "
+ 
+-    .line 130
+     .line 131
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result-object v4
+ 
+@@ -510,7 +402,6 @@
+     .line 1
+     sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -521,7 +412,6 @@
+     .line 1
+     sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -532,44 +422,33 @@
+     .line 1
+     invoke-static {}, Lcom/xj/common/utils/SystemUtil;->c()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     const-string v1, " "
+ 
+-    .line 10
+     .line 11
+     const-string v2, ""
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     const-string v1, "MEIZU21"
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 

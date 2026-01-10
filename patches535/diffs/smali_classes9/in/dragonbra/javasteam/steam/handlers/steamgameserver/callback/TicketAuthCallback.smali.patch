@@ -1,0 +1,191 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback.smali
+@@ -42,140 +42,102 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 10
+     .line 11
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;
+ 
+-    .line 21
+     .line 22
+     new-instance v0, Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;->getSteamId()J
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-wide v1
+ 
+     .line 28
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/types/SteamID;-><init>(J)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 32
+     .line 33
+     new-instance v0, Lin/dragonbra/javasteam/types/GameID;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;->getGameId()J
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-wide v1
+ 
+     .line 39
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/types/GameID;-><init>(J)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->gameID:Lin/dragonbra/javasteam/types/GameID;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;->getEstate()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+     .line 48
+     iput v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->state:I
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;->getEauthSessionResponse()I
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v0
+ 
+     .line 54
+     invoke-static {v0}, Lin/dragonbra/javasteam/enums/EAuthSessionResponse;->from(I)Lin/dragonbra/javasteam/enums/EAuthSessionResponse;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->authSessionResponse:Lin/dragonbra/javasteam/enums/EAuthSessionResponse;
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;->getTicketCrc()I
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v0
+ 
+     .line 64
+     iput v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->ticketCrc:I
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserver$CMsgClientTicketAuthComplete$Builder;->getTicketSequence()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result p1
+ 
+     .line 70
+     iput p1, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->ticketSequence:I
+ 
+-    .line 71
+     .line 72
+     return-void
+ .end method
+@@ -190,7 +152,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->authSessionResponse:Lin/dragonbra/javasteam/enums/EAuthSessionResponse;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -203,7 +164,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->gameID:Lin/dragonbra/javasteam/types/GameID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -214,7 +174,6 @@
+     .line 1
+     iget p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->state:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -227,7 +186,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->steamID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -238,7 +196,6 @@
+     .line 1
+     iget p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->ticketCrc:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -249,7 +206,6 @@
+     .line 1
+     iget p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamgameserver/callback/TicketAuthCallback;->ticketSequence:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method

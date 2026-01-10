@@ -1,0 +1,844 @@
+--- a/smali_classes4/androidx/emoji2/text/flatbuffer/Utf8Safe.smali
++++ b/smali_classes4/androidx/emoji2/text/flatbuffer/Utf8Safe.smali
+@@ -18,8 +18,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/emoji2/text/flatbuffer/Utf8;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -30,7 +28,6 @@
+     .line 1
+     or-int v0, p1, p2
+ 
+-    .line 2
+     .line 3
+     array-length v1, p0
+ 
+@@ -46,15 +43,12 @@
+     .line 7
+     if-ltz v0, :cond_b
+ 
+-    .line 8
+     .line 9
+     add-int v0, p1, p2
+ 
+-    .line 10
+     .line 11
+     new-array v5, p2, [C
+ 
+-    .line 12
+     .line 13
+     const/4 p2, 0x0
+ 
+@@ -65,23 +59,18 @@
+     :goto_0
+     if-ge p1, v0, :cond_1
+ 
+-    .line 16
+     .line 17
+     aget-byte v2, p0, p1
+ 
+-    .line 18
+     .line 19
+     invoke-static {v2}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->g(B)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v3
+ 
+     .line 23
+     if-nez v3, :cond_0
+ 
+-    .line 24
+     .line 25
+     goto :goto_1
+ 
+@@ -89,16 +78,12 @@
+     :cond_0
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 27
+     .line 28
+     add-int/lit8 v3, v1, 0x1
+ 
+-    .line 29
+     .line 30
+     invoke-static {v2, v5, v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->b(B[CI)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move v1, v3
+ 
+@@ -114,39 +99,30 @@
+     :goto_2
+     if-ge p1, v0, :cond_a
+ 
+-    .line 37
+     .line 38
+     add-int/lit8 v1, p1, 0x1
+ 
+-    .line 39
+     .line 40
+     move v2, v1
+ 
+     .line 41
+     aget-byte v1, p0, p1
+ 
+-    .line 42
+     .line 43
+     invoke-static {v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->g(B)Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v3
+ 
+     .line 47
+     if-eqz v3, :cond_4
+ 
+-    .line 48
+     .line 49
+     add-int/lit8 p1, v6, 0x1
+ 
+-    .line 50
+     .line 51
+     invoke-static {v1, v5, v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->b(B[CI)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move v1, v2
+ 
+@@ -154,23 +130,18 @@
+     :goto_3
+     if-ge v1, v0, :cond_3
+ 
+-    .line 56
+     .line 57
+     aget-byte v2, p0, v1
+ 
+-    .line 58
+     .line 59
+     invoke-static {v2}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->g(B)Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v3
+ 
+     .line 63
+     if-nez v3, :cond_2
+ 
+-    .line 64
+     .line 65
+     goto :goto_4
+ 
+@@ -178,16 +149,12 @@
+     :cond_2
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 67
+     .line 68
+     add-int/lit8 v3, p1, 0x1
+ 
+-    .line 69
+     .line 70
+     invoke-static {v2, v5, p1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->b(B[CI)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move p1, v3
+ 
+@@ -209,40 +176,30 @@
+     :cond_4
+     invoke-static {v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->i(B)Z
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result v3
+ 
+     .line 82
+     const-string v4, "Invalid UTF-8"
+ 
+-    .line 83
+     .line 84
+     if-eqz v3, :cond_6
+ 
+-    .line 85
+     .line 86
+     if-ge v2, v0, :cond_5
+ 
+-    .line 87
+     .line 88
+     add-int/lit8 p1, p1, 0x2
+ 
+-    .line 89
+     .line 90
+     aget-byte v2, p0, v2
+ 
+-    .line 91
+     .line 92
+     add-int/lit8 v3, v6, 0x1
+ 
+-    .line 93
+     .line 94
+     invoke-static {v1, v2, v5, v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->d(BB[CI)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move v6, v3
+ 
+@@ -253,12 +210,9 @@
+     :cond_5
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 100
+     .line 101
+     invoke-direct {p0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     throw p0
+ 
+@@ -266,48 +220,36 @@
+     :cond_6
+     invoke-static {v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->h(B)Z
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result v3
+ 
+     .line 109
+     if-eqz v3, :cond_8
+ 
+-    .line 110
+     .line 111
+     add-int/lit8 v3, v0, -0x1
+ 
+-    .line 112
+     .line 113
+     if-ge v2, v3, :cond_7
+ 
+-    .line 114
+     .line 115
+     add-int/lit8 v3, p1, 0x2
+ 
+-    .line 116
+     .line 117
+     aget-byte v2, p0, v2
+ 
+-    .line 118
+     .line 119
+     add-int/lit8 p1, p1, 0x3
+ 
+-    .line 120
+     .line 121
+     aget-byte v3, p0, v3
+ 
+-    .line 122
+     .line 123
+     add-int/lit8 v4, v6, 0x1
+ 
+-    .line 124
+     .line 125
+     invoke-static {v1, v2, v3, v5, v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->c(BBB[CI)V
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move v6, v4
+ 
+@@ -318,12 +260,9 @@
+     :cond_7
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 131
+     .line 132
+     invoke-direct {p0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     throw p0
+ 
+@@ -331,44 +270,33 @@
+     :cond_8
+     add-int/lit8 v3, v0, -0x2
+ 
+-    .line 137
+     .line 138
+     if-ge v2, v3, :cond_9
+ 
+-    .line 139
+     .line 140
+     add-int/lit8 v3, p1, 0x2
+ 
+-    .line 141
+     .line 142
+     aget-byte v2, p0, v2
+ 
+-    .line 143
+     .line 144
+     add-int/lit8 v4, p1, 0x3
+ 
+-    .line 145
+     .line 146
+     aget-byte v3, p0, v3
+ 
+-    .line 147
+     .line 148
+     add-int/lit8 p1, p1, 0x4
+ 
+-    .line 149
+     .line 150
+     aget-byte v4, p0, v4
+ 
+-    .line 151
+     .line 152
+     invoke-static/range {v1 .. v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->a(BBBB[CI)V
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     add-int/lit8 v6, v6, 0x2
+ 
+-    .line 156
+     .line 157
+     goto :goto_2
+ 
+@@ -376,12 +304,9 @@
+     :cond_9
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 159
+     .line 160
+     invoke-direct {p0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     throw p0
+ 
+@@ -389,12 +314,9 @@
+     :cond_a
+     new-instance p0, Ljava/lang/String;
+ 
+-    .line 165
+     .line 166
+     invoke-direct {p0, v5, p2, v6}, Ljava/lang/String;-><init>([CII)V
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     return-object p0
+ 
+@@ -402,59 +324,45 @@
+     :cond_b
+     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+ 
+-    .line 171
+     .line 172
+     array-length p0, p0
+ 
+     .line 173
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-object p0
+ 
+     .line 177
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     move-result-object p1
+ 
+     .line 181
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result-object p2
+ 
+     .line 185
+     filled-new-array {p0, p1, p2}, [Ljava/lang/Object;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object p0
+ 
+     .line 189
+     const-string p1, "buffer length=%d, index=%d, size=%d"
+ 
+-    .line 190
+     .line 191
+     invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result-object p0
+ 
+     .line 195
+     invoke-direct {v0, p0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     throw v0
+ .end method
+@@ -465,12 +373,9 @@
+     .line 1
+     or-int v0, p1, p2
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/nio/Buffer;->limit()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+@@ -486,15 +391,12 @@
+     .line 10
+     if-ltz v0, :cond_b
+ 
+-    .line 11
+     .line 12
+     add-int v0, p1, p2
+ 
+-    .line 13
+     .line 14
+     new-array v5, p2, [C
+ 
+-    .line 15
+     .line 16
+     const/4 p2, 0x0
+ 
+@@ -505,27 +407,21 @@
+     :goto_0
+     if-ge p1, v0, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, p1}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v2
+ 
+     .line 24
+     invoke-static {v2}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->g(B)Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v3
+ 
+     .line 28
+     if-nez v3, :cond_0
+ 
+-    .line 29
+     .line 30
+     goto :goto_1
+ 
+@@ -533,16 +429,12 @@
+     :cond_0
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 32
+     .line 33
+     add-int/lit8 v3, v1, 0x1
+ 
+-    .line 34
+     .line 35
+     invoke-static {v2, v5, v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->b(B[CI)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move v1, v3
+ 
+@@ -558,43 +450,33 @@
+     :goto_2
+     if-ge p1, v0, :cond_a
+ 
+-    .line 42
+     .line 43
+     add-int/lit8 v1, p1, 0x1
+ 
+-    .line 44
+     .line 45
+     move v2, v1
+ 
+     .line 46
+     invoke-virtual {p0, p1}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v1
+ 
+     .line 50
+     invoke-static {v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->g(B)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v3
+ 
+     .line 54
+     if-eqz v3, :cond_4
+ 
+-    .line 55
+     .line 56
+     add-int/lit8 p1, v6, 0x1
+ 
+-    .line 57
+     .line 58
+     invoke-static {v1, v5, v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->b(B[CI)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move v1, v2
+ 
+@@ -602,27 +484,21 @@
+     :goto_3
+     if-ge v1, v0, :cond_3
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0, v1}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result v2
+ 
+     .line 68
+     invoke-static {v2}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->g(B)Z
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v3
+ 
+     .line 72
+     if-nez v3, :cond_2
+ 
+-    .line 73
+     .line 74
+     goto :goto_4
+ 
+@@ -630,16 +506,12 @@
+     :cond_2
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 76
+     .line 77
+     add-int/lit8 v3, p1, 0x1
+ 
+-    .line 78
+     .line 79
+     invoke-static {v2, v5, p1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->b(B[CI)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move p1, v3
+ 
+@@ -661,44 +533,33 @@
+     :cond_4
+     invoke-static {v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->i(B)Z
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v3
+ 
+     .line 91
+     const-string v4, "Invalid UTF-8"
+ 
+-    .line 92
+     .line 93
+     if-eqz v3, :cond_6
+ 
+-    .line 94
+     .line 95
+     if-ge v2, v0, :cond_5
+ 
+-    .line 96
+     .line 97
+     add-int/lit8 p1, p1, 0x2
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {p0, v2}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v2
+ 
+     .line 103
+     add-int/lit8 v3, v6, 0x1
+ 
+-    .line 104
+     .line 105
+     invoke-static {v1, v2, v5, v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->d(BB[CI)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move v6, v3
+ 
+@@ -709,12 +570,9 @@
+     :cond_5
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 111
+     .line 112
+     invoke-direct {p0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     throw p0
+ 
+@@ -722,56 +580,42 @@
+     :cond_6
+     invoke-static {v1}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->h(B)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v3
+ 
+     .line 120
+     if-eqz v3, :cond_8
+ 
+-    .line 121
+     .line 122
+     add-int/lit8 v3, v0, -0x1
+ 
+-    .line 123
+     .line 124
+     if-ge v2, v3, :cond_7
+ 
+-    .line 125
+     .line 126
+     add-int/lit8 v3, p1, 0x2
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {p0, v2}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v2
+ 
+     .line 132
+     add-int/lit8 p1, p1, 0x3
+ 
+-    .line 133
+     .line 134
+     invoke-virtual {p0, v3}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result v3
+ 
+     .line 138
+     add-int/lit8 v4, v6, 0x1
+ 
+-    .line 139
+     .line 140
+     invoke-static {v1, v2, v3, v5, v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->c(BBB[CI)V
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move v6, v4
+ 
+@@ -782,12 +626,9 @@
+     :cond_7
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 146
+     .line 147
+     invoke-direct {p0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     throw p0
+ 
+@@ -795,70 +636,52 @@
+     :cond_8
+     add-int/lit8 v3, v0, -0x2
+ 
+-    .line 152
+     .line 153
+     if-ge v2, v3, :cond_9
+ 
+-    .line 154
+     .line 155
+     add-int/lit8 v3, p1, 0x2
+ 
+-    .line 156
+     .line 157
+     invoke-virtual {p0, v2}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result v2
+ 
+     .line 161
+     add-int/lit8 v4, p1, 0x3
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {p0, v3}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result v3
+ 
+     .line 167
+     add-int/lit8 p1, p1, 0x4
+ 
+-    .line 168
+     .line 169
+     invoke-virtual {p0, v4}, Ljava/nio/ByteBuffer;->get(I)B
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result v4
+ 
+     .line 173
+     invoke-static/range {v1 .. v6}, Landroidx/emoji2/text/flatbuffer/Utf8$DecodeUtil;->a(BBBB[CI)V
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     add-int/lit8 v6, v6, 0x2
+ 
+-    .line 177
+     .line 178
+     goto/16 :goto_2
+ 
+-    .line 179
+     .line 180
+     :cond_9
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 181
+     .line 182
+     invoke-direct {p0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     throw p0
+ 
+@@ -866,12 +689,9 @@
+     :cond_a
+     new-instance p0, Ljava/lang/String;
+ 
+-    .line 187
+     .line 188
+     invoke-direct {p0, v5, p2, v6}, Ljava/lang/String;-><init>([CII)V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     return-object p0
+ 
+@@ -879,64 +699,48 @@
+     :cond_b
+     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+ 
+-    .line 193
+     .line 194
+     invoke-virtual {p0}, Ljava/nio/Buffer;->limit()I
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     move-result p0
+ 
+     .line 198
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     move-result-object p0
+ 
+     .line 202
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     move-result-object p1
+ 
+     .line 206
+     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result-object p2
+ 
+     .line 210
+     filled-new-array {p0, p1, p2}, [Ljava/lang/Object;
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     move-result-object p0
+ 
+     .line 214
+     const-string p1, "buffer limit=%d, index=%d, limit=%d"
+ 
+-    .line 215
+     .line 216
+     invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     move-result-object p0
+ 
+     .line 220
+     invoke-direct {v0, p0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     throw v0
+ .end method

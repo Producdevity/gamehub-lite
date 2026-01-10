@@ -1,0 +1,1849 @@
+--- a/smali_classes5/com/efs/sdk/net/OkHttpListener.smali
++++ b/smali_classes5/com/efs/sdk/net/OkHttpListener.smali
+@@ -20,19 +20,15 @@
+     .line 1
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/efs/sdk/net/OkHttpListener;->a:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -43,21 +39,15 @@
+     .line 1
+     invoke-direct {p0}, Lokhttp3/EventListener;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/efs/sdk/net/OkHttpListener;->c:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -2060,12 +2050,9 @@
+     .line 1
+     new-instance v0, Lcom/efs/sdk/net/OkHttpListener$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/efs/sdk/net/OkHttpListener$1;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -2082,42 +2069,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->callEnd(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "callEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean v1, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+     .line 19
+     if-eqz v1, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2125,12 +2101,9 @@
+     :cond_0
+     const-string p0, "callEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2139,24 +2112,17 @@
+     :goto_0
+     sget-object v0, Lcom/efs/sdk/net/a/d;->b:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, v0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-direct {p0, p1}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-static {p1}, Lcom/efs/sdk/net/a/e;->b(Lokhttp3/Call;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -2167,8 +2133,6 @@
+     .line 41
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ .end method
+@@ -2187,42 +2151,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2}, Lokhttp3/EventListener;->callFailed(Lokhttp3/Call;Ljava/io/IOException;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "callFailed"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p2, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p2, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p2
+ 
+     .line 19
+     if-eqz p2, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2230,12 +2183,9 @@
+     :cond_0
+     const-string p0, "callFailed net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2244,24 +2194,17 @@
+     :goto_0
+     sget-object p2, Lcom/efs/sdk/net/a/d;->c:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p2}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-direct {p0, p1}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-static {p1}, Lcom/efs/sdk/net/a/e;->b(Lokhttp3/Call;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -2272,8 +2215,6 @@
+     .line 41
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ .end method
+@@ -2288,82 +2229,62 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->callStart(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "callStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-static {}, Lcom/efs/sdk/net/NetManager;->getNetConfigManager()Lcom/efs/sdk/net/NetConfigManager;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+     .line 15
+     if-eqz v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-static {}, Lcom/efs/sdk/net/NetManager;->getNetConfigManager()Lcom/efs/sdk/net/NetConfigManager;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     invoke-virtual {v1}, Lcom/efs/sdk/net/NetConfigManager;->enableTracer()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     if-eqz v1, :cond_0
+ 
+-    .line 26
+     .line 27
+     const/4 v1, 0x1
+ 
+     .line 28
+     iput-boolean v1, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 29
+     .line 30
+     :cond_0
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 31
+     .line 32
+     if-nez p0, :cond_2
+ 
+-    .line 33
+     .line 34
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result p0
+ 
+     .line 38
+     if-eqz p0, :cond_1
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -2371,12 +2292,9 @@
+     :cond_1
+     const-string p0, "callStart net enable false."
+ 
+-    .line 42
+     .line 43
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-void
+ 
+@@ -2385,69 +2303,51 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/OkHttpListener;->a:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result p0
+ 
+     .line 53
+     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+     .line 57
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-wide v0
+ 
+     .line 61
+     new-instance v2, Lcom/efs/sdk/net/a/f;
+ 
+-    .line 62
+     .line 63
+     invoke-direct {v2, p0, v0, v1}, Lcom/efs/sdk/net/a/f;-><init>(Ljava/lang/String;J)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-static {p1, v2}, Lcom/efs/sdk/net/a/e;->a(Lokhttp3/Call;Lcom/efs/sdk/net/a/f;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     sget-object p0, Lcom/efs/sdk/net/a/d;->a:Ljava/lang/String;
+ 
+-    .line 70
+     .line 71
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     :try_start_1
+     invoke-static {p1}, Lcom/efs/sdk/net/a/e;->a(Lokhttp3/Call;)Lcom/efs/sdk/net/a/f;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p0
+ 
+     .line 78
+     if-nez p0, :cond_3
+ 
+-    .line 79
+     .line 80
+     goto :goto_1
+ 
+@@ -2455,48 +2355,36 @@
+     :cond_3
+     iget-object p0, p0, Lcom/efs/sdk/net/a/f;->a:Ljava/lang/String;
+ 
+-    .line 82
+     .line 83
+     invoke-static {}, Lcom/efs/sdk/net/a/a;->a()Lcom/efs/sdk/net/a/a;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v0
+ 
+     .line 87
+     invoke-virtual {v0, p0}, Lcom/efs/sdk/net/a/a;->c(Ljava/lang/String;)Lcom/efs/sdk/net/a/d;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p0
+ 
+     .line 91
+     if-eqz p0, :cond_4
+ 
+-    .line 92
+     .line 93
+     invoke-interface {p1}, Lokhttp3/Call;->request()Lokhttp3/Request;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object p1
+ 
+     .line 97
+     invoke-virtual {p1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object p1
+ 
+     .line 101
+     invoke-virtual {p1}, Lokhttp3/HttpUrl;->toString()Ljava/lang/String;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object p1
+ 
+@@ -2505,7 +2393,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 106
+     .line 107
+     return-void
+ 
+@@ -2519,8 +2406,6 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     :cond_4
+     :goto_1
+@@ -2533,8 +2418,6 @@
+     .line 114
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     return-void
+ .end method
+@@ -2561,42 +2444,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2, p3, p4}, Lokhttp3/EventListener;->connectEnd(Lokhttp3/Call;Ljava/net/InetSocketAddress;Ljava/net/Proxy;Lokhttp3/Protocol;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "connectEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2604,12 +2476,9 @@
+     :cond_0
+     const-string p0, "connectEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2618,14 +2487,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->i:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -2636,8 +2502,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -2668,42 +2532,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super/range {p0 .. p5}, Lokhttp3/EventListener;->connectFailed(Lokhttp3/Call;Ljava/net/InetSocketAddress;Ljava/net/Proxy;Lokhttp3/Protocol;Ljava/io/IOException;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "connectFailed"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p2, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p2, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p2
+ 
+     .line 19
+     if-eqz p2, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2711,12 +2564,9 @@
+     :cond_0
+     const-string p0, "connectFailed net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2725,19 +2575,14 @@
+     :goto_0
+     sget-object p2, Lcom/efs/sdk/net/a/d;->j:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p2}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-direct {p0, p1}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-void
+ 
+@@ -2751,8 +2596,6 @@
+     .line 39
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-void
+ .end method
+@@ -2775,42 +2618,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2, p3}, Lokhttp3/EventListener;->connectStart(Lokhttp3/Call;Ljava/net/InetSocketAddress;Ljava/net/Proxy;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "connectStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2818,12 +2650,9 @@
+     :cond_0
+     const-string p0, "connectStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2832,14 +2661,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->f:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -2850,8 +2676,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -2870,42 +2694,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2}, Lokhttp3/EventListener;->connectionAcquired(Lokhttp3/Call;Lokhttp3/Connection;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "connectionAcquired"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -2913,12 +2726,9 @@
+     :cond_0
+     const-string p0, "callStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2927,28 +2737,21 @@
+     :goto_0
+     invoke-interface {p2}, Lokhttp3/Connection;->socket()Ljava/net/Socket;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     invoke-virtual {p0}, Ljava/net/Socket;->getInetAddress()Ljava/net/InetAddress;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     if-eqz p0, :cond_3
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+     :try_end_0
+@@ -2958,15 +2761,12 @@
+     :try_start_1
+     invoke-static {p1}, Lcom/efs/sdk/net/a/e;->a(Lokhttp3/Call;)Lcom/efs/sdk/net/a/f;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p1
+ 
+     .line 46
+     if-nez p1, :cond_2
+ 
+-    .line 47
+     .line 48
+     goto :goto_1
+ 
+@@ -2974,33 +2774,26 @@
+     :cond_2
+     iget-object p1, p1, Lcom/efs/sdk/net/a/f;->a:Ljava/lang/String;
+ 
+-    .line 50
+     .line 51
+     invoke-static {}, Lcom/efs/sdk/net/a/a;->a()Lcom/efs/sdk/net/a/a;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p2
+ 
+     .line 55
+     invoke-virtual {p2, p1}, Lcom/efs/sdk/net/a/a;->c(Ljava/lang/String;)Lcom/efs/sdk/net/a/d;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p1
+ 
+     .line 59
+     if-eqz p1, :cond_3
+ 
+-    .line 60
+     .line 61
+     iput-object p0, p1, Lcom/efs/sdk/net/a/d;->C:Ljava/lang/String;
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 62
+     .line 63
+     return-void
+ 
+@@ -3014,8 +2807,6 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     :cond_3
+     :goto_1
+@@ -3028,8 +2819,6 @@
+     .line 70
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     return-void
+ .end method
+@@ -3062,42 +2851,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2, p3}, Lokhttp3/EventListener;->dnsEnd(Lokhttp3/Call;Ljava/lang/String;Ljava/util/List;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "dnsEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3105,12 +2883,9 @@
+     :cond_0
+     const-string p0, "dnsEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3119,14 +2894,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->e:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3137,8 +2909,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3157,42 +2927,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2}, Lokhttp3/EventListener;->dnsStart(Lokhttp3/Call;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "dnsStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3200,12 +2959,9 @@
+     :cond_0
+     const-string p0, "dnsStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3214,14 +2970,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->d:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3232,8 +2985,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3248,55 +2999,40 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2, p3}, Lokhttp3/EventListener;->requestBodyEnd(Lokhttp3/Call;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "requestBodyEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-interface {p1}, Lokhttp3/Call;->request()Lokhttp3/Request;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p2
+ 
+     .line 15
+     invoke-virtual {p2}, Lokhttp3/Request;->body()Lokhttp3/RequestBody;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 19
+     .line 20
+     if-nez p0, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+ 
+     .line 26
+     if-eqz p0, :cond_0
+ 
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -3304,12 +3040,9 @@
+     :cond_0
+     const-string p0, "requestBodyEnd net enable false."
+ 
+-    .line 30
+     .line 31
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ 
+@@ -3318,14 +3051,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->n:Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     return-void
+ 
+@@ -3336,8 +3066,6 @@
+     .line 42
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     return-void
+ .end method
+@@ -3352,42 +3080,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->requestBodyStart(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "requestBodyStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3395,12 +3112,9 @@
+     :cond_0
+     const-string p0, "requestBodyStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3409,14 +3123,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->m:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3427,8 +3138,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3447,42 +3156,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2}, Lokhttp3/EventListener;->requestHeadersEnd(Lokhttp3/Call;Lokhttp3/Request;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "requestHeadersEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3490,12 +3188,9 @@
+     :cond_0
+     const-string p0, "requestHeadersEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3504,14 +3199,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->l:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3522,8 +3214,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3538,42 +3228,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->requestHeadersStart(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "requestHeadersStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3581,12 +3260,9 @@
+     :cond_0
+     const-string p0, "requestHeadersStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3595,14 +3271,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->k:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3613,8 +3286,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3629,42 +3300,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2, p3}, Lokhttp3/EventListener;->responseBodyEnd(Lokhttp3/Call;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "responseBodyEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3672,12 +3332,9 @@
+     :cond_0
+     const-string p0, "responseBodyEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3686,14 +3343,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->r:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3704,8 +3358,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3720,42 +3372,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->responseBodyStart(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "responseBodyStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3763,12 +3404,9 @@
+     :cond_0
+     const-string p0, "responseBodyStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3777,14 +3415,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->q:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3795,8 +3430,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3815,42 +3448,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2}, Lokhttp3/EventListener;->responseHeadersEnd(Lokhttp3/Call;Lokhttp3/Response;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "responseHeadersEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3858,12 +3480,9 @@
+     :cond_0
+     const-string p0, "responseHeadersEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3872,14 +3491,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->p:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3890,8 +3506,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -3906,42 +3520,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->responseHeadersStart(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "responseHeadersStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -3949,12 +3552,9 @@
+     :cond_0
+     const-string p0, "responseHeadersStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -3963,14 +3563,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->o:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -3981,8 +3578,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -4001,42 +3596,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1, p2}, Lokhttp3/EventListener;->secureConnectEnd(Lokhttp3/Call;Lokhttp3/Handshake;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string p2, "secureConnectEnd"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, p2}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -4044,12 +3628,9 @@
+     :cond_0
+     const-string p0, "secureConnectEnd net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -4058,14 +3639,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->h:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -4076,8 +3654,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -4092,42 +3668,31 @@
+     .line 1
+     const-string v0, "NetTrace-Listener"
+ 
+-    .line 2
+     .line 3
+     invoke-super {p0, p1}, Lokhttp3/EventListener;->secureConnectStart(Lokhttp3/Call;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     :try_start_0
+     const-string v1, "secureConnectStart"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean p0, p0, Lcom/efs/sdk/net/OkHttpListener;->b:Z
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {}, Lcom/efs/sdk/base/integrationtesting/IntegrationTestingUtil;->isIntegrationTestingInPeriod()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -4135,12 +3700,9 @@
+     :cond_0
+     const-string p0, "secureConnectStart net enable false."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v0, p0}, Lcom/efs/sdk/base/core/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -4149,14 +3711,11 @@
+     :goto_0
+     sget-object p0, Lcom/efs/sdk/net/a/d;->g:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/efs/sdk/net/OkHttpListener;->a(Lokhttp3/Call;Ljava/lang/String;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -4167,8 +3726,6 @@
+     .line 35
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-void
+ .end method

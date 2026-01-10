@@ -1,0 +1,456 @@
+--- a/smali_classes6/com/luck/picture/lib/permissions/PermissionConfig.smali
++++ b/smali_classes6/com/luck/picture/lib/permissions/PermissionConfig.smali
+@@ -43,27 +43,21 @@
+     .line 2
+     new-array v0, v0, [Ljava/lang/String;
+ 
+-    .line 3
+     .line 4
+     sput-object v0, Lcom/luck/picture/lib/permissions/PermissionConfig;->CURRENT_REQUEST_PERMISSION:[Ljava/lang/String;
+ 
+-    .line 5
+     .line 6
+     const-string v0, "android.permission.CAMERA"
+ 
+-    .line 7
+     .line 8
+     filled-new-array {v0}, [Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     sput-object v0, Lcom/luck/picture/lib/permissions/PermissionConfig;->CAMERA:[Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -74,8 +68,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -86,31 +78,24 @@
+     .line 1
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isUPSIDE_DOWN_CAKE()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     const-string v1, "android.permission.READ_MEDIA_AUDIO"
+ 
+-    .line 6
+     .line 7
+     const-string v2, "android.permission.READ_MEDIA_VIDEO"
+ 
+-    .line 8
+     .line 9
+     const-string v3, "android.permission.READ_MEDIA_IMAGES"
+ 
+-    .line 10
+     .line 11
+     const/16 v4, 0x21
+ 
+-    .line 12
+     .line 13
+     const-string v5, "android.permission.READ_EXTERNAL_STORAGE"
+ 
+-    .line 14
+     .line 15
+     const/4 v6, 0x0
+ 
+@@ -120,48 +105,36 @@
+     .line 17
+     if-eqz v0, :cond_a
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     iget p0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+ 
+-    .line 24
+     .line 25
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofImage()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     const-string v8, "android.permission.READ_MEDIA_VISUAL_USER_SELECTED"
+ 
+-    .line 30
+     .line 31
+     const/16 v9, 0x22
+ 
+-    .line 32
+     .line 33
+     if-ne p1, v0, :cond_2
+ 
+-    .line 34
+     .line 35
+     if-lt p0, v9, :cond_0
+ 
+-    .line 36
+     .line 37
+     filled-new-array {v8, v3}, [Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+@@ -172,12 +145,9 @@
+     :cond_0
+     if-ne p0, v4, :cond_1
+ 
+-    .line 43
+     .line 44
+     filled-new-array {v3}, [Ljava/lang/String;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p0
+ 
+@@ -188,8 +158,6 @@
+     :cond_1
+     filled-new-array {v5}, [Ljava/lang/String;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -200,24 +168,18 @@
+     :cond_2
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofVideo()I
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v0
+ 
+     .line 58
+     if-ne p1, v0, :cond_5
+ 
+-    .line 59
+     .line 60
+     if-lt p0, v9, :cond_3
+ 
+-    .line 61
+     .line 62
+     filled-new-array {v8, v2}, [Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p0
+ 
+@@ -228,12 +190,9 @@
+     :cond_3
+     if-ne p0, v4, :cond_4
+ 
+-    .line 68
+     .line 69
+     filled-new-array {v2}, [Ljava/lang/String;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+ 
+@@ -244,8 +203,6 @@
+     :cond_4
+     filled-new-array {v5}, [Ljava/lang/String;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p0
+ 
+@@ -256,27 +213,21 @@
+     :cond_5
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAudio()I
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v0
+ 
+     .line 83
+     if-ne p1, v0, :cond_7
+ 
+-    .line 84
+     .line 85
+     if-lt p0, v4, :cond_6
+ 
+-    .line 86
+     .line 87
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 88
+     .line 89
+     aput-object v1, p0, v6
+ 
+-    .line 90
+     .line 91
+     return-object p0
+ 
+@@ -284,11 +235,9 @@
+     :cond_6
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 93
+     .line 94
+     aput-object v5, p0, v6
+ 
+-    .line 95
+     .line 96
+     return-object p0
+ 
+@@ -296,12 +245,9 @@
+     :cond_7
+     if-lt p0, v9, :cond_8
+ 
+-    .line 98
+     .line 99
+     filled-new-array {v8, v3, v2}, [Ljava/lang/String;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object p0
+ 
+@@ -312,12 +258,9 @@
+     :cond_8
+     if-ne p0, v4, :cond_9
+ 
+-    .line 105
+     .line 106
+     filled-new-array {v3, v2}, [Ljava/lang/String;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p0
+ 
+@@ -328,8 +271,6 @@
+     :cond_9
+     filled-new-array {v5}, [Ljava/lang/String;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -340,51 +281,39 @@
+     :cond_a
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isTIRAMISU()Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v0
+ 
+     .line 120
+     if-eqz v0, :cond_12
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object p0
+ 
+     .line 126
+     iget p0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+ 
+-    .line 127
+     .line 128
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofImage()I
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v0
+ 
+     .line 132
+     if-ne p1, v0, :cond_c
+ 
+-    .line 133
+     .line 134
+     if-lt p0, v4, :cond_b
+ 
+-    .line 135
+     .line 136
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 137
+     .line 138
+     aput-object v3, p0, v6
+ 
+-    .line 139
+     .line 140
+     return-object p0
+ 
+@@ -392,11 +321,9 @@
+     :cond_b
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 142
+     .line 143
+     aput-object v5, p0, v6
+ 
+-    .line 144
+     .line 145
+     return-object p0
+ 
+@@ -404,27 +331,21 @@
+     :cond_c
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofVideo()I
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result v0
+ 
+     .line 150
+     if-ne p1, v0, :cond_e
+ 
+-    .line 151
+     .line 152
+     if-lt p0, v4, :cond_d
+ 
+-    .line 153
+     .line 154
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 155
+     .line 156
+     aput-object v2, p0, v6
+ 
+-    .line 157
+     .line 158
+     return-object p0
+ 
+@@ -432,11 +353,9 @@
+     :cond_d
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 160
+     .line 161
+     aput-object v5, p0, v6
+ 
+-    .line 162
+     .line 163
+     return-object p0
+ 
+@@ -444,27 +363,21 @@
+     :cond_e
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAudio()I
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result v0
+ 
+     .line 168
+     if-ne p1, v0, :cond_10
+ 
+-    .line 169
+     .line 170
+     if-lt p0, v4, :cond_f
+ 
+-    .line 171
+     .line 172
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 173
+     .line 174
+     aput-object v1, p0, v6
+ 
+-    .line 175
+     .line 176
+     return-object p0
+ 
+@@ -472,11 +385,9 @@
+     :cond_f
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 178
+     .line 179
+     aput-object v5, p0, v6
+ 
+-    .line 180
+     .line 181
+     return-object p0
+ 
+@@ -484,22 +395,18 @@
+     :cond_10
+     if-lt p0, v4, :cond_11
+ 
+-    .line 183
+     .line 184
+     const/4 p0, 0x2
+ 
+     .line 185
+     new-array p0, p0, [Ljava/lang/String;
+ 
+-    .line 186
+     .line 187
+     aput-object v3, p0, v6
+ 
+-    .line 188
+     .line 189
+     aput-object v2, p0, v7
+ 
+-    .line 190
+     .line 191
+     return-object p0
+ 
+@@ -507,11 +414,9 @@
+     :cond_11
+     new-array p0, v7, [Ljava/lang/String;
+ 
+-    .line 193
+     .line 194
+     aput-object v5, p0, v6
+ 
+-    .line 195
+     .line 196
+     return-object p0
+ 
+@@ -519,12 +424,9 @@
+     :cond_12
+     const-string p0, "android.permission.WRITE_EXTERNAL_STORAGE"
+ 
+-    .line 198
+     .line 199
+     filled-new-array {v5, p0}, [Ljava/lang/String;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object p0
+ 

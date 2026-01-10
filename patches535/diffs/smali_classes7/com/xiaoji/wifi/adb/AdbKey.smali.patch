@@ -1,0 +1,1104 @@
+--- a/smali_classes7/com/xiaoji/wifi/adb/AdbKey.smali
++++ b/smali_classes7/com/xiaoji/wifi/adb/AdbKey.smali
+@@ -43,36 +43,27 @@
+     .line 1
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbKey$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/xiaoji/wifi/adb/AdbKey$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/xiaoji/wifi/adb/AdbKey;->h:Lcom/xiaoji/wifi/adb/AdbKey$Companion;
+ 
+-    .line 8
+     .line 9
+     const/16 v0, 0xec
+ 
+-    .line 10
+     .line 11
+     new-array v0, v0, [B
+ 
+-    .line 12
+     .line 13
+     fill-array-data v0, :array_0
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     sput-object v0, Lcom/xiaoji/wifi/adb/AdbKey;->i:[B
+ 
+-    .line 17
+     .line 18
+     return-void
+ 
+@@ -324,357 +315,258 @@
+     .line 1
+     const-string v0, "adbKeyStore"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "name"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iput-object p1, p0, Lcom/xiaoji/wifi/adb/AdbKey;->a:Lcom/xiaoji/wifi/adb/AdbKeyStore;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbKey;->j()Ljava/security/Key;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     if-eqz p1, :cond_0
+ 
+-    .line 21
+     .line 22
+     iput-object p1, p0, Lcom/xiaoji/wifi/adb/AdbKey;->b:Ljava/security/Key;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbKey;->k()Ljava/security/interfaces/RSAPrivateKey;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     iput-object p1, p0, Lcom/xiaoji/wifi/adb/AdbKey;->c:Ljava/security/interfaces/RSAPrivateKey;
+ 
+-    .line 29
+     .line 30
+     const-string v0, "RSA"
+ 
+-    .line 31
+     .line 32
+     invoke-static {v0}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v0
+ 
+     .line 36
+     new-instance v1, Ljava/security/spec/RSAPublicKeySpec;
+ 
+-    .line 37
+     .line 38
+     invoke-interface {p1}, Ljava/security/interfaces/RSAKey;->getModulus()Ljava/math/BigInteger;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v2
+ 
+     .line 42
+     sget-object v3, Ljava/security/spec/RSAKeyGenParameterSpec;->F4:Ljava/math/BigInteger;
+ 
+-    .line 43
+     .line 44
+     invoke-direct {v1, v2, v3}, Ljava/security/spec/RSAPublicKeySpec;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-virtual {v0, v1}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     const-string v1, "null cannot be cast to non-null type java.security.interfaces.RSAPublicKey"
+ 
+-    .line 52
+     .line 53
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     check-cast v0, Ljava/security/interfaces/RSAPublicKey;
+ 
+-    .line 57
+     .line 58
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->d:Ljava/security/interfaces/RSAPublicKey;
+ 
+-    .line 59
+     .line 60
+     new-instance v1, Lorg/bouncycastle/operator/jcajce/JcaContentSignerBuilder;
+ 
+-    .line 61
+     .line 62
+     const-string v2, "SHA256withRSA"
+ 
+-    .line 63
+     .line 64
+     invoke-direct {v1, v2}, Lorg/bouncycastle/operator/jcajce/JcaContentSignerBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {v1, p1}, Lorg/bouncycastle/operator/jcajce/JcaContentSignerBuilder;->build(Ljava/security/PrivateKey;)Lorg/bouncycastle/operator/ContentSigner;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object v1
+ 
+     .line 71
+     new-instance v2, Lorg/bouncycastle/cert/X509v3CertificateBuilder;
+ 
+-    .line 72
+     .line 73
+     new-instance v3, Lorg/bouncycastle/asn1/x500/X500Name;
+ 
+-    .line 74
+     .line 75
+     const-string v4, "CN=00"
+ 
+-    .line 76
+     .line 77
+     invoke-direct {v3, v4}, Lorg/bouncycastle/asn1/x500/X500Name;-><init>(Ljava/lang/String;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-object v5, v4
+ 
+     .line 81
+     sget-object v4, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+ 
+-    .line 82
+     .line 83
+     move-object v6, v5
+ 
+     .line 84
+     new-instance v5, Ljava/util/Date;
+ 
+-    .line 85
+     .line 86
+     const-wide/16 v7, 0x0
+ 
+-    .line 87
+     .line 88
+     invoke-direct {v5, v7, v8}, Ljava/util/Date;-><init>(J)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-object v7, v6
+ 
+     .line 92
+     new-instance v6, Ljava/util/Date;
+ 
+-    .line 93
+     .line 94
+     const-wide v8, 0x23d19d43c00L
+ 
+-    .line 95
+-    .line 96
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-direct {v6, v8, v9}, Ljava/util/Date;-><init>(J)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-object v8, v7
+ 
+     .line 103
+     sget-object v7, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+ 
+-    .line 104
+     .line 105
+     move-object v9, v8
+ 
+     .line 106
+     new-instance v8, Lorg/bouncycastle/asn1/x500/X500Name;
+ 
+-    .line 107
+     .line 108
+     invoke-direct {v8, v9}, Lorg/bouncycastle/asn1/x500/X500Name;-><init>(Ljava/lang/String;)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-interface {v0}, Ljava/security/Key;->getEncoded()[B
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v0
+ 
+     .line 115
+     invoke-static {v0}, Lorg/bouncycastle/asn1/x509/SubjectPublicKeyInfo;->getInstance(Ljava/lang/Object;)Lorg/bouncycastle/asn1/x509/SubjectPublicKeyInfo;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object v9
+ 
+     .line 119
+     invoke-direct/range {v2 .. v9}, Lorg/bouncycastle/cert/X509v3CertificateBuilder;-><init>(Lorg/bouncycastle/asn1/x500/X500Name;Ljava/math/BigInteger;Ljava/util/Date;Ljava/util/Date;Ljava/util/Locale;Lorg/bouncycastle/asn1/x500/X500Name;Lorg/bouncycastle/asn1/x509/SubjectPublicKeyInfo;)V
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     invoke-virtual {v2, v1}, Lorg/bouncycastle/cert/X509v3CertificateBuilder;->build(Lorg/bouncycastle/operator/ContentSigner;)Lorg/bouncycastle/cert/X509CertificateHolder;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v0
+ 
+     .line 126
+     const-string v1, "X.509"
+ 
+-    .line 127
+     .line 128
+     invoke-static {v1}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object v1
+ 
+     .line 132
+     new-instance v2, Ljava/io/ByteArrayInputStream;
+ 
+-    .line 133
+     .line 134
+     invoke-virtual {v0}, Lorg/bouncycastle/cert/X509CertificateHolder;->getEncoded()[B
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v0
+ 
+     .line 138
+     invoke-direct {v2, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     invoke-virtual {v1, v2}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result-object v0
+ 
+     .line 145
+     const-string v1, "null cannot be cast to non-null type java.security.cert.X509Certificate"
+ 
+-    .line 146
+     .line 147
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     check-cast v0, Ljava/security/cert/X509Certificate;
+ 
+-    .line 151
+     .line 152
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->e:Ljava/security/cert/X509Certificate;
+ 
+-    .line 153
+     .line 154
+     const-string v0, "AdbKey"
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object p1
+ 
+     .line 160
+     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     new-instance p1, Lcom/xiaoji/wifi/adb/AdbKey$adbPublicKey$2;
+ 
+-    .line 164
+     .line 165
+     invoke-direct {p1, p0, p2}, Lcom/xiaoji/wifi/adb/AdbKey$adbPublicKey$2;-><init>(Lcom/xiaoji/wifi/adb/AdbKey;Ljava/lang/String;)V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     invoke-static {p1}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result-object p1
+ 
+     .line 172
+     iput-object p1, p0, Lcom/xiaoji/wifi/adb/AdbKey;->f:Lkotlin/Lazy;
+ 
+-    .line 173
+     .line 174
+     new-instance p1, Lcom/xiaoji/wifi/adb/AdbKey$sslContext$2;
+ 
+-    .line 175
+     .line 176
+     invoke-direct {p1, p0}, Lcom/xiaoji/wifi/adb/AdbKey$sslContext$2;-><init>(Lcom/xiaoji/wifi/adb/AdbKey;)V
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     invoke-static {p1}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result-object p1
+ 
+     .line 183
+     iput-object p1, p0, Lcom/xiaoji/wifi/adb/AdbKey;->g:Lkotlin/Lazy;
+ 
+-    .line 184
+     .line 185
+     return-void
+ 
+@@ -682,16 +574,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 187
+     .line 188
+     const-string p1, "Failed to generate encryption key with AndroidKeyManager."
+ 
+-    .line 189
+     .line 190
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     throw p0
+ .end method
+@@ -702,7 +590,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->e:Ljava/security/cert/X509Certificate;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -713,8 +600,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbKey;->i()Lcom/xiaoji/wifi/adb/AdbKey$keyManager$1;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -728,7 +613,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->c:Ljava/security/interfaces/RSAPrivateKey;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -739,7 +623,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->d:Ljava/security/interfaces/RSAPublicKey;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -750,8 +633,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbKey;->m()Lcom/xiaoji/wifi/adb/AdbKey$trustManager$1;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -770,11 +651,9 @@
+     .line 2
+     const/16 v1, 0x1c
+ 
+-    .line 3
+     .line 4
+     if-ge v0, v1, :cond_0
+ 
+-    .line 5
+     .line 6
+     const/4 p0, 0x0
+ 
+@@ -785,32 +664,24 @@
+     :cond_0
+     new-instance v0, Ljavax/crypto/spec/GCMParameterSpec;
+ 
+-    .line 9
+     .line 10
+     const/16 v1, 0x80
+ 
+-    .line 11
+     .line 12
+     const/4 v2, 0x0
+ 
+     .line 13
+     const/16 v3, 0xc
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v0, v1, p1, v2, v3}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[BII)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v1, "AES/GCM/NoPadding"
+ 
+-    .line 19
+     .line 20
+     invoke-static {v1}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+@@ -820,17 +691,12 @@
+     .line 25
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->b:Ljava/security/Key;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v1, v2, p0, v0}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v1, p2}, Ljavax/crypto/Cipher;->updateAAD([B)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     array-length p0, p1
+ 
+@@ -840,8 +706,6 @@
+     .line 35
+     invoke-virtual {v1, p1, v3, p0}, Ljavax/crypto/Cipher;->doFinal([BII)[B
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+@@ -858,12 +722,9 @@
+     .line 2
+     const v1, 0x7fffffe3
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     if-le v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+@@ -877,20 +738,15 @@
+     .line 10
+     add-int/lit8 v0, v0, 0x1c
+ 
+-    .line 11
+     .line 12
+     new-array v5, v0, [B
+ 
+-    .line 13
+     .line 14
+     const-string v0, "AES/GCM/NoPadding"
+ 
+-    .line 15
+     .line 16
+     invoke-static {v0}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+@@ -900,24 +756,18 @@
+     .line 21
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->b:Ljava/security/Key;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v1, v0, p0}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v1, p2}, Ljavax/crypto/Cipher;->updateAAD([B)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     array-length v4, p1
+ 
+     .line 30
+     const/16 v6, 0xc
+ 
+-    .line 31
+     .line 32
+     const/4 v3, 0x0
+ 
+@@ -927,28 +777,21 @@
+     .line 34
+     invoke-virtual/range {v1 .. v6}, Ljavax/crypto/Cipher;->doFinal([BII[BI)I
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v1}, Ljavax/crypto/Cipher;->getIV()[B
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+     .line 41
+     const/16 p1, 0xc
+ 
+-    .line 42
+     .line 43
+     const/4 p2, 0x0
+ 
+     .line 44
+     invoke-static {p0, p2, v5, p2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return-object v5
+ .end method
+@@ -959,19 +802,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->f:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, [B
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -982,12 +821,9 @@
+     .line 1
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbKey$keyManager$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbKey$keyManager$1;-><init>(Lcom/xiaoji/wifi/adb/AdbKey;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -998,12 +834,9 @@
+     .line 1
+     const-string p0, "AndroidKeyStore"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+@@ -1013,127 +846,93 @@
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/security/KeyStore;->load(Ljava/security/KeyStore$LoadStoreParameter;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v2, "_adbkey_encryption_key_"
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, v2, v1}, Ljava/security/KeyStore;->getKey(Ljava/lang/String;[C)Ljava/security/Key;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     if-nez v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     new-instance v0, Landroid/security/keystore/KeyGenParameterSpec$Builder;
+ 
+-    .line 20
+     .line 21
+     const/4 v1, 0x3
+ 
+     .line 22
+     invoke-direct {v0, v2, v1}, Landroid/security/keystore/KeyGenParameterSpec$Builder;-><init>(Ljava/lang/String;I)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     const-string v1, "GCM"
+ 
+-    .line 26
+     .line 27
+     filled-new-array {v1}, [Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     invoke-virtual {v0, v1}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setBlockModes([Ljava/lang/String;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     const-string v1, "NoPadding"
+ 
+-    .line 36
+     .line 37
+     filled-new-array {v1}, [Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v1
+ 
+     .line 41
+     invoke-virtual {v0, v1}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setEncryptionPaddings([Ljava/lang/String;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     const/16 v1, 0x100
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0, v1}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->setKeySize(I)Landroid/security/keystore/KeyGenParameterSpec$Builder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     invoke-virtual {v0}, Landroid/security/keystore/KeyGenParameterSpec$Builder;->build()Landroid/security/keystore/KeyGenParameterSpec;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v0
+ 
+     .line 55
+     const-string v1, "build(...)"
+ 
+-    .line 56
+     .line 57
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string v1, "AES"
+ 
+-    .line 61
+     .line 62
+     invoke-static {v1, p0}, Ljavax/crypto/KeyGenerator;->getInstance(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p0
+ 
+     .line 66
+     invoke-virtual {p0, v0}, Ljavax/crypto/KeyGenerator;->init(Ljava/security/spec/AlgorithmParameterSpec;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {p0}, Ljavax/crypto/KeyGenerator;->generateKey()Ljavax/crypto/SecretKey;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+ 
+@@ -1151,40 +950,30 @@
+     .line 1
+     const/16 v0, 0x10
+ 
+-    .line 2
+     .line 3
+     new-array v2, v0, [B
+ 
+-    .line 4
+     .line 5
+     const-string v0, "adbkey"
+ 
+-    .line 6
+     .line 7
+     sget-object v1, Lkotlin/text/Charsets;->b:Ljava/nio/charset/Charset;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     const-string v0, "this as java.lang.String).getBytes(charset)"
+ 
+-    .line 14
+     .line 15
+     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const/16 v6, 0xe
+ 
+-    .line 19
+     .line 20
+     const/4 v7, 0x0
+ 
+@@ -1200,77 +989,57 @@
+     .line 24
+     invoke-static/range {v1 .. v7}, Lkotlin/collections/ArraysKt;->m([B[BIIIILjava/lang/Object;)[B
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->a:Lcom/xiaoji/wifi/adb/AdbKeyStore;
+ 
+-    .line 28
+     .line 29
+     invoke-interface {v0}, Lcom/xiaoji/wifi/adb/AdbKeyStore;->get()[B
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     const-string v1, "null cannot be cast to non-null type java.security.interfaces.RSAPrivateKey"
+ 
+-    .line 34
+     .line 35
+     const-string v3, "RSA"
+ 
+-    .line 36
+     .line 37
+     if-eqz v0, :cond_0
+ 
+-    .line 38
+     .line 39
+     :try_start_0
+     invoke-virtual {p0, v0, v2}, Lcom/xiaoji/wifi/adb/AdbKey;->f([B[B)[B
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v0
+ 
+     .line 43
+     invoke-static {v3}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v4
+ 
+     .line 47
+     new-instance v5, Ljava/security/spec/PKCS8EncodedKeySpec;
+ 
+-    .line 48
+     .line 49
+     invoke-direct {v5, v0}, Ljava/security/spec/PKCS8EncodedKeySpec;-><init>([B)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v4, v5}, Ljava/security/KeyFactory;->generatePrivate(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v0
+ 
+     .line 56
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     check-cast v0, Ljava/security/interfaces/RSAPrivateKey;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 60
+     .line 61
+     goto :goto_0
+ 
+@@ -1283,100 +1052,72 @@
+     :goto_0
+     if-nez v0, :cond_1
+ 
+-    .line 64
+     .line 65
+     invoke-static {v3}, Ljava/security/KeyPairGenerator;->getInstance(Ljava/lang/String;)Ljava/security/KeyPairGenerator;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v0
+ 
+     .line 69
+     new-instance v3, Ljava/security/spec/RSAKeyGenParameterSpec;
+ 
+-    .line 70
+     .line 71
+     const/16 v4, 0x800
+ 
+-    .line 72
+     .line 73
+     sget-object v5, Ljava/security/spec/RSAKeyGenParameterSpec;->F4:Ljava/math/BigInteger;
+ 
+-    .line 74
+     .line 75
+     invoke-direct {v3, v4, v5}, Ljava/security/spec/RSAKeyGenParameterSpec;-><init>(ILjava/math/BigInteger;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-virtual {v0, v3}, Ljava/security/KeyPairGenerator;->initialize(Ljava/security/spec/AlgorithmParameterSpec;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-virtual {v0}, Ljava/security/KeyPairGenerator;->generateKeyPair()Ljava/security/KeyPair;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v0
+ 
+     .line 85
+     invoke-virtual {v0}, Ljava/security/KeyPair;->getPrivate()Ljava/security/PrivateKey;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v0
+ 
+     .line 89
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     check-cast v0, Ljava/security/interfaces/RSAPrivateKey;
+ 
+-    .line 93
+     .line 94
+     invoke-interface {v0}, Ljava/security/Key;->getEncoded()[B
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v1
+ 
+     .line 98
+     const-string v3, "getEncoded(...)"
+ 
+-    .line 99
+     .line 100
+     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-virtual {p0, v1, v2}, Lcom/xiaoji/wifi/adb/AdbKey;->g([B[B)[B
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object v1
+ 
+     .line 107
+     if-eqz v1, :cond_1
+ 
+-    .line 108
+     .line 109
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->a:Lcom/xiaoji/wifi/adb/AdbKeyStore;
+ 
+-    .line 110
+     .line 111
+     invoke-interface {p0, v1}, Lcom/xiaoji/wifi/adb/AdbKeyStore;->a([B)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     :cond_1
+     return-object v0
+@@ -1388,28 +1129,21 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->g:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     const-string v0, "getValue(...)"
+ 
+-    .line 8
+     .line 9
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     check-cast p0, Ljavax/net/ssl/SSLContext;
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method
+@@ -1420,12 +1154,9 @@
+     .line 1
+     new-instance p0, Lcom/xiaoji/wifi/adb/AdbKey$trustManager$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Lcom/xiaoji/wifi/adb/AdbKey$trustManager$1;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object p0
+ .end method
+@@ -1436,12 +1167,9 @@
+     .line 1
+     const-string v0, "RSA/ECB/NoPadding"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+@@ -1451,38 +1179,27 @@
+     .line 8
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbKey;->c:Ljava/security/interfaces/RSAPrivateKey;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0, v1, p0}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     sget-object p0, Lcom/xiaoji/wifi/adb/AdbKey;->i:[B
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0, p0}, Ljavax/crypto/Cipher;->update([B)[B
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {v0, p1}, Ljavax/crypto/Cipher;->doFinal([B)[B
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     const-string p1, "doFinal(...)"
+ 
+-    .line 23
+     .line 24
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-object p0
+ .end method

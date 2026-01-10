@@ -1,0 +1,981 @@
+--- a/smali_classes9/com/xj/winemu/download/AriaDownloader.smali
++++ b/smali_classes9/com/xj/winemu/download/AriaDownloader.smali
+@@ -35,19 +35,15 @@
+     .line 1
+     new-instance v0, Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/xj/winemu/download/AriaDownloader$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/xj/winemu/download/AriaDownloader;->b:Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -58,26 +54,18 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     sget-object v0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 5
+     .line 6
+     new-instance v1, Lcom/xj/winemu/download/a;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, p0}, Lcom/xj/winemu/download/a;-><init>(Lcom/xj/winemu/download/AriaDownloader;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0, v1}, Lcom/xj/winemu/download/WinEmuDownloadManager;->C0(Lkotlin/jvm/functions/Function2;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -88,8 +76,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Lcom/xj/winemu/download/AriaDownloader;->r(Lcom/xj/winemu/download/AriaDownloader;Lcom/arialyy/aria/core/download/DownloadEntity;Ljava/lang/Throwable;)Lkotlin/Unit;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -103,42 +89,31 @@
+     .line 1
+     const-string v0, "entity"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object v0, Lcom/xj/winemu/download/AriaDownloader;->b:Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, p1}, Lcom/xj/winemu/download/AriaDownloader$Companion;->a(Lcom/arialyy/aria/core/download/DownloadEntity;)Lcom/xj/common/service/bean/DownloadTask;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     iget-object p0, p0, Lcom/xj/winemu/download/AriaDownloader;->a:Lcom/xj/download/api/IDownloadManager;
+ 
+-    .line 13
+     .line 14
+     if-eqz p0, :cond_0
+ 
+-    .line 15
+     .line 16
+     invoke-interface {p0, p1, p2}, Lcom/xj/download/api/IDownloadManager;->a(Lcom/xj/common/service/bean/DownloadTask;Ljava/lang/Throwable;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 20
+     .line 21
+     return-object p0
+ .end method
+@@ -151,23 +126,18 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-eqz v0, :cond_3
+ 
+-    .line 5
+     .line 6
+     check-cast p1, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getFileType()I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+@@ -177,40 +147,30 @@
+     .line 13
+     if-ne v0, v2, :cond_1
+ 
+-    .line 14
+     .line 15
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getId()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p1
+ 
+     .line 21
+     invoke-virtual {p0, p1}, Lcom/xj/winemu/download/WinEmuDownloadManager;->T(I)Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+     .line 25
+     if-eqz p0, :cond_0
+ 
+-    .line 26
+     .line 27
+     sget-object p1, Lcom/xj/winemu/download/AriaDownloader;->b:Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/AriaDownloader$Companion;->a(Lcom/arialyy/aria/core/download/DownloadEntity;)Lcom/xj/common/service/bean/DownloadTask;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+@@ -225,31 +185,24 @@
+     :cond_1
+     invoke-virtual {p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getDownloadUrl()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p1
+ 
+     .line 39
+     invoke-virtual {p0, p1, p2}, Lcom/xj/winemu/download/AriaDownloader;->c(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p1
+ 
+     .line 47
+     if-ne p0, p1, :cond_2
+ 
+-    .line 48
+     .line 49
+     return-object p0
+ 
+@@ -257,7 +210,6 @@
+     :cond_2
+     check-cast p0, Lcom/xj/common/service/bean/DownloadTask;
+ 
+-    .line 51
+     .line 52
+     return-object p0
+ 
+@@ -272,40 +224,30 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/winemu/download/WinEmuDownloadManager;->Q(Ljava/lang/String;)Ljava/util/List;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->u0(Ljava/util/List;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 12
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     sget-object p1, Lcom/xj/winemu/download/AriaDownloader;->b:Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/AriaDownloader$Companion;->a(Lcom/arialyy/aria/core/download/DownloadEntity;)Lcom/xj/common/service/bean/DownloadTask;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+@@ -326,12 +268,9 @@
+     .line 1
+     sget-object v0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/xj/common/service/bean/DownloadTask;->getAriaTaskId()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v1
+ 
+@@ -347,12 +286,9 @@
+     .line 10
+     invoke-static/range {v0 .. v5}, Lcom/xj/winemu/download/WinEmuDownloadManager;->x0(Lcom/xj/winemu/download/WinEmuDownloadManager;JZILjava/lang/Object;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 14
+     .line 15
+     return-object p0
+ .end method
+@@ -363,12 +299,9 @@
+     .line 1
+     sget-object v0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/xj/common/service/bean/DownloadTask;->getAriaTaskId()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v1
+ 
+@@ -387,12 +320,9 @@
+     .line 11
+     invoke-static/range {v0 .. v6}, Lcom/xj/winemu/download/WinEmuDownloadManager;->r(Lcom/xj/winemu/download/WinEmuDownloadManager;JZZILjava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ .end method
+@@ -403,29 +333,21 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->W()Ljava/util/List;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -434,20 +356,15 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-eqz v0, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+@@ -457,48 +374,36 @@
+     .line 27
+     check-cast v1, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 28
+     .line 29
+     invoke-static {v1}, Lcom/xj/winemu/download/DownloadExtKt;->b(Lcom/arialyy/aria/core/download/DownloadEntity;)Lcom/xj/winemu/data/bean/DownloadExtendInfo;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     if-eqz v1, :cond_0
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v1}, Lcom/xj/winemu/data/bean/DownloadExtendInfo;->getUid()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v1
+ 
+     .line 39
+     sget-object v2, Lcom/xj/common/user/UserManager;->INSTANCE:Lcom/xj/common/user/UserManager;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v2}, Lcom/xj/common/user/UserManager;->getUid()I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v2
+ 
+     .line 45
+     if-ne v1, v2, :cond_0
+ 
+-    .line 46
+     .line 47
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     goto :goto_0
+ 
+@@ -506,17 +411,12 @@
+     :cond_1
+     new-instance p0, Ljava/util/ArrayList;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p1
+ 
+@@ -525,48 +425,36 @@
+     :goto_1
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v0
+ 
+     .line 64
+     if-eqz v0, :cond_3
+ 
+-    .line 65
+     .line 66
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v0
+ 
+     .line 70
+     check-cast v0, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 71
+     .line 72
+     sget-object v1, Lcom/xj/winemu/download/AriaDownloader;->b:Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {v1, v0}, Lcom/xj/winemu/download/AriaDownloader$Companion;->a(Lcom/arialyy/aria/core/download/DownloadEntity;)Lcom/xj/common/service/bean/DownloadTask;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v0
+ 
+     .line 78
+     if-eqz v0, :cond_2
+ 
+-    .line 79
+     .line 80
+     invoke-interface {p0, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     goto :goto_1
+ 
+@@ -581,12 +469,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/xj/common/service/bean/DownloadTask;->getAriaTaskId()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide p1
+ 
+@@ -596,12 +481,9 @@
+     .line 8
+     invoke-virtual {p0, p1, p2, v0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->H0(JZ)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -612,40 +494,30 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->S()Ljava/util/List;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->u0(Ljava/util/List;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 12
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     sget-object p1, Lcom/xj/winemu/download/AriaDownloader;->b:Lcom/xj/winemu/download/AriaDownloader$Companion;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/AriaDownloader$Companion;->a(Lcom/arialyy/aria/core/download/DownloadEntity;)Lcom/xj/common/service/bean/DownloadTask;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+@@ -666,16 +538,12 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/winemu/download/WinEmuDownloadManager;->p0(Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 7
+     .line 8
+     return-object p0
+ .end method
+@@ -686,59 +554,48 @@
+     .line 1
+     instance-of p2, p1, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+     .line 4
+     if-eqz p2, :cond_4
+ 
+-    .line 5
+     .line 6
+     check-cast p1, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Lcom/xj/winemu/download/AriaDownloader;->s(Lcom/xj/download/api/request/AriaDownloadRequest;)Lcom/xj/common/download/bean/AriaDownloadArgs;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     invoke-virtual {p0}, Lcom/xj/common/download/bean/AriaDownloadArgs;->getFileType()I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p1
+ 
+     .line 16
+     if-eq p1, v0, :cond_3
+ 
+-    .line 17
+     .line 18
+     const/4 p2, 0x2
+ 
+     .line 19
+     if-eq p1, p2, :cond_2
+ 
+-    .line 20
+     .line 21
+     const/4 p2, 0x3
+ 
+     .line 22
+     if-eq p1, p2, :cond_1
+ 
+-    .line 23
+     .line 24
+     const/4 p2, 0x4
+ 
+     .line 25
+     if-eq p1, p2, :cond_0
+ 
+-    .line 26
+     .line 27
+     goto :goto_0
+ 
+@@ -746,12 +603,9 @@
+     :cond_0
+     sget-object p1, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->E(Lcom/xj/common/download/bean/AriaDownloadArgs;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -759,12 +613,9 @@
+     :cond_1
+     sget-object p1, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->L(Lcom/xj/common/download/bean/AriaDownloadArgs;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -772,12 +623,9 @@
+     :cond_2
+     sget-object p1, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->I(Lcom/xj/common/download/bean/AriaDownloadArgs;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -785,19 +633,14 @@
+     :cond_3
+     sget-object p1, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p1, p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->H(Lcom/xj/common/download/bean/AriaDownloadArgs;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     :cond_4
+     :goto_0
+     invoke-static {v0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p0
+ 
+@@ -811,27 +654,21 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->S()Ljava/util/List;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     xor-int/lit8 p0, p0, 0x1
+ 
+-    .line 12
+     .line 13
+     return p0
+ .end method
+@@ -842,12 +679,9 @@
+     .line 1
+     sget-object v0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/xj/common/service/bean/DownloadTask;->getAriaTaskId()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v1
+ 
+@@ -866,12 +700,9 @@
+     .line 11
+     invoke-static/range {v0 .. v6}, Lcom/xj/winemu/download/WinEmuDownloadManager;->r(Lcom/xj/winemu/download/WinEmuDownloadManager;JZZILjava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ .end method
+@@ -882,16 +713,12 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/winemu/download/WinEmuDownloadManager;->o0(Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 7
+     .line 8
+     return-object p0
+ .end method
+@@ -902,16 +729,12 @@
+     .line 1
+     sget-object p0, Lcom/xj/winemu/download/WinEmuDownloadManager;->a:Lcom/xj/winemu/download/WinEmuDownloadManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/xj/winemu/download/WinEmuDownloadManager;->G0()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 7
+     .line 8
+     return-object p0
+ .end method
+@@ -922,16 +745,12 @@
+     .line 1
+     const-string v0, "downloadManager"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/xj/winemu/download/AriaDownloader;->a:Lcom/xj/download/api/IDownloadManager;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -942,206 +761,153 @@
+     .line 1
+     new-instance v0, Lcom/xj/common/download/bean/AriaDownloadArgs;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getDownloadUrl()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getId()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v2
+ 
+     .line 11
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getName()Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v3
+ 
+     .line 15
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getCover()Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v4
+ 
+     .line 19
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getVersion()Ljava/lang/String;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v5
+ 
+     .line 23
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getVersionCode()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v6
+ 
+     .line 27
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getFileSize()J
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-wide v7
+ 
+     .line 31
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getFileName()Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v9
+ 
+     .line 35
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getFileMd5()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v10
+ 
+     .line 39
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getFileType()I
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v11
+ 
+     .line 43
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getComponentType()I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v12
+ 
+     .line 47
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getExtend()Ljava/lang/String;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v13
+ 
+     .line 51
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isStartNow()Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v14
+ 
+     .line 55
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isShowNetErrorToast()Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v15
+ 
+     .line 59
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isCheckToDownloadSubData()Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v16
+ 
+     .line 63
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isCheckGameConfig2Download()Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v17
+ 
+     .line 67
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isToastDownloadConfig()Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v18
+ 
+     .line 71
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isSilentInstall()Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v19
+ 
+     .line 75
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getUniqueTag()Ljava/lang/String;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v20
+ 
+     .line 79
+     invoke-direct/range {v0 .. v20}, Lcom/xj/common/download/bean/AriaDownloadArgs;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;IILjava/lang/String;ZZZZZZLjava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->getSubData()Ljava/lang/Object;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v1
+ 
+     .line 86
+     if-eqz v1, :cond_0
+ 
+-    .line 87
+     .line 88
+     instance-of v2, v1, Lcom/xj/common/download/bean/SubData;
+ 
+-    .line 89
+     .line 90
+     if-eqz v2, :cond_0
+ 
+-    .line 91
+     .line 92
+     check-cast v1, Lcom/xj/common/download/bean/SubData;
+ 
+-    .line 93
+     .line 94
+     invoke-virtual {v0, v1}, Lcom/xj/common/download/bean/AriaDownloadArgs;->setSubData(Lcom/xj/common/download/bean/SubData;)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/download/api/request/AriaDownloadRequest;->isCheckToDownloadSubData()Z
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result v1
+ 
+     .line 101
+     invoke-virtual {v0, v1}, Lcom/xj/common/download/bean/AriaDownloadArgs;->setCheckToDownloadSubData(Z)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     :cond_0
+     return-object v0

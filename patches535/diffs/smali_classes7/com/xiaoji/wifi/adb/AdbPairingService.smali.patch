@@ -1,0 +1,2595 @@
+--- a/smali_classes7/com/xiaoji/wifi/adb/AdbPairingService.smali
++++ b/smali_classes7/com/xiaoji/wifi/adb/AdbPairingService.smali
+@@ -60,27 +60,21 @@
+     .line 1
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/xiaoji/wifi/adb/AdbPairingService$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/xiaoji/wifi/adb/AdbPairingService;->m:Lcom/xiaoji/wifi/adb/AdbPairingService$Companion;
+ 
+-    .line 8
+     .line 9
+     const-string v0, "AdbPairingService"
+ 
+-    .line 10
+     .line 11
+     sput-object v0, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -91,202 +85,144 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Landroid/os/Handler;
+ 
+-    .line 5
+     .line 6
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+     .line 10
+     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->a:Landroid/os/Handler;
+ 
+-    .line 14
+     .line 15
+     new-instance v0, Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0}, Landroidx/lifecycle/MutableLiveData;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 21
+     .line 22
+     new-instance v0, Lcom/xiaoji/wifi/adb/d;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/d;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->d:Landroidx/lifecycle/Observer;
+ 
+-    .line 28
+     .line 29
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$stopNotificationAction$2;
+ 
+-    .line 30
+     .line 31
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$stopNotificationAction$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v0
+ 
+     .line 38
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->f:Lkotlin/Lazy;
+ 
+-    .line 39
+     .line 40
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$retryNotificationAction$2;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$retryNotificationAction$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->g:Lkotlin/Lazy;
+ 
+-    .line 50
+     .line 51
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$replyNotificationAction$2;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$replyNotificationAction$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v0
+ 
+     .line 60
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->h:Lkotlin/Lazy;
+ 
+-    .line 61
+     .line 62
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$searchingNotification$2;
+ 
+-    .line 63
+     .line 64
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$searchingNotification$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object v0
+ 
+     .line 71
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->i:Lkotlin/Lazy;
+ 
+-    .line 72
+     .line 73
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$inputNotification$2;
+ 
+-    .line 74
+     .line 75
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$inputNotification$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v0
+ 
+     .line 82
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->j:Lkotlin/Lazy;
+ 
+-    .line 83
+     .line 84
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$workingNotification$2;
+ 
+-    .line 85
+     .line 86
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$workingNotification$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v0
+ 
+     .line 93
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->k:Lkotlin/Lazy;
+ 
+-    .line 94
+     .line 95
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbPairingService$nullNotification$2;
+ 
+-    .line 96
+     .line 97
+     invoke-direct {v0, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$nullNotification$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     invoke-static {v0}, Lrikka/core/ktx/LazyKt;->a(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object v0
+ 
+     .line 104
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->l:Lkotlin/Lazy;
+ 
+-    .line 105
+     .line 106
+     return-void
+ .end method
+@@ -297,32 +233,24 @@
+     .line 1
+     const-string v0, "this$0"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "\u7aef\u53e3\u5f02\u5e38"
+ 
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+     .line 9
+     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -333,25 +261,18 @@
+     .line 1
+     const-string v0, "this$0"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->d:Landroidx/lifecycle/Observer;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0, p0}, Landroidx/lifecycle/LiveData;->j(Landroidx/lifecycle/Observer;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -362,25 +283,18 @@
+     .line 1
+     const-string v0, "this$0"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->d:Landroidx/lifecycle/Observer;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0, p0}, Landroidx/lifecycle/LiveData;->n(Landroidx/lifecycle/Observer;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -391,8 +305,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->G(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -403,8 +315,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->C(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -415,8 +325,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->E(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -427,8 +335,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/xiaoji/wifi/adb/AdbPairingService;->x(Lcom/xiaoji/wifi/adb/AdbPairingService;Ljava/lang/Integer;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -439,8 +345,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->p()Landroid/app/Notification;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -454,7 +358,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -465,8 +368,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->r()Landroid/app/Notification$Action;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -480,8 +381,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->t()Landroid/app/Notification$Action;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -495,7 +394,6 @@
+     .line 1
+     sget-object v0, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object v0
+ .end method
+@@ -506,8 +404,6 @@
+     .line 1
+     invoke-virtual {p0, p1, p2, p3}, Lcom/xiaoji/wifi/adb/AdbPairingService;->v(Ljava/lang/String;Ljava/lang/String;Z)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -518,8 +414,6 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Lcom/xiaoji/wifi/adb/AdbPairingService;->w(ZLjava/lang/Throwable;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -530,8 +424,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->z()Landroid/app/Notification;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -545,8 +437,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->A()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -557,8 +447,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->B()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -569,78 +457,54 @@
+     .line 1
+     const-string v0, "this$0"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v1, "Pairing service port: "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     const-string v1, "AdbPairingService"
+ 
+-    .line 24
+     .line 25
+     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     sget-object v0, Lcom/xiaoji/inject/utils/InjectActivationUtils;->b:Lcom/xiaoji/inject/utils/InjectActivationUtils$Companion;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v0}, Lcom/xiaoji/inject/utils/InjectActivationUtils$Companion;->a()Lcom/xiaoji/inject/utils/InjectActivationUtils;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+     .line 34
+     new-instance v1, Lcom/xiaoji/wifi/adb/AdbPairingService$observer$1$1;
+ 
+-    .line 35
+     .line 36
+     invoke-direct {v1, p1, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$observer$1$1;-><init>(Ljava/lang/Integer;Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {v0, v1}, Lcom/xiaoji/inject/utils/InjectActivationUtils;->i(Lkotlin/jvm/functions/Function1;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-void
+ .end method
+@@ -653,49 +517,36 @@
+     .line 1
+     sget v0, Lcom/xiaoji/wifi/R$string;->adb_pairing_wireless_debugging:I
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     const-string v1, "getString(...)"
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     sget v2, Lcom/xiaoji/wifi/R$string;->adb_pairing_wireless_debugging_success:I
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v2
+ 
+     .line 18
+     invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     const/4 v1, 0x0
+ 
+     .line 22
+     invoke-virtual {p0, v0, v2, v1}, Lcom/xiaoji/wifi/adb/AdbPairingService;->v(Ljava/lang/String;Ljava/lang/String;Z)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -706,103 +557,76 @@
+     .line 1
+     const-string v0, "getString(...)"
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 4
+     .line 5
+     const/16 v2, 0x1e
+ 
+-    .line 6
+     .line 7
+     if-lt v1, v2, :cond_2
+ 
+-    .line 8
+     .line 9
+     const-string v1, "adbInfo"
+ 
+-    .line 10
+     .line 11
+     invoke-static {v1}, Lcom/xiaoji/wifi/utils/SPUtils;->b(Ljava/lang/String;)Lcom/xiaoji/wifi/utils/SPUtils;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+     .line 15
+     const-string v2, "connectPort"
+ 
+-    .line 16
+     .line 17
+     const/4 v3, -0x1
+ 
+     .line 18
+     invoke-virtual {v1, v2, v3}, Lcom/xiaoji/wifi/utils/SPUtils;->d(Ljava/lang/String;I)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v1
+ 
+     .line 22
+     const-string v2, "AdbPairingService"
+ 
+-    .line 23
+     .line 24
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-string v4, "startInjectService: port "
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v3
+ 
+     .line 41
+     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     const v2, 0xffff
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     if-gt v1, v2, :cond_1
+ 
+-    .line 48
+     .line 49
+     const/4 v2, 0x1
+ 
+     .line 50
+     if-ge v1, v2, :cond_0
+ 
+-    .line 51
+     .line 52
+     goto :goto_0
+ 
+@@ -810,29 +634,21 @@
+     :cond_0
+     sget-object v0, Lcom/xiaoji/wifi/utils/AdbUtils;->h:Lcom/xiaoji/wifi/utils/AdbUtils$Companion;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/utils/AdbUtils$Companion;->a()Lcom/xiaoji/wifi/utils/AdbUtils;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     new-instance v2, Lcom/xiaoji/wifi/adb/AdbPairingService$startInjectService$2;
+ 
+-    .line 60
+     .line 61
+     invoke-direct {v2, p0}, Lcom/xiaoji/wifi/adb/AdbPairingService$startInjectService$2;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {v0, v1, v2}, Lcom/xiaoji/wifi/utils/AdbUtils;->i(ILcom/xiaoji/wifi/utils/AdbUtils$CallBack;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     return-void
+ 
+@@ -841,55 +657,39 @@
+     :goto_0
+     iget-object v1, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->a:Landroid/os/Handler;
+ 
+-    .line 69
+     .line 70
+     new-instance v2, Lcom/xiaoji/wifi/adb/f;
+ 
+-    .line 71
+     .line 72
+     invoke-direct {v2, p0}, Lcom/xiaoji/wifi/adb/f;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     sget v1, Lcom/xiaoji/wifi/R$string;->cannot_connect_port:I
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v1
+ 
+     .line 84
+     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     sget v2, Lcom/xiaoji/wifi/R$string;->tips_retry_get_adb_connect_port:I
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v2
+ 
+     .line 93
+     invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     const/4 v0, 0x0
+ 
+@@ -898,8 +698,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     :cond_2
+     return-void
+@@ -911,8 +709,6 @@
+     .line 102
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     return-void
+ .end method
+@@ -923,45 +719,33 @@
+     .line 1
+     sget-object v0, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     const-string v2, "startSearch"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1, v2}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     sget-object v0, Lcom/xiaoji/wifi/utils/AdbUtils;->h:Lcom/xiaoji/wifi/utils/AdbUtils$Companion;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/utils/AdbUtils$Companion;->a()Lcom/xiaoji/wifi/utils/AdbUtils;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     invoke-virtual {v0, p0}, Lcom/xiaoji/wifi/utils/AdbUtils;->l(Landroid/content/Context;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-boolean v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->e:Z
+ 
+-    .line 20
+     .line 21
+     if-eqz v0, :cond_0
+ 
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -972,74 +756,54 @@
+     .line 25
+     iput-boolean v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->e:Z
+ 
+-    .line 26
+     .line 27
+     new-instance v0, Lcom/xiaoji/wifi/adb/AdbMdns;
+ 
+-    .line 28
+     .line 29
+     const-string v1, "_adb-tls-pairing._tcp"
+ 
+-    .line 30
+     .line 31
+     iget-object v2, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v0, p0, v1, v2}, Lcom/xiaoji/wifi/adb/AdbMdns;-><init>(Landroid/content/Context;Ljava/lang/String;Landroidx/lifecycle/MutableLiveData;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/adb/AdbMdns;->l()V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     iput-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->c:Lcom/xiaoji/wifi/adb/AdbMdns;
+ 
+-    .line 40
+     .line 41
+     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v1
+ 
+     .line 49
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v0
+ 
+     .line 53
+     if-eqz v0, :cond_1
+ 
+-    .line 54
+     .line 55
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 56
+     .line 57
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->d:Landroidx/lifecycle/Observer;
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {v0, p0}, Landroidx/lifecycle/LiveData;->j(Landroidx/lifecycle/Observer;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     return-void
+ 
+@@ -1047,21 +811,15 @@
+     :cond_1
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->a:Landroid/os/Handler;
+ 
+-    .line 64
+     .line 65
+     new-instance v1, Lcom/xiaoji/wifi/adb/c;
+ 
+-    .line 66
+     .line 67
+     invoke-direct {v1, p0}, Lcom/xiaoji/wifi/adb/c;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     return-void
+ .end method
+@@ -1072,45 +830,33 @@
+     .line 1
+     sget-object v0, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     const-string v2, "stopSearch"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1, v2}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     sget-object v0, Lcom/xiaoji/wifi/utils/AdbUtils;->h:Lcom/xiaoji/wifi/utils/AdbUtils$Companion;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/utils/AdbUtils$Companion;->a()Lcom/xiaoji/wifi/utils/AdbUtils;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/utils/AdbUtils;->n()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-boolean v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->e:Z
+ 
+-    .line 20
+     .line 21
+     if-nez v0, :cond_0
+ 
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -1121,62 +867,46 @@
+     .line 25
+     iput-boolean v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->e:Z
+ 
+-    .line 26
+     .line 27
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->c:Lcom/xiaoji/wifi/adb/AdbMdns;
+ 
+-    .line 28
+     .line 29
+     if-eqz v0, :cond_1
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/adb/AdbMdns;->m()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_1
+     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v0
+ 
+     .line 38
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v1
+ 
+     .line 42
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v0
+ 
+     .line 46
+     if-eqz v0, :cond_2
+ 
+-    .line 47
+     .line 48
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 49
+     .line 50
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->d:Landroidx/lifecycle/Observer;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v0, p0}, Landroidx/lifecycle/LiveData;->n(Landroidx/lifecycle/Observer;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-void
+ 
+@@ -1184,21 +914,15 @@
+     :cond_2
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->a:Landroid/os/Handler;
+ 
+-    .line 57
+     .line 58
+     new-instance v1, Lcom/xiaoji/wifi/adb/e;
+ 
+-    .line 59
+     .line 60
+     invoke-direct {v1, p0}, Lcom/xiaoji/wifi/adb/e;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     return-void
+ .end method
+@@ -1209,19 +933,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->j:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/app/Notification;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -1242,37 +962,27 @@
+     .line 1
+     invoke-super {p0}, Landroid/app/Service;->onCreate()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-class v0, Landroid/app/NotificationManager;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     check-cast v0, Landroid/app/NotificationManager;
+ 
+-    .line 11
+     .line 12
+     new-instance v1, Landroid/app/NotificationChannel;
+ 
+-    .line 13
+     .line 14
+     sget v2, Lcom/xiaoji/wifi/R$string;->notification_channel_adb_pairing:I
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v2
+ 
+@@ -1282,64 +992,46 @@
+     .line 21
+     const-string v4, "adb_pairing"
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v1, v4, v2, v3}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     const/4 v2, 0x0
+ 
+     .line 27
+     invoke-virtual {v1, v2, v2}, Landroid/app/NotificationChannel;->setSound(Landroid/net/Uri;Landroid/media/AudioAttributes;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     const/4 v2, 0x0
+ 
+     .line 31
+     invoke-virtual {v1, v2}, Landroid/app/NotificationChannel;->setShowBadge(Z)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 35
+     .line 36
+     const/16 v4, 0x1e
+ 
+-    .line 37
+     .line 38
+     if-lt v3, v4, :cond_0
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v1, v2}, Landroid/app/NotificationChannel;->setAllowBubbles(Z)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     :cond_0
+     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->c()Lorg/greenrobot/eventbus/EventBus;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->p(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-void
+ .end method
+@@ -1350,43 +1042,30 @@
+     .line 1
+     sget-object v0, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     const-string v2, "onDestroy"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1, v2}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->c()Lorg/greenrobot/eventbus/EventBus;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->r(Ljava/lang/Object;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->F()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -1404,127 +1083,90 @@
+     .line 1
+     const-string v0, "event"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "onRetryGetAdbConnectPortEvent: "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     sget-object v0, Lcom/xiaoji/wifi/utils/AdbUtils;->h:Lcom/xiaoji/wifi/utils/AdbUtils$Companion;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/utils/AdbUtils$Companion;->b()Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v1
+ 
+     .line 22
+     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p1
+ 
+     .line 29
+     const-string v1, "AdbPairingService"
+ 
+-    .line 30
+     .line 31
+     invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const-class p1, Landroid/app/NotificationManager;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p1
+ 
+     .line 40
+     check-cast p1, Landroid/app/NotificationManager;
+ 
+-    .line 41
+     .line 42
+     const/4 v2, 0x1
+ 
+     .line 43
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->s()Landroid/app/Notification;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v3
+ 
+     .line 47
+     invoke-virtual {p1, v2, v3}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v0}, Lcom/xiaoji/wifi/utils/AdbUtils$Companion;->b()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result p1
+ 
+     .line 54
+     if-eqz p1, :cond_0
+ 
+-    .line 55
+     .line 56
+     const-string p1, "onRetryGetAdbConnectPortEvent: \u91cd\u65b0\u5f00\u59cb\u83b7\u53d6adb\u8fde\u63a5\u7aef\u53e3"
+ 
+-    .line 57
+     .line 58
+     invoke-static {v1, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->F()V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->D()V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     :cond_0
+     return-void
+@@ -1537,41 +1179,30 @@
+     :try_start_0
+     sget-object v0, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const-string v3, "onStartCommand: "
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const/4 v3, 0x0
+ 
+     .line 16
+     if-eqz p1, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v4
+ 
+@@ -1585,7 +1216,6 @@
+     .line 24
+     goto/16 :goto_5
+ 
+-    .line 25
+     .line 26
+     :cond_0
+     move-object v4, v3
+@@ -1594,30 +1224,21 @@
+     :goto_0
+     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v2
+ 
+     .line 34
+     invoke-virtual {v0, v1, v2}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     if-eqz p1, :cond_1
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v0
+ 
+@@ -1632,12 +1253,9 @@
+     :goto_1
+     if-eqz v0, :cond_6
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v1
+ 
+@@ -1647,8 +1265,6 @@
+     .line 52
+     sparse-switch v1, :sswitch_data_0
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     goto :goto_4
+ 
+@@ -1656,24 +1272,18 @@
+     :sswitch_0
+     const-string v1, "start"
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result v0
+ 
+     .line 62
+     if-eqz v0, :cond_6
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->z()Landroid/app/Notification;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v3
+ 
+@@ -1684,76 +1294,58 @@
+     :sswitch_1
+     const-string v1, "reply"
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v0
+ 
+     .line 75
+     if-eqz v0, :cond_6
+ 
+-    .line 76
+     .line 77
+     const-string v0, "float_input_paring_code"
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v0
+ 
+     .line 83
+     if-eqz v0, :cond_2
+ 
+-    .line 84
+     .line 85
+     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result v1
+ 
+     .line 89
+     if-nez v1, :cond_4
+ 
+-    .line 90
+     .line 91
+     :cond_2
+     invoke-static {p1}, Landroid/app/RemoteInput;->getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v0
+ 
+     .line 95
+     if-eqz v0, :cond_3
+ 
+-    .line 96
+     .line 97
+     const-string v1, "paring_code"
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v0
+ 
+     .line 103
+     if-eqz v0, :cond_3
+ 
+-    .line 104
+     .line 105
+     goto :goto_2
+ 
+@@ -1761,13 +1353,10 @@
+     :cond_3
+     const-string v0, ""
+ 
+-    .line 107
+     .line 108
+     :goto_2
+     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object v0
+ 
+@@ -1775,8 +1364,6 @@
+     :cond_4
+     invoke-virtual {p0, v0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->y(Ljava/lang/String;)Landroid/app/Notification;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v3
+ 
+@@ -1787,34 +1374,25 @@
+     :sswitch_2
+     const-string v1, "stop"
+ 
+-    .line 118
+     .line 119
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v0
+ 
+     .line 123
+     if-eqz v0, :cond_6
+ 
+-    .line 124
+     .line 125
+     invoke-virtual {p0, v2}, Landroid/app/Service;->stopForeground(Z)V
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     :goto_3
+     if-eqz v3, :cond_5
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {p0, v2, v3}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     goto :goto_6
+ 
+@@ -1822,21 +1400,15 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->q()Landroid/app/Notification;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v0
+ 
+     .line 138
+     invoke-virtual {p0, v2, v0}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     invoke-virtual {p0, v2}, Landroid/app/Service;->stopForeground(Z)V
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     goto :goto_6
+ 
+@@ -1844,29 +1416,21 @@
+     :sswitch_3
+     const-string v1, "success"
+ 
+-    .line 146
+     .line 147
+     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result v0
+ 
+     .line 151
+     if-eqz v0, :cond_6
+ 
+-    .line 152
+     .line 153
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->A()V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     invoke-super {p0, p1, p2, p3}, Landroid/app/Service;->onStartCommand(Landroid/content/Intent;II)I
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result p0
+ 
+@@ -1878,43 +1442,30 @@
+     :goto_4
+     new-instance v0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 162
+     .line 163
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 164
+     .line 165
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     const-string v2, "Bad intent "
+ 
+-    .line 169
+     .line 170
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result-object v1
+ 
+     .line 180
+     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     throw v0
+     :try_end_0
+@@ -1924,21 +1475,16 @@
+     :goto_5
+     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     :goto_6
+     invoke-super {p0, p1, p2, p3}, Landroid/app/Service;->onStartCommand(Landroid/content/Intent;II)I
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     move-result p0
+ 
+     .line 191
+     return p0
+ 
+-    .line 192
+     nop
+ 
+     .line 193
+@@ -1957,31 +1503,24 @@
+     .line 1
+     iget-object v0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->b:Landroidx/lifecycle/MutableLiveData;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->f()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast v0, Ljava/lang/Integer;
+ 
+-    .line 8
+     .line 9
+     const/4 v1, -0x1
+ 
+     .line 10
+     if-nez v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+@@ -1989,72 +1528,51 @@
+     :cond_0
+     invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     sget-object v2, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 21
+     .line 22
+     sget-object v3, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 23
+     .line 24
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-string v5, "getNotificationByPort: "
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v4
+ 
+     .line 41
+     invoke-virtual {v2, v3, v4}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     if-eq v0, v1, :cond_1
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->o()Landroid/app/Notification;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-object p0
+ 
+@@ -2062,16 +1580,12 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->s()Landroid/app/Notification;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 
+     .line 58
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     return-object p0
+ .end method
+@@ -2082,19 +1596,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->l:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/app/Notification;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -2105,19 +1615,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->h:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/app/Notification$Action;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -2128,19 +1634,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->i:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/app/Notification;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -2151,19 +1653,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->f:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/app/Notification$Action;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -2174,19 +1672,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xiaoji/wifi/adb/AdbPairingService;->k:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroid/app/Notification;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -2197,175 +1691,124 @@
+     .line 1
+     sget-object v0, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const-string v3, "handleResult 1: "
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const/16 v3, 0x20
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v2
+ 
+     .line 36
+     invoke-virtual {v0, v1, v2}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     const-class v0, Landroid/app/NotificationManager;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     check-cast v0, Landroid/app/NotificationManager;
+ 
+-    .line 46
+     .line 47
+     new-instance v1, Landroid/app/Notification$Builder;
+ 
+-    .line 48
+     .line 49
+     const-string v2, "adb_pairing"
+ 
+-    .line 50
+     .line 51
+     invoke-direct {v1, p0, v2}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     sget v2, Lcom/xiaoji/wifi/R$color;->color_theme:I
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {p0, v2}, Landroid/content/Context;->getColor(I)I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v2
+ 
+     .line 60
+     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v1
+ 
+     .line 64
+     sget v2, Lcom/xiaoji/wifi/R$drawable;->ic_system_icon:I
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v1
+ 
+     .line 70
+     invoke-virtual {v1, p1}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p1
+ 
+     .line 74
+     invoke-virtual {p1, p2}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p1
+ 
+     .line 78
+     if-eqz p3, :cond_0
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->r()Landroid/app/Notification$Action;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object p0
+ 
+     .line 84
+     invoke-virtual {p1, p0}, Landroid/app/Notification$Builder;->addAction(Landroid/app/Notification$Action;)Landroid/app/Notification$Builder;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {p1}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p0
+ 
+@@ -2375,8 +1818,6 @@
+     .line 94
+     invoke-virtual {v0, p1, p0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     return-void
+ .end method
+@@ -2390,63 +1831,45 @@
+     .line 2
+     invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     const-string v0, "getString(...)"
+ 
+-    .line 6
+     .line 7
+     const-string v1, "AdbPairingService"
+ 
+-    .line 8
+     .line 9
+     if-eqz p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     const-string p2, "Pair succeed"
+ 
+-    .line 12
+     .line 13
+     invoke-static {v1, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     sget p2, Lcom/xiaoji/wifi/R$string;->notification_adb_pairing_succeed_title:I
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p2
+ 
+     .line 22
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     sget v0, Lcom/xiaoji/wifi/R$string;->notification_adb_pairing_succeed_text:I
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->F()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_2
+ 
+@@ -2454,37 +1877,27 @@
+     :cond_0
+     sget v2, Lcom/xiaoji/wifi/R$string;->notification_adb_pairing_failed_title:I
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v2
+ 
+     .line 41
+     invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     instance-of v0, p2, Ljava/net/ConnectException;
+ 
+-    .line 45
+     .line 46
+     if-eqz v0, :cond_1
+ 
+-    .line 47
+     .line 48
+     sget v0, Lcom/xiaoji/wifi/R$string;->cannot_connect_port:I
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+@@ -2495,20 +1908,15 @@
+     :cond_1
+     instance-of v0, p2, Lcom/xiaoji/wifi/adb/AdbInvalidPairingCodeException;
+ 
+-    .line 56
+     .line 57
+     if-eqz v0, :cond_2
+ 
+-    .line 58
+     .line 59
+     sget v0, Lcom/xiaoji/wifi/R$string;->paring_code_is_wrong:I
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v0
+ 
+@@ -2519,20 +1927,15 @@
+     :cond_2
+     instance-of v0, p2, Lcom/xiaoji/wifi/adb/AdbKeyException;
+ 
+-    .line 67
+     .line 68
+     if-eqz v0, :cond_3
+ 
+-    .line 69
+     .line 70
+     sget v0, Lcom/xiaoji/wifi/R$string;->adb_error_key_store:I
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v0
+ 
+@@ -2543,12 +1946,9 @@
+     :cond_3
+     if-eqz p2, :cond_4
+ 
+-    .line 78
+     .line 79
+     invoke-static {p2}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v0
+ 
+@@ -2563,16 +1963,12 @@
+     :goto_0
+     const-string v3, "Pair failed"
+ 
+-    .line 86
+     .line 87
+     if-eqz p2, :cond_5
+ 
+-    .line 88
+     .line 89
+     invoke-static {v1, v3, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     goto :goto_1
+ 
+@@ -2580,31 +1976,22 @@
+     :cond_5
+     invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     :goto_1
+     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->c()Lorg/greenrobot/eventbus/EventBus;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p2
+ 
+     .line 100
+     new-instance v1, Lcom/xiaoji/wifi/event/ErrMessageEvent;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {v1, v2, v0}, Lcom/xiaoji/wifi/event/ErrMessageEvent;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     invoke-virtual {p2, v1}, Lorg/greenrobot/eventbus/EventBus;->l(Ljava/lang/Object;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-object p2, v2
+ 
+@@ -2612,175 +1999,124 @@
+     :goto_2
+     sget-object v1, Lcom/xiaoji/utils/XjLogUtil;->a:Lcom/xiaoji/utils/XjLogUtil$Companion;
+ 
+-    .line 110
+     .line 111
+     sget-object v2, Lcom/xiaoji/wifi/adb/AdbPairingService;->n:Ljava/lang/String;
+ 
+-    .line 112
+     .line 113
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 114
+     .line 115
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     const-string v4, "handleResult 2: "
+ 
+-    .line 119
+     .line 120
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     const/16 v4, 0x20
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object v3
+ 
+     .line 144
+     invoke-virtual {v1, v2, v3}, Lcom/xiaoji/utils/XjLogUtil$Companion;->a(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     const-class v1, Landroid/app/NotificationManager;
+ 
+-    .line 148
+     .line 149
+     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     move-result-object v1
+ 
+     .line 153
+     check-cast v1, Landroid/app/NotificationManager;
+ 
+-    .line 154
+     .line 155
+     new-instance v2, Landroid/app/Notification$Builder;
+ 
+-    .line 156
+     .line 157
+     const-string v3, "adb_pairing"
+ 
+-    .line 158
+     .line 159
+     invoke-direct {v2, p0, v3}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     sget v3, Lcom/xiaoji/wifi/R$color;->color_theme:I
+ 
+-    .line 163
+     .line 164
+     invoke-virtual {p0, v3}, Landroid/content/Context;->getColor(I)I
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result v3
+ 
+     .line 168
+     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result-object v2
+ 
+     .line 172
+     sget v3, Lcom/xiaoji/wifi/R$drawable;->ic_system_icon:I
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result-object v2
+ 
+     .line 178
+     invoke-virtual {v2, p2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result-object p2
+ 
+     .line 182
+     invoke-virtual {p2, v0}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result-object p2
+ 
+     .line 186
+     if-nez p1, :cond_6
+ 
+-    .line 187
+     .line 188
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->r()Landroid/app/Notification$Action;
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result-object p0
+ 
+     .line 192
+     invoke-virtual {p2, p0}, Landroid/app/Notification$Builder;->addAction(Landroid/app/Notification$Action;)Landroid/app/Notification$Builder;
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     :cond_6
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 196
+     .line 197
+     invoke-virtual {p2}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object p0
+ 
+@@ -2790,8 +2126,6 @@
+     .line 202
+     invoke-virtual {v1, p1, p0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     return-void
+ .end method
+@@ -2802,27 +2136,21 @@
+     .line 1
+     sget-object v0, Lkotlinx/coroutines/GlobalScope;->a:Lkotlinx/coroutines/GlobalScope;
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->b()Lkotlinx/coroutines/CoroutineDispatcher;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     new-instance v3, Lcom/xiaoji/wifi/adb/AdbPairingService$onInput$1;
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x0
+ 
+     .line 10
+     invoke-direct {v3, p0, p1, v2}, Lcom/xiaoji/wifi/adb/AdbPairingService$onInput$1;-><init>(Lcom/xiaoji/wifi/adb/AdbPairingService;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 v4, 0x2
+ 
+@@ -2832,25 +2160,18 @@
+     .line 15
+     invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/BuildersKt;->d(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->u()Landroid/app/Notification;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     const-string p1, "<get-workingNotification>(...)"
+ 
+-    .line 23
+     .line 24
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-object p0
+ .end method
+@@ -2861,13 +2182,9 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->D()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Lcom/xiaoji/wifi/adb/AdbPairingService;->p()Landroid/app/Notification;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 

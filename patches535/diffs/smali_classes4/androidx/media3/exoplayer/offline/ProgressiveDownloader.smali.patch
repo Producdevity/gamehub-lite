@@ -1,0 +1,405 @@
+--- a/smali_classes4/androidx/media3/exoplayer/offline/ProgressiveDownloader.smali
++++ b/smali_classes4/androidx/media3/exoplayer/offline/ProgressiveDownloader.smali
+@@ -209,8 +209,6 @@
+     .line 1
+     invoke-direct/range {p0 .. p6}, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->onProgress(JJJ)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -221,7 +219,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->cacheWriter:Landroidx/media3/datasource/cache/CacheWriter;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -232,11 +229,9 @@
+     .line 1
+     iget-object p5, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->progressListener:Landroidx/media3/exoplayer/offline/Downloader$ProgressListener;
+ 
+-    .line 2
+     .line 3
+     if-nez p5, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -244,27 +239,21 @@
+     :cond_0
+     const-wide/16 p5, -0x1
+ 
+-    .line 7
+     .line 8
+     cmp-long p5, p1, p5
+ 
+-    .line 9
+     .line 10
+     if-eqz p5, :cond_2
+ 
+-    .line 11
+     .line 12
+     const-wide/16 p5, 0x0
+ 
+-    .line 13
+     .line 14
+     cmp-long p5, p1, p5
+ 
+-    .line 15
+     .line 16
+     if-nez p5, :cond_1
+ 
+-    .line 17
+     .line 18
+     goto :goto_1
+ 
+@@ -272,8 +261,6 @@
+     :cond_1
+     invoke-static {p3, p4, p1, p2}, Landroidx/media3/common/util/Util;->percentFloat(JJ)F
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p5
+ 
+@@ -289,7 +276,6 @@
+     :goto_1
+     const/high16 p5, -0x40800000    # -1.0f
+ 
+-    .line 26
+     .line 27
+     goto :goto_0
+ 
+@@ -297,12 +283,9 @@
+     :goto_2
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->progressListener:Landroidx/media3/exoplayer/offline/Downloader$ProgressListener;
+ 
+-    .line 29
+     .line 30
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -312,7 +295,6 @@
+     .line 35
+     check-cast v0, Landroidx/media3/exoplayer/offline/Downloader$ProgressListener;
+ 
+-    .line 36
+     .line 37
+     move-wide v1, p1
+ 
+@@ -322,8 +304,6 @@
+     .line 39
+     invoke-interface/range {v0 .. v5}, Landroidx/media3/exoplayer/offline/Downloader$ProgressListener;->onProgress(JJF)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-void
+ .end method
+@@ -339,20 +319,15 @@
+     .line 2
+     iput-boolean v0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->isCanceled:Z
+ 
+-    .line 3
+     .line 4
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->downloadRunnable:Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 5
+     .line 6
+     if-eqz p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, v0}, Landroidx/media3/common/util/RunnableFutureTask;->cancel(Z)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     :cond_0
+     return-void
+@@ -374,24 +349,18 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->progressListener:Landroidx/media3/exoplayer/offline/Downloader$ProgressListener;
+ 
+-    .line 2
+     .line 3
+     iget-object p1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->priorityTaskManager:Landroidx/media3/common/PriorityTaskManager;
+ 
+-    .line 4
+     .line 5
+     const/16 v0, -0xfa0
+ 
+-    .line 6
+     .line 7
+     if-eqz p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1, v0}, Landroidx/media3/common/PriorityTaskManager;->add(I)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     :cond_0
+     const/4 p1, 0x0
+@@ -400,42 +369,31 @@
+     :goto_0
+     if-nez p1, :cond_5
+ 
+-    .line 14
+     .line 15
+     :try_start_0
+     iget-boolean v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->isCanceled:Z
+ 
+-    .line 16
+     .line 17
+     if-nez v1, :cond_5
+ 
+-    .line 18
+     .line 19
+     new-instance v1, Landroidx/media3/exoplayer/offline/ProgressiveDownloader$1;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v1, p0}, Landroidx/media3/exoplayer/offline/ProgressiveDownloader$1;-><init>(Landroidx/media3/exoplayer/offline/ProgressiveDownloader;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iput-object v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->downloadRunnable:Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 25
+     .line 26
+     iget-object v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->priorityTaskManager:Landroidx/media3/common/PriorityTaskManager;
+ 
+-    .line 27
+     .line 28
+     if-eqz v1, :cond_1
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v1, v0}, Landroidx/media3/common/PriorityTaskManager;->proceed(I)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     goto :goto_1
+ 
+@@ -451,31 +409,24 @@
+     :goto_1
+     iget-object v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->executor:Ljava/util/concurrent/Executor;
+ 
+-    .line 37
+     .line 38
+     iget-object v2, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->downloadRunnable:Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 39
+     .line 40
+     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     :try_start_1
+     iget-object v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->downloadRunnable:Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v1}, Landroidx/media3/common/util/RunnableFutureTask;->get()Ljava/lang/Object;
+     :try_end_1
+     .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_1} :catch_0
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const/4 p1, 0x1
+ 
+@@ -490,31 +441,24 @@
+     :try_start_2
+     invoke-virtual {v1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v1
+ 
+     .line 55
+     invoke-static {v1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v1
+ 
+     .line 59
+     check-cast v1, Ljava/lang/Throwable;
+ 
+-    .line 60
+     .line 61
+     instance-of v2, v1, Landroidx/media3/common/PriorityTaskManager$PriorityTooLowException;
+ 
+-    .line 62
+     .line 63
+     if-eqz v2, :cond_2
+ 
+-    .line 64
+     .line 65
+     goto :goto_0
+ 
+@@ -522,16 +466,12 @@
+     :cond_2
+     instance-of v2, v1, Ljava/io/IOException;
+ 
+-    .line 67
+     .line 68
+     if-nez v2, :cond_3
+ 
+-    .line 69
+     .line 70
+     invoke-static {v1}, Landroidx/media3/common/util/Util;->sneakyThrow(Ljava/lang/Throwable;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -539,7 +479,6 @@
+     :cond_3
+     check-cast v1, Ljava/io/IOException;
+ 
+-    .line 75
+     .line 76
+     throw v1
+     :try_end_2
+@@ -549,37 +488,27 @@
+     :goto_2
+     iget-object v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->downloadRunnable:Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 78
+     .line 79
+     invoke-static {v1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v1
+ 
+     .line 83
+     check-cast v1, Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v1}, Landroidx/media3/common/util/RunnableFutureTask;->blockUntilFinished()V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->priorityTaskManager:Landroidx/media3/common/PriorityTaskManager;
+ 
+-    .line 89
+     .line 90
+     if-eqz p0, :cond_4
+ 
+-    .line 91
+     .line 92
+     invoke-virtual {p0, v0}, Landroidx/media3/common/PriorityTaskManager;->remove(I)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     :cond_4
+     throw p1
+@@ -588,37 +517,27 @@
+     :cond_5
+     iget-object p1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->downloadRunnable:Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 97
+     .line 98
+     invoke-static {p1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object p1
+ 
+     .line 102
+     check-cast p1, Landroidx/media3/common/util/RunnableFutureTask;
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {p1}, Landroidx/media3/common/util/RunnableFutureTask;->blockUntilFinished()V
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->priorityTaskManager:Landroidx/media3/common/PriorityTaskManager;
+ 
+-    .line 108
+     .line 109
+     if-eqz p0, :cond_6
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {p0, v0}, Landroidx/media3/common/PriorityTaskManager;->remove(I)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     :cond_6
+     return-void
+@@ -630,44 +549,33 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->dataSource:Landroidx/media3/datasource/cache/CacheDataSource;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/media3/datasource/cache/CacheDataSource;->getCache()Landroidx/media3/datasource/cache/Cache;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     iget-object v1, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->dataSource:Landroidx/media3/datasource/cache/CacheDataSource;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1}, Landroidx/media3/datasource/cache/CacheDataSource;->getCacheKeyFactory()Landroidx/media3/datasource/cache/CacheKeyFactory;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     iget-object p0, p0, Landroidx/media3/exoplayer/offline/ProgressiveDownloader;->dataSpec:Landroidx/media3/datasource/DataSpec;
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v1, p0}, Landroidx/media3/datasource/cache/CacheKeyFactory;->buildCacheKey(Landroidx/media3/datasource/DataSpec;)Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     invoke-interface {v0, p0}, Landroidx/media3/datasource/cache/Cache;->removeResource(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ .end method

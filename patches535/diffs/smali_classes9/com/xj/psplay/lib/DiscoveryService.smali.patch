@@ -1,0 +1,241 @@
+--- a/smali_classes9/com/xj/psplay/lib/DiscoveryService.smali
++++ b/smali_classes9/com/xj/psplay/lib/DiscoveryService.smali
+@@ -51,19 +51,15 @@
+     .line 1
+     new-instance v0, Lcom/xj/psplay/lib/DiscoveryService$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/xj/psplay/lib/DiscoveryService$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/xj/psplay/lib/DiscoveryService;->Companion:Lcom/xj/psplay/lib/DiscoveryService$Companion;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -95,87 +91,63 @@
+     .line 1
+     const-string v0, "options"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p2, p0, Lcom/xj/psplay/lib/DiscoveryService;->callback:Lkotlin/jvm/functions/Function1;
+ 
+-    .line 10
+     .line 11
+     new-instance p2, Lcom/xj/psplay/lib/PSPlayNative$CreateResult;
+ 
+-    .line 12
+     .line 13
+     const/4 v0, 0x0
+ 
+     .line 14
+     const-wide/16 v1, 0x0
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p2, v0, v1, v2}, Lcom/xj/psplay/lib/PSPlayNative$CreateResult;-><init>(IJ)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     sget-object v0, Lcom/xj/psplay/lib/PSPlayNative;->Companion:Lcom/xj/psplay/lib/PSPlayNative$Companion;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0, p2, p1, p0}, Lcom/xj/psplay/lib/PSPlayNative$Companion;->discoveryServiceCreate(Lcom/xj/psplay/lib/PSPlayNative$CreateResult;Lcom/xj/psplay/lib/DiscoveryServiceOptions;Lcom/xj/psplay/lib/DiscoveryService;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     new-instance p1, Lcom/xj/psplay/lib/ErrorCode;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p2}, Lcom/xj/psplay/lib/PSPlayNative$CreateResult;->getErrorCode()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     invoke-direct {p1, v0}, Lcom/xj/psplay/lib/ErrorCode;-><init>(I)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Lcom/xj/psplay/lib/ErrorCode;->isSuccess()Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+ 
+     .line 37
+     if-eqz v0, :cond_0
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {p2}, Lcom/xj/psplay/lib/PSPlayNative$CreateResult;->getPtr()J
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-wide p1
+ 
+     .line 43
+     iput-wide p1, p0, Lcom/xj/psplay/lib/DiscoveryService;->nativePtr:J
+ 
+-    .line 44
+     .line 45
+     return-void
+ 
+@@ -183,12 +155,9 @@
+     :cond_0
+     new-instance p0, Lcom/xj/psplay/lib/CreateError;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p0, p1}, Lcom/xj/psplay/lib/CreateError;-><init>(Lcom/xj/psplay/lib/ErrorCode;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     throw p0
+ .end method
+@@ -199,7 +168,6 @@
+     .line 1
+     iget-wide v0, p0, Lcom/xj/psplay/lib/DiscoveryService;->nativePtr:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -210,64 +178,45 @@
+     .line 1
+     invoke-static {p1}, Lkotlin/collections/ArraysKt;->y1([Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const-string v1, "got hosts from native: "
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     const-string v1, "Chiaki"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget-object p0, p0, Lcom/xj/psplay/lib/DiscoveryService;->callback:Lkotlin/jvm/functions/Function1;
+ 
+-    .line 28
+     .line 29
+     if-eqz p0, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-interface {p0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_0
+     return-void
+@@ -281,19 +230,15 @@
+     .line 1
+     iget-wide v0, p0, Lcom/xj/psplay/lib/DiscoveryService;->nativePtr:J
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v2, 0x0
+ 
+-    .line 4
+     .line 5
+     cmp-long v4, v0, v2
+ 
+-    .line 6
+     .line 7
+     if-nez v4, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -301,16 +246,12 @@
+     :cond_0
+     sget-object v4, Lcom/xj/psplay/lib/PSPlayNative;->Companion:Lcom/xj/psplay/lib/PSPlayNative$Companion;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v4, v0, v1}, Lcom/xj/psplay/lib/PSPlayNative$Companion;->discoveryServiceFree(J)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     iput-wide v2, p0, Lcom/xj/psplay/lib/DiscoveryService;->nativePtr:J
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -335,7 +276,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/psplay/lib/DiscoveryService;->callback:Lkotlin/jvm/functions/Function1;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

@@ -1,0 +1,304 @@
+--- a/smali_classes9/com/xj/standalone/steam/wrapper/authentication/XjAuthSession.smali
++++ b/smali_classes9/com/xj/standalone/steam/wrapper/authentication/XjAuthSession.smali
+@@ -19,21 +19,15 @@
+     .line 1
+     const-string v0, "authSession"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p1, p0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession;->a:Lin/dragonbra/javasteam/steam/authentication/AuthSession;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -46,41 +40,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -88,36 +74,28 @@
+     :cond_0
+     new-instance v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;-><init>(Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x2
+ 
+     .line 34
+     const-string v4, "pollingWaitForResult failed, "
+ 
+-    .line 35
+     .line 36
+     const/4 v5, 0x1
+ 
+@@ -127,11 +105,9 @@
+     .line 38
+     if-eqz v2, :cond_2
+ 
+-    .line 39
+     .line 40
+     if-ne v2, v5, :cond_1
+ 
+-    .line 41
+     .line 42
+     :try_start_0
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+@@ -139,8 +115,6 @@
+     .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     return-object p1
+ 
+@@ -162,16 +136,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 51
+     .line 52
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 53
+     .line 54
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     throw p0
+ 
+@@ -179,30 +149,22 @@
+     :cond_2
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :try_start_1
+     iget-object p0, p0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession;->a:Lin/dragonbra/javasteam/steam/authentication/AuthSession;
+ 
+-    .line 62
+     .line 63
+     invoke-static {p0, v6, v5, v6}, Lin/dragonbra/javasteam/steam/authentication/AuthSession;->pollingWaitForResult$default(Lin/dragonbra/javasteam/steam/authentication/AuthSession;Lkotlinx/coroutines/CoroutineScope;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object p0
+ 
+     .line 67
+     iput v5, v0, Lcom/xj/standalone/steam/wrapper/authentication/XjAuthSession$pollingWaitForResult$1;->label:I
+ 
+-    .line 68
+     .line 69
+     invoke-static {p0, v0}, Lkotlinx/coroutines/future/FutureKt;->a(Ljava/util/concurrent/CompletionStage;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object p0
+     :try_end_1
+@@ -212,7 +174,6 @@
+     .line 73
+     if-ne p0, v1, :cond_3
+ 
+-    .line 74
+     .line 75
+     return-object v1
+ 
+@@ -224,47 +185,33 @@
+     :goto_1
+     sget-object p1, Lcom/xj/standalone/steam/utils/SteamLog;->a:Lcom/xj/standalone/steam/utils/SteamLog;
+ 
+-    .line 78
+     .line 79
+     invoke-static {p0}, Lkotlin/ExceptionsKt;->c(Ljava/lang/Throwable;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p0
+ 
+     .line 83
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 84
+     .line 85
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p0
+ 
+     .line 98
+     invoke-static {p1, p0, v6, v3, v6}, Lcom/xj/standalone/steam/utils/SteamLog;->c(Lcom/xj/standalone/steam/utils/SteamLog;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     goto :goto_4
+ 
+@@ -272,23 +219,18 @@
+     :goto_2
+     invoke-virtual {p0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object p1
+ 
+     .line 106
+     instance-of v0, p1, Lcom/xj/steam/exceptions/XjServerTimeoutNotificationException;
+ 
+-    .line 107
+     .line 108
+     if-eqz v0, :cond_4
+ 
+-    .line 109
+     .line 110
+     check-cast p1, Lcom/xj/steam/exceptions/XjServerTimeoutNotificationException;
+ 
+-    .line 111
+     .line 112
+     goto :goto_3
+ 
+@@ -300,51 +242,36 @@
+     :goto_3
+     if-nez p1, :cond_5
+ 
+-    .line 115
+     .line 116
+     sget-object p1, Lcom/xj/standalone/steam/utils/SteamLog;->a:Lcom/xj/standalone/steam/utils/SteamLog;
+ 
+-    .line 117
+     .line 118
+     invoke-static {p0}, Lkotlin/ExceptionsKt;->c(Ljava/lang/Throwable;)Ljava/lang/String;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object p0
+ 
+     .line 122
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 123
+     .line 124
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object p0
+ 
+     .line 137
+     invoke-static {p1, p0, v6, v3, v6}, Lcom/xj/standalone/steam/utils/SteamLog;->c(Lcom/xj/standalone/steam/utils/SteamLog;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     :goto_4
+     return-object v6

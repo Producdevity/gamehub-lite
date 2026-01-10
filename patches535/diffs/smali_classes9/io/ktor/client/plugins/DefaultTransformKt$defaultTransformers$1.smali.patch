@@ -1,0 +1,543 @@
+--- a/smali_classes9/io/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1.smali
++++ b/smali_classes9/io/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1.smali
+@@ -78,8 +78,6 @@
+     .line 2
+     invoke-direct {p0, v0, p1}, Lkotlin/coroutines/jvm/internal/SuspendLambda;-><init>(ILkotlin/coroutines/Continuation;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -143,77 +141,58 @@
+     .line 1
+     iget-object v0, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     check-cast v0, Lio/ktor/util/pipeline/PipelineContext;
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     iget v3, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->label:I
+ 
+-    .line 12
+     .line 13
+     const/4 v4, 0x1
+ 
+     .line 14
+     if-eqz v3, :cond_1
+ 
+-    .line 15
+     .line 16
+     if-ne v3, v4, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget-object v0, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 19
+     .line 20
+     check-cast v0, Lio/ktor/http/content/OutgoingContent;
+ 
+-    .line 21
+     .line 22
+     iget-object p0, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 23
+     .line 24
+     check-cast p0, Lio/ktor/http/ContentType;
+ 
+-    .line 25
+     .line 26
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     goto/16 :goto_3
+ 
+-    .line 30
+     .line 31
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 32
+     .line 33
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 34
+     .line 35
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     throw p0
+ 
+@@ -221,142 +200,106 @@
+     :cond_1
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v0}, Lio/ktor/util/pipeline/PipelineContext;->d()Ljava/lang/Object;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p1
+ 
+     .line 46
+     check-cast p1, Lio/ktor/client/request/HttpRequestBuilder;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p1}, Lio/ktor/client/request/HttpRequestBuilder;->getHeaders()Lio/ktor/http/HeadersBuilder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p1
+ 
+     .line 52
+     sget-object v3, Lio/ktor/http/HttpHeaders;->a:Lio/ktor/http/HttpHeaders;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v3}, Lio/ktor/http/HttpHeaders;->c()Ljava/lang/String;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v5
+ 
+     .line 58
+     invoke-virtual {p1, v5}, Lio/ktor/util/StringValuesBuilderImpl;->j(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object p1
+ 
+     .line 62
+     if-nez p1, :cond_2
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v0}, Lio/ktor/util/pipeline/PipelineContext;->d()Ljava/lang/Object;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p1
+ 
+     .line 68
+     check-cast p1, Lio/ktor/client/request/HttpRequestBuilder;
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {p1}, Lio/ktor/client/request/HttpRequestBuilder;->getHeaders()Lio/ktor/http/HeadersBuilder;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p1
+ 
+     .line 74
+     invoke-virtual {v3}, Lio/ktor/http/HttpHeaders;->c()Ljava/lang/String;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v5
+ 
+     .line 78
+     const-string v6, "*/*"
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p1, v5, v6}, Lio/ktor/util/StringValuesBuilderImpl;->e(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     :cond_2
+     invoke-virtual {v0}, Lio/ktor/util/pipeline/PipelineContext;->d()Ljava/lang/Object;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object p1
+ 
+     .line 87
+     check-cast p1, Lio/ktor/http/HttpMessageBuilder;
+ 
+-    .line 88
+     .line 89
+     invoke-static {p1}, Lio/ktor/http/HttpMessagePropertiesKt;->e(Lio/ktor/http/HttpMessageBuilder;)Lio/ktor/http/ContentType;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p1
+ 
+     .line 93
+     instance-of v5, v1, Ljava/lang/String;
+ 
+-    .line 94
+     .line 95
+     if-eqz v5, :cond_4
+ 
+-    .line 96
+     .line 97
+     new-instance v6, Lio/ktor/http/content/TextContent;
+ 
+-    .line 98
+     .line 99
+     move-object v7, v1
+ 
+     .line 100
+     check-cast v7, Ljava/lang/String;
+ 
+-    .line 101
+     .line 102
+     if-nez p1, :cond_3
+ 
+-    .line 103
+     .line 104
+     sget-object v5, Lio/ktor/http/ContentType$Text;->a:Lio/ktor/http/ContentType$Text;
+ 
+-    .line 105
+     .line 106
+     invoke-virtual {v5}, Lio/ktor/http/ContentType$Text;->b()Lio/ktor/http/ContentType;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v5
+ 
+@@ -383,8 +326,6 @@
+     .line 116
+     invoke-direct/range {v6 .. v11}, Lio/ktor/http/content/TextContent;-><init>(Ljava/lang/String;Lio/ktor/http/ContentType;Lio/ktor/http/HttpStatusCode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     goto :goto_1
+ 
+@@ -392,20 +333,15 @@
+     :cond_4
+     instance-of v5, v1, [B
+ 
+-    .line 121
+     .line 122
+     if-eqz v5, :cond_5
+ 
+-    .line 123
+     .line 124
+     new-instance v6, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1$content$1;
+ 
+-    .line 125
+     .line 126
+     invoke-direct {v6, p1, v1}, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1$content$1;-><init>(Lio/ktor/http/ContentType;Ljava/lang/Object;)V
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     goto :goto_1
+ 
+@@ -413,20 +349,15 @@
+     :cond_5
+     instance-of v5, v1, Lio/ktor/utils/io/ByteReadChannel;
+ 
+-    .line 131
+     .line 132
+     if-eqz v5, :cond_6
+ 
+-    .line 133
+     .line 134
+     new-instance v6, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1$content$2;
+ 
+-    .line 135
+     .line 136
+     invoke-direct {v6, v0, p1, v1}, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1$content$2;-><init>(Lio/ktor/util/pipeline/PipelineContext;Lio/ktor/http/ContentType;Ljava/lang/Object;)V
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     goto :goto_1
+ 
+@@ -434,18 +365,15 @@
+     :cond_6
+     instance-of v5, v1, Lio/ktor/http/content/OutgoingContent;
+ 
+-    .line 141
+     .line 142
+     if-eqz v5, :cond_7
+ 
+-    .line 143
+     .line 144
+     move-object v6, v1
+ 
+     .line 145
+     check-cast v6, Lio/ktor/http/content/OutgoingContent;
+ 
+-    .line 146
+     .line 147
+     goto :goto_1
+ 
+@@ -453,20 +381,15 @@
+     :cond_7
+     invoke-virtual {v0}, Lio/ktor/util/pipeline/PipelineContext;->d()Ljava/lang/Object;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result-object v5
+ 
+     .line 152
+     check-cast v5, Lio/ktor/client/request/HttpRequestBuilder;
+ 
+-    .line 153
+     .line 154
+     invoke-static {p1, v5, v1}, Lio/ktor/client/plugins/DefaultTransformersJvmKt;->a(Lio/ktor/http/ContentType;Lio/ktor/client/request/HttpRequestBuilder;Ljava/lang/Object;)Lio/ktor/http/content/OutgoingContent;
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result-object v6
+ 
+@@ -474,12 +397,9 @@
+     :goto_1
+     if-eqz v6, :cond_8
+ 
+-    .line 159
+     .line 160
+     invoke-virtual {v6}, Lio/ktor/http/content/OutgoingContent;->b()Lio/ktor/http/ContentType;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result-object v5
+ 
+@@ -494,198 +414,144 @@
+     :goto_2
+     if-eqz v5, :cond_9
+ 
+-    .line 167
+     .line 168
+     invoke-virtual {v0}, Lio/ktor/util/pipeline/PipelineContext;->d()Ljava/lang/Object;
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result-object v5
+ 
+     .line 172
+     check-cast v5, Lio/ktor/client/request/HttpRequestBuilder;
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {v5}, Lio/ktor/client/request/HttpRequestBuilder;->getHeaders()Lio/ktor/http/HeadersBuilder;
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result-object v5
+ 
+     .line 178
+     invoke-virtual {v3}, Lio/ktor/http/HttpHeaders;->j()Ljava/lang/String;
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result-object v3
+ 
+     .line 182
+     invoke-virtual {v5, v3}, Lio/ktor/util/StringValuesBuilderImpl;->l(Ljava/lang/String;)V
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     invoke-static {}, Lio/ktor/client/plugins/DefaultTransformKt;->a()Lorg/slf4j/Logger;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object v3
+ 
+     .line 189
+     new-instance v5, Ljava/lang/StringBuilder;
+ 
+-    .line 190
+     .line 191
+     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     const-string v7, "Transformed with default transformers request body for "
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     invoke-virtual {v0}, Lio/ktor/util/pipeline/PipelineContext;->d()Ljava/lang/Object;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object v7
+ 
+     .line 203
+     check-cast v7, Lio/ktor/client/request/HttpRequestBuilder;
+ 
+-    .line 204
+     .line 205
+     invoke-virtual {v7}, Lio/ktor/client/request/HttpRequestBuilder;->i()Lio/ktor/http/URLBuilder;
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     move-result-object v7
+ 
+     .line 209
+     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     const-string v7, " from "
+ 
+-    .line 213
+     .line 214
+     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     move-result-object v7
+ 
+     .line 221
+     invoke-static {v7}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     move-result-object v7
+ 
+     .line 225
+     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 226
+-    .line 227
+     .line 228
+     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     move-result-object v5
+ 
+     .line 232
+     invoke-interface {v3, v5}, Lorg/slf4j/Logger;->trace(Ljava/lang/String;)V
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     invoke-static {v0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     move-result-object v3
+ 
+     .line 239
+     iput-object v3, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 240
+     .line 241
+     invoke-static {v1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object v1
+ 
+     .line 245
+     iput-object v1, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 246
+     .line 247
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     move-result-object p1
+ 
+     .line 251
+     iput-object p1, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 252
+     .line 253
+     invoke-static {v6}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 254
+-    .line 255
+     .line 256
+     move-result-object p1
+ 
+     .line 257
+     iput-object p1, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 258
+     .line 259
+     iput v4, p0, Lio/ktor/client/plugins/DefaultTransformKt$defaultTransformers$1;->label:I
+ 
+-    .line 260
+     .line 261
+     invoke-virtual {v0, v6, p0}, Lio/ktor/util/pipeline/PipelineContext;->i(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 262
+-    .line 263
+     .line 264
+     move-result-object p0
+ 
+     .line 265
+     if-ne p0, v2, :cond_9
+ 
+-    .line 266
+     .line 267
+     return-object v2
+ 
+@@ -694,7 +560,6 @@
+     :goto_3
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 269
+     .line 270
+     return-object p0
+ .end method

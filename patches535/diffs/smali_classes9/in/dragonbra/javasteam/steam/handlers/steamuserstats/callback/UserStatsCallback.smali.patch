@@ -1,0 +1,475 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback.smali
+@@ -69,12 +69,9 @@
+     .line 1
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lin/dragonbra/javasteam/types/KeyValue;
+ 
+-    .line 5
+     .line 6
+     const/4 v1, 0x3
+ 
+@@ -84,176 +81,126 @@
+     .line 8
+     invoke-direct {v0, v2, v2, v1, v2}, Lin/dragonbra/javasteam/types/KeyValue;-><init>(Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->schemaKeyValues:Lin/dragonbra/javasteam/types/KeyValue;
+ 
+-    .line 12
+     .line 13
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;
+ 
+-    .line 14
+     .line 15
+     const-class v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsgProtobuf;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     check-cast p1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AClientMsgProtobuf;->getTargetJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     const-string v1, "getTargetJobID(...)"
+ 
+-    .line 31
+     .line 32
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;->setJobID(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;->getEresult()I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v0
+ 
+     .line 42
+     invoke-static {v0}, Lin/dragonbra/javasteam/enums/EResult;->from(I)Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v0
+ 
+     .line 46
+     const-string v1, "from(...)"
+ 
+-    .line 47
+     .line 48
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->result:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;->getGameId()J
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-wide v0
+ 
+     .line 57
+     iput-wide v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->gameId:J
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;->getCrcStats()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v0
+ 
+     .line 63
+     iput v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->crcStats:I
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;->getSchema()Lcom/google/protobuf/ByteString;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v0
+ 
+     .line 69
+     const-string v1, "getSchema(...)"
+ 
+-    .line 70
+     .line 71
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->schema:Lcom/google/protobuf/ByteString;
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;->getStatsList()Ljava/util/List;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v0
+ 
+     .line 80
+     const-string v1, "getStatsList(...)"
+ 
+-    .line 81
+     .line 82
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 86
+     .line 87
+     const/16 v3, 0xa
+ 
+-    .line 88
+     .line 89
+     invoke-static {v0, v3}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result v4
+ 
+     .line 93
+     invoke-direct {v1, v4}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v0
+ 
+@@ -261,57 +208,42 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result v4
+ 
+     .line 104
+     if-eqz v4, :cond_0
+ 
+-    .line 105
+     .line 106
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v4
+ 
+     .line 110
+     check-cast v4, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Stats;
+ 
+-    .line 111
+     .line 112
+     new-instance v5, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/Stats;
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {v4}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Stats;->getStatId()I
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result v6
+ 
+     .line 118
+     invoke-virtual {v4}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Stats;->getStatValue()I
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result v4
+ 
+     .line 122
+     invoke-direct {v5, v6, v4}, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/Stats;-><init>(II)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-interface {v1, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     goto :goto_0
+ 
+@@ -319,46 +251,33 @@
+     :cond_0
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->stats:Ljava/util/List;
+ 
+-    .line 130
+     .line 131
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Builder;->getAchievementBlocksList()Ljava/util/List;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object p1
+ 
+     .line 135
+     const-string v0, "getAchievementBlocksList(...)"
+ 
+-    .line 136
+     .line 137
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 141
+     .line 142
+     invoke-static {p1, v3}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result v1
+ 
+     .line 146
+     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     move-result-object p1
+ 
+@@ -366,66 +285,48 @@
+     :goto_1
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result v1
+ 
+     .line 157
+     if-eqz v1, :cond_1
+ 
+-    .line 158
+     .line 159
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result-object v1
+ 
+     .line 163
+     check-cast v1, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Achievement_Blocks;
+ 
+-    .line 164
+     .line 165
+     new-instance v3, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/AchievementBlocks;
+ 
+-    .line 166
+     .line 167
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Achievement_Blocks;->getAchievementId()I
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     move-result v4
+ 
+     .line 171
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/protobufs/steamclient/SteammessagesClientserverUserstats$CMsgClientGetUserStatsResponse$Achievement_Blocks;->getUnlockTimeList()Ljava/util/List;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object v1
+ 
+     .line 175
+     const-string v5, "getUnlockTimeList(...)"
+ 
+-    .line 176
+     .line 177
+     invoke-static {v1, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     invoke-direct {v3, v4, v1}, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/AchievementBlocks;-><init>(ILjava/util/List;)V
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     invoke-interface {v0, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     goto :goto_1
+ 
+@@ -433,45 +334,33 @@
+     :cond_1
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->achievementBlocks:Ljava/util/List;
+ 
+-    .line 188
+     .line 189
+     new-instance p1, Lin/dragonbra/javasteam/util/stream/MemoryStream;
+ 
+-    .line 190
+     .line 191
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->schema:Lcom/google/protobuf/ByteString;
+ 
+-    .line 192
+     .line 193
+     invoke-virtual {v0}, Lcom/google/protobuf/ByteString;->toByteArray()[B
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result-object v0
+ 
+     .line 197
+     invoke-direct {p1, v0}, Lin/dragonbra/javasteam/util/stream/MemoryStream;-><init>([B)V
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     :try_start_0
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->schemaKeyValues:Lin/dragonbra/javasteam/types/KeyValue;
+ 
+-    .line 201
+     .line 202
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/types/KeyValue;->tryReadAsBinary(Ljava/io/InputStream;)Z
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     invoke-static {p1, v2}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     return-void
+ 
+@@ -492,8 +381,6 @@
+     .line 212
+     invoke-static {p1, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     throw v0
+ .end method
+@@ -517,7 +404,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->achievementBlocks:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -528,7 +414,6 @@
+     .line 1
+     iget p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->crcStats:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -539,7 +424,6 @@
+     .line 1
+     iget-wide v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->gameId:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -552,7 +436,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->result:Lin/dragonbra/javasteam/enums/EResult;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -565,7 +448,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->schema:Lcom/google/protobuf/ByteString;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -578,7 +460,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->schemaKeyValues:Lin/dragonbra/javasteam/types/KeyValue;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -600,7 +481,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamuserstats/callback/UserStatsCallback;->stats:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

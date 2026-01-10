@@ -1,0 +1,68 @@
+--- a/smali_classes6/com/mainli/blur/BitmapBlur.smali
++++ b/smali_classes6/com/mainli/blur/BitmapBlur.smali
+@@ -12,7 +12,7 @@
+ 
+ 
+ # static fields
+-.field public static a:Z = false
++.field public static a:Z
+ 
+ 
+ # direct methods
+@@ -32,8 +32,6 @@
+     .line 2
+     invoke-static {p0, p1, v0}, Lcom/mainli/blur/BitmapBlur;->b(Landroid/graphics/Bitmap;FLcom/mainli/blur/BitmapBlur$a;)Landroid/graphics/Bitmap;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+@@ -47,24 +45,18 @@
+     .line 1
+     sget-boolean v0, Lcom/mainli/blur/BitmapBlur;->a:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const-string v0, "blur-lib"
+ 
+-    .line 6
+     .line 7
+     if-nez p2, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -72,8 +64,6 @@
+     :cond_0
+     invoke-interface {p2, v0}, Lcom/mainli/blur/BitmapBlur$a;->a(Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :goto_0
+     const/4 p2, 0x1
+@@ -81,13 +71,10 @@
+     .line 17
+     sput-boolean p2, Lcom/mainli/blur/BitmapBlur;->a:Z
+ 
+-    .line 18
+     .line 19
+     :cond_1
+     invoke-static {p0, p1}, Lcom/mainli/blur/BitmapBlur;->blur(Landroid/graphics/Bitmap;F)Landroid/graphics/Bitmap;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 

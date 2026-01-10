@@ -1,0 +1,332 @@
+--- a/smali_classes4/androidx/media3/container/ObuParser$FrameHeader.smali
++++ b/smali_classes4/androidx/media3/container/ObuParser$FrameHeader.smali
+@@ -40,12 +40,9 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget v0, p2, Landroidx/media3/container/ObuParser$Obu;->type:I
+ 
+-    .line 5
+     .line 6
+     const/4 v1, 0x6
+ 
+@@ -61,11 +58,9 @@
+     .line 10
+     if-eq v0, v1, :cond_1
+ 
+-    .line 11
+     .line 12
+     if-ne v0, v3, :cond_0
+ 
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -85,17 +80,12 @@
+     :goto_1
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget-object v0, p2, Landroidx/media3/container/ObuParser$Obu;->payload:Ljava/nio/ByteBuffer;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {v0}, Ljava/nio/Buffer;->remaining()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v0
+ 
+@@ -105,66 +95,48 @@
+     .line 28
+     invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+     .line 32
+     new-array v0, v0, [B
+ 
+-    .line 33
+     .line 34
+     iget-object p2, p2, Landroidx/media3/container/ObuParser$Obu;->payload:Ljava/nio/ByteBuffer;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->asReadOnlyBuffer()Ljava/nio/ByteBuffer;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p2
+ 
+     .line 40
+     invoke-virtual {p2, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     new-instance p2, Landroidx/media3/common/util/ParsableBitArray;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p2, v0}, Landroidx/media3/common/util/ParsableBitArray;-><init>([B)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     iget-boolean v0, p1, Landroidx/media3/container/ObuParser$SequenceHeader;->reducedStillPictureHeader:Z
+ 
+-    .line 49
+     .line 50
+     invoke-static {v0}, Landroidx/media3/container/ObuParser;->access$200(Z)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->readBit()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v0
+ 
+     .line 57
+     if-eqz v0, :cond_2
+ 
+-    .line 58
+     .line 59
+     iput-boolean v2, p0, Landroidx/media3/container/ObuParser$FrameHeader;->isDependedOn:Z
+ 
+-    .line 60
+     .line 61
+     return-void
+ 
+@@ -175,36 +147,27 @@
+     .line 63
+     invoke-virtual {p2, v0}, Landroidx/media3/common/util/ParsableBitArray;->readBits(I)I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->readBit()Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v5
+ 
+     .line 71
+     iget-boolean v6, p1, Landroidx/media3/container/ObuParser$SequenceHeader;->decoderModelInfoPresentFlag:Z
+ 
+-    .line 72
+     .line 73
+     invoke-static {v6}, Landroidx/media3/container/ObuParser;->access$200(Z)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     if-nez v5, :cond_3
+ 
+-    .line 77
+     .line 78
+     iput-boolean v4, p0, Landroidx/media3/container/ObuParser$FrameHeader;->isDependedOn:Z
+ 
+-    .line 79
+     .line 80
+     return-void
+ 
+@@ -212,11 +175,9 @@
+     :cond_3
+     if-eq v1, v3, :cond_5
+ 
+-    .line 82
+     .line 83
+     if-nez v1, :cond_4
+ 
+-    .line 84
+     .line 85
+     goto :goto_2
+ 
+@@ -224,8 +185,6 @@
+     :cond_4
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->readBit()Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v5
+ 
+@@ -241,104 +200,75 @@
+     :goto_3
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->skipBit()V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     iget-boolean v6, p1, Landroidx/media3/container/ObuParser$SequenceHeader;->seqForceScreenContentTools:Z
+ 
+-    .line 96
+     .line 97
+     xor-int/2addr v6, v4
+ 
+     .line 98
+     invoke-static {v6}, Landroidx/media3/container/ObuParser;->access$200(Z)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->readBit()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v6
+ 
+     .line 105
+     if-eqz v6, :cond_6
+ 
+-    .line 106
+     .line 107
+     iget-boolean v6, p1, Landroidx/media3/container/ObuParser$SequenceHeader;->seqForceIntegerMv:Z
+ 
+-    .line 108
+     .line 109
+     xor-int/2addr v6, v4
+ 
+     .line 110
+     invoke-static {v6}, Landroidx/media3/container/ObuParser;->access$200(Z)V
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->skipBit()V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     :cond_6
+     iget-boolean v6, p1, Landroidx/media3/container/ObuParser$SequenceHeader;->frameIdNumbersPresentFlag:Z
+ 
+-    .line 117
+     .line 118
+     invoke-static {v6}, Landroidx/media3/container/ObuParser;->access$200(Z)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     if-eq v1, v3, :cond_7
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableBitArray;->skipBit()V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     :cond_7
+     iget p1, p1, Landroidx/media3/container/ObuParser$SequenceHeader;->orderHintBits:I
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {p2, p1}, Landroidx/media3/common/util/ParsableBitArray;->skipBits(I)V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     if-eq v1, v0, :cond_8
+ 
+-    .line 132
+     .line 133
+     if-eqz v1, :cond_8
+ 
+-    .line 134
+     .line 135
+     if-nez v5, :cond_8
+ 
+-    .line 136
+     .line 137
+     invoke-virtual {p2, v3}, Landroidx/media3/common/util/ParsableBitArray;->skipBits(I)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     :cond_8
+     if-eq v1, v3, :cond_a
+ 
+-    .line 141
+     .line 142
+     if-nez v1, :cond_9
+ 
+-    .line 143
+     .line 144
+     goto :goto_4
+ 
+@@ -346,12 +276,9 @@
+     :cond_9
+     const/16 p1, 0x8
+ 
+-    .line 146
+     .line 147
+     invoke-virtual {p2, p1}, Landroidx/media3/common/util/ParsableBitArray;->readBits(I)I
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result p1
+ 
+@@ -363,12 +290,10 @@
+     :goto_4
+     const/16 p1, 0xff
+ 
+-    .line 153
+     .line 154
+     :goto_5
+     if-eqz p1, :cond_b
+ 
+-    .line 155
+     .line 156
+     move v2, v4
+ 
+@@ -376,7 +301,6 @@
+     :cond_b
+     iput-boolean v2, p0, Landroidx/media3/container/ObuParser$FrameHeader;->isDependedOn:Z
+ 
+-    .line 158
+     .line 159
+     return-void
+ .end method
+@@ -390,14 +314,11 @@
+     :try_start_0
+     new-instance v0, Landroidx/media3/container/ObuParser$FrameHeader;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1}, Landroidx/media3/container/ObuParser$FrameHeader;-><init>(Landroidx/media3/container/ObuParser$SequenceHeader;Landroidx/media3/container/ObuParser$Obu;)V
+     :try_end_0
+     .catch Landroidx/media3/container/ObuParser$NotYetImplementedException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ 
+@@ -417,7 +338,6 @@
+     .line 1
+     iget-boolean p0, p0, Landroidx/media3/container/ObuParser$FrameHeader;->isDependedOn:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method

@@ -1,0 +1,78 @@
+--- a/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/ak$bc.smali
++++ b/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/ak$bc.smali
+@@ -31,8 +31,6 @@
+     .line 2
+     invoke-direct {p0, p1, p2, v0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak;-><init>(Ljava/lang/String;IB)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -57,66 +55,48 @@
+     .line 1
+     const-string p0, "references"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ak;->ao:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;
+ 
+-    .line 7
+     .line 8
+     sget-object v0, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$bc$a;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$bc$a;
+ 
+-    .line 9
+     .line 10
+     const-string v1, "android.widget.Editor$SpanController"
+ 
+-    .line 11
+     .line 12
+     const-string v2, "this$0"
+ 
+-    .line 13
+     .line 14
+     const-string v3, "Editor inserts a special span, which has a reference to the EditText. That span is a NoCopySpan, which makes sure it gets dropped when creating a new SpannableStringBuilder from a given CharSequence. TextView.onSaveInstanceState() does a copy of its mText before saving it in the bundle. Prior to KitKat, that copy was done using the SpannableString constructor, instead of SpannableStringBuilder. The SpannableString constructor does not drop NoCopySpan spans. So we end up with a saved state that holds a reference to the textview and therefore the entire view hierarchy & activity context. Fix: https://github.com/android/platform_frameworks_base/commit/af7dcdf35a37d7a7dbaad7d9869c1c91bce2272b . To fix this, you could override TextView.onSaveInstanceState(), and then use reflection to access TextView.SavedState.mText and clear the NoCopySpan spans."
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0, v1, v2, v3, v0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const-string v0, "android.widget.Editor$EasyEditSpanController"
+ 
+-    .line 24
+     .line 25
+     sget-object v1, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$bc$b;->a:Lcom/efs/sdk/memleaksdk/monitor/internal/ak$bc$b;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0, v2, v3, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/ak$v;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/efs/sdk/memleaksdk/monitor/internal/bn;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     invoke-interface {p1, p0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method

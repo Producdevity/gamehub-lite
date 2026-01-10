@@ -1,0 +1,970 @@
+--- a/smali_classes9/in/dragonbra/javasteam/util/HardwareUtils.smali
++++ b/smali_classes9/in/dragonbra/javasteam/util/HardwareUtils.smali
+@@ -16,8 +16,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -28,35 +26,27 @@
+     .line 1
+     const-string v0, "ro.product.manufacturer"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/HardwareUtils;->getAndroidSystemProperty(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     const-string v1, "ro.product.model"
+ 
+-    .line 8
+     .line 9
+     invoke-static {v1}, Lin/dragonbra/javasteam/util/HardwareUtils;->getAndroidSystemProperty(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     if-eqz v0, :cond_2
+ 
+-    .line 14
+     .line 15
+     if-nez v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     goto :goto_0
+ 
+@@ -64,15 +54,12 @@
+     :cond_0
+     invoke-virtual {v1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     if-eqz v2, :cond_1
+ 
+-    .line 23
+     .line 24
+     return-object v1
+ 
+@@ -80,36 +67,24 @@
+     :cond_1
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 26
+     .line 27
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     const-string v0, " "
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+@@ -121,7 +96,6 @@
+     :goto_0
+     const-string v0, "Android Device"
+ 
+-    .line 47
+     .line 48
+     return-object v0
+ .end method
+@@ -136,52 +110,39 @@
+     :try_start_0
+     const-string v1, "android.os.SystemProperties"
+ 
+-    .line 3
+     .line 4
+     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v1
+ 
+     .line 8
+     const-string v2, "get"
+ 
+-    .line 9
+     .line 10
+     const-class v3, Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     filled-new-array {v3}, [Ljava/lang/Class;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v3
+ 
+     .line 16
+     invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     invoke-virtual {v1, v0, p0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+@@ -190,7 +151,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 29
+     .line 30
+     return-object p0
+ 
+@@ -205,37 +165,28 @@
+     .line 1
+     invoke-static {}, Lorg/apache/commons/lang3/SystemUtils;->b()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {v0}, Lorg/apache/commons/lang3/StringUtils;->d(Ljava/lang/CharSequence;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-eqz v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     :try_start_0
+     invoke-static {}, Ljava/net/InetAddress;->getLocalHost()Ljava/net/InetAddress;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-virtual {v0}, Ljava/net/InetAddress;->getHostName()Ljava/lang/String;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+     :try_end_0
+@@ -259,16 +210,12 @@
+     .line 1
+     sget-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+@@ -279,92 +226,70 @@
+     :cond_0
+     sget-boolean v0, Lorg/apache/commons/lang3/SystemUtils;->Z0:Z
+ 
+-    .line 11
+     .line 12
+     if-eqz v0, :cond_1
+ 
+-    .line 13
+     .line 14
+     invoke-static {}, Lin/dragonbra/javasteam/util/HardwareUtils;->getSerialNumberWin()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     sput-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 19
+     .line 20
+     :cond_1
+     sget-boolean v0, Lorg/apache/commons/lang3/SystemUtils;->v0:Z
+ 
+-    .line 21
+     .line 22
+     if-eqz v0, :cond_2
+ 
+-    .line 23
+     .line 24
+     invoke-static {}, Lin/dragonbra/javasteam/util/HardwareUtils;->getSerialNumberMac()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v0
+ 
+     .line 28
+     sput-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     :cond_2
+     sget-boolean v0, Lorg/apache/commons/lang3/SystemUtils;->u0:Z
+ 
+-    .line 31
+     .line 32
+     if-eqz v0, :cond_3
+ 
+-    .line 33
+     .line 34
+     invoke-static {}, Lin/dragonbra/javasteam/util/HardwareUtils;->getSerialNumberUnix()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v0
+ 
+     .line 38
+     sput-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 39
+     .line 40
+     :cond_3
+     sget-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 41
+     .line 42
+     if-nez v0, :cond_4
+ 
+-    .line 43
+     .line 44
+     const-string v0, "JavaSteam-SerialNumber"
+ 
+-    .line 45
+     .line 46
+     sput-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 47
+     .line 48
+     :cond_4
+     sget-object v0, Lin/dragonbra/javasteam/util/HardwareUtils;->SERIAL_NUMBER:Ljava/lang/String;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+@@ -481,8 +406,6 @@
+     .line 1
+     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -493,24 +416,18 @@
+     :try_start_0
+     const-string v2, "/usr/sbin/system_profiler"
+ 
+-    .line 7
+     .line 8
+     const-string v3, "SPHardwareDataType"
+ 
+-    .line 9
+     .line 10
+     filled-new-array {v2, v3}, [Ljava/lang/String;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v2
+ 
+     .line 14
+     invoke-virtual {v0, v2}, Ljava/lang/Runtime;->exec([Ljava/lang/String;)Ljava/lang/Process;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+     :try_end_0
+@@ -519,8 +436,6 @@
+     .line 18
+     invoke-virtual {v0}, Ljava/lang/Process;->getOutputStream()Ljava/io/OutputStream;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+@@ -530,77 +445,57 @@
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :catch_0
+     const-string v2, "Serial Number"
+ 
+-    .line 26
+     .line 27
+     :try_start_2
+     new-instance v3, Ljava/io/BufferedReader;
+ 
+-    .line 28
+     .line 29
+     new-instance v4, Ljava/io/InputStreamReader;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     invoke-direct {v4, v0}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-direct {v3, v4}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     :cond_0
+     :try_start_3
+     invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     if-eqz v0, :cond_1
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v4
+ 
+     .line 51
+     if-eqz v4, :cond_0
+ 
+-    .line 52
+     .line 53
+     const-string v2, ":"
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+@@ -610,12 +505,9 @@
+     .line 60
+     aget-object v0, v0, v2
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+     :try_end_3
+@@ -642,8 +534,6 @@
+     :try_end_4
+     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     return-object v0
+ 
+@@ -654,8 +544,6 @@
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_1
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     goto :goto_2
+ 
+@@ -667,8 +555,6 @@
+     :try_start_6
+     invoke-virtual {v0, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     :goto_2
+     throw v0
+@@ -686,20 +572,15 @@
+     .line 1
+     invoke-static {}, Lin/dragonbra/javasteam/util/HardwareUtils;->readDmidecode()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {}, Lin/dragonbra/javasteam/util/HardwareUtils;->readLshal()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+@@ -714,8 +595,6 @@
+     .line 1
+     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -726,32 +605,24 @@
+     :try_start_0
+     const-string v2, "wmic"
+ 
+-    .line 7
+     .line 8
+     const-string v3, "bios"
+ 
+-    .line 9
+     .line 10
+     const-string v4, "get"
+ 
+-    .line 11
+     .line 12
+     const-string v5, "serialnumber"
+ 
+-    .line 13
+     .line 14
+     filled-new-array {v2, v3, v4, v5}, [Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v2
+ 
+     .line 18
+     invoke-virtual {v0, v2}, Ljava/lang/Runtime;->exec([Ljava/lang/String;)Ljava/lang/Process;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+     :try_end_0
+@@ -760,8 +631,6 @@
+     .line 22
+     invoke-virtual {v0}, Ljava/lang/Process;->getOutputStream()Ljava/io/OutputStream;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v2
+ 
+@@ -771,77 +640,57 @@
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     :catch_0
+     new-instance v2, Ljava/util/Scanner;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     invoke-direct {v2, v0}, Ljava/util/Scanner;-><init>(Ljava/io/InputStream;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :cond_0
+     :try_start_2
+     invoke-virtual {v2}, Ljava/util/Scanner;->hasNext()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v0
+ 
+     .line 42
+     if-eqz v0, :cond_1
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v2}, Ljava/util/Scanner;->next()Ljava/lang/String;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     const-string v3, "SerialNumber"
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v0
+ 
+     .line 54
+     if-eqz v0, :cond_0
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v2}, Ljava/util/Scanner;->next()Ljava/lang/String;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v0
+ 
+     .line 60
+     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v1
+     :try_end_2
+@@ -862,8 +711,6 @@
+     :goto_0
+     invoke-virtual {v2}, Ljava/util/Scanner;->close()V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     return-object v1
+ 
+@@ -874,8 +721,6 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     goto :goto_2
+ 
+@@ -886,8 +731,6 @@
+     .line 76
+     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     :goto_2
+     throw v0
+@@ -903,8 +746,6 @@
+     .line 1
+     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -912,20 +753,15 @@
+     :try_start_0
+     const-string v1, " "
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     invoke-virtual {v0, p0}, Ljava/lang/Runtime;->exec([Ljava/lang/String;)Ljava/lang/Process;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+     :try_end_0
+@@ -934,8 +770,6 @@
+     .line 15
+     invoke-virtual {p0}, Ljava/lang/Process;->getOutputStream()Ljava/io/OutputStream;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+ 
+@@ -945,35 +779,25 @@
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     :catch_0
+     new-instance v0, Ljava/io/BufferedReader;
+ 
+-    .line 23
+     .line 24
+     new-instance v1, Ljava/io/InputStreamReader;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-direct {v1, p0}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-direct {v0, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-object v0
+ 
+@@ -991,7 +815,6 @@
+     .line 1
+     const-string v0, "Serial Number:"
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+@@ -999,30 +822,23 @@
+     :try_start_0
+     const-string v2, "dmidecode -t system"
+ 
+-    .line 5
+     .line 6
+     invoke-static {v2}, Lin/dragonbra/javasteam/util/HardwareUtils;->read(Ljava/lang/String;)Ljava/io/BufferedReader;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v2
+ 
+     .line 10
+     if-nez v2, :cond_1
+ 
+-    .line 11
+     .line 12
+     if-eqz v2, :cond_0
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     :cond_0
+     return-object v1
+@@ -1032,32 +848,24 @@
+     :try_start_1
+     invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v3
+ 
+     .line 22
+     if-eqz v3, :cond_2
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v3, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v4
+ 
+     .line 28
+     if-eqz v4, :cond_1
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v3, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+@@ -1067,12 +875,9 @@
+     .line 35
+     aget-object v0, v0, v3
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v0
+     :try_end_1
+@@ -1099,8 +904,6 @@
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     return-object v0
+ 
+@@ -1111,8 +914,6 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     goto :goto_2
+ 
+@@ -1124,8 +925,6 @@
+     :try_start_4
+     invoke-virtual {v0, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     :goto_2
+     throw v0
+@@ -1143,7 +942,6 @@
+     .line 1
+     const-string v0, "system.hardware.serial ="
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+@@ -1151,30 +949,23 @@
+     :try_start_0
+     const-string v2, "lshal"
+ 
+-    .line 5
+     .line 6
+     invoke-static {v2}, Lin/dragonbra/javasteam/util/HardwareUtils;->read(Ljava/lang/String;)Ljava/io/BufferedReader;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v2
+ 
+     .line 10
+     if-nez v2, :cond_1
+ 
+-    .line 11
+     .line 12
+     if-eqz v2, :cond_0
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     :cond_0
+     return-object v1
+@@ -1184,32 +975,24 @@
+     :try_start_1
+     invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v3
+ 
+     .line 22
+     if-eqz v3, :cond_2
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v3, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v4
+ 
+     .line 28
+     if-eqz v4, :cond_1
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v3, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+@@ -1219,28 +1002,21 @@
+     .line 35
+     aget-object v0, v0, v3
+ 
+-    .line 36
+     .line 37
+     const-string v3, "\\(string\\)|(\\\')"
+ 
+-    .line 38
+     .line 39
+     const-string v4, ""
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v0, v3, v4}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+     :try_end_1
+@@ -1267,8 +1043,6 @@
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     return-object v0
+ 
+@@ -1279,8 +1053,6 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -1292,8 +1064,6 @@
+     :try_start_4
+     invoke-virtual {v0, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :goto_2
+     throw v0

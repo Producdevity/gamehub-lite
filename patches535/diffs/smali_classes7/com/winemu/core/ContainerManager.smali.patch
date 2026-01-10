@@ -1,0 +1,2710 @@
+--- a/smali_classes7/com/winemu/core/ContainerManager.smali
++++ b/smali_classes7/com/winemu/core/ContainerManager.smali
+@@ -30,124 +30,88 @@
+     .line 1
+     const-string v0, "context"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p1, p0, Lcom/winemu/core/ContainerManager;->a:Landroid/content/Context;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Lcom/google/gson/Gson;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Lcom/google/gson/Gson;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Lcom/winemu/core/ContainerManager;->b:Lcom/google/gson/Gson;
+ 
+-    .line 17
+     .line 18
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     const-string v1, "usr/home/containers"
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v0, p1, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iput-object v0, p0, Lcom/winemu/core/ContainerManager;->c:Ljava/io/File;
+ 
+-    .line 30
+     .line 31
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 32
+     .line 33
+     const-string v1, "containers.json"
+ 
+-    .line 34
+     .line 35
+     invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     iput-object p1, p0, Lcom/winemu/core/ContainerManager;->d:Ljava/io/File;
+ 
+-    .line 39
+     .line 40
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     iput-object v0, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p1
+ 
+     .line 51
+     if-eqz p1, :cond_0
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p1}, Ljava/io/File;->exists()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v0
+ 
+     .line 57
+     if-nez v0, :cond_0
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     :cond_0
+     invoke-virtual {p0}, Lcom/winemu/core/ContainerManager;->n()V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     return-void
+ .end method
+@@ -158,8 +122,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/winemu/core/ContainerManager;->d(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Integer;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -170,8 +132,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -184,102 +144,69 @@
+     .line 1
+     const-string p0, "path"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string p0, "base"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 12
+     .line 13
+     const-string v0, "system.reg"
+ 
+-    .line 14
+     .line 15
+     invoke-direct {p0, p2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v1, p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-static {p0, v1}, Lcom/winemu/core/utils/FileUtils;->e(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 27
+     .line 28
+     const-string v0, "user.reg"
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0, p2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 34
+     .line 35
+     invoke-direct {v1, p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-static {p0, v1}, Lcom/winemu/core/utils/FileUtils;->e(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 42
+     .line 43
+     const-string v0, "userdef.reg"
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p0, p2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     new-instance p2, Ljava/io/File;
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p2, p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-static {p0, p2}, Lcom/winemu/core/utils/FileUtils;->e(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     return-void
+ .end method
+@@ -290,30 +217,21 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "wine"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v1, "tag"
+ 
+-    .line 12
+     .line 13
+     invoke-static {p3, v1}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const/4 v1, 0x0
+ 
+@@ -324,183 +242,132 @@
+     :cond_0
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 19
+     .line 20
+     iget-object v4, p0, Lcom/winemu/core/ContainerManager;->c:Ljava/io/File;
+ 
+-    .line 21
+     .line 22
+     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v5
+ 
+     .line 26
+     invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v3}, Ljava/io/File;->exists()Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v4
+ 
+     .line 35
+     if-nez v4, :cond_0
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v2
+ 
+     .line 41
+     if-eqz v2, :cond_9
+ 
+-    .line 42
+     .line 43
+     new-instance v2, Lcom/winemu/core/Container;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v3}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v4
+ 
+     .line 49
+     const-string v5, "getPath(...)"
+ 
+-    .line 50
+     .line 51
+     invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {v2, v4}, Lcom/winemu/core/Container;-><init>(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v2}, Lcom/winemu/core/Container;->b()Lcom/winemu/core/BottleMetadata;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v4
+ 
+     .line 61
+     invoke-virtual {v4, p1}, Lcom/winemu/core/BottleMetadata;->setName(Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {p2}, Lcom/winemu/core/Wine;->b()Ljava/lang/String;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p1
+ 
+     .line 68
+     invoke-virtual {v4, p1}, Lcom/winemu/core/BottleMetadata;->setWinePath(Ljava/lang/String;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {v4, p3}, Lcom/winemu/core/BottleMetadata;->setTag(Ljava/lang/String;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     const/4 p1, 0x0
+ 
+     .line 75
+     if-eqz p4, :cond_7
+ 
+-    .line 76
+     .line 77
+     const-string p3, "tmp-container"
+ 
+-    .line 78
+     .line 79
+     new-array v1, v1, [Ljava/nio/file/attribute/FileAttribute;
+ 
+-    .line 80
+     .line 81
+     invoke-static {p3, v1}, Ljava/nio/file/Files;->createTempDirectory(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p3
+ 
+     .line 85
+     invoke-interface {p3}, Ljava/nio/file/Path;->toFile()Ljava/io/File;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p3
+ 
+     .line 89
+     sget-object v1, Lcom/winemu/core/utils/TarCompressorUtils$Type;->ZSTD:Lcom/winemu/core/utils/TarCompressorUtils$Type;
+ 
+-    .line 90
+     .line 91
+     invoke-static {v1, p4, p3}, Lcom/winemu/core/utils/TarCompressorUtils;->c(Lcom/winemu/core/utils/TarCompressorUtils$Type;Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     new-instance p4, Ljava/io/File;
+ 
+-    .line 95
+     .line 96
+     invoke-direct {p4, p3, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-virtual {p4}, Ljava/io/File;->exists()Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v0
+ 
+     .line 103
+     if-eqz v0, :cond_6
+ 
+-    .line 104
+     .line 105
+     invoke-static {p4}, Lkotlin/io/FilesKt;->u(Ljava/io/File;)Lkotlin/io/FileTreeWalk;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v0
+ 
+     .line 109
+     invoke-interface {v0}, Lkotlin/sequences/Sequence;->iterator()Ljava/util/Iterator;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object v0
+ 
+@@ -509,39 +376,30 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result v1
+ 
+     .line 117
+     if-eqz v1, :cond_5
+ 
+-    .line 118
+     .line 119
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v1
+ 
+     .line 123
+     check-cast v1, Ljava/io/File;
+ 
+-    .line 124
+     .line 125
+     invoke-static {v1}, Lcom/winemu/core/utils/FileUtils;->m(Ljava/io/File;)Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result v4
+ 
+     .line 129
+     if-nez v4, :cond_2
+ 
+-    .line 130
+     .line 131
+     goto :goto_0
+ 
+@@ -549,27 +407,21 @@
+     :cond_2
+     invoke-static {v1}, Lcom/winemu/core/utils/FileUtils;->o(Ljava/io/File;)Ljava/lang/String;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object v4
+ 
+     .line 136
+     if-eqz v4, :cond_1
+ 
+-    .line 137
+     .line 138
+     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result v5
+ 
+     .line 142
+     if-nez v5, :cond_3
+ 
+-    .line 143
+     .line 144
+     goto :goto_0
+ 
+@@ -577,32 +429,24 @@
+     :cond_3
+     new-instance v5, Ljava/io/File;
+ 
+-    .line 146
+     .line 147
+     invoke-virtual {p2}, Lcom/winemu/core/Wine;->b()Ljava/lang/String;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-object v6
+ 
+     .line 151
+     invoke-direct {v5, v6, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     invoke-virtual {v5}, Ljava/io/File;->exists()Z
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result v4
+ 
+     .line 158
+     if-nez v4, :cond_4
+ 
+-    .line 159
+     .line 160
+     goto :goto_0
+ 
+@@ -610,13 +454,9 @@
+     :cond_4
+     invoke-virtual {v1}, Ljava/io/File;->delete()Z
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     invoke-static {v5, v1}, Lcom/winemu/core/utils/FileUtils;->c(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     goto :goto_0
+ 
+@@ -624,44 +464,30 @@
+     :cond_5
+     invoke-virtual {p4, v3}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     invoke-static {p3}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     new-instance p2, Ljava/io/File;
+ 
+-    .line 175
+     .line 176
+     const-string p3, "drive_c"
+ 
+-    .line 177
+     .line 178
+     invoke-direct {p2, v3, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     new-instance p3, Ljava/io/File;
+ 
+-    .line 182
+     .line 183
+     const-string p4, "dosdevices/c:"
+ 
+-    .line 184
+     .line 185
+     invoke-direct {p3, v3, p4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     invoke-static {p2, p3}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     goto :goto_1
+ 
+@@ -669,21 +495,15 @@
+     :cond_6
+     invoke-static {p3}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 196
+     .line 197
+     const-string p1, "Failed to extract wine dir"
+ 
+-    .line 198
+     .line 199
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     throw p0
+ 
+@@ -691,200 +511,139 @@
+     :cond_7
+     new-instance p3, Ljava/util/concurrent/CompletableFuture;
+ 
+-    .line 204
+     .line 205
+     invoke-direct {p3}, Ljava/util/concurrent/CompletableFuture;-><init>()V
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     sget-object p4, Lcom/winemu/core/WineHelper;->b:Lcom/winemu/core/WineHelper$Companion;
+ 
+-    .line 209
+     .line 210
+     invoke-virtual {p4, p2}, Lcom/winemu/core/WineHelper$Companion;->a(Lcom/winemu/core/Wine;)Lcom/winemu/core/WineHelper;
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     move-result-object v0
+ 
+     .line 214
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->a:Landroid/content/Context;
+ 
+-    .line 215
+     .line 216
+     invoke-virtual {v2}, Lcom/winemu/core/Container;->a()Ljava/lang/String;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     move-result-object v4
+ 
+     .line 220
+     new-instance v5, Lcom/winemu/core/a;
+ 
+-    .line 221
+     .line 222
+     invoke-direct {v5, p3}, Lcom/winemu/core/a;-><init>(Ljava/util/concurrent/CompletableFuture;)V
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     invoke-virtual {v0, v1, v4, v5}, Lcom/winemu/core/WineHelper;->h(Landroid/content/Context;Ljava/lang/String;Lcom/winemu/core/utils/Callback;)V
+ 
+-    .line 226
+-    .line 227
+     .line 228
+     invoke-virtual {p3}, Ljava/util/concurrent/CompletableFuture;->join()Ljava/lang/Object;
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     move-result-object p3
+ 
+     .line 232
+     check-cast p3, Ljava/lang/Integer;
+ 
+-    .line 233
+     .line 234
+     if-eqz p3, :cond_8
+ 
+-    .line 235
+     .line 236
+     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result p3
+ 
+     .line 240
+     if-nez p3, :cond_8
+ 
+-    .line 241
+     .line 242
+     invoke-virtual {p4, p2}, Lcom/winemu/core/WineHelper$Companion;->a(Lcom/winemu/core/Wine;)Lcom/winemu/core/WineHelper;
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     move-result-object p2
+ 
+     .line 246
+     iget-object p3, p0, Lcom/winemu/core/ContainerManager;->a:Landroid/content/Context;
+ 
+-    .line 247
+     .line 248
+     invoke-virtual {v2}, Lcom/winemu/core/Container;->a()Ljava/lang/String;
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     move-result-object p4
+ 
+     .line 252
+     invoke-virtual {p2, p3, p4, p1}, Lcom/winemu/core/WineHelper;->j(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 253
+-    .line 254
+     .line 255
+     :goto_1
+     new-instance p2, Ljava/io/File;
+ 
+-    .line 256
+     .line 257
+     const-string p3, ".update-timestamp"
+ 
+-    .line 258
+     .line 259
+     invoke-direct {p2, v3, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 260
+-    .line 261
+     .line 262
+     const-string p3, "disable"
+ 
+-    .line 263
+     .line 264
+     const/4 p4, 0x2
+ 
+     .line 265
+     invoke-static {p2, p3, p1, p4, p1}, Lkotlin/io/FilesKt;->p(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
+ 
+-    .line 266
+-    .line 267
+     .line 268
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 269
+     .line 270
+     const-string p2, ".wineserver"
+ 
+-    .line 271
+     .line 272
+     invoke-direct {p1, v3, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 273
+-    .line 274
+     .line 275
+     invoke-static {p1}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 276
+-    .line 277
+     .line 278
+     new-instance p1, Lcom/winemu/core/RegistryHelper;
+ 
+-    .line 279
+     .line 280
+     invoke-direct {p1, v2}, Lcom/winemu/core/RegistryHelper;-><init>(Lcom/winemu/core/Container;)V
+ 
+-    .line 281
+-    .line 282
+     .line 283
+     invoke-virtual {p1}, Lcom/winemu/core/RegistryHelper;->e0()V
+ 
+-    .line 284
+-    .line 285
+     .line 286
+     invoke-virtual {p1}, Lcom/winemu/core/RegistryHelper;->f0()V
+ 
+-    .line 287
+-    .line 288
+     .line 289
+     invoke-virtual {p1}, Lcom/winemu/core/RegistryHelper;->L()V
+ 
+-    .line 290
+-    .line 291
+     .line 292
+     invoke-virtual {p1}, Lcom/winemu/core/RegistryHelper;->g0()V
+ 
+-    .line 293
+-    .line 294
+     .line 295
+     invoke-virtual {p1}, Lcom/winemu/core/RegistryHelper;->C0()V
+ 
+-    .line 296
+-    .line 297
+     .line 298
+     invoke-virtual {v2}, Lcom/winemu/core/Container;->f()V
+ 
+-    .line 299
+-    .line 300
+     .line 301
+     iget-object p1, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 302
+     .line 303
+     invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 304
+-    .line 305
+     .line 306
+     invoke-virtual {p0}, Lcom/winemu/core/ContainerManager;->l()V
+ 
+-    .line 307
+-    .line 308
+     .line 309
+     return-object v2
+ 
+@@ -892,21 +651,15 @@
+     :cond_8
+     invoke-static {v3}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 311
+-    .line 312
+     .line 313
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 314
+     .line 315
+     const-string p1, "Failed to generate wine prefix"
+ 
+-    .line 316
+     .line 317
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 318
+-    .line 319
+     .line 320
+     throw p0
+ 
+@@ -914,16 +667,12 @@
+     :cond_9
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 322
+     .line 323
+     const-string p1, "Failed to create container directory"
+ 
+-    .line 324
+     .line 325
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 326
+-    .line 327
+     .line 328
+     throw p0
+ .end method
+@@ -934,326 +683,230 @@
+     .line 1
+     const-string v0, "path"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "base"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-nez v1, :cond_0
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :cond_0
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 26
+     .line 27
+     const-string v2, "drive_c"
+ 
+-    .line 28
+     .line 29
+     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v2
+ 
+     .line 36
+     if-nez v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     :cond_1
+     new-instance v2, Ljava/io/File;
+ 
+-    .line 42
+     .line 43
+     const-string v3, "dosdevices"
+ 
+-    .line 44
+     .line 45
+     invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v2}, Ljava/io/File;->exists()Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v0
+ 
+     .line 52
+     if-nez v0, :cond_2
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     :cond_2
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 58
+     .line 59
+     const-string v3, "c:"
+ 
+-    .line 60
+     .line 61
+     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-static {v1, v0}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     iget-object v0, p0, Lcom/winemu/core/ContainerManager;->a:Landroid/content/Context;
+ 
+-    .line 68
+     .line 69
+     invoke-static {v0}, Lcom/winemu/core/utils/FileUtils;->l(Landroid/content/Context;)Z
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result v0
+ 
+     .line 73
+     if-eqz v0, :cond_3
+ 
+-    .line 74
+     .line 75
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 76
+     .line 77
+     const-string v3, "/sdcard/Download"
+ 
+-    .line 78
+     .line 79
+     invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 83
+     .line 84
+     const-string v4, "d:"
+ 
+-    .line 85
+     .line 86
+     invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-static {v0, v3}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 93
+     .line 94
+     const-string v3, "/sdcard"
+ 
+-    .line 95
+     .line 96
+     invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 100
+     .line 101
+     const-string v4, "e:"
+ 
+-    .line 102
+     .line 103
+     invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-static {v0, v3}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     :cond_3
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 110
+     .line 111
+     const-string v3, "/"
+ 
+-    .line 112
+     .line 113
+     invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 117
+     .line 118
+     const-string v4, "z:"
+ 
+-    .line 119
+     .line 120
+     invoke-direct {v3, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-static {v0, v3}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 127
+     .line 128
+     sget-object v2, Lcom/winemu/core/server/environment/ImageFs;->b:Lcom/winemu/core/server/environment/ImageFs$Companion;
+ 
+-    .line 129
+     .line 130
+     iget-object v3, p0, Lcom/winemu/core/ContainerManager;->a:Landroid/content/Context;
+ 
+-    .line 131
+     .line 132
+     invoke-virtual {v2, v3}, Lcom/winemu/core/server/environment/ImageFs$Companion;->a(Landroid/content/Context;)Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object v2
+ 
+     .line 136
+     iget-object v2, v2, Lcom/winemu/core/server/environment/ImageFs;->a:Ljava/io/File;
+ 
+-    .line 137
+     .line 138
+     const-string v3, "share/wine-addons/fonts"
+ 
+-    .line 139
+     .line 140
+     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result v2
+ 
+     .line 147
+     if-eqz v2, :cond_5
+ 
+-    .line 148
+     .line 149
+     new-instance v2, Ljava/io/File;
+ 
+-    .line 150
+     .line 151
+     const-string v3, "windows/Fonts"
+ 
+-    .line 152
+     .line 153
+     invoke-direct {v2, v1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     invoke-virtual {v2}, Ljava/io/File;->exists()Z
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result v1
+ 
+     .line 160
+     if-nez v1, :cond_4
+ 
+-    .line 161
+     .line 162
+     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     :cond_4
+     invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object v0
+ 
+     .line 169
+     if-eqz v0, :cond_5
+ 
+-    .line 170
+     .line 171
+     array-length v1, v0
+ 
+@@ -1264,37 +917,27 @@
+     :goto_0
+     if-ge v3, v1, :cond_5
+ 
+-    .line 174
+     .line 175
+     aget-object v4, v0, v3
+ 
+-    .line 176
+     .line 177
+     new-instance v5, Ljava/io/File;
+ 
+-    .line 178
+     .line 179
+     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result-object v6
+ 
+     .line 183
+     invoke-direct {v5, v2, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     invoke-static {v4, v5}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 187
+-    .line 188
+     .line 189
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 190
+     .line 191
+     goto :goto_0
+ 
+@@ -1302,56 +945,39 @@
+     :cond_5
+     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result v0
+ 
+     .line 196
+     if-lez v0, :cond_8
+ 
+-    .line 197
+     .line 198
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 199
+     .line 200
+     const-string v1, ".script_installed"
+ 
+-    .line 201
+     .line 202
+     invoke-direct {v0, p1, v1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     invoke-static {v0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     invoke-virtual {p0, p1, p2}, Lcom/winemu/core/ContainerManager;->b(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 212
+     .line 213
+     const-string v1, ".base-container"
+ 
+-    .line 214
+     .line 215
+     invoke-direct {v0, p1, v1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result v1
+ 
+@@ -1361,59 +987,43 @@
+     .line 223
+     if-eqz v1, :cond_7
+ 
+-    .line 224
+     .line 225
+     if-nez p3, :cond_7
+ 
+-    .line 226
+     .line 227
+     new-instance p3, Ljava/io/FileReader;
+ 
+-    .line 228
+     .line 229
+     invoke-direct {p3, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     :try_start_0
+     invoke-static {p3}, Lkotlin/io/TextStreamsKt;->h(Ljava/io/Reader;)Ljava/lang/String;
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     move-result-object v1
+ 
+     .line 236
+     invoke-static {v1, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result v3
+ 
+     .line 240
+     if-nez v3, :cond_6
+ 
+-    .line 241
+     .line 242
+     const-string v3, "WinUIBridge"
+ 
+-    .line 243
+     .line 244
+     const-string v4, "Base container changed!"
+ 
+-    .line 245
+     .line 246
+     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 247
+-    .line 248
+     .line 249
+     invoke-virtual {p0, p1, v1, p2}, Lcom/winemu/core/ContainerManager;->j(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 250
+-    .line 251
+     .line 252
+     goto :goto_1
+ 
+@@ -1431,12 +1041,9 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 256
+     .line 257
+     invoke-static {p3, v2}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 258
+-    .line 259
+     .line 260
+     goto :goto_3
+ 
+@@ -1454,8 +1061,6 @@
+     .line 263
+     invoke-static {p3, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 264
+-    .line 265
+     .line 266
+     throw p1
+ 
+@@ -1463,113 +1068,79 @@
+     :cond_7
+     sget-object p0, Lcom/winemu/openapi/WinAPI;->f:Lcom/winemu/openapi/WinAPI$Companion;
+ 
+-    .line 268
+     .line 269
+     invoke-virtual {p0}, Lcom/winemu/openapi/WinAPI$Companion;->a()Lcom/winemu/openapi/WinAPI;
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     move-result-object p0
+ 
+     .line 273
+     invoke-virtual {p0}, Lcom/winemu/openapi/WinAPI;->m()Lcom/winemu/core/ContainerManager;
+ 
+-    .line 274
+-    .line 275
+     .line 276
+     move-result-object p0
+ 
+     .line 277
+     invoke-virtual {p0, p1, p2}, Lcom/winemu/core/ContainerManager;->b(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 278
+-    .line 279
+     .line 280
+     :goto_3
+     new-instance p0, Lcom/winemu/core/RegistryHelper;
+ 
+-    .line 281
+     .line 282
+     new-instance p3, Lcom/winemu/core/Container;
+ 
+-    .line 283
+     .line 284
+     invoke-direct {p3, p1}, Lcom/winemu/core/Container;-><init>(Ljava/lang/String;)V
+ 
+-    .line 285
+-    .line 286
+     .line 287
+     invoke-direct {p0, p3}, Lcom/winemu/core/RegistryHelper;-><init>(Lcom/winemu/core/Container;)V
+ 
+-    .line 288
+-    .line 289
+     .line 290
+     invoke-virtual {p0}, Lcom/winemu/core/RegistryHelper;->t0()V
+ 
+-    .line 291
+-    .line 292
+     .line 293
+     invoke-virtual {p0}, Lcom/winemu/core/RegistryHelper;->C0()V
+ 
+-    .line 294
+-    .line 295
+     .line 296
+     invoke-static {v0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 297
+-    .line 298
+     .line 299
+     new-instance p0, Ljava/io/FileWriter;
+ 
+-    .line 300
+     .line 301
+     invoke-direct {p0, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+ 
+-    .line 302
+-    .line 303
+     .line 304
+     :try_start_2
+     invoke-virtual {p0, p2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+ 
+-    .line 305
+-    .line 306
+     .line 307
+     sget-object p2, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_2
+ 
+-    .line 308
+     .line 309
+     invoke-static {p0, v2}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 310
+-    .line 311
+     .line 312
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 313
+     .line 314
+     const-string p2, ".update-timestamp"
+ 
+-    .line 315
+     .line 316
+     invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 317
+-    .line 318
+     .line 319
+     const-string p1, "disable"
+ 
+-    .line 320
+     .line 321
+     const/4 p2, 0x2
+ 
+     .line 322
+     invoke-static {p0, p1, v2, p2, v2}, Lkotlin/io/FilesKt;->p(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
+ 
+-    .line 323
+-    .line 324
+     .line 325
+     return-void
+ 
+@@ -1590,8 +1161,6 @@
+     .line 329
+     invoke-static {p0, p1}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 330
+-    .line 331
+     .line 332
+     throw p2
+ 
+@@ -1606,94 +1175,66 @@
+     .line 1
+     const-string v0, "container"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->c:Ljava/io/File;
+ 
+-    .line 9
+     .line 10
+     const-string v2, ".destroyed"
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-static {v0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 19
+     .line 20
+     invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v1
+ 
+     .line 24
+     if-eqz v1, :cond_0
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0}, Lcom/winemu/core/ContainerManager;->l()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p1}, Lcom/winemu/core/Container;->a()Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p1
+ 
+     .line 35
+     invoke-direct {p0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     invoke-virtual {p0}, Ljava/io/File;->exists()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p1
+ 
+     .line 42
+     if-eqz p1, :cond_0
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p0, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-static {v0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return-void
+ 
+@@ -1701,16 +1242,12 @@
+     :cond_0
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 52
+     .line 53
+     const-string p1, "container not found!"
+ 
+-    .line 54
+     .line 55
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     throw p0
+ .end method
+@@ -1721,103 +1258,72 @@
+     .line 1
+     const-string p0, "path"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     const-string v0, ".script_installed"
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0, p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     if-nez p2, :cond_1
+ 
+-    .line 17
+     .line 18
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 19
+     .line 20
+     sget-object p2, Lcom/winemu/openapi/WinAPI;->f:Lcom/winemu/openapi/WinAPI$Companion;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p2}, Lcom/winemu/openapi/WinAPI$Companion;->a()Lcom/winemu/openapi/WinAPI;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p2
+ 
+     .line 26
+     invoke-virtual {p2}, Lcom/winemu/openapi/WinAPI;->u()Ljava/io/File;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p2
+ 
+     .line 30
+     const-string v0, ".destroyed"
+ 
+-    .line 31
+     .line 32
+     invoke-direct {p0, p2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     new-instance p2, Ljava/io/File;
+ 
+-    .line 39
+     .line 40
+     invoke-direct {p2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {p2}, Ljava/io/File;->exists()Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p1
+ 
+     .line 47
+     if-eqz p1, :cond_0
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p2, p0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-void
+ 
+@@ -1825,16 +1331,12 @@
+     :cond_0
+     new-instance p0, Ljava/io/IOException;
+ 
+-    .line 57
+     .line 58
+     const-string p1, "container not found!"
+ 
+-    .line 59
+     .line 60
+     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     throw p0
+ 
+@@ -1842,93 +1344,63 @@
+     :cond_1
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 65
+     .line 66
+     const-string p2, ".base-container"
+ 
+-    .line 67
+     .line 68
+     invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 75
+     .line 76
+     const-string p2, ".update-timestamp"
+ 
+-    .line 77
+     .line 78
+     invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 85
+     .line 86
+     const-string p2, "system.reg"
+ 
+-    .line 87
+     .line 88
+     invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 95
+     .line 96
+     const-string p2, "user.reg"
+ 
+-    .line 97
+     .line 98
+     invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 105
+     .line 106
+     const-string p2, "userdef.reg"
+ 
+-    .line 107
+     .line 108
+     invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-static {p0}, Lcom/winemu/core/utils/FileUtils;->g(Ljava/io/File;)Z
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     return-void
+ .end method
+@@ -1939,16 +1411,12 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-object v0
+ .end method
+@@ -1959,30 +1427,21 @@
+     .line 1
+     const-string p0, "path"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     const-string v0, ".base-container"
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0, p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Ljava/io/File;->exists()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p1
+ 
+@@ -1992,30 +1451,22 @@
+     .line 18
+     if-eqz p1, :cond_2
+ 
+-    .line 19
+     .line 20
+     new-instance p1, Ljava/io/FileReader;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {p1, p0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :try_start_0
+     invoke-static {p1}, Lkotlin/io/TextStreamsKt;->h(Ljava/io/Reader;)Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+     .line 29
+     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v1
+     :try_end_0
+@@ -2024,12 +1475,9 @@
+     .line 33
+     if-eqz v1, :cond_0
+ 
+-    .line 34
+     .line 35
+     invoke-static {p1, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     return-object v0
+ 
+@@ -2038,17 +1486,12 @@
+     :try_start_1
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 40
+     .line 41
+     invoke-direct {v1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v1
+     :try_end_1
+@@ -2057,12 +1500,9 @@
+     .line 48
+     if-nez v1, :cond_1
+ 
+-    .line 49
+     .line 50
+     invoke-static {p1, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-object v0
+ 
+@@ -2071,27 +1511,20 @@
+     :try_start_2
+     new-instance v1, Lcom/winemu/core/Container;
+ 
+-    .line 55
+     .line 56
+     invoke-direct {v1, p0}, Lcom/winemu/core/Container;-><init>(Ljava/lang/String;)V
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     :try_start_3
+     invoke-virtual {v1}, Lcom/winemu/core/Container;->e()Lcom/winemu/core/Container;
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-static {p1, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     return-object v1
+ 
+@@ -2105,13 +1538,9 @@
+     :try_end_4
+     .catchall {:try_start_4 .. :try_end_4} :catchall_1
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-static {p1, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     return-object v0
+ 
+@@ -2132,8 +1561,6 @@
+     .line 77
+     invoke-static {p1, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     throw v0
+ 
+@@ -2148,43 +1575,30 @@
+     .line 1
+     const-string p0, "path"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string p0, "oldBase"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string p0, "newBase"
+ 
+-    .line 12
+     .line 13
+     invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     new-instance p0, Ljava/lang/RuntimeException;
+ 
+-    .line 17
+     .line 18
+     const-string p1, "TODO"
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     throw p0
+ .end method
+@@ -2195,26 +1609,18 @@
+     .line 1
+     const-string p0, "input"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string p0, "virtualContainer"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-static {p1, p2}, Lcom/winemu/core/utils/FileUtils;->v(Ljava/io/InputStream;Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -2225,21 +1631,15 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v1
+ 
+@@ -2247,40 +1647,30 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v2
+ 
+     .line 16
+     if-eqz v2, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+     .line 22
+     check-cast v2, Lcom/winemu/core/Container;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v2}, Lcom/winemu/core/Container;->a()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -2288,171 +1678,123 @@
+     :cond_0
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->b:Lcom/google/gson/Gson;
+ 
+-    .line 33
+     .line 34
+     const/4 v2, 0x0
+ 
+     .line 35
+     new-array v2, v2, [Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     invoke-interface {v0, v2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v0
+ 
+     .line 41
+     invoke-virtual {v1, v0}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 46
+     .line 47
+     iget-object v2, p0, Lcom/winemu/core/ContainerManager;->d:Ljava/io/File;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v2
+ 
+     .line 53
+     iget-object v3, p0, Lcom/winemu/core/ContainerManager;->d:Ljava/io/File;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v3
+ 
+     .line 59
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 60
+     .line 61
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     const-string v3, ".tmp"
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v3
+ 
+     .line 76
+     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     new-instance v2, Ljava/io/FileOutputStream;
+ 
+-    .line 80
+     .line 81
+     invoke-direct {v2, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     :try_start_0
+     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     sget-object v3, Lkotlin/text/Charsets;->b:Ljava/nio/charset/Charset;
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {v0, v3}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v0
+ 
+     .line 93
+     const-string v3, "getBytes(...)"
+ 
+-    .line 94
+     .line 95
+     invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     invoke-virtual {v2, v0}, Ljava/io/FileOutputStream;->write([B)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     invoke-virtual {v2}, Ljava/io/FileOutputStream;->getFD()Ljava/io/FileDescriptor;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object v0
+ 
+     .line 105
+     invoke-virtual {v0}, Ljava/io/FileDescriptor;->sync()V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 109
+     .line 110
+     const/4 v0, 0x0
+ 
+     .line 111
+     invoke-static {v2, v0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     iget-object p0, p0, Lcom/winemu/core/ContainerManager;->d:Ljava/io/File;
+ 
+-    .line 115
+     .line 116
+     invoke-virtual {v1, p0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     return-void
+ 
+@@ -2473,8 +1815,6 @@
+     .line 123
+     invoke-static {v2, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     throw v0
+ .end method
+@@ -2485,77 +1825,55 @@
+     .line 1
+     const-string p0, "virtualContainer"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string p0, "target"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance p0, Ljava/io/BufferedOutputStream;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {p0, p2}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :try_start_0
+     new-instance p2, Ljava/util/zip/ZipOutputStream;
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p2, p0}, Ljava/util/zip/ZipOutputStream;-><init>(Ljava/io/OutputStream;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :try_start_1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 27
+     .line 28
+     const-string v1, "drive_c"
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p1
+ 
+     .line 37
+     if-eqz p1, :cond_3
+ 
+-    .line 38
+     .line 39
+     array-length v1, p1
+ 
+@@ -2566,52 +1884,39 @@
+     :goto_0
+     if-ge v2, v1, :cond_2
+ 
+-    .line 42
+     .line 43
+     aget-object v3, p1, v2
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v4
+ 
+     .line 49
+     const-string v5, "windows"
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v4
+ 
+     .line 55
+     if-nez v4, :cond_1
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v4
+ 
+     .line 61
+     if-eqz v4, :cond_0
+ 
+-    .line 62
+     .line 63
+     invoke-static {v3, v0, p2}, Lcom/winemu/core/utils/FileUtils;->x(Ljava/io/File;Ljava/io/File;Ljava/util/zip/ZipOutputStream;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     goto :goto_1
+ 
+@@ -2626,14 +1931,11 @@
+     :cond_0
+     invoke-static {v3, v0, p2}, Lcom/winemu/core/utils/FileUtils;->y(Ljava/io/File;Ljava/io/File;Ljava/util/zip/ZipOutputStream;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     :cond_1
+     :goto_1
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 73
+     .line 74
+     goto :goto_0
+ 
+@@ -2643,7 +1945,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 76
+     .line 77
+     :cond_3
+     const/4 p1, 0x0
+@@ -2654,13 +1955,9 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-static {p0, p1}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     return-void
+ 
+@@ -2686,8 +1983,6 @@
+     :try_start_4
+     invoke-static {p2, p1}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     throw v0
+     :try_end_4
+@@ -2707,8 +2002,6 @@
+     .line 95
+     invoke-static {p0, p1}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     throw p2
+ .end method
+@@ -2719,74 +2012,55 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Ljava/util/List;->clear()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/winemu/core/ContainerManager;->d:Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-eqz v0, :cond_2
+ 
+-    .line 13
+     .line 14
+     :try_start_0
+     new-instance v0, Ljava/io/FileReader;
+ 
+-    .line 15
+     .line 16
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->d:Ljava/io/File;
+ 
+-    .line 17
+     .line 18
+     invoke-direct {v0, v1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :try_start_1
+     iget-object v1, p0, Lcom/winemu/core/ContainerManager;->b:Lcom/google/gson/Gson;
+ 
+-    .line 22
+     .line 23
+     const-class v2, [Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v1, v0, v2}, Lcom/google/gson/Gson;->fromJson(Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     check-cast v1, [Ljava/lang/String;
+ 
+-    .line 30
+     .line 31
+     if-eqz v1, :cond_1
+ 
+-    .line 32
+     .line 33
+     invoke-static {v1}, Lkotlin/jvm/internal/ArrayIteratorKt;->a([Ljava/lang/Object;)Ljava/util/Iterator;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v1
+ 
+@@ -2795,41 +2069,30 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v2
+ 
+     .line 41
+     if-eqz v2, :cond_1
+ 
+-    .line 42
+     .line 43
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v2
+ 
+     .line 47
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 48
+     .line 49
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {v3, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {v3}, Ljava/io/File;->exists()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v3
+     :try_end_1
+@@ -2838,34 +2101,25 @@
+     .line 58
+     if-eqz v3, :cond_0
+ 
+-    .line 59
+     .line 60
+     :try_start_2
+     new-instance v3, Lcom/winemu/core/Container;
+ 
+-    .line 61
+     .line 62
+     invoke-direct {v3, v2}, Lcom/winemu/core/Container;-><init>(Ljava/lang/String;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v3}, Lcom/winemu/core/Container;->e()Lcom/winemu/core/Container;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     iget-object v2, p0, Lcom/winemu/core/ContainerManager;->e:Ljava/util/List;
+ 
+-    .line 69
+     .line 70
+     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -2884,8 +2138,6 @@
+     :try_start_3
+     invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     goto :goto_0
+ 
+@@ -2895,7 +2147,6 @@
+     :try_end_3
+     .catchall {:try_start_3 .. :try_end_3} :catchall_0
+ 
+-    .line 82
+     .line 83
+     const/4 p0, 0x0
+ 
+@@ -2905,8 +2156,6 @@
+     :try_end_4
+     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     goto :goto_2
+ 
+@@ -2925,8 +2174,6 @@
+     :try_start_6
+     invoke-static {v0, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     throw v1
+     :try_end_6
+@@ -2939,8 +2186,6 @@
+     .line 95
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     :cond_2
+     :goto_2

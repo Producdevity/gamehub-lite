@@ -1,0 +1,1368 @@
+--- a/smali_classes4/androidx/media3/session/MediaSessionService.smali
++++ b/smali_classes4/androidx/media3/session/MediaSessionService.smali
+@@ -87,62 +87,45 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/lang/Object;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Landroid/os/Handler;
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     iput-object v0, p0, Landroidx/media3/session/MediaSessionService;->mainHandler:Landroid/os/Handler;
+ 
+-    .line 21
+     .line 22
+     new-instance v0, Landroidx/collection/ArrayMap;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iput-object v0, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 28
+     .line 29
+     const/4 v0, 0x0
+ 
+     .line 30
+     iput-boolean v0, p0, Landroidx/media3/session/MediaSessionService;->defaultMethodCalled:Z
+ 
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -153,20 +136,15 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionImpl;->getMediaNotificationControllerInfo()Landroidx/media3/session/MediaSession$ControllerInfo;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {p1}, Landroidx/media3/session/MediaSessionService;->createFallbackMediaButtonCaller(Landroid/content/Intent;)Landroidx/media3/session/MediaSession$ControllerInfo;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+@@ -174,28 +152,21 @@
+     :cond_0
+     invoke-virtual {p0, v0, p1}, Landroidx/media3/session/MediaSessionImpl;->onMediaButtonEvent(Landroidx/media3/session/MediaSession$ControllerInfo;Landroid/content/Intent;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p0
+ 
+     .line 15
+     if-nez p0, :cond_1
+ 
+-    .line 16
+     .line 17
+     const-string p0, "MSessionService"
+ 
+-    .line 18
+     .line 19
+     const-string p1, "Ignored unrecognized media button intent."
+ 
+-    .line 20
+     .line 21
+     invoke-static {p0, p1}, Landroidx/media3/common/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     :cond_1
+     return-void
+@@ -207,8 +178,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -222,20 +191,15 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getListener()Landroidx/media3/session/MediaSessionService$Listener;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p0}, Landroidx/media3/session/MediaSessionService$Listener;->onForegroundServiceStartNotAllowedException()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void
+@@ -247,33 +211,24 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p1}, Landroidx/media3/session/MediaNotificationManager;->addSession(Landroidx/media3/session/MediaSession;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     new-instance v0, Landroidx/media3/session/MediaSessionService$MediaSessionListener;
+ 
+-    .line 9
+     .line 10
+     const/4 v1, 0x0
+ 
+     .line 11
+     invoke-direct {v0, p0, v1}, Landroidx/media3/session/MediaSessionService$MediaSessionListener;-><init>(Landroidx/media3/session/MediaSessionService;Landroidx/media3/session/MediaSessionService$1;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p1, v0}, Landroidx/media3/session/MediaSession;->setListener(Landroidx/media3/session/MediaSession$Listener;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -284,20 +239,15 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -308,36 +258,28 @@
+     :cond_0
+     const-string p0, "androidx.media3.session.MediaSessionService"
+ 
+-    .line 13
+     .line 14
+     :goto_0
+     new-instance v0, Landroidx/media3/session/MediaSession$ControllerInfo;
+ 
+-    .line 15
+     .line 16
+     new-instance v1, Landroidx/media3/session/legacy/MediaSessionManager$RemoteUserInfo;
+ 
+-    .line 17
+     .line 18
+     const/4 v2, -0x1
+ 
+     .line 19
+     invoke-direct {v1, p0, v2, v2}, Landroidx/media3/session/legacy/MediaSessionManager$RemoteUserInfo;-><init>(Ljava/lang/String;II)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     sget-object v6, Landroid/os/Bundle;->EMPTY:Landroid/os/Bundle;
+ 
+-    .line 23
+     .line 24
+     const/4 v7, 0x0
+ 
+     .line 25
+     const v2, 0x3c14dd2c
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const/4 v3, 0x7
+ 
+@@ -350,8 +292,6 @@
+     .line 31
+     invoke-direct/range {v0 .. v7}, Landroidx/media3/session/MediaSession$ControllerInfo;-><init>(Landroidx/media3/session/legacy/MediaSessionManager$RemoteUserInfo;IIZLandroidx/media3/session/MediaSession$ControllerCb;Landroid/os/Bundle;I)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-object v0
+ .end method
+@@ -362,21 +302,15 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0, p1}, Landroidx/media3/session/MediaNotificationManager;->removeSession(Landroidx/media3/session/MediaSession;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->clearListener()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -387,16 +321,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager(Landroidx/media3/session/MediaNotification$Provider;)Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0, p1}, Landroidx/media3/session/MediaNotificationManager;->setMediaNotificationProvider(Landroidx/media3/session/MediaNotification$Provider;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -407,29 +337,22 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->actionFactory:Landroidx/media3/session/DefaultActionFactory;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v0, Landroidx/media3/session/DefaultActionFactory;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0, p0}, Landroidx/media3/session/DefaultActionFactory;-><init>(Landroid/app/Service;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iput-object v0, p0, Landroidx/media3/session/MediaSessionService;->actionFactory:Landroidx/media3/session/DefaultActionFactory;
+ 
+-    .line 11
+     .line 12
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/session/MediaSessionService;->actionFactory:Landroidx/media3/session/DefaultActionFactory;
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method
+@@ -442,7 +365,6 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -450,7 +372,6 @@
+     :try_start_0
+     iget-object p0, p0, Landroidx/media3/session/MediaSessionService;->listener:Landroidx/media3/session/MediaSessionService$Listener;
+ 
+-    .line 5
+     .line 6
+     monitor-exit v0
+ 
+@@ -546,8 +467,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionService;->getSessions()Ljava/util/List;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -561,47 +480,36 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v2
+ 
+     .line 11
+     if-ge v1, v2, :cond_1
+ 
+-    .line 12
+     .line 13
+     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v2
+ 
+     .line 17
+     check-cast v2, Landroidx/media3/session/MediaSession;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v2}, Landroidx/media3/session/MediaSession;->getPlayer()Landroidx/media3/common/Player;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     invoke-interface {v2}, Landroidx/media3/common/Player;->isPlaying()Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v2
+ 
+     .line 27
+     if-eqz v2, :cond_0
+ 
+-    .line 28
+     .line 29
+     const/4 p0, 0x1
+ 
+@@ -612,7 +520,6 @@
+     :cond_0
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -629,21 +536,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->mainHandler:Landroid/os/Handler;
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Landroidx/media3/session/bc;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1, p0}, Landroidx/media3/session/bc;-><init>(Landroidx/media3/session/MediaSessionService;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -656,17 +557,12 @@
+     .line 1
+     const-string v0, "session must not be null"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->isReleased()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+@@ -679,16 +575,12 @@
+     .line 12
+     const-string v2, "session is already released"
+ 
+-    .line 13
+     .line 14
+     invoke-static {v0, v2}, Landroidx/media3/common/util/Assertions;->checkArgument(ZLjava/lang/Object;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 18
+     .line 19
+     monitor-enter v0
+ 
+@@ -696,35 +588,27 @@
+     :try_start_0
+     iget-object v2, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->getId()Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v3
+ 
+     .line 26
+     invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+     .line 30
+     check-cast v2, Landroidx/media3/session/MediaSession;
+ 
+-    .line 31
+     .line 32
+     if-eqz v2, :cond_1
+ 
+-    .line 33
+     .line 34
+     if-ne v2, p1, :cond_0
+ 
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -737,29 +621,21 @@
+     :goto_0
+     const-string v3, "Session ID should be unique"
+ 
+-    .line 39
+     .line 40
+     invoke-static {v1, v3}, Landroidx/media3/common/util/Assertions;->checkArgument(ZLjava/lang/Object;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     iget-object v1, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->getId()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v3
+ 
+     .line 49
+     invoke-interface {v1, v3, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     monitor-exit v0
+     :try_end_0
+@@ -768,25 +644,18 @@
+     .line 53
+     if-nez v2, :cond_2
+ 
+-    .line 54
+     .line 55
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->mainHandler:Landroid/os/Handler;
+ 
+-    .line 56
+     .line 57
+     new-instance v1, Landroidx/media3/session/dc;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v1, p0, p1}, Landroidx/media3/session/dc;-><init>(Landroidx/media3/session/MediaSessionService;Landroidx/media3/session/MediaSession;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->postOrRun(Landroid/os/Handler;Ljava/lang/Runnable;)Z
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :cond_2
+     return-void
+@@ -813,7 +682,6 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -824,7 +692,6 @@
+     :try_start_0
+     iput-object v1, p0, Landroidx/media3/session/MediaSessionService;->listener:Landroidx/media3/session/MediaSessionService$Listener;
+ 
+-    .line 6
+     .line 7
+     monitor-exit v0
+ 
+@@ -850,24 +717,18 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/session/MediaSessionService;->stub:Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkStateNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Landroidx/media3/session/IMediaSessionService$Stub;->asBinder()Landroid/os/IBinder;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -889,7 +750,6 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -897,24 +757,18 @@
+     :try_start_0
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 5
+     .line 6
+     iget-object p0, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     invoke-direct {v1, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     monitor-exit v0
+ 
+@@ -942,16 +796,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroidx/media3/session/MediaNotificationManager;->isStartedInForeground()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -965,7 +815,6 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -973,20 +822,15 @@
+     :try_start_0
+     iget-object p0, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->getId()Ljava/lang/String;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1027,7 +871,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object v0
+ 
+@@ -1035,15 +878,12 @@
+     :cond_0
+     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     if-nez p1, :cond_1
+ 
+-    .line 10
+     .line 11
+     return-object v0
+ 
+@@ -1051,35 +891,27 @@
+     :cond_1
+     const-string v1, "androidx.media3.session.MediaSessionService"
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v1
+ 
+     .line 18
+     if-nez v1, :cond_4
+ 
+-    .line 19
+     .line 20
+     const-string v1, "android.media.browse.MediaBrowserService"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p1
+ 
+     .line 26
+     if-nez p1, :cond_2
+ 
+-    .line 27
+     .line 28
+     return-object v0
+ 
+@@ -1087,23 +919,18 @@
+     :cond_2
+     invoke-static {}, Landroidx/media3/session/MediaSession$ControllerInfo;->createLegacyControllerInfo()Landroidx/media3/session/MediaSession$ControllerInfo;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p1
+ 
+     .line 33
+     invoke-virtual {p0, p1}, Landroidx/media3/session/MediaSessionService;->onGetSession(Landroidx/media3/session/MediaSession$ControllerInfo;)Landroidx/media3/session/MediaSession;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p1
+ 
+     .line 37
+     if-nez p1, :cond_3
+ 
+-    .line 38
+     .line 39
+     return-object v0
+ 
+@@ -1111,13 +938,9 @@
+     :cond_3
+     invoke-virtual {p0, p1}, Landroidx/media3/session/MediaSessionService;->addSession(Landroidx/media3/session/MediaSession;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->getLegacyBrowserServiceBinder()Landroid/os/IBinder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+@@ -1128,8 +951,6 @@
+     :cond_4
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionService;->getServiceBinder()Landroid/os/IBinder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p0
+ 
+@@ -1145,21 +966,15 @@
+     .line 1
+     invoke-super {p0}, Landroid/app/Service;->onCreate()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, p0}, Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;-><init>(Landroidx/media3/session/MediaSessionService;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/media3/session/MediaSessionService;->stub:Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;
+ 
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -1172,28 +987,21 @@
+     .line 1
+     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->stub:Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;->release()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/4 v0, 0x0
+ 
+     .line 12
+     iput-object v0, p0, Landroidx/media3/session/MediaSessionService;->stub:Landroidx/media3/session/MediaSessionService$MediaSessionServiceStub;
+ 
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -1219,7 +1027,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return p2
+ 
+@@ -1227,28 +1034,21 @@
+     :cond_0
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getActionFactory()Landroidx/media3/session/DefaultActionFactory;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p3
+ 
+     .line 9
+     invoke-virtual {p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     if-eqz v0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-static {v0}, Landroidx/media3/session/MediaSession;->getSession(Landroid/net/Uri;)Landroidx/media3/session/MediaSession;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+ 
+@@ -1263,39 +1063,30 @@
+     :goto_0
+     invoke-virtual {p3, p1}, Landroidx/media3/session/DefaultActionFactory;->isMediaAction(Landroid/content/Intent;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     if-eqz v1, :cond_4
+ 
+-    .line 26
+     .line 27
+     if-nez v0, :cond_3
+ 
+-    .line 28
+     .line 29
+     invoke-static {}, Landroidx/media3/session/MediaSession$ControllerInfo;->createLegacyControllerInfo()Landroidx/media3/session/MediaSession$ControllerInfo;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p3
+ 
+     .line 33
+     invoke-virtual {p0, p3}, Landroidx/media3/session/MediaSessionService;->onGetSession(Landroidx/media3/session/MediaSession$ControllerInfo;)Landroidx/media3/session/MediaSession;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v0
+ 
+     .line 37
+     if-nez v0, :cond_2
+ 
+-    .line 38
+     .line 39
+     return p2
+ 
+@@ -1303,39 +1094,28 @@
+     :cond_2
+     invoke-virtual {p0, v0}, Landroidx/media3/session/MediaSessionService;->addSession(Landroidx/media3/session/MediaSession;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     :cond_3
+     invoke-virtual {v0}, Landroidx/media3/session/MediaSession;->getImpl()Landroidx/media3/session/MediaSessionImpl;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+     .line 47
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionImpl;->getApplicationHandler()Landroid/os/Handler;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p3
+ 
+     .line 51
+     new-instance v0, Landroidx/media3/session/ac;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {v0, p0, p1}, Landroidx/media3/session/ac;-><init>(Landroidx/media3/session/MediaSessionImpl;Landroid/content/Intent;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-virtual {p3, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     goto :goto_1
+ 
+@@ -1343,31 +1123,24 @@
+     :cond_4
+     if-eqz v0, :cond_6
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p3, p1}, Landroidx/media3/session/DefaultActionFactory;->isCustomAction(Landroid/content/Intent;)Z
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v1
+ 
+     .line 66
+     if-eqz v1, :cond_6
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p3, p1}, Landroidx/media3/session/DefaultActionFactory;->getCustomAction(Landroid/content/Intent;)Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v1
+ 
+     .line 72
+     if-nez v1, :cond_5
+ 
+-    .line 73
+     .line 74
+     return p2
+ 
+@@ -1375,24 +1148,18 @@
+     :cond_5
+     invoke-virtual {p3, p1}, Landroidx/media3/session/DefaultActionFactory;->getCustomActionExtras(Landroid/content/Intent;)Landroid/os/Bundle;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p1
+ 
+     .line 79
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p0
+ 
+     .line 83
+     invoke-virtual {p0, v0, v1, p1}, Landroidx/media3/session/MediaNotificationManager;->onCustomAction(Landroidx/media3/session/MediaSession;Ljava/lang/String;Landroid/os/Bundle;)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     :cond_6
+     :goto_1
+@@ -1409,27 +1176,21 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionService;->isPlaybackOngoing()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+     .line 5
+     if-eqz p1, :cond_1
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->isAnySessionPlaying()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p1
+ 
+     .line 11
+     if-nez p1, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1442,8 +1203,6 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionService;->pauseAllPlayersAndStopSelf()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -1490,16 +1249,12 @@
+     :try_start_0
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p2}, Landroidx/media3/session/MediaNotificationManager;->shouldRunInForeground(Z)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p2
+ 
+@@ -1508,8 +1263,6 @@
+     :try_end_0
+     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 p0, 0x1
+ 
+@@ -1523,45 +1276,33 @@
+     .line 15
+     sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 16
+     .line 17
+     const/16 v0, 0x1f
+ 
+-    .line 18
+     .line 19
+     if-lt p2, v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-static {p1}, Landroidx/media3/session/MediaSessionService$Api31;->instanceOfForegroundServiceStartNotAllowedException(Ljava/lang/IllegalStateException;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p2
+ 
+     .line 25
+     if-eqz p2, :cond_0
+ 
+-    .line 26
+     .line 27
+     const-string p2, "MSessionService"
+ 
+-    .line 28
+     .line 29
+     const-string v0, "Failed to start foreground"
+ 
+-    .line 30
+     .line 31
+     invoke-static {p2, v0, p1}, Landroidx/media3/common/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->onForegroundServiceStartNotAllowedException()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const/4 p0, 0x0
+ 
+@@ -1581,21 +1322,15 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Landroidx/media3/session/MediaNotificationManager;->disableUserEngagedTimeout()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Landroidx/media3/session/MediaSessionService;->getSessions()Ljava/util/List;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+@@ -1609,44 +1344,33 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v3
+ 
+     .line 18
+     if-ge v2, v3, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v3
+ 
+     .line 24
+     check-cast v3, Landroidx/media3/session/MediaSession;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v3}, Landroidx/media3/session/MediaSession;->getPlayer()Landroidx/media3/common/Player;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v3
+ 
+     .line 30
+     invoke-interface {v3, v1}, Landroidx/media3/common/Player;->setPlayWhenReady(Z)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -1654,8 +1378,6 @@
+     :cond_0
+     invoke-virtual {p0}, Landroid/app/Service;->stopSelf()V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-void
+ .end method
+@@ -1666,16 +1388,12 @@
+     .line 1
+     const-string v0, "session must not be null"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 7
+     .line 8
+     monitor-enter v0
+ 
+@@ -1683,49 +1401,36 @@
+     :try_start_0
+     iget-object v1, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->getId()Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v2
+ 
+     .line 15
+     invoke-interface {v1, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+     .line 19
+     const-string v2, "session not found"
+ 
+-    .line 20
+     .line 21
+     invoke-static {v1, v2}, Landroidx/media3/common/util/Assertions;->checkArgument(ZLjava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iget-object v1, p0, Landroidx/media3/session/MediaSessionService;->sessions:Ljava/util/Map;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p1}, Landroidx/media3/session/MediaSession;->getId()Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+     .line 30
+     invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     monitor-exit v0
+     :try_end_0
+@@ -1734,21 +1439,15 @@
+     .line 34
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->mainHandler:Landroid/os/Handler;
+ 
+-    .line 35
+     .line 36
+     new-instance v1, Landroidx/media3/session/cc;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {v1, p0, p1}, Landroidx/media3/session/cc;-><init>(Landroidx/media3/session/MediaSessionService;Landroidx/media3/session/MediaSession;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->postOrRun(Landroid/os/Handler;Ljava/lang/Runnable;)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ 
+@@ -1774,36 +1473,27 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     const-wide/16 v2, 0x0
+ 
+-    .line 6
+     .line 7
+     const-wide/32 v4, 0x927c0
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-wide v0, p1
+ 
+     .line 11
+     invoke-static/range {v0 .. v5}, Landroidx/media3/common/util/Util;->constrainValue(JJJ)J
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-wide p1
+ 
+     .line 15
+     invoke-virtual {p0, p1, p2}, Landroidx/media3/session/MediaNotificationManager;->setUserEngagedTimeoutMs(J)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -1816,7 +1506,6 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -1824,7 +1513,6 @@
+     :try_start_0
+     iput-object p1, p0, Landroidx/media3/session/MediaSessionService;->listener:Landroidx/media3/session/MediaSessionService$Listener;
+ 
+-    .line 5
+     .line 6
+     monitor-exit v0
+ 
+@@ -1852,26 +1540,18 @@
+     .line 1
+     invoke-static {p1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/session/MediaSessionService;->mainHandler:Landroid/os/Handler;
+ 
+-    .line 5
+     .line 6
+     new-instance v1, Landroidx/media3/session/ec;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1, p0, p1}, Landroidx/media3/session/ec;-><init>(Landroidx/media3/session/MediaSessionService;Landroidx/media3/session/MediaNotification$Provider;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->postOrRun(Landroid/os/Handler;Ljava/lang/Runnable;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -1884,16 +1564,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/session/MediaSessionService;->getMediaNotificationManager()Landroidx/media3/session/MediaNotificationManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0, p1}, Landroidx/media3/session/MediaNotificationManager;->setShowNotificationForIdlePlayer(I)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method

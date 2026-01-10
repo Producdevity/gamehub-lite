@@ -1,0 +1,268 @@
+--- a/smali_classes6/com/google/common/graph/ImmutableGraph.smali
++++ b/smali_classes6/com/google/common/graph/ImmutableGraph.smali
+@@ -58,12 +58,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/common/graph/ForwardingGraph;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/common/graph/ImmutableGraph;->backingGraph:Lcom/google/common/graph/BaseGraph;
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -87,40 +84,30 @@
+     .line 1
+     sget-object v0, Lcom/google/common/graph/GraphConstants$Presence;->EDGE_EXISTS:Lcom/google/common/graph/GraphConstants$Presence;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lcom/google/common/base/Functions;->constant(Ljava/lang/Object;)Lcom/google/common/base/Function;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->isDirected()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+     .line 11
+     if-eqz v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-interface {p0, p1}, Lcom/google/common/graph/Graph;->incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     invoke-static {p1, p0, v0}, Lcom/google/common/graph/DirectedGraphConnections;->ofImmutable(Ljava/lang/Object;Ljava/lang/Iterable;Lcom/google/common/base/Function;)Lcom/google/common/graph/DirectedGraphConnections;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+@@ -131,24 +118,18 @@
+     :cond_0
+     invoke-interface {p0, p1}, Lcom/google/common/graph/Graph;->adjacentNodes(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     invoke-static {p0, v0}, Lcom/google/common/collect/Maps;->asMap(Ljava/util/Set;Lcom/google/common/base/Function;)Ljava/util/Map;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-static {p0}, Lcom/google/common/graph/UndirectedGraphConnections;->ofImmutable(Ljava/util/Map;)Lcom/google/common/graph/UndirectedGraphConnections;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -260,24 +241,18 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->builder()Lcom/google/common/collect/ImmutableMap$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {p0}, Lcom/google/common/graph/Graph;->nodes()Ljava/util/Set;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+@@ -285,36 +260,27 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     if-eqz v2, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     invoke-static {p0, v2}, Lcom/google/common/graph/ImmutableGraph;->connectionsOf(Lcom/google/common/graph/Graph;Ljava/lang/Object;)Lcom/google/common/graph/GraphConnections;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v3
+ 
+     .line 27
+     invoke-virtual {v0, v2, v3}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -322,8 +288,6 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p0
+ 
+@@ -339,8 +303,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->adjacentNodes(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -354,8 +316,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/ForwardingGraph;->allowsSelfLoops()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -369,8 +329,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->degree(Ljava/lang/Object;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -391,7 +349,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/graph/ImmutableGraph;->backingGraph:Lcom/google/common/graph/BaseGraph;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -424,8 +381,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->inDegree(Ljava/lang/Object;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -446,8 +401,6 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/graph/ElementOrder;->stable()Lcom/google/common/graph/ElementOrder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -461,8 +414,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->incidentEdges(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -476,8 +427,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/ForwardingGraph;->isDirected()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -491,8 +440,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/ForwardingGraph;->nodeOrder()Lcom/google/common/graph/ElementOrder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -506,8 +453,6 @@
+     .line 1
+     invoke-super {p0}, Lcom/google/common/graph/ForwardingGraph;->nodes()Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -521,8 +466,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->outDegree(Ljava/lang/Object;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -536,8 +479,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->predecessors(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -551,8 +492,6 @@
+     .line 1
+     invoke-super {p0, p1}, Lcom/google/common/graph/ForwardingGraph;->successors(Ljava/lang/Object;)Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 

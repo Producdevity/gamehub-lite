@@ -1,0 +1,1228 @@
+--- a/smali_classes5/com/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader.smali
++++ b/smali_classes5/com/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader.smali
+@@ -46,44 +46,33 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->context:Landroid/content/Context;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->backendRegistry:Lcom/google/android/datatransport/runtime/backends/BackendRegistry;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 9
+     .line 10
+     iput-object p4, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->workScheduler:Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;
+ 
+-    .line 11
+     .line 12
+     iput-object p5, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->executor:Ljava/util/concurrent/Executor;
+ 
+-    .line 13
+     .line 14
+     iput-object p6, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 15
+     .line 16
+     iput-object p7, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 17
+     .line 18
+     iput-object p8, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->uptimeClock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 19
+     .line 20
+     iput-object p9, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clientHealthMetricsStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;
+ 
+-    .line 21
+     .line 22
+     return-void
+ .end method
+@@ -94,12 +83,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;->loadBatch(Lcom/google/android/datatransport/runtime/TransportContext;)Ljava/lang/Iterable;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -113,25 +99,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0, p1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;->recordFailure(Ljava/lang/Iterable;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/time/Clock;->getTime()J
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-wide v0
+ 
+@@ -141,8 +120,6 @@
+     .line 15
+     invoke-interface {p1, p2, v0, v1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;->recordNextCallTime(Lcom/google/android/datatransport/runtime/TransportContext;J)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const/4 p0, 0x0
+ 
+@@ -156,12 +133,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clientHealthMetricsStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;->resetClientMetrics()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 p0, 0x0
+ 
+@@ -175,20 +149,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;->hasPendingEventsFor(Lcom/google/android/datatransport/runtime/TransportContext;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+     .line 7
+     invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -202,12 +171,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;->recordSuccess(Ljava/lang/Iterable;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 p0, 0x0
+ 
+@@ -221,16 +187,12 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->workScheduler:Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;
+ 
+-    .line 2
+     .line 3
+     add-int/lit8 p2, p2, 0x1
+ 
+-    .line 4
+     .line 5
+     invoke-interface {p0, p1, p2}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;->schedule(Lcom/google/android/datatransport/runtime/TransportContext;I)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 p0, 0x0
+ 
+@@ -244,16 +206,12 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/time/Clock;->getTime()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v1
+ 
+@@ -263,8 +221,6 @@
+     .line 10
+     invoke-interface {v0, p1, v1, v2}, Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;->recordNextCallTime(Lcom/google/android/datatransport/runtime/TransportContext;J)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 p0, 0x0
+ 
+@@ -278,21 +234,15 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p1
+ 
+     .line 8
+     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+@@ -300,48 +250,36 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-eqz v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+     .line 22
+     check-cast v0, Ljava/util/Map$Entry;
+ 
+-    .line 23
+     .line 24
+     iget-object v1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clientHealthMetricsStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;
+ 
+-    .line 25
+     .line 26
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+     .line 30
+     check-cast v2, Ljava/lang/Integer;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v2
+ 
+@@ -351,24 +289,18 @@
+     .line 37
+     sget-object v4, Lcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped$Reason;->INVALID_PAYLOD:Lcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped$Reason;
+ 
+-    .line 38
+     .line 39
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v0
+ 
+     .line 43
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v1, v2, v3, v4, v0}, Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;->recordLogEventDropped(JLcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped$Reason;Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     goto :goto_0
+ 
+@@ -386,66 +318,46 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     :try_start_0
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 5
+     .line 6
+     iget-object v1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->eventStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;
+ 
+-    .line 7
+     .line 8
+     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     new-instance v2, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/c;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v2, v1}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/c;-><init>(Lcom/google/android/datatransport/runtime/scheduling/persistence/EventStore;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-interface {v0, v2}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p0}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->isNetworkAvailable()Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     if-nez v0, :cond_0
+ 
+-    .line 24
+     .line 25
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 26
+     .line 27
+     new-instance v1, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/e;
+ 
+-    .line 28
+     .line 29
+     invoke-direct {v1, p0, p1, p2}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/e;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Lcom/google/android/datatransport/runtime/TransportContext;I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-interface {v0, v1}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -463,14 +375,10 @@
+     .catch Lcom/google/android/datatransport/runtime/synchronization/SynchronizationException; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     :goto_0
+     invoke-interface {p3}, Ljava/lang/Runnable;->run()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     return-void
+ 
+@@ -479,23 +387,17 @@
+     :try_start_1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->workScheduler:Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;
+ 
+-    .line 46
+     .line 47
+     add-int/lit8 p2, p2, 0x1
+ 
+-    .line 48
+     .line 49
+     invoke-interface {p0, p1, p2}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;->schedule(Lcom/google/android/datatransport/runtime/TransportContext;I)V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-interface {p3}, Ljava/lang/Runnable;->run()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-void
+ 
+@@ -503,8 +405,6 @@
+     :goto_1
+     invoke-interface {p3}, Ljava/lang/Runnable;->run()V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     throw p0
+ .end method
+@@ -519,147 +419,108 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clientHealthMetricsStore:Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;
+ 
+-    .line 4
+     .line 5
+     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     new-instance v2, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/g;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v2, v1}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/g;-><init>(Lcom/google/android/datatransport/runtime/scheduling/persistence/ClientHealthMetricsStore;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-interface {v0, v2}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     check-cast v0, Lcom/google/android/datatransport/runtime/firebase/transport/ClientMetrics;
+ 
+-    .line 18
+     .line 19
+     invoke-static {}, Lcom/google/android/datatransport/runtime/EventInternal;->builder()Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v1
+ 
+     .line 23
+     iget-object v2, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->clock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 24
+     .line 25
+     invoke-interface {v2}, Lcom/google/android/datatransport/runtime/time/Clock;->getTime()J
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-wide v2
+ 
+     .line 29
+     invoke-virtual {v1, v2, v3}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setEventMillis(J)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->uptimeClock:Lcom/google/android/datatransport/runtime/time/Clock;
+ 
+-    .line 34
+     .line 35
+     invoke-interface {p0}, Lcom/google/android/datatransport/runtime/time/Clock;->getTime()J
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-wide v2
+ 
+     .line 39
+     invoke-virtual {v1, v2, v3}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setUptimeMillis(J)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     const-string v1, "GDT_CLIENT_METRICS"
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p0, v1}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setTransportName(Ljava/lang/String;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+     .line 49
+     new-instance v1, Lcom/google/android/datatransport/runtime/EncodedPayload;
+ 
+-    .line 50
+     .line 51
+     const-string v2, "proto"
+ 
+-    .line 52
+     .line 53
+     invoke-static {v2}, Lcom/google/android/datatransport/Encoding;->of(Ljava/lang/String;)Lcom/google/android/datatransport/Encoding;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v2
+ 
+     .line 57
+     invoke-virtual {v0}, Lcom/google/android/datatransport/runtime/firebase/transport/ClientMetrics;->toByteArray()[B
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v0
+ 
+     .line 61
+     invoke-direct {v1, v2, v0}, Lcom/google/android/datatransport/runtime/EncodedPayload;-><init>(Lcom/google/android/datatransport/Encoding;[B)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {p0, v1}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->setEncodedPayload(Lcom/google/android/datatransport/runtime/EncodedPayload;)Lcom/google/android/datatransport/runtime/EventInternal$Builder;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p0
+ 
+     .line 68
+     invoke-virtual {p0}, Lcom/google/android/datatransport/runtime/EventInternal$Builder;->build()Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p0
+ 
+     .line 72
+     invoke-interface {p1, p0}, Lcom/google/android/datatransport/runtime/backends/TransportBackend;->decorate(Lcom/google/android/datatransport/runtime/EventInternal;)Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+ 
+@@ -673,47 +534,36 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->context:Landroid/content/Context;
+ 
+-    .line 2
+     .line 3
+     const-string v0, "connectivity"
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     check-cast p0, Landroid/net/ConnectivityManager;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     if-eqz p0, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+     .line 21
+     if-eqz p0, :cond_0
+ 
+-    .line 22
+     .line 23
+     const/4 p0, 0x1
+ 
+@@ -739,32 +589,24 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->backendRegistry:Lcom/google/android/datatransport/runtime/backends/BackendRegistry;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/TransportContext;->getBackendName()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-interface {v0, v1}, Lcom/google/android/datatransport/runtime/backends/BackendRegistry;->get(Ljava/lang/String;)Lcom/google/android/datatransport/runtime/backends/TransportBackend;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     const-wide/16 v1, 0x0
+ 
+-    .line 12
+     .line 13
+     invoke-static {v1, v2}, Lcom/google/android/datatransport/runtime/backends/BackendResponse;->ok(J)Lcom/google/android/datatransport/runtime/backends/BackendResponse;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v3
+ 
+@@ -775,58 +617,42 @@
+     :goto_0
+     iget-object v1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 19
+     .line 20
+     new-instance v2, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/h;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v2, p0, p1}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/h;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Lcom/google/android/datatransport/runtime/TransportContext;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-interface {v1, v2}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     check-cast v1, Ljava/lang/Boolean;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v1
+ 
+     .line 35
+     if-eqz v1, :cond_a
+ 
+-    .line 36
+     .line 37
+     iget-object v1, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 38
+     .line 39
+     new-instance v2, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/i;
+ 
+-    .line 40
+     .line 41
+     invoke-direct {v2, p0, p1}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/i;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Lcom/google/android/datatransport/runtime/TransportContext;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-interface {v1, v2}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v1
+ 
+@@ -836,27 +662,21 @@
+     .line 49
+     check-cast v6, Ljava/lang/Iterable;
+ 
+-    .line 50
+     .line 51
+     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v1
+ 
+     .line 55
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v1
+ 
+     .line 59
+     if-nez v1, :cond_0
+ 
+-    .line 60
+     .line 61
+     return-object v3
+ 
+@@ -864,25 +684,18 @@
+     :cond_0
+     if-nez v0, :cond_1
+ 
+-    .line 63
+     .line 64
+     const-string v1, "Uploader"
+ 
+-    .line 65
+     .line 66
+     const-string v2, "Unknown backend for %s, deleting event batch for it..."
+ 
+-    .line 67
+     .line 68
+     invoke-static {v1, v2, p1}, Lcom/google/android/datatransport/runtime/logging/Logging;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-static {}, Lcom/google/android/datatransport/runtime/backends/BackendResponse;->fatalError()Lcom/google/android/datatransport/runtime/backends/BackendResponse;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v1
+ 
+@@ -897,17 +710,12 @@
+     :cond_1
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 78
+     .line 79
+     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v2
+ 
+@@ -915,40 +723,30 @@
+     :goto_2
+     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v3
+ 
+     .line 90
+     if-eqz v3, :cond_2
+ 
+-    .line 91
+     .line 92
+     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object v3
+ 
+     .line 96
+     check-cast v3, Lcom/google/android/datatransport/runtime/scheduling/persistence/PersistedEvent;
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {v3}, Lcom/google/android/datatransport/runtime/scheduling/persistence/PersistedEvent;->getEvent()Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v3
+ 
+     .line 102
+     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     goto :goto_2
+ 
+@@ -956,74 +754,55 @@
+     :cond_2
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/TransportContext;->shouldUploadClientHealthMetrics()Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result v2
+ 
+     .line 110
+     if-eqz v2, :cond_3
+ 
+-    .line 111
+     .line 112
+     invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->createMetricsEvent(Lcom/google/android/datatransport/runtime/backends/TransportBackend;)Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v2
+ 
+     .line 116
+     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     :cond_3
+     invoke-static {}, Lcom/google/android/datatransport/runtime/backends/BackendRequest;->builder()Lcom/google/android/datatransport/runtime/backends/BackendRequest$Builder;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v2
+ 
+     .line 123
+     invoke-virtual {v2, v1}, Lcom/google/android/datatransport/runtime/backends/BackendRequest$Builder;->setEvents(Ljava/lang/Iterable;)Lcom/google/android/datatransport/runtime/backends/BackendRequest$Builder;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object v1
+ 
+     .line 127
+     invoke-virtual {p1}, Lcom/google/android/datatransport/runtime/TransportContext;->getExtras()[B
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object v2
+ 
+     .line 131
+     invoke-virtual {v1, v2}, Lcom/google/android/datatransport/runtime/backends/BackendRequest$Builder;->setExtras([B)Lcom/google/android/datatransport/runtime/backends/BackendRequest$Builder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object v1
+ 
+     .line 135
+     invoke-virtual {v1}, Lcom/google/android/datatransport/runtime/backends/BackendRequest$Builder;->build()Lcom/google/android/datatransport/runtime/backends/BackendRequest;
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-object v1
+ 
+     .line 139
+     invoke-interface {v0, v1}, Lcom/google/android/datatransport/runtime/backends/TransportBackend;->send(Lcom/google/android/datatransport/runtime/backends/BackendRequest;)Lcom/google/android/datatransport/runtime/backends/BackendResponse;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result-object v1
+ 
+@@ -1034,30 +813,24 @@
+     :goto_3
+     invoke-virtual {v3}, Lcom/google/android/datatransport/runtime/backends/BackendResponse;->getStatus()Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object v1
+ 
+     .line 148
+     sget-object v2, Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;->TRANSIENT_ERROR:Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;
+ 
+-    .line 149
+     .line 150
+     const/4 v10, 0x1
+ 
+     .line 151
+     if-ne v1, v2, :cond_4
+ 
+-    .line 152
+     .line 153
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 154
+     .line 155
+     new-instance v4, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/j;
+ 
+-    .line 156
+     .line 157
+     move-object v5, p0
+ 
+@@ -1067,25 +840,18 @@
+     .line 159
+     invoke-direct/range {v4 .. v9}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/j;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Ljava/lang/Iterable;Lcom/google/android/datatransport/runtime/TransportContext;J)V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     invoke-interface {v0, v4}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     iget-object p0, v5, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->workScheduler:Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;
+ 
+-    .line 166
+     .line 167
+     add-int/2addr p2, v10
+ 
+     .line 168
+     invoke-interface {p0, v7, p2, v10}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/WorkScheduler;->schedule(Lcom/google/android/datatransport/runtime/TransportContext;IZ)V
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     return-object v3
+ 
+@@ -1099,83 +865,60 @@
+     .line 174
+     iget-object p0, v5, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 175
+     .line 176
+     new-instance p1, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/k;
+ 
+-    .line 177
+     .line 178
+     invoke-direct {p1, v5, v6}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/k;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Ljava/lang/Iterable;)V
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     invoke-interface {p0, p1}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     invoke-virtual {v3}, Lcom/google/android/datatransport/runtime/backends/BackendResponse;->getStatus()Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     move-result-object p0
+ 
+     .line 188
+     sget-object p1, Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;->OK:Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;
+ 
+-    .line 189
+     .line 190
+     if-ne p0, p1, :cond_6
+ 
+-    .line 191
+     .line 192
+     invoke-virtual {v3}, Lcom/google/android/datatransport/runtime/backends/BackendResponse;->getNextRequestWaitMillis()J
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result-wide p0
+ 
+     .line 196
+     invoke-static {v8, v9, p0, p1}, Ljava/lang/Math;->max(JJ)J
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-wide p0
+ 
+     .line 200
+     invoke-virtual {v7}, Lcom/google/android/datatransport/runtime/TransportContext;->shouldUploadClientHealthMetrics()Z
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result v1
+ 
+     .line 204
+     if-eqz v1, :cond_5
+ 
+-    .line 205
+     .line 206
+     iget-object v1, v5, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 207
+     .line 208
+     new-instance v2, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/l;
+ 
+-    .line 209
+     .line 210
+     invoke-direct {v2, v5}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/l;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;)V
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     invoke-interface {v1, v2}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     :cond_5
+     move-wide v8, p0
+@@ -1187,33 +930,24 @@
+     :cond_6
+     invoke-virtual {v3}, Lcom/google/android/datatransport/runtime/backends/BackendResponse;->getStatus()Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result-object p0
+ 
+     .line 222
+     sget-object p1, Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;->INVALID_PAYLOAD:Lcom/google/android/datatransport/runtime/backends/BackendResponse$Status;
+ 
+-    .line 223
+     .line 224
+     if-ne p0, p1, :cond_9
+ 
+-    .line 225
+     .line 226
+     new-instance p0, Ljava/util/HashMap;
+ 
+-    .line 227
+     .line 228
+     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 232
+-    .line 233
+     .line 234
+     move-result-object p1
+ 
+@@ -1221,68 +955,51 @@
+     :goto_4
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     move-result v1
+ 
+     .line 239
+     if-eqz v1, :cond_8
+ 
+-    .line 240
+     .line 241
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object v1
+ 
+     .line 245
+     check-cast v1, Lcom/google/android/datatransport/runtime/scheduling/persistence/PersistedEvent;
+ 
+-    .line 246
+     .line 247
+     invoke-virtual {v1}, Lcom/google/android/datatransport/runtime/scheduling/persistence/PersistedEvent;->getEvent()Lcom/google/android/datatransport/runtime/EventInternal;
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     move-result-object v1
+ 
+     .line 251
+     invoke-virtual {v1}, Lcom/google/android/datatransport/runtime/EventInternal;->getTransportName()Ljava/lang/String;
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     move-result-object v1
+ 
+     .line 255
+     invoke-interface {p0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     move-result v2
+ 
+     .line 259
+     if-nez v2, :cond_7
+ 
+-    .line 260
+     .line 261
+     invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 262
+-    .line 263
+     .line 264
+     move-result-object v2
+ 
+     .line 265
+     invoke-interface {p0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 266
+-    .line 267
+     .line 268
+     goto :goto_4
+ 
+@@ -1290,20 +1007,15 @@
+     :cond_7
+     invoke-interface {p0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     move-result-object v2
+ 
+     .line 273
+     check-cast v2, Ljava/lang/Integer;
+ 
+-    .line 274
+     .line 275
+     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 276
+-    .line 277
+     .line 278
+     move-result v2
+ 
+@@ -1313,16 +1025,12 @@
+     .line 280
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 281
+-    .line 282
+     .line 283
+     move-result-object v2
+ 
+     .line 284
+     invoke-interface {p0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 285
+-    .line 286
+     .line 287
+     goto :goto_4
+ 
+@@ -1330,21 +1038,15 @@
+     :cond_8
+     iget-object p1, v5, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 289
+     .line 290
+     new-instance v1, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/m;
+ 
+-    .line 291
+     .line 292
+     invoke-direct {v1, v5, p0}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/m;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Ljava/util/Map;)V
+ 
+-    .line 293
+-    .line 294
+     .line 295
+     invoke-interface {p1, v1}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 296
+-    .line 297
+     .line 298
+     :cond_9
+     :goto_5
+@@ -1356,7 +1058,6 @@
+     .line 300
+     goto/16 :goto_0
+ 
+-    .line 301
+     .line 302
+     :cond_a
+     move-object v5, p0
+@@ -1367,21 +1068,15 @@
+     .line 304
+     iget-object p0, v5, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->guard:Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;
+ 
+-    .line 305
+     .line 306
+     new-instance p1, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/d;
+ 
+-    .line 307
+     .line 308
+     invoke-direct {p1, v5, v7, v8, v9}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/d;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Lcom/google/android/datatransport/runtime/TransportContext;J)V
+ 
+-    .line 309
+-    .line 310
+     .line 311
+     invoke-interface {p0, p1}, Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard;->runCriticalSection(Lcom/google/android/datatransport/runtime/synchronization/SynchronizationGuard$CriticalSection;)Ljava/lang/Object;
+ 
+-    .line 312
+-    .line 313
+     .line 314
+     return-object v3
+ .end method
+@@ -1392,21 +1087,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;->executor:Ljava/util/concurrent/Executor;
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/f;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1, p0, p1, p2, p3}, Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/f;-><init>(Lcom/google/android/datatransport/runtime/scheduling/jobscheduling/Uploader;Lcom/google/android/datatransport/runtime/TransportContext;ILjava/lang/Runnable;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method

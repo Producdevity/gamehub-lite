@@ -1,0 +1,354 @@
+--- a/smali_classes4/androidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker.smali
++++ b/smali_classes4/androidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker.smali
+@@ -34,33 +34,24 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput p1, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->pcrPid:I
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->pcrTimestampAdjuster:Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 7
+     .line 8
+     iput p3, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->timestampSearchBytes:I
+ 
+-    .line 9
+     .line 10
+     new-instance p1, Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p1}, Landroidx/media3/common/util/ParsableByteArray;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     iput-object p1, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -71,34 +62,24 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v1, p1
+ 
+-    .line 4
+     .line 5
+     move-wide/from16 v2, p4
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v4
+ 
+     .line 11
+     const-wide/16 v5, -0x1
+ 
+-    .line 12
+     .line 13
+     const-wide v7, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 14
+-    .line 15
+-    .line 16
+-    .line 17
+     .line 18
+     move-wide v9, v5
+ 
+@@ -109,51 +90,39 @@
+     :goto_0
+     invoke-virtual {v1}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v13
+ 
+     .line 24
+     const/16 v14, 0xbc
+ 
+-    .line 25
+     .line 26
+     if-lt v13, v14, :cond_5
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v1}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v13
+ 
+     .line 32
+     invoke-virtual {v1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v14
+ 
+     .line 36
+     invoke-static {v13, v14, v4}, Landroidx/media3/extractor/ts/TsUtil;->findSyncBytePosition([BII)I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v13
+ 
+     .line 40
+     add-int/lit16 v14, v13, 0xbc
+ 
+-    .line 41
+     .line 42
+     if-le v14, v4, :cond_0
+ 
+-    .line 43
+     .line 44
+     goto :goto_1
+ 
+@@ -161,56 +130,42 @@
+     :cond_0
+     iget v5, v0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->pcrPid:I
+ 
+-    .line 46
+     .line 47
+     invoke-static {v1, v13, v5}, Landroidx/media3/extractor/ts/TsUtil;->readPcrFromPacket(Landroidx/media3/common/util/ParsableByteArray;II)J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v5
+ 
+     .line 51
+     cmp-long v15, v5, v7
+ 
+-    .line 52
+     .line 53
+     if-eqz v15, :cond_4
+ 
+-    .line 54
+     .line 55
+     iget-object v15, v0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->pcrTimestampAdjuster:Landroidx/media3/common/util/TimestampAdjuster;
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v15, v5, v6}, Landroidx/media3/common/util/TimestampAdjuster;->adjustTsTimestamp(J)J
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-wide v5
+ 
+     .line 61
+     cmp-long v15, v5, p2
+ 
+-    .line 62
+     .line 63
+     if-lez v15, :cond_2
+ 
+-    .line 64
+     .line 65
+     cmp-long v0, v11, v7
+ 
+-    .line 66
+     .line 67
+     if-nez v0, :cond_1
+ 
+-    .line 68
+     .line 69
+     invoke-static {v5, v6, v2, v3}, Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;->overestimatedResult(JJ)Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+@@ -221,12 +176,9 @@
+     :cond_1
+     add-long v0, v2, v9
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0, v1}, Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;->targetFoundResult(J)Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v0
+ 
+@@ -237,19 +189,15 @@
+     :cond_2
+     const-wide/32 v9, 0x186a0
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     add-long/2addr v9, v5
+ 
+     .line 85
+     cmp-long v9, v9, p2
+ 
+-    .line 86
+     .line 87
+     if-lez v9, :cond_3
+ 
+-    .line 88
+     .line 89
+     int-to-long v0, v13
+ 
+@@ -259,8 +207,6 @@
+     .line 91
+     invoke-static {v0, v1}, Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;->targetFoundResult(J)Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v0
+ 
+@@ -278,8 +224,6 @@
+     :cond_4
+     invoke-virtual {v1, v14}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     int-to-long v5, v14
+ 
+@@ -291,20 +235,15 @@
+     :goto_1
+     cmp-long v0, v11, v7
+ 
+-    .line 104
+     .line 105
+     if-eqz v0, :cond_6
+ 
+-    .line 106
+     .line 107
+     add-long v0, v2, v5
+ 
+-    .line 108
+     .line 109
+     invoke-static {v11, v12, v0, v1}, Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;->underestimatedResult(JJ)Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object v0
+ 
+@@ -315,7 +254,6 @@
+     :cond_6
+     sget-object v0, Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;->NO_TIMESTAMP_IN_RANGE_RESULT:Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;
+ 
+-    .line 115
+     .line 116
+     return-object v0
+ .end method
+@@ -328,16 +266,12 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Landroidx/media3/common/util/Util;->EMPTY_BYTE_ARRAY:[B
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0}, Landroidx/media3/common/util/ParsableByteArray;->reset([B)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -353,23 +287,18 @@
+     .line 1
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getPosition()J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v4
+ 
+     .line 5
+     iget v0, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->timestampSearchBytes:I
+ 
+-    .line 6
+     .line 7
+     int-to-long v0, v0
+ 
+     .line 8
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getLength()J
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-wide v2
+ 
+@@ -379,8 +308,6 @@
+     .line 13
+     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-wide v0
+ 
+@@ -390,21 +317,15 @@
+     .line 18
+     iget-object v1, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v0}, Landroidx/media3/common/util/ParsableByteArray;->reset(I)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-object v1, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v1}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+@@ -414,12 +335,9 @@
+     .line 30
+     invoke-interface {p1, v1, v2, v0}, Landroidx/media3/extractor/ExtractorInput;->peekFully([BII)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     iget-object v1, p0, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->packetBuffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 34
+     .line 35
+     move-object v0, p0
+ 
+@@ -429,8 +347,6 @@
+     .line 37
+     invoke-direct/range {v0 .. v5}, Landroidx/media3/extractor/ts/TsBinarySearchSeeker$TsPcrSeeker;->searchForPcrValueInBuffer(Landroidx/media3/common/util/ParsableByteArray;JJ)Landroidx/media3/extractor/BinarySearchSeeker$TimestampSearchResult;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 

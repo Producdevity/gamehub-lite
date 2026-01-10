@@ -1,0 +1,914 @@
+--- a/smali_classes5/com/google/android/gms/common/GooglePlayServicesUtilLight.smali
++++ b/smali_classes5/com/google/android/gms/common/GooglePlayServicesUtilLight.smali
+@@ -73,12 +73,12 @@
+     .end annotation
+ .end field
+ 
+-.field public static zza:Z = false
++.field public static zza:Z
+     .annotation build Landroidx/annotation/VisibleForTesting;
+     .end annotation
+ .end field
+ 
+-.field public static zzb:Z = false
++.field public static zzb:Z
+     .annotation build Landroidx/annotation/VisibleForTesting;
+     .end annotation
+ .end field
+@@ -93,29 +93,21 @@
+     .line 1
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->sCanceledAvailabilityNotification:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 7
+     .line 8
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     sput-object v0, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zzc:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -128,8 +120,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -149,22 +139,18 @@
+     .line 1
+     sget-object v0, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->sCanceledAvailabilityNotification:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+     .line 4
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     goto :goto_0
+ 
+@@ -173,34 +159,26 @@
+     :try_start_0
+     const-string v0, "notification"
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     check-cast p0, Landroid/app/NotificationManager;
+ 
+-    .line 18
+     .line 19
+     if-eqz p0, :cond_1
+ 
+-    .line 20
+     .line 21
+     const/16 v0, 0x28c4
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p0, v0}, Landroid/app/NotificationManager;->cancel(I)V
+     :try_end_0
+     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     :cond_1
+     :goto_0
+@@ -213,16 +191,12 @@
+     .line 28
+     const-string v0, "GooglePlayServicesUtil"
+ 
+-    .line 29
+     .line 30
+     const-string v1, "Suppressing Security Exception %s in cancelAvailabilityErrorNotifications."
+ 
+-    .line 31
+     .line 32
+     invoke-static {v0, v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-void
+ .end method
+@@ -238,15 +212,12 @@
+     .line 1
+     sget-object v0, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zzc:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+     .line 4
+     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -273,116 +244,84 @@
+     .line 1
+     invoke-static {}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getInstance()Lcom/google/android/gms/common/GoogleApiAvailabilityLight;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p0, p1}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->isGooglePlayServicesAvailable(Landroid/content/Context;I)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+     .line 9
+     if-eqz p1, :cond_1
+ 
+-    .line 10
+     .line 11
+     const-string v0, "e"
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getInstance()Lcom/google/android/gms/common/GoogleApiAvailabilityLight;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     invoke-virtual {v1, p0, p1, v0}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getErrorResolutionIntent(Landroid/content/Context;ILjava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     invoke-virtual {v0}, Ljava/lang/String;->length()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 30
+     .line 31
+     add-int/lit8 v0, v0, 0x2e
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     const-string v0, "GooglePlayServices not available due to error "
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     const-string v1, "GooglePlayServicesUtil"
+ 
+-    .line 49
+     .line 50
+     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     if-nez p0, :cond_0
+ 
+-    .line 54
+     .line 55
+     new-instance p0, Lcom/google/android/gms/common/GooglePlayServicesNotAvailableException;
+ 
+-    .line 56
+     .line 57
+     invoke-direct {p0, p1}, Lcom/google/android/gms/common/GooglePlayServicesNotAvailableException;-><init>(I)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     throw p0
+ 
+@@ -390,16 +329,12 @@
+     :cond_0
+     new-instance v0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;
+ 
+-    .line 62
+     .line 63
+     const-string v1, "Google Play Services not available"
+ 
+-    .line 64
+     .line 65
+     invoke-direct {v0, p1, v1, p0}, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;-><init>(ILjava/lang/String;Landroid/content/Intent;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     throw v0
+ 
+@@ -430,20 +365,15 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+     .line 6
+     const-string v1, "com.google.android.gms"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, v1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+     :try_end_0
+@@ -452,7 +382,6 @@
+     .line 12
+     iget p0, p0, Landroid/content/pm/PackageInfo;->versionCode:I
+ 
+-    .line 13
+     .line 14
+     return p0
+ 
+@@ -460,16 +389,12 @@
+     :catch_0
+     const-string p0, "GooglePlayServicesUtil"
+ 
+-    .line 16
+     .line 17
+     const-string v1, "Google Play services is missing."
+ 
+-    .line 18
+     .line 19
+     invoke-static {p0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return v0
+ .end method
+@@ -495,21 +420,15 @@
+     .line 2
+     invoke-static {v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkState(Z)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {p0, v0}, Lcom/google/android/gms/common/util/ClientLibraryUtils;->getClientVersion(Landroid/content/Context;Ljava/lang/String;)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -535,16 +454,12 @@
+     .line 1
+     invoke-static {}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getInstance()Lcom/google/android/gms/common/GoogleApiAvailabilityLight;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p1, p0, p2}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getErrorResolutionPendingIntent(Landroid/content/Context;II)Landroid/app/PendingIntent;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -566,8 +481,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/android/gms/common/ConnectionResult;->zza(I)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -592,8 +505,6 @@
+     .line 1
+     invoke-static {}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getInstance()Lcom/google/android/gms/common/GoogleApiAvailabilityLight;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -603,8 +514,6 @@
+     .line 6
+     invoke-virtual {v0, v1, p0, v1}, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->getErrorResolutionIntent(Landroid/content/Context;ILjava/lang/String;)Landroid/content/Intent;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -628,15 +537,12 @@
+     :try_start_0
+     const-string v0, "com.google.android.gms"
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x3
+ 
+     .line 4
+     invoke-virtual {p0, v0, v1}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+     :try_end_0
+@@ -669,20 +575,15 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     const-string v0, "com.google.android.gms"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, v0}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+     :try_end_0
+@@ -714,7 +615,6 @@
+     .line 1
+     sget-boolean v0, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zzb:Z
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+@@ -724,70 +624,52 @@
+     .line 5
+     if-nez v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     :try_start_0
+     invoke-static {p0}, Lcom/google/android/gms/common/wrappers/Wrappers;->packageManager(Landroid/content/Context;)Lcom/google/android/gms/common/wrappers/PackageManagerWrapper;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     const-string v3, "com.google.android.gms"
+ 
+-    .line 12
+     .line 13
+     const v4, 0x8000040
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0, v3, v4}, Lcom/google/android/gms/common/wrappers/PackageManagerWrapper;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     invoke-static {p0}, Lcom/google/android/gms/common/GoogleSignatureVerifier;->getInstance(Landroid/content/Context;)Lcom/google/android/gms/common/GoogleSignatureVerifier;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     if-eqz v0, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-static {v0, v1}, Lcom/google/android/gms/common/GoogleSignatureVerifier;->zza(Landroid/content/pm/PackageInfo;Z)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result p0
+ 
+     .line 29
+     if-nez p0, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-static {v0, v2}, Lcom/google/android/gms/common/GoogleSignatureVerifier;->zza(Landroid/content/pm/PackageInfo;Z)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result p0
+ 
+     .line 35
+     if-eqz p0, :cond_0
+ 
+-    .line 36
+     .line 37
+     sput-boolean v2, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zza:Z
+ 
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -812,12 +694,10 @@
+     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 45
+     .line 46
+     :goto_0
+     sput-boolean v2, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zzb:Z
+ 
+-    .line 47
+     .line 48
+     goto :goto_3
+ 
+@@ -826,22 +706,17 @@
+     :try_start_1
+     const-string v0, "GooglePlayServicesUtil"
+ 
+-    .line 50
+     .line 51
+     const-string v3, "Cannot find Google Play services package name."
+ 
+-    .line 52
+     .line 53
+     invoke-static {v0, v3, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     sput-boolean v2, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zzb:Z
+ 
+-    .line 57
+     .line 58
+     goto :goto_3
+ 
+@@ -849,7 +724,6 @@
+     :goto_2
+     sput-boolean v2, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zzb:Z
+ 
+-    .line 60
+     .line 61
+     throw p0
+ 
+@@ -858,23 +732,18 @@
+     :goto_3
+     sget-boolean p0, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zza:Z
+ 
+-    .line 63
+     .line 64
+     if-nez p0, :cond_3
+ 
+-    .line 65
+     .line 66
+     invoke-static {}, Lcom/google/android/gms/common/util/DeviceProperties;->isUserBuild()Z
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result p0
+ 
+     .line 70
+     if-nez p0, :cond_2
+ 
+-    .line 71
+     .line 72
+     goto :goto_4
+ 
+@@ -1358,8 +1227,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/google/android/gms/common/util/UidVerifier;->isGooglePlayServicesUid(Landroid/content/Context;I)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1385,14 +1252,12 @@
+     .line 1
+     const/16 v0, 0x12
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+     .line 4
+     if-ne p1, v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -1400,16 +1265,12 @@
+     :cond_0
+     if-ne p1, v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     const-string p1, "com.google.android.gms"
+ 
+-    .line 10
+     .line 11
+     invoke-static {p0, p1}, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zza(Landroid/content/Context;Ljava/lang/String;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p0
+ 
+@@ -1442,20 +1303,15 @@
+     .line 1
+     const/16 v0, 0x9
+ 
+-    .line 2
+     .line 3
+     if-ne p1, v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const-string p1, "com.android.vending"
+ 
+-    .line 6
+     .line 7
+     invoke-static {p0, p1}, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->zza(Landroid/content/Context;Ljava/lang/String;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -1482,72 +1338,54 @@
+     .line 1
+     const-string v0, "user"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-static {v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     check-cast v0, Landroid/os/UserManager;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     invoke-virtual {v0, p0}, Landroid/os/UserManager;->getApplicationRestrictions(Ljava/lang/String;)Landroid/os/Bundle;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     if-eqz p0, :cond_0
+ 
+-    .line 21
+     .line 22
+     const-string v0, "true"
+ 
+-    .line 23
+     .line 24
+     const-string v1, "restricted_profile"
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p0
+ 
+     .line 34
+     if-eqz p0, :cond_0
+ 
+-    .line 35
+     .line 36
+     const/4 p0, 0x1
+ 
+@@ -1580,8 +1418,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/android/gms/common/util/DeviceProperties;->isSidewinder(Landroid/content/Context;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1603,29 +1439,24 @@
+     .line 2
+     if-eq p0, v0, :cond_0
+ 
+-    .line 3
+     .line 4
+     const/4 v1, 0x2
+ 
+     .line 5
+     if-eq p0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x3
+ 
+     .line 8
+     if-eq p0, v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/16 v1, 0x9
+ 
+-    .line 11
+     .line 12
+     if-eq p0, v1, :cond_0
+ 
+-    .line 13
+     .line 14
+     const/4 p0, 0x0
+ 
+@@ -1656,8 +1487,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Lcom/google/android/gms/common/util/UidVerifier;->uidHasPackageName(Landroid/content/Context;ILjava/lang/String;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1671,12 +1500,9 @@
+     .line 1
+     const-string v0, "com.google.android.gms"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -1687,24 +1513,18 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v2
+ 
+     .line 12
+     invoke-virtual {v2}, Landroid/content/pm/PackageManager;->getPackageInstaller()Landroid/content/pm/PackageInstaller;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     invoke-virtual {v2}, Landroid/content/pm/PackageInstaller;->getAllSessions()Ljava/util/List;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v2
+     :try_end_0
+@@ -1713,8 +1533,6 @@
+     .line 20
+     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v2
+ 
+@@ -1722,8 +1540,6 @@
+     :cond_0
+     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v3
+ 
+@@ -1733,39 +1549,30 @@
+     .line 29
+     if-eqz v3, :cond_1
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v3
+ 
+     .line 35
+     check-cast v3, Landroid/content/pm/PackageInstaller$SessionInfo;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v3}, Landroid/content/pm/PackageInstaller$SessionInfo;->getAppPackageName()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v3
+ 
+     .line 41
+     invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v3
+ 
+     .line 45
+     if-eqz v3, :cond_0
+ 
+-    .line 46
+     .line 47
+     return v4
+ 
+@@ -1773,32 +1580,25 @@
+     :cond_1
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v2
+ 
+     .line 52
+     const/16 v3, 0x2000
+ 
+-    .line 53
+     .line 54
+     :try_start_1
+     invoke-virtual {v2, p1, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p1
+ 
+     .line 58
+     if-eqz v0, :cond_2
+ 
+-    .line 59
+     .line 60
+     iget-boolean p0, p1, Landroid/content/pm/ApplicationInfo;->enabled:Z
+ 
+-    .line 61
+     .line 62
+     return p0
+ 
+@@ -1806,16 +1606,12 @@
+     :cond_2
+     iget-boolean p1, p1, Landroid/content/pm/ApplicationInfo;->enabled:Z
+ 
+-    .line 64
+     .line 65
+     if-eqz p1, :cond_3
+ 
+-    .line 66
+     .line 67
+     invoke-static {p0}, Lcom/google/android/gms/common/GooglePlayServicesUtilLight;->isRestrictedUserProfile(Landroid/content/Context;)Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result p0
+     :try_end_1
+@@ -1824,7 +1620,6 @@
+     .line 71
+     if-nez p0, :cond_3
+ 
+-    .line 72
+     .line 73
+     return v4
+ 

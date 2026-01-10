@@ -1,0 +1,1484 @@
+--- a/smali_classes4/androidx/media3/extractor/flac/FlacExtractor.smali
++++ b/smali_classes4/androidx/media3/extractor/flac/FlacExtractor.smali
+@@ -79,16 +79,12 @@
+     .line 1
+     new-instance v0, Landroidx/media3/extractor/flac/b;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/extractor/flac/b;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Landroidx/media3/extractor/flac/FlacExtractor;->FACTORY:Landroidx/media3/extractor/ExtractorsFactory;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -164,26 +160,21 @@
+     .line 1
+     new-instance v0, Landroidx/media3/extractor/flac/FlacExtractor;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/extractor/flac/FlacExtractor;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v1, 0x1
+ 
+     .line 7
+     new-array v1, v1, [Landroidx/media3/extractor/Extractor;
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x0
+ 
+     .line 10
+     aput-object v0, v1, v2
+ 
+-    .line 11
+     .line 12
+     return-object v1
+ .end method
+@@ -194,17 +185,12 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+@@ -212,61 +198,45 @@
+     :goto_0
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     add-int/lit8 v1, v1, -0x10
+ 
+-    .line 15
+     .line 16
+     if-gt v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 22
+     .line 23
+     iget v2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->frameStartMarker:I
+ 
+-    .line 24
+     .line 25
+     iget-object v3, p0, Landroidx/media3/extractor/flac/FlacExtractor;->sampleNumberHolder:Landroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;
+ 
+-    .line 26
+     .line 27
+     invoke-static {p1, v1, v2, v3}, Landroidx/media3/extractor/FlacFrameReader;->checkAndReadFrameHeader(Landroidx/media3/common/util/ParsableByteArray;Landroidx/media3/extractor/FlacStreamMetadata;ILandroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v1
+ 
+     .line 31
+     if-eqz v1, :cond_0
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     iget-object p0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->sampleNumberHolder:Landroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;
+ 
+-    .line 37
+     .line 38
+     iget-wide p0, p0, Landroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;->sampleNumber:J
+ 
+-    .line 39
+     .line 40
+     return-wide p0
+ 
+@@ -274,7 +244,6 @@
+     :cond_0
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 42
+     .line 43
+     goto :goto_0
+ 
+@@ -282,32 +251,25 @@
+     :cond_1
+     if-eqz p2, :cond_5
+ 
+-    .line 45
+     .line 46
+     :goto_1
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result p2
+ 
+     .line 50
+     iget v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->minFrameSize:I
+ 
+-    .line 51
+     .line 52
+     sub-int/2addr p2, v1
+ 
+     .line 53
+     if-gt v0, p2, :cond_4
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {p1, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     const/4 p2, 0x0
+ 
+@@ -315,20 +277,15 @@
+     :try_start_0
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 60
+     .line 61
+     iget v2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->frameStartMarker:I
+ 
+-    .line 62
+     .line 63
+     iget-object v3, p0, Landroidx/media3/extractor/flac/FlacExtractor;->sampleNumberHolder:Landroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;
+ 
+-    .line 64
+     .line 65
+     invoke-static {p1, v1, v2, v3}, Landroidx/media3/extractor/FlacFrameReader;->checkAndReadFrameHeader(Landroidx/media3/common/util/ParsableByteArray;Landroidx/media3/extractor/FlacStreamMetadata;ILandroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;)Z
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result v1
+     :try_end_0
+@@ -345,23 +302,18 @@
+     :goto_2
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v2
+ 
+     .line 75
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result v3
+ 
+     .line 79
+     if-le v2, v3, :cond_2
+ 
+-    .line 80
+     .line 81
+     goto :goto_3
+ 
+@@ -373,20 +325,15 @@
+     :goto_3
+     if-eqz p2, :cond_3
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {p1, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     iget-object p0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->sampleNumberHolder:Landroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;
+ 
+-    .line 89
+     .line 90
+     iget-wide p0, p0, Landroidx/media3/extractor/FlacFrameReader$SampleNumberHolder;->sampleNumber:J
+ 
+-    .line 91
+     .line 92
+     return-wide p0
+ 
+@@ -394,7 +341,6 @@
+     :cond_3
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 94
+     .line 95
+     goto :goto_1
+ 
+@@ -402,16 +348,12 @@
+     :cond_4
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result p0
+ 
+     .line 100
+     invoke-virtual {p1, p0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     goto :goto_4
+ 
+@@ -419,13 +361,10 @@
+     :cond_5
+     invoke-virtual {p1, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     :goto_4
+     const-wide/16 p0, -0x1
+ 
+-    .line 108
+     .line 109
+     return-wide p0
+ .end method
+@@ -441,67 +380,51 @@
+     .line 1
+     invoke-static {p1}, Landroidx/media3/extractor/FlacMetadataReader;->getFrameStartMarker(Landroidx/media3/extractor/ExtractorInput;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     iput v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->frameStartMarker:I
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->extractorOutput:Landroidx/media3/extractor/ExtractorOutput;
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     check-cast v0, Landroidx/media3/extractor/ExtractorOutput;
+ 
+-    .line 14
+     .line 15
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getPosition()J
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-wide v1
+ 
+     .line 19
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->getLength()J
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-wide v3
+ 
+     .line 23
+     invoke-direct {p0, v1, v2, v3, v4}, Landroidx/media3/extractor/flac/FlacExtractor;->getSeekMap(JJ)Landroidx/media3/extractor/SeekMap;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     invoke-interface {v0, p1}, Landroidx/media3/extractor/ExtractorOutput;->seekMap(Landroidx/media3/extractor/SeekMap;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     const/4 p1, 0x5
+ 
+     .line 31
+     iput p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 32
+     .line 33
+     return-void
+ .end method
+@@ -512,44 +435,33 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 7
+     .line 8
+     iget-object v0, v2, Landroidx/media3/extractor/FlacStreamMetadata;->seekTable:Landroidx/media3/extractor/FlacStreamMetadata$SeekTable;
+ 
+-    .line 9
+     .line 10
+     if-eqz v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     iget-object v0, v0, Landroidx/media3/extractor/FlacStreamMetadata$SeekTable;->pointSampleNumbers:[J
+ 
+-    .line 13
+     .line 14
+     array-length v0, v0
+ 
+     .line 15
+     if-lez v0, :cond_0
+ 
+-    .line 16
+     .line 17
+     new-instance p0, Landroidx/media3/extractor/FlacSeekTableSeekMap;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0, v2, p1, p2}, Landroidx/media3/extractor/FlacSeekTableSeekMap;-><init>(Landroidx/media3/extractor/FlacStreamMetadata;J)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-object p0
+ 
+@@ -557,39 +469,30 @@
+     :cond_0
+     const-wide/16 v0, -0x1
+ 
+-    .line 24
+     .line 25
+     cmp-long v0, p3, v0
+ 
+-    .line 26
+     .line 27
+     if-eqz v0, :cond_1
+ 
+-    .line 28
+     .line 29
+     iget-wide v0, v2, Landroidx/media3/extractor/FlacStreamMetadata;->totalSamples:J
+ 
+-    .line 30
+     .line 31
+     const-wide/16 v3, 0x0
+ 
+-    .line 32
+     .line 33
+     cmp-long v0, v0, v3
+ 
+-    .line 34
+     .line 35
+     if-lez v0, :cond_1
+ 
+-    .line 36
+     .line 37
+     new-instance v1, Landroidx/media3/extractor/flac/FlacBinarySearchSeeker;
+ 
+-    .line 38
+     .line 39
+     iget v3, p0, Landroidx/media3/extractor/flac/FlacExtractor;->frameStartMarker:I
+ 
+-    .line 40
+     .line 41
+     move-wide v4, p1
+ 
+@@ -599,17 +502,12 @@
+     .line 43
+     invoke-direct/range {v1 .. v7}, Landroidx/media3/extractor/flac/FlacBinarySearchSeeker;-><init>(Landroidx/media3/extractor/FlacStreamMetadata;IJJ)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     iput-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->binarySearchSeeker:Landroidx/media3/extractor/flac/FlacBinarySearchSeeker;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v1}, Landroidx/media3/extractor/BinarySearchSeeker;->getSeekMap()Landroidx/media3/extractor/SeekMap;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p0
+ 
+@@ -620,20 +518,15 @@
+     :cond_1
+     new-instance p0, Landroidx/media3/extractor/SeekMap$Unseekable;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v2}, Landroidx/media3/extractor/FlacStreamMetadata;->getDurationUs()J
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-wide p1
+ 
+     .line 59
+     invoke-direct {p0, p1, p2}, Landroidx/media3/extractor/SeekMap$Unseekable;-><init>(J)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     return-object p0
+ .end method
+@@ -649,7 +542,6 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->streamMarkerAndInfoBlock:[B
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+@@ -659,20 +551,15 @@
+     .line 5
+     invoke-interface {p1, v0, v1, v2}, Landroidx/media3/extractor/ExtractorInput;->peekFully([BII)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorInput;->resetPeekPosition()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/4 p1, 0x2
+ 
+     .line 12
+     iput p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -683,51 +570,39 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameFirstSampleNumber:J
+ 
+-    .line 2
+     .line 3
+     const-wide/32 v2, 0xf4240
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     mul-long/2addr v0, v2
+ 
+     .line 7
+     iget-object v2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 8
+     .line 9
+     invoke-static {v2}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v2
+ 
+     .line 13
+     check-cast v2, Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 14
+     .line 15
+     iget v2, v2, Landroidx/media3/extractor/FlacStreamMetadata;->sampleRate:I
+ 
+-    .line 16
+     .line 17
+     int-to-long v2, v2
+ 
+     .line 18
+     div-long v5, v0, v2
+ 
+-    .line 19
+     .line 20
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->trackOutput:Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 21
+     .line 22
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+@@ -737,11 +612,9 @@
+     .line 27
+     check-cast v4, Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 28
+     .line 29
+     iget v8, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameBytesWritten:I
+ 
+-    .line 30
+     .line 31
+     const/4 v9, 0x0
+ 
+@@ -754,8 +627,6 @@
+     .line 34
+     invoke-interface/range {v4 .. v10}, Landroidx/media3/extractor/TrackOutput;->sampleMetadata(JIIILandroidx/media3/extractor/TrackOutput$CryptoData;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     return-void
+ .end method
+@@ -771,50 +642,36 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->trackOutput:Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->binarySearchSeeker:Landroidx/media3/extractor/flac/FlacBinarySearchSeeker;
+ 
+-    .line 12
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Landroidx/media3/extractor/BinarySearchSeeker;->isSeeking()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-eqz v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     iget-object p0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->binarySearchSeeker:Landroidx/media3/extractor/flac/FlacBinarySearchSeeker;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p0, p1, p2}, Landroidx/media3/extractor/BinarySearchSeeker;->handlePendingSeek(Landroidx/media3/extractor/ExtractorInput;Landroidx/media3/extractor/PositionHolder;)I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result p0
+ 
+@@ -825,38 +682,30 @@
+     :cond_0
+     iget-wide v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameFirstSampleNumber:J
+ 
+-    .line 29
+     .line 30
+     const-wide/16 v2, -0x1
+ 
+-    .line 31
+     .line 32
+     cmp-long p2, v0, v2
+ 
+-    .line 33
+     .line 34
+     const/4 v0, 0x0
+ 
+     .line 35
+     if-nez p2, :cond_1
+ 
+-    .line 36
+     .line 37
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 38
+     .line 39
+     invoke-static {p1, p2}, Landroidx/media3/extractor/FlacFrameReader;->getFirstSampleNumber(Landroidx/media3/extractor/ExtractorInput;Landroidx/media3/extractor/FlacStreamMetadata;)J
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-wide p1
+ 
+     .line 43
+     iput-wide p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameFirstSampleNumber:J
+ 
+-    .line 44
+     .line 45
+     return v0
+ 
+@@ -864,33 +713,24 @@
+     :cond_1
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result p2
+ 
+     .line 52
+     const v1, 0x8000
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     if-ge p2, v1, :cond_4
+ 
+-    .line 56
+     .line 57
+     iget-object v4, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {v4}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v4
+ 
+@@ -900,8 +740,6 @@
+     .line 64
+     invoke-interface {p1, v4, p2, v1}, Landroidx/media3/extractor/ExtractorInput;->read([BII)I
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result p1
+ 
+@@ -911,7 +749,6 @@
+     .line 69
+     if-ne p1, v1, :cond_2
+ 
+-    .line 70
+     .line 71
+     const/4 v4, 0x1
+ 
+@@ -926,19 +763,15 @@
+     :goto_0
+     if-nez v4, :cond_3
+ 
+-    .line 75
+     .line 76
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 77
+     .line 78
+     add-int/2addr p2, p1
+ 
+     .line 79
+     invoke-virtual {v1, p2}, Landroidx/media3/common/util/ParsableByteArray;->setLimit(I)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     goto :goto_1
+ 
+@@ -946,24 +779,18 @@
+     :cond_3
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result p1
+ 
+     .line 89
+     if-nez p1, :cond_5
+ 
+-    .line 90
+     .line 91
+     invoke-direct {p0}, Landroidx/media3/extractor/flac/FlacExtractor;->outputSampleMetadata()V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     return v1
+ 
+@@ -976,77 +803,58 @@
+     :goto_1
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result p1
+ 
+     .line 102
+     iget p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameBytesWritten:I
+ 
+-    .line 103
+     .line 104
+     iget v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->minFrameSize:I
+ 
+-    .line 105
+     .line 106
+     if-ge p2, v1, :cond_6
+ 
+-    .line 107
+     .line 108
+     iget-object v5, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 109
+     .line 110
+     sub-int/2addr v1, p2
+ 
+     .line 111
+     invoke-virtual {v5}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result p2
+ 
+     .line 115
+     invoke-static {v1, p2}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result p2
+ 
+     .line 119
+     invoke-virtual {v5, p2}, Landroidx/media3/common/util/ParsableByteArray;->skipBytes(I)V
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     :cond_6
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 123
+     .line 124
+     invoke-direct {p0, p2, v4}, Landroidx/media3/extractor/flac/FlacExtractor;->findFrame(Landroidx/media3/common/util/ParsableByteArray;Z)J
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-wide v4
+ 
+     .line 128
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result p2
+ 
+@@ -1056,67 +864,49 @@
+     .line 135
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 136
+     .line 137
+     invoke-virtual {v1, p1}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->trackOutput:Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 141
+     .line 142
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 143
+     .line 144
+     invoke-interface {p1, v1, p2}, Landroidx/media3/extractor/TrackOutput;->sampleData(Landroidx/media3/common/util/ParsableByteArray;I)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     iget p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameBytesWritten:I
+ 
+-    .line 148
+     .line 149
+     add-int/2addr p1, p2
+ 
+     .line 150
+     iput p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameBytesWritten:I
+ 
+-    .line 151
+     .line 152
+     cmp-long p1, v4, v2
+ 
+-    .line 153
+     .line 154
+     if-eqz p1, :cond_7
+ 
+-    .line 155
+     .line 156
+     invoke-direct {p0}, Landroidx/media3/extractor/flac/FlacExtractor;->outputSampleMetadata()V
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     iput v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameBytesWritten:I
+ 
+-    .line 160
+     .line 161
+     iput-wide v4, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameFirstSampleNumber:J
+ 
+-    .line 162
+     .line 163
+     :cond_7
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 164
+     .line 165
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object p1
+ 
+@@ -1126,12 +916,9 @@
+     .line 170
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 171
+     .line 172
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->limit()I
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result p2
+ 
+@@ -1141,98 +928,72 @@
+     .line 177
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 178
+     .line 179
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result p2
+ 
+     .line 183
+     const/16 v1, 0x10
+ 
+-    .line 184
+     .line 185
+     if-ge p2, v1, :cond_8
+ 
+-    .line 186
+     .line 187
+     if-ge p1, v1, :cond_8
+ 
+-    .line 188
+     .line 189
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 190
+     .line 191
+     invoke-virtual {p1}, Landroidx/media3/common/util/ParsableByteArray;->bytesLeft()I
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result p1
+ 
+     .line 195
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 196
+     .line 197
+     invoke-virtual {p2}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object p2
+ 
+     .line 201
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 202
+     .line 203
+     invoke-virtual {v1}, Landroidx/media3/common/util/ParsableByteArray;->getPosition()I
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result v1
+ 
+     .line 207
+     iget-object v2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 208
+     .line 209
+     invoke-virtual {v2}, Landroidx/media3/common/util/ParsableByteArray;->getData()[B
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     move-result-object v2
+ 
+     .line 213
+     invoke-static {p2, v1, v2, v0, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     iget-object p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 217
+     .line 218
+     invoke-virtual {p2, v0}, Landroidx/media3/common/util/ParsableByteArray;->setPosition(I)V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     iget-object p0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 222
+     .line 223
+     invoke-virtual {p0, p1}, Landroidx/media3/common/util/ParsableByteArray;->setLimit(I)V
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     :cond_8
+     return v0
+@@ -1249,7 +1010,6 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->id3MetadataDisabled:Z
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+@@ -1259,19 +1019,15 @@
+     .line 5
+     invoke-static {p1, v0}, Landroidx/media3/extractor/FlacMetadataReader;->readId3Metadata(Landroidx/media3/extractor/ExtractorInput;Z)Landroidx/media3/common/Metadata;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     iput-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->id3Metadata:Landroidx/media3/common/Metadata;
+ 
+-    .line 10
+     .line 11
+     iput v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -1287,16 +1043,12 @@
+     .line 1
+     new-instance v0, Landroidx/media3/extractor/FlacMetadataReader$FlacStreamMetadataHolder;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Landroidx/media3/extractor/FlacMetadataReader$FlacStreamMetadataHolder;-><init>(Landroidx/media3/extractor/FlacStreamMetadata;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+@@ -1304,35 +1056,27 @@
+     :goto_0
+     if-nez v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1, v0}, Landroidx/media3/extractor/FlacMetadataReader;->readMetadataBlock(Landroidx/media3/extractor/ExtractorInput;Landroidx/media3/extractor/FlacMetadataReader$FlacStreamMetadataHolder;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     iget-object v2, v0, Landroidx/media3/extractor/FlacMetadataReader$FlacStreamMetadataHolder;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 16
+     .line 17
+     invoke-static {v2}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v2
+ 
+     .line 21
+     check-cast v2, Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 22
+     .line 23
+     iput-object v2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -1340,144 +1084,108 @@
+     :cond_0
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 27
+     .line 28
+     invoke-static {p1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 32
+     .line 33
+     iget p1, p1, Landroidx/media3/extractor/FlacStreamMetadata;->minFrameSize:I
+ 
+-    .line 34
+     .line 35
+     const/4 v0, 0x6
+ 
+     .line 36
+     invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p1
+ 
+     .line 40
+     iput p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->minFrameSize:I
+ 
+-    .line 41
+     .line 42
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 43
+     .line 44
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->streamMarkerAndInfoBlock:[B
+ 
+-    .line 45
+     .line 46
+     iget-object v1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->id3Metadata:Landroidx/media3/common/Metadata;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p1, v0, v1}, Landroidx/media3/extractor/FlacStreamMetadata;->getFormat([BLandroidx/media3/common/Metadata;)Landroidx/media3/common/Format;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p1
+ 
+     .line 52
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->trackOutput:Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 53
+     .line 54
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     check-cast v0, Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p1}, Landroidx/media3/common/Format;->buildUpon()Landroidx/media3/common/Format$Builder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object p1
+ 
+     .line 64
+     const-string v1, "audio/flac"
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p1, v1}, Landroidx/media3/common/Format$Builder;->setContainerMimeType(Ljava/lang/String;)Landroidx/media3/common/Format$Builder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object p1
+ 
+     .line 70
+     invoke-virtual {p1}, Landroidx/media3/common/Format$Builder;->build()Landroidx/media3/common/Format;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p1
+ 
+     .line 74
+     invoke-interface {v0, p1}, Landroidx/media3/extractor/TrackOutput;->format(Landroidx/media3/common/Format;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->trackOutput:Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 78
+     .line 79
+     invoke-static {p1}, Landroidx/media3/common/util/Util;->castNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p1
+ 
+     .line 83
+     check-cast p1, Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 84
+     .line 85
+     iget-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->flacStreamMetadata:Landroidx/media3/extractor/FlacStreamMetadata;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v0}, Landroidx/media3/extractor/FlacStreamMetadata;->getDurationUs()J
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-wide v0
+ 
+     .line 91
+     invoke-interface {p1, v0, v1}, Landroidx/media3/extractor/TrackOutput;->durationUs(J)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     const/4 p1, 0x4
+ 
+     .line 95
+     iput p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 96
+     .line 97
+     return-void
+ .end method
+@@ -1493,15 +1201,12 @@
+     .line 1
+     invoke-static {p1}, Landroidx/media3/extractor/FlacMetadataReader;->readStreamMarker(Landroidx/media3/extractor/ExtractorInput;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 p1, 0x3
+ 
+     .line 5
+     iput p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -1514,7 +1219,6 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->extractorOutput:Landroidx/media3/extractor/ExtractorOutput;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x0
+ 
+@@ -1524,20 +1228,15 @@
+     .line 5
+     invoke-interface {p1, v0, v1}, Landroidx/media3/extractor/ExtractorOutput;->track(II)Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     iput-object v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->trackOutput:Landroidx/media3/extractor/TrackOutput;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p1}, Landroidx/media3/extractor/ExtractorOutput;->endTracks()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -1553,54 +1252,45 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-eqz v0, :cond_5
+ 
+-    .line 5
+     .line 6
+     const/4 v2, 0x1
+ 
+     .line 7
+     if-eq v0, v2, :cond_4
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x2
+ 
+     .line 10
+     if-eq v0, v2, :cond_3
+ 
+-    .line 11
+     .line 12
+     const/4 v2, 0x3
+ 
+     .line 13
+     if-eq v0, v2, :cond_2
+ 
+-    .line 14
+     .line 15
+     const/4 v2, 0x4
+ 
+     .line 16
+     if-eq v0, v2, :cond_1
+ 
+-    .line 17
+     .line 18
+     const/4 v1, 0x5
+ 
+     .line 19
+     if-ne v0, v1, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p0, p1, p2}, Landroidx/media3/extractor/flac/FlacExtractor;->readFrames(Landroidx/media3/extractor/ExtractorInput;Landroidx/media3/extractor/PositionHolder;)I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -1611,12 +1301,9 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     throw p0
+ 
+@@ -1624,8 +1311,6 @@
+     :cond_1
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/flac/FlacExtractor;->getFrameStartMarker(Landroidx/media3/extractor/ExtractorInput;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return v1
+ 
+@@ -1633,8 +1318,6 @@
+     :cond_2
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/flac/FlacExtractor;->readMetadataBlocks(Landroidx/media3/extractor/ExtractorInput;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return v1
+ 
+@@ -1642,8 +1325,6 @@
+     :cond_3
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/flac/FlacExtractor;->readStreamMarker(Landroidx/media3/extractor/ExtractorInput;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return v1
+ 
+@@ -1651,8 +1332,6 @@
+     :cond_4
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/flac/FlacExtractor;->getStreamMarkerAndInfoBlockBytes(Landroidx/media3/extractor/ExtractorInput;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return v1
+ 
+@@ -1660,8 +1339,6 @@
+     :cond_5
+     invoke-direct {p0, p1}, Landroidx/media3/extractor/flac/FlacExtractor;->readId3Metadata(Landroidx/media3/extractor/ExtractorInput;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     return v1
+ .end method
+@@ -1679,22 +1356,18 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long p1, p1, v0
+ 
+-    .line 4
+     .line 5
+     const/4 p2, 0x0
+ 
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iput p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->state:I
+ 
+-    .line 9
+     .line 10
+     goto :goto_0
+ 
+@@ -1702,26 +1375,20 @@
+     :cond_0
+     iget-object p1, p0, Landroidx/media3/extractor/flac/FlacExtractor;->binarySearchSeeker:Landroidx/media3/extractor/flac/FlacBinarySearchSeeker;
+ 
+-    .line 12
+     .line 13
+     if-eqz p1, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p1, p3, p4}, Landroidx/media3/extractor/BinarySearchSeeker;->setSeekTargetUs(J)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_1
+     :goto_0
+     cmp-long p1, p3, v0
+ 
+-    .line 19
+     .line 20
+     if-nez p1, :cond_2
+ 
+-    .line 21
+     .line 22
+     goto :goto_1
+ 
+@@ -1729,25 +1396,19 @@
+     :cond_2
+     const-wide/16 v0, -0x1
+ 
+-    .line 24
+     .line 25
+     :goto_1
+     iput-wide v0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameFirstSampleNumber:J
+ 
+-    .line 26
+     .line 27
+     iput p2, p0, Landroidx/media3/extractor/flac/FlacExtractor;->currentFrameBytesWritten:I
+ 
+-    .line 28
+     .line 29
+     iget-object p0, p0, Landroidx/media3/extractor/flac/FlacExtractor;->buffer:Landroidx/media3/common/util/ParsableByteArray;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0, p2}, Landroidx/media3/common/util/ParsableByteArray;->reset(I)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method
+@@ -1766,13 +1427,9 @@
+     .line 2
+     invoke-static {p1, p0}, Landroidx/media3/extractor/FlacMetadataReader;->peekId3Metadata(Landroidx/media3/extractor/ExtractorInput;Z)Landroidx/media3/common/Metadata;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-static {p1}, Landroidx/media3/extractor/FlacMetadataReader;->checkAndPeekStreamMarker(Landroidx/media3/extractor/ExtractorInput;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 

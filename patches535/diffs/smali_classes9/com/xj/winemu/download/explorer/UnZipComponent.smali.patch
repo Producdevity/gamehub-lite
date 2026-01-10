@@ -1,0 +1,1208 @@
+--- a/smali_classes9/com/xj/winemu/download/explorer/UnZipComponent.smali
++++ b/smali_classes9/com/xj/winemu/download/explorer/UnZipComponent.smali
+@@ -21,41 +21,33 @@
+     .line 1
+     instance-of v0, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p5
+ 
+     .line 6
+     check-cast v0, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->label:I
+ 
+-    .line 18
+     .line 19
+     :goto_0
+     move-object p5, v0
+@@ -67,12 +59,9 @@
+     :cond_0
+     new-instance v0, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v0, p0, p5}, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;-><init>(Lcom/xj/winemu/download/explorer/UnZipComponent;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -80,81 +69,63 @@
+     :goto_1
+     iget-object v0, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->result:Ljava/lang/Object;
+ 
+-    .line 28
+     .line 29
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v1
+ 
+     .line 33
+     iget v2, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->label:I
+ 
+-    .line 34
+     .line 35
+     const/4 v3, 0x1
+ 
+     .line 36
+     if-eqz v2, :cond_2
+ 
+-    .line 37
+     .line 38
+     if-ne v2, v3, :cond_1
+ 
+-    .line 39
+     .line 40
+     iget-object p0, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     check-cast p0, Ljava/lang/ref/WeakReference;
+ 
+-    .line 43
+     .line 44
+     iget-object p1, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 45
+     .line 46
+     check-cast p1, Lcom/xj/winemu/download/listener/OnUnZipProgressListener;
+ 
+-    .line 47
+     .line 48
+     iget-object p1, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 49
+     .line 50
+     move-object p2, p1
+ 
+     .line 51
+     check-cast p2, Ljava/lang/String;
+ 
+-    .line 52
+     .line 53
+     iget-object p1, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 54
+     .line 55
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 56
+     .line 57
+     iget-object p3, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 58
+     .line 59
+     check-cast p3, Lcom/xj/winemu/download/explorer/UnZipComponent;
+ 
+-    .line 60
+     .line 61
+     :try_start_0
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-object v2, p0
+ 
+@@ -184,16 +155,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 73
+     .line 74
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 75
+     .line 76
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     throw p0
+ 
+@@ -201,92 +168,70 @@
+     :cond_2
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     new-instance v2, Ljava/lang/ref/WeakReference;
+ 
+-    .line 84
+     .line 85
+     invoke-direct {v2, p4}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     :try_start_1
+     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v0
+ 
+     .line 94
+     check-cast v0, Lcom/xj/winemu/download/listener/OnUnZipProgressListener;
+ 
+-    .line 95
+     .line 96
+     iput-object p0, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 97
+     .line 98
+     iput-object p1, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 99
+     .line 100
+     iput-object p2, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 101
+     .line 102
+     invoke-static {p4}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object p4
+ 
+     .line 106
+     iput-object p4, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 107
+     .line 108
+     iput-object v2, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 109
+     .line 110
+     iput p3, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->I$0:I
+ 
+-    .line 111
+     .line 112
+     const/4 p4, 0x0
+ 
+     .line 113
+     iput p4, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->I$1:I
+ 
+-    .line 114
+     .line 115
+     iput v3, p5, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipFile$1;->label:I
+ 
+-    .line 116
+     .line 117
+     move-object p4, v0
+ 
+     .line 118
+     invoke-interface/range {p0 .. p5}, Lcom/xj/winemu/download/explorer/UnZipComponent;->g(Ljava/lang/String;Ljava/lang/String;ILcom/xj/winemu/download/listener/OnUnZipProgressListener;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object p3
+ 
+     .line 122
+     if-ne p3, v1, :cond_3
+ 
+-    .line 123
+     .line 124
+     return-object v1
+ 
+@@ -295,12 +240,9 @@
+     :goto_2
+     sget-object p3, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 126
+     .line 127
+     invoke-static {p3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object p3
+     :try_end_1
+@@ -320,20 +262,15 @@
+     :goto_3
+     sget-object p3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 135
+     .line 136
+     invoke-static {p4}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object p3
+ 
+     .line 140
+     invoke-static {p3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object p3
+ 
+@@ -341,117 +278,83 @@
+     :goto_4
+     invoke-static {p3}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result p4
+ 
+     .line 148
+     if-eqz p4, :cond_5
+ 
+-    .line 149
+     .line 150
+     invoke-interface {p0, p1, p2}, Lcom/xj/winemu/download/explorer/UnZipComponent;->k(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result-object p0
+ 
+     .line 157
+     check-cast p0, Lcom/xj/winemu/download/listener/OnUnZipProgressListener;
+ 
+-    .line 158
+     .line 159
+     if-eqz p0, :cond_4
+ 
+-    .line 160
+     .line 161
+     invoke-static {p3}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result-object p2
+ 
+     .line 165
+     invoke-interface {p0, p2}, Lcom/xj/winemu/download/listener/OnUnZipProgressListener;->onError(Ljava/lang/Throwable;)V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     :cond_4
+     invoke-static {p3}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result-object p0
+ 
+     .line 172
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 173
+     .line 174
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     const-string p3, "unzip "
+ 
+-    .line 178
+     .line 179
+     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     const-string p1, " failure : "
+ 
+-    .line 186
+     .line 187
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result-object p0
+ 
+     .line 197
+     const-string p1, "UnZipComponent"
+ 
+-    .line 198
+     .line 199
+     invoke-static {p1, p0}, Lcom/xj/common/utils/XjLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     :cond_5
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 203
+     .line 204
+     return-object p0
+ .end method
+@@ -462,41 +365,33 @@
+     .line 1
+     instance-of v0, p2, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p2
+ 
+     .line 6
+     check-cast v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -504,61 +399,46 @@
+     :cond_0
+     new-instance v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p2}, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;-><init>(Lcom/xj/winemu/download/explorer/UnZipComponent;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p2, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p0, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 41
+     .line 42
+     iget-object p0, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 43
+     .line 44
+     check-cast p0, Lcom/xj/winemu/download/explorer/UnZipComponent;
+ 
+-    .line 45
+     .line 46
+     invoke-static {p2}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     goto :goto_1
+ 
+@@ -566,16 +446,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 51
+     .line 52
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 53
+     .line 54
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     throw p0
+ 
+@@ -583,60 +459,45 @@
+     :cond_2
+     invoke-static {p2}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     new-instance p2, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$result$1;
+ 
+-    .line 62
+     .line 63
+     const/4 v2, 0x0
+ 
+     .line 64
+     invoke-direct {p2, p1, v2}, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$result$1;-><init>(Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object p0
+ 
+     .line 71
+     iput-object p0, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 72
+     .line 73
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p0
+ 
+     .line 77
+     iput-object p0, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 78
+     .line 79
+     iput v3, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$getZipFileSize$1;->label:I
+ 
+-    .line 80
+     .line 81
+     invoke-static {p2, v0}, Lcom/drake/net/utils/SuspendKt;->e(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p2
+ 
+     .line 85
+     if-ne p2, v1, :cond_3
+ 
+-    .line 86
+     .line 87
+     return-object v1
+ 
+@@ -645,100 +506,73 @@
+     :goto_1
+     check-cast p2, Lkotlin/Result;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {p2}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p0
+ 
+     .line 94
+     invoke-static {p0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result p1
+ 
+     .line 98
+     if-eqz p1, :cond_4
+ 
+-    .line 99
+     .line 100
+     invoke-static {p0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object p1
+ 
+     .line 104
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 105
+     .line 106
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     const-string v0, "get unzip file size failure : "
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p1
+ 
+     .line 121
+     const-string p2, "UnzipComponent"
+ 
+-    .line 122
+     .line 123
+     invoke-static {p2, p1}, Lcom/xj/common/utils/XjLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     :cond_4
+     const-wide/16 p1, 0x0
+ 
+-    .line 127
+     .line 128
+     invoke-static {p1, p2}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object p1
+ 
+     .line 132
+     invoke-static {p0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result p2
+ 
+     .line 136
+     if-eqz p2, :cond_5
+ 
+-    .line 137
+     .line 138
+     move-object p0, p1
+ 
+@@ -746,20 +580,15 @@
+     :cond_5
+     check-cast p0, Ljava/lang/Number;
+ 
+-    .line 140
+     .line 141
+     invoke-virtual {p0}, Ljava/lang/Number;->longValue()J
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result-wide p0
+ 
+     .line 145
+     invoke-static {p0, p1}, Lkotlin/coroutines/jvm/internal/Boxing;->f(J)Ljava/lang/Long;
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result-object p0
+ 
+@@ -773,8 +602,6 @@
+     .line 1
+     invoke-interface/range {p0 .. p8}, Lcom/xj/winemu/download/explorer/UnZipComponent;->d(Ljava/io/File;Ljava/util/List;Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;Ljava/lang/String;ILkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -788,8 +615,6 @@
+     .line 1
+     invoke-interface/range {p0 .. p5}, Lcom/xj/winemu/download/explorer/UnZipComponent;->g(Ljava/lang/String;Ljava/lang/String;ILcom/xj/winemu/download/listener/OnUnZipProgressListener;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -803,19 +628,15 @@
+     .line 1
+     if-nez p7, :cond_1
+ 
+-    .line 2
+     .line 3
+     and-int/lit8 p6, p6, 0x4
+ 
+-    .line 4
+     .line 5
+     if-eqz p6, :cond_0
+ 
+-    .line 6
+     .line 7
+     const-wide/16 p4, 0x2800
+ 
+-    .line 8
+     .line 9
+     :cond_0
+     move-object v0, p0
+@@ -832,8 +653,6 @@
+     .line 13
+     invoke-interface/range {v0 .. v5}, Lcom/xj/winemu/download/explorer/UnZipComponent;->h(Ljava/lang/String;JJ)Ljava/lang/Throwable;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+@@ -844,16 +663,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 19
+     .line 20
+     const-string p1, "Super calls with default arguments not supported in this target, function: checkStorageEnough"
+ 
+-    .line 21
+     .line 22
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     throw p0
+ .end method
+@@ -866,45 +681,36 @@
+     .line 1
+     move-object/from16 v0, p8
+ 
+-    .line 2
+     .line 3
+     instance-of v1, v0, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;
+ 
+-    .line 4
+     .line 5
+     if-eqz v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     move-object v1, v0
+ 
+     .line 8
+     check-cast v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;
+ 
+-    .line 9
+     .line 10
+     iget v2, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->label:I
+ 
+-    .line 11
+     .line 12
+     const/high16 v3, -0x80000000
+ 
+-    .line 13
+     .line 14
+     and-int v4, v2, v3
+ 
+-    .line 15
+     .line 16
+     if-eqz v4, :cond_0
+ 
+-    .line 17
+     .line 18
+     sub-int/2addr v2, v3
+ 
+     .line 19
+     iput v2, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->label:I
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -912,101 +718,76 @@
+     :cond_0
+     new-instance v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v1, p0, v0}, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;-><init>(Lcom/xj/winemu/download/explorer/UnZipComponent;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :goto_0
+     iget-object p0, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->result:Ljava/lang/Object;
+ 
+-    .line 28
+     .line 29
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     iget v2, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->label:I
+ 
+-    .line 34
+     .line 35
+     const/4 v3, 0x1
+ 
+     .line 36
+     if-eqz v2, :cond_2
+ 
+-    .line 37
+     .line 38
+     if-ne v2, v3, :cond_1
+ 
+-    .line 39
+     .line 40
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$6:Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     check-cast p1, Ljava/io/File;
+ 
+-    .line 43
+     .line 44
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$5:Ljava/lang/Object;
+ 
+-    .line 45
+     .line 46
+     check-cast p1, Lkotlin/jvm/functions/Function2;
+ 
+-    .line 47
+     .line 48
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 49
+     .line 50
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 51
+     .line 52
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 53
+     .line 54
+     check-cast p1, Ljava/util/zip/ZipEntry;
+ 
+-    .line 55
+     .line 56
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 57
+     .line 58
+     check-cast p1, Ljava/util/zip/ZipFile;
+ 
+-    .line 59
+     .line 60
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 61
+     .line 62
+     check-cast p1, Ljava/util/List;
+ 
+-    .line 63
+     .line 64
+     iget-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 65
+     .line 66
+     check-cast p1, Ljava/io/File;
+ 
+-    .line 67
+     .line 68
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     goto :goto_1
+ 
+@@ -1014,16 +795,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 73
+     .line 74
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 75
+     .line 76
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     throw p0
+ 
+@@ -1031,51 +808,36 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     new-instance v7, Ljava/io/File;
+ 
+-    .line 84
+     .line 85
+     move-object/from16 p0, p5
+ 
+-    .line 86
+     .line 87
+     invoke-direct {v7, p1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     invoke-interface {p2, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     invoke-virtual {p4}, Ljava/util/zip/ZipEntry;->isDirectory()Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v2
+ 
+     .line 97
+     if-eqz v2, :cond_3
+ 
+-    .line 98
+     .line 99
+     invoke-static {v7}, Lcom/blankj/utilcode/util/FileUtils;->h(Ljava/io/File;)Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p0
+ 
+     .line 103
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object p0
+ 
+@@ -1086,23 +848,18 @@
+     :cond_3
+     invoke-static {v7}, Lcom/blankj/utilcode/util/FileUtils;->j(Ljava/io/File;)Z
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result v2
+ 
+     .line 112
+     if-nez v2, :cond_4
+ 
+-    .line 113
+     .line 114
+     const/4 p0, 0x0
+ 
+     .line 115
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p0
+ 
+@@ -1113,7 +870,6 @@
+     :cond_4
+     new-instance v4, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$2;
+ 
+-    .line 121
+     .line 122
+     const/4 v10, 0x0
+ 
+@@ -1126,120 +882,90 @@
+     .line 125
+     move/from16 v8, p6
+ 
+-    .line 126
+     .line 127
+     move-object/from16 v9, p7
+ 
+-    .line 128
+     .line 129
+     invoke-direct/range {v4 .. v10}, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$2;-><init>(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;Ljava/io/File;ILkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object p1
+ 
+     .line 136
+     iput-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 137
+     .line 138
+     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-object p1
+ 
+     .line 142
+     iput-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 143
+     .line 144
+     invoke-static {p3}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object p1
+ 
+     .line 148
+     iput-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 149
+     .line 150
+     invoke-static {p4}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result-object p1
+ 
+     .line 154
+     iput-object p1, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 155
+     .line 156
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object p0
+ 
+     .line 160
+     iput-object p0, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 161
+     .line 162
+     invoke-static/range {p7 .. p7}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object p0
+ 
+     .line 166
+     iput-object p0, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$5:Ljava/lang/Object;
+ 
+-    .line 167
+     .line 168
+     invoke-static {v7}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result-object p0
+ 
+     .line 172
+     iput-object p0, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->L$6:Ljava/lang/Object;
+ 
+-    .line 173
+     .line 174
+     iput v8, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->I$0:I
+ 
+-    .line 175
+     .line 176
+     iput v3, v1, Lcom/xj/winemu/download/explorer/UnZipComponent$unzipChildFile$1;->label:I
+ 
+-    .line 177
+     .line 178
+     invoke-static {v4, v1}, Lcom/drake/net/utils/SuspendKt;->e(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result-object p0
+ 
+     .line 182
+     if-ne p0, v0, :cond_5
+ 
+-    .line 183
+     .line 184
+     return-object v0
+ 
+@@ -1248,8 +974,6 @@
+     :goto_1
+     invoke-static {v3}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object p0
+ 
+@@ -2350,16 +2074,12 @@
+     .line 1
+     invoke-static {}, Lcom/blankj/utilcode/util/PathUtils;->e()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p0}, Lcom/blankj/utilcode/util/FileUtils;->B(Ljava/lang/String;)J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v4
+ 
+@@ -2369,15 +2089,12 @@
+     .line 10
+     cmp-long p0, p4, v4
+ 
+-    .line 11
+     .line 12
+     if-lez p0, :cond_0
+ 
+-    .line 13
+     .line 14
+     new-instance v0, Lcom/xj/winemu/download/WinEmuFileExplorer$NotEnoughStorageException;
+ 
+-    .line 15
+     .line 16
+     move-object v1, p1
+ 
+@@ -2387,8 +2104,6 @@
+     .line 18
+     invoke-direct/range {v0 .. v5}, Lcom/xj/winemu/download/WinEmuFileExplorer$NotEnoughStorageException;-><init>(Ljava/lang/String;JJ)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-object v0
+ 
+@@ -2406,8 +2121,6 @@
+     .line 1
+     invoke-static/range {p0 .. p5}, Lcom/xj/winemu/download/explorer/UnZipComponent;->a(Lcom/xj/winemu/download/explorer/UnZipComponent;Ljava/lang/String;Ljava/lang/String;ILcom/xj/winemu/download/listener/OnUnZipProgressListener;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -2421,8 +2134,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Lcom/xj/winemu/download/explorer/UnZipComponent;->b(Lcom/xj/winemu/download/explorer/UnZipComponent;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 

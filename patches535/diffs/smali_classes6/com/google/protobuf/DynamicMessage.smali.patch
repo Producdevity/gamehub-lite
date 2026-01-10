@@ -1,0 +1,587 @@
+--- a/smali_classes6/com/google/protobuf/DynamicMessage.smali
++++ b/smali_classes6/com/google/protobuf/DynamicMessage.smali
+@@ -50,31 +50,24 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/protobuf/AbstractMessage;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, -0x1
+ 
+     .line 5
+     iput v0, p0, Lcom/google/protobuf/DynamicMessage;->memoizedSize:I
+ 
+-    .line 6
+     .line 7
+     iput-object p1, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 8
+     .line 9
+     iput-object p2, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 10
+     .line 11
+     iput-object p3, p0, Lcom/google/protobuf/DynamicMessage;->oneofCases:[Lcom/google/protobuf/Descriptors$FieldDescriptor;
+ 
+-    .line 12
+     .line 13
+     iput-object p4, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -85,7 +78,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -96,7 +88,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -107,7 +98,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -118,7 +108,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->oneofCases:[Lcom/google/protobuf/Descriptors$FieldDescriptor;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -129,48 +118,36 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/protobuf/Descriptors$Descriptor;->toProto()Lcom/google/protobuf/DescriptorProtos$DescriptorProto;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Lcom/google/protobuf/DescriptorProtos$DescriptorProto;->getOneofDeclCount()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     new-array v0, v0, [Lcom/google/protobuf/Descriptors$FieldDescriptor;
+ 
+-    .line 10
+     .line 11
+     new-instance v1, Lcom/google/protobuf/DynamicMessage;
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Lcom/google/protobuf/FieldSet;->emptySet()Lcom/google/protobuf/FieldSet;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v2
+ 
+     .line 17
+     invoke-static {}, Lcom/google/protobuf/UnknownFieldSet;->getDefaultInstance()Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v3
+ 
+     .line 21
+     invoke-direct {v1, p0, v2, v0, v3}, Lcom/google/protobuf/DynamicMessage;-><init>(Lcom/google/protobuf/Descriptors$Descriptor;Lcom/google/protobuf/FieldSet;[Lcom/google/protobuf/Descriptors$FieldDescriptor;Lcom/google/protobuf/UnknownFieldSet;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-object v1
+ .end method
+@@ -484,19 +461,15 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$FieldDescriptor;->getContainingType()Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 6
+     .line 7
+     if-ne p1, p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -504,16 +477,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 11
+     .line 12
+     const-string p1, "FieldDescriptor does not match message type."
+ 
+-    .line 13
+     .line 14
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     throw p0
+ .end method
+@@ -524,19 +493,15 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$OneofDescriptor;->getContainingType()Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 6
+     .line 7
+     if-ne p1, p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -544,16 +509,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 11
+     .line 12
+     const-string p1, "OneofDescriptor does not match message type."
+ 
+-    .line 13
+     .line 14
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     throw p0
+ .end method
+@@ -575,12 +536,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/protobuf/FieldSet;->getAllFields()Ljava/util/Map;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -629,7 +587,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -640,40 +597,30 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/DynamicMessage;->verifyContainingType(Lcom/google/protobuf/Descriptors$FieldDescriptor;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Lcom/google/protobuf/FieldSet;->getField(Lcom/google/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     if-nez p0, :cond_2
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$FieldDescriptor;->isRepeated()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p0
+ 
+     .line 16
+     if-eqz p0, :cond_0
+ 
+-    .line 17
+     .line 18
+     sget-object p0, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ 
+@@ -681,32 +628,24 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$FieldDescriptor;->getJavaType()Lcom/google/protobuf/Descriptors$FieldDescriptor$JavaType;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+     .line 25
+     sget-object v0, Lcom/google/protobuf/Descriptors$FieldDescriptor$JavaType;->MESSAGE:Lcom/google/protobuf/Descriptors$FieldDescriptor$JavaType;
+ 
+-    .line 26
+     .line 27
+     if-ne p0, v0, :cond_1
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$FieldDescriptor;->getMessageType()Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     invoke-static {p0}, Lcom/google/protobuf/DynamicMessage;->getDefaultInstance(Lcom/google/protobuf/Descriptors$Descriptor;)Lcom/google/protobuf/DynamicMessage;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+@@ -717,8 +656,6 @@
+     :cond_1
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$FieldDescriptor;->getDefaultValue()Ljava/lang/Object;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -733,24 +670,18 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/DynamicMessage;->verifyOneofContainingType(Lcom/google/protobuf/Descriptors$OneofDescriptor;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->oneofCases:[Lcom/google/protobuf/Descriptors$FieldDescriptor;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$OneofDescriptor;->getIndex()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p1
+ 
+     .line 10
+     aget-object p0, p0, p1
+ 
+-    .line 11
+     .line 12
+     return-object p0
+ .end method
+@@ -769,12 +700,9 @@
+     .line 1
+     new-instance v0, Lcom/google/protobuf/DynamicMessage$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/protobuf/DynamicMessage$1;-><init>(Lcom/google/protobuf/DynamicMessage;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -785,17 +713,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/DynamicMessage;->verifyContainingType(Lcom/google/protobuf/Descriptors$FieldDescriptor;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/FieldSet;->getRepeatedField(Lcom/google/protobuf/FieldSet$FieldDescriptorLite;I)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -809,17 +732,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/DynamicMessage;->verifyContainingType(Lcom/google/protobuf/Descriptors$FieldDescriptor;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Lcom/google/protobuf/FieldSet;->getRepeatedFieldCount(Lcom/google/protobuf/FieldSet$FieldDescriptorLite;)I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -833,14 +751,12 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/DynamicMessage;->memoizedSize:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, -0x1
+ 
+     .line 4
+     if-eq v0, v1, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v0
+ 
+@@ -848,48 +764,36 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v0}, Lcom/google/protobuf/Descriptors$Descriptor;->getOptions()Lcom/google/protobuf/DescriptorProtos$MessageOptions;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-virtual {v0}, Lcom/google/protobuf/DescriptorProtos$MessageOptions;->getMessageSetWireFormat()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-eqz v0, :cond_1
+ 
+-    .line 18
+     .line 19
+     iget-object v0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Lcom/google/protobuf/FieldSet;->getMessageSetSerializedSize()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     iget-object v1, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v1}, Lcom/google/protobuf/UnknownFieldSet;->getSerializedSizeAsMessageSet()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v1
+ 
+@@ -904,24 +808,18 @@
+     :cond_1
+     iget-object v0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v0}, Lcom/google/protobuf/FieldSet;->getSerializedSize()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v0
+ 
+     .line 39
+     iget-object v1, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v1}, Lcom/google/protobuf/UnknownFieldSet;->getSerializedSize()I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v1
+ 
+@@ -932,7 +830,6 @@
+     :goto_1
+     iput v0, p0, Lcom/google/protobuf/DynamicMessage;->memoizedSize:I
+ 
+-    .line 47
+     .line 48
+     return v0
+ .end method
+@@ -943,7 +840,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -954,17 +850,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/DynamicMessage;->verifyContainingType(Lcom/google/protobuf/Descriptors$FieldDescriptor;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p1}, Lcom/google/protobuf/FieldSet;->hasField(Lcom/google/protobuf/FieldSet$FieldDescriptorLite;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -978,28 +869,21 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/DynamicMessage;->verifyOneofContainingType(Lcom/google/protobuf/Descriptors$OneofDescriptor;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->oneofCases:[Lcom/google/protobuf/Descriptors$FieldDescriptor;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Lcom/google/protobuf/Descriptors$OneofDescriptor;->getIndex()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p1
+ 
+     .line 10
+     aget-object p0, p0, p1
+ 
+-    .line 11
+     .line 12
+     if-nez p0, :cond_0
+ 
+-    .line 13
+     .line 14
+     const/4 p0, 0x0
+ 
+@@ -1114,45 +998,33 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/protobuf/DynamicMessage;->type:Lcom/google/protobuf/Descriptors$Descriptor;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/google/protobuf/Descriptors$Descriptor;->getOptions()Lcom/google/protobuf/DescriptorProtos$MessageOptions;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {v0}, Lcom/google/protobuf/DescriptorProtos$MessageOptions;->getMessageSetWireFormat()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-eqz v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     iget-object v0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/FieldSet;->writeMessageSetTo(Lcom/google/protobuf/CodedOutputStream;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, p1}, Lcom/google/protobuf/UnknownFieldSet;->writeAsMessageSetTo(Lcom/google/protobuf/CodedOutputStream;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -1160,21 +1032,15 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/protobuf/DynamicMessage;->fields:Lcom/google/protobuf/FieldSet;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/FieldSet;->writeTo(Lcom/google/protobuf/CodedOutputStream;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-object p0, p0, Lcom/google/protobuf/DynamicMessage;->unknownFields:Lcom/google/protobuf/UnknownFieldSet;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0, p1}, Lcom/google/protobuf/UnknownFieldSet;->writeTo(Lcom/google/protobuf/CodedOutputStream;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method

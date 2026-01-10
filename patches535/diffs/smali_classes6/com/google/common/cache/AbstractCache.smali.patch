@@ -1,0 +1,234 @@
+--- a/smali_classes6/com/google/common/cache/AbstractCache.smali
++++ b/smali_classes6/com/google/common/cache/AbstractCache.smali
+@@ -41,8 +41,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -62,12 +60,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -98,12 +93,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -125,16 +117,12 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/collect/Maps;->newLinkedHashMap()Ljava/util/LinkedHashMap;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+@@ -143,52 +131,39 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     if-eqz v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v1
+ 
+     .line 19
+     invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v2
+ 
+     .line 23
+     if-nez v2, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-interface {p0, v1}, Lcom/google/common/cache/Cache;->getIfPresent(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v2
+ 
+     .line 29
+     if-eqz v2, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -196,8 +171,6 @@
+     :cond_1
+     invoke-static {v0}, Lcom/google/common/collect/ImmutableMap;->copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+@@ -211,12 +184,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -280,12 +250,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -303,16 +270,12 @@
+     .line 1
+     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+@@ -320,48 +283,36 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+ 
+     .line 19
+     check-cast v0, Ljava/util/Map$Entry;
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v1
+ 
+     .line 25
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     invoke-virtual {p0, v1, v0}, Lcom/google/common/cache/AbstractCache;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -376,12 +327,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -392,12 +340,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method

@@ -1,0 +1,1880 @@
+--- a/smali_classes4/androidx/media3/exoplayer/DefaultRenderersFactory.smali
++++ b/smali_classes4/androidx/media3/exoplayer/DefaultRenderersFactory.smali
+@@ -64,59 +64,42 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 5
+     .line 6
+     new-instance v0, Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0, p1}, Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;-><init>(Landroid/content/Context;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iput-object v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->codecAdapterFactory:Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 12
+     .line 13
+     const/4 p1, 0x0
+ 
+     .line 14
+     iput p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 15
+     .line 16
+     const-wide/16 v0, 0x1388
+ 
+-    .line 17
+     .line 18
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->allowedVideoJoiningTimeMs:J
+ 
+-    .line 19
+     .line 20
+     sget-object p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;->DEFAULT:Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;
+ 
+-    .line 21
+     .line 22
+     iput-object p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->mediaCodecSelector:Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;
+ 
+-    .line 23
+     .line 24
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 25
+-    .line 26
+-    .line 27
+-    .line 28
+     .line 29
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->lateThresholdToDropDecoderInputUs:J
+ 
+-    .line 30
+     .line 31
+     return-void
+ .end method
+@@ -144,91 +127,67 @@
+     .line 1
+     move/from16 v8, p2
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v9, p8
+ 
+-    .line 4
+     .line 5
+     const-class v10, Landroid/content/Context;
+ 
+-    .line 6
+     .line 7
+     const-string v11, "DefaultRenderersFactory"
+ 
+-    .line 8
+     .line 9
+     const-class v12, Landroidx/media3/exoplayer/audio/AudioSink;
+ 
+-    .line 10
+     .line 11
+     const-class v13, Landroidx/media3/exoplayer/audio/AudioRendererEventListener;
+ 
+-    .line 12
+     .line 13
+     const-class v14, Landroid/os/Handler;
+ 
+-    .line 14
+     .line 15
+     new-instance v0, Landroidx/media3/exoplayer/audio/MediaCodecAudioRenderer;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->getCodecAdapterFactory()Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Factory;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v2
+ 
+     .line 21
+     move-object/from16 v1, p1
+ 
+-    .line 22
+     .line 23
+     move-object/from16 v3, p3
+ 
+-    .line 24
+     .line 25
+     move/from16 v4, p4
+ 
+-    .line 26
+     .line 27
+     move-object/from16 v7, p5
+ 
+-    .line 28
+     .line 29
+     move-object/from16 v5, p6
+ 
+-    .line 30
+     .line 31
+     move-object/from16 v6, p7
+ 
+-    .line 32
+     .line 33
+     invoke-direct/range {v0 .. v7}, Landroidx/media3/exoplayer/audio/MediaCodecAudioRenderer;-><init>(Landroid/content/Context;Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Factory;Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;ZLandroid/os/Handler;Landroidx/media3/exoplayer/audio/AudioRendererEventListener;Landroidx/media3/exoplayer/audio/AudioSink;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     if-nez v8, :cond_0
+ 
+-    .line 40
+     .line 41
+     goto/16 :goto_a
+ 
+-    .line 42
+     .line 43
+     :cond_0
+     invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p0
+ 
+@@ -238,54 +197,41 @@
+     .line 48
+     if-ne v8, v0, :cond_1
+ 
+-    .line 49
+     .line 50
+     add-int/lit8 p0, p0, -0x1
+ 
+-    .line 51
+     .line 52
+     :cond_1
+     :try_start_0
+     const-string v0, "androidx.media3.decoder.midi.MidiRenderer"
+ 
+-    .line 53
+     .line 54
+     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     filled-new-array {v10, v14, v13, v12}, [Ljava/lang/Class;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v2
+ 
+     .line 62
+     invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     filled-new-array {v1, v5, v6, v7}, [Ljava/lang/Object;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v2
+ 
+     .line 70
+     invoke-virtual {v0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v0
+ 
+@@ -295,29 +241,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+ 
+-    .line 75
+     .line 76
+     add-int/lit8 v2, p0, 0x1
+ 
+-    .line 77
+     .line 78
+     :try_start_1
+     invoke-virtual {v9, p0, v0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     const-string p0, "Loaded MidiRenderer."
+ 
+-    .line 82
+     .line 83
+     invoke-static {v11, p0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_1
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     goto :goto_1
+ 
+@@ -338,16 +277,12 @@
+     .line 91
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 92
+     .line 93
+     const-string v1, "Error instantiating MIDI extension"
+ 
+-    .line 94
+     .line 95
+     invoke-direct {v0, v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     throw v0
+ 
+@@ -361,44 +296,33 @@
+     :try_start_2
+     const-string p0, "androidx.media3.decoder.opus.LibopusAudioRenderer"
+ 
+-    .line 101
+     .line 102
+     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object p0
+ 
+     .line 106
+     filled-new-array {v14, v13, v12}, [Ljava/lang/Class;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v0
+ 
+     .line 110
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object p0
+ 
+     .line 114
+     filled-new-array {v5, v6, v7}, [Ljava/lang/Object;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object v0
+ 
+     .line 118
+     invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object p0
+ 
+@@ -408,29 +332,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_5
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_4
+ 
+-    .line 123
+     .line 124
+     add-int/lit8 v0, v2, 0x1
+ 
+-    .line 125
+     .line 126
+     :try_start_3
+     invoke-virtual {v9, v2, p0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     const-string p0, "Loaded LibopusAudioRenderer."
+ 
+-    .line 130
+     .line 131
+     invoke-static {v11, p0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_3
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_3
+     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_4
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     goto :goto_3
+ 
+@@ -451,16 +368,12 @@
+     .line 139
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 140
+     .line 141
+     const-string v1, "Error instantiating Opus extension"
+ 
+-    .line 142
+     .line 143
+     invoke-direct {v0, v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     throw v0
+ 
+@@ -474,44 +387,33 @@
+     :try_start_4
+     const-string p0, "androidx.media3.decoder.flac.LibflacAudioRenderer"
+ 
+-    .line 149
+     .line 150
+     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result-object p0
+ 
+     .line 154
+     filled-new-array {v14, v13, v12}, [Ljava/lang/Class;
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result-object v2
+ 
+     .line 158
+     invoke-virtual {p0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     move-result-object p0
+ 
+     .line 162
+     filled-new-array {v5, v6, v7}, [Ljava/lang/Object;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object v2
+ 
+     .line 166
+     invoke-virtual {p0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object p0
+ 
+@@ -521,29 +423,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_4 .. :try_end_4} :catch_8
+     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_7
+ 
+-    .line 171
+     .line 172
+     add-int/lit8 v2, v0, 0x1
+ 
+-    .line 173
+     .line 174
+     :try_start_5
+     invoke-virtual {v9, v0, p0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     const-string p0, "Loaded LibflacAudioRenderer."
+ 
+-    .line 178
+     .line 179
+     invoke-static {v11, p0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_5
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_5 .. :try_end_5} :catch_6
+     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_7
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     goto :goto_5
+ 
+@@ -564,16 +459,12 @@
+     .line 187
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 188
+     .line 189
+     const-string v1, "Error instantiating FLAC extension"
+ 
+-    .line 190
+     .line 191
+     invoke-direct {v0, v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     throw v0
+ 
+@@ -587,44 +478,33 @@
+     :try_start_6
+     const-string p0, "androidx.media3.decoder.ffmpeg.FfmpegAudioRenderer"
+ 
+-    .line 197
+     .line 198
+     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     move-result-object p0
+ 
+     .line 202
+     filled-new-array {v14, v13, v12}, [Ljava/lang/Class;
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     move-result-object v0
+ 
+     .line 206
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     move-result-object p0
+ 
+     .line 210
+     filled-new-array {v5, v6, v7}, [Ljava/lang/Object;
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     move-result-object v0
+ 
+     .line 214
+     invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     move-result-object p0
+ 
+@@ -634,29 +514,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_6 .. :try_end_6} :catch_b
+     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_a
+ 
+-    .line 219
+     .line 220
+     add-int/lit8 v0, v2, 0x1
+ 
+-    .line 221
+     .line 222
+     :try_start_7
+     invoke-virtual {v9, v2, p0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     const-string p0, "Loaded FfmpegAudioRenderer."
+ 
+-    .line 226
+     .line 227
+     invoke-static {v11, p0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_7
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_7 .. :try_end_7} :catch_9
+     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_a
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     goto :goto_7
+ 
+@@ -677,16 +550,12 @@
+     .line 235
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 236
+     .line 237
+     const-string v1, "Error instantiating FFmpeg extension"
+ 
+-    .line 238
+     .line 239
+     invoke-direct {v0, v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     throw v0
+ 
+@@ -700,44 +569,33 @@
+     :try_start_8
+     const-string p0, "androidx.media3.decoder.iamf.LibiamfAudioRenderer"
+ 
+-    .line 245
+     .line 246
+     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 247
+-    .line 248
+     .line 249
+     move-result-object p0
+ 
+     .line 250
+     filled-new-array {v10, v14, v13, v12}, [Ljava/lang/Class;
+ 
+-    .line 251
+-    .line 252
+     .line 253
+     move-result-object v2
+ 
+     .line 254
+     invoke-virtual {p0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 255
+-    .line 256
+     .line 257
+     move-result-object p0
+ 
+     .line 258
+     filled-new-array {v1, v5, v6, v7}, [Ljava/lang/Object;
+ 
+-    .line 259
+-    .line 260
+     .line 261
+     move-result-object v1
+ 
+     .line 262
+     invoke-virtual {p0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 263
+-    .line 264
+     .line 265
+     move-result-object p0
+ 
+@@ -747,29 +605,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_8 .. :try_end_8} :catch_e
+     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_d
+ 
+-    .line 267
+     .line 268
+     add-int/lit8 v1, v0, 0x1
+ 
+-    .line 269
+     .line 270
+     :try_start_9
+     invoke-virtual {v9, v0, p0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 271
+-    .line 272
+     .line 273
+     const-string p0, "Loaded LibiamfAudioRenderer."
+ 
+-    .line 274
+     .line 275
+     invoke-static {v11, p0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_9
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_9 .. :try_end_9} :catch_c
+     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_d
+ 
+-    .line 276
+-    .line 277
+     .line 278
+     goto :goto_9
+ 
+@@ -790,16 +641,12 @@
+     .line 283
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 284
+     .line 285
+     const-string v1, "Error instantiating IAMF extension"
+ 
+-    .line 286
+     .line 287
+     invoke-direct {v0, v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 288
+-    .line 289
+     .line 290
+     throw v0
+ 
+@@ -813,68 +660,51 @@
+     :try_start_a
+     const-string p0, "androidx.media3.decoder.mpegh.MpeghAudioRenderer"
+ 
+-    .line 293
+     .line 294
+     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 295
+-    .line 296
+     .line 297
+     move-result-object p0
+ 
+     .line 298
+     filled-new-array {v14, v13, v12}, [Ljava/lang/Class;
+ 
+-    .line 299
+-    .line 300
+     .line 301
+     move-result-object v0
+ 
+     .line 302
+     invoke-virtual {p0, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 303
+-    .line 304
+     .line 305
+     move-result-object p0
+ 
+     .line 306
+     filled-new-array {v5, v6, v7}, [Ljava/lang/Object;
+ 
+-    .line 307
+-    .line 308
+     .line 309
+     move-result-object v0
+ 
+     .line 310
+     invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 311
+-    .line 312
+     .line 313
+     move-result-object p0
+ 
+     .line 314
+     check-cast p0, Landroidx/media3/exoplayer/Renderer;
+ 
+-    .line 315
+     .line 316
+     invoke-virtual {v9, v1, p0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 317
+-    .line 318
+     .line 319
+     const-string p0, "Loaded MpeghAudioRenderer."
+ 
+-    .line 320
+     .line 321
+     invoke-static {v11, p0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_a
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_a} :catch_10
+     .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_f
+ 
+-    .line 322
+-    .line 323
+     .line 324
+     goto :goto_a
+ 
+@@ -888,16 +718,12 @@
+     .line 327
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 328
+     .line 329
+     const-string v1, "Error instantiating MPEG-H extension"
+ 
+-    .line 330
+     .line 331
+     invoke-direct {v0, v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 332
+-    .line 333
+     .line 334
+     throw v0
+ 
+@@ -915,33 +741,24 @@
+     .line 1
+     new-instance p0, Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;-><init>(Landroid/content/Context;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0, p2}, Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;->setEnableFloatOutput(Z)Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;->setEnableAudioTrackPlaybackParams(Z)Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/audio/DefaultAudioSink$Builder;->build()Landroidx/media3/exoplayer/audio/DefaultAudioSink;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+@@ -965,17 +782,12 @@
+     .line 1
+     new-instance p0, Landroidx/media3/exoplayer/video/spherical/CameraMotionRenderer;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Landroidx/media3/exoplayer/video/spherical/CameraMotionRenderer;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p3, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -1048,31 +860,21 @@
+     .line 1
+     new-instance p0, Landroidx/media3/exoplayer/metadata/MetadataRenderer;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p2, p3}, Landroidx/media3/exoplayer/metadata/MetadataRenderer;-><init>(Landroidx/media3/exoplayer/metadata/MetadataOutput;Landroid/os/Looper;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p5, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance p0, Landroidx/media3/exoplayer/metadata/MetadataRenderer;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p0, p2, p3}, Landroidx/media3/exoplayer/metadata/MetadataRenderer;-><init>(Landroidx/media3/exoplayer/metadata/MetadataOutput;Landroid/os/Looper;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {p5, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -1103,149 +905,111 @@
+     .line 1
+     iget-boolean p3, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableMediaCodecVideoRendererPrewarming:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz p3, :cond_1
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     const-class p3, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer;
+ 
+-    .line 10
+     .line 11
+     if-ne p1, p3, :cond_1
+ 
+-    .line 12
+     .line 13
+     new-instance p1, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {p1, p2}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;-><init>(Landroid/content/Context;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->getCodecAdapterFactory()Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Factory;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p2
+ 
+     .line 22
+     invoke-virtual {p1, p2}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setCodecAdapterFactory(Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Factory;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     invoke-virtual {p1, p4}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setMediaCodecSelector(Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p1
+ 
+     .line 30
+     invoke-virtual {p1, p8, p9}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setAllowedJoiningTimeMs(J)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p1
+ 
+     .line 34
+     invoke-virtual {p1, p5}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setEnableDecoderFallback(Z)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p1
+ 
+     .line 38
+     invoke-virtual {p1, p6}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setEventHandler(Landroid/os/Handler;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p1
+ 
+     .line 42
+     invoke-virtual {p1, p7}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setEventListener(Landroidx/media3/exoplayer/video/VideoRendererEventListener;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p1
+ 
+     .line 46
+     const/16 p2, 0x32
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p1, p2}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setMaxDroppedFramesToNotify(I)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p1
+ 
+     .line 52
+     iget-boolean p2, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->parseAv1SampleDependencies:Z
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p1, p2}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->experimentalSetParseAv1SampleDependencies(Z)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p1
+ 
+     .line 58
+     iget-wide p2, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->lateThresholdToDropDecoderInputUs:J
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p1, p2, p3}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->experimentalSetLateThresholdToDropDecoderInputUs(J)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object p1
+ 
+     .line 64
+     sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 65
+     .line 66
+     const/16 p3, 0x22
+ 
+-    .line 67
+     .line 68
+     if-lt p2, p3, :cond_0
+ 
+-    .line 69
+     .line 70
+     iget-boolean p0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableMediaCodecBufferDecodeOnlyFlag:Z
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {p1, p0}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->experimentalSetEnableMediaCodecBufferDecodeOnlyFlag(Z)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p1
+ 
+@@ -1253,8 +1017,6 @@
+     :cond_0
+     invoke-virtual {p1}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->build()Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object p0
+ 
+@@ -1287,17 +1049,12 @@
+     .line 1
+     new-instance p0, Landroidx/media3/exoplayer/text/TextRenderer;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p2, p3}, Landroidx/media3/exoplayer/text/TextRenderer;-><init>(Landroidx/media3/exoplayer/text/TextOutput;Landroid/os/Looper;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p5, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -1323,185 +1080,138 @@
+     .line 1
+     move/from16 v1, p2
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v2, p5
+ 
+-    .line 4
+     .line 5
+     move-object/from16 v3, p6
+ 
+-    .line 6
+     .line 7
+     move-object/from16 v4, p9
+ 
+-    .line 8
+     .line 9
+     const-string v5, "DefaultRenderersFactory"
+ 
+-    .line 10
+     .line 11
+     sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+ 
+-    .line 12
+     .line 13
+     const-class v7, Landroidx/media3/exoplayer/video/VideoRendererEventListener;
+ 
+-    .line 14
+     .line 15
+     const-class v8, Landroid/os/Handler;
+ 
+-    .line 16
+     .line 17
+     sget-object v9, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+ 
+-    .line 18
+     .line 19
+     new-instance v10, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 20
+     .line 21
+     move-object/from16 v11, p1
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v10, v11}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;-><init>(Landroid/content/Context;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->getCodecAdapterFactory()Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Factory;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v11
+ 
+     .line 30
+     invoke-virtual {v10, v11}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setCodecAdapterFactory(Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Factory;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v10
+ 
+     .line 34
+     move-object/from16 v11, p3
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v10, v11}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setMediaCodecSelector(Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v10
+ 
+     .line 40
+     move-wide/from16 v11, p7
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v10, v11, v12}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setAllowedJoiningTimeMs(J)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v10
+ 
+     .line 46
+     move/from16 v13, p4
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v10, v13}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setEnableDecoderFallback(Z)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v10
+ 
+     .line 52
+     invoke-virtual {v10, v2}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setEventHandler(Landroid/os/Handler;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v10
+ 
+     .line 56
+     invoke-virtual {v10, v3}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setEventListener(Landroidx/media3/exoplayer/video/VideoRendererEventListener;)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v10
+ 
+     .line 60
+     const/16 v13, 0x32
+ 
+-    .line 61
+     .line 62
+     invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v14
+ 
+     .line 66
+     invoke-virtual {v10, v13}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->setMaxDroppedFramesToNotify(I)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v10
+ 
+     .line 70
+     iget-boolean v13, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->parseAv1SampleDependencies:Z
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {v10, v13}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->experimentalSetParseAv1SampleDependencies(Z)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v10
+ 
+     .line 76
+     iget-wide v11, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->lateThresholdToDropDecoderInputUs:J
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v10, v11, v12}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->experimentalSetLateThresholdToDropDecoderInputUs(J)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v10
+ 
+     .line 82
+     sget v11, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 83
+     .line 84
+     const/16 v12, 0x22
+ 
+-    .line 85
+     .line 86
+     if-lt v11, v12, :cond_0
+ 
+-    .line 87
+     .line 88
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableMediaCodecBufferDecodeOnlyFlag:Z
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {v10, v0}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->experimentalSetEnableMediaCodecBufferDecodeOnlyFlag(Z)Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v10
+ 
+@@ -1509,30 +1219,22 @@
+     :cond_0
+     invoke-virtual {v10}, Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer$Builder;->build()Landroidx/media3/exoplayer/video/MediaCodecVideoRenderer;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v0
+ 
+     .line 98
+     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     if-nez v1, :cond_1
+ 
+-    .line 102
+     .line 103
+     goto/16 :goto_4
+ 
+-    .line 104
+     .line 105
+     :cond_1
+     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result v0
+ 
+@@ -1542,62 +1244,47 @@
+     .line 110
+     if-ne v1, v10, :cond_2
+ 
+-    .line 111
+     .line 112
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 113
+     .line 114
+     :cond_2
+     :try_start_0
+     const-string v1, "androidx.media3.decoder.vp9.LibvpxVideoRenderer"
+ 
+-    .line 115
+     .line 116
+     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v1
+ 
+     .line 120
+     filled-new-array {v9, v8, v7, v6}, [Ljava/lang/Class;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v10
+ 
+     .line 124
+     invoke-virtual {v1, v10}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object v1
+ 
+     .line 128
+     invoke-static/range {p7 .. p8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object v10
+ 
+     .line 132
+     filled-new-array {v10, v2, v3, v14}, [Ljava/lang/Object;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object v10
+ 
+     .line 136
+     invoke-virtual {v1, v10}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object v1
+ 
+@@ -1607,29 +1294,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+ 
+-    .line 141
+     .line 142
+     add-int/lit8 v10, v0, 0x1
+ 
+-    .line 143
+     .line 144
+     :try_start_1
+     invoke-virtual {v4, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     const-string v0, "Loaded LibvpxVideoRenderer."
+ 
+-    .line 148
+     .line 149
+     invoke-static {v5, v0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_1
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     goto :goto_1
+ 
+@@ -1647,16 +1327,12 @@
+     .line 156
+     new-instance v1, Ljava/lang/IllegalStateException;
+ 
+-    .line 157
+     .line 158
+     const-string v2, "Error instantiating VP9 extension"
+ 
+-    .line 159
+     .line 160
+     invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     throw v1
+ 
+@@ -1670,52 +1346,39 @@
+     :try_start_2
+     const-string v0, "androidx.media3.decoder.av1.Libgav1VideoRenderer"
+ 
+-    .line 166
+     .line 167
+     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     move-result-object v0
+ 
+     .line 171
+     filled-new-array {v9, v8, v7, v6}, [Ljava/lang/Class;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object v1
+ 
+     .line 175
+     invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result-object v0
+ 
+     .line 179
+     invoke-static/range {p7 .. p8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result-object v1
+ 
+     .line 183
+     filled-new-array {v1, v2, v3, v14}, [Ljava/lang/Object;
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     move-result-object v1
+ 
+     .line 187
+     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     move-result-object v0
+ 
+@@ -1725,29 +1388,22 @@
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_5
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_4
+ 
+-    .line 192
+     .line 193
+     add-int/lit8 v1, v10, 0x1
+ 
+-    .line 194
+     .line 195
+     :try_start_3
+     invoke-virtual {v4, v10, v0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     const-string v0, "Loaded Libgav1VideoRenderer."
+ 
+-    .line 199
+     .line 200
+     invoke-static {v5, v0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_3
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_3
+     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_4
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     goto :goto_3
+ 
+@@ -1765,16 +1421,12 @@
+     .line 207
+     new-instance v1, Ljava/lang/IllegalStateException;
+ 
+-    .line 208
+     .line 209
+     const-string v2, "Error instantiating AV1 extension"
+ 
+-    .line 210
+     .line 211
+     invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     throw v1
+ 
+@@ -1788,76 +1440,57 @@
+     :try_start_4
+     const-string v0, "androidx.media3.decoder.ffmpeg.ExperimentalFfmpegVideoRenderer"
+ 
+-    .line 217
+     .line 218
+     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result-object v0
+ 
+     .line 222
+     filled-new-array {v9, v8, v7, v6}, [Ljava/lang/Class;
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     move-result-object v6
+ 
+     .line 226
+     invoke-virtual {v0, v6}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     move-result-object v0
+ 
+     .line 230
+     invoke-static/range {p7 .. p8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     move-result-object v6
+ 
+     .line 234
+     filled-new-array {v6, v2, v3, v14}, [Ljava/lang/Object;
+ 
+-    .line 235
+-    .line 236
+     .line 237
+     move-result-object v2
+ 
+     .line 238
+     invoke-virtual {v0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 239
+-    .line 240
+     .line 241
+     move-result-object v0
+ 
+     .line 242
+     check-cast v0, Landroidx/media3/exoplayer/Renderer;
+ 
+-    .line 243
+     .line 244
+     invoke-virtual {v4, v1, v0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+ 
+-    .line 245
+-    .line 246
+     .line 247
+     const-string v0, "Loaded FfmpegVideoRenderer."
+ 
+-    .line 248
+     .line 249
+     invoke-static {v5, v0}, Landroidx/media3/common/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+     :try_end_4
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_4 .. :try_end_4} :catch_7
+     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_6
+ 
+-    .line 250
+-    .line 251
+     .line 252
+     goto :goto_4
+ 
+@@ -1868,16 +1501,12 @@
+     .line 254
+     new-instance v1, Ljava/lang/IllegalStateException;
+ 
+-    .line 255
+     .line 256
+     const-string v2, "Error instantiating FFmpeg extension"
+ 
+-    .line 257
+     .line 258
+     invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 259
+-    .line 260
+     .line 261
+     throw v1
+ 
+@@ -1893,32 +1522,24 @@
+     .line 1
+     new-instance v5, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 7
+     .line 8
+     iget v2, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 9
+     .line 10
+     iget-object v3, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->mediaCodecSelector:Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;
+ 
+-    .line 11
+     .line 12
+     iget-boolean v4, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableDecoderFallback:Z
+ 
+-    .line 13
+     .line 14
+     iget-wide v7, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->allowedVideoJoiningTimeMs:J
+ 
+-    .line 15
+     .line 16
+     move-object v0, p0
+ 
+@@ -1934,51 +1555,39 @@
+     .line 20
+     invoke-virtual/range {v0 .. v9}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildVideoRenderers(Landroid/content/Context;ILandroidx/media3/exoplayer/mediacodec/MediaCodecSelector;ZLandroid/os/Handler;Landroidx/media3/exoplayer/video/VideoRendererEventListener;JLjava/util/ArrayList;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-object v8, v9
+ 
+     .line 24
+     iget-object p0, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 25
+     .line 26
+     iget-boolean p1, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableFloatOutput:Z
+ 
+-    .line 27
+     .line 28
+     iget-boolean p2, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableAudioTrackPlaybackParams:Z
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v0, p0, p1, p2}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildAudioSink(Landroid/content/Context;ZZ)Landroidx/media3/exoplayer/audio/AudioSink;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     if-eqz p0, :cond_0
+ 
+-    .line 35
+     .line 36
+     iget-object v1, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 37
+     .line 38
+     iget v2, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 39
+     .line 40
+     iget-object v3, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->mediaCodecSelector:Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;
+ 
+-    .line 41
+     .line 42
+     iget-boolean v4, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableDecoderFallback:Z
+ 
+-    .line 43
+     .line 44
+     move-object v7, p3
+ 
+@@ -1991,8 +1600,6 @@
+     .line 47
+     invoke-virtual/range {v0 .. v8}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildAudioRenderers(Landroid/content/Context;ILandroidx/media3/exoplayer/mediacodec/MediaCodecSelector;ZLandroidx/media3/exoplayer/audio/AudioSink;Landroid/os/Handler;Landroidx/media3/exoplayer/audio/AudioRendererEventListener;Ljava/util/ArrayList;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     goto :goto_0
+ 
+@@ -2004,19 +1611,15 @@
+     :goto_0
+     iget-object v1, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v6}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v3
+ 
+     .line 58
+     iget v4, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 59
+     .line 60
+     move-object v2, p4
+ 
+@@ -2026,24 +1629,18 @@
+     .line 62
+     invoke-virtual/range {v0 .. v5}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildTextRenderers(Landroid/content/Context;Landroidx/media3/exoplayer/text/TextOutput;Landroid/os/Looper;ILjava/util/ArrayList;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     iget-object p1, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v6}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object p3
+ 
+     .line 71
+     iget p4, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 72
+     .line 73
+     move-object p2, p5
+ 
+@@ -2056,62 +1653,45 @@
+     .line 76
+     invoke-virtual/range {p0 .. p5}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildMetadataRenderers(Landroid/content/Context;Landroidx/media3/exoplayer/metadata/MetadataOutput;Landroid/os/Looper;ILjava/util/ArrayList;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     iget-object p0, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 80
+     .line 81
+     iget p1, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {v0, p0, p1, v8}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildCameraMotionRenderers(Landroid/content/Context;ILjava/util/ArrayList;)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     iget-object p0, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 87
+     .line 88
+     invoke-virtual {v0, p0, v8}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildImageRenderers(Landroid/content/Context;Ljava/util/ArrayList;)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     iget-object p0, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 92
+     .line 93
+     iget p1, v0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {v0, p0, v6, p1, v8}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildMiscellaneousRenderers(Landroid/content/Context;Landroid/os/Handler;ILjava/util/ArrayList;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     const/4 p0, 0x0
+ 
+     .line 99
+     new-array p0, p0, [Landroidx/media3/exoplayer/Renderer;
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {v8, p0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object p0
+ 
+     .line 105
+     check-cast p0, [Landroidx/media3/exoplayer/Renderer;
+ 
+-    .line 106
+     .line 107
+     return-object p0
+ .end method
+@@ -2124,8 +1704,6 @@
+     .line 1
+     invoke-interface {p1}, Landroidx/media3/exoplayer/Renderer;->getTrackType()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p4
+ 
+@@ -2135,27 +1713,21 @@
+     .line 6
+     if-ne p4, p5, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v2, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->context:Landroid/content/Context;
+ 
+-    .line 9
+     .line 10
+     iget v3, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 11
+     .line 12
+     iget-object v4, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->mediaCodecSelector:Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;
+ 
+-    .line 13
+     .line 14
+     iget-boolean v5, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableDecoderFallback:Z
+ 
+-    .line 15
+     .line 16
+     iget-wide v8, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->allowedVideoJoiningTimeMs:J
+ 
+-    .line 17
+     .line 18
+     move-object v0, p0
+ 
+@@ -2171,8 +1743,6 @@
+     .line 22
+     invoke-virtual/range {v0 .. v9}, Landroidx/media3/exoplayer/DefaultRenderersFactory;->buildSecondaryVideoRenderer(Landroidx/media3/exoplayer/Renderer;Landroid/content/Context;ILandroidx/media3/exoplayer/mediacodec/MediaCodecSelector;ZLandroid/os/Handler;Landroidx/media3/exoplayer/video/VideoRendererEventListener;J)Landroidx/media3/exoplayer/Renderer;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -2198,7 +1768,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableMediaCodecBufferDecodeOnlyFlag:Z
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2211,7 +1780,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableMediaCodecVideoRendererPrewarming:Z
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2224,7 +1792,6 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->lateThresholdToDropDecoderInputUs:J
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2237,12 +1804,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->codecAdapterFactory:Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1}, Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;->experimentalSetAsyncCryptoFlagEnabled(Z)Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object p0
+ .end method
+@@ -2255,7 +1819,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->parseAv1SampleDependencies:Z
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2268,12 +1831,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->codecAdapterFactory:Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;->forceDisableAsynchronous()Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object p0
+ .end method
+@@ -2286,12 +1846,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->codecAdapterFactory:Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;->forceEnableAsynchronous()Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object p0
+ .end method
+@@ -2302,7 +1859,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->codecAdapterFactory:Landroidx/media3/exoplayer/mediacodec/DefaultMediaCodecAdapterFactory;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2315,12 +1871,9 @@
+     .line 1
+     new-instance p0, Landroidx/media3/exoplayer/image/BitmapFactoryImageDecoder$Factory;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/image/BitmapFactoryImageDecoder$Factory;-><init>(Landroid/content/Context;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object p0
+ .end method
+@@ -2333,7 +1886,6 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->allowedVideoJoiningTimeMs:J
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2346,7 +1898,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableFloatOutput:Z
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2359,7 +1910,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableAudioTrackPlaybackParams:Z
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2372,7 +1922,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->enableDecoderFallback:Z
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2385,7 +1934,6 @@
+     .line 1
+     iput p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->extensionRendererMode:I
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -2398,7 +1946,6 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/exoplayer/DefaultRenderersFactory;->mediaCodecSelector:Landroidx/media3/exoplayer/mediacodec/MediaCodecSelector;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

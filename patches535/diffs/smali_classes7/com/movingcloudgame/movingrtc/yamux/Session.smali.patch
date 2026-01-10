@@ -1,0 +1,2232 @@
+--- a/smali_classes7/com/movingcloudgame/movingrtc/yamux/Session.smali
++++ b/smali_classes7/com/movingcloudgame/movingrtc/yamux/Session.smali
+@@ -48,127 +48,90 @@
+     .line 1
+     const-string v0, "underlyingSendChan"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "underlyingRecvChan"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "streamChannel"
+ 
+-    .line 12
+     .line 13
+     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v0, "coroutineScope"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     const-string v0, "ioDispatcher"
+ 
+-    .line 22
+     .line 23
+     invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iput-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->a:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 30
+     .line 31
+     iput-object p2, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->b:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 32
+     .line 33
+     iput-boolean p3, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->c:Z
+ 
+-    .line 34
+     .line 35
+     iput-object p4, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->d:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 36
+     .line 37
+     iput-object p5, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->e:Lkotlinx/coroutines/CoroutineScope;
+ 
+-    .line 38
+     .line 39
+     iput-object p6, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->f:Lkotlinx/coroutines/CoroutineDispatcher;
+ 
+-    .line 40
+     .line 41
+     new-instance p1, Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 42
+     .line 43
+     invoke-direct {p1}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     iput-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->g:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 47
+     .line 48
+     new-instance p1, Lkotlinx/io/Buffer;
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p1}, Lkotlinx/io/Buffer;-><init>()V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     iput-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->h:Lkotlinx/io/Buffer;
+ 
+-    .line 54
+     .line 55
+     const-class p1, Lcom/movingcloudgame/movingrtc/yamux/Session;
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p1
+ 
+     .line 61
+     iput-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->j:Ljava/lang/String;
+ 
+-    .line 62
+     .line 63
+     new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 64
+     .line 65
+     if-eqz p3, :cond_0
+ 
+-    .line 66
+     .line 67
+     const/4 p2, 0x1
+ 
+@@ -183,45 +146,33 @@
+     :goto_0
+     invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     iput-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->i:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 74
+     .line 75
+     new-instance p1, Lkotlinx/coroutines/CoroutineName;
+ 
+-    .line 76
+     .line 77
+     const-string p2, "yamuxSessionRead"
+ 
+-    .line 78
+     .line 79
+     invoke-direct {p1, p2}, Lkotlinx/coroutines/CoroutineName;-><init>(Ljava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {p6, p1}, Lkotlin/coroutines/AbstractCoroutineContextElement;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v1
+ 
+     .line 86
+     new-instance v3, Lcom/movingcloudgame/movingrtc/yamux/Session$1;
+ 
+-    .line 87
+     .line 88
+     const/4 p1, 0x0
+ 
+     .line 89
+     invoke-direct {v3, p0, p1}, Lcom/movingcloudgame/movingrtc/yamux/Session$1;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     const/4 v4, 0x2
+ 
+@@ -237,8 +188,6 @@
+     .line 96
+     invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/BuildersKt;->d(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     return-void
+ .end method
+@@ -249,7 +198,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->h:Lkotlinx/io/Buffer;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -260,7 +208,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->k:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -271,8 +218,6 @@
+     .line 1
+     invoke-virtual/range {p0 .. p7}, Lcom/movingcloudgame/movingrtc/yamux/Session;->j(BLcom/movingcloudgame/movingrtc/yamux/FrameType;Ljava/util/EnumSet;II[BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -286,7 +231,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->k:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -297,8 +241,6 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Lcom/movingcloudgame/movingrtc/yamux/Session;->p(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -312,8 +254,6 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Lcom/movingcloudgame/movingrtc/yamux/Session;->q(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -329,23 +269,18 @@
+     .line 1
+     iget-object p0, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->i:Ljava/util/concurrent/atomic/AtomicInteger;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x2
+ 
+     .line 4
+     invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p0
+ 
+     .line 8
+     invoke-static {p0}, Lkotlin/UInt;->b(I)I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p0
+ 
+@@ -359,41 +294,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -401,53 +328,40 @@
+     :cond_0
+     new-instance v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p0, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p0, Lcom/movingcloudgame/movingrtc/yamux/Session;
+ 
+-    .line 41
+     .line 42
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     goto :goto_1
+ 
+@@ -455,16 +369,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 47
+     .line 48
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     throw p0
+ 
+@@ -472,28 +382,21 @@
+     :cond_2
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     iput-object p0, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 58
+     .line 59
+     iput v3, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$disconnect$1;->label:I
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {p0, v0}, Lcom/movingcloudgame/movingrtc/yamux/Session;->m(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p1
+ 
+     .line 65
+     if-ne p1, v1, :cond_3
+ 
+-    .line 66
+     .line 67
+     return-object v1
+ 
+@@ -502,37 +405,27 @@
+     :goto_1
+     iget-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->b:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 69
+     .line 70
+     const/4 v0, 0x0
+ 
+     .line 71
+     invoke-static {p1, v0, v3, v0}, Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;->a(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     iget-object p1, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->a:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 75
+     .line 76
+     invoke-static {p1, v0, v3, v0}, Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;->a(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     iget-object p0, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->g:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {p0}, Ljava/util/concurrent/ConcurrentHashMap;->clear()V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 85
+     .line 86
+     return-object p0
+ .end method
+@@ -543,41 +436,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -585,53 +470,40 @@
+     :cond_0
+     new-instance v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p0, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p0, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 41
+     .line 42
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     return-object p0
+ 
+@@ -639,16 +511,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 47
+     .line 48
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     throw p0
+ 
+@@ -656,28 +524,21 @@
+     :cond_2
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {p0}, Lcom/movingcloudgame/movingrtc/yamux/Session;->g()I
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v6
+ 
+     .line 61
+     new-instance v4, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 62
+     .line 63
+     iget-object v7, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->e:Lkotlinx/coroutines/CoroutineScope;
+ 
+-    .line 64
+     .line 65
+     iget-object v8, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->f:Lkotlinx/coroutines/CoroutineDispatcher;
+ 
+-    .line 66
+     .line 67
+     const/4 v9, 0x0
+ 
+@@ -687,45 +548,33 @@
+     .line 69
+     invoke-direct/range {v4 .. v9}, Lcom/movingcloudgame/movingrtc/yamux/Stream;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;ILkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-static {v6}, Lkotlin/UInt;->a(I)Lkotlin/UInt;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+ 
+     .line 76
+     iget-object p1, v5, Lcom/movingcloudgame/movingrtc/yamux/Session;->g:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 77
+     .line 78
+     invoke-interface {p1, p0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     iput-object v4, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 82
+     .line 83
+     iput v3, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$newStream$1;->label:I
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v4, v3, v0}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->i(ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p0
+ 
+     .line 89
+     if-ne p0, v1, :cond_3
+ 
+-    .line 90
+     .line 91
+     return-object v1
+ 
+@@ -740,57 +589,45 @@
+     .line 1
+     move-object/from16 v1, p0
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v6, p3
+ 
+-    .line 4
+     .line 5
+     move/from16 v7, p5
+ 
+-    .line 6
+     .line 7
+     move-object/from16 v0, p7
+ 
+-    .line 8
+     .line 9
+     instance-of v2, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;
+ 
+-    .line 10
+     .line 11
+     if-eqz v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     move-object v2, v0
+ 
+     .line 14
+     check-cast v2, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;
+ 
+-    .line 15
+     .line 16
+     iget v3, v2, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 17
+     .line 18
+     const/high16 v4, -0x80000000
+ 
+-    .line 19
+     .line 20
+     and-int v5, v3, v4
+ 
+-    .line 21
+     .line 22
+     if-eqz v5, :cond_0
+ 
+-    .line 23
+     .line 24
+     sub-int/2addr v3, v4
+ 
+     .line 25
+     iput v3, v2, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 26
+     .line 27
+     :goto_0
+     move-object v8, v2
+@@ -802,12 +639,9 @@
+     :cond_0
+     new-instance v2, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;
+ 
+-    .line 30
+     .line 31
+     invoke-direct {v2, v1, v0}, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -815,23 +649,18 @@
+     :goto_1
+     iget-object v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->result:Ljava/lang/Object;
+ 
+-    .line 36
+     .line 37
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v9
+ 
+     .line 41
+     iget v2, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 42
+     .line 43
+     const-string v10, "stream"
+ 
+-    .line 44
+     .line 45
+     const/4 v11, 0x4
+ 
+@@ -850,21 +679,15 @@
+     .line 50
+     packed-switch v2, :pswitch_data_0
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     new-instance v0, Ljava/lang/IllegalStateException;
+ 
+-    .line 54
+     .line 55
+     const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 56
+     .line 57
+     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     throw v0
+ 
+@@ -872,90 +695,66 @@
+     :pswitch_0
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     goto/16 :goto_9
+ 
+-    .line 65
+     .line 66
+     :pswitch_1
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     goto/16 :goto_7
+ 
+-    .line 70
+     .line 71
+     :pswitch_2
+     iget-object v1, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 72
+     .line 73
+     check-cast v1, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 74
+     .line 75
+     iget-object v2, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 76
+     .line 77
+     check-cast v2, Ljava/util/EnumSet;
+ 
+-    .line 78
+     .line 79
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     goto/16 :goto_6
+ 
+-    .line 83
+     .line 84
+     :pswitch_3
+     iget v1, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->I$0:I
+ 
+-    .line 85
+     .line 86
+     iget-object v2, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 87
+     .line 88
+     check-cast v2, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 89
+     .line 90
+     iget-object v3, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 91
+     .line 92
+     check-cast v3, [B
+ 
+-    .line 93
+     .line 94
+     iget-object v4, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 95
+     .line 96
+     check-cast v4, Ljava/util/EnumSet;
+ 
+-    .line 97
+     .line 98
+     iget-object v5, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 99
+     .line 100
+     check-cast v5, Lcom/movingcloudgame/movingrtc/yamux/FrameType;
+ 
+-    .line 101
+     .line 102
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-object v0, v3
+ 
+@@ -971,57 +770,43 @@
+     .line 109
+     goto/16 :goto_5
+ 
+-    .line 110
+     .line 111
+     :pswitch_4
+     iget v1, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->I$0:I
+ 
+-    .line 112
+     .line 113
+     iget-object v2, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 114
+     .line 115
+     check-cast v2, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 116
+     .line 117
+     iget-object v3, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 118
+     .line 119
+     check-cast v3, [B
+ 
+-    .line 120
+     .line 121
+     iget-object v4, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 122
+     .line 123
+     check-cast v4, Ljava/util/EnumSet;
+ 
+-    .line 124
+     .line 125
+     iget-object v5, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 126
+     .line 127
+     check-cast v5, Lcom/movingcloudgame/movingrtc/yamux/FrameType;
+ 
+-    .line 128
+     .line 129
+     iget-object v6, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 130
+     .line 131
+     check-cast v6, Lcom/movingcloudgame/movingrtc/yamux/Session;
+ 
+-    .line 132
+     .line 133
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-object v0, v3
+ 
+@@ -1043,13 +828,10 @@
+     .line 142
+     goto/16 :goto_4
+ 
+-    .line 143
+     .line 144
+     :pswitch_5
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     goto :goto_2
+ 
+@@ -1057,8 +839,6 @@
+     :pswitch_6
+     invoke-static {v0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     const/4 v0, 0x0
+ 
+@@ -1068,110 +848,82 @@
+     .line 153
+     invoke-static {v2}, Lkotlin/UByte;->b(B)B
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     sget-object v2, Lcom/movingcloudgame/movingrtc/yamux/Session$WhenMappings;->a:[I
+ 
+-    .line 157
+     .line 158
+     invoke-virtual/range {p2 .. p2}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     move-result v3
+ 
+     .line 162
+     aget v2, v2, v3
+ 
+-    .line 163
+     .line 164
+     if-eq v2, v14, :cond_5
+ 
+-    .line 165
+     .line 166
+     if-eq v2, v13, :cond_5
+ 
+-    .line 167
+     .line 168
+     if-eq v2, v12, :cond_2
+ 
+-    .line 169
+     .line 170
+     if-eq v2, v11, :cond_1
+ 
+-    .line 171
+     .line 172
+     goto/16 :goto_a
+ 
+-    .line 173
+     .line 174
+     :cond_1
+     iget-object v0, v1, Lcom/movingcloudgame/movingrtc/yamux/Session;->b:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 175
+     .line 176
+     invoke-static {v0, v15, v14, v15}, Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;->a(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     iget-object v0, v1, Lcom/movingcloudgame/movingrtc/yamux/Session;->a:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 180
+     .line 181
+     invoke-static {v0, v15, v14, v15}, Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;->a(Lkotlinx/coroutines/channels/SendChannel;Ljava/lang/Throwable;ILjava/lang/Object;)Z
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     goto/16 :goto_a
+ 
+-    .line 185
+     .line 186
+     :cond_2
+     sget-object v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->SYN:Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 187
+     .line 188
+     invoke-virtual {v6, v0}, Ljava/util/AbstractCollection;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result v0
+ 
+     .line 192
+     if-eqz v0, :cond_4
+ 
+-    .line 193
+     .line 194
+     iput v14, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 195
+     .line 196
+     invoke-virtual {v1, v7, v8}, Lcom/movingcloudgame/movingrtc/yamux/Session;->n(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-object v0
+ 
+     .line 200
+     if-ne v0, v9, :cond_3
+ 
+-    .line 201
+     .line 202
+     goto/16 :goto_8
+ 
+-    .line 203
+     .line 204
+     :cond_3
+     :goto_2
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 205
+     .line 206
+     return-object v0
+ 
+@@ -1179,16 +931,12 @@
+     :cond_4
+     sget-object v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->ACK:Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 208
+     .line 209
+     invoke-virtual {v6, v0}, Ljava/util/AbstractCollection;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 213
+     .line 214
+     return-object v0
+ 
+@@ -1196,53 +944,42 @@
+     :cond_5
+     iget-object v2, v1, Lcom/movingcloudgame/movingrtc/yamux/Session;->g:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 216
+     .line 217
+     invoke-static/range {p4 .. p4}, Lkotlin/UInt;->a(I)Lkotlin/UInt;
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     move-result-object v3
+ 
+     .line 221
+     invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     move-result-object v4
+ 
+     .line 225
+     if-nez v4, :cond_7
+ 
+-    .line 226
+     .line 227
+     move v5, v0
+ 
+     .line 228
+     new-instance v0, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 229
+     .line 230
+     move-object v4, v3
+ 
+     .line 231
+     iget-object v3, v1, Lcom/movingcloudgame/movingrtc/yamux/Session;->e:Lkotlinx/coroutines/CoroutineScope;
+ 
+-    .line 232
+     .line 233
+     move-object/from16 v16, v4
+ 
+-    .line 234
+     .line 235
+     iget-object v4, v1, Lcom/movingcloudgame/movingrtc/yamux/Session;->f:Lkotlinx/coroutines/CoroutineDispatcher;
+ 
+-    .line 236
+     .line 237
+     move/from16 v17, v5
+ 
+-    .line 238
+     .line 239
+     const/4 v5, 0x0
+ 
+@@ -1252,28 +989,21 @@
+     .line 241
+     move-object/from16 v12, v16
+ 
+-    .line 242
+     .line 243
+     move/from16 v2, p4
+ 
+-    .line 244
+     .line 245
+     invoke-direct/range {v0 .. v5}, Lcom/movingcloudgame/movingrtc/yamux/Stream;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;ILkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 246
+-    .line 247
+     .line 248
+     invoke-interface {v11, v12, v0}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     move-result-object v2
+ 
+     .line 252
+     if-nez v2, :cond_6
+ 
+-    .line 253
+     .line 254
+     move-object v4, v0
+ 
+@@ -1289,126 +1019,95 @@
+     :goto_3
+     check-cast v4, Lcom/movingcloudgame/movingrtc/yamux/Stream;
+ 
+-    .line 258
+     .line 259
+     sget-object v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->SYN:Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 260
+     .line 261
+     invoke-virtual {v6, v0}, Ljava/util/AbstractCollection;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 262
+-    .line 263
+     .line 264
+     move-result v2
+ 
+     .line 265
+     if-eqz v2, :cond_8
+ 
+-    .line 266
+     .line 267
+     invoke-virtual {v4}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->h()Z
+ 
+-    .line 268
+-    .line 269
+     .line 270
+     move-result v2
+ 
+     .line 271
+     if-eqz v2, :cond_9
+ 
+-    .line 272
+     .line 273
+     :cond_8
+     invoke-virtual {v6, v0}, Ljava/util/AbstractCollection;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 274
+-    .line 275
+     .line 276
+     move-result v0
+ 
+     .line 277
+     if-nez v0, :cond_9
+ 
+-    .line 278
+     .line 279
+     invoke-virtual {v4}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->h()Z
+ 
+-    .line 280
+-    .line 281
+     .line 282
+     :cond_9
+     invoke-virtual {v4}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->h()Z
+ 
+-    .line 283
+-    .line 284
+     .line 285
+     move-result v0
+ 
+     .line 286
+     if-eqz v0, :cond_b
+ 
+-    .line 287
+     .line 288
+     invoke-static {v4, v10}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 289
+-    .line 290
+     .line 291
+     iput-object v1, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 292
+     .line 293
+     move-object/from16 v0, p2
+ 
+-    .line 294
+     .line 295
+     iput-object v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 296
+     .line 297
+     iput-object v6, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 298
+     .line 299
+     move-object/from16 v2, p6
+ 
+-    .line 300
+     .line 301
+     iput-object v2, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 302
+     .line 303
+     iput-object v4, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 304
+     .line 305
+     iput v7, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->I$0:I
+ 
+-    .line 306
+     .line 307
+     iput v13, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 308
+     .line 309
+     const/4 v5, 0x0
+ 
+     .line 310
+     invoke-static {v4, v5, v8, v14, v15}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->j(Lcom/movingcloudgame/movingrtc/yamux/Stream;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 311
+-    .line 312
+     .line 313
+     move-result-object v3
+ 
+     .line 314
+     if-ne v3, v9, :cond_a
+ 
+-    .line 315
+     .line 316
+     goto/16 :goto_8
+ 
+-    .line 317
+     .line 318
+     :cond_a
+     move-object v3, v4
+@@ -1420,68 +1119,52 @@
+     :goto_4
+     iget-object v1, v1, Lcom/movingcloudgame/movingrtc/yamux/Session;->d:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 321
+     .line 322
+     invoke-static {v3, v10}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 323
+-    .line 324
+     .line 325
+     iput-object v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 326
+     .line 327
+     iput-object v4, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 328
+     .line 329
+     iput-object v2, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 330
+     .line 331
+     iput-object v3, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 332
+     .line 333
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$4:Ljava/lang/Object;
+ 
+-    .line 334
+     .line 335
+     iput v7, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->I$0:I
+ 
+-    .line 336
+     .line 337
+     const/4 v5, 0x3
+ 
+     .line 338
+     iput v5, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 339
+     .line 340
+     invoke-interface {v1, v3, v8}, Lkotlinx/coroutines/channels/SendChannel;->F(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 341
+-    .line 342
+     .line 343
+     move-result-object v1
+ 
+     .line 344
+     if-ne v1, v9, :cond_c
+ 
+-    .line 345
+     .line 346
+     goto/16 :goto_8
+ 
+-    .line 347
+     .line 348
+     :cond_b
+     move-object/from16 v0, p2
+ 
+-    .line 349
+     .line 350
+     move-object/from16 v2, p6
+ 
+-    .line 351
+     .line 352
+     move-object v3, v4
+ 
+@@ -1496,62 +1179,48 @@
+     :goto_5
+     sget-object v5, Lcom/movingcloudgame/movingrtc/yamux/Session$WhenMappings;->a:[I
+ 
+-    .line 356
+     .line 357
+     invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 358
+-    .line 359
+     .line 360
+     move-result v0
+ 
+     .line 361
+     aget v0, v5, v0
+ 
+-    .line 362
+     .line 363
+     if-eq v0, v14, :cond_f
+ 
+-    .line 364
+     .line 365
+     if-ne v0, v13, :cond_e
+ 
+-    .line 366
+     .line 367
+     iput-object v4, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 368
+     .line 369
+     iput-object v3, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 370
+     .line 371
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 372
+     .line 373
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 374
+     .line 375
+     const/4 v0, 0x5
+ 
+     .line 376
+     iput v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 377
+     .line 378
+     invoke-virtual {v3, v1, v8}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->n(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 379
+-    .line 380
+     .line 381
+     move-result-object v0
+ 
+     .line 382
+     if-ne v0, v9, :cond_d
+ 
+-    .line 383
+     .line 384
+     goto :goto_8
+ 
+@@ -1569,16 +1238,12 @@
+     :cond_e
+     new-instance v0, Lkotlin/NotImplementedError;
+ 
+-    .line 389
+     .line 390
+     const-string v1, "WTF!! invalid frame type"
+ 
+-    .line 391
+     .line 392
+     invoke-direct {v0, v1}, Lkotlin/NotImplementedError;-><init>(Ljava/lang/String;)V
+ 
+-    .line 393
+-    .line 394
+     .line 395
+     throw v0
+ 
+@@ -1586,43 +1251,33 @@
+     :cond_f
+     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 397
+-    .line 398
+     .line 399
+     iput-object v4, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 400
+     .line 401
+     iput-object v3, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 402
+     .line 403
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 404
+     .line 405
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$3:Ljava/lang/Object;
+ 
+-    .line 406
+     .line 407
+     const/4 v0, 0x4
+ 
+     .line 408
+     iput v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 409
+     .line 410
+     invoke-virtual {v3, v2, v8}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->k([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 411
+-    .line 412
+     .line 413
+     move-result-object v0
+ 
+     .line 414
+     if-ne v0, v9, :cond_d
+ 
+-    .line 415
+     .line 416
+     goto :goto_8
+ 
+@@ -1630,46 +1285,36 @@
+     :goto_6
+     sget-object v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->FIN:Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 418
+     .line 419
+     invoke-virtual {v2, v0}, Ljava/util/AbstractCollection;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 420
+-    .line 421
+     .line 422
+     move-result v0
+ 
+     .line 423
+     if-eqz v0, :cond_11
+ 
+-    .line 424
+     .line 425
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 426
+     .line 427
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 428
+     .line 429
+     const/4 v0, 0x6
+ 
+     .line 430
+     iput v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 431
+     .line 432
+     invoke-virtual {v1, v8}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->l(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 433
+-    .line 434
+     .line 435
+     move-result-object v0
+ 
+     .line 436
+     if-ne v0, v9, :cond_10
+ 
+-    .line 437
+     .line 438
+     goto :goto_8
+ 
+@@ -1678,7 +1323,6 @@
+     :goto_7
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 440
+     .line 441
+     return-object v0
+ 
+@@ -1686,46 +1330,36 @@
+     :cond_11
+     sget-object v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->RST:Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 443
+     .line 444
+     invoke-virtual {v2, v0}, Ljava/util/AbstractCollection;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 445
+-    .line 446
+     .line 447
+     move-result v0
+ 
+     .line 448
+     if-eqz v0, :cond_13
+ 
+-    .line 449
+     .line 450
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 451
+     .line 452
+     iput-object v15, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 453
+     .line 454
+     const/4 v0, 0x7
+ 
+     .line 455
+     iput v0, v8, Lcom/movingcloudgame/movingrtc/yamux/Session$readFrame$1;->label:I
+ 
+-    .line 456
+     .line 457
+     invoke-virtual {v1, v8}, Lcom/movingcloudgame/movingrtc/yamux/Stream;->m(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 458
+-    .line 459
+     .line 460
+     move-result-object v0
+ 
+     .line 461
+     if-ne v0, v9, :cond_12
+ 
+-    .line 462
+     .line 463
+     :goto_8
+     return-object v9
+@@ -1735,7 +1369,6 @@
+     :goto_9
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 465
+     .line 466
+     return-object v0
+ 
+@@ -1744,11 +1377,9 @@
+     :goto_a
+     sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 468
+     .line 469
+     return-object v0
+ 
+-    .line 470
+     nop
+ 
+     :pswitch_data_0
+@@ -1770,7 +1401,6 @@
+     .line 1
+     sget-object v1, Lcom/movingcloudgame/movingrtc/yamux/FrameType;->Data:Lcom/movingcloudgame/movingrtc/yamux/FrameType;
+ 
+-    .line 2
+     .line 3
+     move-object v0, p0
+ 
+@@ -1792,23 +1422,18 @@
+     .line 9
+     invoke-virtual/range {v0 .. v6}, Lcom/movingcloudgame/movingrtc/yamux/Session;->l(Lcom/movingcloudgame/movingrtc/yamux/FrameType;Ljava/util/EnumSet;II[BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     if-ne p0, p1, :cond_0
+ 
+-    .line 18
+     .line 19
+     return-object p0
+ 
+@@ -1816,7 +1441,6 @@
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 21
+     .line 22
+     return-object p0
+ .end method
+@@ -1827,38 +1451,27 @@
+     .line 1
+     new-instance v0, Lkotlinx/io/Buffer;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lkotlinx/io/Buffer;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v1, 0x0
+ 
+     .line 7
+     invoke-static {v0, v1}, Lkotlinx/io/SinksKt;->c(Lkotlinx/io/Sink;B)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Lcom/movingcloudgame/movingrtc/yamux/FrameType;->getValue-w2LRezQ()B
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p1
+ 
+     .line 14
+     invoke-static {v0, p1}, Lkotlinx/io/SinksKt;->c(Lkotlinx/io/Sink;B)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p1
+ 
+@@ -1866,32 +1479,24 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p2
+ 
+     .line 25
+     if-eqz p2, :cond_0
+ 
+-    .line 26
+     .line 27
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p2
+ 
+     .line 31
+     check-cast p2, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p2}, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->getValue-Mh2AYeg()S
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result p2
+ 
+@@ -1904,8 +1509,6 @@
+     .line 39
+     invoke-static {p2}, Lkotlin/UShort;->b(S)S
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v1
+ 
+@@ -1916,54 +1519,39 @@
+     :cond_0
+     invoke-static {v0, v1}, Lkotlinx/io/SinksKt;->f(Lkotlinx/io/Sink;S)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-static {v0, p3}, Lkotlinx/io/SinksKt;->d(Lkotlinx/io/Sink;I)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-static {v0, p4}, Lkotlinx/io/SinksKt;->d(Lkotlinx/io/Sink;I)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     if-nez p5, :cond_2
+ 
+-    .line 54
+     .line 55
+     iget-object p0, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->a:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 56
+     .line 57
+     invoke-static {v0}, Lkotlinx/io/SourcesKt;->c(Lkotlinx/io/Source;)[B
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p1
+ 
+     .line 61
+     invoke-interface {p0, p1, p6}, Lkotlinx/coroutines/channels/SendChannel;->F(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p1
+ 
+     .line 69
+     if-ne p0, p1, :cond_1
+ 
+-    .line 70
+     .line 71
+     return-object p0
+ 
+@@ -1971,7 +1559,6 @@
+     :cond_1
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 73
+     .line 74
+     return-object p0
+ 
+@@ -1979,12 +1566,9 @@
+     :cond_2
+     new-instance v1, Lkotlinx/io/Buffer;
+ 
+-    .line 76
+     .line 77
+     invoke-direct {v1}, Lkotlinx/io/Buffer;-><init>()V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     const/4 v6, 0x6
+ 
+@@ -1994,16 +1578,12 @@
+     .line 82
+     const-wide/16 v2, 0x0
+ 
+-    .line 83
+     .line 84
+     const-wide/16 v4, 0x0
+ 
+-    .line 85
+     .line 86
+     invoke-static/range {v0 .. v7}, Lkotlinx/io/Buffer;->q(Lkotlinx/io/Buffer;Lkotlinx/io/Buffer;JJILjava/lang/Object;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-object v0, v1
+ 
+@@ -2025,40 +1605,30 @@
+     .line 95
+     invoke-static/range {v0 .. v5}, Lkotlinx/io/Sink;->I(Lkotlinx/io/Sink;[BIIILjava/lang/Object;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     iget-object p0, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->a:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 99
+     .line 100
+     invoke-static {v0}, Lkotlinx/io/SourcesKt;->c(Lkotlinx/io/Source;)[B
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object p1
+ 
+     .line 104
+     invoke-interface {p0, p1, p6}, Lkotlinx/coroutines/channels/SendChannel;->F(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p0
+ 
+     .line 108
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object p1
+ 
+     .line 112
+     if-ne p0, p1, :cond_3
+ 
+-    .line 113
+     .line 114
+     return-object p0
+ 
+@@ -2066,7 +1636,6 @@
+     :cond_3
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 116
+     .line 117
+     return-object p0
+ .end method
+@@ -2077,28 +1646,21 @@
+     .line 1
+     sget-object v1, Lcom/movingcloudgame/movingrtc/yamux/FrameType;->GoAway:Lcom/movingcloudgame/movingrtc/yamux/FrameType;
+ 
+-    .line 2
+     .line 3
+     const-class v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v2
+ 
+     .line 9
+     const-string v0, "noneOf(FrameFlag::class.java)"
+ 
+-    .line 10
+     .line 11
+     invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const/4 v4, 0x0
+ 
+@@ -2117,23 +1679,18 @@
+     .line 19
+     invoke-virtual/range {v0 .. v6}, Lcom/movingcloudgame/movingrtc/yamux/Session;->l(Lcom/movingcloudgame/movingrtc/yamux/FrameType;Ljava/util/EnumSet;II[BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     if-ne p0, p1, :cond_0
+ 
+-    .line 28
+     .line 29
+     return-object p0
+ 
+@@ -2141,7 +1698,6 @@
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 31
+     .line 32
+     return-object p0
+ .end method
+@@ -2152,28 +1708,21 @@
+     .line 1
+     sget-object v1, Lcom/movingcloudgame/movingrtc/yamux/FrameType;->Ping:Lcom/movingcloudgame/movingrtc/yamux/FrameType;
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;->ACK:Lcom/movingcloudgame/movingrtc/yamux/FrameFlag;
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v2
+ 
+     .line 9
+     const-string v0, "of(FrameFlag.ACK)"
+ 
+-    .line 10
+     .line 11
+     invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const/4 v3, 0x0
+ 
+@@ -2192,23 +1741,18 @@
+     .line 19
+     invoke-virtual/range {v0 .. v6}, Lcom/movingcloudgame/movingrtc/yamux/Session;->l(Lcom/movingcloudgame/movingrtc/yamux/FrameType;Ljava/util/EnumSet;II[BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     if-ne p0, p1, :cond_0
+ 
+-    .line 28
+     .line 29
+     return-object p0
+ 
+@@ -2216,7 +1760,6 @@
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 31
+     .line 32
+     return-object p0
+ .end method
+@@ -2227,7 +1770,6 @@
+     .line 1
+     sget-object v1, Lcom/movingcloudgame/movingrtc/yamux/FrameType;->WindowUpdate:Lcom/movingcloudgame/movingrtc/yamux/FrameType;
+ 
+-    .line 2
+     .line 3
+     const/4 v5, 0x0
+ 
+@@ -2249,23 +1791,18 @@
+     .line 9
+     invoke-virtual/range {v0 .. v6}, Lcom/movingcloudgame/movingrtc/yamux/Session;->l(Lcom/movingcloudgame/movingrtc/yamux/FrameType;Ljava/util/EnumSet;II[BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     if-ne p0, p1, :cond_0
+ 
+-    .line 18
+     .line 19
+     return-object p0
+ 
+@@ -2273,7 +1810,6 @@
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 21
+     .line 22
+     return-object p0
+ .end method
+@@ -2284,41 +1820,33 @@
+     .line 1
+     instance-of v0, p2, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p2
+ 
+     .line 6
+     check-cast v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -2326,57 +1854,43 @@
+     :cond_0
+     new-instance v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p2}, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;-><init>(Lcom/movingcloudgame/movingrtc/yamux/Session;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p2, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget p0, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->I$0:I
+ 
+-    .line 39
+     .line 40
+     iget-object p1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->L$0:Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     check-cast p1, Lcom/movingcloudgame/movingrtc/yamux/Session;
+ 
+-    .line 43
+     .line 44
+     invoke-static {p2}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-object v10, p1
+ 
+@@ -2393,16 +1907,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 52
+     .line 53
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 54
+     .line 55
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     throw p0
+ 
+@@ -2410,18 +1920,13 @@
+     :cond_2
+     invoke-static {p2}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     :goto_1
+     iget-object p2, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->h:Lkotlinx/io/Buffer;
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p2}, Lkotlinx/io/Buffer;->C()J
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-wide v4
+ 
+@@ -2431,39 +1936,30 @@
+     .line 69
+     cmp-long p2, v4, v6
+ 
+-    .line 70
+     .line 71
+     if-gez p2, :cond_4
+ 
+-    .line 72
+     .line 73
+     iget-object p2, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->b:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 74
+     .line 75
+     iput-object p0, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->L$0:Ljava/lang/Object;
+ 
+-    .line 76
+     .line 77
+     iput p1, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->I$0:I
+ 
+-    .line 78
+     .line 79
+     iput v3, v0, Lcom/movingcloudgame/movingrtc/yamux/Session$waitBytes$2;->label:I
+ 
+-    .line 80
+     .line 81
+     invoke-interface {p2, v0}, Lkotlinx/coroutines/channels/ReceiveChannel;->A(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p2
+ 
+     .line 85
+     if-ne p2, v1, :cond_3
+ 
+-    .line 86
+     .line 87
+     return-object v1
+ 
+@@ -2475,11 +1971,9 @@
+     .line 89
+     check-cast v5, [B
+ 
+-    .line 90
+     .line 91
+     iget-object v4, p0, Lcom/movingcloudgame/movingrtc/yamux/Session;->h:Lkotlinx/io/Buffer;
+ 
+-    .line 92
+     .line 93
+     const/4 v8, 0x6
+ 
+@@ -2495,8 +1989,6 @@
+     .line 97
+     invoke-static/range {v4 .. v9}, Lkotlinx/io/Sink;->I(Lkotlinx/io/Sink;[BIIILjava/lang/Object;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     goto :goto_1
+ 
+@@ -2504,7 +1996,6 @@
+     :cond_4
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 102
+     .line 103
+     return-object p0
+ .end method
+@@ -2515,23 +2006,18 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Lcom/movingcloudgame/movingrtc/yamux/Session;->p(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     if-ne p0, p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     return-object p0
+ 
+@@ -2539,7 +2025,6 @@
+     :cond_0
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method

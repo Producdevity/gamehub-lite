@@ -1,0 +1,304 @@
+--- a/smali_classes8/com/xj/adb/wifiui/net/convert/JSONConvert.smali
++++ b/smali_classes8/com/xj/adb/wifiui/net/convert/JSONConvert.smali
+@@ -26,31 +26,22 @@
+     .line 1
+     const-string v0, "succeed"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "response"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     :try_start_0
+     sget-object v0, Lcom/xj/adb/wifiui/net/convert/NetConverter;->a:Lcom/xj/adb/wifiui/net/convert/NetConverter$DEFAULT;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0, p1, p2}, Lcom/xj/adb/wifiui/net/convert/NetConverter$DEFAULT;->a(Ljava/lang/reflect/Type;Lokhttp3/Response;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+     :try_end_0
+@@ -63,51 +54,39 @@
+     :catch_0
+     invoke-virtual {p2}, Lokhttp3/Response;->code()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+     .line 22
+     const/16 v1, 0xc8
+ 
+-    .line 23
+     .line 24
+     if-gt v1, v0, :cond_3
+ 
+-    .line 25
+     .line 26
+     const/16 v1, 0x12c
+ 
+-    .line 27
+     .line 28
+     if-ge v0, v1, :cond_3
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+     .line 34
+     if-eqz v0, :cond_2
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v0}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v0
+ 
+     .line 40
+     if-nez v0, :cond_0
+ 
+-    .line 41
+     .line 42
+     goto :goto_1
+ 
+@@ -116,45 +95,33 @@
+     :try_start_1
+     new-instance v1, Lorg/json/JSONObject;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     iget-object v2, p0, Lcom/xj/adb/wifiui/net/convert/JSONConvert;->c:Ljava/lang/String;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v7
+ 
+     .line 54
+     iget-object v2, p0, Lcom/xj/adb/wifiui/net/convert/JSONConvert;->b:Ljava/lang/String;
+ 
+-    .line 55
+     .line 56
+     invoke-static {v7, v2}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v2
+ 
+     .line 60
+     if-eqz v2, :cond_1
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p0, v0, p1}, Lcom/xj/adb/wifiui/net/convert/JSONConvert;->b(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object p0
+ 
+@@ -165,43 +132,33 @@
+     :cond_1
+     iget-object v2, p0, Lcom/xj/adb/wifiui/net/convert/JSONConvert;->d:Ljava/lang/String;
+ 
+-    .line 68
+     .line 69
+     sget-object v3, Lcom/xj/adb/wifiui/net/NetConfig;->a:Lcom/xj/adb/wifiui/net/NetConfig;
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v3}, Lcom/xj/adb/wifiui/net/NetConfig;->a()Landroid/content/Context;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v3
+ 
+     .line 75
+     sget v4, Lcom/xj/language/R$string;->xja_no_error_message:I
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v3
+ 
+     .line 81
+     invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v5
+ 
+     .line 85
+     new-instance v3, Lcom/xj/adb/wifiui/net/exception/ResponseException;
+ 
+-    .line 86
+     .line 87
+     const/4 v8, 0x4
+ 
+@@ -217,8 +174,6 @@
+     .line 91
+     invoke-direct/range {v3 .. v9}, Lcom/xj/adb/wifiui/net/exception/ResponseException;-><init>(Lokhttp3/Response;Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     throw v3
+     :try_end_1
+@@ -228,8 +183,6 @@
+     :catch_1
+     invoke-virtual {p0, v0, p1}, Lcom/xj/adb/wifiui/net/convert/JSONConvert;->b(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object p0
+ 
+@@ -252,19 +205,15 @@
+     .line 103
+     const/16 p0, 0x190
+ 
+-    .line 104
+     .line 105
+     const/16 p1, 0x1f4
+ 
+-    .line 106
+     .line 107
+     if-gt p0, v0, :cond_4
+ 
+-    .line 108
+     .line 109
+     if-lt v0, p1, :cond_5
+ 
+-    .line 110
+     .line 111
+     :cond_4
+     move p0, v0
+@@ -279,19 +228,15 @@
+     .line 114
+     new-instance v0, Lcom/xj/adb/wifiui/net/exception/RequestParamsException;
+ 
+-    .line 115
+     .line 116
+     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v2
+ 
+     .line 120
+     const/16 v5, 0xc
+ 
+-    .line 121
+     .line 122
+     const/4 v6, 0x0
+ 
+@@ -304,8 +249,6 @@
+     .line 125
+     invoke-direct/range {v0 .. v6}, Lcom/xj/adb/wifiui/net/exception/RequestParamsException;-><init>(Lokhttp3/Response;Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     throw v0
+ 
+@@ -313,23 +256,18 @@
+     :goto_2
+     if-lt p0, p1, :cond_6
+ 
+-    .line 130
+     .line 131
+     new-instance v0, Lcom/xj/adb/wifiui/net/exception/ServerResponseException;
+ 
+-    .line 132
+     .line 133
+     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v2
+ 
+     .line 137
+     const/16 v5, 0xc
+ 
+-    .line 138
+     .line 139
+     const/4 v6, 0x0
+ 
+@@ -342,8 +280,6 @@
+     .line 142
+     invoke-direct/range {v0 .. v6}, Lcom/xj/adb/wifiui/net/exception/ServerResponseException;-><init>(Lokhttp3/Response;Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     throw v0
+ 
+@@ -351,18 +287,15 @@
+     :cond_6
+     new-instance v0, Lcom/xj/adb/wifiui/net/exception/ConvertException;
+ 
+-    .line 147
+     .line 148
+     const/16 v5, 0xc
+ 
+-    .line 149
+     .line 150
+     const/4 v6, 0x0
+ 
+     .line 151
+     const-string v2, "Http status code not within range"
+ 
+-    .line 152
+     .line 153
+     const/4 v3, 0x0
+ 
+@@ -372,8 +305,6 @@
+     .line 155
+     invoke-direct/range {v0 .. v6}, Lcom/xj/adb/wifiui/net/exception/ConvertException;-><init>(Lokhttp3/Response;Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     throw v0
+ .end method

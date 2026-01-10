@@ -1,0 +1,447 @@
+--- a/smali_classes5/com/bumptech/glide/load/model/MultiModelLoader$MultiFetcher.smali
++++ b/smali_classes5/com/bumptech/glide/load/model/MultiModelLoader$MultiFetcher.smali
+@@ -109,28 +109,21 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->throwableListPool:Landroidx/core/util/Pools$Pool;
+ 
+-    .line 5
+     .line 6
+     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotEmpty(Ljava/util/Collection;)Ljava/util/Collection;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     const/4 p1, 0x0
+ 
+     .line 12
+     iput p1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->currentIndex:I
+ 
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -141,11 +134,9 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->isCancelled:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -153,52 +144,39 @@
+     :cond_0
+     iget v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->currentIndex:I
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     add-int/lit8 v1, v1, -0x1
+ 
+-    .line 15
+     .line 16
+     if-ge v0, v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     iget v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->currentIndex:I
+ 
+-    .line 19
+     .line 20
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 21
+     .line 22
+     iput v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->currentIndex:I
+ 
+-    .line 23
+     .line 24
+     iget-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->priority:Lcom/bumptech/glide/Priority;
+ 
+-    .line 25
+     .line 26
+     iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->callback:Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0, v0, v1}, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-void
+ 
+@@ -206,47 +184,33 @@
+     :cond_1
+     iget-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->exceptions:Ljava/util/List;
+ 
+-    .line 33
+     .line 34
+     invoke-static {v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     iget-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->callback:Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;
+ 
+-    .line 38
+     .line 39
+     new-instance v1, Lcom/bumptech/glide/load/engine/GlideException;
+ 
+-    .line 40
+     .line 41
+     new-instance v2, Ljava/util/ArrayList;
+ 
+-    .line 42
+     .line 43
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->exceptions:Ljava/util/List;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {v2, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const-string p0, "Fetch failed"
+ 
+-    .line 49
+     .line 50
+     invoke-direct {v1, p0, v2}, Lcom/bumptech/glide/load/engine/GlideException;-><init>(Ljava/lang/String;Ljava/util/List;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-interface {v0, v1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     return-void
+ .end method
+@@ -262,16 +226,12 @@
+     .line 2
+     iput-boolean v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->isCancelled:Z
+ 
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 5
+     .line 6
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -279,32 +239,24 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-eqz v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     check-cast v0, Lcom/bumptech/glide/load/data/DataFetcher;
+ 
+-    .line 21
+     .line 22
+     invoke-interface {v0}, Lcom/bumptech/glide/load/data/DataFetcher;->cancel()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -319,20 +271,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->exceptions:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->throwableListPool:Landroidx/core/util/Pools$Pool;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {v1, v0}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     const/4 v0, 0x0
+@@ -340,16 +287,12 @@
+     .line 11
+     iput-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->exceptions:Ljava/util/List;
+ 
+-    .line 12
+     .line 13
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 14
+     .line 15
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -357,32 +300,24 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     if-eqz v0, :cond_1
+ 
+-    .line 24
+     .line 25
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     check-cast v0, Lcom/bumptech/glide/load/data/DataFetcher;
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v0}, Lcom/bumptech/glide/load/data/DataFetcher;->cleanup()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -407,27 +342,21 @@
+     .line 1
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x0
+ 
+     .line 4
+     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     check-cast p0, Lcom/bumptech/glide/load/data/DataFetcher;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {p0}, Lcom/bumptech/glide/load/data/DataFetcher;->getDataClass()Ljava/lang/Class;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+@@ -443,27 +372,21 @@
+     .line 1
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x0
+ 
+     .line 4
+     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+     .line 8
+     check-cast p0, Lcom/bumptech/glide/load/data/DataFetcher;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {p0}, Lcom/bumptech/glide/load/data/DataFetcher;->getDataSource()Lcom/bumptech/glide/load/DataSource;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+@@ -493,69 +416,51 @@
+     .line 1
+     iput-object p1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->priority:Lcom/bumptech/glide/Priority;
+ 
+-    .line 2
+     .line 3
+     iput-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->callback:Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;
+ 
+-    .line 4
+     .line 5
+     iget-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->throwableListPool:Landroidx/core/util/Pools$Pool;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p2}, Landroidx/core/util/Pools$Pool;->acquire()Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p2
+ 
+     .line 11
+     check-cast p2, Ljava/util/List;
+ 
+-    .line 12
+     .line 13
+     iput-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->exceptions:Ljava/util/List;
+ 
+-    .line 14
+     .line 15
+     iget-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->fetchers:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     iget v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->currentIndex:I
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p2
+ 
+     .line 23
+     check-cast p2, Lcom/bumptech/glide/load/data/DataFetcher;
+ 
+-    .line 24
+     .line 25
+     invoke-interface {p2, p1, p0}, Lcom/bumptech/glide/load/data/DataFetcher;->loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     iget-boolean p1, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->isCancelled:Z
+ 
+-    .line 29
+     .line 30
+     if-eqz p1, :cond_0
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p0}, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->cancel()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     :cond_0
+     return-void
+@@ -576,16 +481,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->callback:Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {p0, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ 
+@@ -593,8 +494,6 @@
+     :cond_0
+     invoke-direct {p0}, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->startNextOrFail()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ .end method
+@@ -609,29 +508,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->exceptions:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast v0, Ljava/util/List;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-direct {p0}, Lcom/bumptech/glide/load/model/MultiModelLoader$MultiFetcher;->startNextOrFail()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method

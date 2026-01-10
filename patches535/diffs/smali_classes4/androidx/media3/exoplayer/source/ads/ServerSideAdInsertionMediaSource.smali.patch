@@ -1,0 +1,2527 @@
+--- a/smali_classes4/androidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource.smali
++++ b/smali_classes4/androidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource.smali
+@@ -85,67 +85,51 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/source/BaseMediaSource;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStateUpdater:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$AdPlaybackStateUpdater;
+ 
+-    .line 7
+     .line 8
+     invoke-static {}, Lcom/google/common/collect/ArrayListMultimap;->create()Lcom/google/common/collect/ArrayListMultimap;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 13
+     .line 14
+     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->of()Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 19
+     .line 20
+     const/4 p1, 0x0
+ 
+     .line 21
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/source/BaseMediaSource;->createEventDispatcher(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;)Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p2
+ 
+     .line 25
+     iput-object p2, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/source/BaseMediaSource;->createDrmEventDispatcher(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;)Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 32
+     .line 33
+     return-void
+ .end method
+@@ -156,20 +140,15 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->values()Ljava/util/Collection;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+@@ -178,56 +157,42 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-eqz v1, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     check-cast v1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 22
+     .line 23
+     invoke-static {v1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$000(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v2
+ 
+     .line 27
+     invoke-virtual {p1, v2}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+     .line 31
+     check-cast v2, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 32
+     .line 33
+     if-eqz v2, :cond_0
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v1, v2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->updateAdPlaybackState(Landroidx/media3/common/AdPlaybackState;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -235,63 +200,46 @@
+     :cond_1
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 40
+     .line 41
+     if-eqz v0, :cond_2
+ 
+-    .line 42
+     .line 43
+     invoke-static {v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$000(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Ljava/lang/Object;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v0
+ 
+     .line 47
+     invoke-virtual {p1, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     check-cast v0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 52
+     .line 53
+     if-eqz v0, :cond_2
+ 
+-    .line 54
+     .line 55
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->updateAdPlaybackState(Landroidx/media3/common/AdPlaybackState;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     :cond_2
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 61
+     .line 62
+     new-instance v0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$ServerSideAdInsertionTimeline;
+ 
+-    .line 63
+     .line 64
+     invoke-direct {v0, p2, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$ServerSideAdInsertionTimeline;-><init>(Landroidx/media3/common/Timeline;Lcom/google/common/collect/ImmutableMap;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {p0, v0}, Landroidx/media3/exoplayer/source/BaseMediaSource;->refreshSourceInfo(Landroidx/media3/common/Timeline;)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     return-void
+ .end method
+@@ -302,8 +250,6 @@
+     .line 1
+     invoke-static {p0, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodEndPositionUs(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/common/AdPlaybackState;)J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide p0
+ 
+@@ -317,8 +263,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -332,56 +276,42 @@
+     .line 1
+     new-instance v0, Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 2
+     .line 3
+     iget v1, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->dataType:I
+ 
+-    .line 4
+     .line 5
+     iget v2, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->trackType:I
+ 
+-    .line 6
+     .line 7
+     iget-object v3, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->trackFormat:Landroidx/media3/common/Format;
+ 
+-    .line 8
+     .line 9
+     iget v4, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->trackSelectionReason:I
+ 
+-    .line 10
+     .line 11
+     iget-object v5, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->trackSelectionData:Ljava/lang/Object;
+ 
+-    .line 12
+     .line 13
+     iget-wide v6, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->mediaStartTimeMs:J
+ 
+-    .line 14
+     .line 15
+     invoke-static {v6, v7, p0, p2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadDataPositionMs(JLandroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/common/AdPlaybackState;)J
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-wide v6
+ 
+     .line 19
+     iget-wide v8, p1, Landroidx/media3/exoplayer/source/MediaLoadData;->mediaEndTimeMs:J
+ 
+-    .line 20
+     .line 21
+     invoke-static {v8, v9, p0, p2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadDataPositionMs(JLandroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/common/AdPlaybackState;)J
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-wide v8
+ 
+     .line 25
+     invoke-direct/range {v0 .. v9}, Landroidx/media3/exoplayer/source/MediaLoadData;-><init>(IILandroidx/media3/common/Format;ILjava/lang/Object;JJ)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-object v0
+ .end method
+@@ -392,18 +322,12 @@
+     .line 1
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 2
+-    .line 3
+-    .line 4
+-    .line 5
+     .line 6
+     cmp-long v2, p0, v0
+ 
+-    .line 7
+     .line 8
+     if-nez v2, :cond_0
+ 
+-    .line 9
+     .line 10
+     return-wide v0
+ 
+@@ -411,40 +335,30 @@
+     :cond_0
+     invoke-static {p0, p1}, Landroidx/media3/common/util/Util;->msToUs(J)J
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-wide p0
+ 
+     .line 15
+     iget-object p2, p2, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p2}, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->isAd()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     if-eqz v0, :cond_1
+ 
+-    .line 22
+     .line 23
+     iget v0, p2, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->adGroupIndex:I
+ 
+-    .line 24
+     .line 25
+     iget p2, p2, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->adIndexInAdGroup:I
+ 
+-    .line 26
+     .line 27
+     invoke-static {p0, p1, v0, p2, p3}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionUtil;->getMediaPeriodPositionUsForAd(JIILandroidx/media3/common/AdPlaybackState;)J
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-wide p0
+ 
+@@ -458,8 +372,6 @@
+     .line 33
+     invoke-static {p0, p1, p2, p3}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionUtil;->getMediaPeriodPositionUsForContent(JILandroidx/media3/common/AdPlaybackState;)J
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-wide p0
+ 
+@@ -467,8 +379,6 @@
+     :goto_0
+     invoke-static {p0, p1}, Landroidx/media3/common/util/Util;->usToMs(J)J
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-wide p0
+ 
+@@ -482,12 +392,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->isAd()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -497,31 +404,24 @@
+     .line 8
+     if-eqz v0, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget v0, p0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->adGroupIndex:I
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1, v0}, Landroidx/media3/common/AdPlaybackState;->getAdGroup(I)Landroidx/media3/common/AdPlaybackState$AdGroup;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+     .line 16
+     iget v0, p1, Landroidx/media3/common/AdPlaybackState$AdGroup;->count:I
+ 
+-    .line 17
+     .line 18
+     if-ne v0, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     const-wide/16 p0, 0x0
+ 
+-    .line 21
+     .line 22
+     return-wide p0
+ 
+@@ -529,15 +429,12 @@
+     :cond_0
+     iget-object p1, p1, Landroidx/media3/common/AdPlaybackState$AdGroup;->durationsUs:[J
+ 
+-    .line 24
+     .line 25
+     iget p0, p0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->adIndexInAdGroup:I
+ 
+-    .line 26
+     .line 27
+     aget-wide p0, p1, p0
+ 
+-    .line 28
+     .line 29
+     return-wide p0
+ 
+@@ -545,18 +442,12 @@
+     :cond_1
+     iget p0, p0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->nextAdGroupIndex:I
+ 
+-    .line 31
+     .line 32
+     const-wide v2, 0x7fffffffffffffffL
+ 
+-    .line 33
+-    .line 34
+-    .line 35
+-    .line 36
+     .line 37
+     if-ne p0, v1, :cond_2
+ 
+-    .line 38
+     .line 39
+     return-wide v2
+ 
+@@ -564,27 +455,21 @@
+     :cond_2
+     invoke-virtual {p1, p0}, Landroidx/media3/common/AdPlaybackState;->getAdGroup(I)Landroidx/media3/common/AdPlaybackState$AdGroup;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+     .line 44
+     iget-wide p0, p0, Landroidx/media3/common/AdPlaybackState$AdGroup;->timeUs:J
+ 
+-    .line 45
+     .line 46
+     const-wide/high16 v0, -0x8000000000000000L
+ 
+-    .line 47
+     .line 48
+     cmp-long v0, p0, v0
+ 
+-    .line 49
+     .line 50
+     if-nez v0, :cond_3
+ 
+-    .line 51
+     .line 52
+     return-wide v2
+ 
+@@ -612,7 +497,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object v0
+ 
+@@ -620,52 +504,39 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 6
+     .line 7
+     new-instance v1, Landroid/util/Pair;
+ 
+-    .line 8
+     .line 9
+     iget-wide v2, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->windowSequenceNumber:J
+ 
+-    .line 10
+     .line 11
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v2
+ 
+     .line 15
+     iget-object p1, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v1, v2, p1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-interface {p0, v1}, Lcom/google/common/collect/ListMultimap;->get(Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result p1
+ 
+     .line 28
+     if-eqz p1, :cond_1
+ 
+-    .line 29
+     .line 30
+     return-object v0
+ 
+@@ -673,36 +544,27 @@
+     :cond_1
+     if-eqz p3, :cond_3
+ 
+-    .line 32
+     .line 33
+     invoke-static {p0}, Lcom/google/common/collect/Iterables;->getLast(Ljava/lang/Iterable;)Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     check-cast p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 38
+     .line 39
+     invoke-static {p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$100(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p1
+ 
+     .line 43
+     if-eqz p1, :cond_2
+ 
+-    .line 44
+     .line 45
+     invoke-static {p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$100(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+@@ -713,23 +575,18 @@
+     :cond_2
+     invoke-static {p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$200(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Ljava/util/List;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+     .line 54
+     invoke-static {p0}, Lcom/google/common/collect/Iterables;->getLast(Ljava/lang/Iterable;)Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p0
+ 
+     .line 58
+     check-cast p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 59
+     .line 60
+     return-object p0
+ 
+@@ -744,39 +601,30 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v0
+ 
+     .line 67
+     if-ge p3, v0, :cond_5
+ 
+-    .line 68
+     .line 69
+     invoke-interface {p0, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+     .line 73
+     check-cast v0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {v0, p2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaLoadData;)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v0
+ 
+     .line 79
+     if-eqz v0, :cond_4
+ 
+-    .line 80
+     .line 81
+     return-object v0
+ 
+@@ -784,7 +632,6 @@
+     :cond_4
+     add-int/lit8 p3, p3, 0x1
+ 
+-    .line 83
+     .line 84
+     goto :goto_0
+ 
+@@ -792,35 +639,27 @@
+     :cond_5
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p0
+ 
+     .line 89
+     check-cast p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 90
+     .line 91
+     invoke-static {p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$200(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Ljava/util/List;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object p0
+ 
+     .line 95
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object p0
+ 
+     .line 99
+     check-cast p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 100
+     .line 101
+     return-object p0
+ .end method
+@@ -831,27 +670,21 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0, v1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->release(Landroidx/media3/exoplayer/source/MediaSource;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/4 v0, 0x0
+ 
+     .line 11
+     iput-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 12
+     .line 13
+     :cond_0
+     return-void
+@@ -865,12 +698,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Landroidx/media3/exoplayer/source/MediaSource;->canUpdateMediaItem(Landroidx/media3/common/MediaItem;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -884,32 +714,24 @@
+     .line 1
+     new-instance v0, Landroid/util/Pair;
+ 
+-    .line 2
+     .line 3
+     iget-wide v1, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->windowSequenceNumber:J
+ 
+-    .line 4
+     .line 5
+     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     iget-object v2, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0, v1, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 15
+     .line 16
+     const/4 v2, 0x0
+ 
+@@ -919,44 +741,33 @@
+     .line 18
+     if-eqz v1, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-static {v1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->access$000(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+     .line 24
+     iget-object v4, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v1, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v1
+ 
+     .line 30
+     if-eqz v1, :cond_0
+ 
+-    .line 31
+     .line 32
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 33
+     .line 34
+     iget-object v3, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 35
+     .line 36
+     invoke-interface {v3, v0, v1}, Lcom/google/common/collect/Multimap;->put(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     const/4 v3, 0x1
+ 
+@@ -967,16 +778,12 @@
+     :cond_0
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 42
+     .line 43
+     iget-object v4, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v1, v4}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->release(Landroidx/media3/exoplayer/source/MediaSource;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-object v1, v2
+ 
+@@ -984,7 +791,6 @@
+     :goto_0
+     iput-object v2, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 50
+     .line 51
+     goto :goto_1
+ 
+@@ -996,47 +802,36 @@
+     :goto_1
+     if-nez v1, :cond_3
+ 
+-    .line 54
+     .line 55
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 56
+     .line 57
+     invoke-interface {v1, v0}, Lcom/google/common/collect/ListMultimap;->get(Ljava/lang/Object;)Ljava/util/List;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v1
+ 
+     .line 61
+     invoke-static {v1, v2}, Lcom/google/common/collect/Iterables;->getLast(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v1
+ 
+     .line 65
+     check-cast v1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 66
+     .line 67
+     if-eqz v1, :cond_2
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {v1, p1, p3, p4}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->canReuseMediaPeriod(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;J)Z
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result v2
+ 
+     .line 73
+     if-eqz v2, :cond_2
+ 
+-    .line 74
+     .line 75
+     goto :goto_2
+ 
+@@ -1044,94 +839,69 @@
+     :cond_2
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 77
+     .line 78
+     iget-object v2, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {v1, v2}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v1
+ 
+     .line 84
+     check-cast v1, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 85
+     .line 86
+     invoke-static {v1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v1
+ 
+     .line 90
+     check-cast v1, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 91
+     .line 92
+     invoke-static {p3, p4, p1, v1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionUtil;->getStreamPositionUs(JLandroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/common/AdPlaybackState;)J
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-wide v4
+ 
+     .line 96
+     new-instance v2, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 97
+     .line 98
+     iget-object v6, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 99
+     .line 100
+     new-instance v7, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 101
+     .line 102
+     iget-object v8, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 103
+     .line 104
+     iget-wide v9, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->windowSequenceNumber:J
+ 
+-    .line 105
+     .line 106
+     invoke-direct {v7, v8, v9, v10}, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;-><init>(Ljava/lang/Object;J)V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     invoke-interface {v6, v7, p2, v4, v5}, Landroidx/media3/exoplayer/source/MediaSource;->createPeriod(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/upstream/Allocator;J)Landroidx/media3/exoplayer/source/MediaPeriod;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object p2
+ 
+     .line 113
+     iget-object v4, p1, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 114
+     .line 115
+     invoke-direct {v2, p2, v4, v1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;-><init>(Landroidx/media3/exoplayer/source/MediaPeriod;Ljava/lang/Object;Landroidx/media3/common/AdPlaybackState;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     iget-object p2, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 119
+     .line 120
+     invoke-interface {p2, v0, v2}, Lcom/google/common/collect/Multimap;->put(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-object v1, v2
+ 
+@@ -1140,53 +910,39 @@
+     :goto_2
+     new-instance p2, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/source/BaseMediaSource;->createEventDispatcher(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;)Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result-object v0
+ 
+     .line 130
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/source/BaseMediaSource;->createDrmEventDispatcher(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;)Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result-object p0
+ 
+     .line 134
+     invoke-direct {p2, v1, p1, v0, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;-><init>(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;)V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     invoke-virtual {v1, p2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->add(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     if-eqz v3, :cond_4
+ 
+-    .line 141
+     .line 142
+     iget-object p0, v1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->trackSelections:[Landroidx/media3/exoplayer/trackselection/ExoTrackSelection;
+ 
+-    .line 143
+     .line 144
+     array-length p0, p0
+ 
+     .line 145
+     if-lez p0, :cond_4
+ 
+-    .line 146
+     .line 147
+     invoke-virtual {p2, p3, p4}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->seekToUs(J)J
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     :cond_4
+     return-object p2
+@@ -1198,17 +954,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->releaseLastUsedMediaPeriod()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 5
+     .line 6
+     invoke-interface {v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->disable(Landroidx/media3/exoplayer/source/MediaSource$MediaSourceCaller;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -1219,12 +970,9 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->enable(Landroidx/media3/exoplayer/source/MediaSource$MediaSourceCaller;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1235,12 +983,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Landroidx/media3/exoplayer/source/MediaSource;->getMediaItem()Landroidx/media3/common/MediaItem;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1259,12 +1004,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Landroidx/media3/exoplayer/source/MediaSource;->maybeThrowSourceInfoRefreshError()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1282,24 +1024,18 @@
+     .line 2
+     invoke-direct {p0, p2, p3, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->downstreamFormatChanged(Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1307,65 +1043,48 @@
+     :cond_0
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p2, p1, p3}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->onDownstreamFormatChanged(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaSourceEventDispatcher:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 20
+     .line 21
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 22
+     .line 23
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 24
+     .line 25
+     iget-object v0, v0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 32
+     .line 33
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 38
+     .line 39
+     invoke-static {p1, p3, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     invoke-virtual {p2, p0}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->downstreamFormatChanged(Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-void
+ .end method
+@@ -1386,24 +1105,18 @@
+     .line 3
+     invoke-direct {p0, p2, p1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmKeysLoaded()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1411,12 +1124,9 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->drmEventDispatcher:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmKeysLoaded()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -1437,24 +1147,18 @@
+     .line 3
+     invoke-direct {p0, p2, p1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmKeysRemoved()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1462,12 +1166,9 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->drmEventDispatcher:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmKeysRemoved()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -1488,24 +1189,18 @@
+     .line 3
+     invoke-direct {p0, p2, p1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmKeysRestored()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1513,12 +1208,9 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->drmEventDispatcher:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmKeysRestored()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -1539,24 +1231,18 @@
+     .line 3
+     invoke-direct {p0, p2, p1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmSessionAcquired(I)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1564,12 +1250,9 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->drmEventDispatcher:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmSessionAcquired(I)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -1590,24 +1273,18 @@
+     .line 3
+     invoke-direct {p0, p2, p1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmSessionManagerError(Ljava/lang/Exception;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1615,12 +1292,9 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->drmEventDispatcher:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmSessionManagerError(Ljava/lang/Exception;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -1641,24 +1315,18 @@
+     .line 3
+     invoke-direct {p0, p2, p1, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->drmEventDispatcherWithoutId:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmSessionReleased()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -1666,12 +1334,9 @@
+     :cond_0
+     iget-object p0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->drmEventDispatcher:Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/drm/DrmSessionEventListener$EventDispatcher;->drmSessionReleased()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -1689,24 +1354,18 @@
+     .line 2
+     invoke-direct {p0, p2, p4, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p3, p4}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadCanceled(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1714,65 +1373,48 @@
+     :cond_0
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p2, p3}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->onLoadFinished(Landroidx/media3/exoplayer/source/LoadEventInfo;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaSourceEventDispatcher:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 20
+     .line 21
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 22
+     .line 23
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 24
+     .line 25
+     iget-object v0, v0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 32
+     .line 33
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 38
+     .line 39
+     invoke-static {p1, p4, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     invoke-virtual {p2, p3, p0}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadCanceled(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-void
+ .end method
+@@ -1790,24 +1432,18 @@
+     .line 2
+     invoke-direct {p0, p2, p4, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p3, p4}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadCompleted(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1815,65 +1451,48 @@
+     :cond_0
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p2, p3}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->onLoadFinished(Landroidx/media3/exoplayer/source/LoadEventInfo;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaSourceEventDispatcher:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 20
+     .line 21
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 22
+     .line 23
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 24
+     .line 25
+     iget-object v0, v0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 32
+     .line 33
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 38
+     .line 39
+     invoke-static {p1, p4, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     invoke-virtual {p2, p3, p0}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadCompleted(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-void
+ .end method
+@@ -1891,24 +1510,18 @@
+     .line 2
+     invoke-direct {p0, p2, p4, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p3, p4, p5, p6}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadError(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;Ljava/io/IOException;Z)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -1916,70 +1529,52 @@
+     :cond_0
+     if-eqz p6, :cond_1
+ 
+-    .line 15
+     .line 16
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p2, p3}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->onLoadFinished(Landroidx/media3/exoplayer/source/LoadEventInfo;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     :cond_1
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaSourceEventDispatcher:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 22
+     .line 23
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 24
+     .line 25
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 26
+     .line 27
+     iget-object v0, v0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 34
+     .line 35
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+     .line 39
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 40
+     .line 41
+     invoke-static {p1, p4, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p0
+ 
+     .line 45
+     invoke-virtual {p2, p3, p0, p5, p6}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadError(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;Ljava/io/IOException;Z)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     return-void
+ .end method
+@@ -1994,15 +1589,12 @@
+     .line 1
+     if-nez p5, :cond_1
+ 
+-    .line 2
+     .line 3
+     const/4 p1, 0x1
+ 
+     .line 4
+     invoke-direct {p0, p2, p4, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p1
+ 
+@@ -2012,16 +1604,12 @@
+     .line 9
+     if-nez p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0, p3, p4, p2}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadStarted(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;I)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ 
+@@ -2029,65 +1617,48 @@
+     :cond_0
+     iget-object p5, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p5, p3, p4}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->onLoadStarted(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     iget-object p5, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaSourceEventDispatcher:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 23
+     .line 24
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 25
+     .line 26
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 27
+     .line 28
+     iget-object v0, v0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 35
+     .line 36
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p0
+ 
+     .line 40
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 41
+     .line 42
+     invoke-static {p1, p4, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+     .line 46
+     invoke-virtual {p5, p3, p0, p2}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->loadStarted(Landroidx/media3/exoplayer/source/LoadEventInfo;Landroidx/media3/exoplayer/source/MediaLoadData;I)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     :cond_1
+     return-void
+@@ -2099,58 +1670,43 @@
+     .line 1
+     iget-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStateUpdater:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$AdPlaybackStateUpdater;
+ 
+-    .line 2
+     .line 3
+     if-eqz p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-interface {p1, p2}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$AdPlaybackStateUpdater;->onAdPlaybackStateUpdateRequested(Landroidx/media3/common/Timeline;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+     .line 9
+     if-nez p1, :cond_1
+ 
+-    .line 10
+     .line 11
+     :cond_0
+     iget-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap;->isEmpty()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p1
+ 
+     .line 17
+     if-nez p1, :cond_1
+ 
+-    .line 18
+     .line 19
+     new-instance p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$ServerSideAdInsertionTimeline;
+ 
+-    .line 20
+     .line 21
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {p1, p2, v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$ServerSideAdInsertionTimeline;-><init>(Landroidx/media3/common/Timeline;Lcom/google/common/collect/ImmutableMap;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/source/BaseMediaSource;->refreshSourceInfo(Landroidx/media3/common/Timeline;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     :cond_1
+     return-void
+@@ -2165,24 +1721,18 @@
+     .line 2
+     invoke-direct {p0, p2, p3, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->getMediaPeriodForEvent(Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;Landroidx/media3/exoplayer/source/MediaLoadData;Z)Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     if-nez p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSourceEventDispatcherWithoutId:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p3}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->upstreamDiscarded(Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -2190,56 +1740,42 @@
+     :cond_0
+     iget-object p2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaSourceEventDispatcher:Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;
+ 
+-    .line 15
+     .line 16
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 17
+     .line 18
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 19
+     .line 20
+     iget-object v0, v0, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 27
+     .line 28
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     check-cast p0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 33
+     .line 34
+     invoke-static {p1, p3, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->correctMediaLoadData(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;Landroidx/media3/exoplayer/source/MediaLoadData;Landroidx/media3/common/AdPlaybackState;)Landroidx/media3/exoplayer/source/MediaLoadData;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-virtual {p2, p0}, Landroidx/media3/exoplayer/source/MediaSourceEventListener$EventDispatcher;->upstreamDiscarded(Landroidx/media3/exoplayer/source/MediaLoadData;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ .end method
+@@ -2254,8 +1790,6 @@
+     .line 1
+     invoke-static {}, Landroidx/media3/common/util/Util;->createHandlerForCurrentLooper()Landroid/os/Handler;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -2266,7 +1800,6 @@
+     :try_start_0
+     iput-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->playbackHandler:Landroid/os/Handler;
+ 
+-    .line 7
+     .line 8
+     monitor-exit p0
+     :try_end_0
+@@ -2275,38 +1808,27 @@
+     .line 9
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {v1, v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->addEventListener(Landroid/os/Handler;Landroidx/media3/exoplayer/source/MediaSourceEventListener;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 15
+     .line 16
+     invoke-interface {v1, v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->addDrmEventListener(Landroid/os/Handler;Landroidx/media3/exoplayer/drm/DrmSessionEventListener;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/source/BaseMediaSource;->getPlayerId()Landroidx/media3/exoplayer/analytics/PlayerId;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v1
+ 
+     .line 25
+     invoke-interface {v0, p0, p1, v1}, Landroidx/media3/exoplayer/source/MediaSource;->prepareSource(Landroidx/media3/exoplayer/source/MediaSource$MediaSourceCaller;Landroidx/media3/datasource/TransferListener;Landroidx/media3/exoplayer/analytics/PlayerId;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-void
+ 
+@@ -2330,102 +1852,75 @@
+     .line 1
+     check-cast p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0, p1}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->remove(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     iget-object v0, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->isUnused()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-eqz v0, :cond_1
+ 
+-    .line 15
+     .line 16
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 17
+     .line 18
+     new-instance v1, Landroid/util/Pair;
+ 
+-    .line 19
+     .line 20
+     iget-object v2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 21
+     .line 22
+     iget-wide v2, v2, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->windowSequenceNumber:J
+ 
+-    .line 23
+     .line 24
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     iget-object v3, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->mediaPeriodId:Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;
+ 
+-    .line 29
+     .line 30
+     iget-object v3, v3, Landroidx/media3/exoplayer/source/MediaSource$MediaPeriodId;->periodUid:Ljava/lang/Object;
+ 
+-    .line 31
+     .line 32
+     invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iget-object v2, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 36
+     .line 37
+     invoke-interface {v0, v1, v2}, Lcom/google/common/collect/Multimap;->remove(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaPeriods:Lcom/google/common/collect/ListMultimap;
+ 
+-    .line 41
+     .line 42
+     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->isEmpty()Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v0
+ 
+     .line 46
+     if-eqz v0, :cond_0
+ 
+-    .line 47
+     .line 48
+     iget-object p1, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 49
+     .line 50
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->lastUsedMediaPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 51
+     .line 52
+     return-void
+ 
+@@ -2433,16 +1928,12 @@
+     :cond_0
+     iget-object p1, p1, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$MediaPeriodImpl;->sharedPeriod:Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;
+ 
+-    .line 54
+     .line 55
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p1, p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource$SharedMediaPeriod;->release(Landroidx/media3/exoplayer/source/MediaSource;)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     :cond_1
+     return-void
+@@ -2454,8 +1945,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->releaseLastUsedMediaPeriod()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     monitor-enter p0
+ 
+@@ -2466,7 +1955,6 @@
+     :try_start_0
+     iput-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->playbackHandler:Landroid/os/Handler;
+ 
+-    .line 7
+     .line 8
+     monitor-exit p0
+     :try_end_0
+@@ -2475,30 +1963,21 @@
+     .line 9
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->releaseSource(Landroidx/media3/exoplayer/source/MediaSource$MediaSourceCaller;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 15
+     .line 16
+     invoke-interface {v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->removeEventListener(Landroidx/media3/exoplayer/source/MediaSourceEventListener;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v0, p0}, Landroidx/media3/exoplayer/source/MediaSource;->removeDrmEventListener(Landroidx/media3/exoplayer/drm/DrmSessionEventListener;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-void
+ 
+@@ -2533,8 +2012,6 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap;->isEmpty()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -2547,21 +2024,15 @@
+     .line 7
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap;->values()Lcom/google/common/collect/ImmutableCollection;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableCollection;->asList()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+@@ -2571,40 +2042,30 @@
+     .line 19
+     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     check-cast v0, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 24
+     .line 25
+     iget-object v0, v0, Landroidx/media3/common/AdPlaybackState;->adsId:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap;->entrySet()Lcom/google/common/collect/ImmutableSet;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v3
+ 
+     .line 35
+     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v3
+ 
+@@ -2612,185 +2073,139 @@
+     :cond_0
+     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v4
+ 
+     .line 43
+     if-eqz v4, :cond_6
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v4
+ 
+     .line 49
+     check-cast v4, Ljava/util/Map$Entry;
+ 
+-    .line 50
+     .line 51
+     invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v5
+ 
+     .line 55
+     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v4
+ 
+     .line 59
+     check-cast v4, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 60
+     .line 61
+     iget-object v6, v4, Landroidx/media3/common/AdPlaybackState;->adsId:Ljava/lang/Object;
+ 
+-    .line 62
+     .line 63
+     invoke-static {v0, v6}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v6
+ 
+     .line 67
+     invoke-static {v6}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     iget-object v6, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {v6, v5}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v5
+ 
+     .line 76
+     check-cast v5, Landroidx/media3/common/AdPlaybackState;
+ 
+-    .line 77
+     .line 78
+     if-eqz v5, :cond_0
+ 
+-    .line 79
+     .line 80
+     iget v6, v4, Landroidx/media3/common/AdPlaybackState;->removedAdGroupCount:I
+ 
+-    .line 81
+     .line 82
+     :goto_0
+     iget v7, v4, Landroidx/media3/common/AdPlaybackState;->adGroupCount:I
+ 
+-    .line 83
+     .line 84
+     if-ge v6, v7, :cond_0
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v4, v6}, Landroidx/media3/common/AdPlaybackState;->getAdGroup(I)Landroidx/media3/common/AdPlaybackState$AdGroup;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v7
+ 
+     .line 90
+     iget-boolean v8, v7, Landroidx/media3/common/AdPlaybackState$AdGroup;->isServerSideInserted:Z
+ 
+-    .line 91
+     .line 92
+     invoke-static {v8}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     iget v8, v5, Landroidx/media3/common/AdPlaybackState;->adGroupCount:I
+ 
+-    .line 96
+     .line 97
+     if-ge v6, v8, :cond_3
+ 
+-    .line 98
+     .line 99
+     invoke-static {v4, v6}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionUtil;->getAdCountInGroup(Landroidx/media3/common/AdPlaybackState;I)I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v8
+ 
+     .line 103
+     invoke-static {v5, v6}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionUtil;->getAdCountInGroup(Landroidx/media3/common/AdPlaybackState;I)I
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result v9
+ 
+     .line 107
+     if-ge v8, v9, :cond_3
+ 
+-    .line 108
+     .line 109
+     add-int/lit8 v8, v6, 0x1
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {v4, v8}, Landroidx/media3/common/AdPlaybackState;->getAdGroup(I)Landroidx/media3/common/AdPlaybackState$AdGroup;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v8
+ 
+     .line 115
+     iget-wide v9, v7, Landroidx/media3/common/AdPlaybackState$AdGroup;->contentResumeOffsetUs:J
+ 
+-    .line 116
+     .line 117
+     iget-wide v11, v8, Landroidx/media3/common/AdPlaybackState$AdGroup;->contentResumeOffsetUs:J
+ 
+-    .line 118
+     .line 119
+     add-long/2addr v9, v11
+ 
+     .line 120
+     invoke-virtual {v5, v6}, Landroidx/media3/common/AdPlaybackState;->getAdGroup(I)Landroidx/media3/common/AdPlaybackState$AdGroup;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v11
+ 
+     .line 124
+     iget-wide v11, v11, Landroidx/media3/common/AdPlaybackState$AdGroup;->contentResumeOffsetUs:J
+ 
+-    .line 125
+     .line 126
+     cmp-long v9, v9, v11
+ 
+-    .line 127
+     .line 128
+     if-nez v9, :cond_1
+ 
+-    .line 129
+     .line 130
+     move v9, v1
+ 
+@@ -2805,31 +2220,24 @@
+     :goto_1
+     invoke-static {v9}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     iget-wide v9, v7, Landroidx/media3/common/AdPlaybackState$AdGroup;->timeUs:J
+ 
+-    .line 137
+     .line 138
+     iget-wide v11, v7, Landroidx/media3/common/AdPlaybackState$AdGroup;->contentResumeOffsetUs:J
+ 
+-    .line 139
+     .line 140
+     add-long/2addr v9, v11
+ 
+     .line 141
+     iget-wide v11, v8, Landroidx/media3/common/AdPlaybackState$AdGroup;->timeUs:J
+ 
+-    .line 142
+     .line 143
+     cmp-long v8, v9, v11
+ 
+-    .line 144
+     .line 145
+     if-nez v8, :cond_2
+ 
+-    .line 146
+     .line 147
+     move v8, v1
+ 
+@@ -2844,37 +2252,28 @@
+     :goto_2
+     invoke-static {v8}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     :cond_3
+     iget-wide v7, v7, Landroidx/media3/common/AdPlaybackState$AdGroup;->timeUs:J
+ 
+-    .line 154
+     .line 155
+     const-wide/high16 v9, -0x8000000000000000L
+ 
+-    .line 156
+     .line 157
+     cmp-long v7, v7, v9
+ 
+-    .line 158
+     .line 159
+     if-nez v7, :cond_5
+ 
+-    .line 160
+     .line 161
+     invoke-static {v4, v6}, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionUtil;->getAdCountInGroup(Landroidx/media3/common/AdPlaybackState;I)I
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result v7
+ 
+     .line 165
+     if-nez v7, :cond_4
+ 
+-    .line 166
+     .line 167
+     move v7, v1
+ 
+@@ -2889,13 +2288,10 @@
+     :goto_3
+     invoke-static {v7}, Landroidx/media3/common/util/Assertions;->checkArgument(Z)V
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     :cond_5
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 174
+     .line 175
+     goto :goto_0
+ 
+@@ -2907,15 +2303,12 @@
+     :try_start_0
+     iget-object v0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->playbackHandler:Landroid/os/Handler;
+ 
+-    .line 178
+     .line 179
+     if-nez v0, :cond_7
+ 
+-    .line 180
+     .line 181
+     iput-object p1, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->adPlaybackStates:Lcom/google/common/collect/ImmutableMap;
+ 
+-    .line 182
+     .line 183
+     goto :goto_4
+ 
+@@ -2930,17 +2323,12 @@
+     :cond_7
+     new-instance v1, Landroidx/media3/exoplayer/source/ads/h;
+ 
+-    .line 187
+     .line 188
+     invoke-direct {v1, p0, p1, p2}, Landroidx/media3/exoplayer/source/ads/h;-><init>(Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;Lcom/google/common/collect/ImmutableMap;Landroidx/media3/common/Timeline;)V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     :goto_4
+     monitor-exit p0
+@@ -2964,12 +2352,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/source/ads/ServerSideAdInsertionMediaSource;->mediaSource:Landroidx/media3/exoplayer/source/MediaSource;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Landroidx/media3/exoplayer/source/MediaSource;->updateMediaItem(Landroidx/media3/common/MediaItem;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method

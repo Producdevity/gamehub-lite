@@ -1,0 +1,707 @@
+--- a/smali_classes6/com/google/common/reflect/Invokable.smali
++++ b/smali_classes6/com/google/common/reflect/Invokable.smali
+@@ -49,15 +49,12 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/reflect/Invokable;->initAnnotatedTypeExists()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     sput-boolean v0, Lcom/google/common/reflect/Invokable;->ANNOTATED_TYPE_EXISTS:Z
+ 
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -77,25 +74,18 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     iput-object p1, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 8
+     .line 9
+     check-cast p1, Ljava/lang/reflect/Member;
+ 
+-    .line 10
+     .line 11
+     iput-object p1, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -151,14 +141,11 @@
+     :try_start_0
+     const-string v0, "java.lang.reflect.AnnotatedType"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+     :try_end_0
+     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x1
+ 
+@@ -185,66 +172,51 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/common/reflect/Invokable;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     check-cast p1, Lcom/google/common/reflect/Invokable;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getOwnerType()Lcom/google/common/reflect/TypeToken;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-virtual {p1}, Lcom/google/common/reflect/Invokable;->getOwnerType()Lcom/google/common/reflect/TypeToken;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     invoke-virtual {v0, v2}, Lcom/google/common/reflect/TypeToken;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-eqz v0, :cond_0
+ 
+-    .line 21
+     .line 22
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 23
+     .line 24
+     iget-object p1, p1, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result p0
+ 
+     .line 30
+     if-eqz p0, :cond_0
+ 
+-    .line 31
+     .line 32
+     const/4 p0, 0x1
+ 
+@@ -274,12 +246,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Ljava/lang/reflect/AccessibleObject;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -293,12 +262,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/reflect/AccessibleObject;->getAnnotations()[Ljava/lang/annotation/Annotation;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -312,12 +278,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/reflect/AccessibleObject;->getDeclaredAnnotations()[Ljava/lang/annotation/Annotation;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -338,12 +301,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Ljava/lang/reflect/Member;->getDeclaringClass()Ljava/lang/Class;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -367,16 +327,12 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getGenericExceptionTypes()[Ljava/lang/reflect/Type;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -390,28 +346,21 @@
+     :goto_0
+     if-ge v2, v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     aget-object v3, p0, v2
+ 
+-    .line 14
+     .line 15
+     invoke-static {v3}, Lcom/google/common/reflect/TypeToken;->of(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v3
+ 
+     .line 19
+     invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -419,8 +368,6 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+@@ -443,12 +390,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Ljava/lang/reflect/Member;->getModifiers()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -462,12 +406,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Ljava/lang/reflect/Member;->getName()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -488,16 +429,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getDeclaringClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p0}, Lcom/google/common/reflect/TypeToken;->of(Ljava/lang/Class;)Lcom/google/common/reflect/TypeToken;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -525,16 +462,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getGenericParameterTypes()[Ljava/lang/reflect/Type;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getParameterAnnotations()[[Ljava/lang/annotation/Annotation;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+@@ -544,12 +477,9 @@
+     .line 10
+     new-array v2, v2, [Ljava/lang/Object;
+ 
+-    .line 11
+     .line 12
+     invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v3
+ 
+@@ -566,48 +496,36 @@
+     .line 19
+     if-ge v7, v4, :cond_0
+ 
+-    .line 20
+     .line 21
+     new-instance v5, Lcom/google/common/reflect/Parameter;
+ 
+-    .line 22
+     .line 23
+     aget-object v4, v0, v7
+ 
+-    .line 24
+     .line 25
+     invoke-static {v4}, Lcom/google/common/reflect/TypeToken;->of(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v8
+ 
+     .line 29
+     aget-object v9, v1, v7
+ 
+-    .line 30
+     .line 31
+     aget-object v10, v2, v7
+ 
+-    .line 32
+     .line 33
+     move-object v6, p0
+ 
+     .line 34
+     invoke-direct/range {v5 .. v10}, Lcom/google/common/reflect/Parameter;-><init>(Lcom/google/common/reflect/Invokable;ILcom/google/common/reflect/TypeToken;[Ljava/lang/annotation/Annotation;Ljava/lang/Object;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v3, v5}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     add-int/lit8 v7, v7, 0x1
+ 
+-    .line 41
+     .line 42
+     goto :goto_0
+ 
+@@ -615,8 +533,6 @@
+     :cond_0
+     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+@@ -637,16 +553,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getGenericReturnType()Ljava/lang/reflect/Type;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p0}, Lcom/google/common/reflect/TypeToken;->of(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -670,12 +582,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -713,20 +622,15 @@
+     .line 1
+     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p2
+ 
+     .line 5
+     check-cast p2, [Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, p1, p2}, Lcom/google/common/reflect/Invokable;->invokeInternal(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -756,16 +660,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -779,12 +679,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/reflect/AccessibleObject;->isAccessible()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -807,12 +704,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Ljava/lang/reflect/AccessibleObject;->isAnnotationPresent(Ljava/lang/Class;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -826,16 +720,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isFinal(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -849,16 +739,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isNative(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -875,39 +761,30 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->isPrivate()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->isPublic()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->isProtected()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+     .line 17
+     if-nez p0, :cond_0
+ 
+-    .line 18
+     .line 19
+     const/4 p0, 0x1
+ 
+@@ -928,16 +805,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isPrivate(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -951,16 +824,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isProtected(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -974,16 +843,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -997,16 +862,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -1020,16 +881,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isSynchronized(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -1043,12 +900,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Ljava/lang/reflect/Member;->isSynthetic()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -1062,16 +916,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isTransient(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -1088,16 +938,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/reflect/Invokable;->getModifiers()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-static {p0}, Ljava/lang/reflect/Modifier;->isVolatile(I)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -1194,12 +1040,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -1210,12 +1053,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->member:Ljava/lang/reflect/Member;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1230,7 +1070,6 @@
+     :try_start_0
+     iget-object p0, p0, Lcom/google/common/reflect/Invokable;->accessibleObject:Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+@@ -1239,8 +1078,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return v0
+ 

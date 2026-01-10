@@ -1,0 +1,648 @@
+--- a/smali_classes4/androidx/media3/exoplayer/scheduler/Requirements.smali
++++ b/smali_classes4/androidx/media3/exoplayer/scheduler/Requirements.smali
+@@ -50,16 +50,12 @@
+     .line 1
+     new-instance v0, Landroidx/media3/exoplayer/scheduler/Requirements$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/exoplayer/scheduler/Requirements$1;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Landroidx/media3/exoplayer/scheduler/Requirements;->CREATOR:Landroid/os/Parcelable$Creator;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -70,25 +66,19 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     and-int/lit8 v0, p1, 0x2
+ 
+-    .line 5
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     or-int/lit8 p1, p1, 0x1
+ 
+-    .line 9
+     .line 10
+     :cond_0
+     iput p1, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 11
+     .line 12
+     return-void
+ .end method
+@@ -99,8 +89,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/scheduler/Requirements;->isNetworkRequired()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -110,7 +98,6 @@
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v1
+ 
+@@ -118,63 +105,48 @@
+     :cond_0
+     const-string v0, "connectivity"
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     invoke-static {p1}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p1
+ 
+     .line 19
+     check-cast p1, Landroid/net/ConnectivityManager;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p1}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     if-eqz v0, :cond_3
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v0
+ 
+     .line 31
+     if-eqz v0, :cond_3
+ 
+-    .line 32
+     .line 33
+     invoke-static {p1}, Landroidx/media3/exoplayer/scheduler/Requirements;->isInternetConnectivityValidated(Landroid/net/ConnectivityManager;)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v0
+ 
+     .line 37
+     if-nez v0, :cond_1
+ 
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -182,27 +154,21 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/scheduler/Requirements;->isUnmeteredNetworkRequired()Z
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result p0
+ 
+     .line 44
+     if-eqz p0, :cond_2
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p1}, Landroid/net/ConnectivityManager;->isActiveNetworkMetered()Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result p0
+ 
+     .line 50
+     if-eqz p0, :cond_2
+ 
+-    .line 51
+     .line 52
+     const/4 p0, 0x2
+ 
+@@ -218,11 +184,9 @@
+     :goto_0
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 56
+     .line 57
+     and-int/lit8 p0, p0, 0x3
+ 
+-    .line 58
+     .line 59
+     return p0
+ .end method
+@@ -233,24 +197,18 @@
+     .line 1
+     new-instance p0, Landroid/content/IntentFilter;
+ 
+-    .line 2
+     .line 3
+     const-string v0, "android.intent.action.BATTERY_CHANGED"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+     .line 9
+     invoke-virtual {p1, v0, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -260,7 +218,6 @@
+     .line 14
+     if-nez p0, :cond_0
+ 
+-    .line 15
+     .line 16
+     return p1
+ 
+@@ -268,15 +225,12 @@
+     :cond_0
+     const-string v0, "status"
+ 
+-    .line 18
+     .line 19
+     const/4 v1, -0x1
+ 
+     .line 20
+     invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+@@ -286,14 +240,12 @@
+     .line 25
+     if-eq p0, v0, :cond_2
+ 
+-    .line 26
+     .line 27
+     const/4 v0, 0x5
+ 
+     .line 28
+     if-ne p0, v0, :cond_1
+ 
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -316,32 +268,24 @@
+     .line 1
+     const-string p0, "power"
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Landroid/os/PowerManager;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroid/os/PowerManager;->isDeviceIdleMode()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+@@ -355,8 +299,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getActiveNetwork()Landroid/net/Network;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -366,7 +308,6 @@
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v1
+ 
+@@ -378,24 +319,18 @@
+     :try_start_0
+     invoke-virtual {p0, v0}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     if-eqz p0, :cond_1
+ 
+-    .line 15
+     .line 16
+     const/16 v0, 0x10
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, v0}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p0
+     :try_end_0
+@@ -404,7 +339,6 @@
+     .line 22
+     if-eqz p0, :cond_1
+ 
+-    .line 23
+     .line 24
+     return v2
+ 
+@@ -423,31 +357,24 @@
+     .line 1
+     new-instance p0, Landroid/content/IntentFilter;
+ 
+-    .line 2
+     .line 3
+     const-string v0, "android.intent.action.DEVICE_STORAGE_LOW"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+     .line 9
+     invoke-virtual {p1, v0, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     if-nez p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 p0, 0x1
+ 
+@@ -470,15 +397,12 @@
+     .line 1
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/scheduler/Requirements;->getNotMetRequirements(Landroid/content/Context;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-nez p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -516,7 +440,6 @@
+     .line 2
+     if-ne p0, p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return v0
+ 
+@@ -527,23 +450,18 @@
+     .line 6
+     if-eqz p1, :cond_2
+ 
+-    .line 7
+     .line 8
+     const-class v2, Landroidx/media3/exoplayer/scheduler/Requirements;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v3
+ 
+     .line 14
+     if-eq v2, v3, :cond_1
+ 
+-    .line 15
+     .line 16
+     goto :goto_0
+ 
+@@ -551,19 +469,15 @@
+     :cond_1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 18
+     .line 19
+     check-cast p1, Landroidx/media3/exoplayer/scheduler/Requirements;
+ 
+-    .line 20
+     .line 21
+     iget p1, p1, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 22
+     .line 23
+     if-ne p0, p1, :cond_2
+ 
+-    .line 24
+     .line 25
+     return v0
+ 
+@@ -579,14 +493,12 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     and-int/2addr p1, v0
+ 
+     .line 4
+     if-ne p1, v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return-object p0
+ 
+@@ -594,12 +506,9 @@
+     :cond_0
+     new-instance p0, Landroidx/media3/exoplayer/scheduler/Requirements;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/scheduler/Requirements;-><init>(I)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-object p0
+ .end method
+@@ -610,97 +519,74 @@
+     .line 1
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/scheduler/Requirements;->getNotMetNetworkRequirements(Landroid/content/Context;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/scheduler/Requirements;->isChargingRequired()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-eqz v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/scheduler/Requirements;->isDeviceCharging(Landroid/content/Context;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-nez v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     or-int/lit8 v0, v0, 0x8
+ 
+-    .line 18
+     .line 19
+     :cond_0
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/scheduler/Requirements;->isIdleRequired()Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v1
+ 
+     .line 23
+     if-eqz v1, :cond_1
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/scheduler/Requirements;->isDeviceIdle(Landroid/content/Context;)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v1
+ 
+     .line 29
+     if-nez v1, :cond_1
+ 
+-    .line 30
+     .line 31
+     or-int/lit8 v0, v0, 0x4
+ 
+-    .line 32
+     .line 33
+     :cond_1
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/scheduler/Requirements;->isStorageNotLowRequired()Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v1
+ 
+     .line 37
+     if-eqz v1, :cond_2
+ 
+-    .line 38
+     .line 39
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/scheduler/Requirements;->isStorageNotLow(Landroid/content/Context;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result p0
+ 
+     .line 43
+     if-nez p0, :cond_2
+ 
+-    .line 44
+     .line 45
+     or-int/lit8 p0, v0, 0x10
+ 
+-    .line 46
+     .line 47
+     return p0
+ 
+@@ -715,7 +601,6 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -726,7 +611,6 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -737,15 +621,12 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     and-int/lit8 p0, p0, 0x8
+ 
+-    .line 4
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -766,15 +647,12 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     and-int/lit8 p0, p0, 0x4
+ 
+-    .line 4
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -795,7 +673,6 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+@@ -805,7 +682,6 @@
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return v0
+ 
+@@ -823,15 +699,12 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     and-int/lit8 p0, p0, 0x10
+ 
+-    .line 4
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -852,15 +725,12 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     and-int/lit8 p0, p0, 0x2
+ 
+-    .line 4
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -881,12 +751,9 @@
+     .line 1
+     iget p0, p0, Landroidx/media3/exoplayer/scheduler/Requirements;->requirements:I
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1, p0}, Landroid/os/Parcel;->writeInt(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method

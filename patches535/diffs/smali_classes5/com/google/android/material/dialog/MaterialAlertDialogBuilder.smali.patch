@@ -1,0 +1,378 @@
+--- a/smali_classes5/com/google/android/material/dialog/MaterialAlertDialogBuilder.smali
++++ b/smali_classes5/com/google/android/material/dialog/MaterialAlertDialogBuilder.smali
+@@ -39,27 +39,21 @@
+     .line 1
+     sget v0, Landroidx/appcompat/R$attr;->alertDialogStyle:I
+ 
+-    .line 2
+     .line 3
+     sput v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->DEF_STYLE_ATTR:I
+ 
+-    .line 4
+     .line 5
+     sget v0, Lcom/google/android/material/R$style;->MaterialAlertDialog_MaterialComponents:I
+ 
+-    .line 6
+     .line 7
+     sput v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->DEF_STYLE_RES:I
+ 
+-    .line 8
+     .line 9
+     sget v0, Lcom/google/android/material/R$attr;->materialAlertDialogTheme:I
+ 
+-    .line 10
+     .line 11
+     sput v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->MATERIAL_ALERT_DIALOG_THEME_OVERLAY:I
+ 
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -234,34 +228,27 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->getMaterialAlertDialogThemeOverlay(Landroid/content/Context;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     sget v1, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->DEF_STYLE_ATTR:I
+ 
+-    .line 6
+     .line 7
+     sget v2, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->DEF_STYLE_RES:I
+ 
+-    .line 8
+     .line 9
+     const/4 v3, 0x0
+ 
+     .line 10
+     invoke-static {p0, v3, v1, v2}, Lcom/google/android/material/theme/overlay/MaterialThemeOverlay;->wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     if-nez v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ 
+@@ -269,12 +256,9 @@
+     :cond_0
+     new-instance v1, Landroidx/appcompat/view/ContextThemeWrapper;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v1, p0, v0}, Landroidx/appcompat/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-object v1
+ .end method
+@@ -289,19 +273,15 @@
+     .line 1
+     sget v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->MATERIAL_ALERT_DIALOG_THEME_OVERLAY:I
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lcom/google/android/material/resources/MaterialAttributes;->resolve(Landroid/content/Context;I)Landroid/util/TypedValue;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     if-nez p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     const/4 p0, 0x0
+ 
+@@ -312,7 +292,6 @@
+     :cond_0
+     iget p0, p0, Landroid/util/TypedValue;->data:I
+ 
+-    .line 12
+     .line 13
+     return p0
+ .end method
+@@ -327,12 +306,9 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->getMaterialAlertDialogThemeOverlay(Landroid/content/Context;)I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -354,96 +330,70 @@
+     .line 1
+     invoke-super {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v2
+ 
+     .line 13
+     iget-object v3, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 14
+     .line 15
+     instance-of v4, v3, Lcom/google/android/material/shape/MaterialShapeDrawable;
+ 
+-    .line 16
+     .line 17
+     if-eqz v4, :cond_0
+ 
+-    .line 18
+     .line 19
+     check-cast v3, Lcom/google/android/material/shape/MaterialShapeDrawable;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v2}, Landroid/view/View;->getElevation()F
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v4
+ 
+     .line 25
+     invoke-virtual {v3, v4}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setElevation(F)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     :cond_0
+     iget-object v3, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 29
+     .line 30
+     iget-object v4, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 31
+     .line 32
+     invoke-static {v3, v4}, Lcom/google/android/material/dialog/MaterialDialogs;->insetDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/drawable/InsetDrawable;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v3
+ 
+     .line 36
+     invoke-virtual {v1, v3}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     new-instance v1, Lcom/google/android/material/dialog/InsetDialogOnTouchListener;
+ 
+-    .line 40
+     .line 41
+     iget-object p0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 42
+     .line 43
+     invoke-direct {v1, v0, p0}, Lcom/google/android/material/dialog/InsetDialogOnTouchListener;-><init>(Landroid/app/Dialog;Landroid/graphics/Rect;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-virtual {v2, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     return-object v0
+ .end method
+@@ -456,7 +406,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -526,7 +475,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->background:Landroid/graphics/drawable/Drawable;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -546,11 +494,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Landroid/graphics/Rect;->bottom:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method
+@@ -570,32 +516,24 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->getContext()Landroid/content/Context;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-virtual {v0}, Landroid/content/res/Configuration;->getLayoutDirection()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+@@ -605,15 +543,12 @@
+     .line 18
+     if-ne v0, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 21
+     .line 22
+     iput p1, v0, Landroid/graphics/Rect;->left:I
+ 
+-    .line 23
+     .line 24
+     return-object p0
+ 
+@@ -621,11 +556,9 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 26
+     .line 27
+     iput p1, v0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 28
+     .line 29
+     return-object p0
+ .end method
+@@ -645,32 +578,24 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->getContext()Landroid/content/Context;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-virtual {v0}, Landroid/content/res/Configuration;->getLayoutDirection()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+@@ -680,15 +605,12 @@
+     .line 18
+     if-ne v0, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 21
+     .line 22
+     iput p1, v0, Landroid/graphics/Rect;->right:I
+ 
+-    .line 23
+     .line 24
+     return-object p0
+ 
+@@ -696,11 +618,9 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 26
+     .line 27
+     iput p1, v0, Landroid/graphics/Rect;->left:I
+ 
+-    .line 28
+     .line 29
+     return-object p0
+ .end method
+@@ -720,11 +640,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->backgroundInsets:Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     iput p1, v0, Landroid/graphics/Rect;->top:I
+ 
+-    .line 4
+     .line 5
+     return-object p0
+ .end method

@@ -1,0 +1,1032 @@
+--- a/smali_classes7/com/winemu/core/controller/MITMController.smali
++++ b/smali_classes7/com/winemu/core/controller/MITMController.smali
+@@ -36,19 +36,15 @@
+     .line 1
+     new-instance v0, Lcom/winemu/core/controller/MITMController$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/winemu/core/controller/MITMController$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lcom/winemu/core/controller/MITMController;->d:Lcom/winemu/core/controller/MITMController$Companion;
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -59,47 +55,33 @@
+     .line 1
+     const-string v0, "context"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "fs"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "config"
+ 
+-    .line 12
+     .line 13
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iput-object p1, p0, Lcom/winemu/core/controller/MITMController;->a:Landroid/content/Context;
+ 
+-    .line 20
+     .line 21
+     iput-object p2, p0, Lcom/winemu/core/controller/MITMController;->b:Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 22
+     .line 23
+     iput-object p3, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -110,8 +92,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/winemu/core/controller/MITMController;->e(Ljava/io/File;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -125,8 +105,6 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/io/File;->isFile()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -142,36 +120,27 @@
+     .line 1
+     const-string v0, "envVars"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config;->A()Lcom/winemu/openapi/Config$MitmConfig;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config$MitmConfig;->d()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-nez v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -179,19 +148,15 @@
+     :cond_0
+     sget-object v0, Lcom/winemu/core/mitm/MitmProxy;->a:Lcom/winemu/core/mitm/MitmProxy;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Lcom/winemu/core/mitm/MitmProxy;->getPort()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v1
+ 
+     .line 25
+     if-gtz v1, :cond_1
+ 
+-    .line 26
+     .line 27
+     :goto_0
+     return-void
+@@ -200,148 +165,105 @@
+     :cond_1
+     const-string v2, "MITM_ENABLED"
+ 
+-    .line 29
+     .line 30
+     const-string v3, "1"
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p1, v2, v3}, Lcom/winemu/core/utils/EnvVars;->d(Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v2, "MITM_TLS_PORT"
+ 
+-    .line 36
+     .line 37
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v1
+ 
+     .line 41
+     invoke-virtual {p1, v2, v1}, Lcom/winemu/core/utils/EnvVars;->d(Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-virtual {v0}, Lcom/winemu/core/mitm/MitmProxy;->getDnsPort()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+     .line 48
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v0
+ 
+     .line 52
+     const-string v1, "MITM_DNS_PORT"
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p1, v1, v0}, Lcom/winemu/core/utils/EnvVars;->d(Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 58
+     .line 59
+     iget-object v1, p0, Lcom/winemu/core/controller/MITMController;->b:Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 60
+     .line 61
+     iget-object v1, v1, Lcom/winemu/core/server/environment/ImageFs;->a:Ljava/io/File;
+ 
+-    .line 62
+     .line 63
+     const-string v2, "etc/mitm.crt"
+ 
+-    .line 64
+     .line 65
+     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v0
+ 
+     .line 72
+     const-string v1, "getPath(...)"
+ 
+-    .line 73
+     .line 74
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     const-string v2, "MITM_CA_CERT"
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {p1, v2, v0}, Lcom/winemu/core/utils/EnvVars;->d(Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 83
+     .line 84
+     iget-object p0, p0, Lcom/winemu/core/controller/MITMController;->b:Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 85
+     .line 86
+     iget-object p0, p0, Lcom/winemu/core/server/environment/ImageFs;->a:Ljava/io/File;
+ 
+-    .line 87
+     .line 88
+     const-string v2, "etc/config.mitm.json"
+ 
+-    .line 89
+     .line 90
+     invoke-direct {v0, p0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object p0
+ 
+     .line 97
+     invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     const-string v0, "MITM_CONFIG"
+ 
+-    .line 101
+     .line 102
+     invoke-virtual {p1, v0, p0}, Lcom/winemu/core/utils/EnvVars;->d(Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     return-void
+ .end method
+@@ -352,43 +274,33 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config;->A()Lcom/winemu/openapi/Config$MitmConfig;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config$MitmConfig;->d()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     const-string v1, "MITMController"
+ 
+-    .line 12
+     .line 13
+     const/4 v2, 0x0
+ 
+     .line 14
+     if-nez v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     const-string p0, "MITM is disabled"
+ 
+-    .line 17
+     .line 18
+     invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return v2
+ 
+@@ -396,42 +308,31 @@
+     :cond_0
+     const-string v0, "Setting up MITM..."
+ 
+-    .line 23
+     .line 24
+     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :try_start_0
+     iget-object v0, p0, Lcom/winemu/core/controller/MITMController;->a:Landroid/content/Context;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v0
+ 
+     .line 33
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v3
+ 
+     .line 37
+     if-nez v3, :cond_1
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     goto :goto_0
+ 
+@@ -447,123 +348,92 @@
+     :goto_0
+     iget-object v0, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config;->A()Lcom/winemu/openapi/Config$MitmConfig;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v0
+ 
+     .line 51
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config$MitmConfig;->a()Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v0
+ 
+     .line 55
+     if-nez v0, :cond_2
+ 
+-    .line 56
+     .line 57
+     const-string v0, "\n-----BEGIN CERTIFICATE-----\nMIIDazCCAlOgAwIBAgIUGEqzyp4fe6xA8zO3L8efPVGVfKQwDQYJKoZIhvcNAQEL\nBQAwTjEWMBQGA1UEAwwNTG9jYWwgUm9vdCBDQTEUMBIGA1UECgwLRGV2ZWxvcG1l\nbnQxHjAcBgNVBAsMFUNlcnRpZmljYXRlIEF1dGhvcml0eTAgFw0yNTA2MjgyMDI4\nNTFaGA8zMDI0MTAyOTIwMjg1MVowTjEWMBQGA1UEAwwNTG9jYWwgUm9vdCBDQTEU\nMBIGA1UECgwLRGV2ZWxvcG1lbnQxHjAcBgNVBAsMFUNlcnRpZmljYXRlIEF1dGhv\ncml0eTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKbjJ2pS2aKTh0UR\n0Nji02IUR/gAlp/GeTYsmsXyUCJEI2/22P6pwmK+GRZt9rFlOn664tgvm+qXIBmG\nScX62zdfqeTIyAxPrRLgU7JWGEfSp37QkN49n4W801LcX4LYnxxCHHoaRdv6T8o3\nDChr2MGMZwgYqeScUIEK4N8cRbhq29e7U55FH7JJkEIK5Ls2/12GVDyM25T6Dnjb\njjmdmmDqbJ1jHMx981MB4VxhH/gVxH2JHmneikiKPMV3DXW+YAilW395NCx1xtNX\n0wmc7Sfrin3din72kJdNZHCt7X3encL1oUhfTq1xiNOsv1B20fXiUA4edhIeFf6Q\nyEk+pOMCAwEAAaM/MD0wDwYDVR0TBAgwBgEB/wIBADALBgNVHQ8EBAMCAQYwHQYD\nVR0OBBYEFAVylNQw0unpElKT7XvhpW8ClsY9MA0GCSqGSIb3DQEBCwUAA4IBAQAZ\nLxY1XrlPTx3B+Mf7bp3r8H2a/LwfinOK74JtDlGlAkIktqD9N0rj3aKlLQXWCO0Y\njRXibQs0RmPp695KNdqzFds8LNCRf5FkgE6y5NpyHU2icHzXMZhqBMaBiuvyDd96\nSRNciTUmDKWF4Fw0JzD349cJCSg+AWQwQLAlr8zpfR/vTZpLhCxlh8I0PcLvG4wJ\nq0X4KnRA2CLw+C7vgINpa2ZRYQgvkkgvhZ+TOw72qw2NXMis9Shft2Vepl1EM0yZ\nzUjHcR9gHUuUczaQPwN0HYF0YMWMjHG2531sJc7BorOQ36pmw4jb0LszZVcsB1os\nSXqbgoKhpiNvVQw72VJx\n-----END CERTIFICATE-----  \n    "
+ 
+-    .line 58
+     .line 59
+     :cond_2
+     iget-object v3, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {v3}, Lcom/winemu/openapi/Config;->A()Lcom/winemu/openapi/Config$MitmConfig;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v3
+ 
+     .line 65
+     invoke-virtual {v3}, Lcom/winemu/openapi/Config$MitmConfig;->b()Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v3
+ 
+     .line 69
+     if-nez v3, :cond_3
+ 
+-    .line 70
+     .line 71
+     const-string v3, "\n-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCm4ydqUtmik4dF\nEdDY4tNiFEf4AJafxnk2LJrF8lAiRCNv9tj+qcJivhkWbfaxZTp+uuLYL5vqlyAZ\nhknF+ts3X6nkyMgMT60S4FOyVhhH0qd+0JDePZ+FvNNS3F+C2J8cQhx6GkXb+k/K\nNwwoa9jBjGcIGKnknFCBCuDfHEW4atvXu1OeRR+ySZBCCuS7Nv9dhlQ8jNuU+g54\n2445nZpg6mydYxzMffNTAeFcYR/4FcR9iR5p3opIijzFdw11vmAIpVt/eTQsdcbT\nV9MJnO0n64p93Yp+9pCXTWRwre193p3C9aFIX06tcYjTrL9QdtH14lAOHnYSHhX+\nkMhJPqTjAgMBAAECggEAAbwMWFQPyVtMMCEXxnFRGMy01MnjcY9atNVGLzbYs1/O\n7dEnKeUczUbu3tH6Guzo7JFHs08yCSr/R+n35qlipugvzV4diiyNKXblwnhCR1jT\n/y2ZcTM7Gbo/3grGqVxUBwipisauzDMFVPOOhPWzVTZUNHwrzoxQtTlQ41tutBR6\nnSBsk/FcTygx/FIRChAimP4anYflwXAj2Us/dOo6iKbUAlN97AThcZzG6WL0vKHN\ne1Ad0jOKbW1W/tQCxnQwO+cGFeMMOLxh2WhoipWzGlVqNu6MjKDzBUWhLb41DiPf\nrb2eIeqpwnbm8LxPoB2YK1UqMuMCjMIxm/ftREwWxQKBgQDan35isrBggOC269WR\n9er5pXBd+88JeifVdJe1vKq1m9pMDwEQoUY/xztEm0UlTu6PmuDzOd0QSsTK5kmN\nBeNkGAfL08P6YAkozVaf+NSI0/jWIDQtz9C+y8tllANRGbAvNoG4CEHV9I0Kp9IU\neIMUW2kk5UAuSm5Ic8fmwD67DQKBgQDDa1YLZ0A3c12FRWbcFhi5cOqTfD4OvLdO\nVpjgQa/D7hRzjkHiQpfNKtrl2ob7AOTEmGT4hP6L+vo2/e4y56HZxKwZAYi2V0C9\nK62o88DuHkLMyh0PkrX0ic6ess4DrO4ry+sogGVALNYvQj8gsUjiJgeYQUf5UcYW\nxGXTO3IjrwKBgQCmsmRY92z7OGmfsHT5RWy0jAwA7Ybw7/69iJhBD6mOrlamFe62\n8nGxIcW0SzxO9T97qhmJ+/3udURWfX9pkyrOYHBZX5AYMe/p95/sfHv6FL6w7n86\nyzGcuaHOQyzAQvkPFt2UKF+it0Rv8oSB7V3tQMIMSu1EHqa2genTrZRnZQKBgHAW\nIrZLtKOZgiys0ACwk+HZiFKr0pR1XdaLCQin5H7HEeft0pBKjfNZ/1ATdZSGwLCa\nkF+TOMVlYRslrvh3r3fOvL9jB90+Up2ubd8YYLKznLEFxIFoLwFiAac4+71T9RAd\n2HXUnz6d+QQGRVslFJ7SHU0RNI0mgC4S3Cy6Tg91AoGBAL9RUPBXMm0bsF5LYBSc\nZg62kHtLlcnWiq7/5UTonYKYGmDs4dJBYK+f34VSeFsLYAk/mH8f+EuUAt62A4wS\n7NEBXIS7qNL0X7+7ycLcgkQ/PQGD+QBubyKBOHw/SfNc4kwnQ0XvVeoLfMKQyPV+\ne+5gtRi0Trbrv3nVjRHFcH9U\n-----END PRIVATE KEY-----\n    "
+ 
+-    .line 72
+     .line 73
+     :cond_3
+     sget-object v4, Lcom/winemu/core/mitm/MitmProxy;->a:Lcom/winemu/core/mitm/MitmProxy;
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {v4, v0, v3}, Lcom/winemu/core/mitm/MitmProxy;->setCertificate(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result v3
+ 
+     .line 79
+     if-eqz v3, :cond_5
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {p0, v0}, Lcom/winemu/core/controller/MITMController;->d(Ljava/lang/String;)V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     iget-object v0, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config;->A()Lcom/winemu/openapi/Config$MitmConfig;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v0
+ 
+     .line 90
+     invoke-virtual {v0}, Lcom/winemu/openapi/Config$MitmConfig;->c()Ljava/lang/String;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v0
+ 
+     .line 94
+     invoke-virtual {v4, v0}, Lcom/winemu/core/mitm/MitmProxy;->setConfig(Ljava/lang/String;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result v0
+ 
+     .line 98
+     if-nez v0, :cond_4
+ 
+-    .line 99
+     .line 100
+     const-string p0, "Failed to load MITM configuration"
+ 
+-    .line 101
+     .line 102
+     invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     return v2
+ 
+@@ -571,41 +441,30 @@
+     :cond_4
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 107
+     .line 108
+     iget-object v3, p0, Lcom/winemu/core/controller/MITMController;->b:Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 109
+     .line 110
+     iget-object v3, v3, Lcom/winemu/core/server/environment/ImageFs;->a:Ljava/io/File;
+ 
+-    .line 111
+     .line 112
+     const-string v5, "etc/config.mitm.json"
+ 
+-    .line 113
+     .line 114
+     invoke-direct {v0, v3, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     iget-object p0, p0, Lcom/winemu/core/controller/MITMController;->c:Lcom/winemu/openapi/Config;
+ 
+-    .line 118
+     .line 119
+     invoke-virtual {p0}, Lcom/winemu/openapi/Config;->A()Lcom/winemu/openapi/Config$MitmConfig;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object p0
+ 
+     .line 123
+     invoke-virtual {p0}, Lcom/winemu/openapi/Config$MitmConfig;->c()Ljava/lang/String;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p0
+ 
+@@ -618,16 +477,12 @@
+     .line 129
+     invoke-static {v0, p0, v5, v3, v5}, Lkotlin/io/FilesKt;->p(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     const/4 p0, 0x3
+ 
+     .line 133
+     invoke-static {v4, v2, v2, p0, v5}, Lcom/winemu/core/mitm/MitmProxy;->a(Lcom/winemu/core/mitm/MitmProxy;IIILjava/lang/Object;)V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     const/4 p0, 0x1
+ 
+@@ -638,16 +493,12 @@
+     :cond_5
+     new-instance p0, Ljava/lang/RuntimeException;
+ 
+-    .line 139
+     .line 140
+     const-string v0, "Broken MITM CA certificate or key"
+ 
+-    .line 141
+     .line 142
+     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     throw p0
+     :try_end_0
+@@ -657,12 +508,9 @@
+     :goto_1
+     const-string v0, "Failed to start MitmProxy"
+ 
+-    .line 147
+     .line 148
+     invoke-static {v1, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     return v2
+ .end method
+@@ -673,66 +521,48 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/winemu/core/controller/MITMController;->b:Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 4
+     .line 5
+     iget-object v1, v1, Lcom/winemu/core/server/environment/ImageFs;->a:Ljava/io/File;
+ 
+-    .line 6
+     .line 7
+     const-string v2, "etc/mitm.crt"
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 13
+     .line 14
+     iget-object p0, p0, Lcom/winemu/core/controller/MITMController;->b:Lcom/winemu/core/server/environment/ImageFs;
+ 
+-    .line 15
+     .line 16
+     iget-object p0, p0, Lcom/winemu/core/server/environment/ImageFs;->a:Ljava/io/File;
+ 
+-    .line 17
+     .line 18
+     const-string v2, "etc/mitm.crt.hash"
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v1, p0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result p0
+ 
+     .line 27
+     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v2
+ 
+@@ -745,27 +575,21 @@
+     .line 37
+     if-eqz v2, :cond_1
+ 
+-    .line 38
+     .line 39
+     invoke-static {v1, v4, v3, v4}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v2
+ 
+     .line 43
+     invoke-static {v2, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v2
+ 
+     .line 47
+     if-nez v2, :cond_0
+ 
+-    .line 48
+     .line 49
+     goto :goto_0
+ 
+@@ -778,121 +602,88 @@
+     :goto_0
+     const-string v2, "Updating MITM CA certificate and hash..."
+ 
+-    .line 52
+     .line 53
+     const-string v5, "MITMController"
+ 
+-    .line 54
+     .line 55
+     invoke-static {v5, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     const/4 v2, 0x2
+ 
+     .line 59
+     invoke-static {v1, p0, v4, v2, v4}, Lkotlin/io/FilesKt;->p(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 63
+     .line 64
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     const-string v1, "\n"
+ 
+-    .line 71
+     .line 72
+     const/4 v6, 0x0
+ 
+     .line 73
+     invoke-static {p1, v1, v6, v2, v4}, Lkotlin/text/StringsKt;->P(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result p1
+ 
+     .line 77
+     if-nez p1, :cond_2
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     :cond_2
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 83
+     .line 84
+     const-string v7, "/etc/security/cacerts"
+ 
+-    .line 85
+     .line 86
+     invoke-direct {p1, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-virtual {p1}, Ljava/io/File;->exists()Z
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result v7
+ 
+     .line 93
+     if-eqz v7, :cond_5
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v7
+ 
+     .line 99
+     if-eqz v7, :cond_5
+ 
+-    .line 100
+     .line 101
+     new-instance v7, Lcom/winemu/core/controller/b;
+ 
+-    .line 102
+     .line 103
+     invoke-direct {v7}, Lcom/winemu/core/controller/b;-><init>()V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-virtual {p1, v7}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p1
+ 
+     .line 110
+     if-eqz p1, :cond_5
+ 
+-    .line 111
+     .line 112
+     array-length v7, p1
+ 
+@@ -903,63 +694,46 @@
+     :goto_1
+     if-ge v8, v7, :cond_5
+ 
+-    .line 115
+     .line 116
+     aget-object v9, p1, v8
+ 
+-    .line 117
+     .line 118
+     :try_start_0
+     sget-object v10, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 119
+     .line 120
+     invoke-static {v9}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-static {v9, v4, v3, v4}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object v10
+ 
+     .line 127
+     invoke-static {v10}, Lkotlin/text/StringsKt;->C0(Ljava/lang/CharSequence;)Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v11
+ 
+     .line 131
+     if-nez v11, :cond_3
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {p0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     invoke-static {v10, v1, v6, v2, v4}, Lkotlin/text/StringsKt;->P(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v10
+ 
+     .line 140
+     if-nez v10, :cond_3
+ 
+-    .line 141
+     .line 142
+     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     goto :goto_2
+ 
+@@ -975,12 +749,9 @@
+     :goto_2
+     sget-object v10, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 149
+     .line 150
+     invoke-static {v10}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result-object v10
+     :try_end_0
+@@ -993,20 +764,15 @@
+     :goto_3
+     sget-object v11, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 156
+     .line 157
+     invoke-static {v10}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result-object v10
+ 
+     .line 161
+     invoke-static {v10}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result-object v10
+ 
+@@ -1014,64 +780,46 @@
+     :goto_4
+     invoke-static {v10}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object v10
+ 
+     .line 169
+     if-eqz v10, :cond_4
+ 
+-    .line 170
+     .line 171
+     invoke-virtual {v9}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object v9
+ 
+     .line 175
+     new-instance v10, Ljava/lang/StringBuilder;
+ 
+-    .line 176
+     .line 177
+     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     const-string v11, "Failed to read certificate file: "
+ 
+-    .line 181
+     .line 182
+     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result-object v9
+ 
+     .line 192
+     invoke-static {v5, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     :cond_4
+     add-int/lit8 v8, v8, 0x1
+ 
+-    .line 196
+     .line 197
+     goto :goto_1
+ 
+@@ -1079,25 +827,18 @@
+     :cond_5
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     move-result-object p0
+ 
+     .line 202
+     const-string p1, "toString(...)"
+ 
+-    .line 203
+     .line 204
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     invoke-static {v0, p0, v4, v2, v4}, Lkotlin/io/FilesKt;->p(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     return-void
+ .end method
+@@ -1109,14 +850,11 @@
+     :try_start_0
+     sget-object p0, Lcom/winemu/core/mitm/MitmProxy;->a:Lcom/winemu/core/mitm/MitmProxy;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/winemu/core/mitm/MitmProxy;->stop()Z
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ 
+@@ -1127,16 +865,12 @@
+     .line 8
+     const-string v0, "MITMController"
+ 
+-    .line 9
+     .line 10
+     const-string v1, "Failed to stop MitmProxy"
+ 
+-    .line 11
+     .line 12
+     invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method

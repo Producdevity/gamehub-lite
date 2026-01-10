@@ -1,0 +1,512 @@
+--- a/smali_classes6/com/luck/picture/lib/service/ForegroundService.smali
++++ b/smali_classes6/com/luck/picture/lib/service/ForegroundService.smali
+@@ -20,57 +20,42 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "com.luck.picture.lib."
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-class v1, Lcom/luck/picture/lib/service/ForegroundService;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v0
+ 
+     .line 24
+     sput-object v0, Lcom/luck/picture/lib/service/ForegroundService;->CHANNEL_ID:Ljava/lang/String;
+ 
+-    .line 25
+     .line 26
+     const/4 v0, 0x0
+ 
+     .line 27
+     sput-boolean v0, Lcom/luck/picture/lib/service/ForegroundService;->isForegroundServiceIng:Z
+ 
+-    .line 28
+     .line 29
+     return-void
+ .end method
+@@ -81,8 +66,6 @@
+     .line 1
+     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -93,8 +76,6 @@
+     .line 1
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isMaxN()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -104,7 +85,6 @@
+     .line 6
+     if-eqz v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     const/4 v0, 0x4
+ 
+@@ -119,8 +99,6 @@
+     :goto_0
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isO()Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v2
+ 
+@@ -130,113 +108,80 @@
+     .line 16
+     if-eqz v2, :cond_1
+ 
+-    .line 17
+     .line 18
+     new-instance v2, Landroid/app/NotificationChannel;
+ 
+-    .line 19
+     .line 20
+     sget-object v4, Lcom/luck/picture/lib/service/ForegroundService;->CHANNEL_ID:Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     const-string v5, "com.luck.picture.lib"
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v2, v4, v5, v0}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     const v0, -0xffff01
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v2, v0}, Landroid/app/NotificationChannel;->setLightColor(I)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {v2}, Landroid/app/NotificationChannel;->canBypassDnd()Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v2, v3}, Landroid/app/NotificationChannel;->setBypassDnd(Z)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-virtual {v2, v1}, Landroid/app/NotificationChannel;->setLockscreenVisibility(I)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     const-string v0, "notification"
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     check-cast v0, Landroid/app/NotificationManager;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v0, v2}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     :cond_1
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectorProviders;->getInstance()Lcom/luck/picture/lib/config/SelectorProviders;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v0
+ 
+     .line 57
+     invoke-virtual {v0}, Lcom/luck/picture/lib/config/SelectorProviders;->getSelectorConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v0
+ 
+     .line 61
+     iget v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->chooseMode:I
+ 
+-    .line 62
+     .line 63
+     invoke-static {}, Lcom/luck/picture/lib/config/SelectMimeType;->ofAudio()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     if-ne v0, v1, :cond_2
+ 
+-    .line 68
+     .line 69
+     sget v0, Lcom/luck/picture/lib/R$string;->ps_use_sound:I
+ 
+-    .line 70
+     .line 71
+     :goto_1
+     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v0
+ 
+@@ -247,7 +192,6 @@
+     :cond_2
+     sget v0, Lcom/luck/picture/lib/R$string;->ps_use_camera:I
+ 
+-    .line 77
+     .line 78
+     goto :goto_1
+ 
+@@ -255,65 +199,48 @@
+     :goto_2
+     new-instance v1, Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 80
+     .line 81
+     sget-object v2, Lcom/luck/picture/lib/service/ForegroundService;->CHANNEL_ID:Ljava/lang/String;
+ 
+-    .line 82
+     .line 83
+     invoke-direct {v1, p0, v2}, Landroidx/core/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     sget v2, Lcom/luck/picture/lib/R$drawable;->ps_ic_trans_1px:I
+ 
+-    .line 87
+     .line 88
+     invoke-virtual {v1, v2}, Landroidx/core/app/NotificationCompat$Builder;->F(I)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v1
+ 
+     .line 92
+     invoke-direct {p0}, Lcom/luck/picture/lib/service/ForegroundService;->getAppName()Ljava/lang/String;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p0
+ 
+     .line 96
+     invoke-virtual {v1, p0}, Landroidx/core/app/NotificationCompat$Builder;->s(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p0
+ 
+     .line 100
+     invoke-virtual {p0, v0}, Landroidx/core/app/NotificationCompat$Builder;->r(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result-object p0
+ 
+     .line 104
+     invoke-virtual {p0, v3}, Landroidx/core/app/NotificationCompat$Builder;->A(Z)Landroidx/core/app/NotificationCompat$Builder;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object p0
+ 
+     .line 108
+     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$Builder;->c()Landroid/app/Notification;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result-object p0
+ 
+@@ -328,16 +255,12 @@
+     :try_start_0
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+@@ -347,36 +270,27 @@
+     .line 10
+     invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     invoke-virtual {v0, p0}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+     :try_end_0
+@@ -392,12 +306,9 @@
+     .line 30
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     const-string p0, ""
+ 
+-    .line 34
+     .line 35
+     return-object p0
+ .end method
+@@ -409,45 +320,33 @@
+     :try_start_0
+     sget-boolean v0, Lcom/luck/picture/lib/service/ForegroundService;->isForegroundServiceIng:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     if-eqz p1, :cond_1
+ 
+-    .line 6
+     .line 7
+     new-instance p1, Landroid/content/Intent;
+ 
+-    .line 8
+     .line 9
+     const-class v0, Lcom/luck/picture/lib/service/ForegroundService;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p1, p0, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-static {}, Lcom/luck/picture/lib/utils/SdkVersionUtils;->isO()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v0
+ 
+     .line 18
+     if-eqz v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, p1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -457,8 +356,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_1
+     return-void
+@@ -470,8 +367,6 @@
+     .line 29
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -483,31 +378,23 @@
+     :try_start_0
+     sget-boolean v0, Lcom/luck/picture/lib/service/ForegroundService;->isForegroundServiceIng:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v0, Landroid/content/Intent;
+ 
+-    .line 6
+     .line 7
+     const-class v1, Lcom/luck/picture/lib/service/ForegroundService;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-virtual {p0, v0}, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     :cond_0
+     return-void
+@@ -519,8 +406,6 @@
+     .line 17
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -543,13 +428,9 @@
+     .line 1
+     invoke-super {p0}, Landroid/app/Service;->onCreate()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0}, Lcom/luck/picture/lib/service/ForegroundService;->createForegroundNotification()Landroid/app/Notification;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+@@ -559,8 +440,6 @@
+     .line 9
+     invoke-virtual {p0, v1, v0}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ .end method
+@@ -574,20 +453,15 @@
+     .line 2
+     sput-boolean v0, Lcom/luck/picture/lib/service/ForegroundService;->isForegroundServiceIng:Z
+ 
+-    .line 3
+     .line 4
+     const/4 v0, 0x1
+ 
+     .line 5
+     invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -601,12 +475,9 @@
+     .line 2
+     sput-boolean v0, Lcom/luck/picture/lib/service/ForegroundService;->isForegroundServiceIng:Z
+ 
+-    .line 3
+     .line 4
+     invoke-super {p0, p1, p2, p3}, Landroid/app/Service;->onStartCommand(Landroid/content/Intent;II)I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p0
+ 

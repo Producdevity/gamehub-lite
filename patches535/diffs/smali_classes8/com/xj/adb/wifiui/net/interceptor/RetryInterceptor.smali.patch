@@ -1,0 +1,66 @@
+--- a/smali_classes8/com/xj/adb/wifiui/net/interceptor/RetryInterceptor.smali
++++ b/smali_classes8/com/xj/adb/wifiui/net/interceptor/RetryInterceptor.smali
+@@ -22,25 +22,18 @@
+     .line 1
+     const-string v0, "chain"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v1
+ 
+@@ -51,37 +44,27 @@
+     :goto_0
+     invoke-virtual {v1}, Lokhttp3/Response;->isSuccessful()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v3
+ 
+     .line 19
+     if-nez v3, :cond_0
+ 
+-    .line 20
+     .line 21
+     iget v3, p0, Lcom/xj/adb/wifiui/net/interceptor/RetryInterceptor;->a:I
+ 
+-    .line 22
+     .line 23
+     if-ge v2, v3, :cond_0
+ 
+-    .line 24
+     .line 25
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 26
+     .line 27
+     invoke-static {v1}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v1
+ 

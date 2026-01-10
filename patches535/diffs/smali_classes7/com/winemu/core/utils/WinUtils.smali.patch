@@ -1,0 +1,601 @@
+--- a/smali_classes7/com/winemu/core/utils/WinUtils.smali
++++ b/smali_classes7/com/winemu/core/utils/WinUtils.smali
+@@ -22,16 +22,12 @@
+     .line 1
+     new-instance v0, Lcom/winemu/core/utils/WinUtils;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/winemu/core/utils/WinUtils;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/winemu/core/utils/WinUtils;->a:Lcom/winemu/core/utils/WinUtils;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -42,8 +38,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -56,16 +50,12 @@
+     .line 1
+     const-string p0, "unixPath"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string p0, "/"
+ 
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+@@ -78,90 +68,66 @@
+     .line 11
+     invoke-static {p1, p0, v0, v1, v2}, Lkotlin/text/StringsKt;->f0(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p0
+ 
+     .line 15
+     if-eqz p0, :cond_5
+ 
+-    .line 16
+     .line 17
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     new-array v3, v0, [Ljava/nio/file/LinkOption;
+ 
+-    .line 27
+     .line 28
+     invoke-interface {p0, v3}, Ljava/nio/file/Path;->toRealPath([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+     .line 36
+     if-eqz p2, :cond_4
+ 
+-    .line 37
+     .line 38
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 39
+     .line 40
+     const-string v4, "dosdevices"
+ 
+-    .line 41
+     .line 42
+     invoke-direct {v3, p2, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v3}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p2
+ 
+     .line 49
+     if-eqz p2, :cond_4
+ 
+-    .line 50
+     .line 51
+     new-instance v3, Ljava/util/ArrayList;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     array-length v4, p2
+ 
+@@ -172,45 +138,34 @@
+     :goto_0
+     if-ge v5, v4, :cond_1
+ 
+-    .line 59
+     .line 60
+     aget-object v6, p2, v5
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v7
+ 
+     .line 66
+     const-string v8, "c:"
+ 
+-    .line 67
+     .line 68
+     invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v7
+ 
+     .line 72
+     if-nez v7, :cond_0
+ 
+-    .line 73
+     .line 74
+     invoke-interface {v3, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     :cond_0
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 78
+     .line 79
+     goto :goto_0
+ 
+@@ -218,25 +173,18 @@
+     :cond_1
+     new-instance p2, Lcom/winemu/core/utils/WinUtils$convertToWinPath$lambda$4$$inlined$sortedBy$1;
+ 
+-    .line 81
+     .line 82
+     invoke-direct {p2}, Lcom/winemu/core/utils/WinUtils$convertToWinPath$lambda$4$$inlined$sortedBy$1;-><init>()V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-static {v3, p2}, Lkotlin/collections/CollectionsKt;->U0(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/List;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p2
+ 
+     .line 89
+     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p2
+ 
+@@ -245,158 +193,115 @@
+     :goto_1
+     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v3
+ 
+     .line 97
+     if-eqz v3, :cond_4
+ 
+-    .line 98
+     .line 99
+     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v3
+ 
+     .line 103
+     check-cast v3, Ljava/io/File;
+ 
+-    .line 104
+     .line 105
+     invoke-static {v3}, Lcom/winemu/core/utils/FileUtils;->m(Ljava/io/File;)Z
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result v4
+ 
+     .line 109
+     if-eqz v4, :cond_2
+ 
+-    .line 110
+     .line 111
+     sget-object v4, Lcom/winemu/core/utils/WinUtils;->a:Lcom/winemu/core/utils/WinUtils;
+ 
+-    .line 112
+     .line 113
+     :try_start_0
+     sget-object v5, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {v3}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object v5
+ 
+     .line 119
+     new-array v6, v0, [Ljava/nio/file/LinkOption;
+ 
+-    .line 120
+     .line 121
+     invoke-interface {v5, v6}, Ljava/nio/file/Path;->toRealPath([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result-object v5
+ 
+     .line 125
+     invoke-virtual {v5}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object v5
+ 
+     .line 129
+     invoke-static {p0, v5, v0, v1, v2}, Lkotlin/text/StringsKt;->f0(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result v6
+ 
+     .line 133
+     if-eqz v6, :cond_3
+ 
+-    .line 134
+     .line 135
+     const-string v6, "WinUtils"
+ 
+-    .line 136
+     .line 137
+     new-instance v7, Ljava/lang/StringBuilder;
+ 
+-    .line 138
+     .line 139
+     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     const-string v8, "Found matching drive: "
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     move-result-object v7
+ 
+     .line 154
+     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result-object v3
+ 
+     .line 161
+     const-string v6, "getName(...)"
+ 
+-    .line 162
+     .line 163
+     invoke-static {v3, v6}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     invoke-static {p0, v5}, Lkotlin/text/StringsKt;->X0(Ljava/lang/String;Ljava/lang/CharSequence;)Ljava/lang/String;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object v5
+ 
+     .line 170
+     invoke-virtual {v4, v3, v5}, Lcom/winemu/core/utils/WinUtils;->b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result-object p0
+ 
+@@ -414,14 +319,11 @@
+     :cond_3
+     sget-object v3, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 178
+     .line 179
+     invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     goto :goto_1
+ 
+@@ -429,20 +331,15 @@
+     :goto_2
+     sget-object v4, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 184
+     .line 185
+     invoke-static {v3}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object v3
+ 
+     .line 189
+     invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     goto :goto_1
+ 
+@@ -450,43 +347,30 @@
+     :cond_4
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 194
+     .line 195
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 196
+     .line 197
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     const-string v0, "No matching drive found for "
+ 
+-    .line 201
+     .line 202
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 203
+-    .line 204
+     .line 205
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     move-result-object p1
+ 
+     .line 212
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     throw p0
+ 
+@@ -494,51 +378,36 @@
+     :cond_5
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 217
+     .line 218
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     const-string p1, " not an absolute path!"
+ 
+-    .line 225
+     .line 226
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     move-result-object p0
+ 
+     .line 233
+     new-instance p1, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 234
+     .line 235
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     move-result-object p0
+ 
+     .line 239
+     invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     throw p1
+ .end method
+@@ -555,11 +424,9 @@
+     .line 3
+     const-string v1, "/"
+ 
+-    .line 4
+     .line 5
+     const-string v2, "\\"
+ 
+-    .line 6
+     .line 7
+     const/4 v3, 0x0
+ 
+@@ -569,44 +436,30 @@
+     .line 9
+     invoke-static/range {v0 .. v5}, Lkotlin/text/StringsKt;->Z(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     const-string p1, "\\"
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+@@ -623,44 +476,33 @@
+     .line 36
+     invoke-static {p0, p1, v1, p2, v0}, Lkotlin/text/StringsKt;->P(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p2
+ 
+     .line 40
+     if-eqz p2, :cond_0
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p0}, Ljava/lang/String;->length()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result p2
+ 
+     .line 46
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p0, v1, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p0
+ 
+     .line 52
+     const-string p2, "substring(...)"
+ 
+-    .line 53
+     .line 54
+     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     goto :goto_0
+ 

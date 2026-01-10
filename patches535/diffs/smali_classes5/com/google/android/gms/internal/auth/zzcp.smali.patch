@@ -1,0 +1,782 @@
+--- a/smali_classes5/com/google/android/gms/internal/auth/zzcp.smali
++++ b/smali_classes5/com/google/android/gms/internal/auth/zzcp.smali
+@@ -21,8 +21,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -33,7 +31,6 @@
+     .line 1
+     const-class v0, Lcom/google/android/gms/internal/auth/zzcp;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -41,51 +38,39 @@
+     :try_start_0
+     sget-object v1, Lcom/google/android/gms/internal/auth/zzcp;->zza:Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 5
+     .line 6
+     if-nez v1, :cond_b
+ 
+-    .line 7
+     .line 8
+     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     sget-object v2, Landroid/os/Build;->TAGS:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     const-string v3, "eng"
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v3
+ 
+     .line 18
+     if-nez v3, :cond_0
+ 
+-    .line 19
+     .line 20
+     const-string v3, "userdebug"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+     .line 26
+     if-eqz v1, :cond_1
+ 
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -96,41 +81,32 @@
+     .line 30
+     goto/16 :goto_c
+ 
+-    .line 31
+     .line 32
+     :cond_0
+     :goto_0
+     const-string v1, "dev-keys"
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v2, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result v1
+ 
+     .line 38
+     if-nez v1, :cond_2
+ 
+-    .line 39
+     .line 40
+     const-string v1, "test-keys"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v2, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v1
+ 
+     .line 46
+     if-eqz v1, :cond_1
+ 
+-    .line 47
+     .line 48
+     goto :goto_2
+ 
+@@ -138,8 +114,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/android/gms/internal/auth/zzdh;->zzc()Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -150,38 +124,29 @@
+     .line 54
+     goto/16 :goto_9
+ 
+-    .line 55
+     .line 56
+     :cond_2
+     :goto_2
+     invoke-static {}, Lcom/google/android/gms/internal/auth/zzcc;->zzb()Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v1
+ 
+     .line 60
+     if-eqz v1, :cond_3
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p0}, Landroid/content/Context;->isDeviceProtectedStorage()Z
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v1
+ 
+     .line 66
+     if-nez v1, :cond_3
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p0}, Landroid/content/Context;->createDeviceProtectedStorageContext()Landroid/content/Context;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p0
+ 
+@@ -189,8 +154,6 @@
+     :cond_3
+     invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v1
+     :try_end_0
+@@ -202,8 +165,6 @@
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_1
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     const/4 v2, 0x0
+ 
+@@ -211,49 +172,37 @@
+     :try_start_2
+     new-instance v3, Ljava/io/File;
+ 
+-    .line 81
+     .line 82
+     const-string v4, "phenotype_hermetic"
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {p0, v4, v2}, Landroid/content/Context;->getDir(Ljava/lang/String;I)Ljava/io/File;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v4
+ 
+     .line 88
+     const-string v5, "overrides.txt"
+ 
+-    .line 89
+     .line 90
+     invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+     :try_end_2
+     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     :try_start_3
+     invoke-virtual {v3}, Ljava/io/File;->exists()Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v4
+ 
+     .line 97
+     if-eqz v4, :cond_4
+ 
+-    .line 98
+     .line 99
+     invoke-static {v3}, Lcom/google/android/gms/internal/auth/zzdh;->zzd(Ljava/lang/Object;)Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v3
+ 
+@@ -267,13 +216,10 @@
+     .line 105
+     goto/16 :goto_a
+ 
+-    .line 106
+     .line 107
+     :cond_4
+     invoke-static {}, Lcom/google/android/gms/internal/auth/zzdh;->zzc()Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v3
+ 
+@@ -287,21 +233,15 @@
+     .line 113
+     const-string v4, "HermeticFileOverrides"
+ 
+-    .line 114
+     .line 115
+     const-string v5, "no data dir"
+ 
+-    .line 116
+     .line 117
+     invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     invoke-static {}, Lcom/google/android/gms/internal/auth/zzdh;->zzc()Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v3
+ 
+@@ -309,20 +249,15 @@
+     :goto_3
+     invoke-virtual {v3}, Lcom/google/android/gms/internal/auth/zzdh;->zzb()Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result v4
+ 
+     .line 128
+     if-eqz v4, :cond_a
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {v3}, Lcom/google/android/gms/internal/auth/zzdh;->zza()Ljava/lang/Object;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result-object v3
+     :try_end_3
+@@ -332,84 +267,62 @@
+     :try_start_4
+     new-instance v4, Ljava/io/BufferedReader;
+ 
+-    .line 135
+     .line 136
+     new-instance v5, Ljava/io/InputStreamReader;
+ 
+-    .line 137
+     .line 138
+     new-instance v6, Ljava/io/FileInputStream;
+ 
+-    .line 139
+     .line 140
+     move-object v7, v3
+ 
+     .line 141
+     check-cast v7, Ljava/io/File;
+ 
+-    .line 142
+     .line 143
+     invoke-direct {v6, v7}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     invoke-direct {v5, v6}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     invoke-direct {v4, v5}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+     :try_end_4
+     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+     .catchall {:try_start_4 .. :try_end_4} :catchall_1
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     :try_start_5
+     new-instance v5, Landroidx/collection/SimpleArrayMap;
+ 
+-    .line 153
+     .line 154
+     invoke-direct {v5}, Landroidx/collection/SimpleArrayMap;-><init>()V
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     new-instance v6, Ljava/util/HashMap;
+ 
+-    .line 158
+     .line 159
+     invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     :goto_4
+     invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object v7
+ 
+     .line 166
+     if-eqz v7, :cond_9
+ 
+-    .line 167
+     .line 168
+     const-string v8, " "
+ 
+-    .line 169
+     .line 170
+     const/4 v9, 0x3
+ 
+     .line 171
+     invoke-virtual {v7, v8, v9}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object v8
+ 
+@@ -419,47 +332,33 @@
+     .line 176
+     if-eq v10, v9, :cond_5
+ 
+-    .line 177
+     .line 178
+     const-string v8, "HermeticFileOverrides"
+ 
+-    .line 179
+     .line 180
+     new-instance v9, Ljava/lang/StringBuilder;
+ 
+-    .line 181
+     .line 182
+     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     const-string v10, "Invalid: "
+ 
+-    .line 186
+     .line 187
+     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result-object v7
+ 
+     .line 197
+     invoke-static {v8, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     goto :goto_4
+ 
+@@ -470,42 +369,31 @@
+     .line 202
+     goto/16 :goto_5
+ 
+-    .line 203
+     .line 204
+     :cond_5
+     aget-object v7, v8, v2
+ 
+-    .line 205
+     .line 206
+     new-instance v9, Ljava/lang/String;
+ 
+-    .line 207
+     .line 208
+     invoke-direct {v9, v7}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     const/4 v7, 0x1
+ 
+     .line 212
+     aget-object v7, v8, v7
+ 
+-    .line 213
+     .line 214
+     new-instance v10, Ljava/lang/String;
+ 
+-    .line 215
+     .line 216
+     invoke-direct {v10, v7}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     invoke-static {v10}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     move-result-object v7
+ 
+@@ -515,115 +403,84 @@
+     .line 224
+     aget-object v11, v8, v10
+ 
+-    .line 225
+     .line 226
+     invoke-interface {v6, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     move-result-object v11
+ 
+     .line 230
+     check-cast v11, Ljava/lang/String;
+ 
+-    .line 231
+     .line 232
+     if-nez v11, :cond_7
+ 
+-    .line 233
+     .line 234
+     aget-object v8, v8, v10
+ 
+-    .line 235
+     .line 236
+     new-instance v10, Ljava/lang/String;
+ 
+-    .line 237
+     .line 238
+     invoke-direct {v10, v8}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+ 
+-    .line 239
+-    .line 240
+     .line 241
+     invoke-static {v10}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object v11
+ 
+     .line 245
+     invoke-virtual {v11}, Ljava/lang/String;->length()I
+ 
+-    .line 246
+-    .line 247
+     .line 248
+     move-result v8
+ 
+     .line 249
+     const/16 v12, 0x400
+ 
+-    .line 250
+     .line 251
+     if-lt v8, v12, :cond_6
+ 
+-    .line 252
+     .line 253
+     if-ne v11, v10, :cond_7
+ 
+-    .line 254
+     .line 255
+     :cond_6
+     invoke-interface {v6, v10, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     :cond_7
+     invoke-virtual {v5, v9}, Landroidx/collection/SimpleArrayMap;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 259
+-    .line 260
+     .line 261
+     move-result v8
+ 
+     .line 262
+     if-nez v8, :cond_8
+ 
+-    .line 263
+     .line 264
+     new-instance v8, Landroidx/collection/SimpleArrayMap;
+ 
+-    .line 265
+     .line 266
+     invoke-direct {v8}, Landroidx/collection/SimpleArrayMap;-><init>()V
+ 
+-    .line 267
+-    .line 268
+     .line 269
+     invoke-virtual {v5, v9, v8}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     :cond_8
+     invoke-virtual {v5, v9}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 273
+-    .line 274
+     .line 275
+     move-result-object v8
+ 
+     .line 276
+     check-cast v8, Landroidx/collection/SimpleArrayMap;
+ 
+-    .line 277
+     .line 278
+     invoke-virtual {v8, v7, v11}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 279
+-    .line 280
+     .line 281
+     goto :goto_4
+ 
+@@ -631,84 +488,59 @@
+     :cond_9
+     const-string v2, "HermeticFileOverrides"
+ 
+-    .line 283
+     .line 284
+     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 285
+-    .line 286
+     .line 287
+     move-result-object v3
+ 
+     .line 288
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 289
+-    .line 290
+     .line 291
+     move-result-object p0
+ 
+     .line 292
+     new-instance v6, Ljava/lang/StringBuilder;
+ 
+-    .line 293
+     .line 294
+     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 295
+-    .line 296
+     .line 297
+     const-string v7, "Parsed "
+ 
+-    .line 298
+     .line 299
+     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 300
+-    .line 301
+     .line 302
+     invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 303
+-    .line 304
+     .line 305
+     const-string v3, " for Android package "
+ 
+-    .line 306
+     .line 307
+     invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 308
+-    .line 309
+     .line 310
+     invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 311
+-    .line 312
+     .line 313
+     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 314
+-    .line 315
+     .line 316
+     move-result-object p0
+ 
+     .line 317
+     invoke-static {v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 318
+-    .line 319
+     .line 320
+     new-instance p0, Lcom/google/android/gms/internal/auth/zzci;
+ 
+-    .line 321
+     .line 322
+     invoke-direct {p0, v5}, Lcom/google/android/gms/internal/auth/zzci;-><init>(Landroidx/collection/SimpleArrayMap;)V
+     :try_end_5
+     .catchall {:try_start_5 .. :try_end_5} :catchall_2
+ 
+-    .line 323
+-    .line 324
+     .line 325
+     :try_start_6
+     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
+@@ -716,14 +548,10 @@
+     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
+     .catchall {:try_start_6 .. :try_end_6} :catchall_1
+ 
+-    .line 326
+-    .line 327
+     .line 328
+     :try_start_7
+     invoke-static {p0}, Lcom/google/android/gms/internal/auth/zzdh;->zzd(Ljava/lang/Object;)Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 329
+-    .line 330
+     .line 331
+     move-result-object p0
+     :try_end_7
+@@ -746,8 +574,6 @@
+     :try_end_8
+     .catchall {:try_start_8 .. :try_end_8} :catchall_3
+ 
+-    .line 336
+-    .line 337
+     .line 338
+     goto :goto_6
+ 
+@@ -759,36 +585,27 @@
+     :try_start_9
+     const-class v3, Ljava/lang/Throwable;
+ 
+-    .line 341
+     .line 342
+     const-string v4, "addSuppressed"
+ 
+-    .line 343
+     .line 344
+     const-class v5, Ljava/lang/Throwable;
+ 
+-    .line 345
+     .line 346
+     filled-new-array {v5}, [Ljava/lang/Class;
+ 
+-    .line 347
+-    .line 348
+     .line 349
+     move-result-object v5
+ 
+     .line 350
+     invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 351
+-    .line 352
+     .line 353
+     move-result-object v3
+ 
+     .line 354
+     filled-new-array {v2}, [Ljava/lang/Object;
+ 
+-    .line 355
+-    .line 356
+     .line 357
+     move-result-object v2
+ 
+@@ -798,8 +615,6 @@
+     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
+     .catchall {:try_start_9 .. :try_end_9} :catchall_1
+ 
+-    .line 359
+-    .line 360
+     .line 361
+     :catch_2
+     :goto_6
+@@ -814,12 +629,9 @@
+     :try_start_b
+     new-instance v2, Ljava/lang/RuntimeException;
+ 
+-    .line 363
+     .line 364
+     invoke-direct {v2, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 365
+-    .line 366
+     .line 367
+     throw v2
+ 
+@@ -827,8 +639,6 @@
+     :cond_a
+     invoke-static {}, Lcom/google/android/gms/internal/auth/zzdh;->zzc()Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 369
+-    .line 370
+     .line 371
+     move-result-object p0
+     :try_end_b
+@@ -839,17 +649,13 @@
+     :try_start_c
+     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+ 
+-    .line 373
+-    .line 374
+     .line 375
+     goto/16 :goto_1
+ 
+-    .line 376
+     .line 377
+     :goto_9
+     sput-object v1, Lcom/google/android/gms/internal/auth/zzcp;->zza:Lcom/google/android/gms/internal/auth/zzdh;
+ 
+-    .line 378
+     .line 379
+     goto :goto_b
+ 
+@@ -857,8 +663,6 @@
+     :goto_a
+     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+ 
+-    .line 381
+-    .line 382
+     .line 383
+     throw p0
+ 

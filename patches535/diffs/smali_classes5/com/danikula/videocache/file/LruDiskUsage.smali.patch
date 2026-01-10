@@ -1,0 +1,316 @@
+--- a/smali_classes5/com/danikula/videocache/file/LruDiskUsage.smali
++++ b/smali_classes5/com/danikula/videocache/file/LruDiskUsage.smali
+@@ -25,20 +25,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     iput-object v0, p0, Lcom/danikula/videocache/file/LruDiskUsage;->a:Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -49,8 +44,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lcom/danikula/videocache/file/LruDiskUsage;->e(Ljava/io/File;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -63,21 +56,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/danikula/videocache/file/LruDiskUsage;->a:Ljava/util/concurrent/ExecutorService;
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Lcom/danikula/videocache/file/LruDiskUsage$TouchCallable;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1, p0, p1}, Lcom/danikula/videocache/file/LruDiskUsage$TouchCallable;-><init>(Lcom/danikula/videocache/file/LruDiskUsage;Ljava/io/File;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -91,45 +78,34 @@
+     .line 1
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     const-wide/16 v0, 0x0
+ 
+-    .line 6
+     .line 7
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p1
+ 
+     .line 11
+     if-eqz p1, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p1
+ 
+     .line 17
+     check-cast p1, Ljava/io/File;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p1}, Ljava/io/File;->length()J
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-wide v2
+ 
+@@ -150,29 +126,21 @@
+     .line 1
+     invoke-static {p1}, Lcom/danikula/videocache/file/Files;->e(Ljava/io/File;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p1
+ 
+     .line 8
+     invoke-static {p1}, Lcom/danikula/videocache/file/Files;->a(Ljava/io/File;)Ljava/util/List;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     invoke-virtual {p0, p1}, Lcom/danikula/videocache/file/LruDiskUsage;->f(Ljava/util/List;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -183,24 +151,18 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lcom/danikula/videocache/file/LruDiskUsage;->d(Ljava/util/List;)J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+     .line 5
+     invoke-interface {p1}, Ljava/util/List;->size()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v2
+ 
+     .line 9
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+@@ -209,111 +171,81 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v3
+ 
+     .line 17
+     if-eqz v3, :cond_2
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v3
+ 
+     .line 23
+     check-cast v3, Ljava/io/File;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p0, v3, v0, v1, v2}, Lcom/danikula/videocache/file/LruDiskUsage;->b(Ljava/io/File;JI)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v4
+ 
+     .line 29
+     if-nez v4, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v3}, Ljava/io/File;->length()J
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-wide v4
+ 
+     .line 35
+     invoke-virtual {v3}, Ljava/io/File;->delete()Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v6
+ 
+     .line 39
+     if-eqz v6, :cond_1
+ 
+-    .line 40
+     .line 41
+     add-int/lit8 v2, v2, -0x1
+ 
+-    .line 42
+     .line 43
+     sub-long/2addr v0, v4
+ 
+     .line 44
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     const-string v5, "Cache file "
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     const-string v3, " is deleted because it exceeds cache limit"
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v3
+ 
+     .line 66
+     invoke-static {v3}, Lcom/danikula/videocache/HttpProxyCacheDebuger;->d(Ljava/lang/String;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     goto :goto_0
+ 
+@@ -321,48 +253,33 @@
+     :cond_1
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 71
+     .line 72
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     const-string v5, "Error deleting file "
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     const-string v3, " for trimming cache"
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v3
+ 
+     .line 92
+     invoke-static {v3}, Lcom/danikula/videocache/HttpProxyCacheDebuger;->a(Ljava/lang/String;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     goto :goto_0
+ 

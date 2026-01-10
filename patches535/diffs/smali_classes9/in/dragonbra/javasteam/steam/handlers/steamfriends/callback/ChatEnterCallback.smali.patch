@@ -1,0 +1,483 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback.smali
+@@ -90,35 +90,27 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->Companion:Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback$Companion;
+ 
+-    .line 8
+     .line 9
+     const-class v0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/log/LogManager;->getLogger(Ljava/lang/Class;)Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     sput-object v0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -133,217 +125,156 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const-string v0, ""
+ 
+-    .line 10
+     .line 11
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatRoomName:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatMembers:Ljava/util/List;
+ 
+-    .line 18
+     .line 19
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsg;
+ 
+-    .line 20
+     .line 21
+     const-class v1, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsg;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p1
+ 
+     .line 30
+     check-cast p1, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getSteamIdChat()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+     .line 36
+     const-string v2, "getSteamIdChat(...)"
+ 
+-    .line 37
+     .line 38
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getSteamIdFriend()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+     .line 47
+     const-string v2, "getSteamIdFriend(...)"
+ 
+-    .line 48
+     .line 49
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->friendID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getChatRoomType()Lin/dragonbra/javasteam/enums/EChatRoomType;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v1
+ 
+     .line 58
+     const-string v2, "getChatRoomType(...)"
+ 
+-    .line 59
+     .line 60
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatRoomType:Lin/dragonbra/javasteam/enums/EChatRoomType;
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getSteamIdOwner()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v1
+ 
+     .line 69
+     const-string v2, "getSteamIdOwner(...)"
+ 
+-    .line 70
+     .line 71
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->ownerID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getSteamIdClan()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v1
+ 
+     .line 80
+     const-string v2, "getSteamIdClan(...)"
+ 
+-    .line 81
+     .line 82
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->clanID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getChatFlags()B
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v1
+ 
+     .line 91
+     iput-byte v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatFlags:B
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getEnterResponse()Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object v1
+ 
+     .line 97
+     const-string v2, "getEnterResponse(...)"
+ 
+-    .line 98
+     .line 99
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->enterResponse:Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatEnter;->getNumMembers()I
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result p1
+ 
+     .line 108
+     iput p1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->numChatMembers:I
+ 
+-    .line 109
+     .line 110
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->getPayload()Lin/dragonbra/javasteam/util/stream/MemoryStream;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object v0
+ 
+@@ -351,44 +282,33 @@
+     :try_start_0
+     new-instance v2, Lin/dragonbra/javasteam/util/stream/BinaryReader;
+ 
+-    .line 115
+     .line 116
+     invoke-direct {v2, v0}, Lin/dragonbra/javasteam/util/stream/BinaryReader;-><init>(Ljava/io/InputStream;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     :try_start_1
+     invoke-virtual {v2}, Lin/dragonbra/javasteam/util/stream/BinaryReader;->readNullTermString()Ljava/lang/String;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v0
+ 
+     .line 123
+     const-string v3, "readNullTermString(...)"
+ 
+-    .line 124
+     .line 125
+     invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatRoomName:Ljava/lang/String;
+ 
+-    .line 129
+     .line 130
+     sget-object v0, Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;->Success:Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;
+ 
+-    .line 131
+     .line 132
+     if-eq v1, v0, :cond_0
+ 
+-    .line 133
+     .line 134
+     goto :goto_1
+ 
+@@ -396,12 +316,9 @@
+     :cond_0
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 136
+     .line 137
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     const/4 v1, 0x0
+ 
+@@ -409,30 +326,21 @@
+     :goto_0
+     if-ge v1, p1, :cond_1
+ 
+-    .line 142
+     .line 143
+     new-instance v3, Lin/dragonbra/javasteam/steam/handlers/steamfriends/ChatMemberInfo;
+ 
+-    .line 144
+     .line 145
+     invoke-direct {v3}, Lin/dragonbra/javasteam/steam/handlers/steamfriends/ChatMemberInfo;-><init>()V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     invoke-virtual {v3, v2}, Lin/dragonbra/javasteam/types/MessageObject;->readFromStream(Ljava/io/InputStream;)Z
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 155
+     .line 156
+     goto :goto_0
+ 
+@@ -447,22 +355,18 @@
+     :cond_1
+     invoke-static {v0}, Lkotlin/collections/CollectionsKt;->e1(Ljava/lang/Iterable;)Ljava/util/List;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result-object p1
+ 
+     .line 163
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatMembers:Ljava/util/List;
+ 
+-    .line 164
+     .line 165
+     :goto_1
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 166
+     .line 167
+     const/4 p0, 0x0
+ 
+@@ -472,8 +376,6 @@
+     :try_end_2
+     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     return-void
+ 
+@@ -492,8 +394,6 @@
+     :try_start_4
+     invoke-static {v2, p0}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     throw p1
+     :try_end_4
+@@ -506,16 +406,12 @@
+     .line 179
+     sget-object p1, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 180
+     .line 181
+     const-string v0, "Failed to read chat enter info."
+ 
+-    .line 182
+     .line 183
+     invoke-virtual {p1, v0, p0}, Lin/dragonbra/javasteam/util/log/Logger;->error(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     return-void
+ .end method
+@@ -528,7 +424,6 @@
+     .line 1
+     iget-byte p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatFlags:B
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -541,7 +436,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -563,7 +457,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatMembers:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -576,7 +469,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatRoomName:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -589,7 +481,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->chatRoomType:Lin/dragonbra/javasteam/enums/EChatRoomType;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -602,7 +493,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->clanID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -615,7 +505,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->enterResponse:Lin/dragonbra/javasteam/enums/EChatRoomEnterResponse;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -628,7 +517,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->friendID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -639,7 +527,6 @@
+     .line 1
+     iget p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->numChatMembers:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -652,7 +539,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatEnterCallback;->ownerID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

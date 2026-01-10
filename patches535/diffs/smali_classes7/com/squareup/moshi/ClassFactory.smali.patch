@@ -1,0 +1,355 @@
+--- a/smali_classes7/com/squareup/moshi/ClassFactory.smali
++++ b/smali_classes7/com/squareup/moshi/ClassFactory.smali
+@@ -21,8 +21,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -33,15 +31,12 @@
+     .line 1
+     const-string v0, "newInstance"
+ 
+-    .line 2
+     .line 3
+     const-class v1, Ljava/io/ObjectStreamClass;
+ 
+-    .line 4
+     .line 5
+     const-class v2, Ljava/lang/Class;
+ 
+-    .line 6
+     .line 7
+     const/4 v3, 0x0
+ 
+@@ -52,27 +47,20 @@
+     :try_start_0
+     invoke-virtual {p0, v3}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v5
+ 
+     .line 13
+     invoke-virtual {v5, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     new-instance v6, Lcom/squareup/moshi/ClassFactory$1;
+ 
+-    .line 17
+     .line 18
+     invoke-direct {v6, v5, p0}, Lcom/squareup/moshi/ClassFactory$1;-><init>(Ljava/lang/reflect/Constructor;Ljava/lang/Class;)V
+     :try_end_0
+     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-object v6
+ 
+@@ -81,64 +69,48 @@
+     :try_start_1
+     const-string v5, "sun.misc.Unsafe"
+ 
+-    .line 23
+     .line 24
+     invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v5
+ 
+     .line 28
+     const-string v6, "theUnsafe"
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v5, v6}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v6
+ 
+     .line 34
+     invoke-virtual {v6, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v6, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v6
+ 
+     .line 41
+     const-string v7, "allocateInstance"
+ 
+-    .line 42
+     .line 43
+     filled-new-array {v2}, [Ljava/lang/Class;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v8
+ 
+     .line 47
+     invoke-virtual {v5, v7, v8}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v5
+ 
+     .line 51
+     new-instance v7, Lcom/squareup/moshi/ClassFactory$2;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {v7, v5, v6, p0}, Lcom/squareup/moshi/ClassFactory$2;-><init>(Ljava/lang/reflect/Method;Ljava/lang/Object;Ljava/lang/Class;)V
+     :try_end_1
+@@ -147,8 +119,6 @@
+     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
+     .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     return-object v7
+ 
+@@ -157,89 +127,66 @@
+     :try_start_2
+     const-string v5, "getConstructorId"
+ 
+-    .line 58
+     .line 59
+     filled-new-array {v2}, [Ljava/lang/Class;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v6
+ 
+     .line 63
+     invoke-virtual {v1, v5, v6}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v5
+ 
+     .line 67
+     invoke-virtual {v5, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     const-class v6, Ljava/lang/Object;
+ 
+-    .line 71
+     .line 72
+     filled-new-array {v6}, [Ljava/lang/Object;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v6
+ 
+     .line 76
+     invoke-virtual {v5, v3, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v3
+ 
+     .line 80
+     check-cast v3, Ljava/lang/Integer;
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v3
+ 
+     .line 86
+     sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+ 
+-    .line 87
+     .line 88
+     filled-new-array {v2, v5}, [Ljava/lang/Class;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v5
+ 
+     .line 92
+     invoke-virtual {v1, v0, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object v1
+ 
+     .line 96
+     invoke-virtual {v1, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     new-instance v5, Lcom/squareup/moshi/ClassFactory$3;
+ 
+-    .line 100
+     .line 101
+     invoke-direct {v5, v1, p0, v3}, Lcom/squareup/moshi/ClassFactory$3;-><init>(Ljava/lang/reflect/Method;Ljava/lang/Class;I)V
+     :try_end_2
+@@ -247,8 +194,6 @@
+     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2 .. :try_end_2} :catch_4
+     .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_2
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     return-object v5
+ 
+@@ -257,39 +202,29 @@
+     :try_start_3
+     const-class v1, Ljava/io/ObjectInputStream;
+ 
+-    .line 106
+     .line 107
+     filled-new-array {v2, v2}, [Ljava/lang/Class;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v2
+ 
+     .line 111
+     invoke-virtual {v1, v0, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v0
+ 
+     .line 115
+     invoke-virtual {v0, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     new-instance v1, Lcom/squareup/moshi/ClassFactory$4;
+ 
+-    .line 119
+     .line 120
+     invoke-direct {v1, v0, p0}, Lcom/squareup/moshi/ClassFactory$4;-><init>(Ljava/lang/reflect/Method;Ljava/lang/Class;)V
+     :try_end_3
+     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     return-object v1
+ 
+@@ -297,51 +232,36 @@
+     :catch_3
+     new-instance v0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 125
+     .line 126
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 127
+     .line 128
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     const-string v2, "cannot construct instances of "
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object p0
+ 
+     .line 140
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result-object p0
+ 
+     .line 147
+     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     throw v0
+ 
+@@ -352,8 +272,6 @@
+     .line 152
+     invoke-static {p0}, Lcom/squareup/moshi/internal/Util;->u(Ljava/lang/reflect/InvocationTargetException;)Ljava/lang/RuntimeException;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result-object p0
+ 
+@@ -364,12 +282,9 @@
+     :catch_5
+     new-instance p0, Ljava/lang/AssertionError;
+ 
+-    .line 158
+     .line 159
+     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     throw p0
+ 
+@@ -377,12 +292,9 @@
+     :catch_6
+     new-instance p0, Ljava/lang/AssertionError;
+ 
+-    .line 164
+     .line 165
+     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     throw p0
+ .end method

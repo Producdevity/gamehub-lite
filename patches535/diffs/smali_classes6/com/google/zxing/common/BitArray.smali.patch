@@ -1,0 +1,1410 @@
+--- a/smali_classes6/com/google/zxing/common/BitArray.smali
++++ b/smali_classes6/com/google/zxing/common/BitArray.smali
+@@ -28,11 +28,9 @@
+     .line 2
+     new-array v0, v0, [I
+ 
+-    .line 3
+     .line 4
+     sput-object v0, Lcom/google/zxing/common/BitArray;->EMPTY_BITS:[I
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -96,25 +94,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     array-length v0, v0
+ 
+     .line 4
+     mul-int/lit8 v0, v0, 0x20
+ 
+-    .line 5
+     .line 6
+     if-le p1, v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     int-to-float p1, p1
+ 
+     .line 9
+     const/high16 v0, 0x3f400000    # 0.75f
+ 
+-    .line 10
+     .line 11
+     div-float/2addr p1, v0
+ 
+@@ -124,8 +118,6 @@
+     .line 13
+     invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-wide v0
+ 
+@@ -135,15 +127,12 @@
+     .line 18
+     invoke-static {p1}, Lcom/google/zxing/common/BitArray;->makeArray(I)[I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     iget-object v0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 23
+     .line 24
+     array-length v1, v0
+ 
+@@ -153,12 +142,9 @@
+     .line 26
+     invoke-static {v0, v2, p1, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iput-object p1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 30
+     .line 31
+     :cond_0
+     return-void
+@@ -170,15 +156,12 @@
+     .line 1
+     add-int/lit8 p0, p0, 0x1f
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 p0, p0, 0x20
+ 
+-    .line 4
+     .line 5
+     new-array p0, p0, [I
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ .end method
+@@ -191,7 +174,6 @@
+     .line 1
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+@@ -201,55 +183,43 @@
+     .line 5
+     invoke-direct {p0, v0}, Lcom/google/zxing/common/BitArray;->ensureCapacity(I)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     if-eqz p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 11
+     .line 12
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 13
+     .line 14
+     div-int/lit8 v2, v0, 0x20
+ 
+-    .line 15
+     .line 16
+     aget v3, p1, v2
+ 
+-    .line 17
+     .line 18
+     and-int/lit8 v0, v0, 0x1f
+ 
+-    .line 19
+     .line 20
+     shl-int v0, v1, v0
+ 
+-    .line 21
+     .line 22
+     or-int/2addr v0, v3
+ 
+     .line 23
+     aput v0, p1, v2
+ 
+-    .line 24
+     .line 25
+     :cond_0
+     iget p1, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 26
+     .line 27
+     add-int/2addr p1, v1
+ 
+     .line 28
+     iput p1, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 29
+     .line 30
+     return-void
+ .end method
+@@ -260,19 +230,15 @@
+     .line 1
+     iget v0, p1, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 4
+     .line 5
+     add-int/2addr v1, v0
+ 
+     .line 6
+     invoke-direct {p0, v1}, Lcom/google/zxing/common/BitArray;->ensureCapacity(I)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const/4 v1, 0x0
+ 
+@@ -280,24 +246,18 @@
+     :goto_0
+     if-ge v1, v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1, v1}, Lcom/google/zxing/common/BitArray;->get(I)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v2
+ 
+     .line 16
+     invoke-virtual {p0, v2}, Lcom/google/zxing/common/BitArray;->appendBit(Z)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -312,28 +272,21 @@
+     .line 1
+     if-ltz p2, :cond_2
+ 
+-    .line 2
+     .line 3
+     const/16 v0, 0x20
+ 
+-    .line 4
+     .line 5
+     if-gt p2, v0, :cond_2
+ 
+-    .line 6
+     .line 7
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 8
+     .line 9
+     add-int v1, v0, p2
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p0, v1}, Lcom/google/zxing/common/BitArray;->ensureCapacity(I)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const/4 v1, 0x1
+ 
+@@ -344,54 +297,43 @@
+     :goto_0
+     if-ltz p2, :cond_1
+ 
+-    .line 17
+     .line 18
+     shl-int v2, v1, p2
+ 
+-    .line 19
+     .line 20
+     and-int/2addr v2, p1
+ 
+     .line 21
+     if-eqz v2, :cond_0
+ 
+-    .line 22
+     .line 23
+     iget-object v2, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 24
+     .line 25
+     div-int/lit8 v3, v0, 0x20
+ 
+-    .line 26
+     .line 27
+     aget v4, v2, v3
+ 
+-    .line 28
+     .line 29
+     and-int/lit8 v5, v0, 0x1f
+ 
+-    .line 30
+     .line 31
+     shl-int v5, v1, v5
+ 
+-    .line 32
+     .line 33
+     or-int/2addr v4, v5
+ 
+     .line 34
+     aput v4, v2, v3
+ 
+-    .line 35
+     .line 36
+     :cond_0
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 37
+     .line 38
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -399,7 +341,6 @@
+     :cond_1
+     iput v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 42
+     .line 43
+     return-void
+ 
+@@ -407,16 +348,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 45
+     .line 46
+     const-string p1, "Num bits must be between 0 and 32"
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     throw p0
+ .end method
+@@ -427,7 +364,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     array-length v0, v0
+ 
+@@ -441,19 +377,15 @@
+     :goto_0
+     if-ge v2, v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v3, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 9
+     .line 10
+     aput v1, v3, v2
+ 
+-    .line 11
+     .line 12
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -505,14 +437,12 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/zxing/common/BitArray;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -520,39 +450,30 @@
+     :cond_0
+     check-cast p1, Lcom/google/zxing/common/BitArray;
+ 
+-    .line 8
+     .line 9
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 10
+     .line 11
+     iget v2, p1, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 12
+     .line 13
+     if-ne v0, v2, :cond_1
+ 
+-    .line 14
+     .line 15
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 16
+     .line 17
+     iget-object p1, p1, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 18
+     .line 19
+     invoke-static {p0, p1}, Ljava/util/Arrays;->equals([I[I)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p0
+ 
+     .line 23
+     if-eqz p0, :cond_1
+ 
+-    .line 24
+     .line 25
+     const/4 p0, 0x1
+ 
+@@ -570,33 +491,27 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 v0, p1, 0x20
+ 
+-    .line 4
+     .line 5
+     aget v1, p0, v0
+ 
+-    .line 6
+     .line 7
+     and-int/lit8 p1, p1, 0x1f
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x1
+ 
+     .line 10
+     shl-int p1, v2, p1
+ 
+-    .line 11
+     .line 12
+     xor-int/2addr p1, v1
+ 
+     .line 13
+     aput p1, p0, v0
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -607,33 +522,27 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 v0, p1, 0x20
+ 
+-    .line 4
+     .line 5
+     aget p0, p0, v0
+ 
+-    .line 6
+     .line 7
+     and-int/lit8 p1, p1, 0x1f
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x1
+ 
+     .line 10
+     shl-int p1, v0, p1
+ 
+-    .line 11
+     .line 12
+     and-int/2addr p0, p1
+ 
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     return v0
+ 
+@@ -651,7 +560,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -662,11 +570,9 @@
+     .line 1
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     if-lt p1, v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return v0
+ 
+@@ -674,26 +580,21 @@
+     :cond_0
+     div-int/lit8 v0, p1, 0x20
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 9
+     .line 10
+     aget v1, v1, v0
+ 
+-    .line 11
+     .line 12
+     and-int/lit8 p1, p1, 0x1f
+ 
+-    .line 13
+     .line 14
+     const/4 v2, 0x1
+ 
+     .line 15
+     shl-int p1, v2, p1
+ 
+-    .line 16
+     .line 17
+     neg-int p1, p1
+ 
+@@ -704,26 +605,21 @@
+     :goto_0
+     if-nez p1, :cond_2
+ 
+-    .line 20
+     .line 21
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 22
+     .line 23
+     iget-object p1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 24
+     .line 25
+     array-length v1, p1
+ 
+     .line 26
+     if-ne v0, v1, :cond_1
+ 
+-    .line 27
+     .line 28
+     iget p0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 29
+     .line 30
+     return p0
+ 
+@@ -731,7 +627,6 @@
+     :cond_1
+     aget p1, p1, v0
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -739,12 +634,9 @@
+     :cond_2
+     mul-int/lit8 v0, v0, 0x20
+ 
+-    .line 35
+     .line 36
+     invoke-static {p1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p1
+ 
+@@ -754,12 +646,9 @@
+     .line 41
+     iget p0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 42
+     .line 43
+     invoke-static {v0, p0}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p0
+ 
+@@ -773,11 +662,9 @@
+     .line 1
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     if-lt p1, v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return v0
+ 
+@@ -785,29 +672,24 @@
+     :cond_0
+     div-int/lit8 v0, p1, 0x20
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 9
+     .line 10
+     aget v1, v1, v0
+ 
+-    .line 11
+     .line 12
+     not-int v1, v1
+ 
+     .line 13
+     and-int/lit8 p1, p1, 0x1f
+ 
+-    .line 14
+     .line 15
+     const/4 v2, 0x1
+ 
+     .line 16
+     shl-int p1, v2, p1
+ 
+-    .line 17
+     .line 18
+     neg-int p1, p1
+ 
+@@ -818,26 +700,21 @@
+     :goto_0
+     if-nez p1, :cond_2
+ 
+-    .line 21
+     .line 22
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 23
+     .line 24
+     iget-object p1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 25
+     .line 26
+     array-length v1, p1
+ 
+     .line 27
+     if-ne v0, v1, :cond_1
+ 
+-    .line 28
+     .line 29
+     iget p0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 30
+     .line 31
+     return p0
+ 
+@@ -845,7 +722,6 @@
+     :cond_1
+     aget p1, p1, v0
+ 
+-    .line 33
+     .line 34
+     not-int p1, p1
+ 
+@@ -856,12 +732,9 @@
+     :cond_2
+     mul-int/lit8 v0, v0, 0x20
+ 
+-    .line 37
+     .line 38
+     invoke-static {p1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p1
+ 
+@@ -871,12 +744,9 @@
+     .line 43
+     iget p0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 44
+     .line 45
+     invoke-static {v0, p0}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result p0
+ 
+@@ -890,7 +760,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -901,15 +770,12 @@
+     .line 1
+     iget p0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     add-int/lit8 p0, p0, 0x7
+ 
+-    .line 4
+     .line 5
+     div-int/lit8 p0, p0, 0x8
+ 
+-    .line 6
+     .line 7
+     return p0
+ .end method
+@@ -920,20 +786,15 @@
+     .line 1
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     mul-int/lit8 v0, v0, 0x1f
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 6
+     .line 7
+     invoke-static {p0}, Ljava/util/Arrays;->hashCode([I)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -950,26 +811,21 @@
+     .line 1
+     if-lt p2, p1, :cond_6
+ 
+-    .line 2
+     .line 3
+     if-ltz p1, :cond_6
+ 
+-    .line 4
+     .line 5
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 6
+     .line 7
+     if-gt p2, v0, :cond_6
+ 
+-    .line 8
+     .line 9
+     const/4 v0, 0x1
+ 
+     .line 10
+     if-ne p2, p1, :cond_0
+ 
+-    .line 11
+     .line 12
+     return v0
+ 
+@@ -977,15 +833,12 @@
+     :cond_0
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 14
+     .line 15
+     div-int/lit8 v1, p1, 0x20
+ 
+-    .line 16
+     .line 17
+     div-int/lit8 v2, p2, 0x20
+ 
+-    .line 18
+     .line 19
+     move v3, v1
+ 
+@@ -993,18 +846,15 @@
+     :goto_0
+     if-gt v3, v2, :cond_5
+ 
+-    .line 21
+     .line 22
+     const/16 v4, 0x1f
+ 
+-    .line 23
+     .line 24
+     const/4 v5, 0x0
+ 
+     .line 25
+     if-le v3, v1, :cond_1
+ 
+-    .line 26
+     .line 27
+     move v6, v5
+ 
+@@ -1015,12 +865,10 @@
+     :cond_1
+     and-int/lit8 v6, p1, 0x1f
+ 
+-    .line 30
+     .line 31
+     :goto_1
+     if-ge v3, v2, :cond_2
+ 
+-    .line 32
+     .line 33
+     goto :goto_2
+ 
+@@ -1035,29 +883,24 @@
+     .line 36
+     shl-int v4, v7, v4
+ 
+-    .line 37
+     .line 38
+     shl-int v6, v0, v6
+ 
+-    .line 39
+     .line 40
+     sub-int/2addr v4, v6
+ 
+     .line 41
+     iget-object v6, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 42
+     .line 43
+     aget v6, v6, v3
+ 
+-    .line 44
+     .line 45
+     and-int/2addr v6, v4
+ 
+     .line 46
+     if-eqz p3, :cond_3
+ 
+-    .line 47
+     .line 48
+     goto :goto_3
+ 
+@@ -1069,7 +912,6 @@
+     :goto_3
+     if-eq v6, v4, :cond_4
+ 
+-    .line 51
+     .line 52
+     return v5
+ 
+@@ -1077,7 +919,6 @@
+     :cond_4
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 54
+     .line 55
+     goto :goto_0
+ 
+@@ -1089,12 +930,9 @@
+     :cond_6
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     throw p0
+ .end method
+@@ -1105,18 +943,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     array-length v0, v0
+ 
+     .line 4
+     new-array v0, v0, [I
+ 
+-    .line 5
+     .line 6
+     iget v1, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 7
+     .line 8
+     const/4 v2, 0x1
+ 
+@@ -1126,11 +961,9 @@
+     .line 10
+     div-int/lit8 v1, v1, 0x20
+ 
+-    .line 11
+     .line 12
+     add-int/lit8 v3, v1, 0x1
+ 
+-    .line 13
+     .line 14
+     const/4 v4, 0x0
+ 
+@@ -1141,35 +974,27 @@
+     :goto_0
+     if-ge v5, v3, :cond_0
+ 
+-    .line 17
+     .line 18
+     sub-int v6, v1, v5
+ 
+-    .line 19
+     .line 20
+     iget-object v7, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 21
+     .line 22
+     aget v7, v7, v5
+ 
+-    .line 23
+     .line 24
+     invoke-static {v7}, Ljava/lang/Integer;->reverse(I)I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v7
+ 
+     .line 28
+     aput v7, v0, v6
+ 
+-    .line 29
+     .line 30
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -1177,22 +1002,18 @@
+     :cond_0
+     iget v5, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 34
+     .line 35
+     mul-int/lit8 v6, v3, 0x20
+ 
+-    .line 36
+     .line 37
+     if-eq v5, v6, :cond_2
+ 
+-    .line 38
+     .line 39
+     sub-int/2addr v6, v5
+ 
+     .line 40
+     aget v4, v0, v4
+ 
+-    .line 41
+     .line 42
+     ushr-int/2addr v4, v6
+ 
+@@ -1200,38 +1021,30 @@
+     :goto_1
+     if-ge v2, v3, :cond_1
+ 
+-    .line 44
+     .line 45
+     aget v5, v0, v2
+ 
+-    .line 46
+     .line 47
+     rsub-int/lit8 v7, v6, 0x20
+ 
+-    .line 48
+     .line 49
+     shl-int v7, v5, v7
+ 
+-    .line 50
+     .line 51
+     or-int/2addr v4, v7
+ 
+     .line 52
+     add-int/lit8 v7, v2, -0x1
+ 
+-    .line 53
+     .line 54
+     aput v4, v0, v7
+ 
+-    .line 55
+     .line 56
+     ushr-int v4, v5, v6
+ 
+-    .line 57
+     .line 58
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 59
+     .line 60
+     goto :goto_1
+ 
+@@ -1239,12 +1052,10 @@
+     :cond_1
+     aput v4, v0, v1
+ 
+-    .line 62
+     .line 63
+     :cond_2
+     iput-object v0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 64
+     .line 65
+     return-void
+ .end method
+@@ -1255,33 +1066,27 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 v0, p1, 0x20
+ 
+-    .line 4
+     .line 5
+     aget v1, p0, v0
+ 
+-    .line 6
+     .line 7
+     and-int/lit8 p1, p1, 0x1f
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x1
+ 
+     .line 10
+     shl-int p1, v2, p1
+ 
+-    .line 11
+     .line 12
+     or-int/2addr p1, v1
+ 
+     .line 13
+     aput p1, p0, v0
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -1292,15 +1097,12 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 p1, p1, 0x20
+ 
+-    .line 4
+     .line 5
+     aput p2, p0, p1
+ 
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -1311,23 +1113,18 @@
+     .line 1
+     if-lt p2, p1, :cond_4
+ 
+-    .line 2
+     .line 3
+     if-ltz p1, :cond_4
+ 
+-    .line 4
+     .line 5
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 6
+     .line 7
+     if-gt p2, v0, :cond_4
+ 
+-    .line 8
+     .line 9
+     if-ne p2, p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto :goto_3
+ 
+@@ -1335,15 +1132,12 @@
+     :cond_0
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 13
+     .line 14
+     div-int/lit8 v0, p1, 0x20
+ 
+-    .line 15
+     .line 16
+     div-int/lit8 v1, p2, 0x20
+ 
+-    .line 17
+     .line 18
+     move v2, v0
+ 
+@@ -1351,15 +1145,12 @@
+     :goto_0
+     if-gt v2, v1, :cond_3
+ 
+-    .line 20
+     .line 21
+     const/16 v3, 0x1f
+ 
+-    .line 22
+     .line 23
+     if-le v2, v0, :cond_1
+ 
+-    .line 24
+     .line 25
+     const/4 v4, 0x0
+ 
+@@ -1370,12 +1161,10 @@
+     :cond_1
+     and-int/lit8 v4, p1, 0x1f
+ 
+-    .line 28
+     .line 29
+     :goto_1
+     if-ge v2, v1, :cond_2
+ 
+-    .line 30
+     .line 31
+     goto :goto_2
+ 
+@@ -1390,36 +1179,30 @@
+     .line 34
+     shl-int v3, v5, v3
+ 
+-    .line 35
+     .line 36
+     const/4 v5, 0x1
+ 
+     .line 37
+     shl-int v4, v5, v4
+ 
+-    .line 38
+     .line 39
+     sub-int/2addr v3, v4
+ 
+     .line 40
+     iget-object v4, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 41
+     .line 42
+     aget v5, v4, v2
+ 
+-    .line 43
+     .line 44
+     or-int/2addr v3, v5
+ 
+     .line 45
+     aput v3, v4, v2
+ 
+-    .line 46
+     .line 47
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 48
+     .line 49
+     goto :goto_0
+ 
+@@ -1432,12 +1215,9 @@
+     :cond_4
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     throw p0
+ .end method
+@@ -1455,7 +1235,6 @@
+     :goto_0
+     if-ge v1, p4, :cond_2
+ 
+-    .line 4
+     .line 5
+     move v2, v0
+ 
+@@ -1466,34 +1245,27 @@
+     :goto_1
+     const/16 v4, 0x8
+ 
+-    .line 8
+     .line 9
+     if-ge v2, v4, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, p1}, Lcom/google/zxing/common/BitArray;->get(I)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v4
+ 
+     .line 15
+     if-eqz v4, :cond_0
+ 
+-    .line 16
+     .line 17
+     rsub-int/lit8 v4, v2, 0x7
+ 
+-    .line 18
+     .line 19
+     const/4 v5, 0x1
+ 
+     .line 20
+     shl-int v4, v5, v4
+ 
+-    .line 21
+     .line 22
+     or-int/2addr v3, v4
+ 
+@@ -1501,11 +1273,9 @@
+     :cond_0
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 24
+     .line 25
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 26
+     .line 27
+     goto :goto_1
+ 
+@@ -1513,18 +1283,15 @@
+     :cond_1
+     add-int v2, p3, v1
+ 
+-    .line 29
+     .line 30
+     int-to-byte v3, v3
+ 
+     .line 31
+     aput-byte v3, p2, v2
+ 
+-    .line 32
+     .line 33
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -1539,27 +1306,21 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 4
+     .line 5
+     div-int/lit8 v2, v1, 0x8
+ 
+-    .line 6
+     .line 7
+     add-int/2addr v1, v2
+ 
+     .line 8
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 v1, 0x0
+ 
+@@ -1567,45 +1328,34 @@
+     :goto_0
+     iget v2, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 15
+     .line 16
+     if-ge v1, v2, :cond_2
+ 
+-    .line 17
+     .line 18
+     and-int/lit8 v2, v1, 0x7
+ 
+-    .line 19
+     .line 20
+     if-nez v2, :cond_0
+ 
+-    .line 21
+     .line 22
+     const/16 v2, 0x20
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :cond_0
+     invoke-virtual {p0, v1}, Lcom/google/zxing/common/BitArray;->get(I)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v2
+ 
+     .line 31
+     if-eqz v2, :cond_1
+ 
+-    .line 32
+     .line 33
+     const/16 v2, 0x58
+ 
+-    .line 34
+     .line 35
+     goto :goto_1
+ 
+@@ -1613,17 +1363,13 @@
+     :cond_1
+     const/16 v2, 0x2e
+ 
+-    .line 37
+     .line 38
+     :goto_1
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 42
+     .line 43
+     goto :goto_0
+ 
+@@ -1631,8 +1377,6 @@
+     :cond_2
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p0
+ 
+@@ -1646,15 +1390,12 @@
+     .line 1
+     iget v0, p0, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p1, Lcom/google/zxing/common/BitArray;->size:I
+ 
+-    .line 4
+     .line 5
+     if-ne v0, v1, :cond_1
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x0
+ 
+@@ -1662,37 +1403,30 @@
+     :goto_0
+     iget-object v1, p0, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 9
+     .line 10
+     array-length v2, v1
+ 
+     .line 11
+     if-ge v0, v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     aget v2, v1, v0
+ 
+-    .line 14
+     .line 15
+     iget-object v3, p1, Lcom/google/zxing/common/BitArray;->bits:[I
+ 
+-    .line 16
+     .line 17
+     aget v3, v3, v0
+ 
+-    .line 18
+     .line 19
+     xor-int/2addr v2, v3
+ 
+     .line 20
+     aput v2, v1, v0
+ 
+-    .line 21
+     .line 22
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -1704,16 +1438,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 27
+     .line 28
+     const-string p1, "Sizes don\'t match"
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     throw p0
+ .end method

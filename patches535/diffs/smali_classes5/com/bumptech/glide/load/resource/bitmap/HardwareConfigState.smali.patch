@@ -1,0 +1,612 @@
+--- a/smali_classes5/com/bumptech/glide/load/resource/bitmap/HardwareConfigState.smali
++++ b/smali_classes5/com/bumptech/glide/load/resource/bitmap/HardwareConfigState.smali
+@@ -55,31 +55,24 @@
+     .line 2
+     sput-boolean v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->BLOCK_HARDWARE_BITMAPS_WHEN_GL_CONTEXT_MIGHT_NOT_BE_INITIALIZED:Z
+ 
+-    .line 3
+     .line 4
+     const/4 v0, 0x1
+ 
+     .line 5
+     sput-boolean v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->HARDWARE_BITMAPS_SUPPORTED:Z
+ 
+-    .line 6
+     .line 7
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 8
+     .line 9
+     const-string v1, "/proc/self/fd"
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->FD_SIZE_LIST:Ljava/io/File;
+ 
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -92,39 +85,30 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x1
+ 
+     .line 5
+     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit:Z
+ 
+-    .line 6
+     .line 7
+     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 8
+     .line 9
+     const/4 v1, 0x0
+ 
+     .line 10
+     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByAppState:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 14
+     .line 15
+     const/16 v0, 0x4e20
+ 
+-    .line 16
+     .line 17
+     iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->sdkBasedMaxFdCount:I
+ 
+-    .line 18
+     .line 19
+     return-void
+ .end method
+@@ -135,27 +119,21 @@
+     .line 1
+     sget-boolean v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->BLOCK_HARDWARE_BITMAPS_WHEN_GL_CONTEXT_MIGHT_NOT_BE_INITIALIZED:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByAppState:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-nez p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 p0, 0x1
+ 
+@@ -176,15 +154,12 @@
+     .line 1
+     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->instance:Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     const-class v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
+ 
+-    .line 6
+     .line 7
+     monitor-enter v0
+ 
+@@ -192,24 +167,18 @@
+     :try_start_0
+     sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->instance:Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
+ 
+-    .line 9
+     .line 10
+     if-nez v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v1}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;-><init>()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     sput-object v1, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->instance:Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -242,7 +211,6 @@
+     :goto_2
+     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->instance:Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
+ 
+-    .line 27
+     .line 28
+     return-object v0
+ .end method
+@@ -253,19 +221,15 @@
+     .line 1
+     invoke-static {}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareBitmapCountReducedOnApi28ByB139097735()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/16 p0, 0x1f4
+ 
+-    .line 8
+     .line 9
+     return p0
+ 
+@@ -273,7 +237,6 @@
+     :cond_0
+     iget p0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->sdkBasedMaxFdCount:I
+ 
+-    .line 11
+     .line 12
+     return p0
+ .end method
+@@ -288,7 +251,6 @@
+     :try_start_0
+     iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
+ 
+-    .line 3
+     .line 4
+     const/4 v1, 0x1
+ 
+@@ -298,31 +260,24 @@
+     .line 6
+     iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
+ 
+-    .line 7
+     .line 8
+     const/16 v2, 0x32
+ 
+-    .line 9
+     .line 10
+     if-lt v0, v2, :cond_1
+ 
+-    .line 11
+     .line 12
+     const/4 v0, 0x0
+ 
+     .line 13
+     iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
+ 
+-    .line 14
+     .line 15
+     sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->FD_SIZE_LIST:Ljava/io/File;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v2
+ 
+@@ -332,8 +287,6 @@
+     .line 22
+     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->getMaxFdCount()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v3
+ 
+@@ -346,11 +299,9 @@
+     .line 28
+     cmp-long v5, v5, v3
+ 
+-    .line 29
+     .line 30
+     if-gez v5, :cond_0
+ 
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -362,84 +313,60 @@
+     :goto_0
+     iput-boolean v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit:Z
+ 
+-    .line 35
+     .line 36
+     if-nez v1, :cond_1
+ 
+-    .line 37
+     .line 38
+     const-string v0, "Downsampler"
+ 
+-    .line 39
+     .line 40
+     const/4 v1, 0x5
+ 
+     .line 41
+     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v0
+ 
+     .line 45
+     if-eqz v0, :cond_1
+ 
+-    .line 46
+     .line 47
+     const-string v0, "Downsampler"
+ 
+-    .line 48
+     .line 49
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 50
+     .line 51
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     const-string v5, "Excluding HARDWARE bitmap config because we\'re over the file descriptor limit, file descriptors "
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     const-string v2, ", limit "
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {v1, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v1
+ 
+     .line 74
+     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     goto :goto_1
+ 
+@@ -457,7 +384,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 81
+     .line 82
+     monitor-exit p0
+ 
+@@ -493,20 +419,15 @@
+     .line 1
+     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByAppState:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 5
+     .line 6
+     const/4 v0, 0x0
+ 
+     .line 7
+     invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -523,32 +444,24 @@
+     .line 3
+     const-string v2, "HardwareConfig"
+ 
+-    .line 4
+     .line 5
+     if-nez p3, :cond_1
+ 
+-    .line 6
+     .line 7
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-eqz p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const-string p0, "Hardware config disallowed by caller"
+ 
+-    .line 14
+     .line 15
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     :cond_0
+     return v0
+@@ -557,32 +470,24 @@
+     :cond_1
+     sget-boolean p3, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->HARDWARE_BITMAPS_SUPPORTED:Z
+ 
+-    .line 20
+     .line 21
+     if-nez p3, :cond_3
+ 
+-    .line 22
+     .line 23
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result p0
+ 
+     .line 27
+     if-eqz p0, :cond_2
+ 
+-    .line 28
+     .line 29
+     const-string p0, "Hardware config disallowed by sdk"
+ 
+-    .line 30
+     .line 31
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     :cond_2
+     return v0
+@@ -591,36 +496,27 @@
+     :cond_3
+     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->areHardwareBitmapsBlockedByAppState()Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result p3
+ 
+     .line 39
+     if-eqz p3, :cond_5
+ 
+-    .line 40
+     .line 41
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result p0
+ 
+     .line 45
+     if-eqz p0, :cond_4
+ 
+-    .line 46
+     .line 47
+     const-string p0, "Hardware config disallowed by app state"
+ 
+-    .line 48
+     .line 49
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :cond_4
+     return v0
+@@ -629,28 +525,21 @@
+     :cond_5
+     if-eqz p4, :cond_7
+ 
+-    .line 54
+     .line 55
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result p0
+ 
+     .line 59
+     if-eqz p0, :cond_6
+ 
+-    .line 60
+     .line 61
+     const-string p0, "Hardware config disallowed because exif orientation is required"
+ 
+-    .line 62
+     .line 63
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     :cond_6
+     return v0
+@@ -659,11 +548,9 @@
+     :cond_7
+     if-ltz p1, :cond_b
+ 
+-    .line 68
+     .line 69
+     if-gez p2, :cond_8
+ 
+-    .line 70
+     .line 71
+     goto :goto_0
+ 
+@@ -671,36 +558,27 @@
+     :cond_8
+     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit()Z
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result p0
+ 
+     .line 76
+     if-nez p0, :cond_a
+ 
+-    .line 77
+     .line 78
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result p0
+ 
+     .line 82
+     if-eqz p0, :cond_9
+ 
+-    .line 83
+     .line 84
+     const-string p0, "Hardware config disallowed because there are insufficient FDs"
+ 
+-    .line 85
+     .line 86
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     :cond_9
+     return v0
+@@ -717,24 +595,18 @@
+     :goto_0
+     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result p0
+ 
+     .line 96
+     if-eqz p0, :cond_c
+ 
+-    .line 97
+     .line 98
+     const-string p0, "Hardware config disallowed because of invalid dimensions"
+ 
+-    .line 99
+     .line 100
+     invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     :cond_c
+     return v0
+@@ -749,30 +621,24 @@
+     .line 1
+     invoke-virtual {p0, p1, p2, p4, p5}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowed(IIZZ)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     sget-object p1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+ 
+-    .line 8
+     .line 9
+     iput-object p1, p3, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
+ 
+-    .line 10
+     .line 11
+     const/4 p1, 0x0
+ 
+     .line 12
+     iput-boolean p1, p3, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
+ 
+-    .line 13
+     .line 14
+     :cond_0
+     return p0
+@@ -784,20 +650,15 @@
+     .line 1
+     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByAppState:Ljava/util/concurrent/atomic/AtomicBoolean;
+ 
+-    .line 5
+     .line 6
+     const/4 v0, 0x1
+ 
+     .line 7
+     invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ .end method

@@ -1,0 +1,2602 @@
+--- a/smali_classes7/com/squareup/moshi/JsonValueReader.smali
++++ b/smali_classes7/com/squareup/moshi/JsonValueReader.smali
+@@ -26,16 +26,12 @@
+     .line 1
+     new-instance v0, Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/squareup/moshi/JsonValueReader;->h:Ljava/lang/Object;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -46,47 +42,36 @@
+     .line 1
+     invoke-direct {p0}, Lcom/squareup/moshi/JsonReader;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 5
+     .line 6
+     iget v1, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 7
+     .line 8
+     const/4 v2, 0x7
+ 
+     .line 9
+     aput v2, v0, v1
+ 
+-    .line 10
+     .line 11
+     const/16 v0, 0x20
+ 
+-    .line 12
+     .line 13
+     new-array v0, v0, [Ljava/lang/Object;
+ 
+-    .line 14
+     .line 15
+     iput-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 16
+     .line 17
+     add-int/lit8 v2, v1, 0x1
+ 
+-    .line 18
+     .line 19
+     iput v2, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 20
+     .line 21
+     aput-object p1, v0, v1
+ 
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -99,15 +84,12 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->END_DOCUMENT:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 6
+     .line 7
+     return-object p0
+ 
+@@ -115,31 +97,24 @@
+     :cond_0
+     iget-object v1, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 9
+     .line 10
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 11
+     .line 12
+     aget-object v0, v1, v0
+ 
+-    .line 13
+     .line 14
+     instance-of v1, v0, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 15
+     .line 16
+     if-eqz v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     check-cast v0, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 19
+     .line 20
+     iget-object p0, v0, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->a:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 21
+     .line 22
+     return-object p0
+ 
+@@ -147,15 +122,12 @@
+     :cond_1
+     instance-of v1, v0, Ljava/util/List;
+ 
+-    .line 24
+     .line 25
+     if-eqz v1, :cond_2
+ 
+-    .line 26
+     .line 27
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->BEGIN_ARRAY:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 28
+     .line 29
+     return-object p0
+ 
+@@ -163,15 +135,12 @@
+     :cond_2
+     instance-of v1, v0, Ljava/util/Map;
+ 
+-    .line 31
+     .line 32
+     if-eqz v1, :cond_3
+ 
+-    .line 33
+     .line 34
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->BEGIN_OBJECT:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 35
+     .line 36
+     return-object p0
+ 
+@@ -179,15 +148,12 @@
+     :cond_3
+     instance-of v1, v0, Ljava/util/Map$Entry;
+ 
+-    .line 38
+     .line 39
+     if-eqz v1, :cond_4
+ 
+-    .line 40
+     .line 41
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->NAME:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 42
+     .line 43
+     return-object p0
+ 
+@@ -195,15 +161,12 @@
+     :cond_4
+     instance-of v1, v0, Ljava/lang/String;
+ 
+-    .line 45
+     .line 46
+     if-eqz v1, :cond_5
+ 
+-    .line 47
+     .line 48
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->STRING:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 49
+     .line 50
+     return-object p0
+ 
+@@ -211,15 +174,12 @@
+     :cond_5
+     instance-of v1, v0, Ljava/lang/Boolean;
+ 
+-    .line 52
+     .line 53
+     if-eqz v1, :cond_6
+ 
+-    .line 54
+     .line 55
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->BOOLEAN:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 56
+     .line 57
+     return-object p0
+ 
+@@ -227,15 +187,12 @@
+     :cond_6
+     instance-of v1, v0, Ljava/lang/Number;
+ 
+-    .line 59
+     .line 60
+     if-eqz v1, :cond_7
+ 
+-    .line 61
+     .line 62
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 63
+     .line 64
+     return-object p0
+ 
+@@ -243,11 +200,9 @@
+     :cond_7
+     if-nez v0, :cond_8
+ 
+-    .line 66
+     .line 67
+     sget-object p0, Lcom/squareup/moshi/JsonReader$Token;->NULL:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 68
+     .line 69
+     return-object p0
+ 
+@@ -255,24 +210,18 @@
+     :cond_8
+     sget-object v1, Lcom/squareup/moshi/JsonValueReader;->h:Ljava/lang/Object;
+ 
+-    .line 71
+     .line 72
+     if-ne v0, v1, :cond_9
+ 
+-    .line 73
+     .line 74
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 75
+     .line 76
+     const-string v0, "JsonReader is closed"
+ 
+-    .line 77
+     .line 78
+     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     throw p0
+ 
+@@ -280,12 +229,9 @@
+     :cond_9
+     const-string v1, "a JSON value"
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p0
+ 
+@@ -299,33 +245,24 @@
+     .line 1
+     const-class v0, Ljava/lang/Boolean;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->BOOLEAN:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     check-cast v0, Ljava/lang/Boolean;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result p0
+ 
+@@ -339,36 +276,27 @@
+     .line 1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Ljava/lang/Object;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     instance-of v2, v1, Ljava/lang/Number;
+ 
+-    .line 10
+     .line 11
+     if-eqz v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     check-cast v1, Ljava/lang/Number;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Ljava/lang/Number;->doubleValue()D
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-wide v0
+ 
+@@ -379,11 +307,9 @@
+     :cond_0
+     instance-of v2, v1, Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     if-eqz v2, :cond_3
+ 
+-    .line 23
+     .line 24
+     :try_start_0
+     move-object v0, v1
+@@ -391,12 +317,9 @@
+     .line 25
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-wide v0
+     :try_end_0
+@@ -406,35 +329,27 @@
+     :goto_0
+     iget-boolean v2, p0, Lcom/squareup/moshi/JsonReader;->e:Z
+ 
+-    .line 32
+     .line 33
+     if-nez v2, :cond_2
+ 
+-    .line 34
+     .line 35
+     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v2
+ 
+     .line 39
+     if-nez v2, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-static {v0, v1}, Ljava/lang/Double;->isInfinite(D)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v2
+ 
+     .line 45
+     if-nez v2, :cond_1
+ 
+-    .line 46
+     .line 47
+     goto :goto_1
+ 
+@@ -442,65 +357,45 @@
+     :cond_1
+     new-instance v2, Lcom/squareup/moshi/JsonEncodingException;
+ 
+-    .line 49
+     .line 50
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const-string v4, "JSON forbids NaN and infinities: "
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     const-string v0, " at path "
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p0
+ 
+     .line 72
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p0
+ 
+     .line 79
+     invoke-direct {v2, p0}, Lcom/squareup/moshi/JsonEncodingException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     throw v2
+ 
+@@ -509,8 +404,6 @@
+     :goto_1
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     return-wide v0
+ 
+@@ -518,12 +411,9 @@
+     :catch_0
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p0
+ 
+@@ -534,8 +424,6 @@
+     :cond_3
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p0
+ 
+@@ -549,28 +437,21 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->s()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->Q()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueReader;->w1(Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -582,36 +463,27 @@
+     .line 1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Ljava/lang/Object;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     instance-of v2, v1, Ljava/lang/Number;
+ 
+-    .line 10
+     .line 11
+     if-eqz v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     check-cast v1, Ljava/lang/Number;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Ljava/lang/Number;->intValue()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+@@ -622,11 +494,9 @@
+     :cond_0
+     instance-of v2, v1, Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     if-eqz v2, :cond_1
+ 
+-    .line 23
+     .line 24
+     :try_start_0
+     move-object v0, v1
+@@ -634,12 +504,9 @@
+     .line 25
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v0
+     :try_end_0
+@@ -653,24 +520,18 @@
+     :try_start_1
+     new-instance v0, Ljava/math/BigDecimal;
+ 
+-    .line 33
+     .line 34
+     move-object v2, v1
+ 
+     .line 35
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {v0, v2}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {v0}, Ljava/math/BigDecimal;->intValueExact()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v0
+     :try_end_1
+@@ -680,8 +541,6 @@
+     :goto_0
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return v0
+ 
+@@ -689,12 +548,9 @@
+     :catch_1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+@@ -705,8 +561,6 @@
+     :cond_1
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p0
+ 
+@@ -720,36 +574,27 @@
+     .line 1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Ljava/lang/Object;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     instance-of v2, v1, Ljava/lang/Number;
+ 
+-    .line 10
+     .line 11
+     if-eqz v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     check-cast v1, Ljava/lang/Number;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Ljava/lang/Number;->longValue()J
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-wide v0
+ 
+@@ -760,11 +605,9 @@
+     :cond_0
+     instance-of v2, v1, Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     if-eqz v2, :cond_1
+ 
+-    .line 23
+     .line 24
+     :try_start_0
+     move-object v0, v1
+@@ -772,12 +615,9 @@
+     .line 25
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-wide v0
+     :try_end_0
+@@ -791,24 +631,18 @@
+     :try_start_1
+     new-instance v0, Ljava/math/BigDecimal;
+ 
+-    .line 33
+     .line 34
+     move-object v2, v1
+ 
+     .line 35
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {v0, v2}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {v0}, Ljava/math/BigDecimal;->longValueExact()J
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-wide v0
+     :try_end_1
+@@ -818,8 +652,6 @@
+     :goto_0
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return-wide v0
+ 
+@@ -827,12 +659,9 @@
+     :catch_1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NUMBER:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+@@ -843,8 +672,6 @@
+     :cond_1
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p0
+ 
+@@ -858,71 +685,54 @@
+     .line 1
+     const-class v0, Ljava/util/Map$Entry;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->NAME:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     check-cast v0, Ljava/util/Map$Entry;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueReader;->z1(Ljava/util/Map$Entry;)Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+     .line 15
+     iget-object v2, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 16
+     .line 17
+     iget v3, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 18
+     .line 19
+     add-int/lit8 v3, v3, -0x1
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     aput-object v0, v2, v3
+ 
+-    .line 26
+     .line 27
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 28
+     .line 29
+     iget p0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 30
+     .line 31
+     add-int/lit8 p0, p0, -0x2
+ 
+-    .line 32
+     .line 33
+     aput-object v1, v0, p0
+ 
+-    .line 34
+     .line 35
+     return-object v1
+ .end method
+@@ -933,21 +743,15 @@
+     .line 1
+     const-class v0, Ljava/lang/Void;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->NULL:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/4 p0, 0x0
+ 
+@@ -961,48 +765,36 @@
+     .line 1
+     const-class v0, Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->BEGIN_ARRAY:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     check-cast v0, Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     new-instance v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 12
+     .line 13
+     sget-object v2, Lcom/squareup/moshi/JsonReader$Token;->END_ARRAY:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v3
+ 
+     .line 19
+     new-array v3, v3, [Ljava/lang/Object;
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v0, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+@@ -1012,75 +804,57 @@
+     .line 26
+     invoke-direct {v1, v2, v0, v3}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;-><init>(Lcom/squareup/moshi/JsonReader$Token;[Ljava/lang/Object;I)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 30
+     .line 31
+     iget v2, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 32
+     .line 33
+     add-int/lit8 v4, v2, -0x1
+ 
+-    .line 34
+     .line 35
+     aput-object v1, v0, v4
+ 
+-    .line 36
+     .line 37
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 38
+     .line 39
+     add-int/lit8 v4, v2, -0x1
+ 
+-    .line 40
+     .line 41
+     const/4 v5, 0x1
+ 
+     .line 42
+     aput v5, v0, v4
+ 
+-    .line 43
+     .line 44
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->d:[I
+ 
+-    .line 45
+     .line 46
+     sub-int/2addr v2, v5
+ 
+     .line 47
+     aput v3, v0, v2
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {v1}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->hasNext()Z
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v0
+ 
+     .line 53
+     if-eqz v0, :cond_0
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v1}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->next()Ljava/lang/Object;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueReader;->w1(Ljava/lang/Object;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     :cond_0
+     return-void
+@@ -1092,11 +866,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x0
+ 
+@@ -1106,39 +878,30 @@
+     .line 7
+     invoke-static {v0, v3, v1, v2}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iget-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 11
+     .line 12
+     sget-object v1, Lcom/squareup/moshi/JsonValueReader;->h:Ljava/lang/Object;
+ 
+-    .line 13
+     .line 14
+     aput-object v1, v0, v3
+ 
+-    .line 15
+     .line 16
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 17
+     .line 18
+     const/16 v1, 0x8
+ 
+-    .line 19
+     .line 20
+     aput v1, v0, v3
+ 
+-    .line 21
+     .line 22
+     const/4 v0, 0x1
+ 
+     .line 23
+     iput v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -1149,23 +912,18 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 8
+     .line 9
+     aget-object v0, v1, v0
+ 
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -1177,20 +935,15 @@
+     :goto_0
+     instance-of v1, v0, Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     if-eqz v1, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     return-object v0
+ 
+@@ -1198,21 +951,15 @@
+     :cond_1
+     instance-of v1, v0, Ljava/lang/Number;
+ 
+-    .line 24
+     .line 25
+     if-eqz v1, :cond_2
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -1223,24 +970,18 @@
+     :cond_2
+     sget-object v1, Lcom/squareup/moshi/JsonValueReader;->h:Ljava/lang/Object;
+ 
+-    .line 36
+     .line 37
+     if-ne v0, v1, :cond_3
+ 
+-    .line 38
+     .line 39
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 40
+     .line 41
+     const-string v0, "JsonReader is closed"
+ 
+-    .line 42
+     .line 43
+     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     throw p0
+ 
+@@ -1248,12 +989,9 @@
+     :cond_3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->STRING:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -1267,56 +1005,42 @@
+     .line 1
+     const-class v0, Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->BEGIN_OBJECT:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     check-cast v0, Ljava/util/Map;
+ 
+-    .line 10
+     .line 11
+     new-instance v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 12
+     .line 13
+     sget-object v2, Lcom/squareup/moshi/JsonReader$Token;->END_OBJECT:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v3
+ 
+     .line 19
+     invoke-interface {v0}, Ljava/util/Map;->size()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     new-array v0, v0, [Ljava/lang/Object;
+ 
+-    .line 24
+     .line 25
+     invoke-interface {v3, v0}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+@@ -1326,64 +1050,48 @@
+     .line 30
+     invoke-direct {v1, v2, v0, v3}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;-><init>(Lcom/squareup/moshi/JsonReader$Token;[Ljava/lang/Object;I)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     iget-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 34
+     .line 35
+     iget v2, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 36
+     .line 37
+     add-int/lit8 v3, v2, -0x1
+ 
+-    .line 38
+     .line 39
+     aput-object v1, v0, v3
+ 
+-    .line 40
+     .line 41
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 42
+     .line 43
+     add-int/lit8 v2, v2, -0x1
+ 
+-    .line 44
+     .line 45
+     const/4 v3, 0x3
+ 
+     .line 46
+     aput v3, v0, v2
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v1}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->hasNext()Z
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v0
+ 
+     .line 52
+     if-eqz v0, :cond_0
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v1}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->next()Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v0
+ 
+     .line 58
+     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueReader;->w1(Ljava/lang/Object;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :cond_0
+     return-void
+@@ -1395,35 +1103,27 @@
+     .line 1
+     const-class v0, Ljava/util/Map$Entry;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->NAME:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     check-cast v0, Ljava/util/Map$Entry;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueReader;->z1(Ljava/util/Map$Entry;)Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+     .line 15
+     iget-object v2, p1, Lcom/squareup/moshi/JsonReader$Options;->a:[Ljava/lang/String;
+ 
+-    .line 16
+     .line 17
+     array-length v2, v2
+ 
+@@ -1434,67 +1134,51 @@
+     :goto_0
+     if-ge v3, v2, :cond_1
+ 
+-    .line 20
+     .line 21
+     iget-object v4, p1, Lcom/squareup/moshi/JsonReader$Options;->a:[Ljava/lang/String;
+ 
+-    .line 22
+     .line 23
+     aget-object v4, v4, v3
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v4
+ 
+     .line 29
+     if-eqz v4, :cond_0
+ 
+-    .line 30
+     .line 31
+     iget-object p1, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 32
+     .line 33
+     iget v2, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 34
+     .line 35
+     add-int/lit8 v2, v2, -0x1
+ 
+-    .line 36
+     .line 37
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v0
+ 
+     .line 41
+     aput-object v0, p1, v2
+ 
+-    .line 42
+     .line 43
+     iget-object p1, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 44
+     .line 45
+     iget p0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 46
+     .line 47
+     add-int/lit8 p0, p0, -0x2
+ 
+-    .line 48
+     .line 49
+     aput-object v1, p1, p0
+ 
+-    .line 50
+     .line 51
+     return v3
+ 
+@@ -1502,7 +1186,6 @@
+     :cond_0
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 53
+     .line 54
+     goto :goto_0
+ 
+@@ -1520,48 +1203,36 @@
+     .line 1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->END_ARRAY:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     check-cast v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 10
+     .line 11
+     iget-object v2, v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->a:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 12
+     .line 13
+     if-ne v2, v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->hasNext()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v2
+ 
+     .line 19
+     if-nez v2, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     return-void
+ 
+@@ -1569,8 +1240,6 @@
+     :cond_0
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+@@ -1584,23 +1253,18 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object v1, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 8
+     .line 9
+     aget-object v0, v1, v0
+ 
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -1612,22 +1276,18 @@
+     :goto_0
+     instance-of v1, v0, Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     const/4 v2, -0x1
+ 
+     .line 16
+     if-nez v1, :cond_2
+ 
+-    .line 17
+     .line 18
+     sget-object p0, Lcom/squareup/moshi/JsonValueReader;->h:Ljava/lang/Object;
+ 
+-    .line 19
+     .line 20
+     if-eq v0, p0, :cond_1
+ 
+-    .line 21
+     .line 22
+     return v2
+ 
+@@ -1635,16 +1295,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 24
+     .line 25
+     const-string p1, "JsonReader is closed"
+ 
+-    .line 26
+     .line 27
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     throw p0
+ 
+@@ -1652,11 +1308,9 @@
+     :cond_2
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 32
+     .line 33
+     iget-object v1, p1, Lcom/squareup/moshi/JsonReader$Options;->a:[Ljava/lang/String;
+ 
+-    .line 34
+     .line 35
+     array-length v1, v1
+ 
+@@ -1667,32 +1321,24 @@
+     :goto_1
+     if-ge v3, v1, :cond_4
+ 
+-    .line 38
+     .line 39
+     iget-object v4, p1, Lcom/squareup/moshi/JsonReader$Options;->a:[Ljava/lang/String;
+ 
+-    .line 40
+     .line 41
+     aget-object v4, v4, v3
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v4
+ 
+     .line 47
+     if-eqz v4, :cond_3
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     return v3
+ 
+@@ -1700,7 +1346,6 @@
+     :cond_3
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 54
+     .line 55
+     goto :goto_1
+ 
+@@ -1715,67 +1360,51 @@
+     .line 1
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->END_OBJECT:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 2
+     .line 3
+     const-class v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     check-cast v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 10
+     .line 11
+     iget-object v2, v1, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->a:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 12
+     .line 13
+     if-ne v2, v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->hasNext()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v2
+ 
+     .line 19
+     if-nez v2, :cond_0
+ 
+-    .line 20
+     .line 21
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 22
+     .line 23
+     iget v1, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 24
+     .line 25
+     add-int/lit8 v1, v1, -0x1
+ 
+-    .line 26
+     .line 27
+     const/4 v2, 0x0
+ 
+     .line 28
+     aput-object v2, v0, v1
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ 
+@@ -1783,8 +1412,6 @@
+     :cond_0
+     invoke-virtual {p0, v1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+@@ -1798,14 +1425,12 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -1813,7 +1438,6 @@
+     :cond_0
+     iget-object p0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 8
+     .line 9
+     const/4 v2, 0x1
+ 
+@@ -1823,31 +1447,24 @@
+     .line 11
+     aget-object p0, p0, v0
+ 
+-    .line 12
+     .line 13
+     instance-of v0, p0, Ljava/util/Iterator;
+ 
+-    .line 14
+     .line 15
+     if-eqz v0, :cond_2
+ 
+-    .line 16
+     .line 17
+     check-cast p0, Ljava/util/Iterator;
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p0
+ 
+     .line 23
+     if-eqz p0, :cond_1
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -1867,75 +1484,57 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/squareup/moshi/JsonReader;->f:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const-class v0, Ljava/util/Map$Entry;
+ 
+-    .line 6
+     .line 7
+     sget-object v1, Lcom/squareup/moshi/JsonReader$Token;->NAME:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueReader;->y1(Ljava/lang/Class;Lcom/squareup/moshi/JsonReader$Token;)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     check-cast v0, Ljava/util/Map$Entry;
+ 
+-    .line 14
+     .line 15
+     iget-object v1, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 16
+     .line 17
+     iget v2, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 18
+     .line 19
+     add-int/lit8 v2, v2, -0x1
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     aput-object v0, v1, v2
+ 
+-    .line 26
+     .line 27
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 28
+     .line 29
+     iget p0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 30
+     .line 31
+     add-int/lit8 p0, p0, -0x2
+ 
+-    .line 32
+     .line 33
+     const-string v1, "null"
+ 
+-    .line 34
+     .line 35
+     aput-object v1, v0, p0
+ 
+-    .line 36
+     .line 37
+     return-void
+ 
+@@ -1943,78 +1542,54 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->B0()Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v0
+ 
+     .line 42
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->Q()Ljava/lang/String;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     new-instance v1, Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 46
+     .line 47
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 48
+     .line 49
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     const-string v3, "Cannot skip unexpected "
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string v0, " at "
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p0
+ 
+     .line 69
+     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object p0
+ 
+     .line 76
+     invoke-direct {v1, p0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     throw v1
+ .end method
+@@ -2025,55 +1600,43 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/squareup/moshi/JsonReader;->f:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_5
+ 
+-    .line 4
+     .line 5
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x1
+ 
+     .line 8
+     if-le v0, v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object v2, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     add-int/lit8 v3, v0, -0x2
+ 
+-    .line 13
+     .line 14
+     const-string v4, "null"
+ 
+-    .line 15
+     .line 16
+     aput-object v4, v2, v3
+ 
+-    .line 17
+     .line 18
+     :cond_0
+     if-eqz v0, :cond_1
+ 
+-    .line 19
+     .line 20
+     iget-object v2, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 21
+     .line 22
+     add-int/lit8 v3, v0, -0x1
+ 
+-    .line 23
+     .line 24
+     aget-object v2, v2, v3
+ 
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -2085,58 +1648,45 @@
+     :goto_0
+     instance-of v3, v2, Lcom/squareup/moshi/JsonValueReader$JsonIterator;
+ 
+-    .line 29
+     .line 30
+     const-string v4, " at path "
+ 
+-    .line 31
+     .line 32
+     const-string v5, "Expected a value but was "
+ 
+-    .line 33
+     .line 34
+     if-nez v3, :cond_4
+ 
+-    .line 35
+     .line 36
+     instance-of v2, v2, Ljava/util/Map$Entry;
+ 
+-    .line 37
+     .line 38
+     if-eqz v2, :cond_2
+ 
+-    .line 39
+     .line 40
+     iget-object p0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     add-int/lit8 v2, v0, -0x1
+ 
+-    .line 43
+     .line 44
+     aget-object v2, p0, v2
+ 
+-    .line 45
+     .line 46
+     check-cast v2, Ljava/util/Map$Entry;
+ 
+-    .line 47
+     .line 48
+     sub-int/2addr v0, v1
+ 
+     .line 49
+     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v1
+ 
+     .line 53
+     aput-object v1, p0, v0
+ 
+-    .line 54
+     .line 55
+     return-void
+ 
+@@ -2144,12 +1694,9 @@
+     :cond_2
+     if-lez v0, :cond_3
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->x1()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     return-void
+ 
+@@ -2157,65 +1704,45 @@
+     :cond_3
+     new-instance v0, Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 63
+     .line 64
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->B0()Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v2
+ 
+     .line 76
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p0
+ 
+     .line 86
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p0
+ 
+     .line 93
+     invoke-direct {v0, p0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     throw v0
+ 
+@@ -2223,65 +1750,45 @@
+     :cond_4
+     new-instance v0, Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 98
+     .line 99
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 100
+     .line 101
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->B0()Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v2
+ 
+     .line 111
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p0
+ 
+     .line 121
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object p0
+ 
+     .line 128
+     invoke-direct {v0, p0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     throw v0
+ 
+@@ -2289,73 +1796,51 @@
+     :cond_5
+     new-instance v0, Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 133
+     .line 134
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 135
+     .line 136
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     const-string v2, "Cannot skip unexpected "
+ 
+-    .line 140
+     .line 141
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueReader;->B0()Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object v2
+ 
+     .line 148
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     const-string v2, " at "
+ 
+-    .line 152
+     .line 153
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object p0
+ 
+     .line 160
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object p0
+ 
+     .line 167
+     invoke-direct {v0, p0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     throw v0
+ .end method
+@@ -2366,122 +1851,96 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 4
+     .line 5
+     array-length v1, v1
+ 
+     .line 6
+     if-ne v0, v1, :cond_1
+ 
+-    .line 7
+     .line 8
+     const/16 v1, 0x100
+ 
+-    .line 9
+     .line 10
+     if-eq v0, v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 13
+     .line 14
+     array-length v1, v0
+ 
+     .line 15
+     mul-int/lit8 v1, v1, 0x2
+ 
+-    .line 16
+     .line 17
+     invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([II)[I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     iput-object v0, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 22
+     .line 23
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     array-length v1, v0
+ 
+     .line 26
+     mul-int/lit8 v1, v1, 0x2
+ 
+-    .line 27
+     .line 28
+     invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+     .line 32
+     check-cast v0, [Ljava/lang/String;
+ 
+-    .line 33
+     .line 34
+     iput-object v0, p0, Lcom/squareup/moshi/JsonReader;->c:[Ljava/lang/String;
+ 
+-    .line 35
+     .line 36
+     iget-object v0, p0, Lcom/squareup/moshi/JsonReader;->d:[I
+ 
+-    .line 37
+     .line 38
+     array-length v1, v0
+ 
+     .line 39
+     mul-int/lit8 v1, v1, 0x2
+ 
+-    .line 40
+     .line 41
+     invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([II)[I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     iput-object v0, p0, Lcom/squareup/moshi/JsonReader;->d:[I
+ 
+-    .line 46
+     .line 47
+     iget-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 48
+     .line 49
+     array-length v1, v0
+ 
+     .line 50
+     mul-int/lit8 v1, v1, 0x2
+ 
+-    .line 51
+     .line 52
+     invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v0
+ 
+     .line 56
+     iput-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 57
+     .line 58
+     goto :goto_0
+ 
+@@ -2489,51 +1948,36 @@
+     :cond_0
+     new-instance p1, Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 60
+     .line 61
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 62
+     .line 63
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     const-string v1, "Nesting too deep at "
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object p0
+ 
+     .line 75
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p0
+ 
+     .line 82
+     invoke-direct {p1, p0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     throw p1
+ 
+@@ -2542,23 +1986,18 @@
+     :goto_0
+     iget-object v0, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 87
+     .line 88
+     iget v1, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 89
+     .line 90
+     add-int/lit8 v2, v1, 0x1
+ 
+-    .line 91
+     .line 92
+     iput v2, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 93
+     .line 94
+     aput-object p1, v0, v1
+ 
+-    .line 95
+     .line 96
+     return-void
+ .end method
+@@ -2569,106 +2008,81 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     add-int/lit8 v1, v0, -0x1
+ 
+-    .line 4
+     .line 5
+     iput v1, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 6
+     .line 7
+     iget-object v2, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 8
+     .line 9
+     const/4 v3, 0x0
+ 
+     .line 10
+     aput-object v3, v2, v1
+ 
+-    .line 11
+     .line 12
+     iget-object v3, p0, Lcom/squareup/moshi/JsonReader;->b:[I
+ 
+-    .line 13
+     .line 14
+     const/4 v4, 0x0
+ 
+     .line 15
+     aput v4, v3, v1
+ 
+-    .line 16
+     .line 17
+     if-lez v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     iget-object v1, p0, Lcom/squareup/moshi/JsonReader;->d:[I
+ 
+-    .line 20
+     .line 21
+     add-int/lit8 v3, v0, -0x2
+ 
+-    .line 22
+     .line 23
+     aget v4, v1, v3
+ 
+-    .line 24
+     .line 25
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 26
+     .line 27
+     aput v4, v1, v3
+ 
+-    .line 28
+     .line 29
+     add-int/lit8 v0, v0, -0x2
+ 
+-    .line 30
+     .line 31
+     aget-object v0, v2, v0
+ 
+-    .line 32
+     .line 33
+     instance-of v1, v0, Ljava/util/Iterator;
+ 
+-    .line 34
+     .line 35
+     if-eqz v1, :cond_0
+ 
+-    .line 36
+     .line 37
+     check-cast v0, Ljava/util/Iterator;
+ 
+-    .line 38
+     .line 39
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v1
+ 
+     .line 43
+     if-eqz v1, :cond_0
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueReader;->w1(Ljava/lang/Object;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     :cond_0
+     return-void
+@@ -2680,26 +2094,21 @@
+     .line 1
+     iget v0, p0, Lcom/squareup/moshi/JsonReader;->a:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     iget-object v2, p0, Lcom/squareup/moshi/JsonValueReader;->g:[Ljava/lang/Object;
+ 
+-    .line 7
+     .line 8
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 9
+     .line 10
+     aget-object v0, v2, v0
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -2711,20 +2120,15 @@
+     :goto_0
+     invoke-virtual {p1, v0}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+     .line 18
+     if-eqz v2, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1, v0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+@@ -2735,15 +2139,12 @@
+     :cond_1
+     if-nez v0, :cond_2
+ 
+-    .line 26
+     .line 27
+     sget-object p1, Lcom/squareup/moshi/JsonReader$Token;->NULL:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 28
+     .line 29
+     if-ne p2, p1, :cond_2
+ 
+-    .line 30
+     .line 31
+     return-object v1
+ 
+@@ -2751,24 +2152,18 @@
+     :cond_2
+     sget-object p1, Lcom/squareup/moshi/JsonValueReader;->h:Ljava/lang/Object;
+ 
+-    .line 33
+     .line 34
+     if-ne v0, p1, :cond_3
+ 
+-    .line 35
+     .line 36
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 37
+     .line 38
+     const-string p1, "JsonReader is closed"
+ 
+-    .line 39
+     .line 40
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     throw p0
+ 
+@@ -2776,8 +2171,6 @@
+     :cond_3
+     invoke-virtual {p0, v0, p2}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p0
+ 
+@@ -2791,23 +2184,18 @@
+     .line 1
+     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+     .line 5
+     instance-of v0, p1, Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 10
+     .line 11
+     return-object p1
+ 
+@@ -2815,12 +2203,9 @@
+     :cond_0
+     sget-object v0, Lcom/squareup/moshi/JsonReader$Token;->NAME:Lcom/squareup/moshi/JsonReader$Token;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0, p1, v0}, Lcom/squareup/moshi/JsonReader;->v1(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 

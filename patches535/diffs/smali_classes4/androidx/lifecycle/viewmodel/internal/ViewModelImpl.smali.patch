@@ -1,0 +1,438 @@
+--- a/smali_classes4/androidx/lifecycle/viewmodel/internal/ViewModelImpl.smali
++++ b/smali_classes4/androidx/lifecycle/viewmodel/internal/ViewModelImpl.smali
+@@ -28,47 +28,33 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a:Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/util/LinkedHashMap;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iput-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->b:Ljava/util/Map;
+ 
+-    .line 17
+     .line 18
+     new-instance v0, Ljava/util/LinkedHashSet;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iput-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->c:Ljava/util/Set;
+ 
+-    .line 24
+     .line 25
+     return-void
+ .end method
+@@ -79,8 +65,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->g(Ljava/lang/AutoCloseable;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -91,7 +75,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->c:Ljava/util/Set;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -102,7 +85,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->b:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -115,25 +97,18 @@
+     .line 1
+     const-string v0, "closeable"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-boolean v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->d:Z
+ 
+-    .line 7
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {p0, p1}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->g(Ljava/lang/AutoCloseable;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ 
+@@ -141,7 +116,6 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a:Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;
+ 
+-    .line 15
+     .line 16
+     monitor-enter v0
+ 
+@@ -149,26 +123,20 @@
+     :try_start_0
+     invoke-static {p0}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->b(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;)Ljava/util/Set;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     check-cast p0, Ljava/util/Collection;
+ 
+-    .line 22
+     .line 23
+     invoke-interface {p0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 27
+     .line 28
+     monitor-exit v0
+ 
+@@ -192,34 +160,24 @@
+     .line 1
+     const-string v0, "key"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "closeable"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-boolean v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->d:Z
+ 
+-    .line 12
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, p2}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->g(Ljava/lang/AutoCloseable;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ 
+@@ -227,7 +185,6 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a:Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;
+ 
+-    .line 20
+     .line 21
+     monitor-enter v0
+ 
+@@ -235,16 +192,12 @@
+     :try_start_0
+     invoke-static {p0}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->c(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;)Ljava/util/Map;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p1
+ 
+@@ -253,15 +206,12 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 31
+     .line 32
+     monitor-exit v0
+ 
+     .line 33
+     invoke-virtual {p0, p1}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->g(Ljava/lang/AutoCloseable;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-void
+ 
+@@ -282,11 +232,9 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->d:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -297,11 +245,9 @@
+     .line 7
+     iput-boolean v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->d:Z
+ 
+-    .line 8
+     .line 9
+     iget-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a:Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;
+ 
+-    .line 10
+     .line 11
+     monitor-enter v0
+ 
+@@ -309,24 +255,18 @@
+     :try_start_0
+     invoke-static {p0}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->c(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;)Ljava/util/Map;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+@@ -334,32 +274,24 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v2
+ 
+     .line 28
+     if-eqz v2, :cond_1
+ 
+-    .line 29
+     .line 30
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v2
+ 
+     .line 34
+     check-cast v2, Ljava/lang/AutoCloseable;
+ 
+-    .line 35
+     .line 36
+     invoke-static {p0, v2}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;Ljava/lang/AutoCloseable;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -374,16 +306,12 @@
+     :cond_1
+     invoke-static {p0}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->b(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;)Ljava/util/Set;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v1
+ 
+     .line 46
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v1
+ 
+@@ -391,32 +319,24 @@
+     :goto_1
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v2
+ 
+     .line 54
+     if-eqz v2, :cond_2
+ 
+-    .line 55
+     .line 56
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v2
+ 
+     .line 60
+     check-cast v2, Ljava/lang/AutoCloseable;
+ 
+-    .line 61
+     .line 62
+     invoke-static {p0, v2}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;Ljava/lang/AutoCloseable;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     goto :goto_1
+ 
+@@ -424,22 +344,17 @@
+     :cond_2
+     invoke-static {p0}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->b(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;)Ljava/util/Set;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object p0
+ 
+     .line 70
+     invoke-interface {p0}, Ljava/util/Set;->clear()V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 74
+     .line 75
+     monitor-exit v0
+ 
+@@ -460,15 +375,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-static {p1}, Landroidx/documentfile/provider/a;->a(Ljava/lang/Object;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ 
+@@ -479,12 +391,9 @@
+     .line 8
+     new-instance p1, Ljava/lang/RuntimeException;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     throw p1
+ 
+@@ -499,16 +408,12 @@
+     .line 1
+     const-string v0, "key"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->a:Landroidx/lifecycle/viewmodel/internal/SynchronizedObject;
+ 
+-    .line 7
+     .line 8
+     monitor-enter v0
+ 
+@@ -516,16 +421,12 @@
+     :try_start_0
+     invoke-static {p0}, Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;->c(Landroidx/lifecycle/viewmodel/internal/ViewModelImpl;)Ljava/util/Map;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+@@ -534,7 +435,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 18
+     .line 19
+     monitor-exit v0
+ 

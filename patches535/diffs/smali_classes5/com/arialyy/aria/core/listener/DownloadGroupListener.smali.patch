@@ -1,0 +1,1070 @@
+--- a/smali_classes5/com/arialyy/aria/core/listener/DownloadGroupListener.smali
++++ b/smali_classes5/com/arialyy/aria/core/listener/DownloadGroupListener.smali
+@@ -26,8 +26,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/arialyy/aria/core/listener/BaseListener;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -38,29 +36,21 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long p0, p2, v0
+ 
+-    .line 4
+     .line 5
+     if-nez p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1, v0, v1}, Lcom/arialyy/aria/core/common/AbsEntity;->setSpeed(J)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const-string p0, "0kb/s"
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1, p0}, Lcom/arialyy/aria/core/common/AbsEntity;->setConvertSpeed(Ljava/lang/String;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ 
+@@ -68,32 +58,24 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getCurrentProgress()J
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-wide v2
+ 
+     .line 20
+     sub-long v2, p2, v2
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1, v2, v3}, Lcom/arialyy/aria/core/common/AbsEntity;->setSpeed(J)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     cmp-long p0, v2, v0
+ 
+-    .line 26
+     .line 27
+     if-gtz p0, :cond_1
+ 
+-    .line 28
+     .line 29
+     const-string v4, ""
+ 
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -104,28 +86,21 @@
+     .line 33
+     invoke-static {v4, v5}, Lcom/arialyy/aria/util/CommonUtil;->formatFileSize(D)Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v4
+ 
+     .line 37
+     filled-new-array {v4}, [Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v4
+ 
+     .line 41
+     const-string v5, "%s/s"
+ 
+-    .line 42
+     .line 43
+     invoke-static {v5, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v4
+ 
+@@ -133,24 +108,18 @@
+     :goto_0
+     invoke-virtual {p1, v4}, Lcom/arialyy/aria/core/common/AbsEntity;->setConvertSpeed(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-wide v4
+ 
+     .line 54
+     cmp-long v4, v4, v0
+ 
+-    .line 55
+     .line 56
+     if-gtz v4, :cond_2
+ 
+-    .line 57
+     .line 58
+     goto :goto_1
+ 
+@@ -158,23 +127,18 @@
+     :cond_2
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getCurrentProgress()J
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-wide v0
+ 
+     .line 63
+     const-wide/16 v4, 0x64
+ 
+-    .line 64
+     .line 65
+     mul-long/2addr v0, v4
+ 
+     .line 66
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-wide v4
+ 
+@@ -188,27 +152,18 @@
+     .line 72
+     invoke-virtual {p1, v0}, Lcom/arialyy/aria/core/common/AbsEntity;->setPercent(I)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {p1, p2, p3}, Lcom/arialyy/aria/core/common/AbsEntity;->setCurrentProgress(J)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     if-nez p0, :cond_3
+ 
+-    .line 79
+     .line 80
+     const p0, 0x7fffffff
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     invoke-virtual {p1, p0}, Lcom/arialyy/aria/core/common/AbsEntity;->setTimeLeft(I)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     return-void
+ 
+@@ -216,16 +171,12 @@
+     :cond_3
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-wide p2
+ 
+     .line 91
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/common/AbsEntity;->getCurrentProgress()J
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-wide v0
+ 
+@@ -241,8 +192,6 @@
+     .line 98
+     invoke-virtual {p1, p0}, Lcom/arialyy/aria/core/common/AbsEntity;->setTimeLeft(I)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     return-void
+ .end method
+@@ -253,43 +202,33 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 2
+     .line 3
+     check-cast v0, Lcom/arialyy/aria/core/download/DownloadGroupEntity;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DownloadGroupEntity;->getSubEntities()Ljava/util/List;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     if-eqz v1, :cond_3
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DownloadGroupEntity;->getSubEntities()Ljava/util/List;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v1
+ 
+     .line 15
+     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+     .line 19
+     if-eqz v1, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_1
+ 
+@@ -297,53 +236,40 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DownloadGroupEntity;->getSubEntities()Ljava/util/List;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     const-wide/16 v1, 0x0
+ 
+-    .line 31
+     .line 32
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v3
+ 
+     .line 36
+     if-eqz v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v3
+ 
+     .line 42
+     check-cast v3, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v3}, Lcom/arialyy/aria/core/common/AbsEntity;->getCurrentProgress()J
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-wide v3
+ 
+@@ -357,32 +283,24 @@
+     :cond_1
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-wide v3
+ 
+     .line 56
+     cmp-long v0, v1, v3
+ 
+-    .line 57
+     .line 58
+     if-lez v0, :cond_2
+ 
+-    .line 59
+     .line 60
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-wide v1
+ 
+@@ -390,21 +308,15 @@
+     :cond_2
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v0, v1, v2}, Lcom/arialyy/aria/core/common/AbsEntity;->setCurrentProgress(J)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     iget-object p0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {p0}, Lcom/arialyy/aria/orm/DbEntity;->update()V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     return-void
+ 
+@@ -413,16 +325,12 @@
+     :goto_1
+     iget-object p0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->TAG:Ljava/lang/String;
+ 
+-    .line 78
+     .line 79
+     const-string v0, "\u4fdd\u5b58\u8fdb\u5ea6\u5931\u8d25\uff0c\u5b50\u4efb\u52a1\u4e3anull"
+ 
+-    .line 80
+     .line 81
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     return-void
+ .end method
+@@ -433,28 +341,21 @@
+     .line 1
+     invoke-virtual {p2, p1}, Lcom/arialyy/aria/core/common/AbsEntity;->setState(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 p0, 0x2
+ 
+     .line 5
+     if-ne p1, p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-wide p0
+ 
+     .line 11
+     invoke-virtual {p2, p0, p1}, Lcom/arialyy/aria/core/common/AbsEntity;->setStopTime(J)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -465,72 +366,50 @@
+     .line 16
+     if-ne p1, p0, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p2, p0}, Lcom/arialyy/aria/core/common/AbsEntity;->setComplete(Z)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-wide p0
+ 
+     .line 25
+     invoke-virtual {p2, p0, p1}, Lcom/arialyy/aria/core/common/AbsEntity;->setCompleteTime(J)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {p2}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-wide p0
+ 
+     .line 32
+     invoke-virtual {p2, p0, p1}, Lcom/arialyy/aria/core/common/AbsEntity;->setCurrentProgress(J)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const/16 p0, 0x64
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p2, p0}, Lcom/arialyy/aria/core/common/AbsEntity;->setPercent(I)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string p0, "0kb/s"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p2, p0}, Lcom/arialyy/aria/core/common/AbsEntity;->setConvertSpeed(Ljava/lang/String;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-wide/16 p0, 0x0
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p2, p0, p1}, Lcom/arialyy/aria/core/common/AbsEntity;->setSpeed(J)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     :cond_1
+     :goto_0
+     invoke-virtual {p2}, Lcom/arialyy/aria/orm/DbEntity;->update()V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-void
+ .end method
+@@ -541,67 +420,51 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->outHandler:Ljava/lang/ref/SoftReference;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->mSeedEntity:Lcom/arialyy/aria/core/group/GroupSendParams;
+ 
+-    .line 10
+     .line 11
+     iput-object p2, v0, Lcom/arialyy/aria/core/group/GroupSendParams;->entity:Lcom/arialyy/aria/core/common/AbsNormalEntity;
+ 
+-    .line 12
+     .line 13
+     iget-object p2, p0, Lcom/arialyy/aria/core/listener/BaseListener;->outHandler:Ljava/lang/ref/SoftReference;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p2}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p2
+ 
+     .line 19
+     check-cast p2, Landroid/os/Handler;
+ 
+-    .line 20
+     .line 21
+     const/4 v0, 0x0
+ 
+     .line 22
+     iget-object p0, p0, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->mSeedEntity:Lcom/arialyy/aria/core/group/GroupSendParams;
+ 
+-    .line 23
+     .line 24
+     const/16 v1, 0xd1
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p2, p1, v1, v0, p0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     :cond_0
+     return-void
+@@ -615,24 +478,18 @@
+     .line 1
+     const-class v0, Lcom/arialyy/aria/core/task/DownloadGroupTask;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Lcom/arialyy/aria/core/listener/BaseListener;->getTask(Ljava/lang/Class;)Lcom/arialyy/aria/core/task/AbsTask;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast v0, Lcom/arialyy/aria/core/task/DownloadGroupTask;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/task/AbsTask;->getSchedulerType()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+@@ -642,60 +499,45 @@
+     .line 14
+     if-ne v0, v1, :cond_0
+ 
+-    .line 15
+     .line 16
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 17
+     .line 18
+     const/4 v1, 0x0
+ 
+     .line 19
+     invoke-virtual {v0, v1}, Lcom/arialyy/aria/core/common/AbsEntity;->setComplete(Z)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 23
+     .line 24
+     const/4 v2, 0x3
+ 
+     .line 25
+     invoke-virtual {v0, v2}, Lcom/arialyy/aria/core/common/AbsEntity;->setState(I)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {}, Lcom/arialyy/aria/util/DeleteDGRecord;->getInstance()Lcom/arialyy/aria/util/DeleteDGRecord;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+     .line 32
+     iget-object v2, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 33
+     .line 34
+     iget-object p0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->isRemoveFile()Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p0
+ 
+     .line 40
+     invoke-virtual {v0, v2, p0, v1}, Lcom/arialyy/aria/util/DeleteDGRecord;->deleteRecord(Lcom/arialyy/aria/core/common/AbsEntity;ZZ)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ 
+@@ -703,24 +545,18 @@
+     :cond_0
+     invoke-static {}, Lcom/arialyy/aria/util/DeleteDGRecord;->getInstance()Lcom/arialyy/aria/util/DeleteDGRecord;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object v0
+ 
+     .line 48
+     iget-object v1, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 49
+     .line 50
+     iget-object p0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mTaskWrapper:Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->isRemoveFile()Z
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result p0
+ 
+@@ -730,8 +566,6 @@
+     .line 57
+     invoke-virtual {v0, v1, p0, v2}, Lcom/arialyy/aria/util/DeleteDGRecord;->deleteRecord(Lcom/arialyy/aria/core/common/AbsEntity;ZZ)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     return-void
+ .end method
+@@ -742,52 +576,39 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0, p1, p2}, Lcom/arialyy/aria/core/common/AbsEntity;->setFileSize(J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mEntity:Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 7
+     .line 8
+     long-to-double p1, p1
+ 
+     .line 9
+     invoke-static {p1, p2}, Lcom/arialyy/aria/util/CommonUtil;->formatFileSize(D)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     invoke-virtual {v0, p1}, Lcom/arialyy/aria/core/common/AbsEntity;->setConvertFileSize(Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const/4 p1, 0x6
+ 
+     .line 17
+     const-wide/16 v0, -0x1
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0, p1, v0, v1}, Lcom/arialyy/aria/core/listener/BaseListener;->saveData(IJ)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const/4 p1, 0x1
+ 
+     .line 23
+     invoke-virtual {p0, p1}, Lcom/arialyy/aria/core/listener/BaseListener;->sendInState2Target(I)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     return-void
+ .end method
+@@ -798,34 +619,24 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1, v0, v1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x7
+ 
+     .line 7
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-direct {p0}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveCurrentLocation()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/16 v0, 0xa4
+ 
+-    .line 14
+     .line 15
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -836,34 +647,24 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1, v0, v1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x1
+ 
+     .line 7
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-direct {p0}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveCurrentLocation()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/16 v0, 0xa7
+ 
+-    .line 14
+     .line 15
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -874,81 +675,57 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1, v0, v1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x0
+ 
+     .line 7
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-direct {p0}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveCurrentLocation()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     iget-object v0, p0, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->mSeedEntity:Lcom/arialyy/aria/core/group/GroupSendParams;
+ 
+-    .line 14
+     .line 15
+     iget-object v0, v0, Lcom/arialyy/aria/core/group/GroupSendParams;->groupTask:Lcom/arialyy/aria/core/task/AbsGroupTask;
+ 
+-    .line 16
+     .line 17
+     check-cast v0, Lcom/arialyy/aria/core/task/DownloadGroupTask;
+ 
+-    .line 18
+     .line 19
+     const-string v1, "ERROR_INFO_KEY"
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0, v1, p2}, Lcom/arialyy/aria/core/task/AbsTask;->putExpand(Ljava/lang/String;Ljava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     const/16 v0, 0xa5
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     if-eqz p2, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p2}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const-string p0, ""
+ 
+-    .line 35
+     .line 36
+     invoke-static {p2}, Lcom/arialyy/aria/util/ALog;->getExceptionString(Ljava/lang/Throwable;)Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p1
+ 
+     .line 40
+     invoke-static {p0, p1}, Lcom/arialyy/aria/util/ErrorHelp;->saveError(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     :cond_0
+     return-void
+@@ -960,29 +737,21 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1, v0, v1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x5
+ 
+     .line 7
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/16 v0, 0xa1
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -993,65 +762,49 @@
+     .line 1
+     invoke-direct {p0, p1, p2, p3}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-wide p2
+ 
+     .line 8
+     iget-wide v0, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mLastSaveTime:J
+ 
+-    .line 9
+     .line 10
+     sub-long/2addr p2, v0
+ 
+     .line 11
+     const-wide/16 v0, 0x1388
+ 
+-    .line 12
+     .line 13
+     cmp-long p2, p2, v0
+ 
+-    .line 14
+     .line 15
+     if-ltz p2, :cond_0
+ 
+-    .line 16
+     .line 17
+     const/4 p2, 0x4
+ 
+     .line 18
+     invoke-direct {p0, p2, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-wide p2
+ 
+     .line 25
+     iput-wide p2, p0, Lcom/arialyy/aria/core/listener/BaseListener;->mLastSaveTime:J
+ 
+-    .line 26
+     .line 27
+     :cond_0
+     const/16 p2, 0xa6
+ 
+-    .line 28
+     .line 29
+     invoke-direct {p0, p2, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -1062,29 +815,21 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, p1, v0, v1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v0, 0x4
+ 
+     .line 7
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     const/16 v0, 0xa2
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, v0, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -1095,39 +840,27 @@
+     .line 1
+     invoke-virtual {p1, p2, p3}, Lcom/arialyy/aria/core/common/AbsEntity;->setCurrentProgress(J)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-wide/16 p2, 0x0
+ 
+-    .line 5
+     .line 6
+     invoke-direct {p0, p1, p2, p3}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->handleSubSpeed(Lcom/arialyy/aria/core/download/DownloadEntity;J)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const/4 p2, 0x2
+ 
+     .line 10
+     invoke-direct {p0, p2, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveSubState(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-direct {p0}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->saveCurrentLocation()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const/16 p2, 0xa3
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p2, p1}, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->sendInState2Target(ILcom/arialyy/aria/core/download/DownloadEntity;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -1138,32 +871,24 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Lcom/arialyy/aria/core/listener/BaseListener;->setParams(Lcom/arialyy/aria/core/task/AbsTask;Landroid/os/Handler;)Lcom/arialyy/aria/core/listener/IEventListener;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p2
+ 
+     .line 5
+     new-instance v0, Lcom/arialyy/aria/core/group/GroupSendParams;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0}, Lcom/arialyy/aria/core/group/GroupSendParams;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iput-object v0, p0, Lcom/arialyy/aria/core/listener/DownloadGroupListener;->mSeedEntity:Lcom/arialyy/aria/core/group/GroupSendParams;
+ 
+-    .line 11
+     .line 12
+     check-cast p1, Lcom/arialyy/aria/core/task/DownloadGroupTask;
+ 
+-    .line 13
+     .line 14
+     iput-object p1, v0, Lcom/arialyy/aria/core/group/GroupSendParams;->groupTask:Lcom/arialyy/aria/core/task/AbsGroupTask;
+ 
+-    .line 15
+     .line 16
+     return-object p2
+ .end method

@@ -1,0 +1,291 @@
+--- a/smali_classes4/androidx/savedstate/serialization/serializers/JavaSerializableSerializer.smali
++++ b/smali_classes4/androidx/savedstate/serialization/serializers/JavaSerializableSerializer.smali
+@@ -36,15 +36,12 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     new-array v0, v0, [Lkotlinx/serialization/descriptors/SerialDescriptor;
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x0
+ 
+@@ -54,19 +51,15 @@
+     .line 9
+     const-string v3, "java.io.Serializable"
+ 
+-    .line 10
+     .line 11
+     invoke-static {v3, v0, v1, v2, v1}, Lkotlinx/serialization/descriptors/SerialDescriptorsKt;->e(Ljava/lang/String;[Lkotlinx/serialization/descriptors/SerialDescriptor;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/serialization/descriptors/SerialDescriptor;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     iput-object v0, p0, Landroidx/savedstate/serialization/serializers/JavaSerializableSerializer;->a:Lkotlinx/serialization/descriptors/SerialDescriptor;
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -79,77 +72,57 @@
+     .line 1
+     const-string v0, "decoder"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     instance-of v0, p1, Landroidx/savedstate/serialization/SavedStateDecoder;
+ 
+-    .line 7
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     check-cast p1, Landroidx/savedstate/serialization/SavedStateDecoder;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1}, Landroidx/savedstate/serialization/SavedStateDecoder;->Y()Landroid/os/Bundle;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     invoke-static {p0}, Landroidx/savedstate/SavedStateReader;->a(Landroid/os/Bundle;)Landroid/os/Bundle;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     invoke-virtual {p1}, Landroidx/savedstate/serialization/SavedStateDecoder;->X()Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     const-class v0, Ljava/io/Serializable;
+ 
+-    .line 25
+     .line 26
+     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     invoke-static {p0, p1, v0}, Landroidx/savedstate/SavedStateReader;->s(Landroid/os/Bundle;Ljava/lang/String;Lkotlin/reflect/KClass;)Ljava/io/Serializable;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     const-string p1, "null cannot be cast to non-null type T of androidx.savedstate.serialization.serializers.JavaSerializableSerializer"
+ 
+-    .line 35
+     .line 36
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-object p0
+ 
+@@ -157,40 +130,30 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/savedstate/serialization/serializers/JavaSerializableSerializer;->a:Lkotlinx/serialization/descriptors/SerialDescriptor;
+ 
+-    .line 41
+     .line 42
+     invoke-interface {p0}, Lkotlinx/serialization/descriptors/SerialDescriptor;->h()Ljava/lang/String;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+     .line 46
+     invoke-static {p0, p1}, Landroidx/savedstate/serialization/serializers/BuiltInSerializerKt;->a(Ljava/lang/String;Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+     .line 50
+     new-instance p1, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object p0
+ 
+     .line 56
+     invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     throw p1
+ .end method
+@@ -201,62 +164,45 @@
+     .line 1
+     const-string v0, "encoder"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "value"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     instance-of v0, p1, Landroidx/savedstate/serialization/SavedStateEncoder;
+ 
+-    .line 12
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     check-cast p1, Landroidx/savedstate/serialization/SavedStateEncoder;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1}, Landroidx/savedstate/serialization/SavedStateEncoder;->W()Landroid/os/Bundle;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     invoke-static {p0}, Landroidx/savedstate/SavedStateWriter;->a(Landroid/os/Bundle;)Landroid/os/Bundle;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p0
+ 
+     .line 25
+     invoke-virtual {p1}, Landroidx/savedstate/serialization/SavedStateEncoder;->V()Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p1
+ 
+     .line 29
+     invoke-static {p0, p1, p2}, Landroidx/savedstate/SavedStateWriter;->t(Landroid/os/Bundle;Ljava/lang/String;Ljava/io/Serializable;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-void
+ 
+@@ -264,40 +210,30 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/savedstate/serialization/serializers/JavaSerializableSerializer;->a:Lkotlinx/serialization/descriptors/SerialDescriptor;
+ 
+-    .line 34
+     .line 35
+     invoke-interface {p0}, Lkotlinx/serialization/descriptors/SerialDescriptor;->h()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+     .line 39
+     invoke-static {p0, p1}, Landroidx/savedstate/serialization/serializers/BuiltInSerializerKt;->b(Ljava/lang/String;Lkotlinx/serialization/encoding/Encoder;)Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object p0
+ 
+     .line 43
+     new-instance p1, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+     .line 49
+     invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     throw p1
+ .end method
+@@ -308,8 +244,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Landroidx/savedstate/serialization/serializers/JavaSerializableSerializer;->b(Lkotlinx/serialization/encoding/Decoder;)Ljava/io/Serializable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -323,7 +257,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/savedstate/serialization/serializers/JavaSerializableSerializer;->a:Lkotlinx/serialization/descriptors/SerialDescriptor;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -334,12 +267,9 @@
+     .line 1
+     check-cast p2, Ljava/io/Serializable;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Landroidx/savedstate/serialization/serializers/JavaSerializableSerializer;->c(Lkotlinx/serialization/encoding/Encoder;Ljava/io/Serializable;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method

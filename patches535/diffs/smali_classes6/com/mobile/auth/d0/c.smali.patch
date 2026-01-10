@@ -1,0 +1,729 @@
+--- a/smali_classes6/com/mobile/auth/d0/c.smali
++++ b/smali_classes6/com/mobile/auth/d0/c.smali
+@@ -60,54 +60,39 @@
+     .line 1
+     new-instance v0, Ljava/text/SimpleDateFormat;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "yyyy-MM-dd HH:mm:ss"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     sput-object v0, Lcom/mobile/auth/d0/c;->REQUEST_DATE_FORMAT:Ljava/text/SimpleDateFormat;
+ 
+-    .line 9
+     .line 10
+     new-instance v0, Ljava/text/SimpleDateFormat;
+ 
+-    .line 11
+     .line 12
+     const-string v1, "yyyy-MM-dd\'T\'HH:mm:ss\'Z\'"
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     sput-object v0, Lcom/mobile/auth/d0/c;->POP_REQUEST_DATE_FORMAT:Ljava/text/SimpleDateFormat;
+ 
+-    .line 18
+     .line 19
+     const-string v1, "O"
+ 
+-    .line 20
+     .line 21
+     invoke-static {v1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v1
+ 
+     .line 25
+     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-void
+ .end method
+@@ -118,83 +103,63 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     iput-object v0, p0, Lcom/mobile/auth/d0/c;->method:Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     sget-object v0, Lcom/mobile/auth/d0/c;->POP_REQUEST_DATE_FORMAT:Ljava/text/SimpleDateFormat;
+ 
+-    .line 8
+     .line 9
+     new-instance v1, Ljava/util/Date;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v1}, Ljava/util/Date;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     iput-object v0, p0, Lcom/mobile/auth/d0/c;->timestamp:Ljava/lang/String;
+ 
+-    .line 19
+     .line 20
+     const/4 v0, 0x1
+ 
+     .line 21
+     iput-boolean v0, p0, Lcom/mobile/auth/d0/c;->isSign:Z
+ 
+-    .line 22
+     .line 23
+     const-string v0, "HMAC-SHA1"
+ 
+-    .line 24
+     .line 25
+     iput-object v0, p0, Lcom/mobile/auth/d0/c;->signatureMethod:Ljava/lang/String;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     iput-object v0, p0, Lcom/mobile/auth/d0/c;->SignatureNonce:Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     const-string v0, "1.0"
+ 
+-    .line 38
+     .line 39
+     iput-object v0, p0, Lcom/mobile/auth/d0/c;->SignatureVersion:Ljava/lang/String;
+ 
+-    .line 40
+     .line 41
+     return-void
+ .end method
+@@ -207,51 +172,36 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {v0}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/Class;)Ljava/util/List;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     new-instance v3, Ljava/util/TreeMap;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v3}, Ljava/util/TreeMap;-><init>()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v0
+ 
+@@ -260,8 +210,6 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v4
+ 
+@@ -271,72 +219,54 @@
+     .line 33
+     if-eqz v4, :cond_1
+ 
+-    .line 34
+     .line 35
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v4
+ 
+     .line 39
+     check-cast v4, Ljava/lang/reflect/Field;
+ 
+-    .line 40
+     .line 41
+     const-class v6, Lcom/nirvana/tools/jsoner/JsonerTag;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v4, v6}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v6
+ 
+     .line 47
+     check-cast v6, Lcom/nirvana/tools/jsoner/JsonerTag;
+ 
+-    .line 48
+     .line 49
+     if-eqz v6, :cond_0
+ 
+-    .line 50
+     .line 51
+     invoke-interface {v6}, Lcom/nirvana/tools/jsoner/JsonerTag;->keyName()Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v6
+ 
+     .line 55
+     invoke-virtual {v4, v5}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     :try_start_0
+     invoke-virtual {v4, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v4
+ 
+     .line 62
+     if-eqz v4, :cond_0
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v3, v6, v4}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_0
+     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     goto :goto_0
+ 
+@@ -347,8 +277,6 @@
+     .line 69
+     invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     goto :goto_0
+ 
+@@ -356,16 +284,12 @@
+     :cond_1
+     invoke-virtual {v3}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v0
+ 
+     .line 77
+     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object v0
+ 
+@@ -373,86 +297,63 @@
+     :goto_1
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result v3
+ 
+     .line 85
+     const-string v4, "&"
+ 
+-    .line 86
+     .line 87
+     if-eqz v3, :cond_3
+ 
+-    .line 88
+     .line 89
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v3
+ 
+     .line 93
+     check-cast v3, Ljava/util/Map$Entry;
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-object v4
+ 
+     .line 102
+     check-cast v4, Ljava/lang/String;
+ 
+-    .line 103
+     .line 104
+     invoke-static {v4}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object v4
+ 
+     .line 108
+     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     const-string v4, "="
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v4
+ 
+     .line 120
+     if-nez v4, :cond_2
+ 
+-    .line 121
+     .line 122
+     const-string v3, ""
+ 
+-    .line 123
+     .line 124
+     goto :goto_2
+ 
+@@ -460,16 +361,12 @@
+     :cond_2
+     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object v3
+ 
+     .line 129
+     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object v3
+ 
+@@ -477,16 +374,12 @@
+     :goto_2
+     invoke-static {v3}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v3
+ 
+     .line 137
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     goto :goto_1
+ 
+@@ -494,160 +387,111 @@
+     :cond_3
+     const-string v0, "POST"
+ 
+-    .line 142
+     .line 143
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     const-string v0, "/"
+ 
+-    .line 150
+     .line 151
+     invoke-static {v0}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result-object v0
+ 
+     .line 155
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result-object v0
+ 
+     .line 165
+     invoke-virtual {v0, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object v0
+ 
+     .line 169
+     invoke-static {v0}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result-object v0
+ 
+     .line 173
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     invoke-virtual {p0}, Lcom/mobile/auth/d0/c;->isSign()Z
+ 
+-    .line 177
+-    .line 178
+     .line 179
+     move-result v0
+ 
+     .line 180
+     if-eqz v0, :cond_4
+ 
+-    .line 181
+     .line 182
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 183
+     .line 184
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->accessKeySecret:Ljava/lang/String;
+ 
+-    .line 188
+     .line 189
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     move-result-object p0
+ 
+     .line 199
+     invoke-static {v1, p0}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object p0
+ 
+     .line 203
+     invoke-static {p0}, Lcom/mobile/auth/d0/b;->a(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result-object p0
+ 
+     .line 207
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 208
+     .line 209
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     const-string v1, "&Signature="
+ 
+-    .line 216
+     .line 217
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result-object p0
+ 
+@@ -661,41 +505,30 @@
+     .line 229
+     invoke-static {p0}, Lcom/mobile/auth/s/a;->a(Landroid/content/Context;)Lcom/mobile/auth/s/a;
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     move-result-object p0
+ 
+     .line 233
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     move-result-object v0
+ 
+     .line 237
+     const-string v1, "param:"
+ 
+-    .line 238
+     .line 239
+     filled-new-array {v1, v0}, [Ljava/lang/String;
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     move-result-object v0
+ 
+     .line 243
+     invoke-virtual {p0, v0}, Lcom/mobile/auth/s/a;->b([Ljava/lang/String;)V
+ 
+-    .line 244
+-    .line 245
+     .line 246
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 247
+-    .line 248
+     .line 249
+     move-result-object p0
+ 
+@@ -709,7 +542,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->accessKeySecret:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -720,7 +552,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->Action:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -731,7 +562,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->baseUrl:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -742,7 +572,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->method:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -753,7 +582,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->requestMethod:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -764,7 +592,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/mobile/auth/d0/c;->sign:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -775,7 +602,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/mobile/auth/d0/c;->isSign:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -786,7 +612,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/mobile/auth/d0/c;->accessKeySecret:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -797,7 +622,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/mobile/auth/d0/c;->Action:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -808,7 +632,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/mobile/auth/d0/c;->baseUrl:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -819,7 +642,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/mobile/auth/d0/c;->method:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -830,7 +652,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/mobile/auth/d0/c;->requestMethod:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -841,7 +662,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/mobile/auth/d0/c;->isSign:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method

@@ -1,0 +1,443 @@
+--- a/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/ab.smali
++++ b/smali_classes5/com/efs/sdk/memleaksdk/monitor/internal/ab.smali
+@@ -15,19 +15,15 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ae;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     iput v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->b:I
+ 
+-    .line 6
+     .line 7
+     iput v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c:I
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -38,28 +34,21 @@
+     .line 1
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     const-string v0, "/proc/self/fd"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     if-eqz p0, :cond_0
+ 
+-    .line 13
+     .line 14
+     array-length p0, p0
+ 
+@@ -80,31 +69,24 @@
+     .line 1
+     iget v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c:I
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/b;->a()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;->getMaxOverThresholdCount()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     if-le v0, p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     goto :goto_2
+ 
+@@ -112,28 +94,21 @@
+     :cond_0
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 17
+     .line 18
+     const-string v0, "/proc/self/fd"
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 
+     .line 27
+     if-nez p0, :cond_1
+ 
+-    .line 28
+     .line 29
+     goto :goto_2
+ 
+@@ -141,25 +116,18 @@
+     :cond_1
+     const-string v0, "UMonitor.Fd"
+ 
+-    .line 31
+     .line 32
+     const-string v1, "over threshold dump fd if need."
+ 
+-    .line 33
+     .line 34
+     invoke-static {v0, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/g;->b(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 38
+     .line 39
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     array-length v1, p0
+ 
+@@ -173,49 +141,37 @@
+     :goto_0
+     if-ge v3, v1, :cond_2
+ 
+-    .line 46
+     .line 47
+     aget-object v4, p0, v3
+ 
+-    .line 48
+     .line 49
+     :try_start_0
+     invoke-virtual {v4}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v4
+ 
+     .line 53
+     invoke-static {v4}, Landroid/system/Os;->readlink(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v4
+ 
+     .line 57
+     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string v4, ","
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :catchall_0
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 66
+     .line 67
+     goto :goto_0
+ 
+@@ -223,33 +179,24 @@
+     :cond_2
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result p0
+ 
+     .line 72
+     add-int/lit8 p0, p0, -0x1
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->setLength(I)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     invoke-static {}, Lcom/efs/sdk/memleaksdk/monitor/internal/e;->e()Ljava/io/File;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p0
+ 
+     .line 81
+     invoke-static {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/e;->a(Ljava/io/File;)Ljava/io/File;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p0
+ 
+@@ -257,28 +204,21 @@
+     :try_start_1
+     new-instance v1, Ljava/io/FileOutputStream;
+ 
+-    .line 86
+     .line 87
+     invoke-direct {v1, p0, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_2
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     :try_start_2
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p0
+ 
+     .line 94
+     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p0
+ 
+@@ -287,15 +227,11 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     :catchall_1
+     :goto_1
+     invoke-static {v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/i;->a(Ljava/io/Closeable;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     goto :goto_2
+ 
+@@ -319,28 +255,21 @@
+     .line 1
+     invoke-direct {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->e()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/b;->a()Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     check-cast v1, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v1}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;->getFdThreshold()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+@@ -350,84 +279,63 @@
+     .line 16
+     if-le v0, v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget v1, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->b:I
+ 
+-    .line 19
+     .line 20
+     add-int/lit8 v1, v1, -0x32
+ 
+-    .line 21
+     .line 22
+     if-lt v0, v1, :cond_0
+ 
+-    .line 23
+     .line 24
+     iget v1, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c:I
+ 
+-    .line 25
+     .line 26
+     add-int/2addr v1, v2
+ 
+     .line 27
+     iput v1, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c:I
+ 
+-    .line 28
+     .line 29
+     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
+ 
+-    .line 30
+     .line 31
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v1
+ 
+     .line 35
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v4
+ 
+     .line 39
+     filled-new-array {v1, v4}, [Ljava/lang/Object;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v1
+ 
+     .line 43
+     const-string v4, "match: overThresholdCount: %d, fdCount: %d"
+ 
+-    .line 44
+     .line 45
+     invoke-static {v3, v4, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v1
+ 
+     .line 49
+     const-string v3, "UMonitor.Fd"
+ 
+-    .line 50
+     .line 51
+     invoke-static {v3, v1}, Lcom/efs/sdk/memleaksdk/monitor/internal/g;->c(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->f()V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     goto :goto_0
+ 
+@@ -435,41 +343,31 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :goto_0
+     iput v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->b:I
+ 
+-    .line 62
+     .line 63
+     iget v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c:I
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/internal/b;->a()Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p0
+ 
+     .line 69
+     check-cast p0, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {p0}, Lcom/efs/sdk/memleaksdk/monitor/UMonitorConfigJava;->getMaxOverThresholdCount()I
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result p0
+ 
+     .line 75
+     if-lt v0, p0, :cond_1
+ 
+-    .line 76
+     .line 77
+     return v2
+ 
+@@ -490,11 +388,9 @@
+     .line 2
+     iput v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->b:I
+ 
+-    .line 3
+     .line 4
+     iput v0, p0, Lcom/efs/sdk/memleaksdk/monitor/internal/ab;->c:I
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -505,7 +401,6 @@
+     .line 1
+     const-string p0, "reason_fd"
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

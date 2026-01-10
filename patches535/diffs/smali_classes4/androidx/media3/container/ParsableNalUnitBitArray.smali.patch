@@ -1,0 +1,824 @@
+--- a/smali_classes4/androidx/media3/container/ParsableNalUnitBitArray.smali
++++ b/smali_classes4/androidx/media3/container/ParsableNalUnitBitArray.smali
+@@ -25,13 +25,9 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0, p1, p2, p3}, Landroidx/media3/container/ParsableNalUnitBitArray;->reset([BII)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -42,31 +38,24 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 2
+     .line 3
+     if-ltz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget v1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 6
+     .line 7
+     if-lt v0, v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     if-ne v0, v1, :cond_1
+ 
+-    .line 10
+     .line 11
+     iget p0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 12
+     .line 13
+     if-nez p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     :cond_0
+     const/4 p0, 0x1
+@@ -82,8 +71,6 @@
+     :goto_0
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkState(Z)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -101,19 +88,15 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->readBit()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v2
+ 
+     .line 7
+     if-nez v2, :cond_0
+ 
+-    .line 8
+     .line 9
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 10
+     .line 11
+     goto :goto_0
+ 
+@@ -124,19 +107,15 @@
+     .line 13
+     shl-int v3, v2, v1
+ 
+-    .line 14
+     .line 15
+     sub-int/2addr v3, v2
+ 
+     .line 16
+     if-lez v1, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, v1}, Landroidx/media3/container/ParsableNalUnitBitArray;->readBits(I)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+@@ -157,42 +136,33 @@
+     .line 2
+     if-gt v0, p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 5
+     .line 6
+     if-ge p1, v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->data:[B
+ 
+-    .line 9
+     .line 10
+     aget-byte v0, p0, p1
+ 
+-    .line 11
+     .line 12
+     const/4 v1, 0x3
+ 
+     .line 13
+     if-ne v0, v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     add-int/lit8 v0, p1, -0x2
+ 
+-    .line 16
+     .line 17
+     aget-byte v0, p0, v0
+ 
+-    .line 18
+     .line 19
+     if-nez v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     const/4 v0, 0x1
+ 
+@@ -202,11 +172,9 @@
+     .line 23
+     aget-byte p0, p0, p1
+ 
+-    .line 24
+     .line 25
+     if-nez p0, :cond_0
+ 
+-    .line 26
+     .line 27
+     return v0
+ 
+@@ -226,20 +194,15 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 2
+     .line 3
+     if-lez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     rsub-int/lit8 v0, v0, 0x8
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, v0}, Landroidx/media3/container/ParsableNalUnitBitArray;->skipBits(I)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     :cond_0
+     return-void
+@@ -251,26 +214,21 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 v1, p1, 0x8
+ 
+-    .line 4
+     .line 5
+     add-int v2, v0, v1
+ 
+-    .line 6
+     .line 7
+     iget v3, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 8
+     .line 9
+     add-int/2addr v3, p1
+ 
+     .line 10
+     mul-int/lit8 v1, v1, 0x8
+ 
+-    .line 11
+     .line 12
+     sub-int/2addr v3, v1
+ 
+@@ -280,15 +238,12 @@
+     .line 14
+     if-le v3, p1, :cond_0
+ 
+-    .line 15
+     .line 16
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 17
+     .line 18
+     add-int/lit8 v3, v3, -0x8
+ 
+-    .line 19
+     .line 20
+     :cond_0
+     const/4 p1, 0x1
+@@ -301,35 +256,27 @@
+     .line 22
+     if-gt v0, v2, :cond_2
+ 
+-    .line 23
+     .line 24
+     iget v1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 25
+     .line 26
+     if-ge v2, v1, :cond_2
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p0, v0}, Landroidx/media3/container/ParsableNalUnitBitArray;->shouldSkipByte(I)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v1
+ 
+     .line 32
+     if-eqz v1, :cond_1
+ 
+-    .line 33
+     .line 34
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 35
+     .line 36
+     add-int/lit8 v0, v0, 0x2
+ 
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -337,19 +284,15 @@
+     :cond_2
+     iget p0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 40
+     .line 41
+     if-lt v2, p0, :cond_4
+ 
+-    .line 42
+     .line 43
+     if-ne v2, p0, :cond_3
+ 
+-    .line 44
+     .line 45
+     if-nez v3, :cond_3
+ 
+-    .line 46
+     .line 47
+     goto :goto_1
+ 
+@@ -372,11 +315,9 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x0
+ 
+@@ -387,31 +328,24 @@
+     :goto_0
+     iget v4, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 8
+     .line 9
+     iget v5, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 10
+     .line 11
+     if-ge v4, v5, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->readBit()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v4
+ 
+     .line 17
+     if-nez v4, :cond_0
+ 
+-    .line 18
+     .line 19
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -419,18 +353,15 @@
+     :cond_0
+     iget v4, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 23
+     .line 24
+     iget v5, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 25
+     .line 26
+     const/4 v6, 0x1
+ 
+     .line 27
+     if-ne v4, v5, :cond_1
+ 
+-    .line 28
+     .line 29
+     move v4, v6
+ 
+@@ -445,34 +376,27 @@
+     :goto_1
+     iput v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 33
+     .line 34
+     iput v1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 35
+     .line 36
+     if-nez v4, :cond_2
+ 
+-    .line 37
+     .line 38
+     mul-int/lit8 v3, v3, 0x2
+ 
+-    .line 39
+     .line 40
+     add-int/2addr v3, v6
+ 
+     .line 41
+     invoke-virtual {p0, v3}, Landroidx/media3/container/ParsableNalUnitBitArray;->canReadBits(I)Z
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result p0
+ 
+     .line 45
+     if-eqz p0, :cond_2
+ 
+-    .line 46
+     .line 47
+     return v6
+ 
+@@ -487,23 +411,18 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->data:[B
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 4
+     .line 5
+     aget-byte v0, v0, v1
+ 
+-    .line 6
+     .line 7
+     const/16 v1, 0x80
+ 
+-    .line 8
+     .line 9
+     iget v2, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 10
+     .line 11
+     shr-int/2addr v1, v2
+ 
+@@ -513,7 +432,6 @@
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x1
+ 
+@@ -528,8 +446,6 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->skipBit()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return v0
+ .end method
+@@ -540,14 +456,12 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 2
+     .line 3
+     add-int/2addr v0, p1
+ 
+     .line 4
+     iput v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 5
+     .line 6
+     const/4 v0, 0x0
+ 
+@@ -558,7 +472,6 @@
+     :goto_0
+     iget v2, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 9
+     .line 10
+     const/4 v3, 0x2
+ 
+@@ -568,58 +481,45 @@
+     .line 12
+     const/16 v5, 0x8
+ 
+-    .line 13
+     .line 14
+     if-le v2, v5, :cond_1
+ 
+-    .line 15
+     .line 16
+     add-int/lit8 v2, v2, -0x8
+ 
+-    .line 17
+     .line 18
+     iput v2, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 19
+     .line 20
+     iget-object v5, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->data:[B
+ 
+-    .line 21
+     .line 22
+     iget v6, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 23
+     .line 24
+     aget-byte v5, v5, v6
+ 
+-    .line 25
+     .line 26
+     and-int/lit16 v5, v5, 0xff
+ 
+-    .line 27
+     .line 28
+     shl-int v2, v5, v2
+ 
+-    .line 29
+     .line 30
+     or-int/2addr v1, v2
+ 
+     .line 31
+     add-int/lit8 v2, v6, 0x1
+ 
+-    .line 32
+     .line 33
+     invoke-direct {p0, v2}, Landroidx/media3/container/ParsableNalUnitBitArray;->shouldSkipByte(I)Z
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v2
+ 
+     .line 37
+     if-eqz v2, :cond_0
+ 
+-    .line 38
+     .line 39
+     goto :goto_1
+ 
+@@ -634,7 +534,6 @@
+     .line 42
+     iput v6, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -642,23 +541,18 @@
+     :cond_1
+     iget-object v6, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->data:[B
+ 
+-    .line 46
+     .line 47
+     iget v7, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 48
+     .line 49
+     aget-byte v6, v6, v7
+ 
+-    .line 50
+     .line 51
+     and-int/lit16 v6, v6, 0xff
+ 
+-    .line 52
+     .line 53
+     rsub-int/lit8 v8, v2, 0x8
+ 
+-    .line 54
+     .line 55
+     shr-int/2addr v6, v8
+ 
+@@ -668,41 +562,33 @@
+     .line 57
+     rsub-int/lit8 p1, p1, 0x20
+ 
+-    .line 58
+     .line 59
+     const/4 v6, -0x1
+ 
+     .line 60
+     ushr-int p1, v6, p1
+ 
+-    .line 61
+     .line 62
+     and-int/2addr p1, v1
+ 
+     .line 63
+     if-ne v2, v5, :cond_3
+ 
+-    .line 64
+     .line 65
+     iput v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 66
+     .line 67
+     add-int/lit8 v0, v7, 0x1
+ 
+-    .line 68
+     .line 69
+     invoke-direct {p0, v0}, Landroidx/media3/container/ParsableNalUnitBitArray;->shouldSkipByte(I)Z
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result v0
+ 
+     .line 73
+     if-eqz v0, :cond_2
+ 
+-    .line 74
+     .line 75
+     goto :goto_2
+ 
+@@ -717,13 +603,10 @@
+     .line 78
+     iput v7, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 79
+     .line 80
+     :cond_3
+     invoke-direct {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->assertValidOffset()V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     return p1
+ .end method
+@@ -734,22 +617,18 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->readExpGolombCodeNum()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     rem-int/lit8 v0, p0, 0x2
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x1
+ 
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 v0, -0x1
+ 
+@@ -767,7 +646,6 @@
+     .line 14
+     div-int/lit8 p0, p0, 0x2
+ 
+-    .line 15
+     .line 16
+     mul-int/2addr v0, p0
+ 
+@@ -781,8 +659,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->readExpGolombCodeNum()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -796,27 +672,21 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->data:[B
+ 
+-    .line 2
+     .line 3
+     iput p2, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 4
+     .line 5
+     iput p3, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteLimit:I
+ 
+-    .line 6
+     .line 7
+     const/4 p1, 0x0
+ 
+     .line 8
+     iput p1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->assertValidOffset()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -827,7 +697,6 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x1
+ 
+@@ -837,42 +706,33 @@
+     .line 5
+     iput v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 6
+     .line 7
+     const/16 v2, 0x8
+ 
+-    .line 8
+     .line 9
+     if-ne v0, v2, :cond_1
+ 
+-    .line 10
+     .line 11
+     const/4 v0, 0x0
+ 
+     .line 12
+     iput v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 13
+     .line 14
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 15
+     .line 16
+     add-int/lit8 v2, v0, 0x1
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, v2}, Landroidx/media3/container/ParsableNalUnitBitArray;->shouldSkipByte(I)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     if-eqz v2, :cond_0
+ 
+-    .line 23
+     .line 24
+     const/4 v1, 0x2
+ 
+@@ -883,13 +743,10 @@
+     .line 26
+     iput v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 27
+     .line 28
+     :cond_1
+     invoke-direct {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->assertValidOffset()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-void
+ .end method
+@@ -900,27 +757,21 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 2
+     .line 3
+     div-int/lit8 v1, p1, 0x8
+ 
+-    .line 4
+     .line 5
+     add-int v2, v0, v1
+ 
+-    .line 6
+     .line 7
+     iput v2, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 8
+     .line 9
+     iget v3, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 10
+     .line 11
+     mul-int/lit8 v1, v1, 0x8
+ 
+-    .line 12
+     .line 13
+     sub-int/2addr p1, v1
+ 
+@@ -930,72 +781,56 @@
+     .line 15
+     iput v3, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 16
+     .line 17
+     const/4 p1, 0x7
+ 
+     .line 18
+     if-le v3, p1, :cond_0
+ 
+-    .line 19
+     .line 20
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 21
+     .line 22
+     iput v2, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 23
+     .line 24
+     add-int/lit8 v3, v3, -0x8
+ 
+-    .line 25
+     .line 26
+     iput v3, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->bitOffset:I
+ 
+-    .line 27
+     .line 28
+     :cond_0
+     :goto_0
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 29
+     .line 30
+     iget p1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 31
+     .line 32
+     if-gt v0, p1, :cond_1
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0, v0}, Landroidx/media3/container/ParsableNalUnitBitArray;->shouldSkipByte(I)Z
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result p1
+ 
+     .line 38
+     if-eqz p1, :cond_0
+ 
+-    .line 39
+     .line 40
+     iget p1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 41
+     .line 42
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 43
+     .line 44
+     iput p1, p0, Landroidx/media3/container/ParsableNalUnitBitArray;->byteOffset:I
+ 
+-    .line 45
+     .line 46
+     add-int/lit8 v0, v0, 0x2
+ 
+-    .line 47
+     .line 48
+     goto :goto_0
+ 
+@@ -1003,8 +838,6 @@
+     :cond_1
+     invoke-direct {p0}, Landroidx/media3/container/ParsableNalUnitBitArray;->assertValidOffset()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     return-void
+ .end method

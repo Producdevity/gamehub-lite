@@ -1,0 +1,7322 @@
+--- a/smali_classes6/com/google/protobuf/BinaryReader$SafeHeapReader.smali
++++ b/smali_classes6/com/google/protobuf/BinaryReader$SafeHeapReader.smali
+@@ -40,37 +40,27 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader;-><init>(Lcom/google/protobuf/BinaryReader$1;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     iput-boolean p2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->bufferIsImmutable:Z
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p2
+ 
+     .line 11
+     iput-object p2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p2
+ 
+     .line 17
+     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+@@ -80,24 +70,18 @@
+     .line 22
+     iput p2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 23
+     .line 24
+     iput p2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->initialPos:I
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result p2
+ 
+     .line 30
+     invoke-virtual {p1}, Ljava/nio/Buffer;->limit()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p1
+ 
+@@ -107,7 +91,6 @@
+     .line 35
+     iput p2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 36
+     .line 37
+     return-void
+ .end method
+@@ -118,15 +101,12 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 4
+     .line 5
+     if-ne v0, p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -152,31 +132,24 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 4
+     .line 5
+     if-eq v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 8
+     .line 9
+     add-int/lit8 v2, v0, 0x1
+ 
+-    .line 10
+     .line 11
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 12
+     .line 13
+     aget-byte p0, v1, v0
+ 
+-    .line 14
+     .line 15
+     return p0
+ 
+@@ -184,8 +157,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -216,37 +187,27 @@
+     .line 1
+     sget-object v0, Lcom/google/protobuf/BinaryReader$1;->$SwitchMap$com$google$protobuf$WireFormat$FieldType:[I
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p1
+ 
+     .line 7
+     aget p1, v0, p1
+ 
+-    .line 8
+     .line 9
+     packed-switch p1, :pswitch_data_0
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     new-instance p0, Ljava/lang/RuntimeException;
+ 
+-    .line 13
+     .line 14
+     const-string p1, "unsupported field type."
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     throw p0
+ 
+@@ -254,16 +215,12 @@
+     :pswitch_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readUInt64()J
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-wide p0
+ 
+     .line 24
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+@@ -274,16 +231,12 @@
+     :pswitch_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readUInt32()I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p0
+ 
+     .line 33
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+@@ -294,8 +247,6 @@
+     :pswitch_2
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readStringRequireUtf8()Ljava/lang/String;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -306,16 +257,12 @@
+     :pswitch_3
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSInt64()J
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-wide p0
+ 
+     .line 47
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -326,16 +273,12 @@
+     :pswitch_4
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSInt32()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result p0
+ 
+     .line 56
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p0
+ 
+@@ -346,16 +289,12 @@
+     :pswitch_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSFixed64()J
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-wide p0
+ 
+     .line 65
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p0
+ 
+@@ -366,16 +305,12 @@
+     :pswitch_6
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p0
+ 
+     .line 74
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p0
+ 
+@@ -386,8 +321,6 @@
+     :pswitch_7
+     invoke-virtual {p0, p2, p3}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readMessage(Ljava/lang/Class;Lcom/google/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p0
+ 
+@@ -398,16 +331,12 @@
+     :pswitch_8
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readInt64()J
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-wide p0
+ 
+     .line 88
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object p0
+ 
+@@ -418,16 +347,12 @@
+     :pswitch_9
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readInt32()I
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result p0
+ 
+     .line 97
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object p0
+ 
+@@ -438,16 +363,12 @@
+     :pswitch_a
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result p0
+ 
+     .line 106
+     invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p0
+ 
+@@ -458,16 +379,12 @@
+     :pswitch_b
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFixed64()J
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-wide p0
+ 
+     .line 115
+     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p0
+ 
+@@ -478,16 +395,12 @@
+     :pswitch_c
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result p0
+ 
+     .line 124
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object p0
+ 
+@@ -498,16 +411,12 @@
+     :pswitch_d
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readEnum()I
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result p0
+ 
+     .line 133
+     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object p0
+ 
+@@ -518,16 +427,12 @@
+     :pswitch_e
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readDouble()D
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-wide p0
+ 
+     .line 142
+     invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object p0
+ 
+@@ -538,8 +443,6 @@
+     :pswitch_f
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readBytes()Lcom/google/protobuf/ByteString;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-object p0
+ 
+@@ -550,16 +453,12 @@
+     :pswitch_10
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readBool()Z
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result p0
+ 
+     .line 156
+     invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object p0
+ 
+@@ -637,13 +536,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -657,81 +552,63 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 4
+     .line 5
+     add-int/lit8 v2, v0, 0x4
+ 
+-    .line 6
+     .line 7
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 8
+     .line 9
+     aget-byte p0, v1, v0
+ 
+-    .line 10
+     .line 11
+     and-int/lit16 p0, p0, 0xff
+ 
+-    .line 12
+     .line 13
+     add-int/lit8 v2, v0, 0x1
+ 
+-    .line 14
+     .line 15
+     aget-byte v2, v1, v2
+ 
+-    .line 16
+     .line 17
+     and-int/lit16 v2, v2, 0xff
+ 
+-    .line 18
+     .line 19
+     shl-int/lit8 v2, v2, 0x8
+ 
+-    .line 20
+     .line 21
+     or-int/2addr p0, v2
+ 
+     .line 22
+     add-int/lit8 v2, v0, 0x2
+ 
+-    .line 23
+     .line 24
+     aget-byte v2, v1, v2
+ 
+-    .line 25
+     .line 26
+     and-int/lit16 v2, v2, 0xff
+ 
+-    .line 27
+     .line 28
+     shl-int/lit8 v2, v2, 0x10
+ 
+-    .line 29
+     .line 30
+     or-int/2addr p0, v2
+ 
+     .line 31
+     add-int/lit8 v0, v0, 0x3
+ 
+-    .line 32
+     .line 33
+     aget-byte v0, v1, v0
+ 
+-    .line 34
+     .line 35
+     and-int/lit16 v0, v0, 0xff
+ 
+-    .line 36
+     .line 37
+     shl-int/lit8 v0, v0, 0x18
+ 
+-    .line 38
+     .line 39
+     or-int/2addr p0, v0
+ 
+@@ -750,17 +627,12 @@
+     .line 1
+     const/16 v0, 0x8
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-wide v0
+ 
+@@ -774,41 +646,33 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 4
+     .line 5
+     add-int/lit8 v2, v0, 0x8
+ 
+-    .line 6
+     .line 7
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 8
+     .line 9
+     aget-byte p0, v1, v0
+ 
+-    .line 10
+     .line 11
+     int-to-long v2, p0
+ 
+     .line 12
+     const-wide/16 v4, 0xff
+ 
+-    .line 13
+     .line 14
+     and-long/2addr v2, v4
+ 
+     .line 15
+     add-int/lit8 p0, v0, 0x1
+ 
+-    .line 16
+     .line 17
+     aget-byte p0, v1, p0
+ 
+-    .line 18
+     .line 19
+     int-to-long v6, p0
+ 
+@@ -818,7 +682,6 @@
+     .line 21
+     const/16 p0, 0x8
+ 
+-    .line 22
+     .line 23
+     shl-long/2addr v6, p0
+ 
+@@ -828,11 +691,9 @@
+     .line 25
+     add-int/lit8 p0, v0, 0x2
+ 
+-    .line 26
+     .line 27
+     aget-byte p0, v1, p0
+ 
+-    .line 28
+     .line 29
+     int-to-long v6, p0
+ 
+@@ -842,7 +703,6 @@
+     .line 31
+     const/16 p0, 0x10
+ 
+-    .line 32
+     .line 33
+     shl-long/2addr v6, p0
+ 
+@@ -852,11 +712,9 @@
+     .line 35
+     add-int/lit8 p0, v0, 0x3
+ 
+-    .line 36
+     .line 37
+     aget-byte p0, v1, p0
+ 
+-    .line 38
+     .line 39
+     int-to-long v6, p0
+ 
+@@ -866,7 +724,6 @@
+     .line 41
+     const/16 p0, 0x18
+ 
+-    .line 42
+     .line 43
+     shl-long/2addr v6, p0
+ 
+@@ -876,11 +733,9 @@
+     .line 45
+     add-int/lit8 p0, v0, 0x4
+ 
+-    .line 46
+     .line 47
+     aget-byte p0, v1, p0
+ 
+-    .line 48
+     .line 49
+     int-to-long v6, p0
+ 
+@@ -890,7 +745,6 @@
+     .line 51
+     const/16 p0, 0x20
+ 
+-    .line 52
+     .line 53
+     shl-long/2addr v6, p0
+ 
+@@ -900,11 +754,9 @@
+     .line 55
+     add-int/lit8 p0, v0, 0x5
+ 
+-    .line 56
+     .line 57
+     aget-byte p0, v1, p0
+ 
+-    .line 58
+     .line 59
+     int-to-long v6, p0
+ 
+@@ -914,7 +766,6 @@
+     .line 61
+     const/16 p0, 0x28
+ 
+-    .line 62
+     .line 63
+     shl-long/2addr v6, p0
+ 
+@@ -924,11 +775,9 @@
+     .line 65
+     add-int/lit8 p0, v0, 0x6
+ 
+-    .line 66
+     .line 67
+     aget-byte p0, v1, p0
+ 
+-    .line 68
+     .line 69
+     int-to-long v6, p0
+ 
+@@ -938,7 +787,6 @@
+     .line 71
+     const/16 p0, 0x30
+ 
+-    .line 72
+     .line 73
+     shl-long/2addr v6, p0
+ 
+@@ -948,11 +796,9 @@
+     .line 75
+     add-int/lit8 v0, v0, 0x7
+ 
+-    .line 76
+     .line 77
+     aget-byte p0, v1, v0
+ 
+-    .line 78
+     .line 79
+     int-to-long v0, p0
+ 
+@@ -962,7 +808,6 @@
+     .line 81
+     const/16 p0, 0x38
+ 
+-    .line 82
+     .line 83
+     shl-long/2addr v0, p0
+ 
+@@ -1018,35 +863,27 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 4
+     .line 5
+     if-eq v1, v0, :cond_8
+ 
+-    .line 6
+     .line 7
+     iget-object v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 8
+     .line 9
+     add-int/lit8 v3, v0, 0x1
+ 
+-    .line 10
+     .line 11
+     aget-byte v4, v2, v0
+ 
+-    .line 12
+     .line 13
+     if-ltz v4, :cond_0
+ 
+-    .line 14
+     .line 15
+     iput v3, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 16
+     .line 17
+     return v4
+ 
+@@ -1057,16 +894,12 @@
+     .line 19
+     const/16 v5, 0x9
+ 
+-    .line 20
+     .line 21
+     if-ge v1, v5, :cond_1
+ 
+-    .line 22
+     .line 23
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64SlowPath()J
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-wide v0
+ 
+@@ -1080,26 +913,21 @@
+     :cond_1
+     add-int/lit8 v1, v0, 0x2
+ 
+-    .line 30
+     .line 31
+     aget-byte v3, v2, v3
+ 
+-    .line 32
+     .line 33
+     shl-int/lit8 v3, v3, 0x7
+ 
+-    .line 34
+     .line 35
+     xor-int/2addr v3, v4
+ 
+     .line 36
+     if-gez v3, :cond_2
+ 
+-    .line 37
+     .line 38
+     xor-int/lit8 v0, v3, -0x80
+ 
+-    .line 39
+     .line 40
+     goto :goto_2
+ 
+@@ -1107,26 +935,21 @@
+     :cond_2
+     add-int/lit8 v4, v0, 0x3
+ 
+-    .line 42
+     .line 43
+     aget-byte v1, v2, v1
+ 
+-    .line 44
+     .line 45
+     shl-int/lit8 v1, v1, 0xe
+ 
+-    .line 46
+     .line 47
+     xor-int/2addr v1, v3
+ 
+     .line 48
+     if-ltz v1, :cond_3
+ 
+-    .line 49
+     .line 50
+     xor-int/lit16 v0, v1, 0x3f80
+ 
+-    .line 51
+     .line 52
+     :goto_0
+     move v1, v4
+@@ -1138,27 +961,21 @@
+     :cond_3
+     add-int/lit8 v3, v0, 0x4
+ 
+-    .line 55
+     .line 56
+     aget-byte v4, v2, v4
+ 
+-    .line 57
+     .line 58
+     shl-int/lit8 v4, v4, 0x15
+ 
+-    .line 59
+     .line 60
+     xor-int/2addr v1, v4
+ 
+     .line 61
+     if-gez v1, :cond_4
+ 
+-    .line 62
+     .line 63
+     const v0, -0x1fc080
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     xor-int/2addr v0, v1
+ 
+@@ -1173,90 +990,69 @@
+     :cond_4
+     add-int/lit8 v4, v0, 0x5
+ 
+-    .line 70
+     .line 71
+     aget-byte v3, v2, v3
+ 
+-    .line 72
+     .line 73
+     shl-int/lit8 v5, v3, 0x1c
+ 
+-    .line 74
+     .line 75
+     xor-int/2addr v1, v5
+ 
+     .line 76
+     const v5, 0xfe03f80
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     xor-int/2addr v1, v5
+ 
+     .line 80
+     if-gez v3, :cond_6
+ 
+-    .line 81
+     .line 82
+     add-int/lit8 v3, v0, 0x6
+ 
+-    .line 83
+     .line 84
+     aget-byte v4, v2, v4
+ 
+-    .line 85
+     .line 86
+     if-gez v4, :cond_7
+ 
+-    .line 87
+     .line 88
+     add-int/lit8 v4, v0, 0x7
+ 
+-    .line 89
+     .line 90
+     aget-byte v3, v2, v3
+ 
+-    .line 91
+     .line 92
+     if-gez v3, :cond_6
+ 
+-    .line 93
+     .line 94
+     add-int/lit8 v3, v0, 0x8
+ 
+-    .line 95
+     .line 96
+     aget-byte v4, v2, v4
+ 
+-    .line 97
+     .line 98
+     if-gez v4, :cond_7
+ 
+-    .line 99
+     .line 100
+     add-int/lit8 v4, v0, 0x9
+ 
+-    .line 101
+     .line 102
+     aget-byte v3, v2, v3
+ 
+-    .line 103
+     .line 104
+     if-gez v3, :cond_6
+ 
+-    .line 105
+     .line 106
+     add-int/lit8 v0, v0, 0xa
+ 
+-    .line 107
+     .line 108
+     aget-byte v2, v2, v4
+ 
+-    .line 109
+     .line 110
+     if-ltz v2, :cond_5
+ 
+-    .line 111
+     .line 112
+     move v6, v1
+ 
+@@ -1273,8 +1069,6 @@
+     :cond_5
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object p0
+ 
+@@ -1299,7 +1093,6 @@
+     :goto_2
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 126
+     .line 127
+     return v0
+ 
+@@ -1307,8 +1100,6 @@
+     :cond_8
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object p0
+ 
+@@ -1327,7 +1118,6 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     const/4 v2, 0x0
+ 
+@@ -1335,23 +1125,18 @@
+     :goto_0
+     const/16 v3, 0x40
+ 
+-    .line 5
+     .line 6
+     if-ge v2, v3, :cond_1
+ 
+-    .line 7
+     .line 8
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readByte()B
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v3
+ 
+     .line 12
+     and-int/lit8 v4, v3, 0x7f
+ 
+-    .line 13
+     .line 14
+     int-to-long v4, v4
+ 
+@@ -1364,11 +1149,9 @@
+     .line 17
+     and-int/lit16 v3, v3, 0x80
+ 
+-    .line 18
+     .line 19
+     if-nez v3, :cond_0
+ 
+-    .line 20
+     .line 21
+     return-wide v0
+ 
+@@ -1376,7 +1159,6 @@
+     :cond_0
+     add-int/lit8 v2, v2, 0x7
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -1384,8 +1166,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 
+@@ -1404,22 +1184,18 @@
+     .line 1
+     if-ltz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 4
+     .line 5
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 6
+     .line 7
+     sub-int/2addr v0, p0
+ 
+     .line 8
+     if-gt p1, v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -1427,8 +1203,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+@@ -1447,11 +1221,9 @@
+     .line 1
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     if-ne p0, p1, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -1459,8 +1231,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -1479,19 +1249,15 @@
+     .line 1
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+     .line 7
+     if-ne p0, p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -1499,8 +1265,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+@@ -1519,19 +1283,15 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 5
+     .line 6
+     add-int/2addr v0, p1
+ 
+     .line 7
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -1547,16 +1307,12 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {v1}, Lcom/google/protobuf/WireFormat;->getTagFieldNumber(I)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+@@ -1566,62 +1322,47 @@
+     .line 10
+     invoke-static {v1, v2}, Lcom/google/protobuf/WireFormat;->makeTag(II)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 15
+     .line 16
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->getFieldNumber()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     const v2, 0x7fffffff
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     if-eq v1, v2, :cond_1
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipField()Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v1
+ 
+     .line 29
+     if-nez v1, :cond_0
+ 
+-    .line 30
+     .line 31
+     :cond_1
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 32
+     .line 33
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 34
+     .line 35
+     if-ne v1, v2, :cond_2
+ 
+-    .line 36
+     .line 37
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 38
+     .line 39
+     return-void
+ 
+@@ -1629,8 +1370,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+@@ -1649,26 +1388,21 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr v0, v1
+ 
+     .line 6
+     const/16 v2, 0xa
+ 
+-    .line 7
+     .line 8
+     if-lt v0, v2, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget-object v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 11
+     .line 12
+     const/4 v3, 0x0
+ 
+@@ -1676,23 +1410,18 @@
+     :goto_0
+     if-ge v3, v2, :cond_1
+ 
+-    .line 14
+     .line 15
+     add-int/lit8 v4, v1, 0x1
+ 
+-    .line 16
+     .line 17
+     aget-byte v1, v0, v1
+ 
+-    .line 18
+     .line 19
+     if-ltz v1, :cond_0
+ 
+-    .line 20
+     .line 21
+     iput v4, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -1700,7 +1429,6 @@
+     :cond_0
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 25
+     .line 26
+     move v1, v4
+ 
+@@ -1711,8 +1439,6 @@
+     :cond_1
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipVarintSlowPath()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-void
+ .end method
+@@ -1732,23 +1458,18 @@
+     :goto_0
+     const/16 v1, 0xa
+ 
+-    .line 3
+     .line 4
+     if-ge v0, v1, :cond_1
+ 
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readByte()B
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-ltz v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     return-void
+ 
+@@ -1756,7 +1477,6 @@
+     :cond_0
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -1764,8 +1484,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+@@ -1784,16 +1502,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     and-int/lit8 p0, p1, 0x3
+ 
+-    .line 5
+     .line 6
+     if-nez p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return-void
+ 
+@@ -1801,8 +1515,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -1821,16 +1533,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     and-int/lit8 p0, p1, 0x7
+ 
+-    .line 5
+     .line 6
+     if-nez p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return-void
+ 
+@@ -1838,8 +1546,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -1860,20 +1566,15 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     const v1, 0x7fffffff
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     return v1
+ 
+@@ -1881,23 +1582,18 @@
+     :cond_0
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 16
+     .line 17
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 18
+     .line 19
+     if-ne v0, p0, :cond_1
+ 
+-    .line 20
+     .line 21
+     return v1
+ 
+@@ -1905,8 +1601,6 @@
+     :cond_1
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagFieldNumber(I)I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+ 
+@@ -1920,7 +1614,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1931,11 +1624,9 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->initialPos:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr v0, p0
+ 
+@@ -1966,16 +1657,12 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 4
+     .line 5
+     invoke-static {v1}, Lcom/google/protobuf/WireFormat;->getTagFieldNumber(I)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+@@ -1985,39 +1672,30 @@
+     .line 10
+     invoke-static {v1, v2}, Lcom/google/protobuf/WireFormat;->makeTag(II)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 15
+     .line 16
+     :try_start_0
+     invoke-interface {p2, p1, p0, p3}, Lcom/google/protobuf/Schema;->mergeFrom(Ljava/lang/Object;Lcom/google/protobuf/Reader;Lcom/google/protobuf/ExtensionRegistryLite;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 20
+     .line 21
+     iget p2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 22
+     .line 23
+     if-ne p1, p2, :cond_0
+ 
+-    .line 24
+     .line 25
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -2026,8 +1704,6 @@
+     :try_start_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p1
+ 
+@@ -2043,7 +1719,6 @@
+     .line 34
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 35
+     .line 36
+     throw p1
+ .end method
+@@ -2071,51 +1746,39 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 9
+     .line 10
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 11
+     .line 12
+     add-int/2addr v2, v0
+ 
+     .line 13
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 14
+     .line 15
+     :try_start_0
+     invoke-interface {p2, p1, p0, p3}, Lcom/google/protobuf/Schema;->mergeFrom(Ljava/lang/Object;Lcom/google/protobuf/Reader;Lcom/google/protobuf/ExtensionRegistryLite;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 19
+     .line 20
+     if-ne p1, v2, :cond_0
+ 
+-    .line 21
+     .line 22
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 23
+     .line 24
+     return-void
+ 
+@@ -2124,8 +1787,6 @@
+     :try_start_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p1
+ 
+@@ -2141,7 +1802,6 @@
+     .line 31
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 32
+     .line 33
+     throw p1
+ .end method
+@@ -2160,20 +1820,15 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+     .line 9
+     if-eqz p0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 p0, 0x1
+ 
+@@ -2205,7 +1860,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/BooleanArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+@@ -2218,46 +1872,36 @@
+     .line 6
+     if-eqz v0, :cond_5
+ 
+-    .line 7
+     .line 8
+     move-object v0, p1
+ 
+     .line 9
+     check-cast v0, Lcom/google/protobuf/BooleanArrayList;
+ 
+-    .line 10
+     .line 11
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 12
+     .line 13
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p1
+ 
+     .line 17
+     if-eqz p1, :cond_3
+ 
+-    .line 18
+     .line 19
+     if-ne p1, v3, :cond_2
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p1
+ 
+     .line 25
+     iget v3, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 26
+     .line 27
+     add-int/2addr v3, p1
+ 
+@@ -2265,23 +1909,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 29
+     .line 30
+     if-ge p1, v3, :cond_1
+ 
+-    .line 31
+     .line 32
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result p1
+ 
+     .line 36
+     if-eqz p1, :cond_0
+ 
+-    .line 37
+     .line 38
+     move p1, v2
+ 
+@@ -2296,8 +1935,6 @@
+     :goto_1
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/BooleanArrayList;->addBoolean(Z)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     goto :goto_0
+ 
+@@ -2305,8 +1942,6 @@
+     :cond_1
+     invoke-direct {p0, v3}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     return-void
+ 
+@@ -2314,8 +1949,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -2326,28 +1959,21 @@
+     :cond_3
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readBool()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/BooleanArrayList;->addBoolean(Z)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result p1
+ 
+     .line 65
+     if-eqz p1, :cond_4
+ 
+-    .line 66
+     .line 67
+     goto :goto_4
+ 
+@@ -2355,27 +1981,21 @@
+     :cond_4
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 69
+     .line 70
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v1
+ 
+     .line 74
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     if-eq v1, v2, :cond_3
+ 
+-    .line 77
+     .line 78
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 79
+     .line 80
+     return-void
+ 
+@@ -2383,35 +2003,27 @@
+     :cond_5
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 82
+     .line 83
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v0
+ 
+     .line 87
+     if-eqz v0, :cond_9
+ 
+-    .line 88
+     .line 89
+     if-ne v0, v3, :cond_8
+ 
+-    .line 90
+     .line 91
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v0
+ 
+     .line 95
+     iget v3, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 96
+     .line 97
+     add-int/2addr v3, v0
+ 
+@@ -2419,23 +2031,18 @@
+     :goto_2
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 99
+     .line 100
+     if-ge v0, v3, :cond_7
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result v0
+ 
+     .line 106
+     if-eqz v0, :cond_6
+ 
+-    .line 107
+     .line 108
+     move v0, v2
+ 
+@@ -2450,16 +2057,12 @@
+     :goto_3
+     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v0
+ 
+     .line 115
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     goto :goto_2
+ 
+@@ -2467,8 +2070,6 @@
+     :cond_7
+     invoke-direct {p0, v3}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     return-void
+ 
+@@ -2476,8 +2077,6 @@
+     :cond_8
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p0
+ 
+@@ -2488,36 +2087,27 @@
+     :cond_9
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readBool()Z
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v0
+ 
+     .line 132
+     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result-object v0
+ 
+     .line 136
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result v0
+ 
+     .line 143
+     if-eqz v0, :cond_a
+ 
+-    .line 144
+     .line 145
+     :goto_4
+     return-void
+@@ -2526,27 +2116,21 @@
+     :cond_a
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 147
+     .line 148
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result v1
+ 
+     .line 152
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 153
+     .line 154
+     if-eq v1, v2, :cond_9
+ 
+-    .line 155
+     .line 156
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 157
+     .line 158
+     return-void
+ .end method
+@@ -2565,24 +2149,18 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     sget-object p0, Lcom/google/protobuf/ByteString;->EMPTY:Lcom/google/protobuf/ByteString;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ 
+@@ -2590,29 +2168,21 @@
+     :cond_0
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget-boolean v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->bufferIsImmutable:Z
+ 
+-    .line 18
+     .line 19
+     if-eqz v1, :cond_1
+ 
+-    .line 20
+     .line 21
+     iget-object v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 22
+     .line 23
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     invoke-static {v1, v2, v0}, Lcom/google/protobuf/ByteString;->wrap([BII)Lcom/google/protobuf/ByteString;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+@@ -2623,16 +2193,12 @@
+     :cond_1
+     iget-object v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 31
+     .line 32
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 33
+     .line 34
+     invoke-static {v1, v2, v0}, Lcom/google/protobuf/ByteString;->copyFrom([BII)Lcom/google/protobuf/ByteString;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v1
+ 
+@@ -2640,14 +2206,12 @@
+     :goto_0
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 39
+     .line 40
+     add-int/2addr v2, v0
+ 
+     .line 41
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 42
+     .line 43
+     return-object v1
+ .end method
+@@ -2672,12 +2236,9 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -2687,33 +2248,25 @@
+     .line 8
+     if-ne v0, v1, :cond_2
+ 
+-    .line 9
+     .line 10
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readBytes()Lcom/google/protobuf/ByteString;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     if-eqz v0, :cond_1
+ 
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -2721,27 +2274,21 @@
+     :cond_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v1
+ 
+     .line 30
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 31
+     .line 32
+     if-eq v1, v2, :cond_0
+ 
+-    .line 33
+     .line 34
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 35
+     .line 36
+     return-void
+ 
+@@ -2749,8 +2296,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+@@ -2772,21 +2317,15 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v0
+ 
+     .line 9
+     invoke-static {v0, v1}, Ljava/lang/Double;->longBitsToDouble(J)D
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-wide v0
+ 
+@@ -2814,7 +2353,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/DoubleArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+@@ -2824,51 +2362,39 @@
+     .line 5
+     if-eqz v0, :cond_3
+ 
+-    .line 6
+     .line 7
+     move-object v0, p1
+ 
+     .line 8
+     check-cast v0, Lcom/google/protobuf/DoubleArrayList;
+ 
+-    .line 9
+     .line 10
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 11
+     .line 12
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p1
+ 
+     .line 16
+     if-eq p1, v2, :cond_1
+ 
+-    .line 17
+     .line 18
+     if-ne p1, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     invoke-direct {p0, p1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 28
+     .line 29
+     add-int/2addr v1, p1
+ 
+@@ -2876,32 +2402,24 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 31
+     .line 32
+     if-ge p1, v1, :cond_6
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-wide v2
+ 
+     .line 38
+     invoke-static {v2, v3}, Ljava/lang/Double;->longBitsToDouble(J)D
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-wide v2
+ 
+     .line 42
+     invoke-virtual {v0, v2, v3}, Lcom/google/protobuf/DoubleArrayList;->addDouble(D)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -2909,8 +2427,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p0
+ 
+@@ -2921,28 +2437,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readDouble()D
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-wide v1
+ 
+     .line 55
+     invoke-virtual {v0, v1, v2}, Lcom/google/protobuf/DoubleArrayList;->addDouble(D)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result p1
+ 
+     .line 62
+     if-eqz p1, :cond_2
+ 
+-    .line 63
+     .line 64
+     goto :goto_2
+ 
+@@ -2950,27 +2459,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 66
+     .line 67
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v1
+ 
+     .line 71
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 72
+     .line 73
+     if-eq v1, v2, :cond_1
+ 
+-    .line 74
+     .line 75
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 76
+     .line 77
+     return-void
+ 
+@@ -2978,40 +2481,30 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 79
+     .line 80
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v0
+ 
+     .line 84
+     if-eq v0, v2, :cond_5
+ 
+-    .line 85
+     .line 86
+     if-ne v0, v1, :cond_4
+ 
+-    .line 87
+     .line 88
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v0
+ 
+     .line 92
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 96
+     .line 97
+     add-int/2addr v1, v0
+ 
+@@ -3019,40 +2512,30 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 99
+     .line 100
+     if-ge v0, v1, :cond_6
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-wide v2
+ 
+     .line 106
+     invoke-static {v2, v3}, Ljava/lang/Double;->longBitsToDouble(J)D
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-wide v2
+ 
+     .line 110
+     invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object v0
+ 
+     .line 114
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     goto :goto_1
+ 
+@@ -3060,8 +2543,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object p0
+ 
+@@ -3072,36 +2553,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readDouble()D
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-wide v0
+ 
+     .line 127
+     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object v0
+ 
+     .line 131
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result v0
+ 
+     .line 138
+     if-eqz v0, :cond_7
+ 
+-    .line 139
+     .line 140
+     :cond_6
+     :goto_2
+@@ -3111,27 +2583,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 142
+     .line 143
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result v1
+ 
+     .line 147
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 148
+     .line 149
+     if-eq v1, v2, :cond_5
+ 
+-    .line 150
+     .line 151
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 152
+     .line 153
+     return-void
+ .end method
+@@ -3150,13 +2616,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -3184,53 +2646,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_3
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_1
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -3238,24 +2689,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_6
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p1
+ 
+     .line 34
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -3263,8 +2708,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -3275,28 +2718,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readEnum()I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p1
+ 
+     .line 47
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result p1
+ 
+     .line 54
+     if-eqz p1, :cond_2
+ 
+-    .line 55
+     .line 56
+     goto :goto_2
+ 
+@@ -3304,27 +2740,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v1
+ 
+     .line 63
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 64
+     .line 65
+     if-eq v1, v2, :cond_1
+ 
+-    .line 66
+     .line 67
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 68
+     .line 69
+     return-void
+ 
+@@ -3332,35 +2762,27 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v0
+ 
+     .line 76
+     if-eqz v0, :cond_5
+ 
+-    .line 77
+     .line 78
+     if-ne v0, v1, :cond_4
+ 
+-    .line 79
+     .line 80
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v0
+ 
+     .line 84
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 85
+     .line 86
+     add-int/2addr v1, v0
+ 
+@@ -3368,32 +2790,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 88
+     .line 89
+     if-ge v0, v1, :cond_6
+ 
+-    .line 90
+     .line 91
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v0
+ 
+     .line 95
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object v0
+ 
+     .line 99
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     goto :goto_1
+ 
+@@ -3401,8 +2815,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object p0
+ 
+@@ -3413,36 +2825,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readEnum()I
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result v0
+ 
+     .line 112
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v0
+ 
+     .line 116
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v0
+ 
+     .line 123
+     if-eqz v0, :cond_7
+ 
+-    .line 124
+     .line 125
+     :cond_6
+     :goto_2
+@@ -3452,27 +2855,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 127
+     .line 128
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v1
+ 
+     .line 132
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 133
+     .line 134
+     if-eq v1, v2, :cond_5
+ 
+-    .line 135
+     .line 136
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 137
+     .line 138
+     return-void
+ .end method
+@@ -3491,13 +2888,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -3525,7 +2918,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x5
+ 
+@@ -3535,86 +2927,65 @@
+     .line 5
+     if-eqz v0, :cond_4
+ 
+-    .line 6
+     .line 7
+     check-cast p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 8
+     .line 9
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     if-eq v0, v2, :cond_3
+ 
+-    .line 16
+     .line 17
+     if-ne v0, v1, :cond_2
+ 
+-    .line 18
+     .line 19
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     if-eqz v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     goto/16 :goto_2
+ 
+-    .line 33
+     .line 34
+     :cond_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 35
+     .line 36
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v1
+ 
+     .line 40
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 41
+     .line 42
+     if-eq v1, v2, :cond_0
+ 
+-    .line 43
+     .line 44
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 45
+     .line 46
+     return-void
+ 
+@@ -3622,8 +2993,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -3634,20 +3003,15 @@
+     :cond_3
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v0
+ 
+     .line 56
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 60
+     .line 61
+     add-int/2addr v1, v0
+ 
+@@ -3655,24 +3019,18 @@
+     :goto_0
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 63
+     .line 64
+     if-ge v0, v1, :cond_9
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v0
+ 
+     .line 70
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -3680,57 +3038,43 @@
+     :cond_4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eq v0, v2, :cond_8
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_7
+ 
+-    .line 83
+     .line 84
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v0
+ 
+     .line 92
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v0
+ 
+     .line 99
+     if-eqz v0, :cond_6
+ 
+-    .line 100
+     .line 101
+     goto :goto_2
+ 
+@@ -3738,27 +3082,21 @@
+     :cond_6
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 103
+     .line 104
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result v1
+ 
+     .line 108
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 109
+     .line 110
+     if-eq v1, v2, :cond_5
+ 
+-    .line 111
+     .line 112
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 113
+     .line 114
+     return-void
+ 
+@@ -3766,8 +3104,6 @@
+     :cond_7
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p0
+ 
+@@ -3778,20 +3114,15 @@
+     :cond_8
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result v0
+ 
+     .line 124
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 128
+     .line 129
+     add-int/2addr v1, v0
+ 
+@@ -3799,32 +3130,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 131
+     .line 132
+     if-ge v0, v1, :cond_9
+ 
+-    .line 133
+     .line 134
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result v0
+ 
+     .line 138
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-object v0
+ 
+     .line 142
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     goto :goto_1
+ 
+@@ -3848,13 +3171,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v0
+ 
+@@ -3882,7 +3201,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+@@ -3892,51 +3210,39 @@
+     .line 5
+     if-eqz v0, :cond_3
+ 
+-    .line 6
+     .line 7
+     move-object v0, p1
+ 
+     .line 8
+     check-cast v0, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 9
+     .line 10
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 11
+     .line 12
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p1
+ 
+     .line 16
+     if-eq p1, v2, :cond_1
+ 
+-    .line 17
+     .line 18
+     if-ne p1, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     invoke-direct {p0, p1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 28
+     .line 29
+     add-int/2addr v1, p1
+ 
+@@ -3944,24 +3250,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 31
+     .line 32
+     if-ge p1, v1, :cond_6
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-wide v2
+ 
+     .line 38
+     invoke-virtual {v0, v2, v3}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -3969,8 +3269,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -3981,28 +3279,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFixed64()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v1
+ 
+     .line 51
+     invoke-virtual {v0, v1, v2}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_2
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -4010,27 +3301,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_1
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -4038,40 +3323,30 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eq v0, v2, :cond_5
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_4
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     add-int/2addr v1, v0
+ 
+@@ -4079,32 +3354,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 95
+     .line 96
+     if-ge v0, v1, :cond_6
+ 
+-    .line 97
+     .line 98
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-wide v2
+ 
+     .line 102
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object v0
+ 
+     .line 106
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     goto :goto_1
+ 
+@@ -4112,8 +3379,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object p0
+ 
+@@ -4124,36 +3389,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFixed64()J
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-wide v0
+ 
+     .line 119
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v0
+ 
+     .line 123
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result v0
+ 
+     .line 130
+     if-eqz v0, :cond_7
+ 
+-    .line 131
+     .line 132
+     :cond_6
+     :goto_2
+@@ -4163,27 +3419,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 134
+     .line 135
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result v1
+ 
+     .line 139
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 140
+     .line 141
+     if-eq v1, v2, :cond_5
+ 
+-    .line 142
+     .line 143
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 144
+     .line 145
+     return-void
+ .end method
+@@ -4202,21 +3452,15 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+     .line 9
+     invoke-static {p0}, Ljava/lang/Float;->intBitsToFloat(I)F
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -4244,7 +3488,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/FloatArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x5
+ 
+@@ -4254,86 +3497,65 @@
+     .line 5
+     if-eqz v0, :cond_4
+ 
+-    .line 6
+     .line 7
+     check-cast p1, Lcom/google/protobuf/FloatArrayList;
+ 
+-    .line 8
+     .line 9
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     if-eq v0, v2, :cond_3
+ 
+-    .line 16
+     .line 17
+     if-ne v0, v1, :cond_2
+ 
+-    .line 18
+     .line 19
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/FloatArrayList;->addFloat(F)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     if-eqz v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     goto/16 :goto_2
+ 
+-    .line 33
+     .line 34
+     :cond_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 35
+     .line 36
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v1
+ 
+     .line 40
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 41
+     .line 42
+     if-eq v1, v2, :cond_0
+ 
+-    .line 43
+     .line 44
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 45
+     .line 46
+     return-void
+ 
+@@ -4341,8 +3563,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -4353,20 +3573,15 @@
+     :cond_3
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v0
+ 
+     .line 56
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 60
+     .line 61
+     add-int/2addr v1, v0
+ 
+@@ -4374,32 +3589,24 @@
+     :goto_0
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 63
+     .line 64
+     if-ge v0, v1, :cond_9
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v0
+ 
+     .line 70
+     invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v0
+ 
+     .line 74
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/FloatArrayList;->addFloat(F)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     goto :goto_0
+ 
+@@ -4407,57 +3614,43 @@
+     :cond_4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 79
+     .line 80
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v0
+ 
+     .line 84
+     if-eq v0, v2, :cond_8
+ 
+-    .line 85
+     .line 86
+     if-ne v0, v1, :cond_7
+ 
+-    .line 87
+     .line 88
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v0
+ 
+     .line 92
+     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object v0
+ 
+     .line 96
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v0
+ 
+     .line 103
+     if-eqz v0, :cond_6
+ 
+-    .line 104
+     .line 105
+     goto :goto_2
+ 
+@@ -4465,27 +3658,21 @@
+     :cond_6
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 107
+     .line 108
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result v1
+ 
+     .line 112
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 113
+     .line 114
+     if-eq v1, v2, :cond_5
+ 
+-    .line 115
+     .line 116
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 117
+     .line 118
+     return-void
+ 
+@@ -4493,8 +3680,6 @@
+     :cond_7
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object p0
+ 
+@@ -4505,20 +3690,15 @@
+     :cond_8
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result v0
+ 
+     .line 128
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 132
+     .line 133
+     add-int/2addr v1, v0
+ 
+@@ -4526,40 +3706,30 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 135
+     .line 136
+     if-ge v0, v1, :cond_9
+ 
+-    .line 137
+     .line 138
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result v0
+ 
+     .line 142
+     invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result v0
+ 
+     .line 146
+     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result-object v0
+ 
+     .line 150
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     goto :goto_1
+ 
+@@ -4642,13 +3812,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0, p1, p2}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readGroup(Lcom/google/protobuf/Schema;Lcom/google/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -4791,13 +3957,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -4825,53 +3987,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_4
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_2
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -4879,24 +4030,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_0
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p1
+ 
+     .line 34
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -4904,8 +4049,6 @@
+     :cond_0
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ 
+@@ -4913,8 +4056,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -4925,28 +4066,21 @@
+     :cond_2
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readInt32()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result p1
+ 
+     .line 51
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_3
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -4954,27 +4088,21 @@
+     :cond_3
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_2
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -4982,35 +4110,27 @@
+     :cond_4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eqz v0, :cond_7
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_6
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 89
+     .line 90
+     add-int/2addr v1, v0
+ 
+@@ -5018,32 +4138,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     if-ge v0, v1, :cond_5
+ 
+-    .line 94
+     .line 95
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v0
+ 
+     .line 99
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v0
+ 
+     .line 103
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     goto :goto_1
+ 
+@@ -5051,8 +4163,6 @@
+     :cond_5
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     return-void
+ 
+@@ -5060,8 +4170,6 @@
+     :cond_6
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -5072,36 +4180,27 @@
+     :cond_7
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readInt32()I
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v0
+ 
+     .line 120
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v0
+ 
+     .line 124
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v0
+ 
+     .line 131
+     if-eqz v0, :cond_8
+ 
+-    .line 132
+     .line 133
+     :goto_2
+     return-void
+@@ -5110,27 +4209,21 @@
+     :cond_8
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 135
+     .line 136
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v1
+ 
+     .line 140
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 141
+     .line 142
+     if-eq v1, v2, :cond_7
+ 
+-    .line 143
+     .line 144
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 145
+     .line 146
+     return-void
+ .end method
+@@ -5149,13 +4242,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v0
+ 
+@@ -5183,53 +4272,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_4
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_2
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -5237,24 +4315,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_0
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-wide v2
+ 
+     .line 34
+     invoke-virtual {v0, v2, v3}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -5262,8 +4334,6 @@
+     :cond_0
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ 
+@@ -5271,8 +4341,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -5283,28 +4351,21 @@
+     :cond_2
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readInt64()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v1
+ 
+     .line 51
+     invoke-virtual {v0, v1, v2}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_3
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -5312,27 +4373,21 @@
+     :cond_3
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_2
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -5340,35 +4395,27 @@
+     :cond_4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eqz v0, :cond_7
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_6
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 89
+     .line 90
+     add-int/2addr v1, v0
+ 
+@@ -5376,32 +4423,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     if-ge v0, v1, :cond_5
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-wide v2
+ 
+     .line 99
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v0
+ 
+     .line 103
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     goto :goto_1
+ 
+@@ -5409,8 +4448,6 @@
+     :cond_5
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     return-void
+ 
+@@ -5418,8 +4455,6 @@
+     :cond_6
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -5430,36 +4465,27 @@
+     :cond_7
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readInt64()J
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-wide v0
+ 
+     .line 120
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v0
+ 
+     .line 124
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v0
+ 
+     .line 131
+     if-eqz v0, :cond_8
+ 
+-    .line 132
+     .line 133
+     :goto_2
+     return-void
+@@ -5468,27 +4494,21 @@
+     :cond_8
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 135
+     .line 136
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v1
+ 
+     .line 140
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 141
+     .line 142
+     if-eq v1, v2, :cond_7
+ 
+-    .line 143
+     .line 144
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 145
+     .line 146
+     return-void
+ .end method
+@@ -5523,74 +4543,55 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 13
+     .line 14
+     iget v3, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 15
+     .line 16
+     add-int/2addr v3, v1
+ 
+     .line 17
+     iput v3, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 18
+     .line 19
+     :try_start_0
+     iget-object v1, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->defaultKey:Ljava/lang/Object;
+ 
+-    .line 20
+     .line 21
+     iget-object v3, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
+ 
+-    .line 22
+     .line 23
+     :goto_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->getFieldNumber()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v4
+ 
+     .line 27
+     const v5, 0x7fffffff
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     if-ne v4, v5, :cond_0
+ 
+-    .line 31
+     .line 32
+     invoke-interface {p1, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 36
+     .line 37
+     return-void
+ 
+@@ -5608,28 +4609,22 @@
+     .line 41
+     const-string v6, "Unable to parse map entry."
+ 
+-    .line 42
+     .line 43
+     if-eq v4, v5, :cond_3
+ 
+-    .line 44
+     .line 45
+     if-eq v4, v0, :cond_2
+ 
+-    .line 46
+     .line 47
+     :try_start_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipField()Z
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v4
+ 
+     .line 51
+     if-eqz v4, :cond_1
+ 
+-    .line 52
+     .line 53
+     goto :goto_0
+ 
+@@ -5637,12 +4632,9 @@
+     :cond_1
+     new-instance v4, Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 55
+     .line 56
+     invoke-direct {v4, v6}, Lcom/google/protobuf/InvalidProtocolBufferException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     throw v4
+ 
+@@ -5657,24 +4649,18 @@
+     :cond_2
+     iget-object v4, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->valueType:Lcom/google/protobuf/WireFormat$FieldType;
+ 
+-    .line 63
+     .line 64
+     iget-object v5, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v5
+ 
+     .line 70
+     invoke-direct {p0, v4, v5, p3}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readField(Lcom/google/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v3
+ 
+@@ -5685,15 +4671,12 @@
+     :cond_3
+     iget-object v4, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/protobuf/WireFormat$FieldType;
+ 
+-    .line 76
+     .line 77
+     const/4 v5, 0x0
+ 
+     .line 78
+     invoke-direct {p0, v4, v5, v5}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readField(Lcom/google/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v1
+     :try_end_1
+@@ -5708,15 +4691,12 @@
+     :try_start_2
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipField()Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result v5
+ 
+     .line 87
+     if-eqz v5, :cond_4
+ 
+-    .line 88
+     .line 89
+     goto :goto_0
+ 
+@@ -5724,12 +4704,9 @@
+     :cond_4
+     new-instance p1, Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 91
+     .line 92
+     invoke-direct {p1, v6, v4}, Lcom/google/protobuf/InvalidProtocolBufferException;-><init>(Ljava/lang/String;Ljava/io/IOException;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     throw p1
+     :try_end_2
+@@ -5739,7 +4716,6 @@
+     :goto_2
+     iput v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 97
+     .line 98
+     throw p1
+ .end method
+@@ -5811,13 +4787,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0, p1, p2}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readMessage(Lcom/google/protobuf/Schema;Lcom/google/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -5954,13 +4926,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -5988,7 +4956,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x5
+ 
+@@ -5998,86 +4965,65 @@
+     .line 5
+     if-eqz v0, :cond_4
+ 
+-    .line 6
+     .line 7
+     check-cast p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 8
+     .line 9
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     if-eq v0, v2, :cond_3
+ 
+-    .line 16
+     .line 17
+     if-ne v0, v1, :cond_2
+ 
+-    .line 18
+     .line 19
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v0
+ 
+     .line 23
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     if-eqz v0, :cond_1
+ 
+-    .line 31
+     .line 32
+     goto/16 :goto_2
+ 
+-    .line 33
+     .line 34
+     :cond_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 35
+     .line 36
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v1
+ 
+     .line 40
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 41
+     .line 42
+     if-eq v1, v2, :cond_0
+ 
+-    .line 43
+     .line 44
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 45
+     .line 46
+     return-void
+ 
+@@ -6085,8 +5031,6 @@
+     :cond_2
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -6097,20 +5041,15 @@
+     :cond_3
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v0
+ 
+     .line 56
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 60
+     .line 61
+     add-int/2addr v1, v0
+ 
+@@ -6118,24 +5057,18 @@
+     :goto_0
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 63
+     .line 64
+     if-ge v0, v1, :cond_9
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v0
+ 
+     .line 70
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -6143,57 +5076,43 @@
+     :cond_4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eq v0, v2, :cond_8
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_7
+ 
+-    .line 83
+     .line 84
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v0
+ 
+     .line 92
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v0
+ 
+     .line 99
+     if-eqz v0, :cond_6
+ 
+-    .line 100
+     .line 101
+     goto :goto_2
+ 
+@@ -6201,27 +5120,21 @@
+     :cond_6
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 103
+     .line 104
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result v1
+ 
+     .line 108
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 109
+     .line 110
+     if-eq v1, v2, :cond_5
+ 
+-    .line 111
+     .line 112
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 113
+     .line 114
+     return-void
+ 
+@@ -6229,8 +5142,6 @@
+     :cond_7
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p0
+ 
+@@ -6241,20 +5152,15 @@
+     :cond_8
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result v0
+ 
+     .line 124
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 128
+     .line 129
+     add-int/2addr v1, v0
+ 
+@@ -6262,32 +5168,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 131
+     .line 132
+     if-ge v0, v1, :cond_9
+ 
+-    .line 133
+     .line 134
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result v0
+ 
+     .line 138
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-object v0
+ 
+     .line 142
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     goto :goto_1
+ 
+@@ -6311,13 +5209,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v0
+ 
+@@ -6345,7 +5239,6 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+@@ -6355,51 +5248,39 @@
+     .line 5
+     if-eqz v0, :cond_3
+ 
+-    .line 6
+     .line 7
+     move-object v0, p1
+ 
+     .line 8
+     check-cast v0, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 9
+     .line 10
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 11
+     .line 12
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p1
+ 
+     .line 16
+     if-eq p1, v2, :cond_1
+ 
+-    .line 17
+     .line 18
+     if-ne p1, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     invoke-direct {p0, p1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 28
+     .line 29
+     add-int/2addr v1, p1
+ 
+@@ -6407,24 +5288,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 31
+     .line 32
+     if-ge p1, v1, :cond_6
+ 
+-    .line 33
+     .line 34
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-wide v2
+ 
+     .line 38
+     invoke-virtual {v0, v2, v3}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -6432,8 +5307,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -6444,28 +5317,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSFixed64()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v1
+ 
+     .line 51
+     invoke-virtual {v0, v1, v2}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_2
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -6473,27 +5339,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_1
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -6501,40 +5361,30 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eq v0, v2, :cond_5
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_4
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     add-int/2addr v1, v0
+ 
+@@ -6542,32 +5392,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 95
+     .line 96
+     if-ge v0, v1, :cond_6
+ 
+-    .line 97
+     .line 98
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-wide v2
+ 
+     .line 102
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object v0
+ 
+     .line 106
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     goto :goto_1
+ 
+@@ -6575,8 +5417,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object p0
+ 
+@@ -6587,36 +5427,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSFixed64()J
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-wide v0
+ 
+     .line 119
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result-object v0
+ 
+     .line 123
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result v0
+ 
+     .line 130
+     if-eqz v0, :cond_7
+ 
+-    .line 131
+     .line 132
+     :cond_6
+     :goto_2
+@@ -6626,27 +5457,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 134
+     .line 135
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result v1
+ 
+     .line 139
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 140
+     .line 141
+     if-eq v1, v2, :cond_5
+ 
+-    .line 142
+     .line 143
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 144
+     .line 145
+     return-void
+ .end method
+@@ -6665,21 +5490,15 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+     .line 9
+     invoke-static {p0}, Lcom/google/protobuf/CodedInputStream;->decodeZigZag32(I)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -6707,53 +5526,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_3
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_1
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -6761,32 +5569,24 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_6
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p1
+ 
+     .line 34
+     invoke-static {p1}, Lcom/google/protobuf/CodedInputStream;->decodeZigZag32(I)I
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result p1
+ 
+     .line 38
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -6794,8 +5594,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -6806,28 +5604,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSInt32()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result p1
+ 
+     .line 51
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_2
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -6835,27 +5626,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_1
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -6863,35 +5648,27 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eqz v0, :cond_5
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_4
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 89
+     .line 90
+     add-int/2addr v1, v0
+ 
+@@ -6899,40 +5676,30 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     if-ge v0, v1, :cond_6
+ 
+-    .line 94
+     .line 95
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v0
+ 
+     .line 99
+     invoke-static {v0}, Lcom/google/protobuf/CodedInputStream;->decodeZigZag32(I)I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v0
+ 
+     .line 103
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object v0
+ 
+     .line 107
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     goto :goto_1
+ 
+@@ -6940,8 +5707,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -6952,36 +5717,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSInt32()I
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v0
+ 
+     .line 120
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v0
+ 
+     .line 124
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v0
+ 
+     .line 131
+     if-eqz v0, :cond_7
+ 
+-    .line 132
+     .line 133
+     :cond_6
+     :goto_2
+@@ -6991,27 +5747,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 135
+     .line 136
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v1
+ 
+     .line 140
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 141
+     .line 142
+     if-eq v1, v2, :cond_5
+ 
+-    .line 143
+     .line 144
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 145
+     .line 146
+     return-void
+ .end method
+@@ -7030,21 +5780,15 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v0
+ 
+     .line 9
+     invoke-static {v0, v1}, Lcom/google/protobuf/CodedInputStream;->decodeZigZag64(J)J
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-wide v0
+ 
+@@ -7072,53 +5816,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_3
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_1
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -7126,32 +5859,24 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_6
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-wide v2
+ 
+     .line 34
+     invoke-static {v2, v3}, Lcom/google/protobuf/CodedInputStream;->decodeZigZag64(J)J
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-wide v2
+ 
+     .line 38
+     invoke-virtual {v0, v2, v3}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -7159,8 +5884,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -7171,28 +5894,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSInt64()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v1
+ 
+     .line 51
+     invoke-virtual {v0, v1, v2}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_2
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -7200,27 +5916,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_1
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -7228,35 +5938,27 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eqz v0, :cond_5
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_4
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 89
+     .line 90
+     add-int/2addr v1, v0
+ 
+@@ -7264,40 +5966,30 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     if-ge v0, v1, :cond_6
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-wide v2
+ 
+     .line 99
+     invoke-static {v2, v3}, Lcom/google/protobuf/CodedInputStream;->decodeZigZag64(J)J
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-wide v2
+ 
+     .line 103
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object v0
+ 
+     .line 107
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     goto :goto_1
+ 
+@@ -7305,8 +5997,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -7317,36 +6007,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readSInt64()J
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-wide v0
+ 
+     .line 120
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v0
+ 
+     .line 124
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v0
+ 
+     .line 131
+     if-eqz v0, :cond_7
+ 
+-    .line 132
+     .line 133
+     :cond_6
+     :goto_2
+@@ -7356,27 +6037,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 135
+     .line 136
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v1
+ 
+     .line 140
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 141
+     .line 142
+     if-eq v1, v2, :cond_5
+ 
+-    .line 143
+     .line 144
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 145
+     .line 146
+     return-void
+ .end method
+@@ -7395,8 +6070,6 @@
+     .line 2
+     invoke-virtual {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readStringInternal(Z)Ljava/lang/String;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+@@ -7418,24 +6091,18 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const-string p0, ""
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ 
+@@ -7443,36 +6110,27 @@
+     :cond_0
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     if-eqz p1, :cond_2
+ 
+-    .line 18
+     .line 19
+     iget-object p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 20
+     .line 21
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 22
+     .line 23
+     add-int v2, v1, v0
+ 
+-    .line 24
+     .line 25
+     invoke-static {p1, v1, v2}, Lcom/google/protobuf/Utf8;->isValidUtf8([BII)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result p1
+ 
+     .line 29
+     if-eqz p1, :cond_1
+ 
+-    .line 30
+     .line 31
+     goto :goto_0
+ 
+@@ -7480,8 +6138,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidUtf8()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+@@ -7493,35 +6149,27 @@
+     :goto_0
+     new-instance p1, Ljava/lang/String;
+ 
+-    .line 38
+     .line 39
+     iget-object v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 40
+     .line 41
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 42
+     .line 43
+     sget-object v3, Lcom/google/protobuf/Internal;->UTF_8:Ljava/nio/charset/Charset;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p1, v1, v2, v0, v3}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 49
+     .line 50
+     add-int/2addr v1, v0
+ 
+     .line 51
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 52
+     .line 53
+     return-object p1
+ .end method
+@@ -7549,8 +6197,6 @@
+     .line 2
+     invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readStringListInternal(Ljava/util/List;Z)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -7575,12 +6221,9 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+@@ -7590,52 +6233,40 @@
+     .line 8
+     if-ne v0, v1, :cond_4
+ 
+-    .line 9
+     .line 10
+     instance-of v0, p1, Lcom/google/protobuf/LazyStringList;
+ 
+-    .line 11
+     .line 12
+     if-eqz v0, :cond_2
+ 
+-    .line 13
+     .line 14
+     if-nez p2, :cond_2
+ 
+-    .line 15
+     .line 16
+     move-object v0, p1
+ 
+     .line 17
+     check-cast v0, Lcom/google/protobuf/LazyStringList;
+ 
+-    .line 18
+     .line 19
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readBytes()Lcom/google/protobuf/ByteString;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p1
+ 
+     .line 23
+     invoke-interface {v0, p1}, Lcom/google/protobuf/LazyStringList;->add(Lcom/google/protobuf/ByteString;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result p1
+ 
+     .line 30
+     if-eqz p1, :cond_1
+ 
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -7643,27 +6274,21 @@
+     :cond_1
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 34
+     .line 35
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result p2
+ 
+     .line 39
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 40
+     .line 41
+     if-eq p2, v1, :cond_0
+ 
+-    .line 42
+     .line 43
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 44
+     .line 45
+     return-void
+ 
+@@ -7671,28 +6296,21 @@
+     :cond_2
+     invoke-virtual {p0, p2}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readStringInternal(Z)Ljava/lang/String;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v0
+ 
+     .line 57
+     if-eqz v0, :cond_3
+ 
+-    .line 58
+     .line 59
+     :goto_0
+     return-void
+@@ -7701,27 +6319,21 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 61
+     .line 62
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v1
+ 
+     .line 66
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 67
+     .line 68
+     if-eq v1, v2, :cond_2
+ 
+-    .line 69
+     .line 70
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 71
+     .line 72
+     return-void
+ 
+@@ -7729,8 +6341,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p0
+ 
+@@ -7761,8 +6371,6 @@
+     .line 2
+     invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readStringListInternal(Ljava/util/List;Z)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -7781,8 +6389,6 @@
+     .line 2
+     invoke-virtual {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readStringInternal(Z)Ljava/lang/String;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+@@ -7804,13 +6410,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -7838,53 +6440,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_3
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_1
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -7892,24 +6483,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_6
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p1
+ 
+     .line 34
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -7917,8 +6502,6 @@
+     :cond_0
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -7929,28 +6512,21 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readUInt32()I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result p1
+ 
+     .line 47
+     invoke-virtual {v0, p1}, Lcom/google/protobuf/IntArrayList;->addInt(I)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result p1
+ 
+     .line 54
+     if-eqz p1, :cond_2
+ 
+-    .line 55
+     .line 56
+     goto :goto_2
+ 
+@@ -7958,27 +6534,21 @@
+     :cond_2
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v1
+ 
+     .line 63
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 64
+     .line 65
+     if-eq v1, v2, :cond_1
+ 
+-    .line 66
+     .line 67
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 68
+     .line 69
+     return-void
+ 
+@@ -7986,35 +6556,27 @@
+     :cond_3
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v0
+ 
+     .line 76
+     if-eqz v0, :cond_5
+ 
+-    .line 77
+     .line 78
+     if-ne v0, v1, :cond_4
+ 
+-    .line 79
+     .line 80
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v0
+ 
+     .line 84
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 85
+     .line 86
+     add-int/2addr v1, v0
+ 
+@@ -8022,32 +6584,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 88
+     .line 89
+     if-ge v0, v1, :cond_6
+ 
+-    .line 90
+     .line 91
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v0
+ 
+     .line 95
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object v0
+ 
+     .line 99
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     goto :goto_1
+ 
+@@ -8055,8 +6609,6 @@
+     :cond_4
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object p0
+ 
+@@ -8067,36 +6619,27 @@
+     :cond_5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readUInt32()I
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result v0
+ 
+     .line 112
+     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v0
+ 
+     .line 116
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v0
+ 
+     .line 123
+     if-eqz v0, :cond_7
+ 
+-    .line 124
+     .line 125
+     :cond_6
+     :goto_2
+@@ -8106,27 +6649,21 @@
+     :cond_7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 127
+     .line 128
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v1
+ 
+     .line 132
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 133
+     .line 134
+     if-eq v1, v2, :cond_5
+ 
+-    .line 135
+     .line 136
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 137
+     .line 138
+     return-void
+ .end method
+@@ -8145,13 +6682,9 @@
+     .line 2
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v0
+ 
+@@ -8179,53 +6712,42 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     if-eqz v0, :cond_4
+ 
+-    .line 5
+     .line 6
+     move-object v0, p1
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 8
+     .line 9
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 10
+     .line 11
+     invoke-static {p1}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     if-eqz p1, :cond_2
+ 
+-    .line 16
+     .line 17
+     if-ne p1, v1, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p1
+ 
+     .line 23
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 24
+     .line 25
+     add-int/2addr v1, p1
+ 
+@@ -8233,24 +6755,18 @@
+     :goto_0
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 27
+     .line 28
+     if-ge p1, v1, :cond_0
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-wide v2
+ 
+     .line 34
+     invoke-virtual {v0, v2, v3}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -8258,8 +6774,6 @@
+     :cond_0
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-void
+ 
+@@ -8267,8 +6781,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -8279,28 +6791,21 @@
+     :cond_2
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readUInt64()J
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-wide v1
+ 
+     .line 51
+     invoke-virtual {v0, v1, v2}, Lcom/google/protobuf/LongArrayList;->addLong(J)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result p1
+ 
+     .line 58
+     if-eqz p1, :cond_3
+ 
+-    .line 59
+     .line 60
+     goto :goto_2
+ 
+@@ -8308,27 +6813,21 @@
+     :cond_3
+     iget p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v1
+ 
+     .line 67
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 68
+     .line 69
+     if-eq v1, v2, :cond_2
+ 
+-    .line 70
+     .line 71
+     iput p1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 72
+     .line 73
+     return-void
+ 
+@@ -8336,35 +6835,27 @@
+     :cond_4
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 75
+     .line 76
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v0
+ 
+     .line 80
+     if-eqz v0, :cond_7
+ 
+-    .line 81
+     .line 82
+     if-ne v0, v1, :cond_6
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v0
+ 
+     .line 88
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 89
+     .line 90
+     add-int/2addr v1, v0
+ 
+@@ -8372,32 +6863,24 @@
+     :goto_1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 92
+     .line 93
+     if-ge v0, v1, :cond_5
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-wide v2
+ 
+     .line 99
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v0
+ 
+     .line 103
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     goto :goto_1
+ 
+@@ -8405,8 +6888,6 @@
+     :cond_5
+     invoke-direct {p0, v1}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     return-void
+ 
+@@ -8414,8 +6895,6 @@
+     :cond_6
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p0
+ 
+@@ -8426,36 +6905,27 @@
+     :cond_7
+     invoke-virtual {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readUInt64()J
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-wide v0
+ 
+     .line 120
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v0
+ 
+     .line 124
+     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result v0
+ 
+     .line 131
+     if-eqz v0, :cond_8
+ 
+-    .line 132
+     .line 133
+     :goto_2
+     return-void
+@@ -8464,27 +6934,21 @@
+     :cond_8
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 135
+     .line 136
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result v1
+ 
+     .line 140
+     iget v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 141
+     .line 142
+     if-eq v1, v2, :cond_7
+ 
+-    .line 143
+     .line 144
+     iput v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 145
+     .line 146
+     return-void
+ .end method
+@@ -8500,35 +6964,27 @@
+     .line 1
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->limit:I
+ 
+-    .line 4
+     .line 5
+     if-eq v1, v0, :cond_b
+ 
+-    .line 6
+     .line 7
+     iget-object v2, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+ 
+-    .line 8
+     .line 9
+     add-int/lit8 v3, v0, 0x1
+ 
+-    .line 10
+     .line 11
+     aget-byte v4, v2, v0
+ 
+-    .line 12
+     .line 13
+     if-ltz v4, :cond_0
+ 
+-    .line 14
+     .line 15
+     iput v3, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 16
+     .line 17
+     int-to-long v0, v4
+ 
+@@ -8542,16 +6998,12 @@
+     .line 20
+     const/16 v5, 0x9
+ 
+-    .line 21
+     .line 22
+     if-ge v1, v5, :cond_1
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint64SlowPath()J
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-wide v0
+ 
+@@ -8562,57 +7014,46 @@
+     :cond_1
+     add-int/lit8 v1, v0, 0x2
+ 
+-    .line 30
+     .line 31
+     aget-byte v3, v2, v3
+ 
+-    .line 32
+     .line 33
+     shl-int/lit8 v3, v3, 0x7
+ 
+-    .line 34
+     .line 35
+     xor-int/2addr v3, v4
+ 
+     .line 36
+     if-gez v3, :cond_2
+ 
+-    .line 37
+     .line 38
+     xor-int/lit8 v0, v3, -0x80
+ 
+-    .line 39
+     .line 40
+     int-to-long v2, v0
+ 
+     .line 41
+     goto/16 :goto_2
+ 
+-    .line 42
+     .line 43
+     :cond_2
+     add-int/lit8 v4, v0, 0x3
+ 
+-    .line 44
+     .line 45
+     aget-byte v1, v2, v1
+ 
+-    .line 46
+     .line 47
+     shl-int/lit8 v1, v1, 0xe
+ 
+-    .line 48
+     .line 49
+     xor-int/2addr v1, v3
+ 
+     .line 50
+     if-ltz v1, :cond_3
+ 
+-    .line 51
+     .line 52
+     xor-int/lit16 v0, v1, 0x3f80
+ 
+-    .line 53
+     .line 54
+     int-to-long v2, v0
+ 
+@@ -8622,32 +7063,25 @@
+     .line 56
+     goto/16 :goto_2
+ 
+-    .line 57
+     .line 58
+     :cond_3
+     add-int/lit8 v3, v0, 0x4
+ 
+-    .line 59
+     .line 60
+     aget-byte v4, v2, v4
+ 
+-    .line 61
+     .line 62
+     shl-int/lit8 v4, v4, 0x15
+ 
+-    .line 63
+     .line 64
+     xor-int/2addr v1, v4
+ 
+     .line 65
+     if-gez v1, :cond_4
+ 
+-    .line 66
+     .line 67
+     const v0, -0x1fc080
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     xor-int/2addr v0, v1
+ 
+@@ -8666,7 +7100,6 @@
+     .line 75
+     goto/16 :goto_2
+ 
+-    .line 76
+     .line 77
+     :cond_4
+     int-to-long v4, v1
+@@ -8674,47 +7107,37 @@
+     .line 78
+     add-int/lit8 v1, v0, 0x5
+ 
+-    .line 79
+     .line 80
+     aget-byte v3, v2, v3
+ 
+-    .line 81
+     .line 82
+     int-to-long v6, v3
+ 
+     .line 83
+     const/16 v3, 0x1c
+ 
+-    .line 84
+     .line 85
+     shl-long/2addr v6, v3
+ 
+     .line 86
+     xor-long v3, v4, v6
+ 
+-    .line 87
+     .line 88
+     const-wide/16 v5, 0x0
+ 
+-    .line 89
+     .line 90
+     cmp-long v7, v3, v5
+ 
+-    .line 91
+     .line 92
+     if-ltz v7, :cond_5
+ 
+-    .line 93
+     .line 94
+     const-wide/32 v5, 0xfe03f80
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     :goto_0
+     xor-long v2, v3, v5
+ 
+-    .line 98
+     .line 99
+     goto :goto_2
+ 
+@@ -8722,18 +7145,15 @@
+     :cond_5
+     add-int/lit8 v7, v0, 0x6
+ 
+-    .line 101
+     .line 102
+     aget-byte v1, v2, v1
+ 
+-    .line 103
+     .line 104
+     int-to-long v8, v1
+ 
+     .line 105
+     const/16 v1, 0x23
+ 
+-    .line 106
+     .line 107
+     shl-long/2addr v8, v1
+ 
+@@ -8743,23 +7163,16 @@
+     .line 109
+     cmp-long v1, v3, v5
+ 
+-    .line 110
+     .line 111
+     if-gez v1, :cond_6
+ 
+-    .line 112
+     .line 113
+     const-wide v0, -0x7f01fc080L
+ 
+-    .line 114
+-    .line 115
+-    .line 116
+-    .line 117
+     .line 118
+     :goto_1
+     xor-long v2, v3, v0
+ 
+-    .line 119
+     .line 120
+     move v1, v7
+ 
+@@ -8770,18 +7183,15 @@
+     :cond_6
+     add-int/lit8 v1, v0, 0x7
+ 
+-    .line 123
+     .line 124
+     aget-byte v7, v2, v7
+ 
+-    .line 125
+     .line 126
+     int-to-long v7, v7
+ 
+     .line 127
+     const/16 v9, 0x2a
+ 
+-    .line 128
+     .line 129
+     shl-long/2addr v7, v9
+ 
+@@ -8791,18 +7201,12 @@
+     .line 131
+     cmp-long v7, v3, v5
+ 
+-    .line 132
+     .line 133
+     if-ltz v7, :cond_7
+ 
+-    .line 134
+     .line 135
+     const-wide v5, 0x3f80fe03f80L
+ 
+-    .line 136
+-    .line 137
+-    .line 138
+-    .line 139
+     .line 140
+     goto :goto_0
+ 
+@@ -8810,18 +7214,15 @@
+     :cond_7
+     add-int/lit8 v7, v0, 0x8
+ 
+-    .line 142
+     .line 143
+     aget-byte v1, v2, v1
+ 
+-    .line 144
+     .line 145
+     int-to-long v8, v1
+ 
+     .line 146
+     const/16 v1, 0x31
+ 
+-    .line 147
+     .line 148
+     shl-long/2addr v8, v1
+ 
+@@ -8831,18 +7232,12 @@
+     .line 150
+     cmp-long v1, v3, v5
+ 
+-    .line 151
+     .line 152
+     if-gez v1, :cond_8
+ 
+-    .line 153
+     .line 154
+     const-wide v0, -0x1fc07f01fc080L
+ 
+-    .line 155
+-    .line 156
+-    .line 157
+-    .line 158
+     .line 159
+     goto :goto_1
+ 
+@@ -8850,18 +7245,15 @@
+     :cond_8
+     add-int/lit8 v1, v0, 0x9
+ 
+-    .line 161
+     .line 162
+     aget-byte v7, v2, v7
+ 
+-    .line 163
+     .line 164
+     int-to-long v7, v7
+ 
+     .line 165
+     const/16 v9, 0x38
+ 
+-    .line 166
+     .line 167
+     shl-long/2addr v7, v9
+ 
+@@ -8871,40 +7263,30 @@
+     .line 169
+     const-wide v7, 0xfe03f80fe03f80L
+ 
+-    .line 170
+-    .line 171
+-    .line 172
+-    .line 173
+     .line 174
+     xor-long/2addr v3, v7
+ 
+     .line 175
+     cmp-long v7, v3, v5
+ 
+-    .line 176
+     .line 177
+     if-gez v7, :cond_9
+ 
+-    .line 178
+     .line 179
+     add-int/lit8 v0, v0, 0xa
+ 
+-    .line 180
+     .line 181
+     aget-byte v1, v2, v1
+ 
+-    .line 182
+     .line 183
+     int-to-long v1, v1
+ 
+     .line 184
+     cmp-long v1, v1, v5
+ 
+-    .line 185
+     .line 186
+     if-ltz v1, :cond_a
+ 
+-    .line 187
+     .line 188
+     move v1, v0
+ 
+@@ -8919,8 +7301,6 @@
+     :cond_a
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result-object p0
+ 
+@@ -8931,7 +7311,6 @@
+     :goto_2
+     iput v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->pos:I
+ 
+-    .line 197
+     .line 198
+     return-wide v2
+ 
+@@ -8939,8 +7318,6 @@
+     :cond_b
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/protobuf/InvalidProtocolBufferException;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object p0
+ 
+@@ -8959,27 +7336,21 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_6
+ 
+-    .line 6
+     .line 7
+     iget v0, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->tag:I
+ 
+-    .line 8
+     .line 9
+     iget v1, p0, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+ 
+-    .line 10
+     .line 11
+     if-ne v0, v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -8987,8 +7358,6 @@
+     :cond_0
+     invoke-static {v0}, Lcom/google/protobuf/WireFormat;->getTagWireType(I)I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v0
+ 
+@@ -8998,40 +7367,33 @@
+     .line 19
+     if-eqz v0, :cond_5
+ 
+-    .line 20
+     .line 21
+     if-eq v0, v1, :cond_4
+ 
+-    .line 22
+     .line 23
+     const/4 v2, 0x2
+ 
+     .line 24
+     if-eq v0, v2, :cond_3
+ 
+-    .line 25
+     .line 26
+     const/4 v2, 0x3
+ 
+     .line 27
+     if-eq v0, v2, :cond_2
+ 
+-    .line 28
+     .line 29
+     const/4 v2, 0x5
+ 
+     .line 30
+     if-ne v0, v2, :cond_1
+ 
+-    .line 31
+     .line 32
+     const/4 v0, 0x4
+ 
+     .line 33
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipBytes(I)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return v1
+ 
+@@ -9039,8 +7401,6 @@
+     :cond_1
+     invoke-static {}, Lcom/google/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+@@ -9051,8 +7411,6 @@
+     :cond_2
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipGroup()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     return v1
+ 
+@@ -9060,16 +7418,12 @@
+     :cond_3
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v0
+ 
+     .line 50
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipBytes(I)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return v1
+ 
+@@ -9077,12 +7431,9 @@
+     :cond_4
+     const/16 v0, 0x8
+ 
+-    .line 55
+     .line 56
+     invoke-direct {p0, v0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipBytes(I)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     return v1
+ 
+@@ -9090,8 +7441,6 @@
+     :cond_5
+     invoke-direct {p0}, Lcom/google/protobuf/BinaryReader$SafeHeapReader;->skipVarint()V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     return v1
+ 

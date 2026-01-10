@@ -1,0 +1,6038 @@
+--- a/smali_classes7/com/winemu/core/server/environment/plugins/SteamGameLauncherKt.smali
++++ b/smali_classes7/com/winemu/core/server/environment/plugins/SteamGameLauncherKt.smali
+@@ -18,8 +18,6 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->n(Ljava/lang/String;Lkotlin/text/MatchResult;)Ljava/lang/CharSequence;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -34,72 +32,51 @@
+     :try_start_0
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/io/File;->getParent()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string v2, ".backup"
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {p0}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p0
+ 
+     .line 35
+     invoke-virtual {v0}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v1
+ 
+@@ -109,25 +86,20 @@
+     .line 40
+     new-array v2, v2, [Ljava/nio/file/CopyOption;
+ 
+-    .line 41
+     .line 42
+     sget-object v3, Ljava/nio/file/StandardCopyOption;->REPLACE_EXISTING:Ljava/nio/file/StandardCopyOption;
+ 
+-    .line 43
+     .line 44
+     const/4 v4, 0x0
+ 
+     .line 45
+     aput-object v3, v2, v4
+ 
+-    .line 46
+     .line 47
+     invoke-static {p0, v1, v2}, Ljava/nio/file/Files;->copy(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return-object v0
+ 
+@@ -145,16 +117,12 @@
+     .line 1
+     new-instance v0, Lkotlin/text/Regex;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "appmanifest_(\\d+)\\.acf"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+@@ -167,42 +135,33 @@
+     .line 11
+     invoke-static {v0, p0, v1, v2, v3}, Lkotlin/text/Regex;->find$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Lkotlin/text/MatchResult;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     if-eqz p0, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0}, Lkotlin/text/MatchResult;->c()Ljava/util/List;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     if-eqz p0, :cond_0
+ 
+-    .line 22
+     .line 23
+     const/4 v0, 0x1
+ 
+     .line 24
+     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     return-object p0
+ 
+@@ -217,16 +176,12 @@
+     .line 1
+     new-instance v0, Lkotlin/text/Regex;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "\"SizeOnDisk\"\\s+\"(\\d+)\""
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+@@ -239,51 +194,39 @@
+     .line 11
+     invoke-static {v0, p0, v1, v2, v3}, Lkotlin/text/Regex;->find$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Lkotlin/text/MatchResult;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     if-eqz p0, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0}, Lkotlin/text/MatchResult;->c()Ljava/util/List;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     if-eqz p0, :cond_0
+ 
+-    .line 22
+     .line 23
+     const/4 v0, 0x1
+ 
+     .line 24
+     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     if-eqz p0, :cond_0
+ 
+-    .line 31
+     .line 32
+     invoke-static {p0}, Lkotlin/text/StringsKt;->z(Ljava/lang/String;)Ljava/lang/Long;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+@@ -301,28 +244,21 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     const-string v1, ""
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     if-eqz p0, :cond_1
+ 
+-    .line 13
+     .line 14
+     array-length v1, p0
+ 
+@@ -336,28 +272,21 @@
+     :goto_0
+     if-ge v3, v1, :cond_1
+ 
+-    .line 18
+     .line 19
+     aget-object v4, p0, v3
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v5
+ 
+     .line 25
+     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-string v6, "appmanifest_"
+ 
+-    .line 29
+     .line 30
+     const/4 v7, 0x2
+ 
+@@ -367,118 +296,84 @@
+     .line 32
+     invoke-static {v5, v6, v2, v7, v8}, Lkotlin/text/StringsKt;->f0(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v6
+ 
+     .line 36
+     if-eqz v6, :cond_0
+ 
+-    .line 37
+     .line 38
+     :try_start_0
+     sget-object v6, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 39
+     .line 40
+     invoke-static {v5}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->c(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v5
+ 
+     .line 44
+     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     const/4 v6, 0x1
+ 
+     .line 48
+     invoke-static {v4, v8, v6, v8}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v4
+ 
+     .line 52
+     invoke-static {v4}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->d(Ljava/lang/String;)Ljava/lang/Long;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v4
+ 
+     .line 56
+     new-instance v6, Ljava/lang/StringBuilder;
+ 
+-    .line 57
+     .line 58
+     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const-string v7, "\t\t\t\""
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     const-string v5, "\"\t\t\""
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     const-string v4, "\"\n"
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v4
+ 
+     .line 86
+     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     goto :goto_1
+ 
+@@ -489,26 +384,20 @@
+     .line 94
+     sget-object v5, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 95
+     .line 96
+     invoke-static {v4}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v4
+ 
+     .line 100
+     invoke-static {v4}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     :cond_0
+     :goto_1
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 104
+     .line 105
+     goto :goto_0
+ 
+@@ -516,20 +405,15 @@
+     :cond_1
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p0
+ 
+     .line 110
+     const-string v0, "toString(...)"
+ 
+-    .line 111
+     .line 112
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     return-object p0
+ .end method
+@@ -540,54 +424,36 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "\"libraryfolders\"\n{\n\t\"0\"\n\t{\n\t\t\"path\"\t\t\u201c"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const-string p0, "\u201d\n\t\t\"label\"\t\t\u201cSteam\u201d\n\t\t\"contentid\"\t\t\"7295803922354184866\"\n\t\t\"totalsize\"\t\t\"0\"\n\t\t\"update_clean_bytes_tally\"\t\t\u201c0\u201d\n\t\t\"time_last_update_corruption\"\t\t\"0\"\n\t\t\"apps\"\n\t\t{\n"
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     const-string p0, "\t\t}\n\t}\n}"
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+@@ -601,17 +467,12 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -619,64 +480,48 @@
+     :cond_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     if-eqz v1, :cond_6
+ 
+-    .line 15
+     .line 16
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     check-cast v1, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 21
+     .line 22
+     const-string v2, "Run Process"
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v1, v2}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v1
+ 
+     .line 28
+     if-eqz v1, :cond_0
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v1
+ 
+     .line 34
+     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v1
+ 
+     .line 38
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v1
+ 
+@@ -685,60 +530,45 @@
+     :goto_0
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v2
+ 
+     .line 46
+     if-eqz v2, :cond_0
+ 
+-    .line 47
+     .line 48
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v2
+ 
+     .line 52
+     check-cast v2, Ljava/util/Map$Entry;
+ 
+-    .line 53
+     .line 54
+     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v3
+ 
+     .line 58
+     check-cast v3, Ljava/lang/String;
+ 
+-    .line 59
+     .line 60
+     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v2
+ 
+     .line 64
+     check-cast v2, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 65
+     .line 66
+     const-string v4, "HasRunKey"
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {v2, v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v4
+ 
+@@ -748,12 +578,9 @@
+     .line 73
+     if-eqz v4, :cond_2
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v4
+ 
+@@ -768,24 +595,18 @@
+     :goto_1
+     const-string v6, "process 1"
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {v2, v6}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v6
+ 
+     .line 87
+     if-eqz v6, :cond_3
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {v6}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v6
+ 
+@@ -800,24 +621,18 @@
+     :goto_2
+     const-string v7, "MinimumHasRunValue"
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v2, v7}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v2
+ 
+     .line 101
+     if-eqz v2, :cond_4
+ 
+-    .line 102
+     .line 103
+     invoke-virtual {v2}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object v2
+ 
+@@ -832,12 +647,9 @@
+     :goto_3
+     if-eqz v2, :cond_5
+ 
+-    .line 110
+     .line 111
+     invoke-static {v2}, Lkotlin/text/StringsKt;->x(Ljava/lang/String;)Ljava/lang/Integer;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v5
+ 
+@@ -845,21 +657,15 @@
+     :cond_5
+     if-eqz v4, :cond_1
+ 
+-    .line 116
+     .line 117
+     new-instance v2, Lcom/winemu/core/server/environment/plugins/ProcessRun;
+ 
+-    .line 118
+     .line 119
+     invoke-direct {v2, v3, v4, v6, v5}, Lcom/winemu/core/server/environment/plugins/ProcessRun;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     goto :goto_0
+ 
+@@ -874,213 +680,147 @@
+     .line 1
+     sget-object v0, Lcom/winemu/core/utils/WinUtils;->a:Lcom/winemu/core/utils/WinUtils;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-virtual {v0, v1, p0}, Lcom/winemu/core/utils/WinUtils;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const-string v0, "\\steam.exe "
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v0
+ 
+     .line 28
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->k()Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v0, " --username "
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v0
+ 
+     .line 52
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->r()Ljava/lang/String;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v1
+ 
+     .line 56
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 57
+     .line 58
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     const-string v0, " --token "
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v0
+ 
+     .line 76
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 77
+     .line 78
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     const-string v0, " --rememberme"
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v0
+ 
+     .line 93
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->i()Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v1
+ 
+     .line 97
+     if-eqz v1, :cond_0
+ 
+-    .line 98
+     .line 99
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 100
+     .line 101
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     const-string v0, " --offline"
+ 
+-    .line 108
+     .line 109
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v0
+ 
+@@ -1088,56 +828,39 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->f()I
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v1
+ 
+     .line 120
+     if-ltz v1, :cond_1
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->f()I
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result v1
+ 
+     .line 126
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 127
+     .line 128
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     const-string v0, " --launchoption "
+ 
+-    .line 135
+     .line 136
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object v0
+ 
+@@ -1145,176 +868,124 @@
+     :cond_1
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 147
+     .line 148
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->q()Ljava/lang/String;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result-object v2
+ 
+     .line 152
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->m()I
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result v3
+ 
+     .line 156
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 157
+     .line 158
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     const-string v5, "appmanifest_"
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     const-string v3, ".acf"
+ 
+-    .line 170
+     .line 171
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result-object v3
+ 
+     .line 178
+     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     new-instance v2, Ljava/io/File;
+ 
+-    .line 182
+     .line 183
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->o()Ljava/lang/String;
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     move-result-object v3
+ 
+     .line 187
+     invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     invoke-static {v1, v2}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->i(Ljava/io/File;Ljava/io/File;)Ljava/util/List;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     move-result-object v1
+ 
+     .line 194
+     if-eqz v1, :cond_2
+ 
+-    .line 195
+     .line 196
+     invoke-static {v1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->g(Ljava/util/List;)Ljava/util/List;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-object v1
+ 
+     .line 200
+     invoke-virtual {p4, v1}, Lcom/winemu/core/BootData;->f(Ljava/util/List;)V
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     :cond_2
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->d()Z
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result p4
+ 
+     .line 207
+     if-eqz p4, :cond_3
+ 
+-    .line 208
+     .line 209
+     new-instance p4, Ljava/io/File;
+ 
+-    .line 210
+     .line 211
+     const-string v1, ".script_installed"
+ 
+-    .line 212
+     .line 213
+     invoke-direct {p4, p0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     invoke-virtual {p4}, Ljava/io/File;->exists()Z
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     move-result p0
+ 
+     .line 220
+     if-nez p0, :cond_3
+ 
+-    .line 221
+     .line 222
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 223
+     .line 224
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 228
+-    .line 229
+     .line 230
+     const-string p4, " --runinstallscript"
+ 
+-    .line 231
+     .line 232
+     invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     move-result-object v0
+ 
+@@ -1322,43 +993,30 @@
+     :cond_3
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->b()Z
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     move-result p0
+ 
+     .line 243
+     if-nez p0, :cond_4
+ 
+-    .line 244
+     .line 245
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 246
+     .line 247
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 251
+-    .line 252
+     .line 253
+     const-string p4, " --disablecloud"
+ 
+-    .line 254
+     .line 255
+     invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 259
+-    .line 260
+     .line 261
+     move-result-object v0
+ 
+@@ -1366,43 +1024,30 @@
+     :cond_4
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->p()Z
+ 
+-    .line 263
+-    .line 264
+     .line 265
+     move-result p0
+ 
+     .line 266
+     if-nez p0, :cond_5
+ 
+-    .line 267
+     .line 268
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 269
+     .line 270
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 271
+-    .line 272
+     .line 273
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 274
+-    .line 275
+     .line 276
+     const-string p4, " --disablesteaminput"
+ 
+-    .line 277
+     .line 278
+     invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 279
+-    .line 280
+     .line 281
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 282
+-    .line 283
+     .line 284
+     move-result-object v0
+ 
+@@ -1410,92 +1055,63 @@
+     :cond_5
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 286
+     .line 287
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 288
+-    .line 289
+     .line 290
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 291
+-    .line 292
+     .line 293
+     const-string p4, " --language "
+ 
+-    .line 294
+     .line 295
+     invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 296
+-    .line 297
+     .line 298
+     invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 299
+-    .line 300
+     .line 301
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 302
+-    .line 303
+     .line 304
+     move-result-object p0
+ 
+     .line 305
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->a()Ljava/lang/Integer;
+ 
+-    .line 306
+-    .line 307
+     .line 308
+     move-result-object p3
+ 
+     .line 309
+     if-eqz p3, :cond_6
+ 
+-    .line 310
+     .line 311
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->a()Ljava/lang/Integer;
+ 
+-    .line 312
+-    .line 313
+     .line 314
+     move-result-object p3
+ 
+     .line 315
+     new-instance p4, Ljava/lang/StringBuilder;
+ 
+-    .line 316
+     .line 317
+     invoke-direct {p4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 318
+-    .line 319
+     .line 320
+     invoke-virtual {p4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 321
+-    .line 322
+     .line 323
+     const-string p0, " --cellid "
+ 
+-    .line 324
+     .line 325
+     invoke-virtual {p4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 326
+-    .line 327
+     .line 328
+     invoke-virtual {p4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 329
+-    .line 330
+     .line 331
+     invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 332
+-    .line 333
+     .line 334
+     move-result-object p0
+ 
+@@ -1503,92 +1119,63 @@
+     :cond_6
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->m()I
+ 
+-    .line 336
+-    .line 337
+     .line 338
+     move-result p1
+ 
+     .line 339
+     new-instance p3, Ljava/lang/StringBuilder;
+ 
+-    .line 340
+     .line 341
+     invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 342
+-    .line 343
+     .line 344
+     invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 345
+-    .line 346
+     .line 347
+     const-string p0, " --applaunch "
+ 
+-    .line 348
+     .line 349
+     invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 350
+-    .line 351
+     .line 352
+     invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 353
+-    .line 354
+     .line 355
+     invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 356
+-    .line 357
+     .line 358
+     move-result-object p0
+ 
+     .line 359
+     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 360
+-    .line 361
+     .line 362
+     move-result p1
+ 
+     .line 363
+     if-lez p1, :cond_7
+ 
+-    .line 364
+     .line 365
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 366
+     .line 367
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 368
+-    .line 369
+     .line 370
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 371
+-    .line 372
+     .line 373
+     const-string p0, " --launchparameters "
+ 
+-    .line 374
+     .line 375
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 376
+-    .line 377
+     .line 378
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 379
+-    .line 380
+     .line 381
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 382
+-    .line 383
+     .line 384
+     move-result-object p0
+ 
+@@ -1603,11 +1190,9 @@
+     .line 1
+     const-string v0, "InstallScripts"
+ 
+-    .line 2
+     .line 3
+     const-string v1, "AppState"
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x1
+ 
+@@ -1618,94 +1203,69 @@
+     :try_start_0
+     invoke-static {p0, v3, v2, v3}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v4
+ 
+     .line 11
+     new-instance v5, Ljava/util/ArrayList;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {v4}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->q(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v4
+ 
+     .line 20
+     invoke-virtual {v4, v1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->b(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v6
+ 
+     .line 24
+     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {v6, v0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->b(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v6
+ 
+     .line 31
+     if-eqz v6, :cond_1
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v6}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v7
+ 
+     .line 37
+     invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v7
+ 
+     .line 41
+     if-nez v7, :cond_1
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v6}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v6
+ 
+     .line 47
+     invoke-interface {v6}, Ljava/util/Map;->values()Ljava/util/Collection;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v6
+ 
+     .line 51
+     invoke-interface {v6}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v6
+ 
+@@ -1714,52 +1274,39 @@
+     :goto_0
+     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v7
+ 
+     .line 59
+     if-eqz v7, :cond_1
+ 
+-    .line 60
+     .line 61
+     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v7
+ 
+     .line 65
+     check-cast v7, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v7}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object v7
+ 
+     .line 71
+     invoke-static {v7, p1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->p(Ljava/lang/String;Ljava/io/File;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v7
+ 
+     .line 75
+     if-eqz v7, :cond_0
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {v5, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     goto :goto_0
+ 
+@@ -1767,57 +1314,42 @@
+     :cond_1
+     invoke-virtual {v4, v1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->b(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object p1
+ 
+     .line 85
+     invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     const-string v4, "SharedDepots"
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {p1, v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->b(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p1
+ 
+     .line 94
+     if-eqz p1, :cond_3
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {p1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p1
+ 
+     .line 100
+     if-eqz p1, :cond_3
+ 
+-    .line 101
+     .line 102
+     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object p1
+ 
+     .line 106
+     invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object p1
+ 
+@@ -1826,303 +1358,221 @@
+     :goto_1
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result v4
+ 
+     .line 114
+     if-eqz v4, :cond_3
+ 
+-    .line 115
+     .line 116
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v4
+ 
+     .line 120
+     check-cast v4, Ljava/util/Map$Entry;
+ 
+-    .line 121
+     .line 122
+     invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v6
+ 
+     .line 126
+     check-cast v6, Ljava/lang/String;
+ 
+-    .line 127
+     .line 128
+     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object v4
+ 
+     .line 132
+     check-cast v4, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 133
+     .line 134
+     invoke-virtual {v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v4
+ 
+     .line 138
+     new-instance v7, Ljava/io/File;
+ 
+-    .line 139
+     .line 140
+     invoke-virtual {p0}, Ljava/io/File;->getParent()Ljava/lang/String;
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result-object v8
+ 
+     .line 144
+     new-instance v9, Ljava/lang/StringBuilder;
+ 
+-    .line 145
+     .line 146
+     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     const-string v10, "appmanifest_"
+ 
+-    .line 150
+     .line 151
+     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     const-string v4, ".acf"
+ 
+-    .line 158
+     .line 159
+     invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object v4
+ 
+     .line 166
+     invoke-direct {v7, v8, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     invoke-virtual {v7}, Ljava/io/File;->exists()Z
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result v4
+ 
+     .line 173
+     if-eqz v4, :cond_2
+ 
+-    .line 174
+     .line 175
+     invoke-static {v7, v3, v2, v3}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result-object v4
+ 
+     .line 179
+     invoke-static {v4}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->q(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result-object v4
+ 
+     .line 183
+     invoke-virtual {v4, v1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     move-result-object v4
+ 
+     .line 187
+     if-eqz v4, :cond_2
+ 
+-    .line 188
+     .line 189
+     const-string v7, "installdir"
+ 
+-    .line 190
+     .line 191
+     invoke-virtual {v4, v7}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result-object v7
+ 
+     .line 195
+     if-eqz v7, :cond_2
+ 
+-    .line 196
+     .line 197
+     invoke-virtual {v7}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object v7
+ 
+     .line 201
+     if-eqz v7, :cond_2
+ 
+-    .line 202
+     .line 203
+     new-instance v8, Ljava/io/File;
+ 
+-    .line 204
+     .line 205
+     invoke-virtual {p0}, Ljava/io/File;->getParent()Ljava/lang/String;
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     move-result-object v9
+ 
+     .line 209
+     new-instance v10, Ljava/lang/StringBuilder;
+ 
+-    .line 210
+     .line 211
+     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     const-string v11, "common/"
+ 
+-    .line 215
+     .line 216
+     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     move-result-object v7
+ 
+     .line 226
+     invoke-direct {v8, v9, v7}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     invoke-virtual {v4, v0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     move-result-object v4
+ 
+     .line 233
+     if-eqz v4, :cond_2
+ 
+-    .line 234
+     .line 235
+     invoke-virtual {v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     move-result-object v4
+ 
+     .line 239
+     if-eqz v4, :cond_2
+ 
+-    .line 240
+     .line 241
+     invoke-interface {v4, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object v4
+ 
+     .line 245
+     check-cast v4, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 246
+     .line 247
+     if-eqz v4, :cond_2
+ 
+-    .line 248
+     .line 249
+     invoke-virtual {v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 250
+-    .line 251
+     .line 252
+     move-result-object v4
+ 
+     .line 253
+     invoke-static {v4, v8}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->p(Ljava/lang/String;Ljava/io/File;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 254
+-    .line 255
+     .line 256
+     move-result-object v4
+ 
+     .line 257
+     if-eqz v4, :cond_2
+ 
+-    .line 258
+     .line 259
+     invoke-virtual {v5, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 260
+-    .line 261
+     .line 262
+     goto/16 :goto_1
+ 
+-    .line 263
+     .line 264
+     :cond_3
+     return-object v5
+@@ -2138,20 +1588,16 @@
+     .line 1
+     const-string v0, "english"
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     invoke-static {p0}, Lkotlin/text/StringsKt;->C0(Ljava/lang/CharSequence;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+     .line 7
+     if-eqz v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-object v0
+ 
+@@ -2159,57 +1605,42 @@
+     :cond_0
+     invoke-static {p0}, Lkotlin/text/StringsKt;->J1(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v1
+ 
+     .line 14
+     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v3
+ 
+     .line 24
+     const-string v1, "toLowerCase(...)"
+ 
+-    .line 25
+     .line 26
+     invoke-static {v3, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-string v1, "_"
+ 
+-    .line 30
+     .line 31
+     const-string v2, "."
+ 
+-    .line 32
+     .line 33
+     const-string v4, "-"
+ 
+-    .line 34
+     .line 35
+     filled-new-array {v1, v2, v4}, [Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v4
+ 
+@@ -2228,23 +1659,18 @@
+     .line 43
+     invoke-static/range {v3 .. v8}, Lkotlin/text/StringsKt;->h1(Ljava/lang/CharSequence;[Ljava/lang/String;ZIILjava/lang/Object;)Ljava/util/List;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+     .line 47
+     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v2
+ 
+     .line 51
+     if-eqz v2, :cond_1
+ 
+-    .line 52
+     .line 53
+     return-object v0
+ 
+@@ -2255,27 +1681,21 @@
+     .line 55
+     invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v1
+ 
+     .line 59
+     check-cast v1, Ljava/lang/String;
+ 
+-    .line 60
+     .line 61
+     invoke-static {v1}, Lkotlin/text/StringsKt;->C0(Ljava/lang/CharSequence;)Z
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v2
+ 
+     .line 65
+     if-eqz v2, :cond_2
+ 
+-    .line 66
+     .line 67
+     return-object v0
+ 
+@@ -2283,8 +1703,6 @@
+     :cond_2
+     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v2
+ 
+@@ -2294,43 +1712,32 @@
+     .line 73
+     sparse-switch v2, :sswitch_data_0
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     goto/16 :goto_3
+ 
+-    .line 77
+     .line 78
+     :sswitch_0
+     const-string v2, "zh"
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v1
+ 
+     .line 84
+     if-nez v1, :cond_3
+ 
+-    .line 85
+     .line 86
+     goto/16 :goto_3
+ 
+-    .line 87
+     .line 88
+     :cond_3
+     const-string v1, "CN"
+ 
+-    .line 89
+     .line 90
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result v1
+     :try_end_0
+@@ -2339,28 +1746,22 @@
+     .line 94
+     const-string v2, "schinese"
+ 
+-    .line 95
+     .line 96
+     if-nez v1, :cond_7
+ 
+-    .line 97
+     .line 98
+     :try_start_1
+     const-string v1, "hans"
+ 
+-    .line 99
+     .line 100
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result v1
+ 
+     .line 104
+     if-eqz v1, :cond_4
+ 
+-    .line 105
+     .line 106
+     goto :goto_1
+ 
+@@ -2368,51 +1769,39 @@
+     :cond_4
+     const-string v1, "TW"
+ 
+-    .line 108
+     .line 109
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v1
+ 
+     .line 113
+     if-nez v1, :cond_6
+ 
+-    .line 114
+     .line 115
+     const-string v1, "HK"
+ 
+-    .line 116
+     .line 117
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result v1
+ 
+     .line 121
+     if-nez v1, :cond_6
+ 
+-    .line 122
+     .line 123
+     const-string v1, "hant"
+ 
+-    .line 124
+     .line 125
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result p0
+ 
+     .line 129
+     if-eqz p0, :cond_5
+ 
+-    .line 130
+     .line 131
+     goto :goto_0
+ 
+@@ -2425,7 +1814,6 @@
+     :goto_0
+     const-string p0, "tchinese"
+ 
+-    .line 134
+     .line 135
+     return-object p0
+ 
+@@ -2438,28 +1826,22 @@
+     :sswitch_1
+     const-string p0, "vi"
+ 
+-    .line 138
+     .line 139
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result p0
+ 
+     .line 143
+     if-nez p0, :cond_8
+ 
+-    .line 144
+     .line 145
+     goto/16 :goto_3
+ 
+-    .line 146
+     .line 147
+     :cond_8
+     const-string p0, "vietnamese"
+ 
+-    .line 148
+     .line 149
+     return-object p0
+ 
+@@ -2467,28 +1849,22 @@
+     :sswitch_2
+     const-string p0, "uk"
+ 
+-    .line 151
+     .line 152
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result p0
+ 
+     .line 156
+     if-nez p0, :cond_9
+ 
+-    .line 157
+     .line 158
+     goto/16 :goto_3
+ 
+-    .line 159
+     .line 160
+     :cond_9
+     const-string p0, "ukrainian"
+ 
+-    .line 161
+     .line 162
+     return-object p0
+ 
+@@ -2496,28 +1872,22 @@
+     :sswitch_3
+     const-string p0, "tr"
+ 
+-    .line 164
+     .line 165
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result p0
+ 
+     .line 169
+     if-nez p0, :cond_a
+ 
+-    .line 170
+     .line 171
+     goto/16 :goto_3
+ 
+-    .line 172
+     .line 173
+     :cond_a
+     const-string p0, "turkish"
+ 
+-    .line 174
+     .line 175
+     return-object p0
+ 
+@@ -2525,28 +1895,22 @@
+     :sswitch_4
+     const-string p0, "th"
+ 
+-    .line 177
+     .line 178
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result p0
+ 
+     .line 182
+     if-nez p0, :cond_b
+ 
+-    .line 183
+     .line 184
+     goto/16 :goto_3
+ 
+-    .line 185
+     .line 186
+     :cond_b
+     const-string p0, "thai"
+ 
+-    .line 187
+     .line 188
+     return-object p0
+ 
+@@ -2554,28 +1918,22 @@
+     :sswitch_5
+     const-string p0, "sv"
+ 
+-    .line 190
+     .line 191
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result p0
+ 
+     .line 195
+     if-nez p0, :cond_c
+ 
+-    .line 196
+     .line 197
+     goto/16 :goto_3
+ 
+-    .line 198
+     .line 199
+     :cond_c
+     const-string p0, "swedish"
+ 
+-    .line 200
+     .line 201
+     return-object p0
+ 
+@@ -2583,28 +1941,22 @@
+     :sswitch_6
+     const-string p0, "ru"
+ 
+-    .line 203
+     .line 204
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     move-result p0
+ 
+     .line 208
+     if-nez p0, :cond_d
+ 
+-    .line 209
+     .line 210
+     goto/16 :goto_3
+ 
+-    .line 211
+     .line 212
+     :cond_d
+     const-string p0, "russian"
+ 
+-    .line 213
+     .line 214
+     return-object p0
+ 
+@@ -2612,28 +1964,22 @@
+     :sswitch_7
+     const-string p0, "ro"
+ 
+-    .line 216
+     .line 217
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 218
+-    .line 219
+     .line 220
+     move-result p0
+ 
+     .line 221
+     if-nez p0, :cond_e
+ 
+-    .line 222
+     .line 223
+     goto/16 :goto_3
+ 
+-    .line 224
+     .line 225
+     :cond_e
+     const-string p0, "romanian"
+ 
+-    .line 226
+     .line 227
+     return-object p0
+ 
+@@ -2641,44 +1987,34 @@
+     :sswitch_8
+     const-string v2, "pt"
+ 
+-    .line 229
+     .line 230
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     move-result v1
+ 
+     .line 234
+     if-nez v1, :cond_f
+ 
+-    .line 235
+     .line 236
+     goto/16 :goto_3
+ 
+-    .line 237
+     .line 238
+     :cond_f
+     const-string v1, "BR"
+ 
+-    .line 239
+     .line 240
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     move-result p0
+ 
+     .line 244
+     if-eqz p0, :cond_10
+ 
+-    .line 245
+     .line 246
+     const-string p0, "brazilian"
+ 
+-    .line 247
+     .line 248
+     return-object p0
+ 
+@@ -2686,7 +2022,6 @@
+     :cond_10
+     const-string p0, "portuguese"
+ 
+-    .line 250
+     .line 251
+     return-object p0
+ 
+@@ -2694,28 +2029,22 @@
+     :sswitch_9
+     const-string p0, "pl"
+ 
+-    .line 253
+     .line 254
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 255
+-    .line 256
+     .line 257
+     move-result p0
+ 
+     .line 258
+     if-nez p0, :cond_11
+ 
+-    .line 259
+     .line 260
+     goto/16 :goto_3
+ 
+-    .line 261
+     .line 262
+     :cond_11
+     const-string p0, "polish"
+ 
+-    .line 263
+     .line 264
+     return-object p0
+ 
+@@ -2723,70 +2052,54 @@
+     :sswitch_a
+     const-string p0, "no"
+ 
+-    .line 266
+     .line 267
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 268
+-    .line 269
+     .line 270
+     move-result p0
+ 
+     .line 271
+     if-nez p0, :cond_13
+ 
+-    .line 272
+     .line 273
+     goto/16 :goto_3
+ 
+-    .line 274
+     .line 275
+     :sswitch_b
+     const-string p0, "nn"
+ 
+-    .line 276
+     .line 277
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 278
+-    .line 279
+     .line 280
+     move-result p0
+ 
+     .line 281
+     if-nez p0, :cond_13
+ 
+-    .line 282
+     .line 283
+     goto/16 :goto_3
+ 
+-    .line 284
+     .line 285
+     :sswitch_c
+     const-string p0, "nl"
+ 
+-    .line 286
+     .line 287
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 288
+-    .line 289
+     .line 290
+     move-result p0
+ 
+     .line 291
+     if-nez p0, :cond_12
+ 
+-    .line 292
+     .line 293
+     goto/16 :goto_3
+ 
+-    .line 294
+     .line 295
+     :cond_12
+     const-string p0, "dutch"
+ 
+-    .line 296
+     .line 297
+     return-object p0
+ 
+@@ -2794,28 +2107,22 @@
+     :sswitch_d
+     const-string p0, "nb"
+ 
+-    .line 299
+     .line 300
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 301
+-    .line 302
+     .line 303
+     move-result p0
+ 
+     .line 304
+     if-nez p0, :cond_13
+ 
+-    .line 305
+     .line 306
+     goto/16 :goto_3
+ 
+-    .line 307
+     .line 308
+     :cond_13
+     const-string p0, "norwegian"
+ 
+-    .line 309
+     .line 310
+     return-object p0
+ 
+@@ -2823,28 +2130,22 @@
+     :sswitch_e
+     const-string p0, "ko"
+ 
+-    .line 312
+     .line 313
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 314
+-    .line 315
+     .line 316
+     move-result p0
+ 
+     .line 317
+     if-nez p0, :cond_14
+ 
+-    .line 318
+     .line 319
+     goto/16 :goto_3
+ 
+-    .line 320
+     .line 321
+     :cond_14
+     const-string p0, "koreana"
+ 
+-    .line 322
+     .line 323
+     return-object p0
+ 
+@@ -2852,28 +2153,22 @@
+     :sswitch_f
+     const-string p0, "ja"
+ 
+-    .line 325
+     .line 326
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 327
+-    .line 328
+     .line 329
+     move-result p0
+ 
+     .line 330
+     if-nez p0, :cond_15
+ 
+-    .line 331
+     .line 332
+     goto/16 :goto_3
+ 
+-    .line 333
+     .line 334
+     :cond_15
+     const-string p0, "japanese"
+ 
+-    .line 335
+     .line 336
+     return-object p0
+ 
+@@ -2881,28 +2176,22 @@
+     :sswitch_10
+     const-string p0, "it"
+ 
+-    .line 338
+     .line 339
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 340
+-    .line 341
+     .line 342
+     move-result p0
+ 
+     .line 343
+     if-nez p0, :cond_16
+ 
+-    .line 344
+     .line 345
+     goto/16 :goto_3
+ 
+-    .line 346
+     .line 347
+     :cond_16
+     const-string p0, "italian"
+ 
+-    .line 348
+     .line 349
+     return-object p0
+ 
+@@ -2910,28 +2199,22 @@
+     :sswitch_11
+     const-string p0, "id"
+ 
+-    .line 351
+     .line 352
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 353
+-    .line 354
+     .line 355
+     move-result p0
+ 
+     .line 356
+     if-nez p0, :cond_17
+ 
+-    .line 357
+     .line 358
+     goto/16 :goto_3
+ 
+-    .line 359
+     .line 360
+     :cond_17
+     const-string p0, "indonesian"
+ 
+-    .line 361
+     .line 362
+     return-object p0
+ 
+@@ -2939,28 +2222,22 @@
+     :sswitch_12
+     const-string p0, "hu"
+ 
+-    .line 364
+     .line 365
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 366
+-    .line 367
+     .line 368
+     move-result p0
+ 
+     .line 369
+     if-nez p0, :cond_18
+ 
+-    .line 370
+     .line 371
+     goto/16 :goto_3
+ 
+-    .line 372
+     .line 373
+     :cond_18
+     const-string p0, "hungarian"
+ 
+-    .line 374
+     .line 375
+     return-object p0
+ 
+@@ -2968,28 +2245,22 @@
+     :sswitch_13
+     const-string p0, "fr"
+ 
+-    .line 377
+     .line 378
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 379
+-    .line 380
+     .line 381
+     move-result p0
+ 
+     .line 382
+     if-nez p0, :cond_19
+ 
+-    .line 383
+     .line 384
+     goto/16 :goto_3
+ 
+-    .line 385
+     .line 386
+     :cond_19
+     const-string p0, "french"
+ 
+-    .line 387
+     .line 388
+     return-object p0
+ 
+@@ -2997,28 +2268,22 @@
+     :sswitch_14
+     const-string p0, "fi"
+ 
+-    .line 390
+     .line 391
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 392
+-    .line 393
+     .line 394
+     move-result p0
+ 
+     .line 395
+     if-nez p0, :cond_1a
+ 
+-    .line 396
+     .line 397
+     goto/16 :goto_3
+ 
+-    .line 398
+     .line 399
+     :cond_1a
+     const-string p0, "finnish"
+ 
+-    .line 400
+     .line 401
+     return-object p0
+ 
+@@ -3026,120 +2291,91 @@
+     :sswitch_15
+     const-string v2, "es"
+ 
+-    .line 403
+     .line 404
+     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 405
+-    .line 406
+     .line 407
+     move-result v1
+ 
+     .line 408
+     if-nez v1, :cond_1b
+ 
+-    .line 409
+     .line 410
+     goto/16 :goto_3
+ 
+-    .line 411
+     .line 412
+     :cond_1b
+     const-string v1, "419"
+ 
+-    .line 413
+     .line 414
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 415
+-    .line 416
+     .line 417
+     move-result v1
+ 
+     .line 418
+     if-nez v1, :cond_1d
+ 
+-    .line 419
+     .line 420
+     const-string v1, "MX"
+ 
+-    .line 421
+     .line 422
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 423
+-    .line 424
+     .line 425
+     move-result v1
+ 
+     .line 426
+     if-nez v1, :cond_1d
+ 
+-    .line 427
+     .line 428
+     const-string v1, "AR"
+ 
+-    .line 429
+     .line 430
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 431
+-    .line 432
+     .line 433
+     move-result v1
+ 
+     .line 434
+     if-nez v1, :cond_1d
+ 
+-    .line 435
+     .line 436
+     const-string v1, "CL"
+ 
+-    .line 437
+     .line 438
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 439
+-    .line 440
+     .line 441
+     move-result v1
+ 
+     .line 442
+     if-nez v1, :cond_1d
+ 
+-    .line 443
+     .line 444
+     const-string v1, "CO"
+ 
+-    .line 445
+     .line 446
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 447
+-    .line 448
+     .line 449
+     move-result v1
+ 
+     .line 450
+     if-nez v1, :cond_1d
+ 
+-    .line 451
+     .line 452
+     const-string v1, "PE"
+ 
+-    .line 453
+     .line 454
+     invoke-static {p0, v1, v3}, Lkotlin/text/StringsKt;->k0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+ 
+-    .line 455
+-    .line 456
+     .line 457
+     move-result p0
+ 
+     .line 458
+     if-eqz p0, :cond_1c
+ 
+-    .line 459
+     .line 460
+     goto :goto_2
+ 
+@@ -3147,7 +2383,6 @@
+     :cond_1c
+     const-string p0, "spanish"
+ 
+-    .line 462
+     .line 463
+     return-object p0
+ 
+@@ -3156,7 +2391,6 @@
+     :goto_2
+     const-string p0, "latam"
+ 
+-    .line 465
+     .line 466
+     return-object p0
+ 
+@@ -3164,12 +2398,9 @@
+     :sswitch_16
+     const-string p0, "en"
+ 
+-    .line 468
+     .line 469
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 470
+-    .line 471
+     .line 472
+     goto :goto_3
+ 
+@@ -3177,19 +2408,15 @@
+     :sswitch_17
+     const-string p0, "el"
+ 
+-    .line 474
+     .line 475
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 476
+-    .line 477
+     .line 478
+     move-result p0
+ 
+     .line 479
+     if-nez p0, :cond_1e
+ 
+-    .line 480
+     .line 481
+     goto :goto_3
+ 
+@@ -3197,7 +2424,6 @@
+     :cond_1e
+     const-string p0, "greek"
+ 
+-    .line 483
+     .line 484
+     return-object p0
+ 
+@@ -3205,19 +2431,15 @@
+     :sswitch_18
+     const-string p0, "de"
+ 
+-    .line 486
+     .line 487
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 488
+-    .line 489
+     .line 490
+     move-result p0
+ 
+     .line 491
+     if-nez p0, :cond_1f
+ 
+-    .line 492
+     .line 493
+     goto :goto_3
+ 
+@@ -3225,7 +2447,6 @@
+     :cond_1f
+     const-string p0, "german"
+ 
+-    .line 495
+     .line 496
+     return-object p0
+ 
+@@ -3233,19 +2454,15 @@
+     :sswitch_19
+     const-string p0, "da"
+ 
+-    .line 498
+     .line 499
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 500
+-    .line 501
+     .line 502
+     move-result p0
+ 
+     .line 503
+     if-nez p0, :cond_20
+ 
+-    .line 504
+     .line 505
+     goto :goto_3
+ 
+@@ -3253,7 +2470,6 @@
+     :cond_20
+     const-string p0, "danish"
+ 
+-    .line 507
+     .line 508
+     return-object p0
+ 
+@@ -3261,19 +2477,15 @@
+     :sswitch_1a
+     const-string p0, "cs"
+ 
+-    .line 510
+     .line 511
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 512
+-    .line 513
+     .line 514
+     move-result p0
+ 
+     .line 515
+     if-nez p0, :cond_21
+ 
+-    .line 516
+     .line 517
+     goto :goto_3
+ 
+@@ -3281,7 +2493,6 @@
+     :cond_21
+     const-string p0, "czech"
+ 
+-    .line 519
+     .line 520
+     return-object p0
+ 
+@@ -3289,19 +2500,15 @@
+     :sswitch_1b
+     const-string p0, "bg"
+ 
+-    .line 522
+     .line 523
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 524
+-    .line 525
+     .line 526
+     move-result p0
+ 
+     .line 527
+     if-nez p0, :cond_22
+ 
+-    .line 528
+     .line 529
+     goto :goto_3
+ 
+@@ -3309,7 +2516,6 @@
+     :cond_22
+     const-string p0, "bulgarian"
+ 
+-    .line 531
+     .line 532
+     return-object p0
+ 
+@@ -3317,19 +2523,15 @@
+     :sswitch_1c
+     const-string p0, "ar"
+ 
+-    .line 534
+     .line 535
+     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 536
+-    .line 537
+     .line 538
+     move-result p0
+ 
+     .line 539
+     if-nez p0, :cond_23
+ 
+-    .line 540
+     .line 541
+     :goto_3
+     return-object v0
+@@ -3340,7 +2542,6 @@
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 543
+     .line 544
+     return-object p0
+ 
+@@ -3348,7 +2549,6 @@
+     :catch_0
+     return-object v0
+ 
+-    .line 546
+     nop
+ 
+     .line 547
+@@ -3396,24 +2596,18 @@
+     :try_start_0
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 3
+     .line 4
+     invoke-direct {v1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-nez p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     return v0
+ 
+@@ -3424,12 +2618,9 @@
+     .line 15
+     if-eqz p4, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-static {v1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->b(Ljava/io/File;)Ljava/io/File;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p4
+ 
+@@ -3447,20 +2638,15 @@
+     .line 24
+     invoke-static {v1, p0, v2, p0}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     if-nez p3, :cond_2
+ 
+-    .line 29
+     .line 30
+     invoke-static {p0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->m(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p3
+ 
+@@ -3468,7 +2654,6 @@
+     :cond_2
+     if-nez p3, :cond_3
+ 
+-    .line 35
+     .line 36
+     return v0
+ 
+@@ -3476,150 +2661,107 @@
+     :cond_3
+     new-instance v3, Lkotlin/text/Regex;
+ 
+-    .line 38
+     .line 39
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 40
+     .line 41
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     const-string v5, "(\""
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     const-string p3, "\"\\s*\\{[^}]*?\""
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string p1, "\"\\s+)\"[^\"]*\""
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p1
+ 
+     .line 69
+     sget-object p3, Lkotlin/text/RegexOption;->DOT_MATCHES_ALL:Lkotlin/text/RegexOption;
+ 
+-    .line 70
+     .line 71
+     invoke-direct {v3, p1, p3}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;Lkotlin/text/RegexOption;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     new-instance p1, Lcom/winemu/core/server/environment/plugins/b;
+ 
+-    .line 75
+     .line 76
+     invoke-direct {p1, p2}, Lcom/winemu/core/server/environment/plugins/b;-><init>(Ljava/lang/String;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {v3, p0, p1}, Lkotlin/text/Regex;->replace(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p1
+ 
+     .line 83
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result p0
+ 
+     .line 87
+     if-nez p0, :cond_5
+ 
+-    .line 88
+     .line 89
+     invoke-static {v1, p1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->r(Ljava/io/File;Ljava/lang/String;)Z
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result p0
+ 
+     .line 93
+     if-nez p0, :cond_4
+ 
+-    .line 94
+     .line 95
+     if-eqz p4, :cond_4
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {p4}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object p1
+ 
+     .line 101
+     invoke-virtual {v1}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object p2
+ 
+     .line 105
+     new-array p3, v2, [Ljava/nio/file/CopyOption;
+ 
+-    .line 106
+     .line 107
+     sget-object p4, Ljava/nio/file/StandardCopyOption;->REPLACE_EXISTING:Ljava/nio/file/StandardCopyOption;
+ 
+-    .line 108
+     .line 109
+     aput-object p4, p3, v0
+ 
+-    .line 110
+     .line 111
+     invoke-static {p1, p2, p3}, Ljava/nio/file/Files;->copy(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     :cond_4
+     return p0
+@@ -3636,11 +2778,9 @@
+     .line 1
+     and-int/lit8 p6, p5, 0x8
+ 
+-    .line 2
+     .line 3
+     if-eqz p6, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p3, 0x0
+ 
+@@ -3648,11 +2788,9 @@
+     :cond_0
+     and-int/lit8 p5, p5, 0x10
+ 
+-    .line 7
+     .line 8
+     if-eqz p5, :cond_1
+ 
+-    .line 9
+     .line 10
+     const/4 p4, 0x1
+ 
+@@ -3660,8 +2798,6 @@
+     :cond_1
+     invoke-static {p0, p1, p2, p3, p4}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->k(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p0
+ 
+@@ -3675,16 +2811,12 @@
+     .line 1
+     new-instance v0, Lkotlin/text/Regex;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "\"(\\d+)\"\\s*\\{"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v0, v1}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v1, 0x0
+ 
+@@ -3697,42 +2829,33 @@
+     .line 11
+     invoke-static {v0, p0, v1, v2, v3}, Lkotlin/text/Regex;->find$default(Lkotlin/text/Regex;Ljava/lang/CharSequence;IILjava/lang/Object;)Lkotlin/text/MatchResult;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     if-eqz p0, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0}, Lkotlin/text/MatchResult;->c()Ljava/util/List;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p0
+ 
+     .line 21
+     if-eqz p0, :cond_0
+ 
+-    .line 22
+     .line 23
+     const/4 v0, 0x1
+ 
+     .line 24
+     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     return-object p0
+ 
+@@ -3747,17 +2870,12 @@
+     .line 1
+     const-string v0, "matchResult"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-interface {p1}, Lkotlin/text/MatchResult;->c()Ljava/util/List;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+@@ -3767,49 +2885,33 @@
+     .line 11
+     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const-string p1, "\""
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+@@ -3823,179 +2925,128 @@
+     .line 1
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-direct {p0, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 11
+     .line 12
+     const-string v1, "steamapps"
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v2
+ 
+     .line 21
+     if-eqz v2, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0}, Lcom/winemu/core/utils/FileUtils;->m(Ljava/io/File;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v2
+ 
+     .line 27
+     if-nez v2, :cond_0
+ 
+-    .line 28
+     .line 29
+     new-instance v2, Ljava/io/File;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v0}, Ljava/io/File;->getParent()Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v3
+ 
+     .line 35
+     const-string v4, "steamapps_bak"
+ 
+-    .line 36
+     .line 37
+     invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {v0, v2}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     :cond_0
+     new-instance p0, Ljava/io/File;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->q()Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v1
+ 
+     .line 54
+     invoke-direct {p0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-static {p0, v0}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 61
+     .line 62
+     const-string v1, "libraryfolders.vdf"
+ 
+-    .line 63
+     .line 64
+     invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v1
+ 
+     .line 71
+     if-eqz v1, :cond_1
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v0}, Ljava/io/File;->delete()Z
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     :cond_1
+     sget-object v1, Lcom/winemu/core/utils/WinUtils;->a:Lcom/winemu/core/utils/WinUtils;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object v2
+ 
+     .line 82
+     invoke-virtual {v1, v2, p1}, Lcom/winemu/core/utils/WinUtils;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object p1
+ 
+     .line 86
+     invoke-static {p0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->e(Ljava/io/File;)Ljava/lang/String;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v1
+ 
+     .line 90
+     invoke-static {p1, v1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p1
+ 
+@@ -4003,30 +3054,23 @@
+     :try_start_0
+     sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 95
+     .line 96
+     new-instance v1, Ljava/io/FileWriter;
+ 
+-    .line 97
+     .line 98
+     invoke-direct {v1, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     :try_start_1
+     invoke-virtual {v1, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+     :try_end_1
+     .catchall {:try_start_1 .. :try_end_1} :catchall_1
+ 
+-    .line 105
+     .line 106
+     const/4 p1, 0x0
+ 
+@@ -4034,19 +3078,14 @@
+     :try_start_2
+     invoke-static {v1, p1}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 111
+     .line 112
+     invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     goto :goto_1
+ 
+@@ -4081,8 +3120,6 @@
+     :try_start_4
+     invoke-static {v1, p1}, Lkotlin/io/CloseableKt;->a(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     throw v0
+     :try_end_4
+@@ -4092,198 +3129,142 @@
+     :goto_0
+     sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 128
+     .line 129
+     invoke-static {p1}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object p1
+ 
+     .line 133
+     invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     :goto_1
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->l()Ljava/lang/String;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object p1
+ 
+     .line 140
+     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     move-result p1
+ 
+     .line 144
+     if-nez p1, :cond_2
+ 
+-    .line 145
+     .line 146
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 147
+     .line 148
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result-object v0
+ 
+     .line 152
+     const-string v1, "/config/loginusers.vdf"
+ 
+-    .line 153
+     .line 154
+     invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result-object p1
+ 
+     .line 161
+     const-string v0, "getAbsolutePath(...)"
+ 
+-    .line 162
+     .line 163
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->i()Z
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result v1
+ 
+     .line 170
+     invoke-static {p1, v1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->v(Ljava/lang/String;Z)Z
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 174
+     .line 175
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result-object v1
+ 
+     .line 179
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->s()I
+ 
+-    .line 180
+-    .line 181
+     .line 182
+     move-result v2
+ 
+     .line 183
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 184
+     .line 185
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     const-string v4, "/userdata/"
+ 
+-    .line 189
+     .line 190
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     const-string v2, "/7/remote/sharedconfig.vdf"
+ 
+-    .line 197
+     .line 198
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 199
+-    .line 200
+     .line 201
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     move-result-object v2
+ 
+     .line 205
+     invoke-direct {p1, v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     move-result-object v3
+ 
+     .line 212
+     invoke-static {v3, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->m()I
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move-result p1
+ 
+     .line 219
+     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     move-result-object v4
+ 
+     .line 223
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->b()Z
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result v5
+ 
+     .line 227
+     const/16 v7, 0x8
+ 
+-    .line 228
+     .line 229
+     const/4 v8, 0x0
+ 
+@@ -4293,71 +3274,49 @@
+     .line 231
+     invoke-static/range {v3 .. v8}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->t(Ljava/lang/String;Ljava/lang/String;ZZILjava/lang/Object;)Z
+ 
+-    .line 232
+-    .line 233
+     .line 234
+     :cond_2
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 235
+     .line 236
+     invoke-virtual {p2}, Lcom/winemu/openapi/Config$SteamGameInfo;->m()I
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result p2
+ 
+     .line 240
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 241
+     .line 242
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 243
+-    .line 244
+     .line 245
+     const-string v1, "appmanifest_"
+ 
+-    .line 246
+     .line 247
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 251
+-    .line 252
+     .line 253
+     const-string p2, ".acf"
+ 
+-    .line 254
+     .line 255
+     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 256
+-    .line 257
+     .line 258
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 259
+-    .line 260
+     .line 261
+     move-result-object p2
+ 
+     .line 262
+     invoke-direct {p1, p0, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 263
+-    .line 264
+     .line 265
+     invoke-static {p1, p3}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->u(Ljava/io/File;Ljava/lang/String;)Z
+ 
+-    .line 266
+-    .line 267
+     .line 268
+     return-void
+ .end method
+@@ -4372,16 +3331,12 @@
+     :try_start_0
+     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     const-string v2, "\\\\"
+ 
+-    .line 6
+     .line 7
+     const-string v3, "/"
+ 
+-    .line 8
+     .line 9
+     const/4 v5, 0x4
+ 
+@@ -4397,32 +3352,24 @@
+     .line 13
+     invoke-static/range {v1 .. v6}, Lkotlin/text/StringsKt;->Z(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v1, p1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+ 
+     .line 26
+     if-nez p0, :cond_0
+ 
+-    .line 27
+     .line 28
+     return-object v0
+ 
+@@ -4433,48 +3380,36 @@
+     .line 30
+     invoke-static {v1, v0, p0, v0}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     invoke-static {p0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->q(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     const-string p1, "InstallScript"
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0, p1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->c(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+     .line 44
+     if-eqz p0, :cond_1
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object p1
+ 
+     .line 50
+     invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result p1
+     :try_end_0
+@@ -4483,7 +3418,6 @@
+     .line 54
+     if-nez p1, :cond_1
+ 
+-    .line 55
+     .line 56
+     return-object p0
+ 
+@@ -4499,37 +3433,27 @@
+     .line 1
+     invoke-static/range {p0 .. p0}, Lkotlin/text/StringsKt;->K0(Ljava/lang/CharSequence;)Ljava/util/List;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 6
+     .line 7
+     const/16 v2, 0xa
+ 
+-    .line 8
+     .line 9
+     invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+     .line 13
+     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+@@ -4537,48 +3461,36 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v2
+ 
+     .line 24
+     if-eqz v2, :cond_0
+ 
+-    .line 25
+     .line 26
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+     .line 30
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 31
+     .line 32
+     invoke-static {v2}, Lkotlin/text/StringsKt;->J1(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v2
+ 
+     .line 36
+     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v2
+ 
+     .line 40
+     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     goto :goto_0
+ 
+@@ -4586,17 +3498,12 @@
+     :cond_0
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v1
+ 
+@@ -4605,20 +3512,15 @@
+     :goto_1
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v2
+ 
+     .line 57
+     if-eqz v2, :cond_2
+ 
+-    .line 58
+     .line 59
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v2
+ 
+@@ -4628,24 +3530,18 @@
+     .line 64
+     check-cast v3, Ljava/lang/String;
+ 
+-    .line 65
+     .line 66
+     invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v3
+ 
+     .line 70
+     if-lez v3, :cond_1
+ 
+-    .line 71
+     .line 72
+     invoke-interface {v0, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     goto :goto_1
+ 
+@@ -4653,18 +3549,15 @@
+     :cond_2
+     new-instance v4, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 77
+     .line 78
+     const/16 v9, 0xe
+ 
+-    .line 79
+     .line 80
+     const/4 v10, 0x0
+ 
+     .line 81
+     const-string v5, "root"
+ 
+-    .line 82
+     .line 83
+     const/4 v6, 0x0
+ 
+@@ -4677,27 +3570,18 @@
+     .line 86
+     invoke-direct/range {v4 .. v10}, Lcom/winemu/core/server/environment/plugins/VdfNode;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 90
+     .line 91
+     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v0
+ 
+@@ -4706,20 +3590,15 @@
+     :goto_2
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v2
+ 
+     .line 105
+     if-eqz v2, :cond_9
+ 
+-    .line 106
+     .line 107
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v2
+ 
+@@ -4729,23 +3608,18 @@
+     .line 112
+     check-cast v5, Ljava/lang/String;
+ 
+-    .line 113
+     .line 114
+     const-string v2, "{"
+ 
+-    .line 115
+     .line 116
+     invoke-static {v5, v2}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v2
+ 
+     .line 120
+     if-eqz v2, :cond_4
+ 
+-    .line 121
+     .line 122
+     goto :goto_2
+ 
+@@ -4753,12 +3627,9 @@
+     :cond_4
+     const-string v2, "}"
+ 
+-    .line 124
+     .line 125
+     invoke-static {v5, v2}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result v2
+ 
+@@ -4768,24 +3639,18 @@
+     .line 130
+     if-eqz v2, :cond_5
+ 
+-    .line 131
+     .line 132
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result v2
+ 
+     .line 136
+     if-le v2, v3, :cond_3
+ 
+-    .line 137
+     .line 138
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result v2
+ 
+@@ -4795,8 +3660,6 @@
+     .line 143
+     invoke-interface {v1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     goto :goto_2
+ 
+@@ -4804,7 +3667,6 @@
+     :cond_5
+     const-string v2, "\t\t"
+ 
+-    .line 148
+     .line 149
+     const/4 v11, 0x0
+ 
+@@ -4817,19 +3679,15 @@
+     .line 152
+     invoke-static {v5, v2, v11, v12, v6}, Lkotlin/text/StringsKt;->m0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result v7
+ 
+     .line 156
+     const/16 v13, 0x22
+ 
+-    .line 157
+     .line 158
+     if-eqz v7, :cond_8
+ 
+-    .line 159
+     .line 160
+     move v7, v11
+ 
+@@ -4840,36 +3698,28 @@
+     :goto_3
+     invoke-interface {v5}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result v9
+ 
+     .line 166
+     if-ge v7, v9, :cond_7
+ 
+-    .line 167
+     .line 168
+     invoke-interface {v5, v7}, Ljava/lang/CharSequence;->charAt(I)C
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result v9
+ 
+     .line 172
+     if-ne v9, v13, :cond_6
+ 
+-    .line 173
+     .line 174
+     add-int/lit8 v8, v8, 0x1
+ 
+-    .line 175
+     .line 176
+     :cond_6
+     add-int/lit8 v7, v7, 0x1
+ 
+-    .line 177
+     .line 178
+     goto :goto_3
+ 
+@@ -4880,12 +3730,9 @@
+     .line 180
+     if-lt v8, v7, :cond_8
+ 
+-    .line 181
+     .line 182
+     filled-new-array {v2}, [Ljava/lang/String;
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     move-result-object v6
+ 
+@@ -4904,203 +3751,151 @@
+     .line 190
+     invoke-static/range {v5 .. v10}, Lkotlin/text/StringsKt;->h1(Ljava/lang/CharSequence;[Ljava/lang/String;ZIILjava/lang/Object;)Ljava/util/List;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     move-result-object v2
+ 
+     .line 194
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     move-result v5
+ 
+     .line 198
+     if-lt v5, v12, :cond_3
+ 
+-    .line 199
+     .line 200
+     invoke-interface {v2, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result-object v5
+ 
+     .line 204
+     check-cast v5, Ljava/lang/String;
+ 
+-    .line 205
+     .line 206
+     new-array v6, v3, [C
+ 
+-    .line 207
+     .line 208
+     aput-char v13, v6, v11
+ 
+-    .line 209
+     .line 210
+     invoke-static {v5, v6}, Lkotlin/text/StringsKt;->K1(Ljava/lang/String;[C)Ljava/lang/String;
+ 
+-    .line 211
+-    .line 212
+     .line 213
+     move-result-object v15
+ 
+     .line 214
+     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     move-result-object v2
+ 
+     .line 218
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 219
+     .line 220
+     new-array v5, v3, [C
+ 
+-    .line 221
+     .line 222
+     aput-char v13, v5, v11
+ 
+-    .line 223
+     .line 224
+     invoke-static {v2, v5}, Lkotlin/text/StringsKt;->K1(Ljava/lang/String;[C)Ljava/lang/String;
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     move-result-object v16
+ 
+     .line 228
+     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->D0(Ljava/util/List;)Ljava/lang/Object;
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     move-result-object v2
+ 
+     .line 232
+     check-cast v2, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 233
+     .line 234
+     new-instance v14, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 235
+     .line 236
+     invoke-virtual {v2}, Lcom/winemu/core/server/environment/plugins/VdfNode;->e()I
+ 
+-    .line 237
+-    .line 238
+     .line 239
+     move-result v5
+ 
+     .line 240
+     add-int/lit8 v18, v5, 0x1
+ 
+-    .line 241
+     .line 242
+     const/16 v19, 0x4
+ 
+-    .line 243
+     .line 244
+     const/16 v20, 0x0
+ 
+-    .line 245
+     .line 246
+     const/16 v17, 0x0
+ 
+-    .line 247
+     .line 248
+     invoke-direct/range {v14 .. v20}, Lcom/winemu/core/server/environment/plugins/VdfNode;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 249
+-    .line 250
+     .line 251
+     invoke-virtual {v2, v15, v14}, Lcom/winemu/core/server/environment/plugins/VdfNode;->a(Ljava/lang/String;Lcom/winemu/core/server/environment/plugins/VdfNode;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     goto/16 :goto_2
+ 
+-    .line 255
+     .line 256
+     :cond_8
+     invoke-static {v5, v13, v11, v12, v6}, Lkotlin/text/StringsKt;->o1(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
+ 
+-    .line 257
+-    .line 258
+     .line 259
+     move-result v2
+ 
+     .line 260
+     if-eqz v2, :cond_3
+ 
+-    .line 261
+     .line 262
+     invoke-static {v5, v13, v11, v12, v6}, Lkotlin/text/StringsKt;->q0(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
+ 
+-    .line 263
+-    .line 264
+     .line 265
+     move-result v2
+ 
+     .line 266
+     if-eqz v2, :cond_3
+ 
+-    .line 267
+     .line 268
+     new-array v2, v3, [C
+ 
+-    .line 269
+     .line 270
+     aput-char v13, v2, v11
+ 
+-    .line 271
+     .line 272
+     invoke-static {v5, v2}, Lkotlin/text/StringsKt;->K1(Ljava/lang/String;[C)Ljava/lang/String;
+ 
+-    .line 273
+-    .line 274
+     .line 275
+     move-result-object v2
+ 
+     .line 276
+     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->D0(Ljava/util/List;)Ljava/lang/Object;
+ 
+-    .line 277
+-    .line 278
+     .line 279
+     move-result-object v3
+ 
+     .line 280
+     check-cast v3, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 281
+     .line 282
+     invoke-virtual {v3, v2}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 283
+-    .line 284
+     .line 285
+     move-result-object v2
+ 
+     .line 286
+     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 287
+-    .line 288
+     .line 289
+     goto/16 :goto_2
+ 
+-    .line 290
+     .line 291
+     :cond_9
+     return-object v4
+@@ -5116,59 +3911,42 @@
+     :try_start_0
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Ljava/io/File;->getParent()Ljava/lang/String;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v2
+ 
+     .line 8
+     invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v3
+ 
+     .line 12
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const-string v3, ".tmp"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v3
+ 
+     .line 29
+     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     const/4 v2, 0x2
+ 
+@@ -5178,21 +3956,15 @@
+     .line 34
+     invoke-static {v1, p1, v3, v2, v3}, Lkotlin/io/FilesKt;->p(Ljava/io/File;Ljava/lang/String;Ljava/nio/charset/Charset;ILjava/lang/Object;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v1}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p1
+ 
+     .line 41
+     invoke-virtual {p0}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object p0
+ 
+@@ -5202,22 +3974,17 @@
+     .line 46
+     new-array v2, v1, [Ljava/nio/file/CopyOption;
+ 
+-    .line 47
+     .line 48
+     sget-object v3, Ljava/nio/file/StandardCopyOption;->REPLACE_EXISTING:Ljava/nio/file/StandardCopyOption;
+ 
+-    .line 49
+     .line 50
+     aput-object v3, v2, v0
+ 
+-    .line 51
+     .line 52
+     invoke-static {p1, p0, v2}, Ljava/nio/file/Files;->move(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return v1
+ 
+@@ -5236,24 +4003,18 @@
+     :try_start_0
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 3
+     .line 4
+     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+     .line 11
+     if-nez p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     return v1
+ 
+@@ -5264,12 +4025,9 @@
+     .line 15
+     if-eqz p3, :cond_1
+ 
+-    .line 16
+     .line 17
+     invoke-static {v0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->b(Ljava/io/File;)Ljava/io/File;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p3
+ 
+@@ -5297,19 +4055,15 @@
+     .line 27
+     invoke-static {v0, p0, v2, p0}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v3
+ 
+     .line 31
+     if-eqz p2, :cond_2
+ 
+-    .line 32
+     .line 33
+     const-string p2, "1"
+ 
+-    .line 34
+     .line 35
+     :goto_1
+     move-object v6, p2
+@@ -5321,7 +4075,6 @@
+     :cond_2
+     const-string p2, "0"
+ 
+-    .line 38
+     .line 39
+     goto :goto_1
+ 
+@@ -5329,95 +4082,72 @@
+     :goto_2
+     invoke-static {v3}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->q(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p2
+ 
+     .line 44
+     const-string v4, "UserRoamingConfigStore"
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p2, v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v4
+ 
+     .line 50
+     const-string v5, "Software"
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {v4, v5}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v4
+ 
+     .line 56
+     const-string v5, "Valve"
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v4, v5}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v4
+ 
+     .line 62
+     const-string v5, "Steam"
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v4, v5}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v4
+ 
+     .line 68
+     const-string v5, "apps"
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v4, v5}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v4
+ 
+     .line 74
+     invoke-virtual {v4, p1}, Lcom/winemu/core/server/environment/plugins/VdfNode;->g(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p1
+ 
+     .line 78
+     const-string v11, "cloudenabled"
+ 
+-    .line 79
+     .line 80
+     new-instance v4, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 81
+     .line 82
+     const-string v5, "cloudenabled"
+ 
+-    .line 83
+     .line 84
+     const/16 v9, 0xc
+ 
+-    .line 85
+     .line 86
+     const/4 v10, 0x0
+ 
+@@ -5430,87 +4160,65 @@
+     .line 89
+     invoke-direct/range {v4 .. v10}, Lcom/winemu/core/server/environment/plugins/VdfNode;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     invoke-virtual {p1, v11, v4}, Lcom/winemu/core/server/environment/plugins/VdfNode;->a(Ljava/lang/String;Lcom/winemu/core/server/environment/plugins/VdfNode;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     const/4 p1, 0x2
+ 
+     .line 96
+     invoke-static {p2, v1, p1, p0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->y(Lcom/winemu/core/server/environment/plugins/VdfNode;IILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p0
+ 
+     .line 100
+     invoke-static {p0, v3}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result p1
+ 
+     .line 104
+     if-nez p1, :cond_4
+ 
+-    .line 105
+     .line 106
+     invoke-static {v0, p0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->r(Ljava/io/File;Ljava/lang/String;)Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result p0
+ 
+     .line 110
+     if-nez p0, :cond_3
+ 
+-    .line 111
+     .line 112
+     if-eqz p3, :cond_3
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {p3}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object p1
+ 
+     .line 118
+     invoke-virtual {v0}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object p2
+ 
+     .line 122
+     new-array p3, v2, [Ljava/nio/file/CopyOption;
+ 
+-    .line 123
+     .line 124
+     sget-object v0, Ljava/nio/file/StandardCopyOption;->REPLACE_EXISTING:Ljava/nio/file/StandardCopyOption;
+ 
+-    .line 125
+     .line 126
+     aput-object v0, p3, v1
+ 
+-    .line 127
+     .line 128
+     invoke-static {p1, p2, p3}, Ljava/nio/file/Files;->copy(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     :cond_3
+     return p0
+@@ -5523,8 +4231,6 @@
+     :goto_3
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     return v1
+ .end method
+@@ -5535,11 +4241,9 @@
+     .line 1
+     and-int/lit8 p4, p4, 0x8
+ 
+-    .line 2
+     .line 3
+     if-eqz p4, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p3, 0x1
+ 
+@@ -5547,8 +4251,6 @@
+     :cond_0
+     invoke-static {p0, p1, p2, p3}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->s(Ljava/lang/String;Ljava/lang/String;ZZ)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p0
+ 
+@@ -5566,15 +4268,12 @@
+     :try_start_0
+     invoke-virtual {p0}, Ljava/io/File;->exists()Z
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v0
+ 
+     .line 6
+     if-nez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     return v1
+ 
+@@ -5588,69 +4287,51 @@
+     .line 11
+     invoke-static {p0, v2, v0, v2}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v3
+ 
+     .line 15
+     invoke-static {v3}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->q(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v4
+ 
+     .line 19
+     const-string v5, "AppState"
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v4, v5}, Lcom/winemu/core/server/environment/plugins/VdfNode;->b(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v5
+ 
+     .line 25
+     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-string v6, "UserConfig"
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v5, v6}, Lcom/winemu/core/server/environment/plugins/VdfNode;->b(Ljava/lang/String;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v5
+ 
+     .line 34
+     invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     const-string v6, "language"
+ 
+-    .line 38
+     .line 39
+     new-instance v7, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 40
+     .line 41
+     const-string v8, "language"
+ 
+-    .line 42
+     .line 43
+     const/16 v12, 0xc
+ 
+-    .line 44
+     .line 45
+     const/4 v13, 0x0
+ 
+@@ -5666,41 +4347,30 @@
+     .line 49
+     invoke-direct/range {v7 .. v13}, Lcom/winemu/core/server/environment/plugins/VdfNode;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v5, v6, v7}, Lcom/winemu/core/server/environment/plugins/VdfNode;->a(Ljava/lang/String;Lcom/winemu/core/server/environment/plugins/VdfNode;)Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const/4 p1, 0x2
+ 
+     .line 56
+     invoke-static {v4, v1, p1, v2}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->y(Lcom/winemu/core/server/environment/plugins/VdfNode;IILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p1
+ 
+     .line 60
+     invoke-static {p1, v3}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result v2
+ 
+     .line 64
+     if-nez v2, :cond_1
+ 
+-    .line 65
+     .line 66
+     invoke-static {p0, p1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->r(Ljava/io/File;Ljava/lang/String;)Z
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result p0
+     :try_end_0
+@@ -5727,8 +4397,6 @@
+     :goto_0
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     return v1
+ .end method
+@@ -5739,11 +4407,9 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     const-string p1, "1"
+ 
+-    .line 4
+     .line 5
+     :goto_0
+     move-object v2, p1
+@@ -5755,7 +4421,6 @@
+     :cond_0
+     const-string p1, "0"
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -5763,14 +4428,12 @@
+     :goto_1
+     const/16 v5, 0x18
+ 
+-    .line 11
+     .line 12
+     const/4 v6, 0x0
+ 
+     .line 13
+     const-string v1, "WantsOfflineMode"
+ 
+-    .line 14
+     .line 15
+     const/4 v3, 0x0
+ 
+@@ -5783,8 +4446,6 @@
+     .line 18
+     invoke-static/range {v0 .. v6}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->l(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p0
+ 
+@@ -5798,114 +4459,81 @@
+     .line 1
+     const-string v0, "<this>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "wine"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string p1, "containerPath"
+ 
+-    .line 12
+     .line 13
+     invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string p1, "config"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     const-string p1, "bootData"
+ 
+-    .line 22
+     .line 23
+     invoke-static {p4, p1}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {p3}, Lcom/winemu/openapi/Config;->F()Lcom/winemu/openapi/Config$SteamGameInfo;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p1
+ 
+     .line 30
+     invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v0
+ 
+     .line 37
+     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v0
+ 
+     .line 41
+     if-eqz v0, :cond_2
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->e()Ljava/lang/String;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v0
+ 
+     .line 47
+     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v1
+ 
+     .line 51
+     if-nez v1, :cond_0
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p3}, Lcom/winemu/openapi/Config;->y()Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v0
+ 
+     .line 57
+     invoke-static {v0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->j(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v0
+ 
+@@ -5913,136 +4541,96 @@
+     :cond_0
+     invoke-static {p0, p2, p1, v0}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->o(Lcom/winemu/core/server/environment/plugins/ProgramLauncher;Ljava/lang/String;Lcom/winemu/openapi/Config$SteamGameInfo;Ljava/lang/String;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->l()Ljava/lang/String;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v1
+ 
+     .line 68
+     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v1
+ 
+     .line 72
+     if-eqz v1, :cond_1
+ 
+-    .line 73
+     .line 74
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->l()Ljava/lang/String;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v2
+ 
+     .line 80
+     const-string v3, "SteamAgent.exe"
+ 
+-    .line 81
+     .line 82
+     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     new-instance v2, Ljava/io/File;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {p1}, Lcom/winemu/openapi/Config$SteamGameInfo;->n()Ljava/lang/String;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object v3
+ 
+     .line 91
+     const-string v4, "steam.exe"
+ 
+-    .line 92
+     .line 93
+     invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     invoke-static {v1, v2}, Lcom/winemu/core/utils/FileUtils;->p(Ljava/io/File;Ljava/io/File;)Z
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-virtual {p3}, Lcom/winemu/openapi/Config;->b()Ljava/lang/String;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object p3
+ 
+     .line 103
+     invoke-static {p2, p1, p3, v0, p4}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->h(Ljava/lang/String;Lcom/winemu/openapi/Config$SteamGameInfo;Ljava/lang/String;Ljava/lang/String;Lcom/winemu/core/BootData;)Ljava/lang/String;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object p1
+ 
+     .line 107
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 108
+     .line 109
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     const-string p3, "wine start /b"
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     const-string p3, " "
+ 
+-    .line 118
+     .line 119
+     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object p1
+ 
+     .line 129
+     invoke-virtual {p0, p1}, Lcom/winemu/core/server/environment/plugins/ProgramLauncher;->m(Ljava/lang/String;)V
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     return-void
+ 
+@@ -6050,16 +4638,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 134
+     .line 135
+     const-string p1, "Steam Agent path is not set in SteamGameInfo"
+ 
+-    .line 136
+     .line 137
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     throw p0
+ 
+@@ -6067,16 +4651,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 142
+     .line 143
+     const-string p1, "Steam directory is not set in SteamGameInfo"
+ 
+-    .line 144
+     .line 145
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     throw p0
+ .end method
+@@ -6087,243 +4667,170 @@
+     .line 1
+     const-string v0, "\t"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0, p1}, Lkotlin/text/StringsKt;->V(Ljava/lang/CharSequence;I)Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->f()Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     const-string v3, "root"
+ 
+-    .line 17
+     .line 18
+     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v2
+ 
+     .line 22
+     if-nez v2, :cond_1
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->f()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 29
+     .line 30
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     const-string v5, "\""
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v2
+ 
+     .line 51
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->i()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v2
+ 
+     .line 58
+     if-eqz v2, :cond_0
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->h()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v2
+ 
+     .line 64
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     const-string v6, "\t\t\""
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v2
+ 
+     .line 84
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     :cond_0
+     const-string v2, "\n"
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->i()Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v2
+ 
+     .line 96
+     if-nez v2, :cond_1
+ 
+-    .line 97
+     .line 98
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 99
+     .line 100
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     const-string v4, "{\n"
+ 
+-    .line 107
+     .line 108
+     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object v2
+ 
+     .line 115
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     :cond_1
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->d()Ljava/util/Map;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object v2
+ 
+     .line 122
+     invoke-interface {v2}, Ljava/util/Map;->values()Ljava/util/Collection;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v2
+ 
+     .line 126
+     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result-object v2
+ 
+@@ -6331,47 +4838,36 @@
+     :goto_0
+     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result v4
+ 
+     .line 134
+     if-eqz v4, :cond_3
+ 
+-    .line 135
+     .line 136
+     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object v4
+ 
+     .line 140
+     check-cast v4, Lcom/winemu/core/server/environment/plugins/VdfNode;
+ 
+-    .line 141
+     .line 142
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->f()Ljava/lang/String;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object v5
+ 
+     .line 146
+     invoke-static {v5, v3}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result v5
+ 
+     .line 150
+     if-eqz v5, :cond_2
+ 
+-    .line 151
+     .line 152
+     move v5, p1
+ 
+@@ -6382,21 +4878,16 @@
+     :cond_2
+     add-int/lit8 v5, p1, 0x1
+ 
+-    .line 155
+     .line 156
+     :goto_1
+     invoke-static {v4, v5}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->x(Lcom/winemu/core/server/environment/plugins/VdfNode;I)Ljava/lang/String;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object v4
+ 
+     .line 160
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     goto :goto_0
+ 
+@@ -6404,89 +4895,64 @@
+     :cond_3
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->f()Ljava/lang/String;
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result-object p1
+ 
+     .line 168
+     invoke-static {p1, v3}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result p1
+ 
+     .line 172
+     if-nez p1, :cond_4
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {p0}, Lcom/winemu/core/server/environment/plugins/VdfNode;->i()Z
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result p0
+ 
+     .line 178
+     if-nez p0, :cond_4
+ 
+-    .line 179
+     .line 180
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 181
+     .line 182
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     const-string p1, "}\n"
+ 
+-    .line 189
+     .line 190
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result-object p0
+ 
+     .line 197
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     :cond_4
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result-object p0
+ 
+     .line 204
+     const-string p1, "toString(...)"
+ 
+-    .line 205
+     .line 206
+     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 207
+-    .line 208
+     .line 209
+     return-object p0
+ .end method
+@@ -6497,11 +4963,9 @@
+     .line 1
+     and-int/lit8 p2, p2, 0x2
+ 
+-    .line 2
+     .line 3
+     if-eqz p2, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p1, 0x0
+ 
+@@ -6509,8 +4973,6 @@
+     :cond_0
+     invoke-static {p0, p1}, Lcom/winemu/core/server/environment/plugins/SteamGameLauncherKt;->x(Lcom/winemu/core/server/environment/plugins/VdfNode;I)Ljava/lang/String;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 

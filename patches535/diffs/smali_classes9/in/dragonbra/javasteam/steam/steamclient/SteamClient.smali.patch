@@ -1,0 +1,831 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/steamclient/SteamClient.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/steamclient/SteamClient.smali
+@@ -96,35 +96,27 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient$Companion;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     sput-object v0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->Companion:Lin/dragonbra/javasteam/steam/steamclient/SteamClient$Companion;
+ 
+-    .line 8
+     .line 9
+     const-class v0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0}, Lin/dragonbra/javasteam/util/log/LogManager;->getLogger(Ljava/lang/Class;)Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     sput-object v0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -447,7 +439,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->callbackQueue:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -458,25 +449,18 @@
+     .line 1
+     invoke-virtual {p1, p0}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->setup(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->handlers:Ljava/util/HashMap;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-interface {p0, v0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -487,12 +471,9 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/steam/authentication/SteamAuthentication;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lin/dragonbra/javasteam/steam/authentication/SteamAuthentication;-><init>(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -503,29 +484,21 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getTargetJobID()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v1
+ 
+     .line 7
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/types/JobID;-><init>(J)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->failJob(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -536,29 +509,21 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getTargetJobID()J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v1
+ 
+     .line 7
+     invoke-direct {v0, v1, v2}, Lin/dragonbra/javasteam/types/JobID;-><init>(J)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->heartbeatJob(Lin/dragonbra/javasteam/types/JobID;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -569,8 +534,6 @@
+     .line 1
+     invoke-static {p0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->authentication_delegate$lambda$0(Lin/dragonbra/javasteam/steam/steamclient/SteamClient;)Lin/dragonbra/javasteam/steam/authentication/SteamAuthentication;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -590,41 +553,30 @@
+     .line 1
+     const-string v0, "handler"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->handlers:Ljava/util/HashMap;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v1
+ 
+     .line 12
+     invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-nez v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->addHandlerCore(Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ 
+@@ -632,68 +584,48 @@
+     :cond_0
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+     .line 26
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     const-string v0, "A handler of type "
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     const-string p0, " is already registered."
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p0
+ 
+     .line 48
+     new-instance p1, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+     .line 54
+     invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     throw p1
+ .end method
+@@ -704,28 +636,21 @@
+     .line 1
+     const-class v0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getHandler(Ljava/lang/Class;)Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;
+ 
+-    .line 8
+     .line 9
+     if-eqz p0, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/handlers/steammatchmaking/SteamMatchmaking;->clearLobbyCache$library_standalone_steam_release()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -739,19 +664,15 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->authentication$delegate:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Lin/dragonbra/javasteam/steam/authentication/SteamAuthentication;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -764,27 +685,21 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->callbackQueue:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlinx/coroutines/channels/ReceiveChannel;->n()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     invoke-static {p0}, Lkotlinx/coroutines/channels/ChannelResult;->f(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -797,7 +712,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->defaultScope:Lkotlinx/coroutines/CoroutineScope;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -871,7 +785,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -884,52 +797,36 @@
+     .line 1
+     new-instance v0, Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lin/dragonbra/javasteam/types/JobID;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-wide/16 v1, 0x0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1, v2}, Lin/dragonbra/javasteam/types/GlobalID;->setBoxID(J)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {v0, v1, v2}, Lin/dragonbra/javasteam/types/GlobalID;->setProcessID(J)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iget-object v1, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->currentJobId:Ljava/util/concurrent/atomic/AtomicLong;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicLong;->incrementAndGet()J
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-wide v1
+ 
+     .line 20
+     invoke-virtual {v0, v1, v2}, Lin/dragonbra/javasteam/types/GlobalID;->setSequentialCount(J)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->processStartTime:Ljava/util/Date;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v0, p0}, Lin/dragonbra/javasteam/types/GlobalID;->setStartTime(Ljava/util/Date;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-object v0
+ .end method
+@@ -940,34 +837,24 @@
+     .line 1
+     invoke-super {p0}, Lin/dragonbra/javasteam/steam/CMClient;->onClientConnected()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 5
+     .line 6
+     const/4 v1, 0x1
+ 
+     .line 7
+     invoke-virtual {v0, v1}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->setTimeoutsEnabled(Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     new-instance v0, Lin/dragonbra/javasteam/steam/steamclient/callbacks/ConnectedCallback;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v0}, Lin/dragonbra/javasteam/steam/steamclient/callbacks/ConnectedCallback;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -978,48 +865,33 @@
+     .line 1
+     invoke-super {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->onClientDisconnected(Z)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lin/dragonbra/javasteam/steam/steamclient/callbacks/DisconnectedCallback;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0, p1}, Lin/dragonbra/javasteam/steam/steamclient/callbacks/DisconnectedCallback;-><init>(Z)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-virtual {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->postCallback(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->cancelPendingJobs()V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 18
+     .line 19
+     const/4 v0, 0x0
+ 
+     .line 20
+     invoke-virtual {p1, v0}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->setTimeoutsEnabled(Z)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->clearHandlerCaches()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     return-void
+ .end method
+@@ -1034,17 +906,12 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0, p1}, Lin/dragonbra/javasteam/steam/CMClient;->onClientMsgReceived(Lin/dragonbra/javasteam/base/IPacketMsg;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+@@ -1054,7 +921,6 @@
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     return v1
+ 
+@@ -1062,15 +928,12 @@
+     :cond_0
+     invoke-interface {p1}, Lin/dragonbra/javasteam/base/IPacketMsg;->getMsgType()Lin/dragonbra/javasteam/enums/EMsg;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     if-nez v0, :cond_1
+ 
+-    .line 19
+     .line 20
+     const/4 v0, -0x1
+ 
+@@ -1081,19 +944,15 @@
+     :cond_1
+     sget-object v2, Lin/dragonbra/javasteam/steam/steamclient/SteamClient$WhenMappings;->$EnumSwitchMapping$0:[I
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v0
+ 
+     .line 28
+     aget v0, v2, v0
+ 
+-    .line 29
+     .line 30
+     :goto_0
+     const/4 v2, 0x1
+@@ -1101,14 +960,12 @@
+     .line 31
+     if-eq v0, v2, :cond_3
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x2
+ 
+     .line 34
+     if-eq v0, v3, :cond_2
+ 
+-    .line 35
+     .line 36
+     goto :goto_1
+ 
+@@ -1116,8 +973,6 @@
+     :cond_2
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->handleJobFailed(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     goto :goto_1
+ 
+@@ -1125,26 +980,19 @@
+     :cond_3
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->handleJobHeartbeat(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     :goto_1
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->handlers:Ljava/util/HashMap;
+ 
+-    .line 45
+     .line 46
+     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+@@ -1152,59 +1000,45 @@
+     :goto_2
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v3
+ 
+     .line 58
+     if-eqz v3, :cond_4
+ 
+-    .line 59
+     .line 60
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v3
+ 
+     .line 64
+     check-cast v3, Ljava/util/Map$Entry;
+ 
+-    .line 65
+     .line 66
+     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v4
+ 
+     .line 70
+     check-cast v4, Ljava/lang/Class;
+ 
+-    .line 71
+     .line 72
+     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v3
+ 
+     .line 76
+     check-cast v3, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;
+ 
+-    .line 77
+     .line 78
+     :try_start_0
+     invoke-virtual {v3, p1}, Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;->handleMsg(Lin/dragonbra/javasteam/base/IPacketMsg;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     goto :goto_2
+ 
+@@ -1215,65 +1049,45 @@
+     .line 83
+     sget-object v0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->logger:Lin/dragonbra/javasteam/util/log/Logger;
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v2
+ 
+     .line 89
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 90
+     .line 91
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     const-string v4, "Unhandled exception from "
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     const-string v2, " handlers"
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v2
+ 
+     .line 111
+     invoke-virtual {v0, v2, p1}, Lin/dragonbra/javasteam/util/log/Logger;->debug(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/CMClient;->disconnect()V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     return v1
+ 
+@@ -1292,7 +1106,6 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     return-void
+ 
+@@ -1300,29 +1113,21 @@
+     :cond_0
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->callbackQueue:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 5
+     .line 6
+     invoke-interface {v0, p1}, Lkotlinx/coroutines/channels/SendChannel;->j(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;->getJobID()Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-virtual {p0, v0, p1}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->tryCompleteJob(Lin/dragonbra/javasteam/types/JobID;Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -1386,32 +1191,24 @@
+     .line 1
+     const-string v0, "job"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/CMClient;->isConnected()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v0
+ 
+     .line 10
+     if-nez v0, :cond_0
+ 
+-    .line 11
+     .line 12
+     const/4 p0, 0x1
+ 
+     .line 13
+     invoke-virtual {p1, p0}, Lin/dragonbra/javasteam/types/AsyncJob;->setFailed(Z)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ 
+@@ -1419,12 +1216,9 @@
+     :cond_0
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->jobManager:Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/AsyncJobManager;->startJob(Lin/dragonbra/javasteam/types/AsyncJob;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ .end method
+@@ -1500,12 +1294,9 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->callbackQueue:Lkotlinx/coroutines/channels/Channel;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0, p1}, Lkotlinx/coroutines/channels/ReceiveChannel;->A(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 

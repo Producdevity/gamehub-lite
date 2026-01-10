@@ -1,0 +1,5713 @@
+--- a/smali_classes5/com/google/android/material/carousel/CarouselLayoutManager.smali
++++ b/smali_classes5/com/google/android/material/carousel/CarouselLayoutManager.smali
+@@ -230,7 +230,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -241,8 +240,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentTop()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -256,8 +253,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentBottom()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -271,8 +266,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentLeft()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -286,8 +279,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentRight()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -301,43 +292,33 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 8
+     .line 9
+     div-float/2addr v0, v1
+ 
+     .line 10
+     invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->addView(Landroid/view/View;I)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     const/4 p2, 0x0
+ 
+     .line 14
+     invoke-virtual {p0, p1, p2, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->measureChildWithMargins(Landroid/view/View;II)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget p2, p3, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;->offsetCenter:F
+ 
+-    .line 18
+     .line 19
+     sub-float v1, p2, v0
+ 
+-    .line 20
+     .line 21
+     float-to-int v1, v1
+ 
+@@ -350,25 +331,18 @@
+     .line 24
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0, p1, v1, p2}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->layoutDecoratedWithMargins(Landroid/view/View;II)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget p2, p3, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;->center:F
+ 
+-    .line 30
+     .line 31
+     iget-object p3, p3, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;->range:Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateChildMaskForLocation(Landroid/view/View;FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-void
+ .end method
+@@ -379,15 +353,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     sub-float/2addr p1, p2
+ 
+@@ -408,15 +379,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     add-float/2addr p1, p2
+ 
+@@ -441,19 +409,15 @@
+     .line 1
+     if-ltz p2, :cond_1
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-lt p2, v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -461,28 +425,21 @@
+     :cond_0
+     invoke-direct {p0, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildStartForFill(I)F
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     invoke-direct {p0, p1, v0, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->makeChildCalculations(Landroidx/recyclerview/widget/RecyclerView$Recycler;FI)Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     iget-object p2, p1, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;->child:Landroid/view/View;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0, p2, p3, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addAndLayoutView(Landroid/view/View;ILcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :cond_1
+     :goto_0
+@@ -495,8 +452,6 @@
+     .line 1
+     invoke-direct {p0, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildStartForFill(I)F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -504,51 +459,39 @@
+     :goto_0
+     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$State;->getItemCount()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-ge p3, v1, :cond_2
+ 
+-    .line 10
+     .line 11
+     iget-object v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     const/high16 v2, 0x40000000    # 2.0f
+ 
+-    .line 18
+     .line 19
+     div-float/2addr v1, v2
+ 
+     .line 20
+     invoke-direct {p0, v0, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v1
+ 
+     .line 24
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v2
+ 
+@@ -558,31 +501,24 @@
+     .line 31
+     invoke-static {v2, v1, v3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v2
+ 
+     .line 35
+     invoke-direct {p0, v1, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildOffsetCenterForLocation(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v3
+ 
+     .line 39
+     invoke-direct {p0, v3, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLocOffsetOutOfFillBoundsEnd(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v4
+ 
+     .line 43
+     if-eqz v4, :cond_0
+ 
+-    .line 44
+     .line 45
+     goto :goto_2
+ 
+@@ -590,35 +526,27 @@
+     :cond_0
+     iget-object v4, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {v4}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v4
+ 
+     .line 52
+     invoke-direct {p0, v0, v4}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v0
+ 
+     .line 56
+     invoke-direct {p0, v3, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLocOffsetOutOfFillBoundsStart(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v4
+ 
+     .line 60
+     if-eqz v4, :cond_1
+ 
+-    .line 61
+     .line 62
+     goto :goto_1
+ 
+@@ -626,33 +554,25 @@
+     :cond_1
+     invoke-virtual {p1, p3}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->getViewForPosition(I)Landroid/view/View;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v4
+ 
+     .line 67
+     new-instance v5, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;
+ 
+-    .line 68
+     .line 69
+     invoke-direct {v5, v4, v1, v3, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;-><init>(Landroid/view/View;FFLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     const/4 v1, -0x1
+ 
+     .line 73
+     invoke-direct {p0, v4, v1, v5}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addAndLayoutView(Landroid/view/View;ILcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     :goto_1
+     add-int/lit8 p3, p3, 0x1
+ 
+-    .line 77
+     .line 78
+     goto :goto_0
+ 
+@@ -668,8 +588,6 @@
+     .line 1
+     invoke-direct {p0, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildStartForFill(I)F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -677,43 +595,33 @@
+     :goto_0
+     if-ltz p2, :cond_2
+ 
+-    .line 6
+     .line 7
+     iget-object v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     const/high16 v2, 0x40000000    # 2.0f
+ 
+-    .line 14
+     .line 15
+     div-float/2addr v1, v2
+ 
+     .line 16
+     invoke-direct {p0, v0, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v2
+ 
+@@ -723,31 +631,24 @@
+     .line 27
+     invoke-static {v2, v1, v3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+     .line 31
+     invoke-direct {p0, v1, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildOffsetCenterForLocation(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v4
+ 
+     .line 35
+     invoke-direct {p0, v4, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLocOffsetOutOfFillBoundsStart(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v5
+ 
+     .line 39
+     if-eqz v5, :cond_0
+ 
+-    .line 40
+     .line 41
+     goto :goto_2
+ 
+@@ -755,35 +656,27 @@
+     :cond_0
+     iget-object v5, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {v5}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v5
+ 
+     .line 48
+     invoke-direct {p0, v0, v5}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addStart(FF)F
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v0
+ 
+     .line 52
+     invoke-direct {p0, v4, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLocOffsetOutOfFillBoundsEnd(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)Z
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v5
+ 
+     .line 56
+     if-eqz v5, :cond_1
+ 
+-    .line 57
+     .line 58
+     goto :goto_1
+ 
+@@ -791,30 +684,22 @@
+     :cond_1
+     invoke-virtual {p1, p2}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->getViewForPosition(I)Landroid/view/View;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v5
+ 
+     .line 63
+     new-instance v6, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;
+ 
+-    .line 64
+     .line 65
+     invoke-direct {v6, v5, v1, v4, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;-><init>(Landroid/view/View;FFLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-direct {p0, v5, v3, v6}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addAndLayoutView(Landroid/view/View;ILcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     :goto_1
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -830,8 +715,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -842,8 +725,6 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     sub-int/2addr p4, p2
+ 
+@@ -853,7 +734,6 @@
+     .line 6
+     if-ne p4, p8, :cond_1
+ 
+-    .line 7
+     .line 8
+     sub-int/2addr p5, p3
+ 
+@@ -863,7 +743,6 @@
+     .line 10
+     if-eq p5, p9, :cond_0
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -876,17 +755,12 @@
+     :goto_0
+     new-instance p2, Lcom/google/android/material/carousel/a;
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p2, p0}, Lcom/google/android/material/carousel/a;-><init>(Lcom/google/android/material/carousel/CarouselLayoutManager;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     return-void
+ .end method
+@@ -897,75 +771,57 @@
+     .line 1
+     iget-object v0, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->leftOrTop:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 2
+     .line 3
+     iget v1, v0, Lcom/google/android/material/carousel/KeylineState$Keyline;->locOffset:F
+ 
+-    .line 4
+     .line 5
+     iget-object v2, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->rightOrBottom:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 6
+     .line 7
+     iget v3, v2, Lcom/google/android/material/carousel/KeylineState$Keyline;->locOffset:F
+ 
+-    .line 8
+     .line 9
+     iget v0, v0, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 10
+     .line 11
+     iget v2, v2, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 12
+     .line 13
+     invoke-static {v1, v3, v0, v2, p1}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     iget-object v1, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->rightOrBottom:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 18
+     .line 19
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineState;->getFirstKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v2
+ 
+     .line 25
+     if-eq v1, v2, :cond_1
+ 
+-    .line 26
+     .line 27
+     iget-object v1, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->leftOrTop:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 28
+     .line 29
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/KeylineState;->getLastKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p0
+ 
+     .line 35
+     if-ne v1, p0, :cond_0
+ 
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -978,22 +834,18 @@
+     :goto_0
+     iget-object p0, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->rightOrBottom:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 40
+     .line 41
+     iget p2, p0, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 42
+     .line 43
+     sub-float/2addr p1, p2
+ 
+     .line 44
+     const/high16 p2, 0x3f800000    # 1.0f
+ 
+-    .line 45
+     .line 46
+     iget p0, p0, Lcom/google/android/material/carousel/KeylineState$Keyline;->mask:F
+ 
+-    .line 47
+     .line 48
+     sub-float/2addr p2, p0
+ 
+@@ -1013,15 +865,12 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentStart()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     iget v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 6
+     .line 7
+     sub-int/2addr v0, v1
+ 
+@@ -1031,12 +880,9 @@
+     .line 9
+     iget-object v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v1}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+@@ -1049,8 +895,6 @@
+     .line 17
+     invoke-direct {p0, v0, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+@@ -1064,20 +908,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineStateList;->getStartState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p2
+ 
+@@ -1088,8 +927,6 @@
+     :cond_0
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineStateList;->getEndState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p2
+ 
+@@ -1097,12 +934,9 @@
+     :goto_0
+     if-eqz v0, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getFirstFocalKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v1
+ 
+@@ -1113,8 +947,6 @@
+     :cond_1
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getLastFocalKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v1
+ 
+@@ -1122,8 +954,6 @@
+     :goto_1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$State;->getItemCount()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result p1
+ 
+@@ -1139,8 +969,6 @@
+     .line 34
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result p2
+ 
+@@ -1150,11 +978,9 @@
+     .line 39
+     if-eqz v0, :cond_2
+ 
+-    .line 40
+     .line 41
+     const/high16 p2, -0x40800000    # -1.0f
+ 
+-    .line 42
+     .line 43
+     goto :goto_2
+ 
+@@ -1162,7 +988,6 @@
+     :cond_2
+     const/high16 p2, 0x3f800000    # 1.0f
+ 
+-    .line 45
+     .line 46
+     :goto_2
+     mul-float/2addr p1, p2
+@@ -1170,12 +995,9 @@
+     .line 47
+     iget p2, v1, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 48
+     .line 49
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentStart()I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result p0
+ 
+@@ -1191,7 +1013,6 @@
+     .line 56
+     if-eqz v0, :cond_3
+ 
+-    .line 57
+     .line 58
+     const/4 v2, -0x1
+ 
+@@ -1202,14 +1023,12 @@
+     .line 60
+     iget p2, v1, Lcom/google/android/material/carousel/KeylineState$Keyline;->maskedItemSize:F
+ 
+-    .line 61
+     .line 62
+     mul-float/2addr p0, p2
+ 
+     .line 63
+     const/high16 p2, 0x40000000    # 2.0f
+ 
+-    .line 64
+     .line 65
+     div-float/2addr p0, p2
+ 
+@@ -1225,12 +1044,9 @@
+     .line 69
+     if-eqz v0, :cond_4
+ 
+-    .line 70
+     .line 71
+     invoke-static {p1, p0}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result p0
+ 
+@@ -1241,8 +1057,6 @@
+     :cond_4
+     invoke-static {p1, p0}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result p0
+ 
+@@ -1256,11 +1070,9 @@
+     .line 1
+     add-int v0, p1, p0
+ 
+-    .line 2
+     .line 3
+     if-ge v0, p2, :cond_0
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr p2, p1
+ 
+@@ -1271,7 +1083,6 @@
+     :cond_0
+     if-le v0, p3, :cond_1
+ 
+-    .line 8
+     .line 9
+     sub-int/2addr p3, p1
+ 
+@@ -1293,20 +1104,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineStateList;->getEndState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p1
+ 
+@@ -1317,8 +1123,6 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineStateList;->getStartState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+@@ -1326,12 +1130,9 @@
+     :goto_0
+     if-eqz v0, :cond_1
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineState;->getLastFocalKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v0
+ 
+@@ -1342,8 +1143,6 @@
+     :cond_1
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineState;->getFirstFocalKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+@@ -1351,35 +1150,27 @@
+     :goto_1
+     iget v0, v0, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p1
+ 
+     .line 33
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 34
+     .line 35
+     div-float/2addr p1, v1
+ 
+     .line 36
+     invoke-direct {p0, v0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addStart(FF)F
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p1
+ 
+     .line 40
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentStart()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result p0
+ 
+@@ -1402,8 +1193,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOrientation()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -1416,90 +1205,66 @@
+     .line 7
+     if-eq p1, v2, :cond_b
+ 
+-    .line 8
+     .line 9
+     const/4 v3, 0x2
+ 
+     .line 10
+     if-eq p1, v3, :cond_a
+ 
+-    .line 11
+     .line 12
+     const/16 v3, 0x11
+ 
+-    .line 13
+     .line 14
+     const/high16 v4, -0x80000000
+ 
+-    .line 15
+     .line 16
+     if-eq p1, v3, :cond_7
+ 
+-    .line 17
+     .line 18
+     const/16 v3, 0x21
+ 
+-    .line 19
+     .line 20
+     if-eq p1, v3, :cond_5
+ 
+-    .line 21
+     .line 22
+     const/16 v3, 0x42
+ 
+-    .line 23
+     .line 24
+     if-eq p1, v3, :cond_2
+ 
+-    .line 25
+     .line 26
+     const/16 p0, 0x82
+ 
+-    .line 27
+     .line 28
+     if-eq p1, p0, :cond_0
+ 
+-    .line 29
+     .line 30
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 31
+     .line 32
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v0, "Unknown focus request:"
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+     .line 47
+     const-string p1, "CarouselLayoutManager"
+ 
+-    .line 48
+     .line 49
+     invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     return v4
+ 
+@@ -1507,7 +1272,6 @@
+     :cond_0
+     if-ne v0, v2, :cond_1
+ 
+-    .line 54
+     .line 55
+     return v2
+ 
+@@ -1519,19 +1283,15 @@
+     :cond_2
+     if-nez v0, :cond_4
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result p0
+ 
+     .line 63
+     if-eqz p0, :cond_3
+ 
+-    .line 64
+     .line 65
+     return v1
+ 
+@@ -1547,7 +1307,6 @@
+     :cond_5
+     if-ne v0, v2, :cond_6
+ 
+-    .line 69
+     .line 70
+     return v1
+ 
+@@ -1559,19 +1318,15 @@
+     :cond_7
+     if-nez v0, :cond_9
+ 
+-    .line 73
+     .line 74
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result p0
+ 
+     .line 78
+     if-eqz p0, :cond_8
+ 
+-    .line 79
+     .line 80
+     return v2
+ 
+@@ -1598,42 +1353,30 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->removeAndRecycleOutOfBoundsViews(Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 11
+     .line 12
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 13
+     .line 14
+     invoke-direct {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addViewsStart(Landroidx/recyclerview/widget/RecyclerView$Recycler;I)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0, p1, p2, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addViewsEnd(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;I)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -1644,71 +1387,52 @@
+     .line 24
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v0
+ 
+     .line 28
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+     .line 32
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v1
+ 
+     .line 36
+     add-int/lit8 v1, v1, -0x1
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object v1
+ 
+     .line 42
+     invoke-virtual {p0, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v1
+ 
+     .line 46
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addViewsStart(Landroidx/recyclerview/widget/RecyclerView$Recycler;I)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0, p1, p2, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addViewsEnd(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;I)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     :goto_0
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->validateChildOrderIfDebugging()V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     return-void
+ .end method
+@@ -1719,15 +1443,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 v0, 0x0
+ 
+@@ -1738,21 +1459,16 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 14
+     .line 15
+     :goto_0
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -1766,27 +1482,21 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -1798,8 +1508,6 @@
+     :goto_0
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -1813,20 +1521,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerWidth()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -1837,8 +1540,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerHeight()I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p0
+ 
+@@ -1852,34 +1553,24 @@
+     .line 1
+     new-instance v0, Landroid/graphics/Rect;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-super {p0, p1, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getDecoratedBoundsWithMargins(Landroid/view/View;Landroid/graphics/Rect;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Landroid/graphics/Rect;->centerX()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+@@ -1894,8 +1585,6 @@
+     :cond_0
+     invoke-virtual {v0}, Landroid/graphics/Rect;->centerY()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -1909,8 +1598,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -1920,47 +1607,36 @@
+     .line 6
+     if-lez v0, :cond_1
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     check-cast v0, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
+ 
+-    .line 17
+     .line 18
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 19
+     .line 20
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper;->orientation:I
+ 
+-    .line 21
+     .line 22
+     if-nez p0, :cond_0
+ 
+-    .line 23
+     .line 24
+     iget p0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+ 
+-    .line 25
+     .line 26
+     iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+ 
+-    .line 27
+     .line 28
+     :goto_0
+     add-int/2addr p0, v0
+@@ -1972,11 +1648,9 @@
+     :cond_0
+     iget p0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+ 
+-    .line 31
+     .line 32
+     iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+ 
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -1991,20 +1665,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineStateList;->getEndState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -2015,8 +1684,6 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/KeylineStateList;->getStartState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -2030,66 +1697,51 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStatePositionMap:Ljava/util/Map;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     add-int/lit8 v1, v1, -0x1
+ 
+-    .line 10
+     .line 11
+     const/4 v2, 0x0
+ 
+     .line 12
+     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     invoke-static {p1, v2, v1}, Landroidx/core/math/MathUtils;->c(III)I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p1
+ 
+     .line 20
+     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+     .line 28
+     check-cast p1, Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 29
+     .line 30
+     if-eqz p1, :cond_0
+ 
+-    .line 31
+     .line 32
+     return-object p1
+ 
+@@ -2097,12 +1749,9 @@
+     :cond_0
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/KeylineStateList;->getDefaultState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+@@ -2116,15 +1765,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getClipToPadding()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+@@ -2135,8 +1781,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOrientation()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+@@ -2146,12 +1790,9 @@
+     .line 14
+     if-ne v0, v1, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingTop()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p0
+ 
+@@ -2162,8 +1803,6 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingLeft()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -2177,32 +1816,24 @@
+     .line 1
+     iget-object p0, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->leftOrTop:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 2
+     .line 3
+     iget v0, p0, Lcom/google/android/material/carousel/KeylineState$Keyline;->maskedItemSize:F
+ 
+-    .line 4
+     .line 5
+     iget-object p2, p2, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->rightOrBottom:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 6
+     .line 7
+     iget v1, p2, Lcom/google/android/material/carousel/KeylineState$Keyline;->maskedItemSize:F
+ 
+-    .line 8
+     .line 9
+     iget p0, p0, Lcom/google/android/material/carousel/KeylineState$Keyline;->locOffset:F
+ 
+-    .line 10
+     .line 11
+     iget p2, p2, Lcom/google/android/material/carousel/KeylineState$Keyline;->locOffset:F
+ 
+-    .line 12
+     .line 13
+     invoke-static {v0, v1, p0, p2, p1}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+@@ -2216,12 +1847,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->getParentBottom()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -2235,12 +1863,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->getParentLeft()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -2254,12 +1879,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->getParentRight()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -2273,12 +1895,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->getParentStart()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -2292,12 +1911,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->getParentTop()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -2311,15 +1927,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getClipToPadding()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+@@ -2330,8 +1943,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOrientation()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+@@ -2341,12 +1952,9 @@
+     .line 14
+     if-ne v0, v1, :cond_1
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingBottom()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result p0
+ 
+@@ -2357,8 +1965,6 @@
+     :cond_1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingRight()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+@@ -2372,24 +1978,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+@@ -2399,15 +1999,12 @@
+     .line 14
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getLastFocalKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     iget v0, v0, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 19
+     .line 20
+     sub-float/2addr p0, v0
+ 
+@@ -2417,8 +2014,6 @@
+     .line 22
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v0
+ 
+@@ -2431,8 +2026,6 @@
+     .line 28
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result p1
+ 
+@@ -2456,8 +2049,6 @@
+     .line 37
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result p1
+ 
+@@ -2467,23 +2058,18 @@
+     .line 42
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getFirstFocalKeyline()Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p1
+ 
+     .line 46
+     iget p1, p1, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 47
+     .line 48
+     sub-float/2addr p0, p1
+ 
+     .line 49
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result p1
+ 
+@@ -2507,58 +2093,44 @@
+     .line 1
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getFocalKeylines()Ljava/util/List;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     const v1, 0x7fffffff
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     :cond_0
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v2
+ 
+     .line 16
+     if-eqz v2, :cond_2
+ 
+-    .line 17
+     .line 18
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+     .line 22
+     check-cast v2, Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 23
+     .line 24
+     int-to-float v3, p1
+ 
+     .line 25
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v4
+ 
+@@ -2568,15 +2140,12 @@
+     .line 30
+     invoke-virtual {p2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v4
+ 
+     .line 34
+     const/high16 v5, 0x40000000    # 2.0f
+ 
+-    .line 35
+     .line 36
+     div-float/2addr v4, v5
+ 
+@@ -2586,20 +2155,15 @@
+     .line 38
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v4
+ 
+     .line 42
+     if-eqz v4, :cond_1
+ 
+-    .line 43
+     .line 44
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v4
+ 
+@@ -2609,7 +2173,6 @@
+     .line 49
+     iget v2, v2, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 50
+     .line 51
+     sub-float/2addr v4, v2
+ 
+@@ -2626,7 +2189,6 @@
+     :cond_1
+     iget v2, v2, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 56
+     .line 57
+     sub-float/2addr v3, v2
+ 
+@@ -2637,30 +2199,24 @@
+     :goto_1
+     iget v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 60
+     .line 61
+     sub-int/2addr v2, v3
+ 
+     .line 62
+     invoke-static {v1}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v3
+ 
+     .line 66
+     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v4
+ 
+     .line 70
+     if-le v3, v4, :cond_0
+ 
+-    .line 71
+     .line 72
+     move v1, v2
+ 
+@@ -2690,13 +2246,9 @@
+     .line 2
+     const v1, 0x7f7fffff    # Float.MAX_VALUE
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     const v2, -0x800001
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     const/4 v3, 0x0
+ 
+@@ -2728,35 +2280,27 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v10
+ 
+     .line 21
+     if-ge v5, v10, :cond_5
+ 
+-    .line 22
+     .line 23
+     invoke-interface {p0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v10
+ 
+     .line 27
+     check-cast v10, Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 28
+     .line 29
+     if-eqz p2, :cond_0
+ 
+-    .line 30
+     .line 31
+     iget v10, v10, Lcom/google/android/material/carousel/KeylineState$Keyline;->locOffset:F
+ 
+-    .line 32
+     .line 33
+     goto :goto_1
+ 
+@@ -2764,36 +2308,28 @@
+     :cond_0
+     iget v10, v10, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 35
+     .line 36
+     :goto_1
+     sub-float v11, v10, p1
+ 
+-    .line 37
+     .line 38
+     invoke-static {v11}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v11
+ 
+     .line 42
+     cmpg-float v12, v10, p1
+ 
+-    .line 43
+     .line 44
+     if-gtz v12, :cond_1
+ 
+-    .line 45
+     .line 46
+     cmpg-float v12, v11, v1
+ 
+-    .line 47
+     .line 48
+     if-gtz v12, :cond_1
+ 
+-    .line 49
+     .line 50
+     move v6, v5
+ 
+@@ -2804,19 +2340,15 @@
+     :cond_1
+     cmpl-float v12, v10, p1
+ 
+-    .line 53
+     .line 54
+     if-lez v12, :cond_2
+ 
+-    .line 55
+     .line 56
+     cmpg-float v12, v11, v2
+ 
+-    .line 57
+     .line 58
+     if-gtz v12, :cond_2
+ 
+-    .line 59
+     .line 60
+     move v8, v5
+ 
+@@ -2827,11 +2359,9 @@
+     :cond_2
+     cmpg-float v11, v10, v3
+ 
+-    .line 63
+     .line 64
+     if-gtz v11, :cond_3
+ 
+-    .line 65
+     .line 66
+     move v7, v5
+ 
+@@ -2842,11 +2372,9 @@
+     :cond_3
+     cmpl-float v11, v10, v4
+ 
+-    .line 69
+     .line 70
+     if-lez v11, :cond_4
+ 
+-    .line 71
+     .line 72
+     move v9, v5
+ 
+@@ -2857,7 +2385,6 @@
+     :cond_4
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 75
+     .line 76
+     goto :goto_0
+ 
+@@ -2865,7 +2392,6 @@
+     :cond_5
+     if-ne v6, v0, :cond_6
+ 
+-    .line 78
+     .line 79
+     move v6, v7
+ 
+@@ -2873,7 +2399,6 @@
+     :cond_6
+     if-ne v8, v0, :cond_7
+ 
+-    .line 81
+     .line 82
+     move v8, v9
+ 
+@@ -2881,36 +2406,27 @@
+     :cond_7
+     new-instance p1, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 84
+     .line 85
+     invoke-interface {p0, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p2
+ 
+     .line 89
+     check-cast p2, Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 90
+     .line 91
+     invoke-interface {p0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object p0
+ 
+     .line 95
+     check-cast p0, Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 96
+     .line 97
+     invoke-direct {p1, p2, p0}, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;-><init>(Lcom/google/android/material/carousel/KeylineState$Keyline;Lcom/google/android/material/carousel/KeylineState$Keyline;)V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     return-object p1
+ .end method
+@@ -2921,31 +2437,24 @@
+     .line 1
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getMaskedItemSizeForLocOffset(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p2
+ 
+     .line 5
+     const/high16 v0, 0x40000000    # 2.0f
+ 
+-    .line 6
+     .line 7
+     div-float/2addr p2, v0
+ 
+     .line 8
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addStart(FF)F
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p1
+ 
+     .line 12
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p2
+ 
+@@ -2958,18 +2467,15 @@
+     .line 18
+     if-eqz p2, :cond_1
+ 
+-    .line 19
+     .line 20
+     const/4 p0, 0x0
+ 
+     .line 21
+     cmpg-float p0, p1, p0
+ 
+-    .line 22
+     .line 23
+     if-gez p0, :cond_0
+ 
+-    .line 24
+     .line 25
+     return v1
+ 
+@@ -2981,8 +2487,6 @@
+     :cond_1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result p0
+ 
+@@ -2992,11 +2496,9 @@
+     .line 32
+     cmpl-float p0, p1, p0
+ 
+-    .line 33
+     .line 34
+     if-lez p0, :cond_2
+ 
+-    .line 35
+     .line 36
+     return v1
+ 
+@@ -3011,31 +2513,24 @@
+     .line 1
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getMaskedItemSizeForLocOffset(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p2
+ 
+     .line 5
+     const/high16 v0, 0x40000000    # 2.0f
+ 
+-    .line 6
+     .line 7
+     div-float/2addr p2, v0
+ 
+     .line 8
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p1
+ 
+     .line 12
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p2
+ 
+@@ -3048,12 +2543,9 @@
+     .line 18
+     if-eqz p2, :cond_1
+ 
+-    .line 19
+     .line 20
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+@@ -3063,11 +2555,9 @@
+     .line 25
+     cmpl-float p0, p1, p0
+ 
+-    .line 26
+     .line 27
+     if-lez p0, :cond_0
+ 
+-    .line 28
+     .line 29
+     return v1
+ 
+@@ -3082,11 +2572,9 @@
+     .line 32
+     cmpg-float p0, p1, p0
+ 
+-    .line 33
+     .line 34
+     if-gez p0, :cond_2
+ 
+-    .line 35
+     .line 36
+     return v1
+ 
+@@ -3101,11 +2589,9 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->isDebuggingEnabled:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     goto :goto_1
+ 
+@@ -3116,28 +2602,21 @@
+     .line 7
+     const-string v1, "CarouselLayoutManager"
+ 
+-    .line 8
+     .line 9
+     invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_2
+ 
+-    .line 14
+     .line 15
+     const-string v0, "internal representation of views on the screen"
+ 
+-    .line 16
+     .line 17
+     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const/4 v0, 0x0
+ 
+@@ -3145,107 +2624,75 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v2
+ 
+     .line 25
+     if-ge v0, v2, :cond_1
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v2
+ 
+     .line 31
+     invoke-direct {p0, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getDecoratedCenterWithMargins(Landroid/view/View;)F
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v3
+ 
+     .line 35
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v5, "item position "
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {p0, v2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v2
+ 
+     .line 49
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     const-string v2, ", center:"
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string v2, ", child index:"
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v2
+ 
+     .line 72
+     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 76
+     .line 77
+     goto :goto_0
+ 
+@@ -3253,12 +2700,9 @@
+     :cond_1
+     const-string p0, "=============="
+ 
+-    .line 79
+     .line 80
+     invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     :cond_2
+     :goto_1
+@@ -3271,8 +2715,6 @@
+     .line 1
+     invoke-virtual {p1, p3}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->getViewForPosition(I)Landroid/view/View;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+@@ -3282,72 +2724,54 @@
+     .line 6
+     invoke-virtual {p0, p1, p3, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->measureChildWithMargins(Landroid/view/View;II)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+     .line 15
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 16
+     .line 17
+     div-float/2addr v0, v1
+ 
+     .line 18
+     invoke-direct {p0, p2, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p2
+ 
+     .line 22
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v0
+ 
+     .line 28
+     invoke-static {v0, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p3
+ 
+     .line 32
+     invoke-direct {p0, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildOffsetCenterForLocation(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result p0
+ 
+     .line 36
+     new-instance v0, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {v0, p1, p2, p0, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager$ChildCalculations;-><init>(Landroid/view/View;FFLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     return-object v0
+ .end method
+@@ -3358,20 +2782,15 @@
+     .line 1
+     invoke-direct {p0, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addEnd(FF)F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p2
+ 
+     .line 5
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+@@ -3381,38 +2800,27 @@
+     .line 12
+     invoke-static {v0, p2, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     invoke-direct {p0, p2, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildOffsetCenterForLocation(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     invoke-super {p0, p1, p4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getDecoratedBoundsWithMargins(Landroid/view/View;Landroid/graphics/Rect;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-direct {p0, p1, p2, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateChildMaskForLocation(Landroid/view/View;FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0, p1, p4, p3, v1}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->offsetChild(Landroid/view/View;Landroid/graphics/Rect;FF)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return v1
+ .end method
+@@ -3426,53 +2834,39 @@
+     .line 2
+     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->getViewForPosition(I)Landroid/view/View;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p1
+ 
+     .line 6
+     invoke-virtual {p0, p1, v0, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->measureChildWithMargins(Landroid/view/View;II)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselStrategy:Lcom/google/android/material/carousel/CarouselStrategy;
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {v0, p0, p1}, Lcom/google/android/material/carousel/CarouselStrategy;->onFirstChildMeasuredWithMargins(Lcom/google/android/material/carousel/Carousel;Landroid/view/View;)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     if-eqz v0, :cond_0
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     invoke-static {p1, v0}, Lcom/google/android/material/carousel/KeylineState;->reverse(Lcom/google/android/material/carousel/KeylineState;I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p1
+ 
+@@ -3483,8 +2877,6 @@
+     .line 30
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getItemMargins()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p1
+ 
+@@ -3494,8 +2886,6 @@
+     .line 35
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getLeftOrTopPaddingForKeylineShift()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result p1
+ 
+@@ -3505,8 +2895,6 @@
+     .line 40
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getRightOrBottomPaddingForKeylineShift()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result p1
+ 
+@@ -3516,12 +2904,9 @@
+     .line 45
+     iget-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselStrategy:Lcom/google/android/material/carousel/CarouselStrategy;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p1}, Lcom/google/android/material/carousel/CarouselStrategy;->getStrategyType()Lcom/google/android/material/carousel/CarouselStrategy$StrategyType;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object v5
+ 
+@@ -3531,15 +2916,12 @@
+     .line 52
+     invoke-static/range {v0 .. v5}, Lcom/google/android/material/carousel/KeylineStateList;->from(Lcom/google/android/material/carousel/Carousel;Lcom/google/android/material/carousel/KeylineState;FFFLcom/google/android/material/carousel/CarouselStrategy$StrategyType;)Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object p0
+ 
+     .line 56
+     iput-object p0, v0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 57
+     .line 58
+     return-void
+ .end method
+@@ -3553,12 +2935,9 @@
+     .line 2
+     iput-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->requestLayout()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -3570,8 +2949,6 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -3581,63 +2958,48 @@
+     .line 6
+     if-lez v0, :cond_0
+ 
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+     .line 9
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-direct {p0, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getDecoratedCenterWithMargins(Landroid/view/View;)F
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     iget-object v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v3}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v3
+ 
+     .line 23
+     invoke-static {v3, v2, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v3
+ 
+     .line 27
+     invoke-direct {p0, v2, v3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLocOffsetOutOfFillBoundsStart(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v2
+ 
+     .line 31
+     if-eqz v2, :cond_0
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0, v0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->removeAndRecycleView(Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -3646,8 +3008,6 @@
+     :goto_1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v0
+ 
+@@ -3657,12 +3017,9 @@
+     .line 42
+     if-ltz v0, :cond_1
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+@@ -3672,56 +3029,42 @@
+     .line 49
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object v0
+ 
+     .line 53
+     invoke-direct {p0, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getDecoratedCenterWithMargins(Landroid/view/View;)F
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v2
+ 
+     .line 57
+     iget-object v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {v3}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v3
+ 
+     .line 63
+     invoke-static {v3, v2, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object v3
+ 
+     .line 67
+     invoke-direct {p0, v2, v3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLocOffsetOutOfFillBoundsEnd(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v2
+ 
+     .line 71
+     if-eqz v2, :cond_1
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {p0, v0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->removeAndRecycleView(Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     goto :goto_1
+ 
+@@ -3957,61 +3300,45 @@
+     .line 1
+     if-eqz p2, :cond_0
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Lcom/google/android/material/R$styleable;->Carousel:[I
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+     .line 9
+     sget p2, Lcom/google/android/material/R$styleable;->Carousel_carousel_alignment:I
+ 
+-    .line 10
+     .line 11
+     const/4 v0, 0x0
+ 
+     .line 12
+     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getInt(II)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result p2
+ 
+     .line 16
+     invoke-virtual {p0, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->setCarouselAlignment(I)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     sget p2, Landroidx/recyclerview/R$styleable;->RecyclerView_android_orientation:I
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getInt(II)I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p2
+ 
+     .line 25
+     invoke-virtual {p0, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->setOrientation(I)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     :cond_0
+     return-void
+@@ -4023,11 +3350,9 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/material/carousel/Maskable;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -4035,40 +3360,30 @@
+     :cond_0
+     iget-object v0, p3, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->leftOrTop:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/google/android/material/carousel/KeylineState$Keyline;->mask:F
+ 
+-    .line 9
+     .line 10
+     iget-object v2, p3, Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;->rightOrBottom:Lcom/google/android/material/carousel/KeylineState$Keyline;
+ 
+-    .line 11
+     .line 12
+     iget v3, v2, Lcom/google/android/material/carousel/KeylineState$Keyline;->mask:F
+ 
+-    .line 13
+     .line 14
+     iget v0, v0, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 15
+     .line 16
+     iget v2, v2, Lcom/google/android/material/carousel/KeylineState$Keyline;->loc:F
+ 
+-    .line 17
+     .line 18
+     invoke-static {v1, v3, v0, v2, p2}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+     .line 22
+     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+@@ -4078,8 +3393,6 @@
+     .line 27
+     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v2
+ 
+@@ -4089,63 +3402,48 @@
+     .line 32
+     const/high16 v3, 0x40000000    # 2.0f
+ 
+-    .line 33
+     .line 34
+     div-float v4, v2, v3
+ 
+-    .line 35
+     .line 36
+     const/4 v5, 0x0
+ 
+     .line 37
+     const/high16 v6, 0x3f800000    # 1.0f
+ 
+-    .line 38
+     .line 39
+     invoke-static {v5, v4, v5, v6, v0}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v4
+ 
+     .line 43
+     div-float v7, v1, v3
+ 
+-    .line 44
+     .line 45
+     invoke-static {v5, v7, v5, v6, v0}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v0
+ 
+     .line 49
+     iget-object v5, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v5, v1, v2, v0, v4}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->getMaskRect(FFFF)Landroid/graphics/RectF;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v0
+ 
+     .line 55
+     invoke-direct {p0, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateChildOffsetCenterForLocation(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result p2
+ 
+     .line 59
+     invoke-virtual {v0}, Landroid/graphics/RectF;->height()F
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result p3
+ 
+@@ -4155,12 +3453,9 @@
+     .line 64
+     sub-float p3, p2, p3
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v0}, Landroid/graphics/RectF;->height()F
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v1
+ 
+@@ -4173,8 +3468,6 @@
+     .line 72
+     invoke-virtual {v0}, Landroid/graphics/RectF;->width()F
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v2
+ 
+@@ -4184,12 +3477,9 @@
+     .line 77
+     sub-float v2, p2, v2
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {v0}, Landroid/graphics/RectF;->width()F
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v4
+ 
+@@ -4202,21 +3492,15 @@
+     .line 85
+     new-instance v3, Landroid/graphics/RectF;
+ 
+-    .line 86
+     .line 87
+     invoke-direct {v3, v2, p3, p2, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     new-instance p2, Landroid/graphics/RectF;
+ 
+-    .line 91
+     .line 92
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentLeft()I
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result p3
+ 
+@@ -4226,8 +3510,6 @@
+     .line 97
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentTop()I
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result v1
+ 
+@@ -4237,8 +3519,6 @@
+     .line 102
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentRight()I
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result v2
+ 
+@@ -4248,8 +3528,6 @@
+     .line 107
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getParentBottom()I
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result v4
+ 
+@@ -4259,56 +3537,40 @@
+     .line 112
+     invoke-direct {p2, p3, v1, v2, v4}, Landroid/graphics/RectF;-><init>(FFFF)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     iget-object p3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselStrategy:Lcom/google/android/material/carousel/CarouselStrategy;
+ 
+-    .line 116
+     .line 117
+     invoke-virtual {p3}, Lcom/google/android/material/carousel/CarouselStrategy;->getStrategyType()Lcom/google/android/material/carousel/CarouselStrategy$StrategyType;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p3
+ 
+     .line 121
+     sget-object v1, Lcom/google/android/material/carousel/CarouselStrategy$StrategyType;->CONTAINED:Lcom/google/android/material/carousel/CarouselStrategy$StrategyType;
+ 
+-    .line 122
+     .line 123
+     if-ne p3, v1, :cond_1
+ 
+-    .line 124
+     .line 125
+     iget-object p3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 126
+     .line 127
+     invoke-virtual {p3, v0, v3, p2}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->containMaskWithinBounds(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     :cond_1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 131
+     .line 132
+     invoke-virtual {p0, v0, v3, p2}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->moveMaskOnEdgeOutsideBounds(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     check-cast p1, Lcom/google/android/material/carousel/Maskable;
+ 
+-    .line 136
+     .line 137
+     invoke-interface {p1, v0}, Lcom/google/android/material/carousel/Maskable;->setMaskRectF(Landroid/graphics/RectF;)V
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     return-void
+ .end method
+@@ -4323,27 +3585,21 @@
+     .line 1
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 4
+     .line 5
+     if-gt v0, v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStartingState(Lcom/google/android/material/carousel/KeylineStateList;)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p1
+ 
+     .line 11
+     iput-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -4351,7 +3607,6 @@
+     :cond_0
+     iget v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 15
+     .line 16
+     int-to-float v2, v2
+ 
+@@ -4364,37 +3619,28 @@
+     .line 19
+     invoke-virtual {p1, v2, v1, v0}, Lcom/google/android/material/carousel/KeylineStateList;->getShiftedState(FFF)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p1
+ 
+     .line 23
+     iput-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->debugItemDecoration:Lcom/google/android/material/carousel/CarouselLayoutManager$DebugItemDecoration;
+ 
+-    .line 26
+     .line 27
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     invoke-virtual {p1, p0}, Lcom/google/android/material/carousel/CarouselLayoutManager$DebugItemDecoration;->setKeylines(Ljava/util/List;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-void
+ .end method
+@@ -4405,27 +3651,21 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     iget v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->lastItemCount:I
+ 
+-    .line 6
+     .line 7
+     if-eq v0, v1, :cond_2
+ 
+-    .line 8
+     .line 9
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 10
+     .line 11
+     if-nez v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -4433,29 +3673,22 @@
+     :cond_0
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselStrategy:Lcom/google/android/material/carousel/CarouselStrategy;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v2, p0, v1}, Lcom/google/android/material/carousel/CarouselStrategy;->shouldRefreshKeylineState(Lcom/google/android/material/carousel/Carousel;I)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-eqz v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :cond_1
+     iput v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->lastItemCount:I
+ 
+-    .line 26
+     .line 27
+     :cond_2
+     :goto_0
+@@ -4468,16 +3701,12 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->isDebuggingEnabled:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+@@ -4487,7 +3716,6 @@
+     .line 10
+     if-ge v0, v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     goto :goto_1
+ 
+@@ -4499,8 +3727,6 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+@@ -4510,47 +3736,36 @@
+     .line 19
+     if-ge v0, v2, :cond_2
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v2
+ 
+     .line 25
+     invoke-virtual {p0, v2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v2
+ 
+     .line 29
+     add-int/lit8 v3, v0, 0x1
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p0, v3}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v4
+ 
+     .line 35
+     invoke-virtual {p0, v4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v4
+ 
+     .line 39
+     if-gt v2, v4, :cond_1
+ 
+-    .line 40
+     .line 41
+     move v0, v3
+ 
+@@ -4561,95 +3776,63 @@
+     :cond_1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->logChildrenIfDebugging()V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 47
+     .line 48
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 49
+     .line 50
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     const-string v5, "Detected invalid child order. Child at index ["
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const-string v0, "] had adapter position ["
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     const-string v2, "] and child at index ["
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     const-string v0, "]."
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result-object v0
+ 
+     .line 92
+     invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     throw p0
+ 
+@@ -4667,16 +3850,12 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStateForPosition(I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-direct {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getScrollOffsetForPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+@@ -4686,7 +3865,6 @@
+     .line 10
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 11
+     .line 12
+     int-to-float p0, p0
+ 
+@@ -4706,8 +3884,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -4721,15 +3897,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     xor-int/lit8 p0, p0, 0x1
+ 
+-    .line 6
+     .line 7
+     return p0
+ .end method
+@@ -4744,28 +3917,21 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+@@ -4775,7 +3941,6 @@
+     .line 16
+     if-gt v0, v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -4783,28 +3948,21 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineStateList;->getDefaultState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     invoke-virtual {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->computeHorizontalScrollRange(Landroidx/recyclerview/widget/RecyclerView$State;)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p1
+ 
+@@ -4817,8 +3975,6 @@
+     .line 35
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getWidth()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result p0
+ 
+@@ -4853,7 +4009,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -4868,11 +4023,9 @@
+     .line 1
+     iget p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr p1, p0
+ 
+@@ -4888,11 +4041,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x0
+ 
+@@ -4903,24 +4054,18 @@
+     :cond_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStateForPosition(I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     invoke-virtual {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOffsetToScrollToPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p1
+ 
+     .line 15
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+@@ -4930,19 +4075,15 @@
+     .line 20
+     if-eqz p0, :cond_1
+ 
+-    .line 21
+     .line 22
+     new-instance p0, Landroid/graphics/PointF;
+ 
+-    .line 23
+     .line 24
+     int-to-float p1, p1
+ 
+     .line 25
+     invoke-direct {p0, p1, v0}, Landroid/graphics/PointF;-><init>(FF)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-object p0
+ 
+@@ -4950,15 +4091,12 @@
+     :cond_1
+     new-instance p0, Landroid/graphics/PointF;
+ 
+-    .line 30
+     .line 31
+     int-to-float p1, p1
+ 
+     .line 32
+     invoke-direct {p0, v0, p1}, Landroid/graphics/PointF;-><init>(FF)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     return-object p0
+ .end method
+@@ -4973,28 +4111,21 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_1
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v0
+ 
+@@ -5004,7 +4135,6 @@
+     .line 16
+     if-gt v0, v1, :cond_0
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -5012,28 +4142,21 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineStateList;->getDefaultState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     invoke-virtual {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->computeVerticalScrollRange(Landroidx/recyclerview/widget/RecyclerView$State;)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p1
+ 
+@@ -5046,8 +4169,6 @@
+     .line 35
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getHeight()I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result p0
+ 
+@@ -5082,7 +4203,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -5097,11 +4217,9 @@
+     .line 1
+     iget p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 4
+     .line 5
+     sub-int/2addr p1, p0
+ 
+@@ -5115,15 +4233,12 @@
+     .line 1
+     new-instance p0, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, -0x2
+ 
+     .line 4
+     invoke-direct {p0, v0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;-><init>(II)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-object p0
+ .end method
+@@ -5134,7 +4249,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselAlignment:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -5145,8 +4259,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getHeight()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -5160,8 +4272,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getWidth()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -5183,13 +4293,9 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getDecoratedBoundsWithMargins(Landroid/view/View;Landroid/graphics/Rect;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p2}, Landroid/graphics/Rect;->centerY()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+@@ -5199,20 +4305,15 @@
+     .line 9
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p2}, Landroid/graphics/Rect;->centerX()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p1
+ 
+@@ -5223,12 +4324,9 @@
+     :cond_0
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentKeylineState:Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Lcom/google/android/material/carousel/KeylineState;->getKeylines()Ljava/util/List;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+@@ -5238,24 +4336,18 @@
+     .line 27
+     invoke-static {v0, p1, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSurroundingKeylineRange(Ljava/util/List;FZ)Lcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     invoke-direct {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getMaskedItemSizeForLocOffset(FLcom/google/android/material/carousel/CarouselLayoutManager$KeylineRange;)F
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result p1
+ 
+     .line 35
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v0
+ 
+@@ -5265,16 +4357,12 @@
+     .line 40
+     const/high16 v2, 0x40000000    # 2.0f
+ 
+-    .line 41
+     .line 42
+     if-eqz v0, :cond_1
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result v0
+ 
+@@ -5298,15 +4386,12 @@
+     :goto_0
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result p0
+ 
+     .line 57
+     if-eqz p0, :cond_2
+ 
+-    .line 58
+     .line 59
+     goto :goto_1
+ 
+@@ -5314,8 +4399,6 @@
+     :cond_2
+     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result p0
+ 
+@@ -5328,12 +4411,10 @@
+     .line 66
+     div-float v1, p0, v2
+ 
+-    .line 67
+     .line 68
+     :goto_1
+     iget p0, p2, Landroid/graphics/Rect;->left:I
+ 
+-    .line 69
+     .line 70
+     int-to-float p0, p0
+ 
+@@ -5346,7 +4427,6 @@
+     .line 73
+     iget p1, p2, Landroid/graphics/Rect;->top:I
+ 
+-    .line 74
+     .line 75
+     int-to-float p1, p1
+ 
+@@ -5359,7 +4439,6 @@
+     .line 78
+     iget v2, p2, Landroid/graphics/Rect;->right:I
+ 
+-    .line 79
+     .line 80
+     int-to-float v2, v2
+ 
+@@ -5372,7 +4451,6 @@
+     .line 83
+     iget v2, p2, Landroid/graphics/Rect;->bottom:I
+ 
+-    .line 84
+     .line 85
+     int-to-float v2, v2
+ 
+@@ -5385,8 +4463,6 @@
+     .line 88
+     invoke-virtual {p2, p0, p1, v0, v1}, Landroid/graphics/Rect;->set(IIII)V
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     return-void
+ .end method
+@@ -5401,15 +4477,12 @@
+     .line 1
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getScrollOffsetForPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+     .line 5
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 6
+     .line 7
+     sub-int/2addr p1, p0
+ 
+@@ -5423,25 +4496,21 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 2
+     .line 3
+     iget v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 4
+     .line 5
+     int-to-float v1, v1
+ 
+     .line 6
+     iget v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 7
+     .line 8
+     int-to-float v2, v2
+ 
+     .line 9
+     iget v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 10
+     .line 11
+     int-to-float v3, v3
+ 
+@@ -5451,40 +4520,30 @@
+     .line 13
+     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/google/android/material/carousel/KeylineStateList;->getShiftedState(FFFZ)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     invoke-virtual {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOffsetToScrollToPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v0
+ 
+     .line 21
+     iget-object v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStatePositionMap:Ljava/util/Map;
+ 
+-    .line 22
+     .line 23
+     if-eqz v1, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStateForPosition(I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     invoke-virtual {p0, p1, v1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOffsetToScrollToPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p0
+ 
+@@ -5499,27 +4558,21 @@
+     :goto_0
+     if-eqz p2, :cond_1
+ 
+-    .line 36
+     .line 37
+     invoke-static {p0}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result p1
+ 
+     .line 41
+     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result p2
+ 
+     .line 45
+     if-ge p1, p2, :cond_1
+ 
+-    .line 46
+     .line 47
+     return p0
+ 
+@@ -5534,11 +4587,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper;->orientation:I
+ 
+-    .line 4
+     .line 5
+     return p0
+ .end method
+@@ -5559,15 +4610,12 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 2
+     .line 3
+     iget p0, p0, Lcom/google/android/material/carousel/CarouselOrientationHelper;->orientation:I
+ 
+-    .line 4
+     .line 5
+     if-nez p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -5588,20 +4636,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isHorizontal()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getLayoutDirection()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -5611,7 +4654,6 @@
+     .line 12
+     if-ne p0, v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     return v0
+ 
+@@ -5633,45 +4675,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/material/carousel/Maskable;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_2
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     check-cast v0, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
+ 
+-    .line 10
+     .line 11
+     new-instance v1, Landroid/graphics/Rect;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {p0, p1, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->calculateItemDecorationsForChild(Landroid/view/View;Landroid/graphics/Rect;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget v2, v1, Landroid/graphics/Rect;->left:I
+ 
+-    .line 20
+     .line 21
+     iget v3, v1, Landroid/graphics/Rect;->right:I
+ 
+-    .line 22
+     .line 23
+     add-int/2addr v2, v3
+ 
+@@ -5681,11 +4711,9 @@
+     .line 25
+     iget v2, v1, Landroid/graphics/Rect;->top:I
+ 
+-    .line 26
+     .line 27
+     iget v1, v1, Landroid/graphics/Rect;->bottom:I
+ 
+-    .line 28
+     .line 29
+     add-int/2addr v2, v1
+ 
+@@ -5695,36 +4723,27 @@
+     .line 31
+     iget-object v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 32
+     .line 33
+     if-eqz v1, :cond_0
+ 
+-    .line 34
+     .line 35
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 36
+     .line 37
+     iget v2, v2, Lcom/google/android/material/carousel/CarouselOrientationHelper;->orientation:I
+ 
+-    .line 38
+     .line 39
+     if-nez v2, :cond_0
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v1}, Lcom/google/android/material/carousel/KeylineStateList;->getDefaultState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v1
+ 
+     .line 45
+     invoke-virtual {v1}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v1
+ 
+@@ -5735,7 +4754,6 @@
+     :cond_0
+     iget v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
+ 
+-    .line 51
+     .line 52
+     int-to-float v1, v1
+ 
+@@ -5743,39 +4761,30 @@
+     :goto_0
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 54
+     .line 55
+     if-eqz v2, :cond_1
+ 
+-    .line 56
+     .line 57
+     iget-object v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 58
+     .line 59
+     iget v3, v3, Lcom/google/android/material/carousel/CarouselOrientationHelper;->orientation:I
+ 
+-    .line 60
+     .line 61
+     const/4 v4, 0x1
+ 
+     .line 62
+     if-ne v3, v4, :cond_1
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineStateList;->getDefaultState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v2
+ 
+     .line 68
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineState;->getItemSize()F
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result v2
+ 
+@@ -5786,7 +4795,6 @@
+     :cond_1
+     iget v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+ 
+-    .line 74
+     .line 75
+     int-to-float v2, v2
+ 
+@@ -5794,32 +4802,24 @@
+     :goto_1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getWidth()I
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v3
+ 
+     .line 80
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getWidthMode()I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v4
+ 
+     .line 84
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingLeft()I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v5
+ 
+     .line 88
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingRight()I
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v6
+ 
+@@ -5829,14 +4829,12 @@
+     .line 93
+     iget v6, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+ 
+-    .line 94
+     .line 95
+     add-int/2addr v5, v6
+ 
+     .line 96
+     iget v6, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+ 
+-    .line 97
+     .line 98
+     add-int/2addr v5, v6
+ 
+@@ -5849,48 +4847,36 @@
+     .line 101
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->canScrollHorizontally()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v1
+ 
+     .line 105
+     invoke-static {v3, v4, v5, p2, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildMeasureSpec(IIIIZ)I
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result p2
+ 
+     .line 109
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getHeight()I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v1
+ 
+     .line 113
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getHeightMode()I
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result v3
+ 
+     .line 117
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingTop()I
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result v4
+ 
+     .line 121
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingBottom()I
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result v5
+ 
+@@ -5900,14 +4886,12 @@
+     .line 126
+     iget v5, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+ 
+-    .line 127
+     .line 128
+     add-int/2addr v4, v5
+ 
+     .line 129
+     iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+ 
+-    .line 130
+     .line 131
+     add-int/2addr v4, v0
+ 
+@@ -5920,24 +4904,18 @@
+     .line 134
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->canScrollVertically()Z
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result p0
+ 
+     .line 138
+     invoke-static {v1, v3, v4, p3, p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildMeasureSpec(IIIIZ)I
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result p0
+ 
+     .line 142
+     invoke-virtual {p1, p2, p0}, Landroid/view/View;->measure(II)V
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     return-void
+ 
+@@ -5945,16 +4923,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 147
+     .line 148
+     const-string p1, "All children of a RecyclerView using CarouselLayoutManager must use MaskableFrameLayout as their root ViewGroup."
+ 
+-    .line 149
+     .line 150
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     throw p0
+ .end method
+@@ -5965,8 +4939,6 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -5977,39 +4949,27 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselStrategy:Lcom/google/android/material/carousel/CarouselStrategy;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+     .line 10
+     invoke-virtual {v0, v1}, Lcom/google/android/material/carousel/CarouselStrategy;->initialize(Landroid/content/Context;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->recyclerViewSizeChangeListener:Landroid/view/View$OnLayoutChangeListener;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1, p0}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return-void
+ .end method
+@@ -6020,17 +4980,12 @@
+     .line 1
+     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onDetachedFromWindow(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->recyclerViewSizeChangeListener:Landroid/view/View$OnLayoutChangeListener;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {p1, p0}, Landroid/view/View;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-void
+ .end method
+@@ -6055,8 +5010,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p4
+ 
+@@ -6066,7 +5019,6 @@
+     .line 6
+     if-nez p4, :cond_0
+ 
+-    .line 7
+     .line 8
+     return-object v0
+ 
+@@ -6074,19 +5026,15 @@
+     :cond_0
+     invoke-direct {p0, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->convertFocusDirectionToLayoutDirection(I)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p2
+ 
+     .line 13
+     const/high16 p4, -0x80000000
+ 
+-    .line 14
+     .line 15
+     if-ne p2, p4, :cond_1
+ 
+-    .line 16
+     .line 17
+     return-object v0
+ 
+@@ -6097,19 +5045,15 @@
+     .line 19
+     if-ne p2, p4, :cond_3
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p1
+ 
+     .line 25
+     if-nez p1, :cond_2
+ 
+-    .line 26
+     .line 27
+     return-object v0
+ 
+@@ -6120,33 +5064,24 @@
+     .line 29
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p2
+ 
+     .line 33
+     invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result p2
+ 
+     .line 37
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 38
+     .line 39
+     invoke-direct {p0, p3, p2, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addViewAtPosition(Landroidx/recyclerview/widget/RecyclerView$Recycler;II)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getChildClosestToStart()Landroid/view/View;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -6157,27 +5092,21 @@
+     :cond_3
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result p1
+ 
+     .line 51
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result p2
+ 
+     .line 55
+     add-int/lit8 p2, p2, -0x1
+ 
+-    .line 56
+     .line 57
+     if-ne p1, p2, :cond_4
+ 
+-    .line 58
+     .line 59
+     return-object v0
+ 
+@@ -6185,45 +5114,33 @@
+     :cond_4
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result p1
+ 
+     .line 64
+     add-int/lit8 p1, p1, -0x1
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object p1
+ 
+     .line 70
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p1
+ 
+     .line 74
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 75
+     .line 76
+     invoke-direct {p0, p3, p1, p4}, Lcom/google/android/material/carousel/CarouselLayoutManager;->addViewAtPosition(Landroidx/recyclerview/widget/RecyclerView$Recycler;II)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getChildClosestToEnd()Landroid/view/View;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p0
+ 
+@@ -6241,77 +5158,57 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     if-lez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 v0, 0x0
+ 
+     .line 11
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v0
+ 
+     .line 19
+     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityRecord;->setFromIndex(I)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v0
+ 
+     .line 26
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+     .line 32
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result p0
+ 
+     .line 36
+     invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityRecord;->setToIndex(I)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :cond_0
+     return-void
+@@ -6327,13 +5224,9 @@
+     .line 1
+     invoke-super {p0, p1, p2, p3}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onItemsAdded(Landroidx/recyclerview/widget/RecyclerView;II)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateItemCount()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -6348,13 +5241,9 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onItemsChanged(Landroidx/recyclerview/widget/RecyclerView;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateItemCount()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -6369,13 +5258,9 @@
+     .line 1
+     invoke-super {p0, p1, p2, p3}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onItemsRemoved(Landroidx/recyclerview/widget/RecyclerView;II)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateItemCount()V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -6386,8 +5271,6 @@
+     .line 1
+     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$State;->getItemCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -6397,12 +5280,9 @@
+     .line 6
+     if-lez v0, :cond_7
+ 
+-    .line 7
+     .line 8
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+@@ -6415,32 +5295,25 @@
+     .line 14
+     cmpg-float v0, v0, v2
+ 
+-    .line 15
+     .line 16
+     if-gtz v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     goto/16 :goto_2
+ 
+-    .line 19
+     .line 20
+     :cond_0
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v0
+ 
+     .line 24
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 25
+     .line 26
+     if-nez v2, :cond_1
+ 
+-    .line 27
+     .line 28
+     const/4 v3, 0x1
+ 
+@@ -6455,70 +5328,53 @@
+     :goto_0
+     if-nez v3, :cond_2
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineStateList;->getDefaultState()Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v2
+ 
+     .line 37
+     invoke-virtual {v2}, Lcom/google/android/material/carousel/KeylineState;->getCarouselSize()I
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v2
+ 
+     .line 41
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getContainerSize()I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v4
+ 
+     .line 45
+     if-eq v2, v4, :cond_3
+ 
+-    .line 46
+     .line 47
+     :cond_2
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->recalculateKeylineStateList(Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     :cond_3
+     iget-object v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {p0, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateStartScroll(Lcom/google/android/material/carousel/KeylineStateList;)I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v2
+ 
+     .line 56
+     iget-object v4, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 57
+     .line 58
+     invoke-direct {p0, p2, v4}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateEndScroll(Landroidx/recyclerview/widget/RecyclerView$State;Lcom/google/android/material/carousel/KeylineStateList;)I
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result v4
+ 
+     .line 62
+     if-eqz v0, :cond_4
+ 
+-    .line 63
+     .line 64
+     move v5, v4
+ 
+@@ -6533,11 +5389,9 @@
+     :goto_1
+     iput v5, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 68
+     .line 69
+     if-eqz v0, :cond_5
+ 
+-    .line 70
+     .line 71
+     move v4, v2
+ 
+@@ -6545,104 +5399,79 @@
+     :cond_5
+     iput v4, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 73
+     .line 74
+     if-eqz v3, :cond_6
+ 
+-    .line 75
+     .line 76
+     iput v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 77
+     .line 78
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v2
+ 
+     .line 84
+     iget v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 85
+     .line 86
+     iget v4, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 87
+     .line 88
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->isLayoutRtl()Z
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v5
+ 
+     .line 92
+     invoke-virtual {v0, v2, v3, v4, v5}, Lcom/google/android/material/carousel/KeylineStateList;->getKeylineStateForPositionMap(IIIZ)Ljava/util/Map;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object v0
+ 
+     .line 96
+     iput-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStatePositionMap:Ljava/util/Map;
+ 
+-    .line 97
+     .line 98
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentEstimatedPosition:I
+ 
+-    .line 99
+     .line 100
+     const/4 v2, -0x1
+ 
+     .line 101
+     if-eq v0, v2, :cond_6
+ 
+-    .line 102
+     .line 103
+     invoke-direct {p0, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStateForPosition(I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object v2
+ 
+     .line 107
+     invoke-direct {p0, v0, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getScrollOffsetForPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result v0
+ 
+     .line 111
+     iput v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 112
+     .line 113
+     :cond_6
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 114
+     .line 115
+     iget v2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 116
+     .line 117
+     iget v3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 118
+     .line 119
+     invoke-static {v1, v0, v2, v3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateShouldScrollBy(IIII)I
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v2
+ 
+@@ -6652,62 +5481,45 @@
+     .line 124
+     iput v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 125
+     .line 126
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$State;->getItemCount()I
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v2
+ 
+     .line 132
+     invoke-static {v0, v1, v2}, Landroidx/core/math/MathUtils;->c(III)I
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result v0
+ 
+     .line 136
+     iput v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 137
+     .line 138
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 139
+     .line 140
+     invoke-direct {p0, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateCurrentKeylineStateForScrollOffset(Lcom/google/android/material/carousel/KeylineStateList;)V
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->detachAndScrapAttachedViews(Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->fill(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     move-result p1
+ 
+     .line 153
+     iput p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->lastItemCount:I
+ 
+-    .line 154
+     .line 155
+     return-void
+ 
+@@ -6716,12 +5528,9 @@
+     :goto_2
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->removeAndRecycleAllViews(Landroidx/recyclerview/widget/RecyclerView$Recycler;)V
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     iput v1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 160
+     .line 161
+     return-void
+ .end method
+@@ -6732,13 +5541,9 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->onLayoutCompleted(Landroidx/recyclerview/widget/RecyclerView$State;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+@@ -6748,11 +5553,9 @@
+     .line 9
+     if-nez p1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iput v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 12
+     .line 13
+     goto :goto_0
+ 
+@@ -6760,29 +5563,22 @@
+     :cond_0
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p1
+ 
+     .line 22
+     iput p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 23
+     .line 24
+     :goto_0
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->validateChildOrderIfDebugging()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -6805,14 +5601,12 @@
+     .line 1
+     iget-object p3, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 2
+     .line 3
+     const/4 p4, 0x0
+ 
+     .line 4
+     if-nez p3, :cond_0
+ 
+-    .line 5
+     .line 6
+     return p4
+ 
+@@ -6820,39 +5614,30 @@
+     :cond_0
+     invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p3
+ 
+     .line 11
+     invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result p5
+ 
+     .line 15
+     invoke-direct {p0, p5}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStateForPosition(I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p5
+ 
+     .line 19
+     invoke-direct {p0, p3, p5}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSmallestScrollOffsetToFocalKeyline(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result p3
+ 
+     .line 23
+     if-nez p3, :cond_1
+ 
+-    .line 24
+     .line 25
+     return p4
+ 
+@@ -6860,31 +5645,24 @@
+     :cond_1
+     iget p4, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 27
+     .line 28
+     iget p5, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 29
+     .line 30
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 31
+     .line 32
+     invoke-static {p3, p4, p5, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->calculateShouldScrollBy(IIII)I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result p3
+ 
+     .line 36
+     iget-object p4, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 37
+     .line 38
+     iget p5, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 39
+     .line 40
+     add-int/2addr p5, p3
+ 
+@@ -6894,46 +5672,36 @@
+     .line 42
+     iget p5, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->minScroll:I
+ 
+-    .line 43
+     .line 44
+     int-to-float p5, p5
+ 
+     .line 45
+     iget v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->maxScroll:I
+ 
+-    .line 46
+     .line 47
+     int-to-float v0, v0
+ 
+     .line 48
+     invoke-virtual {p4, p3, p5, v0}, Lcom/google/android/material/carousel/KeylineStateList;->getShiftedState(FFF)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p3
+ 
+     .line 52
+     invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result p2
+ 
+     .line 56
+     invoke-direct {p0, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getSmallestScrollOffsetToFocalKeyline(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result p2
+ 
+     .line 60
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollBy(Landroidx/recyclerview/widget/RecyclerView;I)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     const/4 p0, 0x1
+ 
+@@ -6947,20 +5715,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->canScrollHorizontally()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollBy(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -6981,15 +5744,12 @@
+     .line 1
+     iput p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentEstimatedPosition:I
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     return-void
+ 
+@@ -6997,72 +5757,54 @@
+     :cond_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getKeylineStateForPosition(I)Lcom/google/android/material/carousel/KeylineState;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-direct {p0, p1, v0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getScrollOffsetForPosition(ILcom/google/android/material/carousel/KeylineState;)I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     iput v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollOffset:I
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+     .line 22
+     add-int/lit8 v0, v0, -0x1
+ 
+-    .line 23
+     .line 24
+     const/4 v1, 0x0
+ 
+     .line 25
+     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     invoke-static {p1, v1, v0}, Landroidx/core/math/MathUtils;->c(III)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p1
+ 
+     .line 33
+     iput p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->currentFillStartPosition:I
+ 
+-    .line 34
+     .line 35
+     iget-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->keylineStateList:Lcom/google/android/material/carousel/KeylineStateList;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager;->updateCurrentKeylineStateForScrollOffset(Lcom/google/android/material/carousel/KeylineStateList;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->requestLayout()V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ .end method
+@@ -7073,20 +5815,15 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->canScrollVertically()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->scrollBy(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result p0
+ 
+@@ -7107,12 +5844,9 @@
+     .line 1
+     iput p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselAlignment:I
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -7127,12 +5861,9 @@
+     .line 1
+     iput-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->carouselStrategy:Lcom/google/android/material/carousel/CarouselStrategy;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -7149,35 +5880,25 @@
+     .line 1
+     iput-boolean p2, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->isDebuggingEnabled:Z
+ 
+-    .line 2
+     .line 3
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->debugItemDecoration:Lcom/google/android/material/carousel/CarouselLayoutManager$DebugItemDecoration;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView;->removeItemDecoration(Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     if-eqz p2, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->debugItemDecoration:Lcom/google/android/material/carousel/CarouselLayoutManager$DebugItemDecoration;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1, p0}, Landroidx/recyclerview/widget/RecyclerView;->addItemDecoration(Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     :cond_0
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->invalidateItemDecorations()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -7188,14 +5909,12 @@
+     .line 1
+     if-eqz p1, :cond_1
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x1
+ 
+     .line 4
+     if-ne p1, v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     goto :goto_0
+ 
+@@ -7203,43 +5922,30 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 8
+     .line 9
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const-string v1, "invalid orientation:"
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     throw p0
+ 
+@@ -7251,24 +5957,18 @@
+     .line 31
+     invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->assertNotInLayoutOrScroll(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iget-object v0, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 35
+     .line 36
+     if-eqz v0, :cond_3
+ 
+-    .line 37
+     .line 38
+     iget v0, v0, Lcom/google/android/material/carousel/CarouselOrientationHelper;->orientation:I
+ 
+-    .line 39
+     .line 40
+     if-eq p1, v0, :cond_2
+ 
+-    .line 41
+     .line 42
+     goto :goto_1
+ 
+@@ -7281,20 +5981,15 @@
+     :goto_1
+     invoke-static {p0, p1}, Lcom/google/android/material/carousel/CarouselOrientationHelper;->createOrientationHelper(Lcom/google/android/material/carousel/CarouselLayoutManager;I)Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p1
+ 
+     .line 48
+     iput-object p1, p0, Lcom/google/android/material/carousel/CarouselLayoutManager;->orientationHelper:Lcom/google/android/material/carousel/CarouselOrientationHelper;
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p0}, Lcom/google/android/material/carousel/CarouselLayoutManager;->refreshKeylineState()V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     return-void
+ .end method
+@@ -7305,30 +6000,21 @@
+     .line 1
+     new-instance p2, Lcom/google/android/material/carousel/CarouselLayoutManager$1;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+     .line 7
+     invoke-direct {p2, p0, p1}, Lcom/google/android/material/carousel/CarouselLayoutManager$1;-><init>(Lcom/google/android/material/carousel/CarouselLayoutManager;Landroid/content/Context;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {p2, p3}, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;->setTargetPosition(I)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->startSmoothScroll(Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ .end method

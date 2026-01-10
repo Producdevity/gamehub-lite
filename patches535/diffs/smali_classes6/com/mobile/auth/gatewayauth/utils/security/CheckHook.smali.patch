@@ -1,0 +1,701 @@
+--- a/smali_classes6/com/mobile/auth/gatewayauth/utils/security/CheckHook.smali
++++ b/smali_classes6/com/mobile/auth/gatewayauth/utils/security/CheckHook.smali
+@@ -25,7 +25,6 @@
+     .line 1
+     const-class v0, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -33,7 +32,6 @@
+     :try_start_0
+     sget v1, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->b:I
+ 
+-    .line 5
+     .line 6
+     const/4 v2, -0x1
+ 
+@@ -46,135 +44,98 @@
+     .line 9
+     if-ne v1, v2, :cond_7
+ 
+-    .line 10
+     .line 11
+     sput v3, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->b:I
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 12
+     .line 13
+     :try_start_1
+     new-instance v1, Ljava/util/HashSet;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const-string v5, "/proc/"
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-static {}, Landroid/os/Process;->myPid()I
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v5
+ 
+     .line 32
+     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v5, "/maps"
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v2
+ 
+     .line 44
+     new-instance v5, Ljava/io/BufferedReader;
+ 
+-    .line 45
+     .line 46
+     new-instance v6, Ljava/io/FileReader;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {v6, v2}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     invoke-direct {v5, v6}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     :cond_0
+     :goto_0
+     invoke-virtual {v5}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v2
+ 
+     .line 58
+     if-eqz v2, :cond_2
+ 
+-    .line 59
+     .line 60
+     const-string v6, ".so"
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v2, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result v6
+ 
+     .line 66
+     if-nez v6, :cond_1
+ 
+-    .line 67
+     .line 68
+     const-string v6, ".jar"
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v2, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v6
+ 
+     .line 74
+     if-eqz v6, :cond_0
+ 
+-    .line 75
+     .line 76
+     goto :goto_1
+ 
+@@ -185,7 +146,6 @@
+     .line 78
+     goto/16 :goto_5
+ 
+-    .line 79
+     .line 80
+     :catch_0
+     move-exception v1
+@@ -198,12 +158,9 @@
+     :goto_1
+     const-string v6, " "
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {v2, v6}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v6
+ 
+@@ -213,16 +170,12 @@
+     .line 89
+     invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v2
+ 
+     .line 93
+     invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     goto :goto_0
+ 
+@@ -230,8 +183,6 @@
+     :cond_2
+     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object v1
+ 
+@@ -240,173 +191,125 @@
+     :goto_2
+     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v2
+ 
+     .line 105
+     if-eqz v2, :cond_6
+ 
+-    .line 106
+     .line 107
+     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object v2
+ 
+     .line 111
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 112
+     .line 113
+     const-string v6, "XposedBridge.jar"
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {v2, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result v6
+ 
+     .line 119
+     if-eqz v6, :cond_4
+ 
+-    .line 120
+     .line 121
+     new-instance v6, Ljava/lang/StringBuilder;
+ 
+-    .line 122
+     .line 123
+     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     const-string v7, "HookDetection, Xposed JAR found: "
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result-object v6
+ 
+     .line 138
+     invoke-static {v6}, Lcom/mobile/auth/g0/i;->b(Ljava/lang/String;)V
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     sput v4, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->b:I
+ 
+-    .line 142
+     .line 143
+     :cond_4
+     const-string v6, "Xposed"
+ 
+-    .line 144
+     .line 145
+     invoke-virtual {v2, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result v6
+ 
+     .line 149
+     if-nez v6, :cond_5
+ 
+-    .line 150
+     .line 151
+     const-string v6, "xposed"
+ 
+-    .line 152
+     .line 153
+     invoke-virtual {v2, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result v6
+ 
+     .line 157
+     if-nez v6, :cond_5
+ 
+-    .line 158
+     .line 159
+     const-string v6, "xposed_art"
+ 
+-    .line 160
+     .line 161
+     invoke-virtual {v2, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    .line 162
+-    .line 163
+     .line 164
+     move-result v6
+ 
+     .line 165
+     if-eqz v6, :cond_3
+ 
+-    .line 166
+     .line 167
+     :cond_5
+     new-instance v6, Ljava/lang/StringBuilder;
+ 
+-    .line 168
+     .line 169
+     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     const-string v7, "HookDetection, Xposed JAR found: "
+ 
+-    .line 173
+     .line 174
+     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     move-result-object v2
+ 
+     .line 184
+     invoke-static {v2}, Lcom/mobile/auth/g0/i;->b(Ljava/lang/String;)V
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     sput v4, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->b:I
+ 
+-    .line 188
+     .line 189
+     goto :goto_2
+ 
+@@ -417,8 +320,6 @@
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     goto :goto_4
+ 
+@@ -427,47 +328,33 @@
+     :try_start_2
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 195
+     .line 196
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     const-string v5, "HookDetection"
+ 
+-    .line 200
+     .line 201
+     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     move-result-object v1
+ 
+     .line 208
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result-object v1
+ 
+     .line 215
+     invoke-static {v1}, Lcom/mobile/auth/g0/i;->b(Ljava/lang/String;)V
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     :cond_7
+     :goto_4
+@@ -475,11 +362,9 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 219
+     .line 220
+     if-ne v1, v4, :cond_8
+ 
+-    .line 221
+     .line 222
+     move v3, v4
+ 
+@@ -509,7 +394,6 @@
+     .line 1
+     const-class v0, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -519,7 +403,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 5
+     .line 6
+     const/4 v2, -0x1
+ 
+@@ -532,30 +415,23 @@
+     .line 9
+     if-eq v1, v2, :cond_0
+ 
+-    .line 10
+     .line 11
+     goto/16 :goto_1
+ 
+-    .line 12
+     .line 13
+     :cond_0
+     :try_start_1
+     sput v3, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->a:I
+ 
+-    .line 14
+     .line 15
+     new-instance v1, Ljava/lang/Exception;
+ 
+-    .line 16
+     .line 17
+     const-string v2, "blah"
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v1, v2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     throw v1
+     :try_end_1
+@@ -577,8 +453,6 @@
+     :try_start_2
+     invoke-virtual {v1}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v1
+ 
+@@ -595,188 +469,141 @@
+     :goto_0
+     if-ge v5, v2, :cond_4
+ 
+-    .line 34
+     .line 35
+     aget-object v7, v1, v5
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v7}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v8
+ 
+     .line 41
+     const-string v9, "com.android.internal.os.ZygoteInit"
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v8
+ 
+     .line 47
+     if-eqz v8, :cond_1
+ 
+-    .line 48
+     .line 49
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 50
+     .line 51
+     const/4 v8, 0x2
+ 
+     .line 52
+     if-ne v6, v8, :cond_1
+ 
+-    .line 53
+     .line 54
+     const-string v8, "HookDetection, Substrate is active on the device."
+ 
+-    .line 55
+     .line 56
+     invoke-static {v8}, Lcom/mobile/auth/g0/i;->b(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     sput v4, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->a:I
+ 
+-    .line 60
+     .line 61
+     :cond_1
+     invoke-virtual {v7}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v8
+ 
+     .line 65
+     const-string v9, "de.robv.android.xposed.XposedBridge"
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v8
+ 
+     .line 71
+     if-eqz v8, :cond_2
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v7}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v8
+ 
+     .line 77
+     const-string v9, "main"
+ 
+-    .line 78
+     .line 79
+     invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v8
+ 
+     .line 83
+     if-eqz v8, :cond_2
+ 
+-    .line 84
+     .line 85
+     const-string v8, "HookDetection, Xposed is active on the device."
+ 
+-    .line 86
+     .line 87
+     invoke-static {v8}, Lcom/mobile/auth/g0/i;->b(Ljava/lang/String;)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     sput v4, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->a:I
+ 
+-    .line 91
+     .line 92
+     :cond_2
+     invoke-virtual {v7}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object v8
+ 
+     .line 96
+     const-string v9, "de.robv.android.xposed.XposedBridge"
+ 
+-    .line 97
+     .line 98
+     invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result v8
+ 
+     .line 102
+     if-eqz v8, :cond_3
+ 
+-    .line 103
+     .line 104
+     invoke-virtual {v7}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     move-result-object v7
+ 
+     .line 108
+     const-string v8, "handleHookedMethod"
+ 
+-    .line 109
+     .line 110
+     invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result v7
+ 
+     .line 114
+     if-eqz v7, :cond_3
+ 
+-    .line 115
+     .line 116
+     const-string v7, "HookDetection, A method on the stack trace has been hooked using Xposed."
+ 
+-    .line 117
+     .line 118
+     invoke-static {v7}, Lcom/mobile/auth/g0/i;->b(Ljava/lang/String;)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     sput v4, Lcom/mobile/auth/gatewayauth/utils/security/CheckHook;->a:I
+ 
+-    .line 122
+     .line 123
+     :cond_3
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 124
+     .line 125
+     goto :goto_0
+ 
+@@ -787,11 +614,9 @@
+     :try_end_2
+     .catchall {:try_start_2 .. :try_end_2} :catchall_0
+ 
+-    .line 127
+     .line 128
+     if-ne v1, v4, :cond_5
+ 
+-    .line 129
+     .line 130
+     move v3, v4
+ 

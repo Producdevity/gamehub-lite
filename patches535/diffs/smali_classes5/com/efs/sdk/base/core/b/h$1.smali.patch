@@ -1,0 +1,282 @@
+--- a/smali_classes5/com/efs/sdk/base/core/b/h$1.smali
++++ b/smali_classes5/com/efs/sdk/base/core/b/h$1.smali
+@@ -30,16 +30,12 @@
+     .line 1
+     iput-object p1, p0, Lcom/efs/sdk/base/core/b/h$1;->b:Lcom/efs/sdk/base/core/b/h;
+ 
+-    .line 2
+     .line 3
+     iput-object p2, p0, Lcom/efs/sdk/base/core/b/h$1;->a:Landroid/content/Context;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -52,37 +48,28 @@
+     .line 1
+     const-string v0, "efs.send_log"
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     iget-object v1, p0, Lcom/efs/sdk/base/core/b/h$1;->a:Landroid/content/Context;
+ 
+-    .line 4
+     .line 5
+     invoke-static {v1}, Lcom/efs/sdk/base/core/util/a;->a(Landroid/content/Context;)Ljava/io/File;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+     .line 13
+     if-nez v2, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -98,162 +85,115 @@
+     :goto_0
+     new-instance v2, Ljava/io/File;
+ 
+-    .line 22
+     .line 23
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v1, "sendlock"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v1
+ 
+     .line 49
+     invoke-direct {v2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {v2}, Ljava/io/File;->exists()Z
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v1
+ 
+     .line 56
+     if-nez v1, :cond_1
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     :cond_1
+     new-instance v1, Ljava/io/FileOutputStream;
+ 
+-    .line 62
+     .line 63
+     invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {v1}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v1
+ 
+     .line 70
+     invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->lock()Ljava/nio/channels/FileLock;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v1
+ 
+     .line 74
+     sput-object v1, Lcom/efs/sdk/base/core/b/h;->b:Ljava/nio/channels/FileLock;
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {v1}, Ljava/nio/channels/FileLock;->isValid()Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v1
+ 
+     .line 80
+     if-eqz v1, :cond_1
+ 
+-    .line 81
+     .line 82
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 83
+     .line 84
+     const-string v2, "tryFileLock sendlock sucess! processname: "
+ 
+-    .line 85
+     .line 86
+     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-static {}, Lcom/efs/sdk/base/core/util/ProcessUtil;->getCurrentProcessName()Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v2
+ 
+     .line 93
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v1
+ 
+     .line 100
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     iget-object v1, p0, Lcom/efs/sdk/base/core/b/h$1;->b:Lcom/efs/sdk/base/core/b/h;
+ 
+-    .line 104
+     .line 105
+     const/4 v2, 0x2
+ 
+@@ -262,7 +202,6 @@
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 107
+     .line 108
+     return-void
+ 
+@@ -270,53 +209,39 @@
+     :goto_1
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 110
+     .line 111
+     const-string v3, "tryFileLock fail! "
+ 
+-    .line 112
+     .line 113
+     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v1
+ 
+     .line 120
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object v1
+ 
+     .line 127
+     invoke-static {v0, v1}, Lcom/efs/sdk/base/core/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     iget-object p0, p0, Lcom/efs/sdk/base/core/b/h$1;->b:Lcom/efs/sdk/base/core/b/h;
+ 
+-    .line 131
+     .line 132
+     const/4 v0, 0x0
+ 
+     .line 133
+     iput v0, p0, Lcom/efs/sdk/base/core/b/h;->a:I
+ 
+-    .line 134
+     .line 135
+     return-void
+ .end method

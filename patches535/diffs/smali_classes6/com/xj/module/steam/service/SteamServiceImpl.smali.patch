@@ -1,0 +1,3797 @@
+--- a/smali_classes6/com/xj/module/steam/service/SteamServiceImpl.smali
++++ b/smali_classes6/com/xj/module/steam/service/SteamServiceImpl.smali
+@@ -30,42 +30,30 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lcom/xj/module/steam/service/a;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Lcom/xj/module/steam/service/a;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     invoke-static {v0}, Lkotlin/LazyKt;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     iput-object v0, p0, Lcom/xj/module/steam/service/SteamServiceImpl;->b:Lkotlin/Lazy;
+ 
+-    .line 14
+     .line 15
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$defaultSteamLog$1;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v0, p0}, Lcom/xj/module/steam/service/SteamServiceImpl$defaultSteamLog$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     iput-object v0, p0, Lcom/xj/module/steam/service/SteamServiceImpl;->c:Lcom/xj/module/steam/service/SteamServiceImpl$defaultSteamLog$1;
+ 
+-    .line 21
+     .line 22
+     return-void
+ .end method
+@@ -76,16 +64,12 @@
+     .line 1
+     sget-object v0, Lcom/xj/common/service/LoggerFactory;->a:Lcom/xj/common/service/LoggerFactory$Companion;
+ 
+-    .line 2
+     .line 3
+     const-string v1, "SteamSdk"
+ 
+-    .line 4
+     .line 5
+     invoke-static {v0, v1}, Lcom/xj/common/service/LoggerExtensionsKt;->d(Lcom/xj/common/service/LoggerFactory$Companion;Ljava/lang/String;)Lcom/xj/common/service/Logger;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+@@ -99,8 +83,6 @@
+     .line 1
+     invoke-static {}, Lcom/xj/module/steam/service/SteamServiceImpl;->A()Lcom/xj/common/service/Logger;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -114,8 +96,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/module/steam/service/SteamServiceImpl;->w()Lcom/xj/common/service/Logger;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -129,8 +109,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl;->B(Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;)Lcom/xj/common/bean/SteamAccount;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -146,83 +124,63 @@
+     .line 1
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getId()Ljava/lang/Long;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v1
+ 
+     .line 5
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getSteamId()J
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-wide v2
+ 
+     .line 9
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAccountName()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v4
+ 
+     .line 13
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getRefreshToken()Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v7
+ 
+     .line 17
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getPersonalName()Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v5
+ 
+     .line 21
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAvatarUrl()Ljava/lang/String;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v6
+ 
+     .line 25
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getPlayTime()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v8
+ 
+     .line 29
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getGameNum()I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v9
+ 
+     .line 33
+     invoke-virtual/range {p1 .. p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAccountValue()D
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-wide v10
+ 
+     .line 37
+     new-instance v0, Lcom/xj/common/bean/SteamAccount;
+ 
+-    .line 38
+     .line 39
+     const/16 v13, 0x200
+ 
+-    .line 40
+     .line 41
+     const/4 v14, 0x0
+ 
+@@ -232,8 +190,6 @@
+     .line 43
+     invoke-direct/range {v0 .. v14}, Lcom/xj/common/bean/SteamAccount;-><init>(Ljava/lang/Long;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIDIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-object v0
+ .end method
+@@ -244,77 +200,57 @@
+     .line 1
+     const-string p0, "<this>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Lcom/xj/common/bean/SteamGamePriceEntity;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getAppId()I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v1
+ 
+     .line 12
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getCurrency()Ljava/lang/String;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v2
+ 
+     .line 16
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getInitial()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v3
+ 
+     .line 20
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getFinal()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v4
+ 
+     .line 24
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getDiscountPercent()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v5
+ 
+     .line 28
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getInitialFormatted()Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v6
+ 
+     .line 32
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getFinalFormatted()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v7
+ 
+     .line 36
+     invoke-direct/range {v0 .. v7}, Lcom/xj/common/bean/SteamGamePriceEntity;-><init>(ILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     return-object v0
+ .end method
+@@ -325,41 +261,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -367,29 +295,22 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x3
+ 
+@@ -405,58 +326,43 @@
+     .line 37
+     if-eqz v2, :cond_4
+ 
+-    .line 38
+     .line 39
+     if-eq v2, v6, :cond_3
+ 
+-    .line 40
+     .line 41
+     if-eq v2, v4, :cond_2
+ 
+-    .line 42
+     .line 43
+     if-ne v2, v3, :cond_1
+ 
+-    .line 44
+     .line 45
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 46
+     .line 47
+     check-cast p0, Ljava/lang/String;
+ 
+-    .line 48
+     .line 49
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 50
+     .line 51
+     check-cast p0, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 52
+     .line 53
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     goto/16 :goto_5
+ 
+-    .line 57
+     .line 58
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 59
+     .line 60
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 61
+     .line 62
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     throw p0
+ 
+@@ -464,16 +370,12 @@
+     :cond_2
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 67
+     .line 68
+     check-cast p0, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 69
+     .line 70
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     goto :goto_3
+ 
+@@ -481,8 +383,6 @@
+     :cond_3
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     goto :goto_1
+ 
+@@ -490,28 +390,21 @@
+     :cond_4
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     sget-object p1, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 82
+     .line 83
+     iput v6, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->label:I
+ 
+-    .line 84
+     .line 85
+     invoke-virtual {p1, v0}, Lcom/xj/standalone/steam/sdk/SteamSdk;->l(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p1
+ 
+     .line 89
+     if-ne p1, v1, :cond_5
+ 
+-    .line 90
+     .line 91
+     goto :goto_4
+ 
+@@ -520,16 +413,12 @@
+     :goto_1
+     check-cast p1, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 93
+     .line 94
+     if-nez p1, :cond_6
+ 
+-    .line 95
+     .line 96
+     invoke-static {v5}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p0
+ 
+@@ -540,27 +429,21 @@
+     :cond_6
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAvatarUrl()Ljava/lang/String;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object v2
+ 
+     .line 105
+     if-eqz v2, :cond_8
+ 
+-    .line 106
+     .line 107
+     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result v2
+ 
+     .line 111
+     if-nez v2, :cond_7
+ 
+-    .line 112
+     .line 113
+     goto :goto_2
+ 
+@@ -568,49 +451,38 @@
+     :cond_7
+     invoke-virtual {p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAvatarUrl()Ljava/lang/String;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object v2
+ 
+     .line 118
+     const-string v7, "https://avatars.cloudflare.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg"
+ 
+-    .line 119
+     .line 120
+     invoke-static {v2, v7}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result v2
+ 
+     .line 124
+     if-eqz v2, :cond_b
+ 
+-    .line 125
+     .line 126
+     :cond_8
+     :goto_2
+     iput-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 127
+     .line 128
+     iput v4, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->label:I
+ 
+-    .line 129
+     .line 130
+     invoke-virtual {p0, v0}, Lcom/xj/module/steam/service/SteamServiceImpl;->z(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result-object p0
+ 
+     .line 134
+     if-ne p0, v1, :cond_9
+ 
+-    .line 135
+     .line 136
+     goto :goto_4
+ 
+@@ -628,64 +500,48 @@
+     :goto_3
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 141
+     .line 142
+     if-eqz p1, :cond_b
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {p0, p1}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->setAvatarUrl(Ljava/lang/String;)V
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     sget-object v2, Lcom/xj/standalone/steam/SteamAPI;->a:Lcom/xj/standalone/steam/SteamAPI;
+ 
+-    .line 148
+     .line 149
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     move-result-object v4
+ 
+     .line 153
+     iput-object v4, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 154
+     .line 155
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     move-result-object p1
+ 
+     .line 159
+     iput-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 160
+     .line 161
+     iput v5, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->I$0:I
+ 
+-    .line 162
+     .line 163
+     iput v3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$updateUserSteamAvatar$1;->label:I
+ 
+-    .line 164
+     .line 165
+     invoke-virtual {v2, p0, v6, v0}, Lcom/xj/standalone/steam/SteamAPI;->I(Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result-object p0
+ 
+     .line 169
+     if-ne p0, v1, :cond_a
+ 
+-    .line 170
+     .line 171
+     :goto_4
+     return-object v1
+@@ -695,8 +551,6 @@
+     :goto_5
+     invoke-static {v6}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result-object p0
+ 
+@@ -707,8 +561,6 @@
+     :cond_b
+     invoke-static {v5}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     move-result-object p0
+ 
+@@ -722,19 +574,15 @@
+     .line 1
+     sget-object v0, Lcom/xj/common/config/AppConfig;->a:Lcom/xj/common/config/AppConfig$Companion;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/xj/common/config/AppConfig$Companion;->e()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -742,16 +590,12 @@
+     :cond_0
+     if-eqz p1, :cond_1
+ 
+-    .line 11
+     .line 12
+     iget-object p0, p0, Lcom/xj/module/steam/service/SteamServiceImpl;->c:Lcom/xj/module/steam/service/SteamServiceImpl$defaultSteamLog$1;
+ 
+-    .line 13
+     .line 14
+     invoke-static {p0}, Lin/dragonbra/javasteam/util/log/LogManager;->addListener(Lin/dragonbra/javasteam/util/log/LogListener;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ 
+@@ -759,12 +603,9 @@
+     :cond_1
+     iget-object p0, p0, Lcom/xj/module/steam/service/SteamServiceImpl;->c:Lcom/xj/module/steam/service/SteamServiceImpl$defaultSteamLog$1;
+ 
+-    .line 19
+     .line 20
+     invoke-static {p0}, Lin/dragonbra/javasteam/util/log/LogManager;->removeListener(Lin/dragonbra/javasteam/util/log/LogListener;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -775,12 +616,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/standalone/steam/SteamAPI;->a:Lcom/xj/standalone/steam/SteamAPI;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/SteamAPI;->B()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -794,41 +632,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -836,54 +666,40 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     check-cast p0, Lkotlin/Result;
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p0}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+@@ -894,16 +710,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 49
+     .line 50
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 51
+     .line 52
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     throw p0
+ 
+@@ -911,28 +723,21 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     sget-object p0, Lcom/xj/standalone/steam/sdk/user/SteamUserApi;->a:Lcom/xj/standalone/steam/sdk/user/SteamUserApi;
+ 
+-    .line 60
+     .line 61
+     iput v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getSteamLevelByServer$1;->label:I
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {p0, v0}, Lcom/xj/standalone/steam/sdk/user/SteamUserApi;->a(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result-object p0
+ 
+     .line 67
+     if-ne p0, p1, :cond_3
+ 
+-    .line 68
+     .line 69
+     return-object p1
+ 
+@@ -941,15 +746,12 @@
+     :goto_1
+     invoke-static {p0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p1
+ 
+     .line 74
+     if-eqz p1, :cond_4
+ 
+-    .line 75
+     .line 76
+     const/4 p0, 0x0
+ 
+@@ -957,19 +759,15 @@
+     :cond_4
+     check-cast p0, Ljava/lang/Integer;
+ 
+-    .line 78
+     .line 79
+     const/4 p1, 0x0
+ 
+     .line 80
+     if-eqz p0, :cond_5
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result p0
+ 
+@@ -984,7 +782,6 @@
+     :goto_2
+     if-gtz p0, :cond_6
+ 
+-    .line 89
+     .line 90
+     goto :goto_3
+ 
+@@ -996,8 +793,6 @@
+     :goto_3
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/Boxing;->e(I)Ljava/lang/Integer;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p0
+ 
+@@ -1011,12 +806,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/standalone/steam/sdk/SteamSdk;->h(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1030,12 +822,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/module/steam/game/SteamGameRepository;->a:Lcom/xj/module/steam/game/SteamGameRepository;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/xj/module/steam/game/SteamGameRepository;->e()Lkotlinx/coroutines/flow/Flow;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1049,41 +838,33 @@
+     .line 1
+     instance-of v0, p3, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1091,70 +872,52 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p1, Ljava/util/List;
+ 
+-    .line 41
+     .line 42
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 43
+     .line 44
+     check-cast p1, Lcom/xj/common/service/bean/LanguageName;
+ 
+-    .line 45
+     .line 46
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     check-cast p3, Lkotlin/Result;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {p3}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p1
+ 
+@@ -1165,16 +928,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 57
+     .line 58
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 59
+     .line 60
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     throw p0
+ 
+@@ -1182,60 +941,45 @@
+     :cond_2
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     sget-object p3, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;
+ 
+-    .line 68
+     .line 69
+     invoke-static {p2}, Lkotlin/collections/CollectionsKt;->j1(Ljava/lang/Iterable;)Ljava/util/Set;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v2
+ 
+     .line 73
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v4
+ 
+     .line 77
+     iput-object v4, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 78
+     .line 79
+     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object p2
+ 
+     .line 83
+     iput-object p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 84
+     .line 85
+     iput v3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrices$1;->label:I
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {p3, p1, v2, v0}, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->y(Lcom/xj/common/service/bean/LanguageName;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p1
+ 
+     .line 91
+     if-ne p1, v1, :cond_3
+ 
+-    .line 92
+     .line 93
+     return-object v1
+ 
+@@ -1244,15 +988,12 @@
+     :goto_1
+     invoke-static {p1}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result p2
+ 
+     .line 98
+     if-eqz p2, :cond_4
+ 
+-    .line 99
+     .line 100
+     const/4 p1, 0x0
+ 
+@@ -1260,16 +1001,12 @@
+     :cond_4
+     check-cast p1, Ljava/util/List;
+ 
+-    .line 102
+     .line 103
+     if-nez p1, :cond_5
+ 
+-    .line 104
+     .line 105
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object p1
+ 
+@@ -1277,29 +1014,21 @@
+     :cond_5
+     new-instance p2, Ljava/util/ArrayList;
+ 
+-    .line 110
+     .line 111
+     const/16 p3, 0xa
+ 
+-    .line 112
+     .line 113
+     invoke-static {p1, p3}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result p3
+ 
+     .line 117
+     invoke-direct {p2, p3}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p1
+ 
+@@ -1307,40 +1036,30 @@
+     :goto_2
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result p3
+ 
+     .line 128
+     if-eqz p3, :cond_6
+ 
+-    .line 129
+     .line 130
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result-object p3
+ 
+     .line 134
+     check-cast p3, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;
+ 
+-    .line 135
+     .line 136
+     invoke-virtual {p0, p3}, Lcom/xj/module/steam/service/SteamServiceImpl;->C(Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;)Lcom/xj/common/bean/SteamGamePriceEntity;
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result-object p3
+ 
+     .line 140
+     invoke-interface {p2, p3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 141
+-    .line 142
+     .line 143
+     goto :goto_2
+ 
+@@ -1355,41 +1074,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1397,29 +1108,22 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x2
+ 
+@@ -1432,19 +1136,15 @@
+     .line 36
+     if-eqz v1, :cond_2
+ 
+-    .line 37
+     .line 38
+     if-ne v1, v3, :cond_1
+ 
+-    .line 39
+     .line 40
+     :try_start_0
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     goto :goto_1
+ 
+@@ -1459,16 +1159,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 47
+     .line 48
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     throw p0
+ 
+@@ -1476,29 +1172,22 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     :try_start_1
+     sget-object p0, Lcom/xj/standalone/steam/SteamAPI;->a:Lcom/xj/standalone/steam/SteamAPI;
+ 
+-    .line 58
+     .line 59
+     iput v3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$autoLoginSync$1;->label:I
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {p0, v0}, Lcom/xj/standalone/steam/SteamAPI;->h(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object p0
+ 
+     .line 65
+     if-ne p0, p1, :cond_3
+ 
+-    .line 66
+     .line 67
+     return-object p1
+ 
+@@ -1507,60 +1196,42 @@
+     :goto_1
+     check-cast p0, Ljava/lang/Boolean;
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result p0
+ 
+     .line 74
+     sget-object p1, Lcom/xj/standalone/steam/utils/SteamLog;->a:Lcom/xj/standalone/steam/utils/SteamLog;
+ 
+-    .line 75
+     .line 76
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 77
+     .line 78
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     const-string v1, "autoLogin: "
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object v0
+ 
+     .line 93
+     invoke-static {p1, v0, v4, v2, v4}, Lcom/xj/standalone/steam/utils/SteamLog;->c(Lcom/xj/standalone/steam/utils/SteamLog;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p0
+     :try_end_1
+@@ -1573,59 +1244,42 @@
+     :goto_2
+     sget-object p1, Lcom/xj/standalone/steam/utils/SteamLog;->a:Lcom/xj/standalone/steam/utils/SteamLog;
+ 
+-    .line 102
+     .line 103
+     invoke-static {p0}, Lkotlin/ExceptionsKt;->c(Ljava/lang/Throwable;)Ljava/lang/String;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result-object p0
+ 
+     .line 107
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 108
+     .line 109
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     const-string v1, "triggerLogin error: "
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p0
+ 
+     .line 124
+     invoke-static {p1, p0, v4, v2, v4}, Lcom/xj/standalone/steam/utils/SteamLog;->c(Lcom/xj/standalone/steam/utils/SteamLog;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     const/4 p0, 0x0
+ 
+     .line 128
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object p0
+ 
+@@ -1639,12 +1293,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/module/steam/game/SteamGameRepository;->a:Lcom/xj/module/steam/game/SteamGameRepository;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/module/steam/game/SteamGameRepository;->f(Z)Lkotlinx/coroutines/flow/Flow;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -1658,41 +1309,33 @@
+     .line 1
+     instance-of v0, p3, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1700,29 +1343,22 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x2
+ 
+@@ -1732,45 +1368,33 @@
+     .line 35
+     if-eqz v2, :cond_3
+ 
+-    .line 36
+     .line 37
+     if-eq v2, v4, :cond_2
+ 
+-    .line 38
+     .line 39
+     if-ne v2, v3, :cond_1
+ 
+-    .line 40
+     .line 41
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 42
+     .line 43
+     check-cast p1, Ljava/util/List;
+ 
+-    .line 44
+     .line 45
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 46
+     .line 47
+     check-cast p1, Lcom/xj/common/service/bean/LanguageName;
+ 
+-    .line 48
+     .line 49
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     check-cast p3, Lkotlin/Result;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p3}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p1
+ 
+@@ -1781,16 +1405,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 60
+     .line 61
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 62
+     .line 63
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     throw p0
+ 
+@@ -1798,36 +1418,27 @@
+     :cond_2
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 68
+     .line 69
+     move-object p2, p1
+ 
+     .line 70
+     check-cast p2, Ljava/util/List;
+ 
+-    .line 71
+     .line 72
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 73
+     .line 74
+     check-cast p1, Lcom/xj/common/service/bean/LanguageName;
+ 
+-    .line 75
+     .line 76
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     check-cast p3, Lkotlin/Result;
+ 
+-    .line 80
+     .line 81
+     invoke-virtual {p3}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     goto :goto_1
+ 
+@@ -1835,36 +1446,27 @@
+     :cond_3
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     sget-object p3, Lcom/xj/standalone/steam/sdk/price/SteamGamePriceApi;->a:Lcom/xj/standalone/steam/sdk/price/SteamGamePriceApi;
+ 
+-    .line 89
+     .line 90
+     iput-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 91
+     .line 92
+     iput-object p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 93
+     .line 94
+     iput v4, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->label:I
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {p3, p1, p2, v0}, Lcom/xj/standalone/steam/sdk/price/SteamGamePriceApi;->c(Lcom/xj/common/service/bean/LanguageName;Ljava/util/Collection;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p3
+ 
+     .line 100
+     if-ne p3, v1, :cond_4
+ 
+-    .line 101
+     .line 102
+     goto :goto_2
+ 
+@@ -1873,55 +1475,42 @@
+     :goto_1
+     sget-object p3, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;
+ 
+-    .line 104
+     .line 105
+     invoke-static {p2}, Lkotlin/collections/CollectionsKt;->j1(Ljava/lang/Iterable;)Ljava/util/Set;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v2
+ 
+     .line 109
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object v4
+ 
+     .line 113
+     iput-object v4, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 114
+     .line 115
+     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result-object p2
+ 
+     .line 119
+     iput-object p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 120
+     .line 121
+     iput v3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryPrice$1;->label:I
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p3, p1, v2, v0}, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->y(Lcom/xj/common/service/bean/LanguageName;Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     move-result-object p1
+ 
+     .line 127
+     if-ne p1, v1, :cond_5
+ 
+-    .line 128
+     .line 129
+     :goto_2
+     return-object v1
+@@ -1931,15 +1520,12 @@
+     :goto_3
+     invoke-static {p1}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     move-result p2
+ 
+     .line 134
+     if-eqz p2, :cond_6
+ 
+-    .line 135
+     .line 136
+     const/4 p1, 0x0
+ 
+@@ -1947,16 +1533,12 @@
+     :cond_6
+     check-cast p1, Ljava/util/List;
+ 
+-    .line 138
+     .line 139
+     if-nez p1, :cond_7
+ 
+-    .line 140
+     .line 141
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result-object p1
+ 
+@@ -1964,45 +1546,34 @@
+     :cond_7
+     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     move-result-object p2
+ 
+     .line 149
+     const-wide/16 v0, 0x0
+ 
+-    .line 150
+     .line 151
+     :goto_4
+     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     move-result p3
+ 
+     .line 155
+     if-eqz p3, :cond_8
+ 
+-    .line 156
+     .line 157
+     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     move-result-object p3
+ 
+     .line 161
+     check-cast p3, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;->getPrice()D
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-wide v2
+ 
+@@ -2016,37 +1587,27 @@
+     :cond_8
+     invoke-static {v0, v1}, Lkotlin/coroutines/jvm/internal/Boxing;->c(D)Ljava/lang/Double;
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result-object p2
+ 
+     .line 173
+     new-instance p3, Ljava/util/ArrayList;
+ 
+-    .line 174
+     .line 175
+     const/16 v0, 0xa
+ 
+-    .line 176
+     .line 177
+     invoke-static {p1, v0}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     move-result v0
+ 
+     .line 181
+     invoke-direct {p3, v0}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 185
+-    .line 186
+     .line 187
+     move-result-object p1
+ 
+@@ -2054,40 +1615,30 @@
+     :goto_5
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     move-result v0
+ 
+     .line 192
+     if-eqz v0, :cond_9
+ 
+-    .line 193
+     .line 194
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     move-result-object v0
+ 
+     .line 198
+     check-cast v0, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;
+ 
+-    .line 199
+     .line 200
+     invoke-virtual {p0, v0}, Lcom/xj/module/steam/service/SteamServiceImpl;->C(Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;)Lcom/xj/common/bean/SteamGamePriceEntity;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result-object v0
+ 
+     .line 204
+     invoke-interface {p3, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     goto :goto_5
+ 
+@@ -2095,8 +1646,6 @@
+     :cond_9
+     invoke-static {p2, p3}, Lkotlin/TuplesKt;->a(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     move-result-object p0
+ 
+@@ -2110,27 +1659,21 @@
+     .line 1
+     sget-object v0, Lcom/xj/common/concurrent/ExecutorUtils;->a:Lcom/xj/common/concurrent/ExecutorUtils;
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Lcom/xj/module/steam/service/SteamServiceImpl$autoLogin$1;
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x0
+ 
+     .line 6
+     invoke-direct {v1, p0, v2}, Lcom/xj/module/steam/service/SteamServiceImpl$autoLogin$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const/4 p0, 0x1
+ 
+     .line 10
+     invoke-static {v0, v2, v1, p0, v2}, Lcom/xj/common/concurrent/ExecutorUtils;->g(Lcom/xj/common/concurrent/ExecutorUtils;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     return-void
+ .end method
+@@ -2141,23 +1684,18 @@
+     .line 1
+     invoke-static {}, Lkotlinx/coroutines/CoroutineScopeKt;->b()Lkotlinx/coroutines/CoroutineScope;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     new-instance v3, Lcom/xj/module/steam/service/SteamServiceImpl$toLoginPage$1;
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x0
+ 
+     .line 8
+     invoke-direct {v3, p0}, Lcom/xj/module/steam/service/SteamServiceImpl$toLoginPage$1;-><init>(Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/4 v4, 0x3
+ 
+@@ -2173,8 +1711,6 @@
+     .line 15
+     invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/BuildersKt;->d(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -2185,12 +1721,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/standalone/steam/SteamAPI;->a:Lcom/xj/standalone/steam/SteamAPI;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/standalone/steam/SteamAPI;->m(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -2204,41 +1737,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -2246,45 +1771,34 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_1
+ 
+@@ -2292,16 +1806,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 43
+     .line 44
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw p0
+ 
+@@ -2309,28 +1819,21 @@
+     :cond_2
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     sget-object p1, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 54
+     .line 55
+     iput v3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getCurLoginAccount$1;->label:I
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p1, v0}, Lcom/xj/standalone/steam/sdk/SteamSdk;->l(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p1
+ 
+     .line 61
+     if-ne p1, v1, :cond_3
+ 
+-    .line 62
+     .line 63
+     return-object v1
+ 
+@@ -2339,11 +1842,9 @@
+     :goto_1
+     check-cast p1, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 65
+     .line 66
+     if-nez p1, :cond_4
+ 
+-    .line 67
+     .line 68
+     const/4 p0, 0x0
+ 
+@@ -2354,8 +1855,6 @@
+     :cond_4
+     invoke-virtual {p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl;->B(Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;)Lcom/xj/common/bean/SteamAccount;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p0
+ 
+@@ -2369,41 +1868,33 @@
+     .line 1
+     instance-of v0, p2, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p2
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -2411,62 +1902,46 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p2}, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p2
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 41
+     .line 42
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     check-cast p0, Lkotlin/Result;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p0}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -2477,16 +1952,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 53
+     .line 54
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 55
+     .line 56
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     throw p0
+ 
+@@ -2494,40 +1965,30 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     sget-object p0, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;
+ 
+-    .line 64
+     .line 65
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v1
+ 
+     .line 69
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 70
+     .line 71
+     iput v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$queryAppsLikeName$1;->label:I
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {p0, p1, v0}, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->B(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p0
+ 
+     .line 77
+     if-ne p0, p2, :cond_3
+ 
+-    .line 78
+     .line 79
+     return-object p2
+ 
+@@ -2536,23 +1997,18 @@
+     :goto_1
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object p1
+ 
+     .line 84
+     invoke-static {p0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result p2
+ 
+     .line 88
+     if-eqz p2, :cond_4
+ 
+-    .line 89
+     .line 90
+     return-object p1
+ 
+@@ -2567,41 +2023,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -2609,45 +2057,34 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_1
+ 
+@@ -2655,16 +2092,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 43
+     .line 44
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw p0
+ 
+@@ -2672,28 +2105,21 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     sget-object p0, Lcom/xj/standalone/steam/data/db/SteamDB;->a:Lcom/xj/standalone/steam/data/db/SteamDB$Companion;
+ 
+-    .line 54
+     .line 55
+     iput v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$logout$1;->label:I
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p0, v0}, Lcom/xj/standalone/steam/data/db/SteamDB$Companion;->a(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+     .line 61
+     if-ne p0, p1, :cond_3
+ 
+-    .line 62
+     .line 63
+     return-object p1
+ 
+@@ -2702,29 +2128,21 @@
+     :goto_1
+     check-cast p0, Lcom/xj/standalone/steam/data/db/SteamDB;
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/SteamDB;->p()Lcom/xj/standalone/steam/data/db/SteamUserDao;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object p0
+ 
+     .line 70
+     invoke-interface {p0}, Lcom/xj/standalone/steam/data/db/SteamUserDao;->m()V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     new-instance p0, Lcom/xj/steam/api/bean/SteamLogoutAccountEvent;
+ 
+-    .line 74
+     .line 75
+     invoke-direct {p0}, Lcom/xj/steam/api/bean/SteamLogoutAccountEvent;-><init>()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     const/4 p1, 0x2
+ 
+@@ -2734,12 +2152,9 @@
+     .line 80
+     invoke-static {p0, v0, p1, v0}, Lcom/drake/channel/ChannelKt;->c(Ljava/lang/Object;Ljava/lang/String;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 84
+     .line 85
+     return-object p0
+ .end method
+@@ -2750,68 +2165,51 @@
+     .line 1
+     sget-object v0, Lcom/xj/standalone/steam/SteamAPI;->a:Lcom/xj/standalone/steam/SteamAPI;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/xj/standalone/steam/SteamAPI;->K()Lkotlinx/coroutines/flow/Flow;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sget-object v1, Lkotlin/time/Duration;->b:Lkotlin/time/Duration$Companion;
+ 
+-    .line 8
+     .line 9
+     const/16 v1, 0x1f4
+ 
+-    .line 10
+     .line 11
+     sget-object v2, Lkotlin/time/DurationUnit;->MILLISECONDS:Lkotlin/time/DurationUnit;
+ 
+-    .line 12
+     .line 13
+     invoke-static {v1, v2}, Lkotlin/time/DurationKt;->s(ILkotlin/time/DurationUnit;)J
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-wide v1
+ 
+     .line 17
+     invoke-static {v0, v1, v2}, Lkotlinx/coroutines/flow/FlowKt;->b0(Lkotlinx/coroutines/flow/Flow;J)Lkotlinx/coroutines/flow/Flow;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->b()Lkotlinx/coroutines/CoroutineDispatcher;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v1
+ 
+     .line 25
+     invoke-static {v0, v1}, Lkotlinx/coroutines/flow/FlowKt;->N(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/flow/Flow;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v0
+ 
+     .line 29
+     new-instance v1, Lcom/xj/module/steam/service/SteamServiceImpl$subjectCurLoginAccount$$inlined$map$1;
+ 
+-    .line 30
+     .line 31
+     invoke-direct {v1, v0, p0}, Lcom/xj/module/steam/service/SteamServiceImpl$subjectCurLoginAccount$$inlined$map$1;-><init>(Lkotlinx/coroutines/flow/Flow;Lcom/xj/module/steam/service/SteamServiceImpl;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-object v1
+ .end method
+@@ -2822,41 +2220,33 @@
+     .line 1
+     instance-of v0, p3, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -2864,66 +2254,49 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p3
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->I$0:I
+ 
+-    .line 39
+     .line 40
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     check-cast p1, Lcom/xj/common/service/bean/LanguageName;
+ 
+-    .line 43
+     .line 44
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     check-cast p0, Lkotlin/Result;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -2934,16 +2307,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 55
+     .line 56
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 57
+     .line 58
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     throw p0
+ 
+@@ -2951,44 +2320,33 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     sget-object p0, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;
+ 
+-    .line 66
+     .line 67
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object v1
+ 
+     .line 71
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 72
+     .line 73
+     iput p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->I$0:I
+ 
+-    .line 74
+     .line 75
+     iput v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getAchievements$1;->label:I
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p0, p1, p2, v0}, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->p(Lcom/xj/common/service/bean/LanguageName;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p0
+ 
+     .line 81
+     if-ne p0, p3, :cond_3
+ 
+-    .line 82
+     .line 83
+     return-object p3
+ 
+@@ -2997,28 +2355,21 @@
+     :goto_1
+     invoke-static {p0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p1
+ 
+     .line 88
+     if-eqz p1, :cond_4
+ 
+-    .line 89
+     .line 90
+     invoke-static {p1}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p0
+ 
+     .line 94
+     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p0
+ 
+@@ -3029,15 +2380,12 @@
+     :cond_4
+     invoke-static {p0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p1
+ 
+     .line 103
+     if-eqz p1, :cond_5
+ 
+-    .line 104
+     .line 105
+     const/4 p0, 0x0
+ 
+@@ -3045,37 +2393,27 @@
+     :cond_5
+     check-cast p0, Ljava/util/List;
+ 
+-    .line 107
+     .line 108
+     if-eqz p0, :cond_7
+ 
+-    .line 109
+     .line 110
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 111
+     .line 112
+     const/16 p3, 0xa
+ 
+-    .line 113
+     .line 114
+     invoke-static {p0, p3}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result p3
+ 
+     .line 118
+     invoke-direct {p1, p3}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result-object p0
+ 
+@@ -3083,180 +2421,133 @@
+     :goto_2
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result p3
+ 
+     .line 129
+     if-eqz p3, :cond_8
+ 
+-    .line 130
+     .line 131
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object p3
+ 
+     .line 135
+     check-cast p3, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;
+ 
+-    .line 136
+     .line 137
+     new-instance v0, Lcom/xj/common/bean/SteamGameAchievement;
+ 
+-    .line 138
+     .line 139
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getLocalizedName()Ljava/lang/String;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result-object v1
+ 
+     .line 143
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 144
+     .line 145
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 146
+-    .line 147
+     .line 148
+     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     const-string v3, "_"
+ 
+-    .line 152
+     .line 153
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 160
+-    .line 161
+     .line 162
+     move-result-object v1
+ 
+     .line 163
+     invoke-static {v1}, Lcom/xj/common/utils/MD5Util;->d(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     move-result-object v1
+ 
+     .line 167
+     if-nez v1, :cond_6
+ 
+-    .line 168
+     .line 169
+     const-string v1, ""
+ 
+-    .line 170
+     .line 171
+     :cond_6
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getLocalizedName()Ljava/lang/String;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object v2
+ 
+     .line 175
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getLocalizedDesc()Ljava/lang/String;
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result-object v3
+ 
+     .line 179
+     sget-object v4, Lcom/xj/common/utils/SteamUrlHelper;->a:Lcom/xj/common/utils/SteamUrlHelper;
+ 
+-    .line 180
+     .line 181
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getAppId()I
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result v5
+ 
+     .line 185
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getIcon()Ljava/lang/String;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object v6
+ 
+     .line 189
+     invoke-virtual {v4, v5, v6}, Lcom/xj/common/utils/SteamUrlHelper;->a(ILjava/lang/String;)Ljava/lang/String;
+ 
+-    .line 190
+-    .line 191
+     .line 192
+     move-result-object v5
+ 
+     .line 193
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getAppId()I
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result v6
+ 
+     .line 197
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getIconGray()Ljava/lang/String;
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result-object v7
+ 
+     .line 201
+     invoke-virtual {v4, v6, v7}, Lcom/xj/common/utils/SteamUrlHelper;->a(ILjava/lang/String;)Ljava/lang/String;
+ 
+-    .line 202
+-    .line 203
+     .line 204
+     move-result-object v4
+ 
+     .line 205
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getHidden()Z
+ 
+-    .line 206
+-    .line 207
+     .line 208
+     move-result v6
+ 
+     .line 209
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppAchievement;->getPlayerPercentUnlocked()Ljava/lang/String;
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     move-result-object v7
+ 
+     .line 213
+     const-wide/16 v8, -0x1
+ 
+-    .line 214
+     .line 215
+     move-object v10, v5
+ 
+@@ -3269,13 +2560,9 @@
+     .line 218
+     invoke-direct/range {v0 .. v9}, Lcom/xj/common/bean/SteamGameAchievement;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;J)V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 222
+-    .line 223
+     .line 224
+     goto :goto_2
+ 
+@@ -3283,8 +2570,6 @@
+     :cond_7
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 226
+-    .line 227
+     .line 228
+     move-result-object p1
+ 
+@@ -3292,8 +2577,6 @@
+     :cond_8
+     invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 230
+-    .line 231
+     .line 232
+     move-result-object p0
+ 
+@@ -3307,19 +2590,15 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/module/steam/service/SteamServiceImpl;->b:Lkotlin/Lazy;
+ 
+-    .line 2
+     .line 3
+     invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     check-cast p0, Lcom/xj/common/service/Logger;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ .end method
+@@ -3330,41 +2609,33 @@
+     .line 1
+     instance-of v0, p3, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -3372,66 +2643,49 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_3
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_2
+ 
+-    .line 37
+     .line 38
+     iget p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->I$0:I
+ 
+-    .line 39
+     .line 40
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     check-cast p1, Lcom/xj/common/service/bean/LanguageName;
+ 
+-    .line 43
+     .line 44
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     check-cast p3, Lkotlin/Result;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p3}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p1
+ 
+@@ -3446,16 +2700,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 56
+     .line 57
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 58
+     .line 59
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     throw p0
+ 
+@@ -3463,44 +2713,33 @@
+     :cond_3
+     invoke-static {p3}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     sget-object p3, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;
+ 
+-    .line 67
+     .line 68
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object v2
+ 
+     .line 72
+     iput-object v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 73
+     .line 74
+     iput p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->I$0:I
+ 
+-    .line 75
+     .line 76
+     iput v3, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getPrice$1;->label:I
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p3, p1, p2, v0}, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->x(Lcom/xj/common/service/bean/LanguageName;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result-object p1
+ 
+     .line 82
+     if-ne p1, v1, :cond_1
+ 
+-    .line 83
+     .line 84
+     return-object v1
+ 
+@@ -3508,15 +2747,12 @@
+     :goto_1
+     invoke-static {p1}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result p2
+ 
+     .line 89
+     if-eqz p2, :cond_4
+ 
+-    .line 90
+     .line 91
+     const/4 p1, 0x0
+ 
+@@ -3524,23 +2760,18 @@
+     :cond_4
+     check-cast p1, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;
+ 
+-    .line 93
+     .line 94
+     if-eqz p1, :cond_6
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {p0, p1}, Lcom/xj/module/steam/service/SteamServiceImpl;->C(Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppPrice;)Lcom/xj/common/bean/SteamGamePriceEntity;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object p0
+ 
+     .line 100
+     if-nez p0, :cond_5
+ 
+-    .line 101
+     .line 102
+     goto :goto_2
+ 
+@@ -3553,19 +2784,15 @@
+     :goto_2
+     new-instance v0, Lcom/xj/common/bean/SteamGamePriceEntity;
+ 
+-    .line 105
+     .line 106
+     const-string v6, "0.00"
+ 
+-    .line 107
+     .line 108
+     const-string v7, "0.00"
+ 
+-    .line 109
+     .line 110
+     const-string v2, ""
+ 
+-    .line 111
+     .line 112
+     const/4 v3, 0x0
+ 
+@@ -3578,8 +2805,6 @@
+     .line 115
+     invoke-direct/range {v0 .. v7}, Lcom/xj/common/bean/SteamGamePriceEntity;-><init>(ILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     return-object v0
+ .end method
+@@ -3590,41 +2815,33 @@
+     .line 1
+     instance-of v0, p3, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p3
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -3632,66 +2849,49 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p3}, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;-><init>(Lcom/xj/module/steam/service/SteamServiceImpl;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p3
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->I$0:I
+ 
+-    .line 39
+     .line 40
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 41
+     .line 42
+     check-cast p1, Lcom/xj/common/service/bean/LanguageName;
+ 
+-    .line 43
+     .line 44
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     check-cast p0, Lkotlin/Result;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result-object p0
+ 
+@@ -3702,16 +2902,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 55
+     .line 56
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 57
+     .line 58
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     throw p0
+ 
+@@ -3719,44 +2915,33 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     sget-object p0, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->a:Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;
+ 
+-    .line 66
+     .line 67
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result-object v1
+ 
+     .line 71
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 72
+     .line 73
+     iput p2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->I$0:I
+ 
+-    .line 74
+     .line 75
+     iput v2, v0, Lcom/xj/module/steam/service/SteamServiceImpl$getTopAchievements$1;->label:I
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p0, p1, p2, v0}, Lcom/xj/standalone/steam/sdk/game/SteamPicsApi;->v(Lcom/xj/common/service/bean/LanguageName;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-object p0
+ 
+     .line 81
+     if-ne p0, p3, :cond_3
+ 
+-    .line 82
+     .line 83
+     return-object p3
+ 
+@@ -3765,28 +2950,21 @@
+     :goto_1
+     invoke-static {p0}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object p1
+ 
+     .line 88
+     if-eqz p1, :cond_4
+ 
+-    .line 89
+     .line 90
+     invoke-static {p1}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p0
+ 
+     .line 94
+     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object p0
+ 
+@@ -3797,15 +2975,12 @@
+     :cond_4
+     invoke-static {p0}, Lkotlin/Result;->isFailure-impl(Ljava/lang/Object;)Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p1
+ 
+     .line 103
+     if-eqz p1, :cond_5
+ 
+-    .line 104
+     .line 105
+     const/4 p0, 0x0
+ 
+@@ -3813,37 +2988,27 @@
+     :cond_5
+     check-cast p0, Ljava/util/List;
+ 
+-    .line 107
+     .line 108
+     if-eqz p0, :cond_7
+ 
+-    .line 109
+     .line 110
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 111
+     .line 112
+     const/16 p3, 0xa
+ 
+-    .line 113
+     .line 114
+     invoke-static {p0, p3}, Lkotlin/collections/CollectionsKt;->A(Ljava/lang/Iterable;I)I
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result p3
+ 
+     .line 118
+     invoke-direct {p1, p3}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     move-result-object p0
+ 
+@@ -3851,199 +3016,145 @@
+     :goto_2
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result p3
+ 
+     .line 129
+     if-eqz p3, :cond_8
+ 
+-    .line 130
+     .line 131
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object p3
+ 
+     .line 135
+     check-cast p3, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;
+ 
+-    .line 136
+     .line 137
+     new-instance v0, Lcom/xj/common/bean/SteamGameAchievement;
+ 
+-    .line 138
+     .line 139
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getStatid()I
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     move-result v1
+ 
+     .line 143
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getBit()I
+ 
+-    .line 144
+-    .line 145
+     .line 146
+     move-result v2
+ 
+     .line 147
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 148
+     .line 149
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     const-string v4, "_"
+ 
+-    .line 156
+     .line 157
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result-object v1
+ 
+     .line 173
+     invoke-static {v1}, Lcom/xj/common/utils/MD5Util;->d(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-object v1
+ 
+     .line 177
+     if-nez v1, :cond_6
+ 
+-    .line 178
+     .line 179
+     const-string v1, ""
+ 
+-    .line 180
+     .line 181
+     :cond_6
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getName()Ljava/lang/String;
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result-object v2
+ 
+     .line 185
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getDesc()Ljava/lang/String;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object v3
+ 
+     .line 189
+     sget-object v4, Lcom/xj/common/utils/SteamUrlHelper;->a:Lcom/xj/common/utils/SteamUrlHelper;
+ 
+-    .line 190
+     .line 191
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getAppId()I
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result v5
+ 
+     .line 195
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getIcon()Ljava/lang/String;
+ 
+-    .line 196
+-    .line 197
+     .line 198
+     move-result-object v6
+ 
+     .line 199
+     invoke-virtual {v4, v5, v6}, Lcom/xj/common/utils/SteamUrlHelper;->a(ILjava/lang/String;)Ljava/lang/String;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object v5
+ 
+     .line 203
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getAppId()I
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result v6
+ 
+     .line 207
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getIconGray()Ljava/lang/String;
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     move-result-object v7
+ 
+     .line 211
+     invoke-virtual {v4, v6, v7}, Lcom/xj/common/utils/SteamUrlHelper;->a(ILjava/lang/String;)Ljava/lang/String;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result-object v4
+ 
+     .line 215
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getHidden()Z
+ 
+-    .line 216
+-    .line 217
+     .line 218
+     move-result v6
+ 
+     .line 219
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getPlayerPercentUnlocked()Ljava/lang/String;
+ 
+-    .line 220
+-    .line 221
+     .line 222
+     move-result-object v7
+ 
+     .line 223
+     invoke-virtual {p3}, Lcom/xj/standalone/steam/data/db/tables/apps/SteamPicsAppTopAchievement;->getUnlockTime()J
+ 
+-    .line 224
+-    .line 225
+     .line 226
+     move-result-wide v8
+ 
+@@ -4059,13 +3170,9 @@
+     .line 230
+     invoke-direct/range {v0 .. v9}, Lcom/xj/common/bean/SteamGameAchievement;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;J)V
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+ 
+-    .line 234
+-    .line 235
+     .line 236
+     goto :goto_2
+ 
+@@ -4073,8 +3180,6 @@
+     :cond_7
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 238
+-    .line 239
+     .line 240
+     move-result-object p1
+ 
+@@ -4082,8 +3187,6 @@
+     :cond_8
+     invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object p0
+ 
+@@ -4097,12 +3200,9 @@
+     .line 1
+     sget-object p0, Lcom/xj/standalone/steam/SteamAPI;->a:Lcom/xj/standalone/steam/SteamAPI;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1}, Lcom/xj/standalone/steam/SteamAPI;->w(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 

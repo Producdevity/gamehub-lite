@@ -1,0 +1,212 @@
+--- a/smali_classes6/com/google/common/io/ByteSink.smali
++++ b/smali_classes6/com/google/common/io/ByteSink.smali
+@@ -27,8 +27,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -41,15 +39,12 @@
+     .line 1
+     new-instance v0, Lcom/google/common/io/ByteSink$AsCharSink;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, p0, p1, v1}, Lcom/google/common/io/ByteSink$AsCharSink;-><init>(Lcom/google/common/io/ByteSink;Ljava/nio/charset/Charset;Lcom/google/common/io/ByteSink$1;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-object v0
+ .end method
+@@ -65,23 +60,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/io/ByteSink;->openStream()Ljava/io/OutputStream;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     instance-of v0, p0, Ljava/io/BufferedOutputStream;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     check-cast p0, Ljava/io/BufferedOutputStream;
+ 
+-    .line 10
+     .line 11
+     return-object p0
+ 
+@@ -89,12 +79,9 @@
+     :cond_0
+     new-instance v0, Ljava/io/BufferedOutputStream;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {v0, p0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-object v0
+ .end method
+@@ -118,13 +105,9 @@
+     .line 1
+     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Lcom/google/common/io/Closer;->create()Lcom/google/common/io/Closer;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+@@ -132,40 +115,29 @@
+     :try_start_0
+     invoke-virtual {p0}, Lcom/google/common/io/ByteSink;->openStream()Ljava/io/OutputStream;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     invoke-virtual {v0, p0}, Lcom/google/common/io/Closer;->register(Ljava/io/Closeable;)Ljava/io/Closeable;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     check-cast p0, Ljava/io/OutputStream;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write([B)V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     invoke-virtual {p0}, Ljava/io/OutputStream;->flush()V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -177,8 +149,6 @@
+     :try_start_1
+     invoke-virtual {v0, p0}, Lcom/google/common/io/Closer;->rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+@@ -194,8 +164,6 @@
+     .line 35
+     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     throw p0
+ .end method
+@@ -214,13 +182,9 @@
+     .line 1
+     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {}, Lcom/google/common/io/Closer;->create()Lcom/google/common/io/Closer;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+@@ -228,28 +192,21 @@
+     :try_start_0
+     invoke-virtual {p0}, Lcom/google/common/io/ByteSink;->openStream()Ljava/io/OutputStream;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     invoke-virtual {v0, p0}, Lcom/google/common/io/Closer;->register(Ljava/io/Closeable;)Ljava/io/Closeable;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     check-cast p0, Ljava/io/OutputStream;
+ 
+-    .line 17
+     .line 18
+     invoke-static {p1, p0}, Lcom/google/common/io/ByteStreams;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;)J
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-wide v1
+ 
+@@ -258,13 +215,9 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-wide v1
+ 
+@@ -276,8 +229,6 @@
+     :try_start_1
+     invoke-virtual {v0, p0}, Lcom/google/common/io/Closer;->rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -293,8 +244,6 @@
+     .line 36
+     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     throw p0
+ .end method

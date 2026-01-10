@@ -1,0 +1,586 @@
+--- a/smali_classes5/com/google/android/material/carousel/CarouselSnapHelper.smali
++++ b/smali_classes5/com/google/android/material/carousel/CarouselSnapHelper.smali
+@@ -45,7 +45,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/carousel/CarouselSnapHelper;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -56,8 +55,6 @@
+     .line 1
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/carousel/CarouselSnapHelper;->calculateDistanceToSnap(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;Landroid/view/View;Z)[I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -79,19 +76,15 @@
+     .line 1
+     instance-of v0, p1, Lcom/google/android/material/carousel/CarouselLayoutManager;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     filled-new-array {v1, v1}, [I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -105,32 +98,24 @@
+     .line 12
+     check-cast v0, Lcom/google/android/material/carousel/CarouselLayoutManager;
+ 
+-    .line 13
+     .line 14
+     invoke-direct {p0, p2, v0, p3}, Lcom/google/android/material/carousel/CarouselSnapHelper;->distanceToFirstFocalKeyline(Landroid/view/View;Lcom/google/android/material/carousel/CarouselLayoutManager;Z)I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result p0
+ 
+     .line 18
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->canScrollHorizontally()Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p2
+ 
+     .line 22
+     if-eqz p2, :cond_1
+ 
+-    .line 23
+     .line 24
+     filled-new-array {p0, v1}, [I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+@@ -141,20 +126,15 @@
+     :cond_1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->canScrollVertically()Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p1
+ 
+     .line 33
+     if-eqz p1, :cond_2
+ 
+-    .line 34
+     .line 35
+     filled-new-array {v1, p0}, [I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+@@ -165,8 +145,6 @@
+     :cond_2
+     filled-new-array {v1, v1}, [I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p0
+ 
+@@ -184,16 +162,12 @@
+     .line 1
+     invoke-virtual {p2, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     invoke-virtual {p2, p0, p3}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOffsetToScrollToPositionForSnap(IZ)I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+@@ -209,8 +183,6 @@
+     .line 1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -220,15 +192,12 @@
+     .line 6
+     if-eqz p0, :cond_2
+ 
+-    .line 7
+     .line 8
+     instance-of v1, p1, Lcom/google/android/material/carousel/CarouselLayoutManager;
+ 
+-    .line 9
+     .line 10
+     if-nez v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     goto :goto_1
+ 
+@@ -239,15 +208,12 @@
+     .line 14
+     check-cast v1, Lcom/google/android/material/carousel/CarouselLayoutManager;
+ 
+-    .line 15
+     .line 16
+     const/4 v2, 0x0
+ 
+     .line 17
+     const v3, 0x7fffffff
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move v4, v2
+ 
+@@ -255,43 +221,33 @@
+     :goto_0
+     if-ge v4, p0, :cond_2
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p1, v4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v5
+ 
+     .line 27
+     invoke-virtual {p1, v5}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v6
+ 
+     .line 31
+     invoke-virtual {v1, v6, v2}, Lcom/google/android/material/carousel/CarouselLayoutManager;->getOffsetToScrollToPositionForSnap(IZ)I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v6
+ 
+     .line 35
+     invoke-static {v6}, Ljava/lang/Math;->abs(I)I
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result v6
+ 
+     .line 39
+     if-ge v6, v3, :cond_1
+ 
+-    .line 40
+     .line 41
+     move-object v0, v5
+ 
+@@ -302,7 +258,6 @@
+     :cond_1
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -318,8 +273,6 @@
+     .line 1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->canScrollHorizontally()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -332,11 +285,9 @@
+     .line 7
+     if-eqz p0, :cond_1
+ 
+-    .line 8
+     .line 9
+     if-lez p2, :cond_0
+ 
+-    .line 10
+     .line 11
+     return v0
+ 
+@@ -348,7 +299,6 @@
+     :cond_1
+     if-lez p3, :cond_2
+ 
+-    .line 14
+     .line 15
+     return v0
+ 
+@@ -363,26 +313,21 @@
+     .line 1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     instance-of v0, p1, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x0
+ 
+     .line 8
+     if-eqz v0, :cond_2
+ 
+-    .line 9
+     .line 10
+     check-cast p1, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;
+ 
+-    .line 11
+     .line 12
+     const/4 v0, 0x1
+ 
+@@ -392,42 +337,33 @@
+     .line 14
+     invoke-interface {p1, p0}, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;->computeScrollVectorForPosition(I)Landroid/graphics/PointF;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     if-eqz p0, :cond_2
+ 
+-    .line 19
+     .line 20
+     iget p1, p0, Landroid/graphics/PointF;->x:F
+ 
+-    .line 21
+     .line 22
+     const/4 v2, 0x0
+ 
+     .line 23
+     cmpg-float p1, p1, v2
+ 
+-    .line 24
+     .line 25
+     if-ltz p1, :cond_1
+ 
+-    .line 26
+     .line 27
+     iget p0, p0, Landroid/graphics/PointF;->y:F
+ 
+-    .line 28
+     .line 29
+     cmpg-float p0, p0, v2
+ 
+-    .line 30
+     .line 31
+     if-gez p0, :cond_0
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -457,12 +393,9 @@
+     .line 1
+     invoke-super {p0, p1}, Landroidx/recyclerview/widget/SnapHelper;->attachToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/android/material/carousel/CarouselSnapHelper;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -486,8 +419,6 @@
+     .line 2
+     invoke-direct {p0, p1, p2, v0}, Lcom/google/android/material/carousel/CarouselSnapHelper;->calculateDistanceToSnap(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;Landroid/view/View;Z)[I
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+@@ -507,32 +438,24 @@
+     .line 1
+     instance-of v0, p1, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v0, Lcom/google/android/material/carousel/CarouselSnapHelper$1;
+ 
+-    .line 6
+     .line 7
+     iget-object v1, p0, Lcom/google/android/material/carousel/CarouselSnapHelper;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     invoke-direct {v0, p0, v1, p1}, Lcom/google/android/material/carousel/CarouselSnapHelper$1;-><init>(Lcom/google/android/material/carousel/CarouselSnapHelper;Landroid/content/Context;Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-object v0
+ 
+@@ -552,8 +475,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselSnapHelper;->findViewNearestFirstKeyline(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroid/view/View;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -567,14 +488,12 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/google/android/material/carousel/CarouselSnapHelper;->disableFling:Z
+ 
+-    .line 2
+     .line 3
+     const/4 v1, -0x1
+ 
+     .line 4
+     if-nez v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v1
+ 
+@@ -582,15 +501,12 @@
+     :cond_0
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+     .line 11
+     if-nez v0, :cond_1
+ 
+-    .line 12
+     .line 13
+     return v1
+ 
+@@ -598,8 +514,6 @@
+     :cond_1
+     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v2
+ 
+@@ -612,12 +526,9 @@
+     .line 20
+     const/high16 v5, -0x80000000
+ 
+-    .line 21
+     .line 22
+     const v6, 0x7fffffff
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move v8, v3
+ 
+@@ -634,19 +545,15 @@
+     :goto_0
+     if-ge v8, v2, :cond_5
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {p1, v8}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v9
+ 
+     .line 35
+     if-nez v9, :cond_2
+ 
+-    .line 36
+     .line 37
+     goto :goto_1
+ 
+@@ -657,23 +564,18 @@
+     .line 39
+     check-cast v10, Lcom/google/android/material/carousel/CarouselLayoutManager;
+ 
+-    .line 40
+     .line 41
+     invoke-direct {p0, v9, v10, v3}, Lcom/google/android/material/carousel/CarouselSnapHelper;->distanceToFirstFocalKeyline(Landroid/view/View;Lcom/google/android/material/carousel/CarouselLayoutManager;Z)I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result v10
+ 
+     .line 45
+     if-gtz v10, :cond_3
+ 
+-    .line 46
+     .line 47
+     if-le v10, v6, :cond_3
+ 
+-    .line 48
+     .line 49
+     move-object v5, v9
+ 
+@@ -684,11 +586,9 @@
+     :cond_3
+     if-ltz v10, :cond_4
+ 
+-    .line 52
+     .line 53
+     if-ge v10, v7, :cond_4
+ 
+-    .line 54
+     .line 55
+     move-object v4, v9
+ 
+@@ -700,7 +600,6 @@
+     :goto_1
+     add-int/lit8 v8, v8, 0x1
+ 
+-    .line 58
+     .line 59
+     goto :goto_0
+ 
+@@ -708,24 +607,18 @@
+     :cond_5
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/carousel/CarouselSnapHelper;->isForwardFling(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;II)Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result p2
+ 
+     .line 64
+     if-eqz p2, :cond_6
+ 
+-    .line 65
+     .line 66
+     if-eqz v4, :cond_6
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p1, v4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result p0
+ 
+@@ -736,16 +629,12 @@
+     :cond_6
+     if-nez p2, :cond_7
+ 
+-    .line 74
+     .line 75
+     if-eqz v5, :cond_7
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p1, v5}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result p0
+ 
+@@ -756,7 +645,6 @@
+     :cond_7
+     if-eqz p2, :cond_8
+ 
+-    .line 83
+     .line 84
+     move-object v4, v5
+ 
+@@ -764,7 +652,6 @@
+     :cond_8
+     if-nez v4, :cond_9
+ 
+-    .line 86
+     .line 87
+     return v1
+ 
+@@ -772,23 +659,18 @@
+     :cond_9
+     invoke-virtual {p1, v4}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result p3
+ 
+     .line 92
+     invoke-direct {p0, p1}, Lcom/google/android/material/carousel/CarouselSnapHelper;->isReverseLayout(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result p0
+ 
+     .line 96
+     if-ne p0, p2, :cond_a
+ 
+-    .line 97
+     .line 98
+     move p0, v1
+ 
+@@ -806,11 +688,9 @@
+     .line 102
+     if-ltz p3, :cond_c
+ 
+-    .line 103
+     .line 104
+     if-lt p3, v0, :cond_b
+ 
+-    .line 105
+     .line 106
+     goto :goto_3
+ 

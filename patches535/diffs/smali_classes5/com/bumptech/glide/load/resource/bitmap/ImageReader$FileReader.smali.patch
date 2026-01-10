@@ -1,0 +1,228 @@
+--- a/smali_classes5/com/bumptech/glide/load/resource/bitmap/ImageReader$FileReader.smali
++++ b/smali_classes5/com/bumptech/glide/load/resource/bitmap/ImageReader$FileReader.smali
+@@ -51,20 +51,15 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->file:Ljava/io/File;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->parsers:Ljava/util/List;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -89,37 +84,27 @@
+     :try_start_0
+     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;
+ 
+-    .line 3
+     .line 4
+     new-instance v2, Ljava/io/FileInputStream;
+ 
+-    .line 5
+     .line 6
+     iget-object v3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->file:Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v2, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1, v2, p0}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;-><init>(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :try_start_1
+     invoke-static {v1, v0, p1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+     :try_end_1
+@@ -131,8 +116,6 @@
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :catch_0
+     return-object p0
+@@ -155,15 +138,12 @@
+     :goto_0
+     if-eqz v0, :cond_0
+ 
+-    .line 29
+     .line 30
+     :try_start_3
+     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+     :try_end_3
+     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     :catch_1
+     :cond_0
+@@ -185,45 +165,33 @@
+     :try_start_0
+     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;
+ 
+-    .line 3
+     .line 4
+     new-instance v2, Ljava/io/FileInputStream;
+ 
+-    .line 5
+     .line 6
+     iget-object v3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->file:Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v2, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1, v2, v3}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;-><init>(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :try_start_1
+     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->parsers:Ljava/util/List;
+ 
+-    .line 17
+     .line 18
+     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+ 
+-    .line 19
+     .line 20
+     invoke-static {v0, v1, p0}, Lcom/bumptech/glide/load/ImageHeaderParserUtils;->getOrientation(Ljava/util/List;Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+     :try_end_1
+@@ -235,8 +203,6 @@
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :catch_0
+     return p0
+@@ -259,15 +225,12 @@
+     :goto_0
+     if-eqz v0, :cond_0
+ 
+-    .line 33
+     .line 34
+     :try_start_3
+     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+     :try_end_3
+     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     :catch_1
+     :cond_0
+@@ -289,45 +252,33 @@
+     :try_start_0
+     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;
+ 
+-    .line 3
+     .line 4
+     new-instance v2, Ljava/io/FileInputStream;
+ 
+-    .line 5
+     .line 6
+     iget-object v3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->file:Ljava/io/File;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v2, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v1, v2, v3}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;-><init>(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)V
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_1
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :try_start_1
+     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->parsers:Ljava/util/List;
+ 
+-    .line 17
+     .line 18
+     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$FileReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+ 
+-    .line 19
+     .line 20
+     invoke-static {v0, v1, p0}, Lcom/bumptech/glide/load/ImageHeaderParserUtils;->getType(Ljava/util/List;Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+     :try_end_1
+@@ -339,8 +290,6 @@
+     :try_end_2
+     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     :catch_0
+     return-object p0
+@@ -363,15 +312,12 @@
+     :goto_0
+     if-eqz v0, :cond_0
+ 
+-    .line 33
+     .line 34
+     :try_start_3
+     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+     :try_end_3
+     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     :catch_1
+     :cond_0

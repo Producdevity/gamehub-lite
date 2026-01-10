@@ -1,0 +1,1205 @@
+--- a/smali_classes6/com/xj/module/steam/service/SteamAuthService.smali
++++ b/smali_classes6/com/xj/module/steam/service/SteamAuthService.smali
+@@ -24,8 +24,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -38,41 +36,33 @@
+     .line 1
+     instance-of v0, p5, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p5
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -80,78 +70,58 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p5}, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;-><init>(Lcom/xj/module/steam/service/SteamAuthService;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p5
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p1, Lcom/xj/steam/api/IAuthenticator;
+ 
+-    .line 41
+     .line 42
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 43
+     .line 44
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 45
+     .line 46
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 47
+     .line 48
+     check-cast p1, Ljava/lang/String;
+ 
+-    .line 49
+     .line 50
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     check-cast p0, Lkotlin/Result;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {p0}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p0
+ 
+@@ -162,16 +132,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 61
+     .line 62
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 63
+     .line 64
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     throw p0
+ 
+@@ -179,68 +145,51 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     sget-object p0, Lcom/xj/standalone/steam/sdk/auth/SteamAuthApi;->a:Lcom/xj/standalone/steam/sdk/auth/SteamAuthApi;
+ 
+-    .line 72
+     .line 73
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object v1
+ 
+     .line 77
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 78
+     .line 79
+     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result-object v1
+ 
+     .line 83
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->L$1:Ljava/lang/Object;
+ 
+-    .line 84
+     .line 85
+     invoke-static {p4}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v1
+ 
+     .line 89
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->L$2:Ljava/lang/Object;
+ 
+-    .line 90
+     .line 91
+     iput-boolean p3, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->Z$0:Z
+ 
+-    .line 92
+     .line 93
+     iput v2, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaCredentials$1;->label:I
+ 
+-    .line 94
+     .line 95
+     invoke-virtual {p0, p1, p2, p4, v0}, Lcom/xj/standalone/steam/sdk/auth/SteamAuthApi;->d(Ljava/lang/String;Ljava/lang/String;Lcom/xj/steam/api/IAuthenticator;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result-object p0
+ 
+     .line 99
+     if-ne p0, p5, :cond_3
+ 
+-    .line 100
+     .line 101
+     return-object p5
+ 
+@@ -249,40 +198,30 @@
+     :goto_1
+     invoke-static {p0}, Lkotlin/Result;->isSuccess-impl(Ljava/lang/Object;)Z
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result p1
+ 
+     .line 106
+     if-eqz p1, :cond_5
+ 
+-    .line 107
+     .line 108
+     check-cast p0, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 109
+     .line 110
+     new-instance v0, Lcom/xj/common/service/bean/SteamUser;
+ 
+-    .line 111
+     .line 112
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getId()Ljava/lang/Long;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object p1
+ 
+     .line 116
+     if-eqz p1, :cond_4
+ 
+-    .line 117
+     .line 118
+     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-wide p1
+ 
+@@ -297,7 +236,6 @@
+     :cond_4
+     const-wide/16 p1, -0x1
+ 
+-    .line 125
+     .line 126
+     goto :goto_2
+ 
+@@ -305,37 +243,27 @@
+     :goto_3
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getSteamId()J
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-wide v3
+ 
+     .line 131
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAccountName()Ljava/lang/String;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     move-result-object v5
+ 
+     .line 135
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAvatarUrl()Ljava/lang/String;
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-object v6
+ 
+     .line 139
+     invoke-direct/range {v0 .. v6}, Lcom/xj/common/service/bean/SteamUser;-><init>(JJLjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object p0
+ 
+@@ -346,8 +274,6 @@
+     :cond_5
+     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 148
+-    .line 149
+     .line 150
+     move-result-object p0
+ 
+@@ -361,41 +287,33 @@
+     .line 1
+     instance-of v0, p2, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p2
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -403,62 +321,46 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p2}, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;-><init>(Lcom/xj/module/steam/service/SteamAuthService;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p2
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 39
+     .line 40
+     check-cast p1, Lkotlin/jvm/functions/Function1;
+ 
+-    .line 41
+     .line 42
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     check-cast p0, Lkotlin/Result;
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {p0}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+@@ -469,16 +371,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 53
+     .line 54
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 55
+     .line 56
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     throw p0
+ 
+@@ -486,40 +384,30 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     sget-object p0, Lcom/xj/standalone/steam/sdk/auth/SteamAuthApi;->a:Lcom/xj/standalone/steam/sdk/auth/SteamAuthApi;
+ 
+-    .line 64
+     .line 65
+     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v1
+ 
+     .line 69
+     iput-object v1, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 70
+     .line 71
+     iput v2, v0, Lcom/xj/module/steam/service/SteamAuthService$authViaQRCode$1;->label:I
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {p0, p1, v0}, Lcom/xj/standalone/steam/sdk/auth/SteamAuthApi;->e(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p0
+ 
+     .line 77
+     if-ne p0, p2, :cond_3
+ 
+-    .line 78
+     .line 79
+     return-object p2
+ 
+@@ -528,40 +416,30 @@
+     :goto_1
+     invoke-static {p0}, Lkotlin/Result;->isSuccess-impl(Ljava/lang/Object;)Z
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result p1
+ 
+     .line 84
+     if-eqz p1, :cond_5
+ 
+-    .line 85
+     .line 86
+     check-cast p0, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 87
+     .line 88
+     new-instance v0, Lcom/xj/common/service/bean/SteamUser;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getId()Ljava/lang/Long;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object p1
+ 
+     .line 94
+     if-eqz p1, :cond_4
+ 
+-    .line 95
+     .line 96
+     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-wide p1
+ 
+@@ -576,7 +454,6 @@
+     :cond_4
+     const-wide/16 p1, -0x1
+ 
+-    .line 103
+     .line 104
+     goto :goto_2
+ 
+@@ -584,37 +461,27 @@
+     :goto_3
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getSteamId()J
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-wide v3
+ 
+     .line 109
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAccountName()Ljava/lang/String;
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result-object v5
+ 
+     .line 113
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAvatarUrl()Ljava/lang/String;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     move-result-object v6
+ 
+     .line 117
+     invoke-direct/range {v0 .. v6}, Lcom/xj/common/service/bean/SteamUser;-><init>(JJLjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object p0
+ 
+@@ -625,8 +492,6 @@
+     :cond_5
+     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object p0
+ 
+@@ -640,41 +505,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -682,45 +539,34 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;-><init>(Lcom/xj/module/steam/service/SteamAuthService;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_1
+ 
+@@ -728,16 +574,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 43
+     .line 44
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw p0
+ 
+@@ -745,28 +587,21 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     sget-object p0, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 54
+     .line 55
+     iput v2, v0, Lcom/xj/module/steam/service/SteamAuthService$currentUser$1;->label:I
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p0, v0}, Lcom/xj/standalone/steam/sdk/SteamSdk;->l(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+     .line 61
+     if-ne p0, p1, :cond_3
+ 
+-    .line 62
+     .line 63
+     return-object p1
+ 
+@@ -775,32 +610,24 @@
+     :goto_1
+     check-cast p0, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 65
+     .line 66
+     if-eqz p0, :cond_5
+ 
+-    .line 67
+     .line 68
+     new-instance v0, Lcom/xj/common/service/bean/SteamUser;
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getId()Ljava/lang/Long;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object p1
+ 
+     .line 74
+     if-eqz p1, :cond_4
+ 
+-    .line 75
+     .line 76
+     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-wide v1
+ 
+@@ -811,37 +638,28 @@
+     :cond_4
+     const-wide/16 v1, -0x1
+ 
+-    .line 82
+     .line 83
+     :goto_2
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getSteamId()J
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-wide v3
+ 
+     .line 87
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAccountName()Ljava/lang/String;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object v5
+ 
+     .line 91
+     invoke-virtual {p0}, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;->getAvatarUrl()Ljava/lang/String;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v6
+ 
+     .line 95
+     invoke-direct/range {v0 .. v6}, Lcom/xj/common/service/bean/SteamUser;-><init>(JJLjava/lang/String;Ljava/lang/String;)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     return-object v0
+ 
+@@ -859,41 +677,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -901,45 +711,34 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;-><init>(Lcom/xj/module/steam/service/SteamAuthService;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v1, v2, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_1
+ 
+@@ -947,16 +746,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 43
+     .line 44
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw p0
+ 
+@@ -964,28 +759,21 @@
+     :cond_2
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     sget-object p0, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 54
+     .line 55
+     iput v2, v0, Lcom/xj/module/steam/service/SteamAuthService$isSignedIn$1;->label:I
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p0, v0}, Lcom/xj/standalone/steam/sdk/SteamSdk;->l(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+     .line 61
+     if-ne p0, p1, :cond_3
+ 
+-    .line 62
+     .line 63
+     return-object p1
+ 
+@@ -994,7 +782,6 @@
+     :goto_1
+     if-eqz p0, :cond_4
+ 
+-    .line 65
+     .line 66
+     goto :goto_2
+ 
+@@ -1006,8 +793,6 @@
+     :goto_2
+     invoke-static {v2}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p0
+ 
+@@ -1021,41 +806,33 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1063,29 +840,22 @@
+     :cond_0
+     new-instance v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;-><init>(Lcom/xj/module/steam/service/SteamAuthService;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p0, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p1
+ 
+     .line 31
+     iget v1, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v2, 0x2
+ 
+@@ -1095,31 +865,24 @@
+     .line 35
+     if-eqz v1, :cond_3
+ 
+-    .line 36
+     .line 37
+     if-eq v1, v3, :cond_2
+ 
+-    .line 38
+     .line 39
+     if-ne v1, v2, :cond_1
+ 
+-    .line 40
+     .line 41
+     iget-object p1, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 42
+     .line 43
+     check-cast p1, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 44
+     .line 45
+     :try_start_0
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     goto :goto_3
+ 
+@@ -1127,16 +890,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 50
+     .line 51
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     throw p0
+ 
+@@ -1147,8 +906,6 @@
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     goto :goto_1
+ 
+@@ -1156,29 +913,22 @@
+     :cond_3
+     invoke-static {p0}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     :try_start_2
+     sget-object p0, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 65
+     .line 66
+     iput v3, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->label:I
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p0, v0}, Lcom/xj/standalone/steam/sdk/SteamSdk;->l(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p0
+ 
+     .line 72
+     if-ne p0, p1, :cond_4
+ 
+-    .line 73
+     .line 74
+     goto :goto_2
+ 
+@@ -1187,50 +937,39 @@
+     :goto_1
+     check-cast p0, Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;
+ 
+-    .line 76
+     .line 77
+     if-eqz p0, :cond_6
+ 
+-    .line 78
+     .line 79
+     sget-object v1, Lcom/xj/standalone/steam/sdk/SteamSdk;->a:Lcom/xj/standalone/steam/sdk/SteamSdk;
+ 
+-    .line 80
+     .line 81
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/SpillingKt;->a(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-object v3
+ 
+     .line 85
+     iput-object v3, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->L$0:Ljava/lang/Object;
+ 
+-    .line 86
+     .line 87
+     const/4 v3, 0x0
+ 
+     .line 88
+     iput v3, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->I$0:I
+ 
+-    .line 89
+     .line 90
+     iput v2, v0, Lcom/xj/module/steam/service/SteamAuthService$signOut$1;->label:I
+ 
+-    .line 91
+     .line 92
+     invoke-virtual {v1, p0, v0}, Lcom/xj/standalone/steam/sdk/SteamSdk;->n(Lcom/xj/standalone/steam/data/db/tables/SteamUserTable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result-object p0
+ 
+     .line 96
+     if-ne p0, p1, :cond_5
+ 
+-    .line 97
+     .line 98
+     :goto_2
+     return-object p1
+@@ -1240,34 +979,25 @@
+     :goto_3
+     check-cast p0, Ljava/lang/Boolean;
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result p0
+ 
+     .line 105
+     invoke-static {p0}, Lkotlin/coroutines/jvm/internal/Boxing;->a(Z)Ljava/lang/Boolean;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     :cond_6
+     sget-object p0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 109
+     .line 110
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 111
+     .line 112
+     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object p0
+     :try_end_2
+@@ -1283,29 +1013,21 @@
+     .line 118
+     sget-object p1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+ 
+-    .line 119
+     .line 120
+     new-instance p1, Lcom/xj/steam/exceptions/XjErrorCodeException;
+ 
+-    .line 121
+     .line 122
+     invoke-direct {p1, p0}, Lcom/xj/steam/exceptions/XjErrorCodeException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     invoke-static {p1}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object p0
+ 
+     .line 129
+     invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object p0
+ 

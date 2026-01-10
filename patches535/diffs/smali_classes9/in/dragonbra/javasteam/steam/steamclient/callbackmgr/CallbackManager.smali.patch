@@ -1,0 +1,608 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager.smali
+@@ -47,76 +47,54 @@
+     .line 1
+     const-string v0, "steamClient"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->steamClient:Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-static {v0}, Ljava/util/Collections;->newSetFromMap(Ljava/util/Map;)Ljava/util/Set;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     const-string v1, "newSetFromMap(...)"
+ 
+-    .line 21
+     .line 22
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iput-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->registeredCallbacks:Ljava/util/Set;
+ 
+-    .line 26
+     .line 27
+     const-class v0, Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/SteamUnifiedMessages;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {p1, v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getHandler(Ljava/lang/Class;)Lin/dragonbra/javasteam/steam/handlers/ClientMsgHandler;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p1
+ 
+     .line 33
+     invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     check-cast p1, Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/SteamUnifiedMessages;
+ 
+-    .line 37
+     .line 38
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->steamUnifiedMessages:Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/SteamUnifiedMessages;
+ 
+-    .line 39
+     .line 40
+     return-void
+ .end method
+@@ -127,8 +105,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->subscribeServiceNotification$lambda$0(Ljava/lang/Class;Lin/dragonbra/javasteam/util/compat/Consumer;Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/callback/ServiceMethodNotification;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -139,8 +115,6 @@
+     .line 1
+     invoke-static {p0, p1, p2}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->subscribeServiceResponse$lambda$1(Ljava/lang/Class;Lin/dragonbra/javasteam/util/compat/Consumer;Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/callback/ServiceMethodResponse;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -151,24 +125,18 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->registeredCallbacks:Ljava/util/Set;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast p0, Ljava/lang/Iterable;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+@@ -177,52 +145,39 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     if-eqz v1, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v1
+ 
+     .line 23
+     check-cast v1, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackBase;
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v1}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackBase;->getCallbackType()Ljava/lang/Class;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v2
+ 
+     .line 29
+     invoke-virtual {v2, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v2
+ 
+     .line 33
+     if-eqz v2, :cond_0
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {v1, p1}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackBase;->run(Ljava/lang/Object;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -237,64 +192,46 @@
+     .line 1
+     and-int/lit8 p3, p3, 0x1
+ 
+-    .line 2
+     .line 3
+     if-eqz p3, :cond_0
+ 
+-    .line 4
+     .line 5
+     sget-object p1, Lin/dragonbra/javasteam/types/JobID;->INVALID:Lin/dragonbra/javasteam/types/JobID;
+ 
+-    .line 6
+     .line 7
+     :cond_0
+     const-string p3, "jobID"
+ 
+-    .line 8
+     .line 9
+     invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const-string p3, "callbackFunc"
+ 
+-    .line 13
+     .line 14
+     invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     const/4 p3, 0x4
+ 
+     .line 18
+     const-string p4, "TCallback"
+ 
+-    .line 19
+     .line 20
+     invoke-static {p3, p4}, Lkotlin/jvm/internal/Intrinsics;->m(ILjava/lang/String;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     new-instance p3, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$sam$i$in_dragonbra_javasteam_util_compat_Consumer$0;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {p3, p2}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$sam$i$in_dragonbra_javasteam_util_compat_Consumer$0;-><init>(Lkotlin/jvm/functions/Function1;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-class p2, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {p0, p2, p1, p3}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->subscribe(Ljava/lang/Class;Lin/dragonbra/javasteam/types/JobID;Lin/dragonbra/javasteam/util/compat/Consumer;)Ljava/io/Closeable;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+@@ -308,45 +245,33 @@
+     .line 1
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/callback/ServiceMethodNotification;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {v0, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const-string p0, "null cannot be cast to non-null type in.dragonbra.javasteam.steam.handlers.steamunifiedmessages.callback.ServiceMethodNotification<TNotification of in.dragonbra.javasteam.steam.steamclient.callbackmgr.CallbackManager.subscribeServiceNotification>"
+ 
+-    .line 16
+     .line 17
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-interface {p1, p2}, Lin/dragonbra/javasteam/util/compat/Consumer;->accept(Ljava/lang/Object;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :cond_0
+     return-void
+@@ -358,45 +283,33 @@
+     .line 1
+     invoke-virtual {p2}, Lin/dragonbra/javasteam/steam/handlers/steamunifiedmessages/callback/ServiceMethodResponse;->getBody()Lcom/google/protobuf/GeneratedMessage$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+     .line 9
+     invoke-static {v0, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     if-eqz p0, :cond_0
+ 
+-    .line 14
+     .line 15
+     const-string p0, "null cannot be cast to non-null type in.dragonbra.javasteam.steam.handlers.steamunifiedmessages.callback.ServiceMethodResponse<TNotification of in.dragonbra.javasteam.steam.steamclient.callbackmgr.CallbackManager.subscribeServiceResponse>"
+ 
+-    .line 16
+     .line 17
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-interface {p1, p2}, Lin/dragonbra/javasteam/util/compat/Consumer;->accept(Ljava/lang/Object;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :cond_0
+     return-void
+@@ -414,28 +327,21 @@
+     .line 1
+     const-string v0, "callback"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->registeredCallbacks:Ljava/util/Set;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     if-eqz v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     return-void
+ 
+@@ -443,12 +349,9 @@
+     :cond_0
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->registeredCallbacks:Ljava/util/Set;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -459,19 +362,15 @@
+     .line 1
+     iget-object v0, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->steamClient:Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->getCallback()Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     const/4 p0, 0x0
+ 
+@@ -482,8 +381,6 @@
+     :cond_0
+     invoke-direct {p0, v0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->handle(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const/4 p0, 0x1
+ 
+@@ -497,15 +394,12 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->runWaitCallbacks(J)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+     .line 5
+     if-nez p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     goto :goto_0
+ 
+@@ -513,15 +407,12 @@
+     :cond_0
+     invoke-virtual {p0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->runCallbacks()Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p1
+ 
+     .line 12
+     if-nez p1, :cond_0
+ 
+-    .line 13
+     .line 14
+     :goto_0
+     return-void
+@@ -550,41 +441,33 @@
+     .line 1
+     instance-of v0, p1, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     move-object v0, p1
+ 
+     .line 6
+     check-cast v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;
+ 
+-    .line 7
+     .line 8
+     iget v1, v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;->label:I
+ 
+-    .line 9
+     .line 10
+     const/high16 v2, -0x80000000
+ 
+-    .line 11
+     .line 12
+     and-int v3, v1, v2
+ 
+-    .line 13
+     .line 14
+     if-eqz v3, :cond_0
+ 
+-    .line 15
+     .line 16
+     sub-int/2addr v1, v2
+ 
+     .line 17
+     iput v1, v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;->label:I
+ 
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -592,45 +475,34 @@
+     :cond_0
+     new-instance v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v0, p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;-><init>(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;Lkotlin/coroutines/Continuation;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     :goto_0
+     iget-object p1, v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;->result:Ljava/lang/Object;
+ 
+-    .line 26
+     .line 27
+     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->g()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     iget v2, v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;->label:I
+ 
+-    .line 32
+     .line 33
+     const/4 v3, 0x1
+ 
+     .line 34
+     if-eqz v2, :cond_2
+ 
+-    .line 35
+     .line 36
+     if-ne v2, v3, :cond_1
+ 
+-    .line 37
+     .line 38
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_1
+ 
+@@ -638,16 +510,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 43
+     .line 44
+     const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     throw p0
+ 
+@@ -655,28 +523,21 @@
+     :cond_2
+     invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     iget-object p1, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->steamClient:Lin/dragonbra/javasteam/steam/steamclient/SteamClient;
+ 
+-    .line 54
+     .line 55
+     iput v3, v0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager$runWaitCallbackAsync$1;->label:I
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p1, v0}, Lin/dragonbra/javasteam/steam/steamclient/SteamClient;->waitForCallbackAsync(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p1
+ 
+     .line 61
+     if-ne p1, v1, :cond_3
+ 
+-    .line 62
+     .line 63
+     return-object v1
+ 
+@@ -685,16 +546,12 @@
+     :goto_1
+     check-cast p1, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;
+ 
+-    .line 65
+     .line 66
+     invoke-direct {p0, p1}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->handle(Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     sget-object p0, Lkotlin/Unit;->a:Lkotlin/Unit;
+ 
+-    .line 70
+     .line 71
+     return-object p0
+ .end method
+@@ -1166,21 +1023,15 @@
+     .line 1
+     const-string v0, "callback"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackManager;->registeredCallbacks:Ljava/util/Set;
+ 
+-    .line 7
+     .line 8
+     invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method

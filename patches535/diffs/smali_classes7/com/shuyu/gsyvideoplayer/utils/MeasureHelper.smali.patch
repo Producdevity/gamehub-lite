@@ -1,0 +1,918 @@
+--- a/smali_classes7/com/shuyu/gsyvideoplayer/utils/MeasureHelper.smali
++++ b/smali_classes7/com/shuyu/gsyvideoplayer/utils/MeasureHelper.smali
+@@ -48,32 +48,24 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     iput v0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mCurrentAspectRatio:I
+ 
+-    .line 6
+     .line 7
+     iput-object p2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mParamsListener:Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;
+ 
+-    .line 8
+     .line 9
+     new-instance p2, Ljava/lang/ref/WeakReference;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iput-object p2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mWeakView:Ljava/lang/ref/WeakReference;
+ 
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -86,59 +78,46 @@
+     .line 1
+     invoke-static {}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->getShowType()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     iput v0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mCurrentAspectRatio:I
+ 
+-    .line 6
+     .line 7
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 8
+     .line 9
+     const/4 v1, 0x1
+ 
+     .line 10
+     if-eqz v0, :cond_23
+ 
+-    .line 11
+     .line 12
+     iget v0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoWidth:I
+ 
+-    .line 13
+     .line 14
+     if-nez v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     goto/16 :goto_9
+ 
+-    .line 17
+     .line 18
+     :cond_0
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoRotationDegree:I
+ 
+-    .line 19
+     .line 20
+     const/16 v3, 0x10e
+ 
+-    .line 21
+     .line 22
+     const/16 v4, 0x5a
+ 
+-    .line 23
+     .line 24
+     if-eq v2, v4, :cond_1
+ 
+-    .line 25
+     .line 26
+     if-ne v2, v3, :cond_2
+ 
+-    .line 27
+     .line 28
+     :cond_1
+     move v12, p2
+@@ -153,19 +132,15 @@
+     :cond_2
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoSarNum:I
+ 
+-    .line 32
+     .line 33
+     if-eqz v2, :cond_3
+ 
+-    .line 34
+     .line 35
+     iget v5, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoSarDen:I
+ 
+-    .line 36
+     .line 37
+     if-eqz v5, :cond_3
+ 
+-    .line 38
+     .line 39
+     int-to-double v6, v2
+ 
+@@ -175,7 +150,6 @@
+     .line 41
+     const-wide/high16 v10, 0x3ff0000000000000L    # 1.0
+ 
+-    .line 42
+     .line 43
+     div-double/2addr v8, v10
+ 
+@@ -195,95 +169,73 @@
+     :cond_3
+     invoke-static {v0, p1}, Landroid/view/View;->getDefaultSize(II)I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v2
+ 
+     .line 52
+     iget v5, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 53
+     .line 54
+     invoke-static {v5, p2}, Landroid/view/View;->getDefaultSize(II)I
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v5
+ 
+     .line 58
+     iget v6, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mCurrentAspectRatio:I
+ 
+-    .line 59
+     .line 60
+     const/4 v7, -0x4
+ 
+     .line 61
+     if-ne v6, v7, :cond_4
+ 
+-    .line 62
+     .line 63
+     goto/16 :goto_8
+ 
+-    .line 64
+     .line 65
+     :cond_4
+     if-lez v0, :cond_21
+ 
+-    .line 66
+     .line 67
+     iget v6, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 68
+     .line 69
+     if-lez v6, :cond_21
+ 
+-    .line 70
+     .line 71
+     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v2
+ 
+     .line 75
+     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result p1
+ 
+     .line 79
+     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v5
+ 
+     .line 83
+     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result p2
+ 
+     .line 87
+     const/high16 v6, -0x80000000
+ 
+-    .line 88
+     .line 89
+     if-ne v2, v6, :cond_18
+ 
+-    .line 90
+     .line 91
+     if-ne v5, v6, :cond_18
+ 
+-    .line 92
+     .line 93
+     int-to-float v2, p1
+ 
+@@ -293,11 +245,9 @@
+     .line 95
+     div-float v6, v2, v5
+ 
+-    .line 96
+     .line 97
+     iget v7, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mCurrentAspectRatio:I
+ 
+-    .line 98
+     .line 99
+     const/4 v8, 0x2
+ 
+@@ -310,26 +260,21 @@
+     .line 102
+     if-eq v7, v10, :cond_e
+ 
+-    .line 103
+     .line 104
+     if-eq v7, v9, :cond_b
+ 
+-    .line 105
+     .line 106
+     if-eq v7, v1, :cond_8
+ 
+-    .line 107
+     .line 108
+     if-eq v7, v8, :cond_5
+ 
+-    .line 109
+     .line 110
+     int-to-float v3, v0
+ 
+     .line 111
+     iget v4, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 112
+     .line 113
+     int-to-float v4, v4
+ 
+@@ -339,19 +284,15 @@
+     .line 115
+     iget v4, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoSarNum:I
+ 
+-    .line 116
+     .line 117
+     if-lez v4, :cond_11
+ 
+-    .line 118
+     .line 119
+     iget v7, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoSarDen:I
+ 
+-    .line 120
+     .line 121
+     if-lez v7, :cond_11
+ 
+-    .line 122
+     .line 123
+     int-to-float v4, v4
+ 
+@@ -371,15 +312,12 @@
+     :cond_5
+     iget v7, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoRotationDegree:I
+ 
+-    .line 129
+     .line 130
+     if-eq v7, v4, :cond_7
+ 
+-    .line 131
+     .line 132
+     if-ne v7, v3, :cond_6
+ 
+-    .line 133
+     .line 134
+     goto :goto_0
+ 
+@@ -387,8 +325,6 @@
+     :cond_6
+     const v3, 0x3faaaaab
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     goto :goto_4
+ 
+@@ -397,7 +333,6 @@
+     :goto_0
+     const/high16 v3, 0x3f400000    # 0.75f
+ 
+-    .line 140
+     .line 141
+     goto :goto_4
+ 
+@@ -405,15 +340,12 @@
+     :cond_8
+     iget v7, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoRotationDegree:I
+ 
+-    .line 143
+     .line 144
+     if-eq v7, v4, :cond_a
+ 
+-    .line 145
+     .line 146
+     if-ne v7, v3, :cond_9
+ 
+-    .line 147
+     .line 148
+     goto :goto_1
+ 
+@@ -421,8 +353,6 @@
+     :cond_9
+     const v3, 0x3fe38e39
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     goto :goto_4
+ 
+@@ -431,7 +361,6 @@
+     :goto_1
+     const/high16 v3, 0x3f100000    # 0.5625f
+ 
+-    .line 154
+     .line 155
+     goto :goto_4
+ 
+@@ -439,15 +368,12 @@
+     :cond_b
+     iget v7, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoRotationDegree:I
+ 
+-    .line 157
+     .line 158
+     if-eq v7, v4, :cond_d
+ 
+-    .line 159
+     .line 160
+     if-ne v7, v3, :cond_c
+ 
+-    .line 161
+     .line 162
+     goto :goto_2
+ 
+@@ -455,7 +381,6 @@
+     :cond_c
+     const/high16 v3, 0x40000000    # 2.0f
+ 
+-    .line 164
+     .line 165
+     goto :goto_4
+ 
+@@ -464,7 +389,6 @@
+     :goto_2
+     const/high16 v3, 0x3f000000    # 0.5f
+ 
+-    .line 167
+     .line 168
+     goto :goto_4
+ 
+@@ -472,23 +396,18 @@
+     :cond_e
+     invoke-static {}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->getScreenScaleRatio()F
+ 
+-    .line 170
+-    .line 171
+     .line 172
+     move-result v7
+ 
+     .line 173
+     iget v11, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoRotationDegree:I
+ 
+-    .line 174
+     .line 175
+     if-eq v11, v4, :cond_10
+ 
+-    .line 176
+     .line 177
+     if-ne v11, v3, :cond_f
+ 
+-    .line 178
+     .line 179
+     goto :goto_3
+ 
+@@ -504,7 +423,6 @@
+     :goto_3
+     const/high16 v3, 0x3f800000    # 1.0f
+ 
+-    .line 183
+     .line 184
+     div-float/2addr v3, v7
+ 
+@@ -513,11 +431,9 @@
+     :goto_4
+     cmpl-float v4, v3, v6
+ 
+-    .line 186
+     .line 187
+     if-lez v4, :cond_12
+ 
+-    .line 188
+     .line 189
+     move v4, v1
+ 
+@@ -532,43 +448,33 @@
+     :goto_5
+     iget v6, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mCurrentAspectRatio:I
+ 
+-    .line 193
+     .line 194
+     if-eq v6, v10, :cond_17
+ 
+-    .line 195
+     .line 196
+     const/4 v7, 0x4
+ 
+     .line 197
+     if-eq v6, v7, :cond_14
+ 
+-    .line 198
+     .line 199
+     if-eq v6, v9, :cond_17
+ 
+-    .line 200
+     .line 201
+     if-eqz v6, :cond_17
+ 
+-    .line 202
+     .line 203
+     if-eq v6, v1, :cond_17
+ 
+-    .line 204
+     .line 205
+     if-eq v6, v8, :cond_17
+ 
+-    .line 206
+     .line 207
+     if-eqz v4, :cond_13
+ 
+-    .line 208
+     .line 209
+     invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 210
+-    .line 211
+     .line 212
+     move-result p1
+ 
+@@ -584,17 +490,13 @@
+     .line 216
+     goto/16 :goto_8
+ 
+-    .line 217
+     .line 218
+     :cond_13
+     iget p1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 219
+     .line 220
+     invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     move-result p1
+ 
+@@ -619,12 +521,10 @@
+     .line 230
+     goto/16 :goto_8
+ 
+-    .line 231
+     .line 232
+     :cond_14
+     if-eqz v4, :cond_16
+ 
+-    .line 233
+     .line 234
+     :cond_15
+     mul-float/2addr v5, v3
+@@ -635,7 +535,6 @@
+     .line 236
+     goto/16 :goto_8
+ 
+-    .line 237
+     .line 238
+     :cond_16
+     :goto_6
+@@ -647,12 +546,10 @@
+     .line 240
+     goto/16 :goto_8
+ 
+-    .line 241
+     .line 242
+     :cond_17
+     if-eqz v4, :cond_15
+ 
+-    .line 243
+     .line 244
+     goto :goto_6
+ 
+@@ -660,35 +557,27 @@
+     :cond_18
+     const/high16 v1, 0x40000000    # 2.0f
+ 
+-    .line 246
+     .line 247
+     if-ne v2, v1, :cond_1a
+ 
+-    .line 248
+     .line 249
+     if-ne v5, v1, :cond_1a
+ 
+-    .line 250
+     .line 251
+     mul-int v1, v0, p2
+ 
+-    .line 252
+     .line 253
+     iget v2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 254
+     .line 255
+     mul-int v3, p1, v2
+ 
+-    .line 256
+     .line 257
+     if-ge v1, v3, :cond_19
+ 
+-    .line 258
+     .line 259
+     div-int p1, v1, v2
+ 
+-    .line 260
+     .line 261
+     goto :goto_8
+ 
+@@ -696,18 +585,15 @@
+     :cond_19
+     mul-int v3, p1, v2
+ 
+-    .line 263
+     .line 264
+     if-le v1, v3, :cond_22
+ 
+-    .line 265
+     .line 266
+     mul-int/2addr v2, p1
+ 
+     .line 267
+     div-int p2, v2, v0
+ 
+-    .line 268
+     .line 269
+     goto :goto_8
+ 
+@@ -715,26 +601,21 @@
+     :cond_1a
+     if-ne v2, v1, :cond_1c
+ 
+-    .line 271
+     .line 272
+     iget v1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 273
+     .line 274
+     mul-int/2addr v1, p1
+ 
+     .line 275
+     div-int v0, v1, v0
+ 
+-    .line 276
+     .line 277
+     if-ne v5, v6, :cond_1b
+ 
+-    .line 278
+     .line 279
+     if-le v0, p2, :cond_1b
+ 
+-    .line 280
+     .line 281
+     goto :goto_8
+ 
+@@ -749,25 +630,21 @@
+     :cond_1c
+     if-ne v5, v1, :cond_1e
+ 
+-    .line 285
+     .line 286
+     mul-int/2addr v0, p2
+ 
+     .line 287
+     iget v1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 288
+     .line 289
+     div-int/2addr v0, v1
+ 
+     .line 290
+     if-ne v2, v6, :cond_1d
+ 
+-    .line 291
+     .line 292
+     if-le v0, p1, :cond_1d
+ 
+-    .line 293
+     .line 294
+     goto :goto_8
+ 
+@@ -782,19 +659,15 @@
+     :cond_1e
+     iget v1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 298
+     .line 299
+     if-ne v5, v6, :cond_1f
+ 
+-    .line 300
+     .line 301
+     if-le v1, p2, :cond_1f
+ 
+-    .line 302
+     .line 303
+     mul-int v3, p2, v0
+ 
+-    .line 304
+     .line 305
+     div-int/2addr v3, v1
+ 
+@@ -812,18 +685,15 @@
+     :goto_7
+     if-ne v2, v6, :cond_20
+ 
+-    .line 310
+     .line 311
+     if-le v3, p1, :cond_20
+ 
+-    .line 312
+     .line 313
+     mul-int/2addr v1, p1
+ 
+     .line 314
+     div-int p2, v1, v0
+ 
+-    .line 315
+     .line 316
+     goto :goto_8
+ 
+@@ -846,11 +716,9 @@
+     :goto_8
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mMeasuredWidth:I
+ 
+-    .line 322
+     .line 323
+     iput p2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mMeasuredHeight:I
+ 
+-    .line 324
+     .line 325
+     return-void
+ 
+@@ -859,11 +727,9 @@
+     :goto_9
+     iput v1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mMeasuredWidth:I
+ 
+-    .line 327
+     .line 328
+     iput v1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mMeasuredHeight:I
+ 
+-    .line 329
+     .line 330
+     return-void
+ .end method
+@@ -874,7 +740,6 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mMeasuredHeight:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -885,7 +750,6 @@
+     .line 1
+     iget p0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mMeasuredWidth:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -896,11 +760,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mWeakView:Ljava/lang/ref/WeakReference;
+ 
+-    .line 2
+     .line 3
+     if-nez p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 p0, 0x0
+ 
+@@ -911,15 +773,12 @@
+     :cond_0
+     invoke-virtual {p0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     check-cast p0, Landroid/view/View;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ .end method
+@@ -930,137 +789,97 @@
+     .line 1
+     iget-object v0, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mParamsListener:Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     :try_start_0
+     invoke-interface {v0}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;->getCurrentVideoWidth()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     iget-object v1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mParamsListener:Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {v1}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;->getCurrentVideoHeight()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const-string v3, "videoWidth: "
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     const-string v3, " videoHeight: "
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v2
+ 
+     .line 40
+     invoke-static {v2}, Lcom/shuyu/gsyvideoplayer/utils/Debuger;->printfLog(Ljava/lang/String;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     iget-object v2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mParamsListener:Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;
+ 
+-    .line 44
+     .line 45
+     invoke-interface {v2}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;->getVideoSarNum()I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result v2
+ 
+     .line 49
+     iget-object v3, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mParamsListener:Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;
+ 
+-    .line 50
+     .line 51
+     invoke-interface {v3}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener;->getVideoSarDen()I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v3
+ 
+     .line 55
+     if-lez v0, :cond_0
+ 
+-    .line 56
+     .line 57
+     if-lez v1, :cond_0
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {p0, v2, v3}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->setVideoSampleAspectRatio(II)V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {p0, v0, v1}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->setVideoSize(II)V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     :cond_0
+     invoke-virtual {p0, p3}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->setVideoRotation(I)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {p0, p1, p2}, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->doMeasure(II)V
+     :try_end_0
+     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     return-void
+ 
+@@ -1071,8 +890,6 @@
+     .line 73
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     :cond_1
+     return-void
+@@ -1084,7 +901,6 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mCurrentAspectRatio:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1095,7 +911,6 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoRotationDegree:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1106,11 +921,9 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoSarNum:I
+ 
+-    .line 2
+     .line 3
+     iput p2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoSarDen:I
+ 
+-    .line 4
+     .line 5
+     return-void
+ .end method
+@@ -1121,11 +934,9 @@
+     .line 1
+     iput p1, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoWidth:I
+ 
+-    .line 2
+     .line 3
+     iput p2, p0, Lcom/shuyu/gsyvideoplayer/utils/MeasureHelper;->mVideoHeight:I
+ 
+-    .line 4
+     .line 5
+     return-void
+ .end method

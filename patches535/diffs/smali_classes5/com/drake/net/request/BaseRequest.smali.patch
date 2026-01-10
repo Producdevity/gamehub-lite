@@ -1,0 +1,1076 @@
+--- a/smali_classes5/com/drake/net/request/BaseRequest.smali
++++ b/smali_classes5/com/drake/net/request/BaseRequest.smali
+@@ -30,70 +30,51 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Lokhttp3/HttpUrl$Builder;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/drake/net/request/BaseRequest;->a:Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 10
+     .line 11
+     sget-object v0, Lcom/drake/net/NetConfig;->a:Lcom/drake/net/NetConfig;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lcom/drake/net/NetConfig;->b()Lcom/drake/net/convert/NetConverter;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     iput-object v1, p0, Lcom/drake/net/request/BaseRequest;->b:Lcom/drake/net/convert/NetConverter;
+ 
+-    .line 18
+     .line 19
+     sget-object v1, Lcom/drake/net/request/Method;->GET:Lcom/drake/net/request/Method;
+ 
+-    .line 20
+     .line 21
+     iput-object v1, p0, Lcom/drake/net/request/BaseRequest;->c:Lcom/drake/net/request/Method;
+ 
+-    .line 22
+     .line 23
+     new-instance v1, Lokhttp3/Request$Builder;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     iput-object v1, p0, Lcom/drake/net/request/BaseRequest;->d:Lokhttp3/Request$Builder;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v0}, Lcom/drake/net/NetConfig;->h()Lokhttp3/OkHttpClient;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+     .line 34
+     iput-object v0, p0, Lcom/drake/net/request/BaseRequest;->e:Lokhttp3/OkHttpClient;
+ 
+-    .line 35
+     .line 36
+     return-void
+ .end method
+@@ -104,15 +85,12 @@
+     .line 1
+     if-nez p5, :cond_1
+ 
+-    .line 2
+     .line 3
+     and-int/lit8 p4, p4, 0x4
+ 
+-    .line 4
+     .line 5
+     if-eqz p4, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p3, 0x0
+ 
+@@ -120,8 +98,6 @@
+     :cond_0
+     invoke-virtual {p0, p1, p2, p3}, Lcom/drake/net/request/BaseRequest;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ 
+@@ -129,16 +105,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 13
+     .line 14
+     const-string p1, "Super calls with default arguments not supported in this target, function: addQuery"
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     throw p0
+ .end method
+@@ -149,7 +121,6 @@
+     .line 1
+     if-nez p3, :cond_1
+ 
+-    .line 2
+     .line 3
+     const/4 p3, 0x1
+ 
+@@ -159,7 +130,6 @@
+     .line 5
+     if-eqz p2, :cond_0
+ 
+-    .line 6
+     .line 7
+     move p1, p3
+ 
+@@ -167,8 +137,6 @@
+     :cond_0
+     invoke-virtual {p0, p1}, Lcom/drake/net/request/BaseRequest;->r(Z)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ 
+@@ -176,16 +144,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 13
+     .line 14
+     const-string p1, "Super calls with default arguments not supported in this target, function: setDownloadMd5Verify"
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     throw p0
+ .end method
+@@ -198,33 +162,24 @@
+     .line 1
+     const-string v0, "progressListener"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-static {p0}, Lcom/drake/net/request/RequestBuilderKt;->a(Lokhttp3/Request$Builder;)Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->add(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -235,34 +190,24 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "value"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     invoke-virtual {p0, p1, p2}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -273,28 +218,21 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     if-eqz p2, :cond_1
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v3
+ 
+     .line 12
+     if-nez v3, :cond_0
+ 
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -317,8 +255,6 @@
+     .line 20
+     invoke-static/range {v1 .. v6}, Lcom/drake/net/request/BaseRequest;->e(Lcom/drake/net/request/BaseRequest;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     :cond_1
+     :goto_0
+@@ -331,29 +267,21 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     if-eqz p3, :cond_0
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->h()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     invoke-virtual {p0, p1, p2}, Lokhttp3/HttpUrl$Builder;->addEncodedQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ 
+@@ -361,16 +289,12 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->h()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p0
+ 
+     .line 20
+     invoke-virtual {p0, p1, p2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -381,24 +305,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->i()Lcom/drake/net/request/Method;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v1}, Ljava/lang/Enum;->name()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+@@ -408,56 +326,42 @@
+     .line 14
+     invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->method(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->h()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v1
+ 
+     .line 22
+     invoke-virtual {v1}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->g()Lcom/drake/net/convert/NetConverter;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     invoke-static {v0, p0}, Lcom/drake/net/request/RequestBuilderKt;->b(Lokhttp3/Request$Builder;Lcom/drake/net/convert/NetConverter;)Lokhttp3/Request$Builder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-virtual {p0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -471,7 +375,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/drake/net/request/BaseRequest;->b:Lcom/drake/net/convert/NetConverter;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -482,7 +385,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/drake/net/request/BaseRequest;->a:Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -493,7 +395,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/drake/net/request/BaseRequest;->c:Lcom/drake/net/request/Method;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -504,7 +405,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/drake/net/request/BaseRequest;->e:Lokhttp3/OkHttpClient;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -515,7 +415,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/drake/net/request/BaseRequest;->d:Lokhttp3/Request$Builder;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -526,45 +425,33 @@
+     .line 1
+     const-string v0, "key"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$CacheKey;->b(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$CacheKey;->a(Ljava/lang/String;)Lcom/drake/net/tag/NetTag$CacheKey;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     const-class v0, Lcom/drake/net/tag/NetTag$CacheKey;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -575,29 +462,21 @@
+     .line 1
+     const-string v0, "mode"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     const-class v0, Lcom/drake/net/cache/CacheMode;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -608,53 +487,39 @@
+     .line 1
+     const-string v0, "unit"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-wide p1
+ 
+     .line 10
+     invoke-static {p1, p2}, Lcom/drake/net/tag/NetTag$CacheValidTime;->b(J)J
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-wide p1
+ 
+     .line 14
+     invoke-static {p1, p2}, Lcom/drake/net/tag/NetTag$CacheValidTime;->a(J)Lcom/drake/net/tag/NetTag$CacheValidTime;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p0
+ 
+     .line 22
+     const-class p2, Lcom/drake/net/tag/NetTag$CacheValidTime;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0, p2, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -665,54 +530,39 @@
+     .line 1
+     const-string v0, "block"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->j()Lokhttp3/OkHttpClient;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {v0}, Lokhttp3/OkHttpClient;->newBuilder()Lokhttp3/OkHttpClient$Builder;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     invoke-static {v0}, Lcom/drake/net/okhttp/OkHttpBuilderKt;->g(Lokhttp3/OkHttpClient$Builder;)Lokhttp3/OkHttpClient$Builder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p1
+ 
+     .line 21
+     invoke-virtual {p1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object p1
+ 
+     .line 25
+     invoke-virtual {p0, p1}, Lcom/drake/net/request/BaseRequest;->x(Lokhttp3/OkHttpClient;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-void
+ .end method
+@@ -723,45 +573,33 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$DownloadFileDir;->b(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$DownloadFileDir;->a(Ljava/lang/String;)Lcom/drake/net/tag/NetTag$DownloadFileDir;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     const-class v0, Lcom/drake/net/tag/NetTag$DownloadFileDir;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -772,45 +610,33 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$DownloadFileName;->b(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$DownloadFileName;->a(Ljava/lang/String;)Lcom/drake/net/tag/NetTag$DownloadFileName;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     const-class v0, Lcom/drake/net/tag/NetTag$DownloadFileName;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -821,36 +647,27 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$DownloadFileMD5Verify;->b(Z)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+     .line 9
+     invoke-static {p1}, Lcom/drake/net/tag/NetTag$DownloadFileMD5Verify;->a(Z)Lcom/drake/net/tag/NetTag$DownloadFileMD5Verify;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     const-class v0, Lcom/drake/net/tag/NetTag$DownloadFileMD5Verify;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -861,16 +678,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/drake/net/request/RequestBuilderKt;->c(Lokhttp3/Request$Builder;Ljava/lang/Object;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -881,16 +694,12 @@
+     .line 1
+     const-string v0, "<set-?>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/drake/net/request/BaseRequest;->a:Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -901,16 +710,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/drake/net/request/RequestBuilderKt;->d(Lokhttp3/Request$Builder;Ljava/lang/Object;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -921,16 +726,12 @@
+     .line 1
+     const-string v0, "<set-?>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/drake/net/request/BaseRequest;->c:Lcom/drake/net/request/Method;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -941,62 +742,45 @@
+     .line 1
+     const-string v0, "value"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-static {p1}, Lcom/drake/net/okhttp/OkHttpExtensionKt;->a(Lokhttp3/OkHttpClient;)Lokhttp3/OkHttpClient;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     iput-object p1, p0, Lcom/drake/net/request/BaseRequest;->e:Lokhttp3/OkHttpClient;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p1}, Lokhttp3/OkHttpClient;->cache()Lokhttp3/Cache;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p1
+ 
+     .line 16
+     if-eqz p1, :cond_0
+ 
+-    .line 17
+     .line 18
+     new-instance v0, Lcom/drake/net/cache/ForceCache;
+ 
+-    .line 19
+     .line 20
+     invoke-static {p1}, Lokhttp3/OkHttpUtils;->diskLruCache(Lokhttp3/Cache;)Lokhttp3/internal/cache/DiskLruCache;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     const-string v1, "diskLruCache(it)"
+ 
+-    .line 25
+     .line 26
+     invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-direct {v0, p1}, Lcom/drake/net/cache/ForceCache;-><init>(Lokhttp3/internal/cache/DiskLruCache;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -1008,20 +792,15 @@
+     :goto_0
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     const-class p1, Lcom/drake/net/cache/ForceCache;
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0, p1, v0}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     return-void
+ .end method
+@@ -1032,16 +811,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0, p1}, Lokhttp3/HttpUrl$Companion;->parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+@@ -1056,64 +831,46 @@
+     :goto_0
+     if-nez v0, :cond_1
+ 
+-    .line 12
+     .line 13
+     :try_start_0
+     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
+ 
+-    .line 14
+     .line 15
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 16
+     .line 17
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     sget-object v2, Lcom/drake/net/NetConfig;->a:Lcom/drake/net/NetConfig;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v2}, Lcom/drake/net/NetConfig;->g()Ljava/lang/String;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v2
+ 
+     .line 26
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+     .line 36
+     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Companion;->get(Ljava/lang/String;)Lokhttp3/HttpUrl;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v0
+ 
+     .line 40
+     invoke-virtual {v0}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+@@ -1122,8 +879,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return-void
+ 
+@@ -1134,51 +889,36 @@
+     .line 49
+     new-instance v0, Lcom/drake/net/exception/URLParseException;
+ 
+-    .line 50
+     .line 51
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     sget-object v2, Lcom/drake/net/NetConfig;->a:Lcom/drake/net/NetConfig;
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v2}, Lcom/drake/net/NetConfig;->g()Ljava/lang/String;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v2
+ 
+     .line 62
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p1
+ 
+     .line 72
+     invoke-direct {v0, p1, p0}, Lcom/drake/net/exception/URLParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     throw v0
+ 
+@@ -1186,16 +926,12 @@
+     :cond_1
+     invoke-virtual {v0}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object p1
+ 
+     .line 80
+     invoke-virtual {p0, p1}, Lcom/drake/net/request/BaseRequest;->u(Lokhttp3/HttpUrl$Builder;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     return-void
+ .end method
+@@ -1206,16 +942,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/drake/net/request/BaseRequest;->k()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method

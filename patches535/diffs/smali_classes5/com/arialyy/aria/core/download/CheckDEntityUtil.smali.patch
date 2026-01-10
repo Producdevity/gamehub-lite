@@ -1,0 +1,1666 @@
+--- a/smali_classes5/com/arialyy/aria/core/download/CheckDEntityUtil.smali
++++ b/smali_classes5/com/arialyy/aria/core/download/CheckDEntityUtil.smali
+@@ -23,52 +23,39 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     invoke-static {v0}, Lcom/arialyy/aria/util/CommonUtil;->getClassName(Ljava/lang/Class;)Ljava/lang/String;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     iput-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 13
+     .line 14
+     iput p2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->action:I
+ 
+-    .line 15
+     .line 16
+     iput-object p1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getEntity()Lcom/arialyy/aria/core/common/AbsEntity;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object p1
+ 
+     .line 22
+     check-cast p1, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 23
+     .line 24
+     iput-object p1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 25
+     .line 26
+     return-void
+ .end method
+@@ -79,20 +66,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getTempFilePath()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+@@ -102,20 +84,15 @@
+     .line 12
+     if-eqz v1, :cond_0
+ 
+-    .line 13
+     .line 14
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 15
+     .line 16
+     const-string v0, "\u4e0b\u8f7d\u5931\u8d25\uff0c\u6587\u4ef6\u4fdd\u5b58\u8def\u5f84\u4e3anull"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return v2
+ 
+@@ -123,61 +100,45 @@
+     :cond_0
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     invoke-virtual {v1}, Ljava/io/File;->getParent()Ljava/lang/String;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     invoke-static {v1}, Lcom/arialyy/aria/util/FileUtil;->canWrite(Ljava/lang/String;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v1
+ 
+     .line 35
+     if-nez v1, :cond_1
+ 
+-    .line 36
+     .line 37
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 38
+     .line 39
+     const-string v1, "\u8def\u5f84\u3010%s\u3011\u4e0d\u53ef\u5199"
+ 
+-    .line 40
+     .line 41
+     filled-new-array {v0}, [Ljava/lang/Object;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v0
+ 
+     .line 45
+     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v0
+ 
+     .line 49
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     return v2
+ 
+@@ -185,48 +146,36 @@
+     :cond_1
+     const-string v1, "/"
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result v1
+ 
+     .line 59
+     if-nez v1, :cond_2
+ 
+-    .line 60
+     .line 61
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 62
+     .line 63
+     const-string v1, "\u4e0b\u8f7d\u5931\u8d25\uff0c\u6587\u4ef6\u4fdd\u5b58\u8def\u5f84\u3010%s\u3011\u9519\u8bef"
+ 
+-    .line 64
+     .line 65
+     filled-new-array {v0}, [Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v0
+ 
+     .line 69
+     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v0
+ 
+     .line 73
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     return v2
+ 
+@@ -234,33 +183,24 @@
+     :cond_2
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 78
+     .line 79
+     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {v1}, Ljava/io/File;->isDirectory()Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v3
+ 
+     .line 86
+     if-eqz v3, :cond_5
+ 
+-    .line 87
+     .line 88
+     iget-object v1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {v1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result v1
+ 
+@@ -270,16 +210,12 @@
+     .line 95
+     if-eq v1, v3, :cond_4
+ 
+-    .line 96
+     .line 97
+     iget-object v1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {v1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v1
+ 
+@@ -289,7 +225,6 @@
+     .line 104
+     if-ne v1, v3, :cond_3
+ 
+-    .line 105
+     .line 106
+     goto :goto_0
+ 
+@@ -297,12 +232,9 @@
+     :cond_3
+     iget-object v1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 108
+     .line 109
+     invoke-virtual {v1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v1
+ 
+@@ -312,43 +244,30 @@
+     .line 114
+     if-ne v1, v2, :cond_6
+ 
+-    .line 115
+     .line 116
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 117
+     .line 118
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 122
+-    .line 123
+     .line 124
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->getFileName()Ljava/lang/String;
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result-object v0
+ 
+     .line 130
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v0
+ 
+@@ -360,32 +279,24 @@
+     :goto_0
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 139
+     .line 140
+     const-string v1, "\u4e0b\u8f7d\u5931\u8d25\uff0c\u4fdd\u5b58\u8def\u5f84\u3010%s\u3011\u4e0d\u80fd\u4e3a\u6587\u4ef6\u5939\uff0c\u8def\u5f84\u9700\u8981\u662f\u5b8c\u6574\u7684\u6587\u4ef6\u8def\u5f84\uff0c\u5982\uff1a/mnt/sdcard/game.zip"
+ 
+-    .line 141
+     .line 142
+     filled-new-array {v0}, [Ljava/lang/Object;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object v0
+ 
+     .line 146
+     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result-object v0
+ 
+     .line 150
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 151
+-    .line 152
+     .line 153
+     return v2
+ 
+@@ -393,51 +304,38 @@
+     :cond_5
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->getFileName()Ljava/lang/String;
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result-object v2
+ 
+     .line 160
+     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result v2
+ 
+     .line 164
+     if-eqz v2, :cond_6
+ 
+-    .line 165
+     .line 166
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 167
+     .line 168
+     invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 169
+-    .line 170
+     .line 171
+     move-result-object v1
+ 
+     .line 172
+     invoke-virtual {v2, v1}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->setFileName(Ljava/lang/String;)V
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     :cond_6
+     :goto_1
+     invoke-direct {p0, v0}, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->checkPathConflicts(Ljava/lang/String;)Z
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result p0
+ 
+@@ -451,113 +349,84 @@
+     .line 1
+     const-string v0, "downloadPath=?"
+ 
+-    .line 2
+     .line 3
+     filled-new-array {v0, p1}, [Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     const-class v1, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 8
+     .line 9
+     invoke-static {v1, v0}, Lcom/arialyy/aria/orm/DbEntity;->findFirst(Ljava/lang/Class;[Ljava/lang/String;)Lcom/arialyy/aria/orm/DbEntity;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     check-cast v0, Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 14
+     .line 15
+     const/4 v1, 0x1
+ 
+     .line 16
+     if-eqz v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->getUrl()Ljava/lang/String;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v2
+ 
+     .line 22
+     iget-object v3, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {v3}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->getUrl()Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v3
+ 
+     .line 28
+     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v2
+ 
+     .line 32
+     if-eqz v2, :cond_0
+ 
+-    .line 33
+     .line 34
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 35
+     .line 36
+     iget-wide v3, v0, Lcom/arialyy/aria/orm/DbEntity;->rowID:J
+ 
+-    .line 37
+     .line 38
+     iput-wide v3, v2, Lcom/arialyy/aria/orm/DbEntity;->rowID:J
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {v2, p1}, Lcom/arialyy/aria/core/download/DownloadEntity;->setFilePath(Ljava/lang/String;)Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 44
+     .line 45
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 46
+     .line 47
+     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p1
+ 
+     .line 54
+     invoke-virtual {p0, p1}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->setFileName(Ljava/lang/String;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     return v1
+ 
+@@ -565,63 +434,48 @@
+     :cond_0
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 59
+     .line 60
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DownloadEntity;->getFilePath()Ljava/lang/String;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     move-result-object v0
+ 
+     .line 64
+     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result v0
+ 
+     .line 68
+     if-nez v0, :cond_6
+ 
+-    .line 69
+     .line 70
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 71
+     .line 72
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->isIgnoreFilePathOccupy()Z
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v0
+ 
+     .line 76
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result v2
+ 
+     .line 82
+     invoke-static {v0, p1, v2}, Lcom/arialyy/aria/util/CheckUtil;->checkDPathConflicts(ZLjava/lang/String;I)Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v0
+ 
+     .line 86
+     if-nez v0, :cond_1
+ 
+-    .line 87
+     .line 88
+     const/4 p0, 0x0
+ 
+@@ -632,103 +486,76 @@
+     :cond_1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 91
+     .line 92
+     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 96
+     .line 97
+     invoke-virtual {v2, p1}, Lcom/arialyy/aria/core/download/DownloadEntity;->setFilePath(Ljava/lang/String;)Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     iget-object p1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 101
+     .line 102
+     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result-object v2
+ 
+     .line 106
+     invoke-virtual {p1, v2}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->setFileName(Ljava/lang/String;)V
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     iget-object p1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getOptionParams()Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     move-result-object p1
+ 
+     .line 115
+     const-string v2, "useServerFileName"
+ 
+-    .line 116
+     .line 117
+     invoke-virtual {p1, v2}, Lcom/arialyy/aria/core/TaskOptionParams;->getParam(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 118
+-    .line 119
+     .line 120
+     move-result-object p1
+ 
+     .line 121
+     if-eqz p1, :cond_2
+ 
+-    .line 122
+     .line 123
+     check-cast p1, Ljava/lang/Boolean;
+ 
+-    .line 124
+     .line 125
+     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result p1
+ 
+     .line 129
+     if-nez p1, :cond_3
+ 
+-    .line 130
+     .line 131
+     :cond_2
+     iget-object p1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result p1
+ 
+     .line 137
+     const/16 v2, 0x8
+ 
+-    .line 138
+     .line 139
+     if-ne p1, v2, :cond_4
+ 
+-    .line 140
+     .line 141
+     :cond_3
+     return v1
+@@ -737,130 +564,96 @@
+     :cond_4
+     iget-object p1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {p1}, Lcom/arialyy/aria/core/download/DownloadEntity;->getFilePath()Ljava/lang/String;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object p1
+ 
+     .line 148
+     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result p1
+ 
+     .line 152
+     if-nez p1, :cond_6
+ 
+-    .line 153
+     .line 154
+     new-instance p1, Ljava/io/File;
+ 
+-    .line 155
+     .line 156
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 157
+     .line 158
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/download/DownloadEntity;->getFilePath()Ljava/lang/String;
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     move-result-object v2
+ 
+     .line 162
+     invoke-direct {p1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     invoke-virtual {p1}, Ljava/io/File;->exists()Z
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result v2
+ 
+     .line 169
+     if-eqz v2, :cond_5
+ 
+-    .line 170
+     .line 171
+     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object p1
+ 
+     .line 175
+     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result-object v2
+ 
+     .line 179
+     iget-object v3, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 180
+     .line 181
+     invoke-virtual {v3}, Lcom/arialyy/aria/core/download/DownloadEntity;->getTaskType()I
+ 
+-    .line 182
+-    .line 183
+     .line 184
+     move-result v3
+ 
+     .line 185
+     invoke-static {p1, v2, v3}, Lcom/arialyy/aria/util/RecordUtil;->modifyTaskRecord(Ljava/lang/String;Ljava/lang/String;I)V
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 189
+     .line 190
+     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 191
+-    .line 192
+     .line 193
+     move-result-object p1
+ 
+     .line 194
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 195
+-    .line 196
+     .line 197
+     move-result-object p1
+ 
+     .line 198
+     const-string v0, "\u5c06\u4efb\u52a1\u91cd\u547d\u540d\u4e3a\uff1a%s"
+ 
+-    .line 199
+     .line 200
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result-object p1
+ 
+     .line 204
+     invoke-static {p0, p1}, Lcom/arialyy/aria/util/ALog;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 205
+-    .line 206
+     .line 207
+     goto :goto_0
+ 
+@@ -868,93 +661,69 @@
+     :cond_5
+     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     move-result-object v2
+ 
+     .line 212
+     invoke-static {v2}, Lcom/arialyy/aria/util/RecordUtil;->blockTaskExists(Ljava/lang/String;)Z
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     move-result v2
+ 
+     .line 216
+     if-eqz v2, :cond_6
+ 
+-    .line 217
+     .line 218
+     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     move-result-object p1
+ 
+     .line 222
+     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 223
+-    .line 224
+     .line 225
+     move-result-object v2
+ 
+     .line 226
+     iget-object v3, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 227
+     .line 228
+     invoke-virtual {v3}, Lcom/arialyy/aria/core/download/DownloadEntity;->getTaskType()I
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     move-result v3
+ 
+     .line 232
+     invoke-static {p1, v2, v3}, Lcom/arialyy/aria/util/RecordUtil;->modifyTaskRecord(Ljava/lang/String;Ljava/lang/String;I)V
+ 
+-    .line 233
+-    .line 234
+     .line 235
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 236
+     .line 237
+     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+ 
+-    .line 238
+-    .line 239
+     .line 240
+     move-result-object p1
+ 
+     .line 241
+     filled-new-array {p1}, [Ljava/lang/Object;
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     move-result-object p1
+ 
+     .line 245
+     const-string v0, "\u5c06\u5206\u5757\u4efb\u52a1\u91cd\u547d\u540d\u4e3a\uff1a%s"
+ 
+-    .line 246
+     .line 247
+     invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 248
+-    .line 249
+     .line 250
+     move-result-object p1
+ 
+     .line 251
+     invoke-static {p0, p1}, Lcom/arialyy/aria/util/ALog;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 252
+-    .line 253
+     .line 254
+     :cond_6
+     :goto_0
+@@ -967,20 +736,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->getUrl()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+@@ -990,20 +754,15 @@
+     .line 12
+     if-eqz v1, :cond_0
+ 
+-    .line 13
+     .line 14
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 15
+     .line 16
+     const-string v0, "\u4e0b\u8f7d\u5931\u8d25\uff0curl\u4e3anull"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     return v2
+ 
+@@ -1011,64 +770,45 @@
+     :cond_0
+     invoke-static {v0}, Lcom/arialyy/aria/util/CheckUtil;->checkUrl(Ljava/lang/String;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+ 
+     .line 26
+     const-string v3, "\u4e0b\u8f7d\u5931\u8d25\uff0curl\u3010"
+ 
+-    .line 27
+     .line 28
+     if-nez v1, :cond_1
+ 
+-    .line 29
+     .line 30
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 31
+     .line 32
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 33
+     .line 34
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     const-string v0, "\u3011\u9519\u8bef"
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object v0
+ 
+     .line 52
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return v2
+ 
+@@ -1076,12 +816,9 @@
+     :cond_1
+     const-string v1, "://"
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result v1
+ 
+@@ -1091,52 +828,36 @@
+     .line 63
+     if-ne v1, v4, :cond_2
+ 
+-    .line 64
+     .line 65
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 66
+     .line 67
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 68
+     .line 69
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     const-string v0, "\u3011\u4e0d\u5408\u6cd5"
+ 
+-    .line 79
+     .line 80
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v0
+ 
+     .line 87
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     return v2
+ 
+@@ -1144,48 +865,36 @@
+     :cond_2
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getTempUrl()Ljava/lang/String;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object v0
+ 
+     .line 97
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result v0
+ 
+     .line 101
+     if-nez v0, :cond_3
+ 
+-    .line 102
+     .line 103
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 104
+     .line 105
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 106
+     .line 107
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getTempUrl()Ljava/lang/String;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     move-result-object p0
+ 
+     .line 111
+     invoke-virtual {v0, p0}, Lcom/arialyy/aria/core/common/AbsNormalEntity;->setUrl(Ljava/lang/String;)V
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     :cond_3
+     const/4 p0, 0x1
+@@ -1200,45 +909,33 @@
+     .line 1
+     new-instance v0, Ljava/io/File;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v1}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getTempFilePath()Ljava/lang/String;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     iget-object v1, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {v1}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getM3U8Params()Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v1
+ 
+     .line 18
+     const-string v2, "bandWidth"
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v2}, Lcom/arialyy/aria/core/TaskOptionParams;->getParam(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v1
+ 
+@@ -1248,7 +945,6 @@
+     .line 25
+     if-nez v1, :cond_0
+ 
+-    .line 26
+     .line 27
+     move v1, v2
+ 
+@@ -1259,12 +955,9 @@
+     :cond_0
+     check-cast v1, Ljava/lang/Integer;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v1
+ 
+@@ -1272,97 +965,69 @@
+     :goto_0
+     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v3
+ 
+     .line 39
+     invoke-static {v3, v1}, Lcom/arialyy/aria/util/FileUtil;->getTsCacheDir(Ljava/lang/String;I)Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v3
+ 
+     .line 43
+     iget-object v4, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 44
+     .line 45
+     invoke-virtual {v4}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getM3U8Params()Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v4
+ 
+     .line 49
+     const-string v5, "cacheDir"
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v4, v5, v3}, Lcom/arialyy/aria/core/TaskOptionParams;->setParams(Ljava/lang/String;Ljava/lang/Object;)Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     iget-object v4, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v4}, Lcom/arialyy/aria/core/download/DownloadEntity;->getM3U8Entity()Lcom/arialyy/aria/core/download/M3U8Entity;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v4
+ 
+     .line 60
+     if-nez v4, :cond_1
+ 
+-    .line 61
+     .line 62
+     new-instance v4, Lcom/arialyy/aria/core/download/M3U8Entity;
+ 
+-    .line 63
+     .line 64
+     invoke-direct {v4}, Lcom/arialyy/aria/core/download/M3U8Entity;-><init>()V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     iget-object v5, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {v5}, Lcom/arialyy/aria/core/download/DownloadEntity;->getFilePath()Ljava/lang/String;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v5
+ 
+     .line 73
+     invoke-virtual {v4, v5}, Lcom/arialyy/aria/core/download/M3U8Entity;->setFilePath(Ljava/lang/String;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     invoke-virtual {v4, v2}, Lcom/arialyy/aria/core/download/M3U8Entity;->setPeerIndex(I)V
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     invoke-virtual {v4, v3}, Lcom/arialyy/aria/core/download/M3U8Entity;->setCacheDir(Ljava/lang/String;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {v4}, Lcom/arialyy/aria/orm/DbEntity;->insert()V
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     goto :goto_1
+ 
+@@ -1370,18 +1035,13 @@
+     :cond_1
+     invoke-virtual {v4}, Lcom/arialyy/aria/orm/DbEntity;->update()V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     :goto_1
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 90
+     .line 91
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v2
+ 
+@@ -1394,55 +1054,42 @@
+     .line 97
+     if-ne v2, v3, :cond_2
+ 
+-    .line 98
+     .line 99
+     iget v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->action:I
+ 
+-    .line 100
+     .line 101
+     const/4 v3, 0x1
+ 
+     .line 102
+     if-ne v2, v3, :cond_2
+ 
+-    .line 103
+     .line 104
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 105
+     .line 106
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/common/AbsEntity;->getFileSize()J
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-wide v2
+ 
+     .line 110
+     const-wide/16 v5, 0x0
+ 
+-    .line 111
+     .line 112
+     cmp-long v0, v2, v5
+ 
+-    .line 113
+     .line 114
+     if-nez v0, :cond_3
+ 
+-    .line 115
+     .line 116
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 117
+     .line 118
+     const-string v2, "\u7531\u4e8em3u8\u534f\u8bae\u7684\u7279\u6b8a\u6027\u8d28\uff0c\u65e0\u6cd5\u6709\u6548\u5feb\u901f\u83b7\u53d6\u5230\u6b63\u786e\u5230\u6587\u4ef6\u957f\u5ea6\uff0c\u5982\u679c\u4f60\u9700\u8981\u663e\u793a\u6587\u4ef6\u4e2d\u957f\u5ea6\uff0c\u4f60\u9700\u8981\u81ea\u884c\u8bbe\u7f6e\u6587\u4ef6\u957f\u5ea6\uff1a.asM3U8().asVod().setFileSize(xxx)"
+ 
+-    .line 119
+     .line 120
+     invoke-static {v0, v2}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     goto :goto_2
+ 
+@@ -1450,116 +1097,86 @@
+     :cond_2
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {v2}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result v2
+ 
+     .line 130
+     const/16 v3, 0x8
+ 
+-    .line 131
+     .line 132
+     if-ne v2, v3, :cond_3
+ 
+-    .line 133
+     .line 134
+     iget v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->action:I
+ 
+-    .line 135
+     .line 136
+     if-eq v2, v4, :cond_3
+ 
+-    .line 137
+     .line 138
+     invoke-virtual {v0}, Ljava/io/File;->exists()Z
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result v2
+ 
+     .line 142
+     if-eqz v2, :cond_3
+ 
+-    .line 143
+     .line 144
+     iget-object v2, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 145
+     .line 146
+     const-string v3, "\u5bf9\u4e8e\u76f4\u64ad\u6765\u8bf4\uff0c\u6bcf\u6b21\u4e0b\u8f7d\u90fd\u662f\u4e00\u4e2a\u65b0\u6587\u4ef6\uff0c\u6240\u4ee5\u4f60\u9700\u8981\u8bbe\u7f6e\u65b0\u90fd\u6587\u4ef6\u8def\u5f84\uff0c\u5426\u5219Aria\u6846\u67b6\u5c06\u4f1a\u8986\u76d6\u5df2\u4e0b\u8f7d\u7684\u6587\u4ef6"
+ 
+-    .line 147
+     .line 148
+     invoke-static {v2, v3}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     invoke-virtual {v0}, Ljava/io/File;->delete()Z
+ 
+-    .line 152
+-    .line 153
+     .line 154
+     :cond_3
+     :goto_2
+     iget v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->action:I
+ 
+-    .line 155
+     .line 156
+     if-eq v0, v4, :cond_4
+ 
+-    .line 157
+     .line 158
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 159
+     .line 160
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/download/DTaskWrapper;->getM3U8Params()Lcom/arialyy/aria/core/TaskOptionParams;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result-object v0
+ 
+     .line 164
+     const-string v2, "bandWidthUrlConverter"
+ 
+-    .line 165
+     .line 166
+     invoke-virtual {v0, v2}, Lcom/arialyy/aria/core/TaskOptionParams;->getHandler(Ljava/lang/String;)Lcom/arialyy/aria/core/inf/IEventHandler;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object v0
+ 
+     .line 170
+     if-eqz v0, :cond_4
+ 
+-    .line 171
+     .line 172
+     if-nez v1, :cond_4
+ 
+-    .line 173
+     .line 174
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 175
+     .line 176
+     const-string v0, "\u4f60\u5df2\u7ecf\u8bbe\u7f6e\u4e86\u7801\u7387url\u8f6c\u6362\u5668\uff0c\u4f46\u662f\u6ca1\u6709\u8bbe\u7f6e\u7801\u7387\uff0cAria\u6846\u67b6\u5c06\u91c7\u7528\u7b2c\u4e00\u4e2a\u83b7\u53d6\u5230\u7684\u7801\u7387"
+ 
+-    .line 177
+     .line 178
+     invoke-static {p0, v0}, Lcom/arialyy/aria/util/ALog;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     :cond_4
+     return-void
+@@ -1571,12 +1188,9 @@
+     .line 1
+     new-instance v0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0, p1}, Lcom/arialyy/aria/core/download/CheckDEntityUtil;-><init>(Lcom/arialyy/aria/core/download/DTaskWrapper;I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -1589,12 +1203,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getErrorEvent()Lcom/arialyy/aria/core/event/ErrorEvent;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+@@ -1604,52 +1215,39 @@
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->TAG:Ljava/lang/String;
+ 
+-    .line 11
+     .line 12
+     iget-object p0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getErrorEvent()Lcom/arialyy/aria/core/event/ErrorEvent;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     iget-object p0, p0, Lcom/arialyy/aria/core/event/ErrorEvent;->errorMsg:Ljava/lang/String;
+ 
+-    .line 19
+     .line 20
+     filled-new-array {p0}, [Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     const-string v2, "\u4efb\u52a1\u64cd\u4f5c\u5931\u8d25\uff0c%s"
+ 
+-    .line 25
+     .line 26
+     invoke-static {v2, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p0
+ 
+     .line 30
+     invoke-static {v0, p0}, Lcom/arialyy/aria/util/ALog;->e(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return v1
+ 
+@@ -1657,27 +1255,21 @@
+     :cond_0
+     invoke-direct {p0}, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->checkUrl()Z
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result v0
+ 
+     .line 38
+     if-eqz v0, :cond_1
+ 
+-    .line 39
+     .line 40
+     invoke-direct {p0}, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->checkFilePath()Z
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v0
+ 
+     .line 44
+     if-eqz v0, :cond_1
+ 
+-    .line 45
+     .line 46
+     const/4 v1, 0x1
+ 
+@@ -1685,26 +1277,19 @@
+     :cond_1
+     if-eqz v1, :cond_2
+ 
+-    .line 48
+     .line 49
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mEntity:Lcom/arialyy/aria/core/download/DownloadEntity;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v0}, Lcom/arialyy/aria/orm/DbEntity;->save()V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     :cond_2
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v0
+ 
+@@ -1714,27 +1299,21 @@
+     .line 61
+     if-eq v0, v2, :cond_4
+ 
+-    .line 62
+     .line 63
+     iget-object v0, p0, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->mWrapper:Lcom/arialyy/aria/core/download/DTaskWrapper;
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v0}, Lcom/arialyy/aria/core/wrapper/AbsTaskWrapper;->getRequestType()I
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result v0
+ 
+     .line 69
+     const/16 v2, 0x8
+ 
+-    .line 70
+     .line 71
+     if-ne v0, v2, :cond_3
+ 
+-    .line 72
+     .line 73
+     goto :goto_0
+ 
+@@ -1747,8 +1326,6 @@
+     :goto_0
+     invoke-direct {p0}, Lcom/arialyy/aria/core/download/CheckDEntityUtil;->handleM3U8()V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     return v1
+ .end method

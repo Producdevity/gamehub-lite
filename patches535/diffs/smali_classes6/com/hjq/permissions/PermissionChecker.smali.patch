@@ -1,0 +1,2985 @@
+--- a/smali_classes6/com/hjq/permissions/PermissionChecker.smali
++++ b/smali_classes6/com/hjq/permissions/PermissionChecker.smali
+@@ -13,11 +13,9 @@
+     .line 2
+     if-nez p0, :cond_1
+ 
+-    .line 3
+     .line 4
+     if-nez p1, :cond_0
+ 
+-    .line 5
+     .line 6
+     return v0
+ 
+@@ -25,16 +23,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 8
+     .line 9
+     const-string p1, "The instance of the context must be an activity object"
+ 
+-    .line 10
+     .line 11
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     throw p0
+ 
+@@ -42,19 +36,15 @@
+     :cond_1
+     invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v1
+ 
+     .line 19
+     if-eqz v1, :cond_3
+ 
+-    .line 20
+     .line 21
+     if-nez p1, :cond_2
+ 
+-    .line 22
+     .line 23
+     return v0
+ 
+@@ -62,16 +52,12 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 25
+     .line 26
+     const-string p1, "The activity has been finishing, please manually determine the status of the activity"
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     throw p0
+ 
+@@ -79,31 +65,24 @@
+     :cond_3
+     invoke-static {}, Lcom/hjq/permissions/AndroidVersion;->h()Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v1
+ 
+     .line 36
+     if-eqz v1, :cond_5
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0}, Landroid/app/Activity;->isDestroyed()Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result p0
+ 
+     .line 42
+     if-eqz p0, :cond_5
+ 
+-    .line 43
+     .line 44
+     if-nez p1, :cond_4
+ 
+-    .line 45
+     .line 46
+     return v0
+ 
+@@ -111,16 +90,12 @@
+     :cond_4
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 48
+     .line 49
+     const-string p1, "The activity has been destroyed, please manually determine the status of the activity"
+ 
+-    .line 50
+     .line 51
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     throw p0
+ 
+@@ -138,19 +113,15 @@
+     .line 1
+     const-string v0, "android.permission.BODY_SENSORS_BACKGROUND"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+     .line 7
+     if-nez v1, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -158,31 +129,24 @@
+     :cond_0
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v0
+ 
+     .line 14
+     if-eqz v0, :cond_2
+ 
+-    .line 15
+     .line 16
+     const-string v0, "android.permission.BODY_SENSORS"
+ 
+-    .line 17
+     .line 18
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p0
+ 
+     .line 22
+     if-eqz p0, :cond_1
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -190,16 +154,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 26
+     .line 27
+     const-string v0, "Applying for background sensor permissions must contain android.permission.BODY_SENSORS"
+ 
+-    .line 28
+     .line 29
+     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     throw p0
+ 
+@@ -215,7 +175,6 @@
+     .line 1
+     if-nez p2, :cond_0
+ 
+-    .line 2
+     .line 3
+     goto :goto_0
+ 
+@@ -223,19 +182,15 @@
+     :cond_0
+     const-string v0, "com.android.permission.GET_INSTALLED_APPS"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result p1
+ 
+     .line 10
+     if-nez p1, :cond_1
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -243,19 +198,15 @@
+     :cond_1
+     invoke-static {p0}, Lcom/hjq/permissions/AndroidVersion;->b(Landroid/content/Context;)I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+     .line 17
+     const/16 p1, 0x1e
+ 
+-    .line 18
+     .line 19
+     if-ge p0, p1, :cond_2
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -263,44 +214,33 @@
+     :cond_2
+     invoke-static {}, Lcom/hjq/permissions/AndroidVersion;->d()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iget-object p0, p2, Lcom/hjq/permissions/AndroidManifestInfo;->c:Ljava/util/List;
+ 
+-    .line 26
+     .line 27
+     const-string p1, "android.permission.QUERY_ALL_PACKAGES"
+ 
+-    .line 28
+     .line 29
+     invoke-static {p0, p1}, Lcom/hjq/permissions/PermissionChecker;->p(Ljava/util/List;Ljava/lang/String;)Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object p0
+ 
+     .line 33
+     if-nez p0, :cond_4
+ 
+-    .line 34
+     .line 35
+     iget-object p0, p2, Lcom/hjq/permissions/AndroidManifestInfo;->d:Ljava/util/List;
+ 
+-    .line 36
+     .line 37
+     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result p0
+ 
+     .line 41
+     if-nez p0, :cond_3
+ 
+-    .line 42
+     .line 43
+     goto :goto_0
+ 
+@@ -308,52 +248,36 @@
+     :cond_3
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 45
+     .line 46
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 47
+     .line 48
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     const-string v0, "Please register permissions in the AndroidManifest.xml file <uses-permission android:name=\""
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     const-string p1, "\" />, or add the app package name to the <queries> tag in the AndroidManifest.xml file"
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object p1
+ 
+     .line 68
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     throw p0
+ 
+@@ -369,19 +293,15 @@
+     .line 1
+     const-string v0, "android.permission.ACCESS_BACKGROUND_LOCATION"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -389,35 +309,27 @@
+     :cond_0
+     const-string v0, "android.permission.ACCESS_COARSE_LOCATION"
+ 
+-    .line 11
+     .line 12
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-eqz v0, :cond_2
+ 
+-    .line 17
+     .line 18
+     const-string v0, "android.permission.ACCESS_FINE_LOCATION"
+ 
+-    .line 19
+     .line 20
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+     .line 24
+     if-eqz p0, :cond_1
+ 
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -425,16 +337,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 28
+     .line 29
+     const-string v0, "Applying for background positioning permissions must include android.permission.ACCESS_FINE_LOCATION"
+ 
+-    .line 30
+     .line 31
+     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     throw p0
+ 
+@@ -450,13 +358,9 @@
+     .line 1
+     const v0, 0x7fffffff
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-static {p0, p1, v0}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -467,110 +371,75 @@
+     .line 1
+     invoke-static {p0, p1}, Lcom/hjq/permissions/PermissionChecker;->p(Ljava/util/List;Ljava/lang/String;)Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     if-eqz p0, :cond_2
+ 
+-    .line 6
+     .line 7
+     iget p0, p0, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->b:I
+ 
+-    .line 8
+     .line 9
+     if-ge p0, p2, :cond_1
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 12
+     .line 13
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 14
+     .line 15
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v2, "The AndroidManifest.xml file <uses-permission android:name=\""
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     const-string p1, "\" android:maxSdkVersion=\""
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     const-string p1, "\" /> does not meet the requirements, "
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     const p1, 0x7fffffff
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     if-eq p2, p1, :cond_0
+ 
+-    .line 43
+     .line 44
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     const-string p1, "the minimum requirement for maxSdkVersion is "
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p0
+ 
+@@ -581,40 +450,27 @@
+     :cond_0
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 63
+     .line 64
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     const-string p2, "please delete the android:maxSdkVersion=\""
+ 
+-    .line 68
+     .line 69
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     const-string p0, "\" attribute"
+ 
+-    .line 76
+     .line 77
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object p0
+ 
+@@ -622,21 +478,15 @@
+     :goto_0
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object p0
+ 
+     .line 91
+     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     throw v0
+ 
+@@ -648,52 +498,36 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 97
+     .line 98
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 99
+     .line 100
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     const-string v0, "Please register permissions in the AndroidManifest.xml file <uses-permission android:name=\""
+ 
+-    .line 104
+     .line 105
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     const-string p1, "\" />"
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object p1
+ 
+     .line 120
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     throw p0
+ .end method
+@@ -704,52 +538,40 @@
+     .line 1
+     if-nez p2, :cond_0
+ 
+-    .line 2
+     .line 3
+     goto/16 :goto_2
+ 
+-    .line 4
+     .line 5
+     :cond_0
+     iget-object v0, p2, Lcom/hjq/permissions/AndroidManifestInfo;->c:Ljava/util/List;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+     .line 11
+     if-nez v1, :cond_10
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Lcom/hjq/permissions/AndroidVersion;->n()Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     if-eqz v1, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p2
+ 
+     .line 23
+     iget p2, p2, Landroid/content/pm/ApplicationInfo;->minSdkVersion:I
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -757,15 +579,12 @@
+     :cond_1
+     iget-object p2, p2, Lcom/hjq/permissions/AndroidManifestInfo;->b:Lcom/hjq/permissions/AndroidManifestInfo$UsesSdkInfo;
+ 
+-    .line 27
+     .line 28
+     if-eqz p2, :cond_2
+ 
+-    .line 29
+     .line 30
+     iget p2, p2, Lcom/hjq/permissions/AndroidManifestInfo$UsesSdkInfo;->a:I
+ 
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -773,13 +592,10 @@
+     :cond_2
+     const/16 p2, 0xe
+ 
+-    .line 34
+     .line 35
+     :goto_0
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p1
+ 
+@@ -788,39 +604,30 @@
+     :goto_1
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result v1
+ 
+     .line 43
+     if-eqz v1, :cond_f
+ 
+-    .line 44
+     .line 45
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v1
+ 
+     .line 49
+     check-cast v1, Ljava/lang/String;
+ 
+-    .line 50
+     .line 51
+     invoke-static {v1}, Lcom/hjq/permissions/PermissionHelper;->g(Ljava/lang/String;)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v2
+ 
+     .line 55
+     if-eqz v2, :cond_4
+ 
+-    .line 56
+     .line 57
+     goto :goto_1
+ 
+@@ -828,33 +635,24 @@
+     :cond_4
+     invoke-static {v0, v1}, Lcom/hjq/permissions/PermissionChecker;->e(Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const-string v2, "android.permission.BODY_SENSORS_BACKGROUND"
+ 
+-    .line 62
+     .line 63
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     move-result v2
+ 
+     .line 67
+     if-eqz v2, :cond_5
+ 
+-    .line 68
+     .line 69
+     const-string v1, "android.permission.BODY_SENSORS"
+ 
+-    .line 70
+     .line 71
+     invoke-static {v0, v1}, Lcom/hjq/permissions/PermissionChecker;->e(Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     goto :goto_1
+ 
+@@ -862,57 +660,42 @@
+     :cond_5
+     const-string v2, "android.permission.ACCESS_BACKGROUND_LOCATION"
+ 
+-    .line 76
+     .line 77
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result v2
+ 
+     .line 81
+     const-string v3, "android.permission.ACCESS_FINE_LOCATION"
+ 
+-    .line 82
+     .line 83
+     const/16 v4, 0x1e
+ 
+-    .line 84
+     .line 85
+     if-eqz v2, :cond_7
+ 
+-    .line 86
+     .line 87
+     invoke-static {p0}, Lcom/hjq/permissions/AndroidVersion;->b(Landroid/content/Context;)I
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result v1
+ 
+     .line 91
+     const/16 v2, 0x1f
+ 
+-    .line 92
+     .line 93
+     if-lt v1, v2, :cond_6
+ 
+-    .line 94
+     .line 95
+     invoke-static {v0, v3, v4}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     const-string v1, "android.permission.ACCESS_COARSE_LOCATION"
+ 
+-    .line 99
+     .line 100
+     invoke-static {v0, v1}, Lcom/hjq/permissions/PermissionChecker;->e(Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     goto :goto_1
+ 
+@@ -920,8 +703,6 @@
+     :cond_6
+     invoke-static {v0, v3}, Lcom/hjq/permissions/PermissionChecker;->e(Ljava/util/List;Ljava/lang/String;)V
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     goto :goto_1
+ 
+@@ -929,65 +710,49 @@
+     :cond_7
+     invoke-static {v1}, Lcom/hjq/permissions/PermissionHelper;->b(Ljava/lang/String;)I
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     move-result v2
+ 
+     .line 112
+     if-lt p2, v2, :cond_8
+ 
+-    .line 113
+     .line 114
+     goto/16 :goto_2
+ 
+-    .line 115
+     .line 116
+     :cond_8
+     const-string v2, "android.permission.READ_MEDIA_VIDEO"
+ 
+-    .line 117
+     .line 118
+     const-string v5, "android.permission.READ_MEDIA_AUDIO"
+ 
+-    .line 119
+     .line 120
+     const-string v6, "android.permission.READ_MEDIA_IMAGES"
+ 
+-    .line 121
+     .line 122
+     filled-new-array {v6, v2, v5}, [Ljava/lang/String;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v2
+ 
+     .line 126
+     invoke-static {v2, v1}, Lcom/hjq/permissions/PermissionUtils;->h([Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     move-result v2
+ 
+     .line 130
+     const/16 v5, 0x20
+ 
+-    .line 131
+     .line 132
+     const-string v6, "android.permission.READ_EXTERNAL_STORAGE"
+ 
+-    .line 133
+     .line 134
+     if-eqz v2, :cond_9
+ 
+-    .line 135
+     .line 136
+     invoke-static {v0, v6, v5}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     goto :goto_1
+ 
+@@ -995,24 +760,18 @@
+     :cond_9
+     const-string v2, "android.permission.NEARBY_WIFI_DEVICES"
+ 
+-    .line 141
+     .line 142
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result v2
+ 
+     .line 146
+     if-eqz v2, :cond_a
+ 
+-    .line 147
+     .line 148
+     invoke-static {v0, v3, v5}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     goto :goto_1
+ 
+@@ -1020,166 +779,121 @@
+     :cond_a
+     const-string v2, "android.permission.BLUETOOTH_SCAN"
+ 
+-    .line 153
+     .line 154
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result v2
+ 
+     .line 158
+     const-string v5, "android.permission.BLUETOOTH_ADMIN"
+ 
+-    .line 159
+     .line 160
+     if-eqz v2, :cond_b
+ 
+-    .line 161
+     .line 162
+     invoke-static {v0, v5, v4}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     invoke-static {v0, v3, v4}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     goto/16 :goto_1
+ 
+-    .line 169
+     .line 170
+     :cond_b
+     const-string v2, "android.permission.BLUETOOTH_CONNECT"
+ 
+-    .line 171
+     .line 172
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     move-result v2
+ 
+     .line 176
+     if-eqz v2, :cond_c
+ 
+-    .line 177
+     .line 178
+     const-string v1, "android.permission.BLUETOOTH"
+ 
+-    .line 179
+     .line 180
+     invoke-static {v0, v1, v4}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 181
+-    .line 182
+     .line 183
+     goto/16 :goto_1
+ 
+-    .line 184
+     .line 185
+     :cond_c
+     const-string v2, "android.permission.BLUETOOTH_ADVERTISE"
+ 
+-    .line 186
+     .line 187
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     move-result v2
+ 
+     .line 191
+     if-eqz v2, :cond_d
+ 
+-    .line 192
+     .line 193
+     invoke-static {v0, v5, v4}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     goto/16 :goto_1
+ 
+-    .line 197
+     .line 198
+     :cond_d
+     const-string v2, "android.permission.MANAGE_EXTERNAL_STORAGE"
+ 
+-    .line 199
+     .line 200
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     move-result v2
+ 
+     .line 204
+     if-eqz v2, :cond_e
+ 
+-    .line 205
+     .line 206
+     const/16 v1, 0x1d
+ 
+-    .line 207
+     .line 208
+     invoke-static {v0, v6, v1}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     const-string v2, "android.permission.WRITE_EXTERNAL_STORAGE"
+ 
+-    .line 212
+     .line 213
+     invoke-static {v0, v2, v1}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 214
+-    .line 215
+     .line 216
+     goto/16 :goto_1
+ 
+-    .line 217
+     .line 218
+     :cond_e
+     const-string v2, "android.permission.READ_PHONE_NUMBERS"
+ 
+-    .line 219
+     .line 220
+     invoke-static {v1, v2}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 221
+-    .line 222
+     .line 223
+     move-result v1
+ 
+     .line 224
+     if-eqz v1, :cond_3
+ 
+-    .line 225
+     .line 226
+     const-string v1, "android.permission.READ_PHONE_STATE"
+ 
+-    .line 227
+     .line 228
+     const/16 v2, 0x19
+ 
+-    .line 229
+     .line 230
+     invoke-static {v0, v1, v2}, Lcom/hjq/permissions/PermissionChecker;->f(Ljava/util/List;Ljava/lang/String;I)V
+ 
+-    .line 231
+-    .line 232
+     .line 233
+     goto/16 :goto_1
+ 
+-    .line 234
+     .line 235
+     :cond_f
+     :goto_2
+@@ -1189,16 +903,12 @@
+     :cond_10
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 237
+     .line 238
+     const-string p1, "No permissions are registered in the AndroidManifest.xml file"
+ 
+-    .line 239
+     .line 240
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 241
+-    .line 242
+     .line 243
+     throw p0
+ .end method
+@@ -1209,19 +919,15 @@
+     .line 1
+     const-string v0, "android.permission.ACCESS_MEDIA_LOCATION"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -1229,67 +935,51 @@
+     :cond_0
+     invoke-static {p0}, Lcom/hjq/permissions/AndroidVersion;->b(Landroid/content/Context;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+     .line 14
+     const/16 v0, 0x21
+ 
+-    .line 15
+     .line 16
+     const-string v1, "android.permission.MANAGE_EXTERNAL_STORAGE"
+ 
+-    .line 17
+     .line 18
+     if-lt p0, v0, :cond_2
+ 
+-    .line 19
+     .line 20
+     const-string p0, "android.permission.READ_MEDIA_IMAGES"
+ 
+-    .line 21
+     .line 22
+     invoke-static {p1, p0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+ 
+     .line 26
+     if-nez p0, :cond_4
+ 
+-    .line 27
+     .line 28
+     const-string p0, "android.permission.READ_MEDIA_VIDEO"
+ 
+-    .line 29
+     .line 30
+     invoke-static {p1, p0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result p0
+ 
+     .line 34
+     if-nez p0, :cond_4
+ 
+-    .line 35
+     .line 36
+     invoke-static {p1, v1}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result p0
+ 
+     .line 40
+     if-eqz p0, :cond_1
+ 
+-    .line 41
+     .line 42
+     goto :goto_0
+ 
+@@ -1297,16 +987,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 44
+     .line 45
+     const-string p1, "You must add android.permission.READ_MEDIA_IMAGES or android.permission.READ_MEDIA_VIDEO or android.permission.MANAGE_EXTERNAL_STORAGE rights to apply for android.permission.ACCESS_MEDIA_LOCATION rights"
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     throw p0
+ 
+@@ -1314,31 +1000,24 @@
+     :cond_2
+     const-string p0, "android.permission.READ_EXTERNAL_STORAGE"
+ 
+-    .line 52
+     .line 53
+     invoke-static {p1, p0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result p0
+ 
+     .line 57
+     if-nez p0, :cond_4
+ 
+-    .line 58
+     .line 59
+     invoke-static {p1, v1}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result p0
+ 
+     .line 63
+     if-eqz p0, :cond_3
+ 
+-    .line 64
+     .line 65
+     goto :goto_0
+ 
+@@ -1346,16 +1025,12 @@
+     :cond_3
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 67
+     .line 68
+     const-string p1, "You must add android.permission.READ_EXTERNAL_STORAGE or android.permission.MANAGE_EXTERNAL_STORAGE rights to apply for android.permission.ACCESS_MEDIA_LOCATION rights"
+ 
+-    .line 69
+     .line 70
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     throw p0
+ 
+@@ -1371,79 +1046,60 @@
+     .line 1
+     const-string v0, "android.permission.BLUETOOTH_SCAN"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+     .line 7
+     const-string v2, "android.permission.NEARBY_WIFI_DEVICES"
+ 
+-    .line 8
+     .line 9
+     if-nez v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-static {p0, v2}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-nez v1, :cond_0
+ 
+-    .line 16
+     .line 17
+     goto/16 :goto_2
+ 
+-    .line 18
+     .line 19
+     :cond_0
+     const-string v1, "android.permission.ACCESS_FINE_LOCATION"
+ 
+-    .line 20
+     .line 21
+     invoke-static {p0, v1}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result p0
+ 
+     .line 25
+     if-eqz p0, :cond_1
+ 
+-    .line 26
+     .line 27
+     goto/16 :goto_2
+ 
+-    .line 28
+     .line 29
+     :cond_1
+     if-nez p1, :cond_2
+ 
+-    .line 30
+     .line 31
+     goto/16 :goto_2
+ 
+-    .line 32
+     .line 33
+     :cond_2
+     iget-object p0, p1, Lcom/hjq/permissions/AndroidManifestInfo;->c:Ljava/util/List;
+ 
+-    .line 34
+     .line 35
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+@@ -1452,51 +1108,39 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result p1
+ 
+     .line 43
+     if-eqz p1, :cond_6
+ 
+-    .line 44
+     .line 45
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p1
+ 
+     .line 49
+     check-cast p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;
+ 
+-    .line 50
+     .line 51
+     filled-new-array {v0, v2}, [Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object v3
+ 
+     .line 55
+     iget-object v4, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a:Ljava/lang/String;
+ 
+-    .line 56
+     .line 57
+     invoke-static {v3, v4}, Lcom/hjq/permissions/PermissionUtils;->h([Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result v3
+ 
+     .line 61
+     if-nez v3, :cond_4
+ 
+-    .line 62
+     .line 63
+     goto :goto_0
+ 
+@@ -1504,69 +1148,48 @@
+     :cond_4
+     invoke-virtual {p1}, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a()Z
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result v3
+ 
+     .line 68
+     if-nez v3, :cond_3
+ 
+-    .line 69
+     .line 70
+     iget p0, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->b:I
+ 
+-    .line 71
+     .line 72
+     const v0, 0x7fffffff
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     const-string v2, "\" "
+ 
+-    .line 76
+     .line 77
+     if-eq p0, v0, :cond_5
+ 
+-    .line 78
+     .line 79
+     new-instance p0, Ljava/lang/StringBuilder;
+ 
+-    .line 80
+     .line 81
+     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     const-string v0, "android:maxSdkVersion=\""
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     iget v0, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->b:I
+ 
+-    .line 90
+     .line 91
+     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object p0
+ 
+@@ -1577,153 +1200,103 @@
+     :cond_5
+     const-string p0, ""
+ 
+-    .line 103
+     .line 104
+     :goto_1
+     new-instance v0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 105
+     .line 106
+     new-instance v3, Ljava/lang/StringBuilder;
+ 
+-    .line 107
+     .line 108
+     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     const-string v4, "If your app doesn\'t use "
+ 
+-    .line 112
+     .line 113
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     iget-object v4, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a:Ljava/lang/String;
+ 
+-    .line 117
+     .line 118
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     const-string v4, " to get physical location, please change the <uses-permission android:name=\""
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     iget-object v4, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a:Ljava/lang/String;
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 132
+-    .line 133
+     .line 134
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     const-string v2, "/> node in the manifest file to <uses-permission android:name=\""
+ 
+-    .line 138
+     .line 139
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     iget-object v2, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a:Ljava/lang/String;
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     const-string v2, "\" android:usesPermissionFlags=\"neverForLocation\" "
+ 
+-    .line 148
+     .line 149
+     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 150
+-    .line 151
+     .line 152
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     const-string p0, "/> node, if your app need use "
+ 
+-    .line 156
+     .line 157
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 158
+-    .line 159
+     .line 160
+     iget-object p0, p1, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a:Ljava/lang/String;
+ 
+-    .line 161
+     .line 162
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     const-string p0, " to get physical location, also need to add "
+ 
+-    .line 166
+     .line 167
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 168
+-    .line 169
+     .line 170
+     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     const-string p0, " permissions"
+ 
+-    .line 174
+     .line 175
+     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 179
+-    .line 180
+     .line 181
+     move-result-object p0
+ 
+     .line 182
+     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     throw v0
+ 
+@@ -1739,19 +1312,15 @@
+     .line 1
+     const-string v0, "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+     .line 7
+     if-nez p0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_1
+ 
+@@ -1759,7 +1328,6 @@
+     :cond_0
+     if-nez p1, :cond_1
+ 
+-    .line 11
+     .line 12
+     goto :goto_1
+ 
+@@ -1767,7 +1335,6 @@
+     :cond_1
+     iget-object p0, p1, Lcom/hjq/permissions/AndroidManifestInfo;->g:Ljava/util/List;
+ 
+-    .line 14
+     .line 15
+     const/4 p1, 0x0
+ 
+@@ -1775,43 +1342,33 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-ge p1, v1, :cond_3
+ 
+-    .line 21
+     .line 22
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     check-cast v1, Lcom/hjq/permissions/AndroidManifestInfo$ServiceInfo;
+ 
+-    .line 27
+     .line 28
+     iget-object v1, v1, Lcom/hjq/permissions/AndroidManifestInfo$ServiceInfo;->b:Ljava/lang/String;
+ 
+-    .line 29
+     .line 30
+     invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v1
+ 
+     .line 34
+     if-eqz v1, :cond_2
+ 
+-    .line 35
+     .line 36
+     :goto_1
+     return-void
+@@ -1820,7 +1377,6 @@
+     :cond_2
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -1828,16 +1384,12 @@
+     :cond_3
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 41
+     .line 42
+     const-string p1, "No service registered permission attribute, please register <service android:permission=\"android.permission.BIND_NOTIFICATION_LISTENER_SERVICE\" > in AndroidManifest.xml"
+ 
+-    .line 43
+     .line 44
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     throw p0
+ .end method
+@@ -1851,43 +1403,34 @@
+     .line 2
+     if-eqz p0, :cond_7
+ 
+-    .line 3
+     .line 4
+     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-eqz v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     goto/16 :goto_3
+ 
+-    .line 11
+     .line 12
+     :cond_0
+     invoke-static {}, Lcom/hjq/permissions/AndroidVersion;->a()I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     const/16 v2, 0x21
+ 
+-    .line 17
+     .line 18
+     const/4 v3, 0x1
+ 
+     .line 19
+     if-le v1, v2, :cond_1
+ 
+-    .line 20
+     .line 21
+     return v3
+ 
+@@ -1895,25 +1438,18 @@
+     :cond_1
+     if-eqz p1, :cond_6
+ 
+-    .line 23
+     .line 24
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const-class v1, Lcom/hjq/permissions/Permission;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v1}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v1
+ 
+@@ -1923,7 +1459,6 @@
+     .line 36
+     if-nez v2, :cond_2
+ 
+-    .line 37
+     .line 38
+     return v3
+ 
+@@ -1935,35 +1470,27 @@
+     :goto_0
+     if-ge v0, v2, :cond_4
+ 
+-    .line 41
+     .line 42
+     aget-object v4, v1, v0
+ 
+-    .line 43
+     .line 44
+     const-class v5, Ljava/lang/String;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {v4}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v6
+ 
+     .line 50
+     invoke-virtual {v5, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v5
+ 
+     .line 54
+     if-nez v5, :cond_3
+ 
+-    .line 55
+     .line 56
+     goto :goto_1
+ 
+@@ -1975,22 +1502,17 @@
+     :try_start_0
+     invoke-virtual {v4, v5}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v4
+ 
+     .line 62
+     check-cast v4, Ljava/lang/String;
+ 
+-    .line 63
+     .line 64
+     invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+     :try_end_0
+     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     goto :goto_1
+ 
+@@ -2001,13 +1523,10 @@
+     .line 69
+     invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     :goto_1
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 73
+     .line 74
+     goto :goto_0
+ 
+@@ -2015,8 +1534,6 @@
+     :cond_4
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object p0
+ 
+@@ -2024,39 +1541,30 @@
+     :goto_2
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v0
+ 
+     .line 83
+     if-eqz v0, :cond_6
+ 
+-    .line 84
+     .line 85
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v0
+ 
+     .line 89
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 90
+     .line 91
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v1
+ 
+     .line 95
+     if-eqz v1, :cond_5
+ 
+-    .line 96
+     .line 97
+     goto :goto_2
+ 
+@@ -2064,52 +1572,36 @@
+     :cond_5
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 99
+     .line 100
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     const-string v1, "The "
+ 
+-    .line 106
+     .line 107
+     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     const-string v0, " is not a dangerous permission or special permission, please do not request dynamically"
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object p1
+ 
+     .line 122
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     throw p0
+ 
+@@ -2122,7 +1614,6 @@
+     :goto_3
+     if-nez p1, :cond_8
+ 
+-    .line 128
+     .line 129
+     return v0
+ 
+@@ -2130,16 +1621,12 @@
+     :cond_8
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 131
+     .line 132
+     const-string p1, "The requested permission cannot be empty"
+ 
+-    .line 133
+     .line 134
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     throw p0
+ .end method
+@@ -2150,19 +1637,15 @@
+     .line 1
+     const-string v0, "android.permission.PICTURE_IN_PICTURE"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p1
+ 
+     .line 7
+     if-nez p1, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_1
+ 
+@@ -2170,7 +1653,6 @@
+     :cond_0
+     if-nez p2, :cond_1
+ 
+-    .line 11
+     .line 12
+     goto :goto_1
+ 
+@@ -2178,7 +1660,6 @@
+     :cond_1
+     iget-object p1, p2, Lcom/hjq/permissions/AndroidManifestInfo;->f:Ljava/util/List;
+ 
+-    .line 14
+     .line 15
+     const/4 p2, 0x0
+ 
+@@ -2186,35 +1667,27 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/List;->size()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+     .line 20
+     if-ge p2, v0, :cond_3
+ 
+-    .line 21
+     .line 22
+     invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     check-cast v0, Lcom/hjq/permissions/AndroidManifestInfo$ActivityInfo;
+ 
+-    .line 27
+     .line 28
+     iget-boolean v0, v0, Lcom/hjq/permissions/AndroidManifestInfo$ActivityInfo;->b:Z
+ 
+-    .line 29
+     .line 30
+     if-eqz v0, :cond_2
+ 
+-    .line 31
+     .line 32
+     :goto_1
+     return-void
+@@ -2223,7 +1696,6 @@
+     :cond_2
+     add-int/lit8 p2, p2, 0x1
+ 
+-    .line 34
+     .line 35
+     goto :goto_0
+ 
+@@ -2231,88 +1703,63 @@
+     :cond_3
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object p1
+ 
+     .line 40
+     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object p1
+ 
+     .line 44
+     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p0
+ 
+     .line 48
+     const-string p2, ""
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {p1, p0, p2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object p0
+ 
+     .line 54
+     new-instance p1, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 55
+     .line 56
+     new-instance p2, Ljava/lang/StringBuilder;
+ 
+-    .line 57
+     .line 58
+     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const-string v0, "No activity registered supportsPictureInPicture attribute, please register \n<activity android:name=\""
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     const-string p0, "\" android:supportsPictureInPicture=\"true\" > in AndroidManifest.xml"
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object p0
+ 
+     .line 78
+     invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     throw p1
+ .end method
+@@ -2323,19 +1770,15 @@
+     .line 1
+     const-string v0, "android.permission.READ_MEDIA_VISUAL_USER_SELECTED"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -2343,35 +1786,27 @@
+     :cond_0
+     const-string v0, "android.permission.READ_MEDIA_IMAGES"
+ 
+-    .line 11
+     .line 12
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-nez v0, :cond_2
+ 
+-    .line 17
+     .line 18
+     const-string v0, "android.permission.READ_MEDIA_VIDEO"
+ 
+-    .line 19
+     .line 20
+     invoke-static {p0, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p0
+ 
+     .line 24
+     if-eqz p0, :cond_1
+ 
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -2379,16 +1814,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 28
+     .line 29
+     const-string v0, "You cannot request the android.permission.READ_MEDIA_VISUAL_USER_SELECTED permission alone. must add either android.permission.READ_MEDIA_IMAGES or android.permission.READ_MEDIA_VIDEO permission, or maybe both"
+ 
+-    .line 30
+     .line 31
+     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     throw p0
+ 
+@@ -2404,132 +1835,100 @@
+     .line 1
+     const-string v0, "android.permission.READ_MEDIA_IMAGES"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v1
+ 
+     .line 7
+     const-string v2, "android.permission.WRITE_EXTERNAL_STORAGE"
+ 
+-    .line 8
+     .line 9
+     const-string v3, "android.permission.READ_MEDIA_AUDIO"
+ 
+-    .line 10
+     .line 11
+     const-string v4, "android.permission.READ_MEDIA_VIDEO"
+ 
+-    .line 12
+     .line 13
+     const-string v5, "android.permission.READ_EXTERNAL_STORAGE"
+ 
+-    .line 14
+     .line 15
+     const-string v6, "android.permission.MANAGE_EXTERNAL_STORAGE"
+ 
+-    .line 16
+     .line 17
+     if-nez v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     invoke-static {p1, v4}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v1
+ 
+     .line 23
+     if-nez v1, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-static {p1, v3}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v1
+ 
+     .line 29
+     if-nez v1, :cond_0
+ 
+-    .line 30
+     .line 31
+     invoke-static {p1, v6}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v1
+ 
+     .line 35
+     if-nez v1, :cond_0
+ 
+-    .line 36
+     .line 37
+     invoke-static {p1, v5}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v1
+ 
+     .line 41
+     if-nez v1, :cond_0
+ 
+-    .line 42
+     .line 43
+     invoke-static {p1, v2}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v1
+ 
+     .line 47
+     if-nez v1, :cond_0
+ 
+-    .line 48
+     .line 49
+     goto/16 :goto_4
+ 
+-    .line 50
+     .line 51
+     :cond_0
+     invoke-static {p0}, Lcom/hjq/permissions/AndroidVersion;->b(Landroid/content/Context;)I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v1
+ 
+     .line 55
+     const/16 v7, 0x21
+ 
+-    .line 56
+     .line 57
+     if-lt v1, v7, :cond_2
+ 
+-    .line 58
+     .line 59
+     invoke-static {p1, v5}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result v1
+ 
+     .line 63
+     if-nez v1, :cond_1
+ 
+-    .line 64
+     .line 65
+     goto :goto_0
+ 
+@@ -2537,16 +1936,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 67
+     .line 68
+     const-string p1, "When targetSdkVersion >= 33 should use android.permission.READ_MEDIA_IMAGES, android.permission.READ_MEDIA_VIDEO, android.permission.READ_MEDIA_AUDIO, rather than android.permission.READ_EXTERNAL_STORAGE"
+ 
+-    .line 69
+     .line 70
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     throw p0
+ 
+@@ -2555,39 +1950,30 @@
+     :goto_0
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result v0
+ 
+     .line 78
+     if-nez v0, :cond_c
+ 
+-    .line 79
+     .line 80
+     invoke-static {p1, v4}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result v0
+ 
+     .line 84
+     if-nez v0, :cond_c
+ 
+-    .line 85
+     .line 86
+     invoke-static {p1, v3}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result v0
+ 
+     .line 90
+     if-eqz v0, :cond_3
+ 
+-    .line 91
+     .line 92
+     goto :goto_3
+ 
+@@ -2595,39 +1981,30 @@
+     :cond_3
+     invoke-static {p1, v6}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result v0
+ 
+     .line 97
+     if-eqz v0, :cond_5
+ 
+-    .line 98
+     .line 99
+     invoke-static {p1, v5}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result v0
+ 
+     .line 103
+     if-nez v0, :cond_4
+ 
+-    .line 104
+     .line 105
+     invoke-static {p1, v2}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result v0
+ 
+     .line 109
+     if-nez v0, :cond_4
+ 
+-    .line 110
+     .line 111
+     goto :goto_1
+ 
+@@ -2635,16 +2012,12 @@
+     :cond_4
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 113
+     .line 114
+     const-string p1, "If you have applied for MANAGE_EXTERNAL_STORAGE permissions, do not apply for the READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE permissions"
+ 
+-    .line 115
+     .line 116
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     throw p0
+ 
+@@ -2653,19 +2026,15 @@
+     :goto_1
+     const-string v0, "android.permission.ACCESS_MEDIA_LOCATION"
+ 
+-    .line 121
+     .line 122
+     invoke-static {p1, v0}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result v0
+ 
+     .line 126
+     if-eqz v0, :cond_6
+ 
+-    .line 127
+     .line 128
+     goto :goto_4
+ 
+@@ -2673,7 +2042,6 @@
+     :cond_6
+     if-nez p2, :cond_7
+ 
+-    .line 130
+     .line 131
+     goto :goto_4
+ 
+@@ -2681,11 +2049,9 @@
+     :cond_7
+     iget-object p2, p2, Lcom/hjq/permissions/AndroidManifestInfo;->e:Lcom/hjq/permissions/AndroidManifestInfo$ApplicationInfo;
+ 
+-    .line 133
+     .line 134
+     if-nez p2, :cond_8
+ 
+-    .line 135
+     .line 136
+     goto :goto_4
+ 
+@@ -2693,51 +2059,39 @@
+     :cond_8
+     invoke-static {p0}, Lcom/hjq/permissions/PermissionUtils;->t(Landroid/content/Context;)Z
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result v0
+ 
+     .line 141
+     invoke-static {p0}, Lcom/hjq/permissions/AndroidVersion;->b(Landroid/content/Context;)I
+ 
+-    .line 142
+-    .line 143
+     .line 144
+     move-result p0
+ 
+     .line 145
+     iget-boolean p2, p2, Lcom/hjq/permissions/AndroidManifestInfo$ApplicationInfo;->b:Z
+ 
+-    .line 146
+     .line 147
+     const/16 v1, 0x1d
+ 
+-    .line 148
+     .line 149
+     if-lt p0, v1, :cond_a
+ 
+-    .line 150
+     .line 151
+     if-nez p2, :cond_a
+ 
+-    .line 152
+     .line 153
+     invoke-static {p1, v6}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 154
+-    .line 155
+     .line 156
+     move-result p2
+ 
+     .line 157
+     if-nez p2, :cond_9
+ 
+-    .line 158
+     .line 159
+     if-eqz v0, :cond_9
+ 
+-    .line 160
+     .line 161
+     goto :goto_2
+ 
+@@ -2745,16 +2099,12 @@
+     :cond_9
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 163
+     .line 164
+     const-string p1, "Please register the android:requestLegacyExternalStorage=\"true\" attribute in the AndroidManifest.xml file, otherwise it will cause incompatibility with the old version"
+ 
+-    .line 165
+     .line 166
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     throw p0
+ 
+@@ -2763,27 +2113,21 @@
+     :goto_2
+     const/16 p2, 0x1e
+ 
+-    .line 171
+     .line 172
+     if-lt p0, p2, :cond_d
+ 
+-    .line 173
+     .line 174
+     invoke-static {p1, v6}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result p0
+ 
+     .line 178
+     if-nez p0, :cond_d
+ 
+-    .line 179
+     .line 180
+     if-eqz v0, :cond_b
+ 
+-    .line 181
+     .line 182
+     goto :goto_4
+ 
+@@ -2791,16 +2135,12 @@
+     :cond_b
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 184
+     .line 185
+     const-string p1, "The storage permission application is abnormal. If you have adapted the scope storage, please register the <meta-data android:name=\"ScopedStorage\" android:value=\"true\" /> attribute in the AndroidManifest.xml file. If there is no adaptation scope storage, please use android.permission.MANAGE_EXTERNAL_STORAGE to apply for permission"
+ 
+-    .line 186
+     .line 187
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 188
+-    .line 189
+     .line 190
+     throw p0
+ 
+@@ -2809,27 +2149,21 @@
+     :goto_3
+     invoke-static {p1, v5}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 192
+-    .line 193
+     .line 194
+     move-result p0
+ 
+     .line 195
+     if-nez p0, :cond_f
+ 
+-    .line 196
+     .line 197
+     invoke-static {p1, v6}, Lcom/hjq/permissions/PermissionUtils;->g(Ljava/util/Collection;Ljava/lang/String;)Z
+ 
+-    .line 198
+-    .line 199
+     .line 200
+     move-result p0
+ 
+     .line 201
+     if-nez p0, :cond_e
+ 
+-    .line 202
+     .line 203
+     :cond_d
+     :goto_4
+@@ -2839,16 +2173,12 @@
+     :cond_e
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 205
+     .line 206
+     const-string p1, "Because the MANAGE_EXTERNAL_STORAGE permission range is very large, you can read media files with it, and there is no need to apply for additional media permissions."
+ 
+-    .line 207
+     .line 208
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 209
+-    .line 210
+     .line 211
+     throw p0
+ 
+@@ -2856,16 +2186,12 @@
+     :cond_f
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 213
+     .line 214
+     const-string p1, "If you have applied for media permissions, do not apply for the READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE permissions"
+ 
+-    .line 215
+     .line 216
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 217
+-    .line 218
+     .line 219
+     throw p0
+ .end method
+@@ -2876,8 +2202,6 @@
+     .line 1
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+ 
+@@ -2885,47 +2209,36 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_3
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     check-cast v0, Ljava/lang/String;
+ 
+-    .line 16
+     .line 17
+     const-string v1, "android.permission.READ_MEDIA_VISUAL_USER_SELECTED"
+ 
+-    .line 18
+     .line 19
+     invoke-static {v0, v1}, Lcom/hjq/permissions/PermissionUtils;->i(Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v1
+ 
+     .line 23
+     if-eqz v1, :cond_0
+ 
+-    .line 24
+     .line 25
+     const/16 v1, 0x21
+ 
+-    .line 26
+     .line 27
+     goto :goto_1
+ 
+@@ -2933,39 +2246,30 @@
+     :cond_0
+     const-string v1, "android.permission.BLUETOOTH_CONNECT"
+ 
+-    .line 29
+     .line 30
+     const-string v2, "android.permission.BLUETOOTH_ADVERTISE"
+ 
+-    .line 31
+     .line 32
+     const-string v3, "android.permission.BLUETOOTH_SCAN"
+ 
+-    .line 33
+     .line 34
+     filled-new-array {v3, v1, v2}, [Ljava/lang/String;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v1
+ 
+     .line 38
+     invoke-static {v1, v0}, Lcom/hjq/permissions/PermissionUtils;->h([Ljava/lang/String;Ljava/lang/String;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v1
+ 
+     .line 42
+     if-eqz v1, :cond_1
+ 
+-    .line 43
+     .line 44
+     const/16 v1, 0x17
+ 
+-    .line 45
+     .line 46
+     goto :goto_1
+ 
+@@ -2973,8 +2277,6 @@
+     :cond_1
+     invoke-static {v0}, Lcom/hjq/permissions/PermissionHelper;->b(Ljava/lang/String;)I
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result v1
+ 
+@@ -2982,15 +2284,12 @@
+     :goto_1
+     invoke-static {p0}, Lcom/hjq/permissions/AndroidVersion;->b(Landroid/content/Context;)I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v2
+ 
+     .line 55
+     if-lt v2, v1, :cond_2
+ 
+-    .line 56
+     .line 57
+     goto :goto_0
+ 
+@@ -2998,66 +2297,45 @@
+     :cond_2
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 59
+     .line 60
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 61
+     .line 62
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     const-string v2, "Request "
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     const-string v0, " permission, The targetSdkVersion SDK must be "
+ 
+-    .line 74
+     .line 75
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     const-string v0, " or more, if you do not want to upgrade targetSdkVersion, please apply with the old permission"
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object p1
+ 
+     .line 90
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     throw p0
+ 
+@@ -3072,8 +2350,6 @@
+     .line 1
+     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -3081,43 +2357,33 @@
+     :cond_0
+     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_1
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     check-cast v0, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;
+ 
+-    .line 16
+     .line 17
+     iget-object v1, v0, Lcom/hjq/permissions/AndroidManifestInfo$PermissionInfo;->a:Ljava/lang/String;
+ 
+-    .line 18
+     .line 19
+     invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v1
+ 
+     .line 23
+     if-eqz v1, :cond_0
+ 
+-    .line 24
+     .line 25
+     return-object v0
+ 

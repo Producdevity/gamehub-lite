@@ -1,0 +1,130 @@
+--- a/smali_classes7/com/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin.smali
++++ b/smali_classes7/com/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin.smali
+@@ -18,12 +18,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/winemu/core/server/environment/ProgramPlugin;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->c:Lcom/winemu/core/server/socket/UnixSocketConfig;
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -36,11 +33,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -48,60 +43,42 @@
+     :cond_0
+     new-instance v0, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0}, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iput-object v0, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->d:Lcom/winemu/core/server/sysvshm/SysVSharedMemory;
+ 
+-    .line 12
+     .line 13
+     new-instance v0, Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 14
+     .line 15
+     iget-object v1, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->c:Lcom/winemu/core/server/socket/UnixSocketConfig;
+ 
+-    .line 16
+     .line 17
+     new-instance v2, Lcom/winemu/core/server/sysvshm/SysVSHMConnectionHandler;
+ 
+-    .line 18
+     .line 19
+     iget-object v3, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->d:Lcom/winemu/core/server/sysvshm/SysVSharedMemory;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v2, v3}, Lcom/winemu/core/server/sysvshm/SysVSHMConnectionHandler;-><init>(Lcom/winemu/core/server/sysvshm/SysVSharedMemory;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     new-instance v3, Lcom/winemu/core/server/sysvshm/SysVSHMRequestHandler;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {v3}, Lcom/winemu/core/server/sysvshm/SysVSHMRequestHandler;-><init>()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-direct {v0, v1, v2, v3}, Lcom/winemu/core/server/socket/XConnectorEpoll;-><init>(Lcom/winemu/core/server/socket/UnixSocketConfig;Lcom/winemu/core/server/socket/ConnectionHandler;Lcom/winemu/core/server/socket/RequestHandler;)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     iput-object v0, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/XConnectorEpoll;->start()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     return-void
+ .end method
+@@ -112,41 +89,31 @@
+     .line 1
+     iget-object v0, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/winemu/core/server/socket/XConnectorEpoll;->stop()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v1, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->b:Lcom/winemu/core/server/socket/XConnectorEpoll;
+ 
+-    .line 10
+     .line 11
+     :cond_0
+     iget-object v0, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->d:Lcom/winemu/core/server/sysvshm/SysVSharedMemory;
+ 
+-    .line 12
+     .line 13
+     if-eqz v0, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Lcom/winemu/core/server/sysvshm/SysVSharedMemory;->deleteAll()V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iput-object v1, p0, Lcom/winemu/core/server/environment/plugins/SysVSharedMemoryPlugin;->d:Lcom/winemu/core/server/sysvshm/SysVSharedMemory;
+ 
+-    .line 19
+     .line 20
+     :cond_1
+     return-void

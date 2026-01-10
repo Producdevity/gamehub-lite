@@ -1,0 +1,1081 @@
+--- a/smali_classes6/com/luck/picture/lib/loader/IBridgeMediaLoader.smali
++++ b/smali_classes6/com/luck/picture/lib/loader/IBridgeMediaLoader.smali
+@@ -56,143 +56,108 @@
+     .line 1
+     const-string v0, "external"
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroid/provider/MediaStore$Files;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     sput-object v0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->QUERY_URI:Landroid/net/Uri;
+ 
+-    .line 8
+     .line 9
+     const-string v11, "date_added"
+ 
+-    .line 10
+     .line 11
+     const-string v12, "orientation"
+ 
+-    .line 12
+     .line 13
+     const-string v1, "_id"
+ 
+-    .line 14
+     .line 15
+     const-string v2, "_data"
+ 
+-    .line 16
+     .line 17
+     const-string v3, "mime_type"
+ 
+-    .line 18
+     .line 19
+     const-string v4, "width"
+ 
+-    .line 20
+     .line 21
+     const-string v5, "height"
+ 
+-    .line 22
+     .line 23
+     const-string v6, "duration"
+ 
+-    .line 24
+     .line 25
+     const-string v7, "_size"
+ 
+-    .line 26
+     .line 27
+     const-string v8, "bucket_display_name"
+ 
+-    .line 28
+     .line 29
+     const-string v9, "_display_name"
+ 
+-    .line 30
+     .line 31
+     const-string v10, "bucket_id"
+ 
+-    .line 32
+     .line 33
+     filled-new-array/range {v1 .. v12}, [Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v0
+ 
+     .line 37
+     sput-object v0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->PROJECTION:[Ljava/lang/String;
+ 
+-    .line 38
+     .line 39
+     const-string v12, "orientation"
+ 
+-    .line 40
+     .line 41
+     const-string v13, "COUNT(*) AS count"
+ 
+-    .line 42
+     .line 43
+     const-string v1, "_id"
+ 
+-    .line 44
+     .line 45
+     const-string v2, "_data"
+ 
+-    .line 46
+     .line 47
+     const-string v3, "mime_type"
+ 
+-    .line 48
+     .line 49
+     const-string v4, "width"
+ 
+-    .line 50
+     .line 51
+     const-string v5, "height"
+ 
+-    .line 52
+     .line 53
+     const-string v6, "duration"
+ 
+-    .line 54
+     .line 55
+     const-string v7, "_size"
+ 
+-    .line 56
+     .line 57
+     const-string v8, "bucket_display_name"
+ 
+-    .line 58
+     .line 59
+     const-string v9, "_display_name"
+ 
+-    .line 60
+     .line 61
+     const-string v10, "bucket_id"
+ 
+-    .line 62
+     .line 63
+     const-string v11, "date_added"
+ 
+-    .line 64
+     .line 65
+     filled-new-array/range {v1 .. v13}, [Ljava/lang/String;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v0
+ 
+     .line 69
+     sput-object v0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->ALL_PROJECTION:[Ljava/lang/String;
+ 
+-    .line 70
+     .line 71
+     return-void
+ .end method
+@@ -203,16 +168,12 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->mContext:Landroid/content/Context;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->mConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -228,24 +189,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     iget-object p0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyAudioList:Ljava/util/List;
+ 
+-    .line 6
+     .line 7
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 v1, 0x0
+ 
+@@ -253,35 +208,27 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     if-ge v1, v2, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     if-nez v1, :cond_0
+ 
+-    .line 26
+     .line 27
+     const-string v3, " AND "
+ 
+-    .line 28
+     .line 29
+     goto :goto_1
+ 
+@@ -289,49 +236,34 @@
+     :cond_0
+     const-string v3, " OR "
+ 
+-    .line 31
+     .line 32
+     :goto_1
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v3, "mime_type"
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v3, "=\'"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const-string v2, "\'"
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 54
+     .line 55
+     goto :goto_0
+ 
+@@ -339,8 +271,6 @@
+     :cond_1
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p0
+ 
+@@ -354,7 +284,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->mConfig:Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -365,7 +294,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->mContext:Landroid/content/Context;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -376,26 +304,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     iget v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterVideoMaxSecond:I
+ 
+-    .line 6
+     .line 7
+     if-nez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     const-wide v0, 0x7fffffffffffffffL
+ 
+-    .line 10
+-    .line 11
+-    .line 12
+-    .line 13
+     .line 14
+     goto :goto_0
+ 
+@@ -403,15 +323,12 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v0
+ 
+     .line 19
+     iget v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterVideoMaxSecond:I
+ 
+-    .line 20
+     .line 21
+     int-to-long v0, v0
+ 
+@@ -419,71 +336,54 @@
+     :goto_0
+     sget-object v2, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+ 
+     .line 28
+     iget p0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->filterVideoMinSecond:I
+ 
+-    .line 29
+     .line 30
+     int-to-long v3, p0
+ 
+     .line 31
+     const-wide/16 v5, 0x0
+ 
+-    .line 32
+     .line 33
+     invoke-static {v5, v6, v3, v4}, Ljava/lang/Math;->max(JJ)J
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-wide v3
+ 
+     .line 37
+     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+     .line 41
+     const-string v3, "="
+ 
+-    .line 42
+     .line 43
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v0
+ 
+     .line 47
+     filled-new-array {p0, v3, v0}, [Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+     .line 51
+     const-string v0, "%d <%s duration and duration <= %d"
+ 
+-    .line 52
+     .line 53
+     invoke-static {v2, v0, p0}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -497,34 +397,24 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     iget-wide v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMaxFileSize:J
+ 
+-    .line 6
+     .line 7
+     const-wide/16 v2, 0x0
+ 
+-    .line 8
+     .line 9
+     cmp-long v0, v0, v2
+ 
+-    .line 10
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const-wide v0, 0x7fffffffffffffffL
+ 
+-    .line 14
+-    .line 15
+-    .line 16
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -532,77 +422,58 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     iget-wide v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMaxFileSize:J
+ 
+-    .line 24
+     .line 25
+     :goto_0
+     sget-object v4, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
+ 
+-    .line 26
+     .line 27
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object p0
+ 
+     .line 31
+     iget-wide v5, p0, Lcom/luck/picture/lib/config/SelectorConfig;->filterMinFileSize:J
+ 
+-    .line 32
+     .line 33
+     invoke-static {v2, v3, v5, v6}, Ljava/lang/Math;->max(JJ)J
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-wide v2
+ 
+     .line 37
+     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p0
+ 
+     .line 41
+     const-string v2, "="
+ 
+-    .line 42
+     .line 43
+     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v0
+ 
+     .line 47
+     filled-new-array {p0, v2, v0}, [Ljava/lang/Object;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     move-result-object p0
+ 
+     .line 51
+     const-string v0, "%d <%s _size and _size <= %d"
+ 
+-    .line 52
+     .line 53
+     invoke-static {v4, v0, p0}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object p0
+ 
+@@ -616,24 +487,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 6
+     .line 7
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 v2, 0x0
+ 
+@@ -641,35 +506,27 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/List;->size()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v3
+ 
+     .line 17
+     if-ge v2, v3, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v3
+ 
+     .line 23
+     check-cast v3, Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     if-nez v2, :cond_0
+ 
+-    .line 26
+     .line 27
+     const-string v4, " AND "
+ 
+-    .line 28
+     .line 29
+     goto :goto_1
+ 
+@@ -677,49 +534,34 @@
+     :cond_0
+     const-string v4, " OR "
+ 
+-    .line 31
+     .line 32
+     :goto_1
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v4, "mime_type"
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v4, "=\'"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const-string v3, "\'"
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 54
+     .line 55
+     goto :goto_0
+ 
+@@ -727,322 +569,238 @@
+     :cond_1
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v0
+ 
+     .line 60
+     iget-boolean v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isGif:Z
+ 
+-    .line 61
+     .line 62
+     if-nez v0, :cond_2
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-object v0
+ 
+     .line 68
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 69
+     .line 70
+     invoke-static {}, Lcom/luck/picture/lib/config/PictureMimeType;->ofGIF()Ljava/lang/String;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v2
+ 
+     .line 74
+     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result v0
+ 
+     .line 78
+     if-nez v0, :cond_2
+ 
+-    .line 79
+     .line 80
+     const-string v0, " AND (mime_type!=\'image/gif\')"
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     :cond_2
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v0
+ 
+     .line 89
+     iget-boolean v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isWebp:Z
+ 
+-    .line 90
+     .line 91
+     if-nez v0, :cond_3
+ 
+-    .line 92
+     .line 93
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 94
+-    .line 95
+     .line 96
+     move-result-object v0
+ 
+     .line 97
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 98
+     .line 99
+     invoke-static {}, Lcom/luck/picture/lib/config/PictureMimeType;->ofWEBP()Ljava/lang/String;
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result-object v2
+ 
+     .line 103
+     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     move-result v0
+ 
+     .line 107
+     if-nez v0, :cond_3
+ 
+-    .line 108
+     .line 109
+     const-string v0, " AND (mime_type!=\'image/webp\')"
+ 
+-    .line 110
+     .line 111
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 112
+-    .line 113
+     .line 114
+     :cond_3
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object v0
+ 
+     .line 118
+     iget-boolean v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isBmp:Z
+ 
+-    .line 119
+     .line 120
+     if-nez v0, :cond_4
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result-object v0
+ 
+     .line 126
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 127
+     .line 128
+     invoke-static {}, Lcom/luck/picture/lib/config/PictureMimeType;->ofBMP()Ljava/lang/String;
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result-object v2
+ 
+     .line 132
+     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result v0
+ 
+     .line 136
+     if-nez v0, :cond_4
+ 
+-    .line 137
+     .line 138
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 139
+-    .line 140
+     .line 141
+     move-result-object v0
+ 
+     .line 142
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 143
+     .line 144
+     invoke-static {}, Lcom/luck/picture/lib/config/PictureMimeType;->ofXmsBMP()Ljava/lang/String;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object v2
+ 
+     .line 148
+     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result v0
+ 
+     .line 152
+     if-nez v0, :cond_4
+ 
+-    .line 153
+     .line 154
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 155
+-    .line 156
+     .line 157
+     move-result-object v0
+ 
+     .line 158
+     iget-object v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 159
+     .line 160
+     invoke-static {}, Lcom/luck/picture/lib/config/PictureMimeType;->ofWapBMP()Ljava/lang/String;
+ 
+-    .line 161
+-    .line 162
+     .line 163
+     move-result-object v2
+ 
+     .line 164
+     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 165
+-    .line 166
+     .line 167
+     move-result v0
+ 
+     .line 168
+     if-nez v0, :cond_4
+ 
+-    .line 169
+     .line 170
+     const-string v0, " AND (mime_type!=\'image/bmp\')"
+ 
+-    .line 171
+     .line 172
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 173
+-    .line 174
+     .line 175
+     const-string v0, " AND (mime_type!=\'image/x-ms-bmp\')"
+ 
+-    .line 176
+     .line 177
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     const-string v0, " AND (mime_type!=\'image/vnd.wap.wbmp\')"
+ 
+-    .line 181
+     .line 182
+     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     :cond_4
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 186
+-    .line 187
+     .line 188
+     move-result-object v0
+ 
+     .line 189
+     iget-boolean v0, v0, Lcom/luck/picture/lib/config/SelectorConfig;->isHeic:Z
+ 
+-    .line 190
+     .line 191
+     if-nez v0, :cond_5
+ 
+-    .line 192
+     .line 193
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     move-result-object p0
+ 
+     .line 197
+     iget-object p0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyImageList:Ljava/util/List;
+ 
+-    .line 198
+     .line 199
+     invoke-static {}, Lcom/luck/picture/lib/config/PictureMimeType;->ofHeic()Ljava/lang/String;
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result-object v0
+ 
+     .line 203
+     invoke-interface {p0, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result p0
+ 
+     .line 207
+     if-nez p0, :cond_5
+ 
+-    .line 208
+     .line 209
+     const-string p0, " AND (mime_type!=\'image/heic\')"
+ 
+-    .line 210
+     .line 211
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     :cond_5
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 215
+-    .line 216
+     .line 217
+     move-result-object p0
+ 
+@@ -1065,24 +823,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/luck/picture/lib/loader/IBridgeMediaLoader;->getConfig()Lcom/luck/picture/lib/config/SelectorConfig;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     iget-object p0, p0, Lcom/luck/picture/lib/config/SelectorConfig;->queryOnlyVideoList:Ljava/util/List;
+ 
+-    .line 6
+     .line 7
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 v1, 0x0
+ 
+@@ -1090,35 +842,27 @@
+     :goto_0
+     invoke-interface {p0}, Ljava/util/List;->size()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v2
+ 
+     .line 17
+     if-ge v1, v2, :cond_1
+ 
+-    .line 18
+     .line 19
+     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 24
+     .line 25
+     if-nez v1, :cond_0
+ 
+-    .line 26
+     .line 27
+     const-string v3, " AND "
+ 
+-    .line 28
+     .line 29
+     goto :goto_1
+ 
+@@ -1126,49 +870,34 @@
+     :cond_0
+     const-string v3, " OR "
+ 
+-    .line 31
+     .line 32
+     :goto_1
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     const-string v3, "mime_type"
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string v3, "=\'"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     const-string v2, "\'"
+ 
+-    .line 49
+     .line 50
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 54
+     .line 55
+     goto :goto_0
+ 
+@@ -1176,8 +905,6 @@
+     :cond_1
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p0
+ 

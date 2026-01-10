@@ -1,0 +1,1233 @@
+--- a/smali_classes8/com/xj/mapping/utils/Reflect.smali
++++ b/smali_classes8/com/xj/mapping/utils/Reflect.smali
+@@ -58,7 +58,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -69,8 +68,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/xj/mapping/utils/Reflect;->o(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -84,7 +81,6 @@
+     .line 1
+     if-nez p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     const/4 p0, 0x0
+ 
+@@ -95,66 +91,51 @@
+     :cond_0
+     instance-of v0, p0, Ljava/lang/reflect/Member;
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     move-object v0, p0
+ 
+     .line 10
+     check-cast v0, Ljava/lang/reflect/Member;
+ 
+-    .line 11
+     .line 12
+     invoke-interface {v0}, Ljava/lang/reflect/Member;->getModifiers()I
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v1
+ 
+     .line 16
+     invoke-static {v1}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     if-eqz v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-interface {v0}, Ljava/lang/reflect/Member;->getDeclaringClass()Ljava/lang/Class;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v0
+ 
+     .line 26
+     invoke-virtual {v0}, Ljava/lang/Class;->getModifiers()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v0
+ 
+     .line 30
+     invoke-static {v0}, Ljava/lang/reflect/Modifier;->isPublic(I)Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v0
+ 
+     .line 34
+     if-eqz v0, :cond_1
+ 
+-    .line 35
+     .line 36
+     goto :goto_0
+ 
+@@ -162,23 +143,18 @@
+     :cond_1
+     invoke-virtual {p0}, Ljava/lang/reflect/AccessibleObject;->isAccessible()Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v0
+ 
+     .line 41
+     if-nez v0, :cond_2
+ 
+-    .line 42
+     .line 43
+     const/4 v0, 0x1
+ 
+     .line 44
+     invoke-virtual {p0, v0}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     :cond_2
+     :goto_0
+@@ -191,12 +167,9 @@
+     .line 1
+     new-instance v0, Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/xj/mapping/utils/Reflect;-><init>(Ljava/lang/Class;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -207,12 +180,9 @@
+     .line 1
+     new-instance v0, Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/xj/mapping/utils/Reflect;-><init>(Ljava/lang/Object;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -224,28 +194,21 @@
+     :try_start_0
+     invoke-static {p0}, Lcom/xj/mapping/utils/Reflect;->c(Ljava/lang/reflect/AccessibleObject;)Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     check-cast p0, Ljava/lang/reflect/Constructor;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, p1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     invoke-static {p0}, Lcom/xj/mapping/utils/Reflect;->l(Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+     :try_end_0
+@@ -261,12 +224,9 @@
+     .line 17
+     new-instance p1, Lcom/xj/mapping/utils/ReflectException;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p1, p0}, Lcom/xj/mapping/utils/ReflectException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     throw p1
+ .end method
+@@ -278,34 +238,24 @@
+     :try_start_0
+     invoke-static {p0}, Lcom/xj/mapping/utils/Reflect;->c(Ljava/lang/reflect/AccessibleObject;)Ljava/lang/reflect/AccessibleObject;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     sget-object v1, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
+ 
+-    .line 9
+     .line 10
+     if-ne v0, v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-static {p1}, Lcom/xj/mapping/utils/Reflect;->l(Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -316,16 +266,12 @@
+     :cond_0
+     invoke-virtual {p0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p0
+ 
+     .line 24
+     invoke-static {p0}, Lcom/xj/mapping/utils/Reflect;->l(Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p0
+     :try_end_0
+@@ -341,12 +287,9 @@
+     .line 30
+     new-instance p1, Lcom/xj/mapping/utils/ReflectException;
+ 
+-    .line 31
+     .line 32
+     invoke-direct {p1, p0}, Lcom/xj/mapping/utils/ReflectException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     throw p1
+ .end method
+@@ -357,19 +300,15 @@
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/String;->length()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const-string p0, ""
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ 
+@@ -380,12 +319,9 @@
+     .line 11
+     if-ne v0, v1, :cond_1
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+@@ -396,54 +332,39 @@
+     :cond_1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 19
+     .line 20
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     const/4 v2, 0x0
+ 
+     .line 24
+     invoke-virtual {p0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object v2
+ 
+     .line 28
+     invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v2
+ 
+     .line 32
+     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+     .line 39
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object p0
+ 
+@@ -460,11 +381,9 @@
+     .line 2
+     if-nez p0, :cond_0
+ 
+-    .line 3
+     .line 4
+     new-array p0, v0, [Ljava/lang/Class;
+ 
+-    .line 5
+     .line 6
+     return-object p0
+ 
+@@ -475,7 +394,6 @@
+     .line 8
+     new-array v1, v1, [Ljava/lang/Class;
+ 
+-    .line 9
+     .line 10
+     :goto_0
+     array-length v2, p0
+@@ -483,19 +401,15 @@
+     .line 11
+     if-ge v0, v2, :cond_2
+ 
+-    .line 12
+     .line 13
+     aget-object v2, p0, v0
+ 
+-    .line 14
+     .line 15
+     if-nez v2, :cond_1
+ 
+-    .line 16
+     .line 17
+     const-class v2, Lcom/xj/mapping/utils/Reflect$NULL;
+ 
+-    .line 18
+     .line 19
+     goto :goto_1
+ 
+@@ -503,8 +417,6 @@
+     :cond_1
+     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v2
+ 
+@@ -512,11 +424,9 @@
+     :goto_1
+     aput-object v2, v1, v0
+ 
+-    .line 25
+     .line 26
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -531,7 +441,6 @@
+     .line 1
+     if-nez p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     const/4 p0, 0x0
+ 
+@@ -542,27 +451,21 @@
+     :cond_0
+     invoke-virtual {p0}, Ljava/lang/Class;->isPrimitive()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_9
+ 
+-    .line 10
+     .line 11
+     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+ 
+-    .line 12
+     .line 13
+     if-ne v0, p0, :cond_1
+ 
+-    .line 14
+     .line 15
+     const-class p0, Ljava/lang/Boolean;
+ 
+-    .line 16
+     .line 17
+     return-object p0
+ 
+@@ -570,15 +473,12 @@
+     :cond_1
+     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+ 
+-    .line 19
+     .line 20
+     if-ne v0, p0, :cond_2
+ 
+-    .line 21
+     .line 22
+     const-class p0, Ljava/lang/Integer;
+ 
+-    .line 23
+     .line 24
+     return-object p0
+ 
+@@ -586,15 +486,12 @@
+     :cond_2
+     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+ 
+-    .line 26
+     .line 27
+     if-ne v0, p0, :cond_3
+ 
+-    .line 28
+     .line 29
+     const-class p0, Ljava/lang/Long;
+ 
+-    .line 30
+     .line 31
+     return-object p0
+ 
+@@ -602,15 +499,12 @@
+     :cond_3
+     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
+ 
+-    .line 33
+     .line 34
+     if-ne v0, p0, :cond_4
+ 
+-    .line 35
+     .line 36
+     const-class p0, Ljava/lang/Short;
+ 
+-    .line 37
+     .line 38
+     return-object p0
+ 
+@@ -618,15 +512,12 @@
+     :cond_4
+     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+ 
+-    .line 40
+     .line 41
+     if-ne v0, p0, :cond_5
+ 
+-    .line 42
+     .line 43
+     const-class p0, Ljava/lang/Byte;
+ 
+-    .line 44
+     .line 45
+     return-object p0
+ 
+@@ -634,15 +525,12 @@
+     :cond_5
+     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
+ 
+-    .line 47
+     .line 48
+     if-ne v0, p0, :cond_6
+ 
+-    .line 49
+     .line 50
+     const-class p0, Ljava/lang/Double;
+ 
+-    .line 51
+     .line 52
+     return-object p0
+ 
+@@ -650,15 +538,12 @@
+     :cond_6
+     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+ 
+-    .line 54
+     .line 55
+     if-ne v0, p0, :cond_7
+ 
+-    .line 56
+     .line 57
+     const-class p0, Ljava/lang/Float;
+ 
+-    .line 58
+     .line 59
+     return-object p0
+ 
+@@ -666,15 +551,12 @@
+     :cond_7
+     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+ 
+-    .line 61
+     .line 62
+     if-ne v0, p0, :cond_8
+ 
+-    .line 63
+     .line 64
+     const-class p0, Ljava/lang/Character;
+ 
+-    .line 65
+     .line 66
+     return-object p0
+ 
+@@ -682,15 +564,12 @@
+     :cond_8
+     sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
+ 
+-    .line 68
+     .line 69
+     if-ne v0, p0, :cond_9
+ 
+-    .line 70
+     .line 71
+     const-class p0, Ljava/lang/Void;
+ 
+-    .line 72
+     .line 73
+     :cond_9
+     return-object p0
+@@ -704,8 +583,6 @@
+     .line 1
+     invoke-static {p2}, Lcom/xj/mapping/utils/Reflect;->s([Ljava/lang/Object;)[Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -713,20 +590,15 @@
+     :try_start_0
+     invoke-virtual {p0, p1, v0}, Lcom/xj/mapping/utils/Reflect;->g(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     iget-object v2, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 10
+     .line 11
+     invoke-static {v1, v2, p2}, Lcom/xj/mapping/utils/Reflect;->n(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+     :try_end_0
+@@ -740,20 +612,15 @@
+     :try_start_1
+     invoke-virtual {p0, p1, v0}, Lcom/xj/mapping/utils/Reflect;->q(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 21
+     .line 22
+     invoke-static {p1, p0, p2}, Lcom/xj/mapping/utils/Reflect;->n(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+     :try_end_1
+@@ -769,12 +636,9 @@
+     .line 28
+     new-instance p1, Lcom/xj/mapping/utils/ReflectException;
+ 
+-    .line 29
+     .line 30
+     invoke-direct {p1, p0}, Lcom/xj/mapping/utils/ReflectException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     throw p1
+ .end method
+@@ -788,12 +652,9 @@
+     .line 2
+     new-array v0, v0, [Ljava/lang/Object;
+ 
+-    .line 3
+     .line 4
+     invoke-virtual {p0, v0}, Lcom/xj/mapping/utils/Reflect;->f([Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object p0
+ 
+@@ -807,39 +668,30 @@
+     .line 1
+     instance-of v0, p1, Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     check-cast p1, Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p1}, Lcom/xj/mapping/utils/Reflect;->h()Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result p0
+ 
+     .line 17
+     if-eqz p0, :cond_0
+ 
+-    .line 18
+     .line 19
+     const/4 p0, 0x1
+ 
+@@ -860,8 +712,6 @@
+     .line 1
+     invoke-static {p1}, Lcom/xj/mapping/utils/Reflect;->s([Ljava/lang/Object;)[Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+@@ -869,24 +719,18 @@
+     :try_start_0
+     invoke-virtual {p0}, Lcom/xj/mapping/utils/Reflect;->r()Ljava/lang/Class;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v1, v0}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+     .line 13
+     invoke-static {v1, p1}, Lcom/xj/mapping/utils/Reflect;->m(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+     :try_end_0
+@@ -902,16 +746,12 @@
+     .line 19
+     invoke-virtual {p0}, Lcom/xj/mapping/utils/Reflect;->r()Ljava/lang/Class;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     invoke-virtual {v2}, Ljava/lang/Class;->getDeclaredConstructors()[Ljava/lang/reflect/Constructor;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v2
+ 
+@@ -925,36 +765,27 @@
+     :goto_0
+     if-ge v4, v3, :cond_1
+ 
+-    .line 30
+     .line 31
+     aget-object v5, v2, v4
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v5}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v6
+ 
+     .line 37
+     invoke-virtual {p0, v6, v0}, Lcom/xj/mapping/utils/Reflect;->j([Ljava/lang/Class;[Ljava/lang/Class;)Z
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result v6
+ 
+     .line 41
+     if-eqz v6, :cond_0
+ 
+-    .line 42
+     .line 43
+     invoke-static {v5, p1}, Lcom/xj/mapping/utils/Reflect;->m(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Lcom/xj/mapping/utils/Reflect;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object p0
+ 
+@@ -965,7 +796,6 @@
+     :cond_0
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 49
+     .line 50
+     goto :goto_0
+ 
+@@ -973,12 +803,9 @@
+     :cond_1
+     new-instance p0, Lcom/xj/mapping/utils/ReflectException;
+ 
+-    .line 52
+     .line 53
+     invoke-direct {p0, v1}, Lcom/xj/mapping/utils/ReflectException;-><init>(Ljava/lang/Throwable;)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     throw p0
+ .end method
+@@ -989,8 +816,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/mapping/utils/Reflect;->r()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -998,8 +823,6 @@
+     :try_start_0
+     invoke-virtual {p0, p1, p2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+     :try_end_0
+@@ -1014,8 +837,6 @@
+     :try_start_1
+     invoke-virtual {p0, p1, p2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+     :try_end_1
+@@ -1028,15 +849,12 @@
+     :catch_1
+     invoke-virtual {p0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -1044,12 +862,9 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NoSuchMethodException;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0}, Ljava/lang/NoSuchMethodException;-><init>()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     throw p0
+ .end method
+@@ -1060,7 +875,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1071,12 +885,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -1090,43 +901,33 @@
+     .line 1
+     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p2
+ 
+     .line 9
+     if-eqz p2, :cond_0
+ 
+-    .line 10
+     .line 11
+     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p1
+ 
+     .line 15
+     invoke-virtual {p0, p1, p3}, Lcom/xj/mapping/utils/Reflect;->j([Ljava/lang/Class;[Ljava/lang/Class;)Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     const/4 p0, 0x1
+ 
+@@ -1156,7 +957,6 @@
+     .line 4
+     if-ne p0, v0, :cond_3
+ 
+-    .line 5
+     .line 6
+     move p0, v1
+ 
+@@ -1167,19 +967,15 @@
+     .line 8
+     if-ge p0, v0, :cond_2
+ 
+-    .line 9
+     .line 10
+     aget-object v0, p2, p0
+ 
+-    .line 11
+     .line 12
+     const-class v2, Lcom/xj/mapping/utils/Reflect$NULL;
+ 
+-    .line 13
+     .line 14
+     if-ne v0, v2, :cond_0
+ 
+-    .line 15
+     .line 16
+     goto :goto_1
+ 
+@@ -1187,44 +983,34 @@
+     :cond_0
+     aget-object v0, p1, p0
+ 
+-    .line 18
+     .line 19
+     invoke-static {v0}, Lcom/xj/mapping/utils/Reflect;->t(Ljava/lang/Class;)Ljava/lang/Class;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     aget-object v2, p2, p0
+ 
+-    .line 24
+     .line 25
+     invoke-static {v2}, Lcom/xj/mapping/utils/Reflect;->t(Ljava/lang/Class;)Ljava/lang/Class;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v2
+ 
+     .line 29
+     invoke-virtual {v0, v2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v0
+ 
+     .line 33
+     if-eqz v0, :cond_1
+ 
+-    .line 34
+     .line 35
+     :goto_1
+     add-int/lit8 p0, p0, 0x1
+ 
+-    .line 36
+     .line 37
+     goto :goto_0
+ 
+@@ -1260,16 +1046,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/mapping/utils/Reflect;->r()Ljava/lang/Class;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+@@ -1286,23 +1068,18 @@
+     :goto_0
+     if-ge v4, v2, :cond_1
+ 
+-    .line 13
+     .line 14
+     aget-object v5, v1, v4
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0, v5, p1, p2}, Lcom/xj/mapping/utils/Reflect;->i(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v6
+ 
+     .line 20
+     if-eqz v6, :cond_0
+ 
+-    .line 21
+     .line 22
+     return-object v5
+ 
+@@ -1310,7 +1087,6 @@
+     :cond_0
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -1319,8 +1095,6 @@
+     :goto_1
+     invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v1
+ 
+@@ -1334,23 +1108,18 @@
+     :goto_2
+     if-ge v4, v2, :cond_3
+ 
+-    .line 33
+     .line 34
+     aget-object v5, v1, v4
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {p0, v5, p1, p2}, Lcom/xj/mapping/utils/Reflect;->i(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;)Z
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result v6
+ 
+     .line 40
+     if-eqz v6, :cond_2
+ 
+-    .line 41
+     .line 42
+     return-object v5
+ 
+@@ -1358,7 +1127,6 @@
+     :cond_2
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 44
+     .line 45
+     goto :goto_2
+ 
+@@ -1366,15 +1134,12 @@
+     :cond_3
+     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     if-eqz v0, :cond_4
+ 
+-    .line 51
+     .line 52
+     goto :goto_1
+ 
+@@ -1382,96 +1147,66 @@
+     :cond_4
+     new-instance v0, Ljava/lang/NoSuchMethodException;
+ 
+-    .line 54
+     .line 55
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 56
+     .line 57
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     const-string v2, "No similar method "
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     const-string p1, " with params "
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     invoke-static {p2}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result-object p1
+ 
+     .line 77
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     const-string p1, " could be found on type "
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-virtual {p0}, Lcom/xj/mapping/utils/Reflect;->r()Ljava/lang/Class;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object p0
+ 
+     .line 89
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     const-string p0, "."
+ 
+-    .line 93
+     .line 94
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     move-result-object p0
+ 
+     .line 101
+     invoke-direct {v0, p0}, Ljava/lang/NoSuchMethodException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     throw v0
+ .end method
+@@ -1482,19 +1217,15 @@
+     .line 1
+     iget-boolean v0, p0, Lcom/xj/mapping/utils/Reflect;->b:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 6
+     .line 7
+     check-cast p0, Ljava/lang/Class;
+ 
+-    .line 8
+     .line 9
+     return-object p0
+ 
+@@ -1502,12 +1233,9 @@
+     :cond_0
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -1521,12 +1249,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/mapping/utils/Reflect;->a:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 

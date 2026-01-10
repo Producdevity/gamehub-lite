@@ -1,0 +1,753 @@
+--- a/smali_classes5/com/google/android/material/snackbar/SnackbarManager.smali
++++ b/smali_classes5/com/google/android/material/snackbar/SnackbarManager.smali
+@@ -51,51 +51,36 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Ljava/lang/Object;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 10
+     .line 11
+     new-instance v0, Landroid/os/Handler;
+ 
+-    .line 12
+     .line 13
+     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     new-instance v2, Lcom/google/android/material/snackbar/SnackbarManager$1;
+ 
+-    .line 18
+     .line 19
+     invoke-direct {v2, p0}, Lcom/google/android/material/snackbar/SnackbarManager$1;-><init>(Lcom/google/android/material/snackbar/SnackbarManager;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-direct {v0, v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     iput-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
+ 
+-    .line 26
+     .line 27
+     return-void
+ .end method
+@@ -110,37 +95,27 @@
+     .line 1
+     iget-object v0, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->callback:Ljava/lang/ref/WeakReference;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v0
+ 
+     .line 7
+     check-cast v0, Lcom/google/android/material/snackbar/SnackbarManager$Callback;
+ 
+-    .line 8
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0, p1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-interface {v0, p2}, Lcom/google/android/material/snackbar/SnackbarManager$Callback;->dismiss(I)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     const/4 p0, 0x1
+ 
+@@ -161,29 +136,22 @@
+     .line 1
+     sget-object v0, Lcom/google/android/material/snackbar/SnackbarManager;->snackbarManager:Lcom/google/android/material/snackbar/SnackbarManager;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v0, Lcom/google/android/material/snackbar/SnackbarManager;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0}, Lcom/google/android/material/snackbar/SnackbarManager;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     sput-object v0, Lcom/google/android/material/snackbar/SnackbarManager;->snackbarManager:Lcom/google/android/material/snackbar/SnackbarManager;
+ 
+-    .line 11
+     .line 12
+     :cond_0
+     sget-object v0, Lcom/google/android/material/snackbar/SnackbarManager;->snackbarManager:Lcom/google/android/material/snackbar/SnackbarManager;
+ 
+-    .line 13
+     .line 14
+     return-object v0
+ .end method
+@@ -194,23 +162,18 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->isSnackbar(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+     .line 9
+     if-eqz p0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 p0, 0x1
+ 
+@@ -231,23 +194,18 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 2
+     .line 3
+     if-eqz p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->isSnackbar(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p0
+ 
+     .line 9
+     if-eqz p0, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 p0, 0x1
+ 
+@@ -272,14 +230,12 @@
+     .line 1
+     iget v0, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, -0x2
+ 
+     .line 4
+     if-ne v0, v1, :cond_0
+ 
+-    .line 5
+     .line 6
+     return-void
+ 
+@@ -287,7 +243,6 @@
+     :cond_0
+     if-lez v0, :cond_1
+ 
+-    .line 8
+     .line 9
+     goto :goto_0
+ 
+@@ -298,11 +253,9 @@
+     .line 11
+     if-ne v0, v1, :cond_2
+ 
+-    .line 12
+     .line 13
+     const/16 v0, 0x5dc
+ 
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -310,29 +263,22 @@
+     :cond_2
+     const/16 v0, 0xabe
+ 
+-    .line 17
+     .line 18
+     :goto_0
+     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {v1, p1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     iget-object p0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
+ 
+-    .line 24
+     .line 25
+     const/4 v1, 0x0
+ 
+     .line 26
+     invoke-static {p0, v1, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object p1
+ 
+@@ -342,8 +288,6 @@
+     .line 31
+     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     return-void
+ .end method
+@@ -354,47 +298,36 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iput-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 6
+     .line 7
+     const/4 v1, 0x0
+ 
+     .line 8
+     iput-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 9
+     .line 10
+     iget-object v0, v0, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->callback:Ljava/lang/ref/WeakReference;
+ 
+-    .line 11
+     .line 12
+     invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     check-cast v0, Lcom/google/android/material/snackbar/SnackbarManager$Callback;
+ 
+-    .line 17
+     .line 18
+     if-eqz v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-interface {v0}, Lcom/google/android/material/snackbar/SnackbarManager$Callback;->show()V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -402,7 +335,6 @@
+     :cond_0
+     iput-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 25
+     .line 26
+     :cond_1
+     return-void
+@@ -416,7 +348,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -424,24 +355,18 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-eqz v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -456,24 +381,18 @@
+     :cond_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p1
+ 
+     .line 22
+     if-eqz p1, :cond_1
+ 
+-    .line 23
+     .line 24
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 25
+     .line 26
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     :cond_1
+     :goto_0
+@@ -502,7 +421,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -510,19 +428,15 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 5
+     .line 6
+     if-eq v1, p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 9
+     .line 10
+     if-ne v1, p1, :cond_1
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -541,8 +455,6 @@
+     .line 16
+     invoke-direct {p0, p1, v1}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     :cond_1
+     monitor-exit v0
+@@ -566,7 +478,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -574,8 +485,6 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p0
+ 
+@@ -604,7 +513,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -612,27 +520,21 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-nez v1, :cond_1
+ 
+-    .line 9
+     .line 10
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+     .line 14
+     if-eqz p0, :cond_0
+ 
+-    .line 15
+     .line 16
+     goto :goto_0
+ 
+@@ -678,7 +580,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -686,35 +587,27 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+     .line 8
+     if-eqz p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     const/4 p1, 0x0
+ 
+     .line 11
+     iput-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 12
+     .line 13
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 14
+     .line 15
+     if-eqz p1, :cond_0
+ 
+-    .line 16
+     .line 17
+     invoke-direct {p0}, Lcom/google/android/material/snackbar/SnackbarManager;->showNextSnackbarLocked()V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -749,7 +642,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -757,24 +649,18 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+     .line 8
+     if-eqz p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->scheduleTimeoutLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     goto :goto_0
+ 
+@@ -809,7 +695,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -817,43 +702,33 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+     .line 8
+     if-eqz p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 11
+     .line 12
+     iget-boolean v1, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->paused:Z
+ 
+-    .line 13
+     .line 14
+     if-nez v1, :cond_0
+ 
+-    .line 15
+     .line 16
+     const/4 v1, 0x1
+ 
+     .line 17
+     iput-boolean v1, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->paused:Z
+ 
+-    .line 18
+     .line 19
+     iget-object p0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0, p1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -888,7 +763,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -896,39 +770,30 @@
+     :try_start_0
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result p1
+ 
+     .line 8
+     if-eqz p1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 11
+     .line 12
+     iget-boolean v1, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->paused:Z
+ 
+-    .line 13
+     .line 14
+     if-eqz v1, :cond_0
+ 
+-    .line 15
+     .line 16
+     const/4 v1, 0x0
+ 
+     .line 17
+     iput-boolean v1, p1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->paused:Z
+ 
+-    .line 18
+     .line 19
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->scheduleTimeoutLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     goto :goto_0
+ 
+@@ -963,7 +828,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/android/material/snackbar/SnackbarManager;->lock:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -971,41 +835,30 @@
+     :try_start_0
+     invoke-direct {p0, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->isCurrentSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-eqz v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object p2, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 11
+     .line 12
+     iput p1, p2, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
+ 
+-    .line 13
+     .line 14
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->handler:Landroid/os/Handler;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p1, p2}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {p0, p1}, Lcom/google/android/material/snackbar/SnackbarManager;->scheduleTimeoutLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     monitor-exit v0
+ 
+@@ -1023,23 +876,18 @@
+     :cond_0
+     invoke-direct {p0, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->isNextSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v1
+ 
+     .line 32
+     if-eqz v1, :cond_1
+ 
+-    .line 33
+     .line 34
+     iget-object p2, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 35
+     .line 36
+     iput p1, p2, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;->duration:I
+ 
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -1047,40 +895,31 @@
+     :cond_1
+     new-instance v1, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 40
+     .line 41
+     invoke-direct {v1, p1, p2}, Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;-><init>(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     iput-object v1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->nextSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 45
+     .line 46
+     :goto_0
+     iget-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 47
+     .line 48
+     if-eqz p1, :cond_2
+ 
+-    .line 49
+     .line 50
+     const/4 p2, 0x4
+ 
+     .line 51
+     invoke-direct {p0, p1, p2}, Lcom/google/android/material/snackbar/SnackbarManager;->cancelSnackbarLocked(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result p1
+ 
+     .line 55
+     if-eqz p1, :cond_2
+ 
+-    .line 56
+     .line 57
+     monitor-exit v0
+ 
+@@ -1094,12 +933,9 @@
+     .line 60
+     iput-object p1, p0, Lcom/google/android/material/snackbar/SnackbarManager;->currentSnackbar:Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;
+ 
+-    .line 61
+     .line 62
+     invoke-direct {p0}, Lcom/google/android/material/snackbar/SnackbarManager;->showNextSnackbarLocked()V
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     monitor-exit v0
+ 

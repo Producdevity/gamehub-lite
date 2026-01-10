@@ -1,0 +1,1323 @@
+--- a/smali_classes9/com/yalantis/ucrop/view/CropImageView.smali
++++ b/smali_classes9/com/yalantis/ucrop/view/CropImageView.smali
+@@ -124,7 +124,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -135,21 +134,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroid/graphics/Matrix;->reset()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentAngle()F
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v1
+ 
+@@ -159,110 +152,84 @@
+     .line 13
+     invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mCurrentImageCorners:[F
+ 
+-    .line 17
+     .line 18
+     array-length v1, v0
+ 
+     .line 19
+     invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([FI)[F
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v0
+ 
+     .line 23
+     iget-object v1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 24
+     .line 25
+     invoke-static {v1}, Lcom/yalantis/ucrop/util/RectUtils;->getCornersFromRect(Landroid/graphics/RectF;)[F
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v1
+ 
+     .line 29
+     iget-object v2, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 30
+     .line 31
+     invoke-virtual {v2, v0}, Landroid/graphics/Matrix;->mapPoints([F)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iget-object v2, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 35
+     .line 36
+     invoke-virtual {v2, v1}, Landroid/graphics/Matrix;->mapPoints([F)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     invoke-static {v0}, Lcom/yalantis/ucrop/util/RectUtils;->trapToRect([F)Landroid/graphics/RectF;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v0
+ 
+     .line 43
+     invoke-static {v1}, Lcom/yalantis/ucrop/util/RectUtils;->trapToRect([F)Landroid/graphics/RectF;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v1
+ 
+     .line 47
+     iget v2, v0, Landroid/graphics/RectF;->left:F
+ 
+-    .line 48
+     .line 49
+     iget v3, v1, Landroid/graphics/RectF;->left:F
+ 
+-    .line 50
+     .line 51
+     sub-float/2addr v2, v3
+ 
+     .line 52
+     iget v3, v0, Landroid/graphics/RectF;->top:F
+ 
+-    .line 53
+     .line 54
+     iget v4, v1, Landroid/graphics/RectF;->top:F
+ 
+-    .line 55
+     .line 56
+     sub-float/2addr v3, v4
+ 
+     .line 57
+     iget v4, v0, Landroid/graphics/RectF;->right:F
+ 
+-    .line 58
+     .line 59
+     iget v5, v1, Landroid/graphics/RectF;->right:F
+ 
+-    .line 60
+     .line 61
+     sub-float/2addr v4, v5
+ 
+     .line 62
+     iget v0, v0, Landroid/graphics/RectF;->bottom:F
+ 
+-    .line 63
+     .line 64
+     iget v1, v1, Landroid/graphics/RectF;->bottom:F
+ 
+-    .line 65
+     .line 66
+     sub-float/2addr v0, v1
+ 
+@@ -272,11 +239,9 @@
+     .line 68
+     cmpl-float v5, v2, v1
+ 
+-    .line 69
+     .line 70
+     if-lez v5, :cond_0
+ 
+-    .line 71
+     .line 72
+     goto :goto_0
+ 
+@@ -288,11 +253,9 @@
+     :goto_0
+     cmpl-float v5, v3, v1
+ 
+-    .line 75
+     .line 76
+     if-lez v5, :cond_1
+ 
+-    .line 77
+     .line 78
+     goto :goto_1
+ 
+@@ -304,11 +267,9 @@
+     :goto_1
+     cmpg-float v5, v4, v1
+ 
+-    .line 81
+     .line 82
+     if-gez v5, :cond_2
+ 
+-    .line 83
+     .line 84
+     goto :goto_2
+ 
+@@ -320,11 +281,9 @@
+     :goto_2
+     cmpg-float v5, v0, v1
+ 
+-    .line 87
+     .line 88
+     if-gez v5, :cond_3
+ 
+-    .line 89
+     .line 90
+     goto :goto_3
+ 
+@@ -339,70 +298,54 @@
+     .line 93
+     new-array v1, v1, [F
+ 
+-    .line 94
+     .line 95
+     const/4 v5, 0x0
+ 
+     .line 96
+     aput v2, v1, v5
+ 
+-    .line 97
+     .line 98
+     const/4 v2, 0x1
+ 
+     .line 99
+     aput v3, v1, v2
+ 
+-    .line 100
+     .line 101
+     const/4 v2, 0x2
+ 
+     .line 102
+     aput v4, v1, v2
+ 
+-    .line 103
+     .line 104
+     const/4 v2, 0x3
+ 
+     .line 105
+     aput v0, v1, v2
+ 
+-    .line 106
+     .line 107
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 108
+     .line 109
+     invoke-virtual {v0}, Landroid/graphics/Matrix;->reset()V
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentAngle()F
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result v2
+ 
+     .line 118
+     invoke-virtual {v0, v2}, Landroid/graphics/Matrix;->setRotate(F)V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     iget-object p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTempMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 122
+     .line 123
+     invoke-virtual {p0, v1}, Landroid/graphics/Matrix;->mapPoints([F)V
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     return-object v1
+ .end method
+@@ -506,36 +449,27 @@
+     .line 1
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroid/graphics/RectF;->width()F
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     iget-object v1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1}, Landroid/graphics/RectF;->height()F
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     iget-object v2, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v2}, Landroid/graphics/RectF;->width()F
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result v2
+ 
+@@ -545,12 +479,9 @@
+     .line 20
+     iget-object v3, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v3}, Landroid/graphics/RectF;->height()F
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v3
+ 
+@@ -560,8 +491,6 @@
+     .line 27
+     invoke-static {v2, v3}, Ljava/lang/Math;->max(FF)F
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v2
+ 
+@@ -574,18 +503,15 @@
+     .line 33
+     const/high16 p1, 0x40000000    # 2.0f
+ 
+-    .line 34
+     .line 35
+     div-float/2addr v0, p1
+ 
+     .line 36
+     iget-object v3, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 37
+     .line 38
+     iget v4, v3, Landroid/graphics/RectF;->left:F
+ 
+-    .line 39
+     .line 40
+     add-float/2addr v0, v4
+ 
+@@ -601,46 +527,33 @@
+     .line 44
+     iget p1, v3, Landroid/graphics/RectF;->top:F
+ 
+-    .line 45
+     .line 46
+     add-float/2addr v1, p1
+ 
+     .line 47
+     iget-object p1, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mCurrentImageMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 48
+     .line 49
+     invoke-virtual {p1}, Landroid/graphics/Matrix;->reset()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     iget-object p1, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mCurrentImageMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 53
+     .line 54
+     invoke-virtual {p1, v2, v2}, Landroid/graphics/Matrix;->postScale(FF)Z
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     iget-object p1, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mCurrentImageMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 58
+     .line 59
+     invoke-virtual {p1, v0, v1}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     iget-object p1, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mCurrentImageMatrix:Landroid/graphics/Matrix;
+ 
+-    .line 63
+     .line 64
+     invoke-virtual {p0, p1}, Lcom/yalantis/ucrop/view/TransformImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     return-void
+ .end method
+@@ -653,21 +566,15 @@
+     .line 1
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mWrapCropBoundsRunnable:Ljava/lang/Runnable;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mZoomImageToPositionRunnable:Ljava/lang/Runnable;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ .end method
+@@ -686,90 +593,66 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/CropImageView;->cancelAllAnimations()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+     .line 5
+     invoke-virtual {p0, v0}, Lcom/yalantis/ucrop/view/CropImageView;->setImageToWrapCropBounds(Z)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     new-instance v4, Lcom/yalantis/ucrop/model/ImageState;
+ 
+-    .line 9
+     .line 10
+     iget-object v1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 11
+     .line 12
+     iget-object v2, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mCurrentImageCorners:[F
+ 
+-    .line 13
+     .line 14
+     invoke-static {v2}, Lcom/yalantis/ucrop/util/RectUtils;->trapToRect([F)Landroid/graphics/RectF;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v2
+ 
+     .line 18
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentScale()F
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v3
+ 
+     .line 22
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentAngle()F
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v5
+ 
+     .line 26
+     invoke-direct {v4, v1, v2, v3, v5}, Lcom/yalantis/ucrop/model/ImageState;-><init>(Landroid/graphics/RectF;Landroid/graphics/RectF;FF)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     new-instance v5, Lcom/yalantis/ucrop/model/CropParameters;
+ 
+-    .line 30
+     .line 31
+     iget v7, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMaxResultImageSizeX:I
+ 
+-    .line 32
+     .line 33
+     iget v8, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMaxResultImageSizeY:I
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getImageInputPath()Ljava/lang/String;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object v11
+ 
+     .line 39
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getImageOutputPath()Ljava/lang/String;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v12
+ 
+     .line 43
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getExifInfo()Lcom/yalantis/ucrop/model/ExifInfo;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v13
+ 
+@@ -779,83 +662,60 @@
+     .line 48
+     move/from16 v10, p2
+ 
+-    .line 49
+     .line 50
+     move-object v6, v5
+ 
+     .line 51
+     invoke-direct/range {v6 .. v13}, Lcom/yalantis/ucrop/model/CropParameters;-><init>(IILandroid/graphics/Bitmap$CompressFormat;ILjava/lang/String;Ljava/lang/String;Lcom/yalantis/ucrop/model/ExifInfo;)V
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getImageInputUri()Landroid/net/Uri;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object v1
+ 
+     .line 58
+     invoke-virtual {v5, v1}, Lcom/yalantis/ucrop/model/CropParameters;->setContentImageInputUri(Landroid/net/Uri;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getImageOutputUri()Landroid/net/Uri;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v1
+ 
+     .line 65
+     invoke-virtual {v5, v1}, Lcom/yalantis/ucrop/model/CropParameters;->setContentImageOutputUri(Landroid/net/Uri;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     new-instance v1, Lcom/yalantis/ucrop/task/BitmapCropTask;
+ 
+-    .line 69
+     .line 70
+     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result-object v2
+ 
+     .line 74
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getViewBitmap()Landroid/graphics/Bitmap;
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result-object v3
+ 
+     .line 78
+     move-object/from16 v6, p3
+ 
+-    .line 79
+     .line 80
+     invoke-direct/range {v1 .. v6}, Lcom/yalantis/ucrop/task/BitmapCropTask;-><init>(Landroid/content/Context;Landroid/graphics/Bitmap;Lcom/yalantis/ucrop/model/ImageState;Lcom/yalantis/ucrop/model/CropParameters;Lcom/yalantis/ucrop/callback/BitmapCropCallback;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     sget-object p0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+ 
+-    .line 84
+     .line 85
+     new-array v0, v0, [Ljava/lang/Void;
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {v1, p0, v0}, Landroid/os/AsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     return-void
+ .end method
+@@ -868,7 +728,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropBoundsChangeListener:Lcom/yalantis/ucrop/callback/CropBoundsChangeListener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -879,7 +738,6 @@
+     .line 1
+     iget p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMaxScale:F
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -890,7 +748,6 @@
+     .line 1
+     iget p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMinScale:F
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -901,7 +758,6 @@
+     .line 1
+     iget p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -984,20 +840,15 @@
+     .line 1
+     invoke-super {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->onImageLaidOut()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result-object v0
+ 
+     .line 8
+     if-nez v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     goto :goto_1
+ 
+@@ -1005,8 +856,6 @@
+     :cond_0
+     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+@@ -1016,8 +865,6 @@
+     .line 16
+     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v0
+ 
+@@ -1027,38 +874,31 @@
+     .line 21
+     iget v2, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 22
+     .line 23
+     const/4 v3, 0x0
+ 
+     .line 24
+     cmpl-float v2, v2, v3
+ 
+-    .line 25
+     .line 26
+     if-nez v2, :cond_1
+ 
+-    .line 27
+     .line 28
+     div-float v2, v1, v0
+ 
+-    .line 29
+     .line 30
+     iput v2, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 31
+     .line 32
+     :cond_1
+     iget v2, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mThisWidth:I
+ 
+-    .line 33
+     .line 34
+     int-to-float v4, v2
+ 
+     .line 35
+     iget v5, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 36
+     .line 37
+     div-float/2addr v4, v5
+ 
+@@ -1068,11 +908,9 @@
+     .line 39
+     iget v6, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mThisHeight:I
+ 
+-    .line 40
+     .line 41
+     if-le v4, v6, :cond_2
+ 
+-    .line 42
+     .line 43
+     int-to-float v4, v6
+ 
+@@ -1088,11 +926,9 @@
+     .line 47
+     div-int/lit8 v2, v2, 0x2
+ 
+-    .line 48
+     .line 49
+     iget-object v5, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 50
+     .line 51
+     int-to-float v7, v2
+ 
+@@ -1108,8 +944,6 @@
+     .line 55
+     invoke-virtual {v5, v7, v3, v2, v4}, Landroid/graphics/RectF;->set(FFFF)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     goto :goto_0
+ 
+@@ -1120,11 +954,9 @@
+     .line 60
+     div-int/lit8 v6, v6, 0x2
+ 
+-    .line 61
+     .line 62
+     iget-object v5, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 63
+     .line 64
+     int-to-float v7, v6
+ 
+@@ -1140,75 +972,53 @@
+     .line 68
+     invoke-virtual {v5, v3, v7, v2, v4}, Landroid/graphics/RectF;->set(FFFF)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     :goto_0
+     invoke-direct {p0, v1, v0}, Lcom/yalantis/ucrop/view/CropImageView;->calculateImageScaleBounds(FF)V
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     invoke-direct {p0, v1, v0}, Lcom/yalantis/ucrop/view/CropImageView;->setupInitialImagePosition(FF)V
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropBoundsChangeListener:Lcom/yalantis/ucrop/callback/CropBoundsChangeListener;
+ 
+-    .line 78
+     .line 79
+     if-eqz v0, :cond_3
+ 
+-    .line 80
+     .line 81
+     iget v1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 82
+     .line 83
+     invoke-interface {v0, v1}, Lcom/yalantis/ucrop/callback/CropBoundsChangeListener;->onCropAspectRatioChanged(F)V
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     :cond_3
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mTransformImageListener:Lcom/yalantis/ucrop/view/TransformImageView$TransformImageListener;
+ 
+-    .line 87
+     .line 88
+     if-eqz v0, :cond_4
+ 
+-    .line 89
+     .line 90
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentScale()F
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result v1
+ 
+     .line 94
+     invoke-interface {v0, v1}, Lcom/yalantis/ucrop/view/TransformImageView$TransformImageListener;->onScale(F)V
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/TransformImageView;->mTransformImageListener:Lcom/yalantis/ucrop/view/TransformImageView$TransformImageListener;
+ 
+-    .line 98
+     .line 99
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentAngle()F
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     move-result p0
+ 
+     .line 103
+     invoke-interface {v0, p0}, Lcom/yalantis/ucrop/view/TransformImageView$TransformImageListener;->onRotate(F)V
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     :cond_4
+     :goto_1
+@@ -1221,32 +1031,24 @@
+     .line 1
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Landroid/graphics/RectF;->centerX()F
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     iget-object v1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {v1}, Landroid/graphics/RectF;->centerY()F
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     invoke-virtual {p0, p1, v0, v1}, Lcom/yalantis/ucrop/view/TransformImageView;->postRotate(FFF)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -1257,20 +1059,15 @@
+     .line 1
+     const/high16 v0, 0x3f800000    # 1.0f
+ 
+-    .line 2
+     .line 3
+     cmpl-float v1, p1, v0
+ 
+-    .line 4
+     .line 5
+     if-lez v1, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentScale()F
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+@@ -1280,24 +1077,18 @@
+     .line 12
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/CropImageView;->getMaxScale()F
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v2
+ 
+     .line 16
+     cmpg-float v1, v1, v2
+ 
+-    .line 17
+     .line 18
+     if-gtz v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     invoke-super {p0, p1, p2, p3}, Lcom/yalantis/ucrop/view/TransformImageView;->postScale(FFF)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ 
+@@ -1305,16 +1096,12 @@
+     :cond_0
+     cmpg-float v0, p1, v0
+ 
+-    .line 25
+     .line 26
+     if-gez v0, :cond_1
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentScale()F
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result v0
+ 
+@@ -1324,24 +1111,18 @@
+     .line 33
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/CropImageView;->getMinScale()F
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v1
+ 
+     .line 37
+     cmpl-float v0, v0, v1
+ 
+-    .line 38
+     .line 39
+     if-ltz v0, :cond_1
+ 
+-    .line 40
+     .line 41
+     invoke-super {p0, p1, p2, p3}, Lcom/yalantis/ucrop/view/TransformImageView;->postScale(FFF)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     :cond_1
+     return-void
+@@ -1357,62 +1138,48 @@
+     .line 1
+     sget v0, Lcom/yalantis/ucrop/R$styleable;->ucrop_UCropView_ucrop_aspect_ratio_x:I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getFloat(IF)F
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result v0
+ 
+     .line 12
+     sget v2, Lcom/yalantis/ucrop/R$styleable;->ucrop_UCropView_ucrop_aspect_ratio_y:I
+ 
+-    .line 13
+     .line 14
+     invoke-virtual {p1, v2, v1}, Landroid/content/res/TypedArray;->getFloat(IF)F
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result p1
+ 
+     .line 18
+     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result p1
+ 
+     .line 22
+     cmpl-float v2, v0, v1
+ 
+-    .line 23
+     .line 24
+     if-eqz v2, :cond_1
+ 
+-    .line 25
+     .line 26
+     cmpl-float v2, p1, v1
+ 
+-    .line 27
+     .line 28
+     if-nez v2, :cond_0
+ 
+-    .line 29
+     .line 30
+     goto :goto_0
+ 
+@@ -1423,7 +1190,6 @@
+     .line 32
+     iput v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 33
+     .line 34
+     return-void
+ 
+@@ -1432,7 +1198,6 @@
+     :goto_0
+     iput v1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 36
+     .line 37
+     return-void
+ .end method
+@@ -1447,7 +1212,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropBoundsChangeListener:Lcom/yalantis/ucrop/callback/CropBoundsChangeListener;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1458,16 +1222,12 @@
+     .line 1
+     invoke-virtual {p1}, Landroid/graphics/RectF;->width()F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p1}, Landroid/graphics/RectF;->height()F
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+@@ -1477,20 +1237,15 @@
+     .line 10
+     iput v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 11
+     .line 12
+     iget-object v0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropRect:Landroid/graphics/RectF;
+ 
+-    .line 13
+     .line 14
+     iget v1, p1, Landroid/graphics/RectF;->left:F
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v2
+ 
+@@ -1503,12 +1258,9 @@
+     .line 22
+     iget v2, p1, Landroid/graphics/RectF;->top:F
+ 
+-    .line 23
+     .line 24
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v3
+ 
+@@ -1521,12 +1273,9 @@
+     .line 30
+     iget v3, p1, Landroid/graphics/RectF;->right:F
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v4
+ 
+@@ -1539,12 +1288,9 @@
+     .line 38
+     iget p1, p1, Landroid/graphics/RectF;->bottom:F
+ 
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v4
+ 
+@@ -1557,18 +1303,12 @@
+     .line 46
+     invoke-virtual {v0, v1, v2, v3, p1}, Landroid/graphics/RectF;->set(FFFF)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-direct {p0}, Lcom/yalantis/ucrop/view/CropImageView;->calculateImageScaleBounds()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/CropImageView;->setImageToWrapCropBounds()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     return-void
+ .end method
+@@ -1826,19 +1566,15 @@
+     .line 1
+     const-wide/16 v0, 0x0
+ 
+-    .line 2
+     .line 3
+     cmp-long v0, p1, v0
+ 
+-    .line 4
+     .line 5
+     if-lez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iput-wide p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mImageToWrapCropBoundsAnimDuration:J
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -1846,16 +1582,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 11
+     .line 12
+     const-string p1, "Animation duration cannot be negative value."
+ 
+-    .line 13
+     .line 14
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     throw p0
+ .end method
+@@ -1870,7 +1602,6 @@
+     .line 1
+     iput p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMaxResultImageSizeX:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1885,7 +1616,6 @@
+     .line 1
+     iput p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMaxResultImageSizeY:I
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1896,7 +1626,6 @@
+     .line 1
+     iput p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mMaxScaleMultiplier:F
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1907,19 +1636,15 @@
+     .line 1
+     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iput p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 8
+     .line 9
+     return-void
+ 
+@@ -1930,16 +1655,12 @@
+     .line 11
+     cmpl-float v1, p1, v1
+ 
+-    .line 12
+     .line 13
+     if-nez v1, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p1
+ 
+@@ -1949,8 +1670,6 @@
+     .line 20
+     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v0
+ 
+@@ -1963,7 +1682,6 @@
+     .line 26
+     iput p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 27
+     .line 28
+     goto :goto_0
+ 
+@@ -1971,25 +1689,19 @@
+     :cond_1
+     iput p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 30
+     .line 31
+     :goto_0
+     iget-object p1, p0, Lcom/yalantis/ucrop/view/CropImageView;->mCropBoundsChangeListener:Lcom/yalantis/ucrop/callback/CropBoundsChangeListener;
+ 
+-    .line 32
+     .line 33
+     if-eqz p1, :cond_2
+ 
+-    .line 34
+     .line 35
+     iget p0, p0, Lcom/yalantis/ucrop/view/CropImageView;->mTargetAspectRatio:F
+ 
+-    .line 36
+     .line 37
+     invoke-interface {p1, p0}, Lcom/yalantis/ucrop/callback/CropBoundsChangeListener;->onCropAspectRatioChanged(F)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     :cond_2
+     return-void
+@@ -2001,24 +1713,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/CropImageView;->getMaxScale()F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     cmpl-float v0, p1, v0
+ 
+-    .line 6
+     .line 7
+     if-lez v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/CropImageView;->getMaxScale()F
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p1
+ 
+@@ -2026,19 +1732,15 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/yalantis/ucrop/view/TransformImageView;->getCurrentScale()F
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v4
+ 
+     .line 17
+     sub-float v5, p1, v4
+ 
+-    .line 18
+     .line 19
+     new-instance v0, Lcom/yalantis/ucrop/view/CropImageView$ZoomImageToPosition;
+ 
+-    .line 20
+     .line 21
+     move-object v1, p0
+ 
+@@ -2054,17 +1756,12 @@
+     .line 25
+     invoke-direct/range {v0 .. v7}, Lcom/yalantis/ucrop/view/CropImageView$ZoomImageToPosition;-><init>(Lcom/yalantis/ucrop/view/CropImageView;JFFFF)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     iput-object v0, v1, Lcom/yalantis/ucrop/view/CropImageView;->mZoomImageToPositionRunnable:Ljava/lang/Runnable;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v1, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     return-void
+ .end method

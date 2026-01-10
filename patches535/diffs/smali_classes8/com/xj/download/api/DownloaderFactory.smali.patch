@@ -1,0 +1,618 @@
+--- a/smali_classes8/com/xj/download/api/DownloaderFactory.smali
++++ b/smali_classes8/com/xj/download/api/DownloaderFactory.smali
+@@ -21,29 +21,21 @@
+     .line 1
+     new-instance v0, Lcom/xj/download/api/DownloaderFactory;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/xj/download/api/DownloaderFactory;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Lcom/xj/download/api/DownloaderFactory;->a:Lcom/xj/download/api/DownloaderFactory;
+ 
+-    .line 7
+     .line 8
+     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 9
+     .line 10
+     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     sput-object v0, Lcom/xj/download/api/DownloaderFactory;->b:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 14
+     .line 15
+     return-void
+ .end method
+@@ -54,8 +46,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -68,33 +58,24 @@
+     .line 1
+     sget-object p0, Lcom/xj/download/api/DownloaderFactory;->b:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+     .line 7
+     const-string v0, "<get-values>(...)"
+ 
+-    .line 8
+     .line 9
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     check-cast p0, Ljava/lang/Iterable;
+ 
+-    .line 13
+     .line 14
+     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->e1(Ljava/lang/Iterable;)Ljava/util/List;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+@@ -108,40 +89,30 @@
+     .line 1
+     const-string p0, "task"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lcom/xj/download/api/DownloaderFactory;->b:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p1}, Lcom/xj/common/service/bean/DownloadTask;->getDownloaderType()Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-virtual {p0, v0}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+     .line 16
+     check-cast p0, Lcom/xj/download/api/IDownloader;
+ 
+-    .line 17
+     .line 18
+     if-eqz p0, :cond_0
+ 
+-    .line 19
+     .line 20
+     return-object p0
+ 
+@@ -149,60 +120,42 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p1}, Lcom/xj/common/service/bean/DownloadTask;->getDownloaderType()Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 28
+     .line 29
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     const-string v1, "not register downloader type for "
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     const-string p1, ",call GHDownloadManager.registerDownloader() first"
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p1
+ 
+     .line 49
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     throw p0
+ .end method
+@@ -213,32 +166,24 @@
+     .line 1
+     const-string p0, "type"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object p0, Lcom/xj/download/api/DownloaderFactory;->b:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p0
+ 
+     .line 12
+     check-cast p0, Lcom/xj/download/api/IDownloader;
+ 
+-    .line 13
+     .line 14
+     if-eqz p0, :cond_0
+ 
+-    .line 15
+     .line 16
+     return-object p0
+ 
+@@ -246,52 +191,36 @@
+     :cond_0
+     new-instance p0, Ljava/lang/NullPointerException;
+ 
+-    .line 18
+     .line 19
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     const-string v1, "Not Register "
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     const-string p1, " downloader"
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object p1
+ 
+     .line 41
+     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     throw p0
+ .end method
+@@ -302,24 +231,18 @@
+     .line 1
+     const-string v0, "request"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     instance-of v0, p1, Lcom/xj/download/api/request/SteamDownloadRequest;
+ 
+-    .line 7
+     .line 8
+     if-eqz v0, :cond_0
+ 
+-    .line 9
+     .line 10
+     sget-object p1, Lcom/xj/common/service/bean/DownloaderType;->Steam:Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 11
+     .line 12
+     goto :goto_0
+ 
+@@ -327,21 +250,16 @@
+     :cond_0
+     instance-of p1, p1, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 14
+     .line 15
+     if-eqz p1, :cond_1
+ 
+-    .line 16
+     .line 17
+     sget-object p1, Lcom/xj/common/service/bean/DownloaderType;->Aria:Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 18
+     .line 19
+     :goto_0
+     invoke-virtual {p0, p1}, Lcom/xj/download/api/DownloaderFactory;->c(Lcom/xj/common/service/bean/DownloaderType;)Lcom/xj/download/api/IDownloader;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+@@ -352,16 +270,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 25
+     .line 26
+     const-string p1, "request type not support"
+ 
+-    .line 27
+     .line 28
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     throw p0
+ .end method
+@@ -372,40 +286,30 @@
+     .line 1
+     const-string v0, "requestClz"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-class v0, Lcom/xj/download/api/request/SteamDownloadRequest;
+ 
+-    .line 7
+     .line 8
+     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v0
+ 
+     .line 12
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result v0
+ 
+     .line 16
+     if-eqz v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     sget-object p1, Lcom/xj/common/service/bean/DownloaderType;->Steam:Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 19
+     .line 20
+     goto :goto_0
+ 
+@@ -413,37 +317,28 @@
+     :cond_0
+     const-class v0, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 22
+     .line 23
+     invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+     .line 27
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result p1
+ 
+     .line 31
+     if-eqz p1, :cond_1
+ 
+-    .line 32
+     .line 33
+     sget-object p1, Lcom/xj/common/service/bean/DownloaderType;->Aria:Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 34
+     .line 35
+     :goto_0
+     invoke-virtual {p0, p1}, Lcom/xj/download/api/DownloaderFactory;->c(Lcom/xj/common/service/bean/DownloaderType;)Lcom/xj/download/api/IDownloader;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p0
+ 
+@@ -454,16 +349,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 41
+     .line 42
+     const-string p1, "Not such Download Request type"
+ 
+-    .line 43
+     .line 44
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     throw p0
+ .end method
+@@ -474,49 +365,36 @@
+     .line 1
+     const-string p0, "requestClz"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string p0, "downloader"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-class p0, Lcom/xj/download/api/request/SteamDownloadRequest;
+ 
+-    .line 12
+     .line 13
+     invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+     .line 21
+     if-eqz p0, :cond_0
+ 
+-    .line 22
+     .line 23
+     sget-object p0, Lcom/xj/common/service/bean/DownloaderType;->Steam:Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 24
+     .line 25
+     goto :goto_0
+ 
+@@ -524,104 +402,73 @@
+     :cond_0
+     const-class p0, Lcom/xj/download/api/request/AriaDownloadRequest;
+ 
+-    .line 27
+     .line 28
+     invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->b(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object p0
+ 
+     .line 32
+     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result p0
+ 
+     .line 36
+     if-eqz p0, :cond_1
+ 
+-    .line 37
+     .line 38
+     sget-object p0, Lcom/xj/common/service/bean/DownloaderType;->Aria:Lcom/xj/common/service/bean/DownloaderType;
+ 
+-    .line 39
+     .line 40
+     :goto_0
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     const-string v1, "registerDownloader: ["
+ 
+-    .line 46
+     .line 47
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     const-string p1, ", "
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     const-string p1, "]"
+ 
+-    .line 62
+     .line 63
+     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object p1
+ 
+     .line 70
+     const-string v0, "DownloaderFactory"
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     sget-object p1, Lcom/xj/download/api/DownloaderFactory;->b:Ljava/util/concurrent/ConcurrentHashMap;
+ 
+-    .line 76
+     .line 77
+     invoke-interface {p1, p0, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     return-void
+ 
+@@ -629,19 +476,15 @@
+     :cond_1
+     sget-object p0, Lcom/xj/download/api/GHDownloadManager;->a:Lcom/xj/download/api/GHDownloadManager;
+ 
+-    .line 82
+     .line 83
+     invoke-virtual {p0}, Lcom/xj/download/api/GHDownloadManager;->t()Lcom/xj/download/api/IDownloadLog;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v0
+ 
+     .line 87
+     if-eqz v0, :cond_2
+ 
+-    .line 88
+     .line 89
+     const/4 v4, 0x4
+ 
+@@ -651,19 +494,15 @@
+     .line 91
+     const-string v1, "DownloaderFactory"
+ 
+-    .line 92
+     .line 93
+     const-string v2, "registerDownloader: \u8bf7\u6ce8\u518c\u6b63\u786e\u7684\u4e0b\u8f7d\u5668"
+ 
+-    .line 94
+     .line 95
+     const/4 v3, 0x0
+ 
+     .line 96
+     invoke-static/range {v0 .. v5}, Lcom/xj/download/api/IDownloadLog;->a(Lcom/xj/download/api/IDownloadLog;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     :cond_2
+     return-void

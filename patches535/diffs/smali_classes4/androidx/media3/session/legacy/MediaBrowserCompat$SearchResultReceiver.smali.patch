@@ -1,0 +1,192 @@
+--- a/smali_classes4/androidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver.smali
++++ b/smali_classes4/androidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver.smali
+@@ -42,20 +42,15 @@
+     .line 1
+     invoke-direct {p0, p4}, Landroid/support/v4/os/ResultReceiver;-><init>(Landroid/os/Handler;)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->query:Ljava/lang/String;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->extras:Landroid/os/Bundle;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->callback:Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;
+ 
+-    .line 9
+     .line 10
+     return-void
+ .end method
+@@ -72,12 +67,9 @@
+     .line 1
+     if-eqz p2, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {p2}, Landroidx/media3/session/legacy/MediaSessionCompat;->unparcelWithClassLoader(Landroid/os/Bundle;)Landroid/os/Bundle;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p2
+ 
+@@ -85,27 +77,21 @@
+     :cond_0
+     if-nez p1, :cond_4
+ 
+-    .line 8
+     .line 9
+     if-eqz p2, :cond_4
+ 
+-    .line 10
+     .line 11
+     const-string p1, "search_results"
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p2, p1}, Landroid/os/BaseBundle;->containsKey(Ljava/lang/String;)Z
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     if-nez v0, :cond_1
+ 
+-    .line 18
+     .line 19
+     goto :goto_1
+ 
+@@ -113,27 +99,21 @@
+     :cond_1
+     invoke-virtual {p2, p1}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p1
+ 
+     .line 24
+     if-eqz p1, :cond_3
+ 
+-    .line 25
+     .line 26
+     new-instance p2, Ljava/util/ArrayList;
+ 
+-    .line 27
+     .line 28
+     array-length v0, p1
+ 
+     .line 29
+     invoke-direct {p2, v0}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     array-length v0, p1
+ 
+@@ -144,36 +124,27 @@
+     :goto_0
+     if-ge v1, v0, :cond_2
+ 
+-    .line 35
+     .line 36
+     aget-object v2, p1, v1
+ 
+-    .line 37
+     .line 38
+     sget-object v3, Landroidx/media3/session/legacy/MediaBrowserCompat$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
+ 
+-    .line 39
+     .line 40
+     invoke-static {v2, v3}, Landroidx/media3/session/legacy/LegacyParcelableUtil;->convert(Landroid/os/Parcelable;Landroid/os/Parcelable$Creator;)Landroid/os/Parcelable;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v2
+ 
+     .line 44
+     check-cast v2, Landroidx/media3/session/legacy/MediaBrowserCompat$MediaItem;
+ 
+-    .line 45
+     .line 46
+     invoke-interface {p2, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 50
+     .line 51
+     goto :goto_0
+ 
+@@ -181,20 +152,15 @@
+     :cond_2
+     iget-object p1, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->callback:Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;
+ 
+-    .line 53
+     .line 54
+     iget-object v0, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->query:Ljava/lang/String;
+ 
+-    .line 55
+     .line 56
+     iget-object p0, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->extras:Landroid/os/Bundle;
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {p1, v0, p0, p2}, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;->onSearchResult(Ljava/lang/String;Landroid/os/Bundle;Ljava/util/List;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     return-void
+ 
+@@ -202,20 +168,15 @@
+     :cond_3
+     iget-object p1, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->callback:Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;
+ 
+-    .line 63
+     .line 64
+     iget-object p2, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->query:Ljava/lang/String;
+ 
+-    .line 65
+     .line 66
+     iget-object p0, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->extras:Landroid/os/Bundle;
+ 
+-    .line 67
+     .line 68
+     invoke-virtual {p1, p2, p0}, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;->onError(Ljava/lang/String;Landroid/os/Bundle;)V
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     return-void
+ 
+@@ -224,20 +185,15 @@
+     :goto_1
+     iget-object p1, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->callback:Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;
+ 
+-    .line 73
+     .line 74
+     iget-object p2, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->query:Ljava/lang/String;
+ 
+-    .line 75
+     .line 76
+     iget-object p0, p0, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchResultReceiver;->extras:Landroid/os/Bundle;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {p1, p2, p0}, Landroidx/media3/session/legacy/MediaBrowserCompat$SearchCallback;->onError(Ljava/lang/String;Landroid/os/Bundle;)V
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     return-void
+ .end method

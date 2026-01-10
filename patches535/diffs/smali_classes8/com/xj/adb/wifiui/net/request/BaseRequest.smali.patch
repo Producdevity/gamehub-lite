@@ -1,0 +1,582 @@
+--- a/smali_classes8/com/xj/adb/wifiui/net/request/BaseRequest.smali
++++ b/smali_classes8/com/xj/adb/wifiui/net/request/BaseRequest.smali
+@@ -30,70 +30,51 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     new-instance v0, Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 5
+     .line 6
+     invoke-direct {v0}, Lokhttp3/HttpUrl$Builder;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iput-object v0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->a:Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 10
+     .line 11
+     sget-object v0, Lcom/xj/adb/wifiui/net/NetConfig;->a:Lcom/xj/adb/wifiui/net/NetConfig;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Lcom/xj/adb/wifiui/net/NetConfig;->b()Lcom/xj/adb/wifiui/net/convert/NetConverter;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v1
+ 
+     .line 17
+     iput-object v1, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->b:Lcom/xj/adb/wifiui/net/convert/NetConverter;
+ 
+-    .line 18
+     .line 19
+     sget-object v1, Lcom/xj/adb/wifiui/net/request/Method;->GET:Lcom/xj/adb/wifiui/net/request/Method;
+ 
+-    .line 20
+     .line 21
+     iput-object v1, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->c:Lcom/xj/adb/wifiui/net/request/Method;
+ 
+-    .line 22
+     .line 23
+     new-instance v1, Lokhttp3/Request$Builder;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     iput-object v1, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->d:Lokhttp3/Request$Builder;
+ 
+-    .line 29
+     .line 30
+     invoke-virtual {v0}, Lcom/xj/adb/wifiui/net/NetConfig;->h()Lokhttp3/OkHttpClient;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object v0
+ 
+     .line 34
+     iput-object v0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->e:Lokhttp3/OkHttpClient;
+ 
+-    .line 35
+     .line 36
+     return-void
+ .end method
+@@ -104,7 +85,6 @@
+     .line 1
+     if-nez p3, :cond_1
+ 
+-    .line 2
+     .line 3
+     const/4 p3, 0x1
+ 
+@@ -114,7 +94,6 @@
+     .line 5
+     if-eqz p2, :cond_0
+ 
+-    .line 6
+     .line 7
+     move p1, p3
+ 
+@@ -122,8 +101,6 @@
+     :cond_0
+     invoke-virtual {p0, p1}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->i(Z)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-void
+ 
+@@ -131,16 +108,12 @@
+     :cond_1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 13
+     .line 14
+     const-string p1, "Super calls with default arguments not supported in this target, function: setDownloadMd5Verify"
+ 
+-    .line 15
+     .line 16
+     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     throw p0
+ .end method
+@@ -153,33 +126,24 @@
+     .line 1
+     const-string v0, "progressListener"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->g()Lokhttp3/Request$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-static {p0}, Lcom/xj/adb/wifiui/net/request/RequestBuilderKt;->a(Lokhttp3/Request$Builder;)Ljava/util/concurrent/ConcurrentLinkedQueue;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     invoke-virtual {p0, p1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->add(Ljava/lang/Object;)Z
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -190,24 +154,18 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->g()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->e()Lcom/xj/adb/wifiui/net/request/Method;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v1
+ 
+     .line 9
+     invoke-virtual {v1}, Ljava/lang/Enum;->name()Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v1
+ 
+@@ -217,56 +175,42 @@
+     .line 14
+     invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->method(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object v0
+ 
+     .line 18
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->d()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v1
+ 
+     .line 22
+     invoke-virtual {v1}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v0
+ 
+     .line 30
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->c()Lcom/xj/adb/wifiui/net/convert/NetConverter;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     invoke-static {v0, p0}, Lcom/xj/adb/wifiui/net/request/RequestBuilderKt;->b(Lokhttp3/Request$Builder;Lcom/xj/adb/wifiui/net/convert/NetConverter;)Lokhttp3/Request$Builder;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object p0
+ 
+     .line 38
+     invoke-virtual {p0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result-object p0
+ 
+@@ -280,7 +224,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->b:Lcom/xj/adb/wifiui/net/convert/NetConverter;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -291,7 +234,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->a:Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -302,7 +244,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->c:Lcom/xj/adb/wifiui/net/request/Method;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -313,7 +254,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->e:Lokhttp3/OkHttpClient;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -324,7 +264,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->d:Lokhttp3/Request$Builder;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -335,45 +274,33 @@
+     .line 1
+     const-string v0, "name"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->g()Lokhttp3/Request$Builder;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+     .line 10
+     invoke-static {p1}, Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileDir;->b(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     invoke-static {p1}, Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileDir;->a(Ljava/lang/String;)Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileDir;
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p1
+ 
+     .line 18
+     const-class v0, Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileDir;
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-void
+ .end method
+@@ -384,36 +311,27 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->g()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p1}, Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileMD5Verify;->b(Z)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+     .line 9
+     invoke-static {p1}, Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileMD5Verify;->a(Z)Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileMD5Verify;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p1
+ 
+     .line 13
+     const-class v0, Lcom/xj/adb/wifiui/net/tag/NetTag$DownloadFileMD5Verify;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, v0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Class;Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -424,16 +342,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->g()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-static {p0, p1}, Lcom/xj/adb/wifiui/net/request/RequestBuilderKt;->c(Lokhttp3/Request$Builder;Ljava/lang/Object;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -444,16 +358,12 @@
+     .line 1
+     const-string v0, "<set-?>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->a:Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -464,16 +374,12 @@
+     .line 1
+     const-string v0, "<set-?>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iput-object p1, p0, Lcom/xj/adb/wifiui/net/request/BaseRequest;->c:Lcom/xj/adb/wifiui/net/request/Method;
+ 
+-    .line 7
+     .line 8
+     return-void
+ .end method
+@@ -484,16 +390,12 @@
+     .line 1
+     if-eqz p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v0, p1}, Lokhttp3/HttpUrl$Companion;->parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object v0
+ 
+@@ -508,64 +410,46 @@
+     :goto_0
+     if-nez v0, :cond_1
+ 
+-    .line 12
+     .line 13
+     :try_start_0
+     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
+ 
+-    .line 14
+     .line 15
+     sget-object v1, Lcom/xj/adb/wifiui/net/NetConfig;->a:Lcom/xj/adb/wifiui/net/NetConfig;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {v1}, Lcom/xj/adb/wifiui/net/NetConfig;->g()Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v1
+ 
+     .line 21
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 22
+     .line 23
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+     .line 36
+     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Companion;->get(Ljava/lang/String;)Lokhttp3/HttpUrl;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v0
+ 
+     .line 40
+     invoke-virtual {v0}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v0
+ 
+@@ -574,8 +458,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return-void
+ 
+@@ -586,51 +468,36 @@
+     .line 49
+     new-instance v0, Lcom/xj/adb/wifiui/net/exception/URLParseException;
+ 
+-    .line 50
+     .line 51
+     sget-object v1, Lcom/xj/adb/wifiui/net/NetConfig;->a:Lcom/xj/adb/wifiui/net/NetConfig;
+ 
+-    .line 52
+     .line 53
+     invoke-virtual {v1}, Lcom/xj/adb/wifiui/net/NetConfig;->g()Ljava/lang/String;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v1
+ 
+     .line 57
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     move-result-object p1
+ 
+     .line 72
+     invoke-direct {v0, p1, p0}, Lcom/xj/adb/wifiui/net/exception/URLParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     throw v0
+ 
+@@ -638,16 +505,12 @@
+     :cond_1
+     invoke-virtual {v0}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object p1
+ 
+     .line 80
+     invoke-virtual {p0, p1}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->l(Lokhttp3/HttpUrl$Builder;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     return-void
+ .end method
+@@ -658,16 +521,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/adb/wifiui/net/request/BaseRequest;->g()Lokhttp3/Request$Builder;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-virtual {p0, p1}, Lokhttp3/Request$Builder;->tag(Ljava/lang/Object;)Lokhttp3/Request$Builder;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ .end method

@@ -1,0 +1,1790 @@
+--- a/smali_classes5/com/google/android/material/color/utilities/DynamicScheme.smali
++++ b/smali_classes5/com/google/android/material/color/utilities/DynamicScheme.smali
+@@ -39,76 +39,57 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     invoke-virtual {p1}, Lcom/google/android/material/color/utilities/Hct;->toInt()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v0
+ 
+     .line 8
+     iput v0, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->sourceColorArgb:I
+ 
+-    .line 9
+     .line 10
+     iput-object p1, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->sourceColorHct:Lcom/google/android/material/color/utilities/Hct;
+ 
+-    .line 11
+     .line 12
+     iput-object p2, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->variant:Lcom/google/android/material/color/utilities/Variant;
+ 
+-    .line 13
+     .line 14
+     iput-boolean p3, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->isDark:Z
+ 
+-    .line 15
+     .line 16
+     iput-wide p4, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->contrastLevel:D
+ 
+-    .line 17
+     .line 18
+     iput-object p6, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->primaryPalette:Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 19
+     .line 20
+     iput-object p7, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->secondaryPalette:Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 21
+     .line 22
+     iput-object p8, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->tertiaryPalette:Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 23
+     .line 24
+     iput-object p9, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->neutralPalette:Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 25
+     .line 26
+     iput-object p10, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->neutralVariantPalette:Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 27
+     .line 28
+     const-wide/high16 p1, 0x4039000000000000L    # 25.0
+ 
+-    .line 29
+     .line 30
+     const-wide/high16 p3, 0x4055000000000000L    # 84.0
+ 
+-    .line 31
+     .line 32
+     invoke-static {p1, p2, p3, p4}, Lcom/google/android/material/color/utilities/TonalPalette;->fromHueAndChroma(DD)Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p1
+ 
+     .line 36
+     iput-object p1, p0, Lcom/google/android/material/color/utilities/DynamicScheme;->errorPalette:Lcom/google/android/material/color/utilities/TonalPalette;
+ 
+-    .line 37
+     .line 38
+     return-void
+ .end method
+@@ -119,8 +100,6 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/android/material/color/utilities/Hct;->getHue()D
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+@@ -136,19 +115,15 @@
+     .line 8
+     if-ne p0, v2, :cond_0
+ 
+-    .line 9
+     .line 10
+     aget-wide p0, p2, v3
+ 
+-    .line 11
+     .line 12
+     add-double/2addr v0, p0
+ 
+     .line 13
+     invoke-static {v0, v1}, Lcom/google/android/material/color/utilities/MathUtils;->sanitizeDegreesDouble(D)D
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-wide p0
+ 
+@@ -163,51 +138,39 @@
+     :goto_0
+     add-int/lit8 v2, p0, -0x2
+ 
+-    .line 20
+     .line 21
+     if-gt v3, v2, :cond_2
+ 
+-    .line 22
+     .line 23
+     aget-wide v4, p1, v3
+ 
+-    .line 24
+     .line 25
+     add-int/lit8 v2, v3, 0x1
+ 
+-    .line 26
+     .line 27
+     aget-wide v6, p1, v2
+ 
+-    .line 28
+     .line 29
+     cmpg-double v4, v4, v0
+ 
+-    .line 30
+     .line 31
+     if-gez v4, :cond_1
+ 
+-    .line 32
+     .line 33
+     cmpg-double v4, v0, v6
+ 
+-    .line 34
+     .line 35
+     if-gez v4, :cond_1
+ 
+-    .line 36
+     .line 37
+     aget-wide p0, p2, v3
+ 
+-    .line 38
+     .line 39
+     add-double/2addr v0, p0
+ 
+     .line 40
+     invoke-static {v0, v1}, Lcom/google/android/material/color/utilities/MathUtils;->sanitizeDegreesDouble(D)D
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-wide p0
+ 
+@@ -238,8 +201,6 @@
+     .line 1
+     invoke-virtual {p1, p0}, Lcom/google/android/material/color/utilities/DynamicColor;->getArgb(Lcom/google/android/material/color/utilities/DynamicScheme;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -253,25 +214,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->background()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -285,25 +239,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->controlActivated()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -317,25 +264,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->controlHighlight()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -349,25 +289,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->controlNormal()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -381,25 +314,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->error()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -413,25 +339,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->errorContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -451,8 +370,6 @@
+     .line 1
+     invoke-virtual {p1, p0}, Lcom/google/android/material/color/utilities/DynamicColor;->getHct(Lcom/google/android/material/color/utilities/DynamicScheme;)Lcom/google/android/material/color/utilities/Hct;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -466,25 +383,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->inverseOnSurface()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -498,25 +408,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->inversePrimary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -530,25 +433,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->inverseSurface()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -562,25 +458,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->neutralPaletteKeyColor()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -594,25 +483,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->neutralVariantPaletteKeyColor()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -626,25 +508,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onBackground()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -658,25 +533,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onError()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -690,25 +558,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onErrorContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -722,25 +583,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onPrimary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -754,25 +608,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onPrimaryContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -786,25 +633,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onPrimaryFixed()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -818,25 +658,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onPrimaryFixedVariant()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -850,25 +683,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onSecondary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -882,25 +708,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onSecondaryContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -914,25 +733,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onSecondaryFixed()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -946,25 +758,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onSecondaryFixedVariant()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -978,25 +783,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onSurface()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1010,25 +808,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onSurfaceVariant()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1042,25 +833,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onTertiary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1074,25 +858,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onTertiaryContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1106,25 +883,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onTertiaryFixed()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1138,25 +908,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->onTertiaryFixedVariant()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1170,25 +933,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->outline()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1202,25 +958,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->outlineVariant()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1234,25 +983,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->primary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1266,25 +1008,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->primaryContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1298,25 +1033,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->primaryFixed()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1330,25 +1058,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->primaryFixedDim()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1362,25 +1083,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->primaryPaletteKeyColor()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1394,25 +1108,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->scrim()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1426,25 +1133,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->secondary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1458,25 +1158,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->secondaryContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1490,25 +1183,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->secondaryFixed()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1522,25 +1208,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->secondaryFixedDim()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1554,25 +1233,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->secondaryPaletteKeyColor()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1586,25 +1258,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->shadow()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1618,25 +1283,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surface()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1650,25 +1308,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceBright()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1682,25 +1333,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1714,25 +1358,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceContainerHigh()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1746,25 +1383,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceContainerHighest()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1778,25 +1408,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceContainerLow()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1810,25 +1433,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceContainerLowest()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1842,25 +1458,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceDim()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1874,25 +1483,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceTint()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1906,25 +1508,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->surfaceVariant()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1938,25 +1533,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->tertiary()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -1970,25 +1558,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->tertiaryContainer()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2002,25 +1583,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->tertiaryFixed()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2034,25 +1608,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->tertiaryFixedDim()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2066,25 +1633,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->tertiaryPaletteKeyColor()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2098,25 +1658,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->textHintInverse()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2130,25 +1683,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->textPrimaryInverse()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2162,25 +1708,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->textPrimaryInverseDisableOnly()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2194,25 +1733,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->textSecondaryAndTertiaryInverse()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 
+@@ -2226,25 +1758,18 @@
+     .line 1
+     new-instance v0, Lcom/google/android/material/color/utilities/MaterialDynamicColors;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Lcom/google/android/material/color/utilities/MaterialDynamicColors;->textSecondaryAndTertiaryInverseDisabled()Lcom/google/android/material/color/utilities/DynamicColor;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v0
+ 
+     .line 10
+     invoke-virtual {p0, v0}, Lcom/google/android/material/color/utilities/DynamicScheme;->getArgb(Lcom/google/android/material/color/utilities/DynamicColor;)I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result p0
+ 

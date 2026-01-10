@@ -1,0 +1,128 @@
+--- a/smali_classes5/coil/util/-FileSystems.smali
++++ b/smali_classes5/coil/util/-FileSystems.smali
+@@ -18,28 +18,21 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lokio/FileSystem;->exists(Lokio/Path;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, p1}, Lokio/FileSystem;->sink(Lokio/Path;)Lokio/Sink;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     invoke-static {p0}, Lcoil/util/-Utils;->d(Ljava/io/Closeable;)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     :cond_0
+     return-void
+@@ -52,8 +45,6 @@
+     :try_start_0
+     invoke-virtual {p0, p1}, Lokio/FileSystem;->list(Lokio/Path;)Ljava/util/List;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p1
+     :try_end_0
+@@ -62,8 +53,6 @@
+     .line 5
+     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p1
+ 
+@@ -75,53 +64,40 @@
+     :goto_0
+     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     if-eqz v1, :cond_2
+ 
+-    .line 15
+     .line 16
+     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     check-cast v1, Lokio/Path;
+ 
+-    .line 21
+     .line 22
+     :try_start_1
+     invoke-virtual {p0, v1}, Lokio/FileSystem;->metadata(Lokio/Path;)Lokio/FileMetadata;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v2
+ 
+     .line 26
+     invoke-virtual {v2}, Lokio/FileMetadata;->isDirectory()Z
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v2
+ 
+     .line 30
+     if-eqz v2, :cond_1
+ 
+-    .line 31
+     .line 32
+     invoke-static {p0, v1}, Lcoil/util/-FileSystems;->b(Lokio/FileSystem;Lokio/Path;)V
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     goto :goto_1
+ 
+@@ -139,8 +115,6 @@
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -148,7 +122,6 @@
+     :goto_2
+     if-nez v0, :cond_0
+ 
+-    .line 43
+     .line 44
+     move-object v0, v1
+ 
+@@ -159,7 +132,6 @@
+     :cond_2
+     if-nez v0, :cond_3
+ 
+-    .line 47
+     .line 48
+     return-void
+ 

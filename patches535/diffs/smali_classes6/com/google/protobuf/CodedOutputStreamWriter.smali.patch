@@ -1,0 +1,1778 @@
+--- a/smali_classes6/com/google/protobuf/CodedOutputStreamWriter.smali
++++ b/smali_classes6/com/google/protobuf/CodedOutputStreamWriter.smali
+@@ -22,32 +22,24 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "output"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p1, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p1
+ 
+     .line 10
+     check-cast p1, Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 11
+     .line 12
+     iput-object p1, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 13
+     .line 14
+     iput-object p0, p1, Lcom/google/protobuf/CodedOutputStream;->wrapper:Lcom/google/protobuf/CodedOutputStreamWriter;
+ 
+-    .line 15
+     .line 16
+     return-void
+ .end method
+@@ -58,11 +50,9 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/protobuf/CodedOutputStream;->wrapper:Lcom/google/protobuf/CodedOutputStreamWriter;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-object v0
+ 
+@@ -70,12 +60,9 @@
+     :cond_0
+     new-instance v0, Lcom/google/protobuf/CodedOutputStreamWriter;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v0, p0}, Lcom/google/protobuf/CodedOutputStreamWriter;-><init>(Lcom/google/protobuf/CodedOutputStream;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     return-object v0
+ .end method
+@@ -327,57 +314,42 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x2
+ 
+     .line 4
+     invoke-virtual {v0, p1, v1}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     iget-object p1, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 8
+     .line 9
+     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     invoke-static {p4, v0, p3}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v0
+ 
+     .line 17
+     invoke-virtual {p1, v0}, Lcom/google/protobuf/CodedOutputStream;->writeUInt32NoTag(I)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 21
+     .line 22
+     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p1
+ 
+     .line 26
+     invoke-static {p0, p4, p1, p3}, Lcom/google/protobuf/MapEntryLite;->writeTo(Lcom/google/protobuf/CodedOutputStream;Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     return-void
+ .end method
+@@ -407,28 +379,21 @@
+     .line 1
+     invoke-interface {p3}, Ljava/util/Map;->size()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     new-array v1, v0, [I
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p3}, Ljava/util/Map;->keySet()Ljava/util/Set;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v2
+ 
+@@ -442,43 +407,33 @@
+     :goto_0
+     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v5
+ 
+     .line 21
+     if-eqz v5, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v5
+ 
+     .line 27
+     check-cast v5, Ljava/lang/Integer;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v5
+ 
+     .line 33
+     add-int/lit8 v6, v4, 0x1
+ 
+-    .line 34
+     .line 35
+     aput v5, v1, v4
+ 
+-    .line 36
+     .line 37
+     move v4, v6
+ 
+@@ -489,91 +444,67 @@
+     :cond_0
+     invoke-static {v1}, Ljava/util/Arrays;->sort([I)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :goto_1
+     if-ge v3, v0, :cond_1
+ 
+-    .line 43
+     .line 44
+     aget v2, v1, v3
+ 
+-    .line 45
+     .line 46
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v4
+ 
+     .line 50
+     invoke-interface {p3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v4
+ 
+     .line 54
+     iget-object v5, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 55
+     .line 56
+     const/4 v6, 0x2
+ 
+     .line 57
+     invoke-virtual {v5, p1, v6}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     iget-object v5, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 61
+     .line 62
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v6
+ 
+     .line 66
+     invoke-static {p2, v6, v4}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v6
+ 
+     .line 70
+     invoke-virtual {v5, v6}, Lcom/google/protobuf/CodedOutputStream;->writeUInt32NoTag(I)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     iget-object v5, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 74
+     .line 75
+     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v2
+ 
+     .line 79
+     invoke-static {v5, p2, v2, v4}, Lcom/google/protobuf/MapEntryLite;->writeTo(Lcom/google/protobuf/CodedOutputStream;Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 83
+     .line 84
+     goto :goto_1
+ 
+@@ -607,28 +538,21 @@
+     .line 1
+     invoke-interface {p3}, Ljava/util/Map;->size()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     new-array v1, v0, [J
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p3}, Ljava/util/Map;->keySet()Ljava/util/Set;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v2
+ 
+@@ -642,43 +566,33 @@
+     :goto_0
+     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v5
+ 
+     .line 21
+     if-eqz v5, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v5
+ 
+     .line 27
+     check-cast v5, Ljava/lang/Long;
+ 
+-    .line 28
+     .line 29
+     invoke-virtual {v5}, Ljava/lang/Long;->longValue()J
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-wide v5
+ 
+     .line 33
+     add-int/lit8 v7, v4, 0x1
+ 
+-    .line 34
+     .line 35
+     aput-wide v5, v1, v4
+ 
+-    .line 36
+     .line 37
+     move v4, v7
+ 
+@@ -689,91 +603,67 @@
+     :cond_0
+     invoke-static {v1}, Ljava/util/Arrays;->sort([J)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     :goto_1
+     if-ge v3, v0, :cond_1
+ 
+-    .line 43
+     .line 44
+     aget-wide v4, v1, v3
+ 
+-    .line 45
+     .line 46
+     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v2
+ 
+     .line 50
+     invoke-interface {p3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v2
+ 
+     .line 54
+     iget-object v6, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 55
+     .line 56
+     const/4 v7, 0x2
+ 
+     .line 57
+     invoke-virtual {v6, p1, v7}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     iget-object v6, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 61
+     .line 62
+     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v7
+ 
+     .line 66
+     invoke-static {p2, v7, v2}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v7
+ 
+     .line 70
+     invoke-virtual {v6, v7}, Lcom/google/protobuf/CodedOutputStream;->writeUInt32NoTag(I)V
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     iget-object v6, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 74
+     .line 75
+     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     move-result-object v4
+ 
+     .line 79
+     invoke-static {v6, p2, v4, v2}, Lcom/google/protobuf/MapEntryLite;->writeTo(Lcom/google/protobuf/CodedOutputStream;Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 83
+     .line 84
+     goto :goto_1
+ 
+@@ -807,72 +697,51 @@
+     .line 1
+     sget-object v0, Lcom/google/protobuf/CodedOutputStreamWriter$1;->$SwitchMap$com$google$protobuf$WireFormat$FieldType:[I
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/protobuf/WireFormat$FieldType;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     aget v0, v0, v1
+ 
+-    .line 10
+     .line 11
+     packed-switch v0, :pswitch_data_0
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 15
+     .line 16
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 17
+     .line 18
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     const-string p3, "does not support key type: "
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     iget-object p2, p2, Lcom/google/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/protobuf/WireFormat$FieldType;
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object p1
+ 
+     .line 35
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     throw p0
+ 
+@@ -880,8 +749,6 @@
+     :pswitch_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDeterministicStringMap(ILcom/google/protobuf/MapEntryLite$Metadata;Ljava/util/Map;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-void
+ 
+@@ -889,8 +756,6 @@
+     :pswitch_1
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDeterministicLongMap(ILcom/google/protobuf/MapEntryLite$Metadata;Ljava/util/Map;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-void
+ 
+@@ -898,8 +763,6 @@
+     :pswitch_2
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDeterministicIntegerMap(ILcom/google/protobuf/MapEntryLite$Metadata;Ljava/util/Map;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     return-void
+ 
+@@ -907,57 +770,44 @@
+     :pswitch_3
+     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+ 
+-    .line 52
+     .line 53
+     invoke-interface {p3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-object v0
+ 
+     .line 57
+     if-eqz v0, :cond_0
+ 
+-    .line 58
+     .line 59
+     const/4 v1, 0x0
+ 
+     .line 60
+     invoke-direct {p0, p1, v1, v0, p2}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDeterministicBooleanMapEntry(IZLjava/lang/Object;Lcom/google/protobuf/MapEntryLite$Metadata;)V
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     :cond_0
+     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+ 
+-    .line 64
+     .line 65
+     invoke-interface {p3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object p3
+ 
+     .line 69
+     if-eqz p3, :cond_1
+ 
+-    .line 70
+     .line 71
+     const/4 v0, 0x1
+ 
+     .line 72
+     invoke-direct {p0, p1, v0, p3, p2}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDeterministicBooleanMapEntry(IZLjava/lang/Object;Lcom/google/protobuf/MapEntryLite$Metadata;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     :cond_1
+     return-void
+ 
+-    .line 76
+     nop
+ 
+     .line 77
+@@ -1003,28 +853,21 @@
+     .line 1
+     invoke-interface {p3}, Ljava/util/Map;->size()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     new-array v1, v0, [Ljava/lang/String;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p3}, Ljava/util/Map;->keySet()Ljava/util/Set;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v2
+ 
+     .line 11
+     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v2
+ 
+@@ -1038,35 +881,27 @@
+     :goto_0
+     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v5
+ 
+     .line 21
+     if-eqz v5, :cond_0
+ 
+-    .line 22
+     .line 23
+     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v5
+ 
+     .line 27
+     check-cast v5, Ljava/lang/String;
+ 
+-    .line 28
+     .line 29
+     add-int/lit8 v6, v4, 0x1
+ 
+-    .line 30
+     .line 31
+     aput-object v5, v1, v4
+ 
+-    .line 32
+     .line 33
+     move v4, v6
+ 
+@@ -1077,67 +912,49 @@
+     :cond_0
+     invoke-static {v1}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     :goto_1
+     if-ge v3, v0, :cond_1
+ 
+-    .line 39
+     .line 40
+     aget-object v2, v1, v3
+ 
+-    .line 41
+     .line 42
+     invoke-interface {p3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result-object v4
+ 
+     .line 46
+     iget-object v5, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 47
+     .line 48
+     const/4 v6, 0x2
+ 
+     .line 49
+     invoke-virtual {v5, p1, v6}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     iget-object v5, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 53
+     .line 54
+     invoke-static {p2, v2, v4}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result v6
+ 
+     .line 58
+     invoke-virtual {v5, v6}, Lcom/google/protobuf/CodedOutputStream;->writeUInt32NoTag(I)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     iget-object v5, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 62
+     .line 63
+     invoke-static {v5, p2, v2, v4}, Lcom/google/protobuf/MapEntryLite;->writeTo(Lcom/google/protobuf/CodedOutputStream;Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 67
+     .line 68
+     goto :goto_1
+ 
+@@ -2732,24 +2549,18 @@
+     .line 1
+     instance-of v0, p2, Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 6
+     .line 7
+     check-cast p2, Ljava/lang/String;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeString(ILjava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ 
+@@ -2757,16 +2568,12 @@
+     :cond_0
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 14
+     .line 15
+     check-cast p2, Lcom/google/protobuf/ByteString;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeBytes(ILcom/google/protobuf/ByteString;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -3877,7 +3684,6 @@
+     .line 1
+     sget-object p0, Lcom/google/protobuf/Writer$FieldOrder;->ASCENDING:Lcom/google/protobuf/Writer$FieldOrder;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -3888,12 +3694,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0}, Lcom/google/protobuf/CodedOutputStream;->getTotalBytesWritten()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result p0
+ 
+@@ -3912,12 +3715,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeBool(IZ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -3942,20 +3742,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/BooleanArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/BooleanArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeBoolListInternal(ILcom/google/protobuf/BooleanArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -3963,8 +3758,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeBoolListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -3980,12 +3773,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeBytes(ILcom/google/protobuf/ByteString;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4014,40 +3804,30 @@
+     :goto_0
+     invoke-interface {p2}, Ljava/util/List;->size()I
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result v1
+ 
+     .line 6
+     if-ge v0, v1, :cond_0
+ 
+-    .line 7
+     .line 8
+     iget-object v1, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 9
+     .line 10
+     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v2
+ 
+     .line 14
+     check-cast v2, Lcom/google/protobuf/ByteString;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v1, p1, v2}, Lcom/google/protobuf/CodedOutputStream;->writeBytes(ILcom/google/protobuf/ByteString;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 20
+     .line 21
+     goto :goto_0
+ 
+@@ -4067,12 +3847,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStream;->writeDouble(ID)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4097,20 +3874,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/DoubleArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/DoubleArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDoubleListInternal(ILcom/google/protobuf/DoubleArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4118,8 +3890,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDoubleListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4138,15 +3908,12 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x4
+ 
+     .line 4
+     invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -4162,12 +3929,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeEnum(II)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4192,20 +3956,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeEnumListInternal(ILcom/google/protobuf/IntArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4213,8 +3972,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeEnumListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4230,12 +3987,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeFixed32(II)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4260,20 +4014,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeFixed32ListInternal(ILcom/google/protobuf/IntArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4281,8 +4030,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeFixed32ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4298,12 +4045,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStream;->writeFixed64(IJ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4328,20 +4072,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeFixed64ListInternal(ILcom/google/protobuf/LongArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4349,8 +4088,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeFixed64ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4366,12 +4103,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeFloat(IF)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4396,20 +4130,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/FloatArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/FloatArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeFloatListInternal(ILcom/google/protobuf/FloatArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4417,8 +4146,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeFloatListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4560,12 +4287,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeInt32(II)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4590,20 +4314,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeInt32ListInternal(ILcom/google/protobuf/IntArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4611,8 +4330,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeInt32ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4628,12 +4345,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStream;->writeInt64(IJ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -4658,20 +4372,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeInt64ListInternal(ILcom/google/protobuf/LongArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -4679,8 +4388,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeInt64ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -4710,24 +4417,18 @@
+     .line 1
+     iget-object v0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Lcom/google/protobuf/CodedOutputStream;->isSerializationDeterministic()Z
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeDeterministicMap(ILcom/google/protobuf/MapEntryLite$Metadata;Ljava/util/Map;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ 
+@@ -4735,16 +4436,12 @@
+     :cond_0
+     invoke-interface {p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p3
+ 
+     .line 17
+     invoke-interface {p3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object p3
+ 
+@@ -4752,97 +4449,72 @@
+     :goto_0
+     invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result v0
+ 
+     .line 25
+     if-eqz v0, :cond_1
+ 
+-    .line 26
+     .line 27
+     invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v0
+ 
+     .line 31
+     check-cast v0, Ljava/util/Map$Entry;
+ 
+-    .line 32
+     .line 33
+     iget-object v1, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 34
+     .line 35
+     const/4 v2, 0x2
+ 
+     .line 36
+     invoke-virtual {v1, p1, v2}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     iget-object v1, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 40
+     .line 41
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-object v2
+ 
+     .line 45
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v3
+ 
+     .line 49
+     invoke-static {p2, v2, v3}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     move-result v2
+ 
+     .line 53
+     invoke-virtual {v1, v2}, Lcom/google/protobuf/CodedOutputStream;->writeUInt32NoTag(I)V
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     iget-object v1, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 57
+     .line 58
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v2
+ 
+     .line 62
+     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v0
+ 
+     .line 66
+     invoke-static {v1, p2, v2, v0}, Lcom/google/protobuf/MapEntryLite;->writeTo(Lcom/google/protobuf/CodedOutputStream;Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     goto :goto_0
+ 
+@@ -4982,24 +4654,18 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/ByteString;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 6
+     .line 7
+     check-cast p2, Lcom/google/protobuf/ByteString;
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeRawMessageSetExtension(ILcom/google/protobuf/ByteString;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-void
+ 
+@@ -5007,16 +4673,12 @@
+     :cond_0
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 14
+     .line 15
+     check-cast p2, Lcom/google/protobuf/MessageLite;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeMessageSetExtension(ILcom/google/protobuf/MessageLite;)V
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     return-void
+ .end method
+@@ -5032,12 +4694,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeSFixed32(II)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5062,20 +4721,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSFixed32ListInternal(ILcom/google/protobuf/IntArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -5083,8 +4737,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSFixed32ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5100,12 +4752,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStream;->writeSFixed64(IJ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5130,20 +4779,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSFixed64ListInternal(ILcom/google/protobuf/LongArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -5151,8 +4795,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSFixed64ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5168,12 +4810,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeSInt32(II)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5198,20 +4837,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSInt32ListInternal(ILcom/google/protobuf/IntArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -5219,8 +4853,6 @@
+     :cond_0
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSInt32ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5362,12 +4994,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStream;->writeSInt64(IJ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5392,20 +5021,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSInt64ListInternal(ILcom/google/protobuf/LongArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -5413,8 +5037,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeSInt64ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5433,15 +5055,12 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     const/4 v0, 0x3
+ 
+     .line 4
+     invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/CodedOutputStream;->writeTag(II)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-void
+ .end method
+@@ -5457,12 +5076,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeString(ILjava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5487,51 +5103,40 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/LazyStringList;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     if-eqz v0, :cond_0
+ 
+-    .line 5
+     .line 6
+     move-object v0, p2
+ 
+     .line 7
+     check-cast v0, Lcom/google/protobuf/LazyStringList;
+ 
+-    .line 8
+     .line 9
+     :goto_0
+     invoke-interface {p2}, Ljava/util/List;->size()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v2
+ 
+     .line 13
+     if-ge v1, v2, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-interface {v0, v1}, Lcom/google/protobuf/LazyStringList;->getRaw(I)Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v2
+ 
+     .line 19
+     invoke-direct {p0, p1, v2}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeLazyString(ILjava/lang/Object;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 23
+     .line 24
+     goto :goto_0
+ 
+@@ -5540,40 +5145,30 @@
+     :goto_1
+     invoke-interface {p2}, Ljava/util/List;->size()I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     if-ge v1, v0, :cond_1
+ 
+-    .line 30
+     .line 31
+     iget-object v0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 32
+     .line 33
+     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v2
+ 
+     .line 37
+     check-cast v2, Ljava/lang/String;
+ 
+-    .line 38
+     .line 39
+     invoke-virtual {v0, p1, v2}, Lcom/google/protobuf/CodedOutputStream;->writeString(ILjava/lang/String;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 43
+     .line 44
+     goto :goto_1
+ 
+@@ -5593,12 +5188,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeUInt32(II)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5623,20 +5215,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/IntArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeUInt32ListInternal(ILcom/google/protobuf/IntArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -5644,8 +5231,6 @@
+     :cond_0
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeUInt32ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -5787,12 +5372,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/CodedOutputStreamWriter;->output:Lcom/google/protobuf/CodedOutputStream;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStream;->writeUInt64(IJ)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -5817,20 +5399,15 @@
+     .line 1
+     instance-of v0, p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     check-cast p2, Lcom/google/protobuf/LongArrayList;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeUInt64ListInternal(ILcom/google/protobuf/LongArrayList;Z)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-void
+ 
+@@ -5838,8 +5415,6 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3}, Lcom/google/protobuf/CodedOutputStreamWriter;->writeUInt64ListInternal(ILjava/util/List;Z)V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method

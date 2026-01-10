@@ -1,0 +1,540 @@
+--- a/smali_classes9/io/ktor/client/plugins/cookies/CookiesStorageKt.smali
++++ b/smali_classes9/io/ktor/client/plugins/cookies/CookiesStorageKt.smali
+@@ -15,37 +15,27 @@
+     .line 1
+     const-string v0, "<this>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "requestUrl"
+ 
+-    .line 7
+     .line 8
+     move-object/from16 v14, p1
+ 
+-    .line 9
+     .line 10
+     invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Lio/ktor/http/Cookie;->getPath()Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     if-eqz v0, :cond_0
+ 
+-    .line 18
+     .line 19
+     const/4 v2, 0x2
+ 
+@@ -55,15 +45,12 @@
+     .line 21
+     const-string v4, "/"
+ 
+-    .line 22
+     .line 23
+     const/4 v5, 0x0
+ 
+     .line 24
+     invoke-static {v0, v4, v5, v2, v3}, Lkotlin/text/StringsKt;->f0(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v0
+ 
+@@ -73,7 +60,6 @@
+     .line 29
+     if-ne v0, v2, :cond_0
+ 
+-    .line 30
+     .line 31
+     move-object v1, p0
+ 
+@@ -84,15 +70,12 @@
+     :cond_0
+     invoke-virtual {v14}, Lio/ktor/http/Url;->getEncodedPath()Ljava/lang/String;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v8
+ 
+     .line 37
+     const/16 v12, 0x3bf
+ 
+-    .line 38
+     .line 39
+     const/4 v13, 0x0
+ 
+@@ -129,8 +112,6 @@
+     .line 50
+     invoke-static/range {v1 .. v13}, Lio/ktor/http/Cookie;->copy$default(Lio/ktor/http/Cookie;Ljava/lang/String;Ljava/lang/String;Lio/ktor/http/CookieEncoding;Ljava/lang/Integer;Lio/ktor/util/date/GMTDate;Ljava/lang/String;Ljava/lang/String;ZZLjava/util/Map;ILjava/lang/Object;)Lio/ktor/http/Cookie;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+@@ -141,27 +122,21 @@
+     :goto_0
+     invoke-virtual {v1}, Lio/ktor/http/Cookie;->getDomain()Ljava/lang/String;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object v0
+ 
+     .line 59
+     if-eqz v0, :cond_2
+ 
+-    .line 60
+     .line 61
+     invoke-static {v0}, Lkotlin/text/StringsKt;->C0(Ljava/lang/CharSequence;)Z
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v0
+ 
+     .line 65
+     if-eqz v0, :cond_1
+ 
+-    .line 66
+     .line 67
+     goto :goto_1
+ 
+@@ -174,15 +149,12 @@
+     :goto_1
+     invoke-virtual {v14}, Lio/ktor/http/Url;->getHost()Ljava/lang/String;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v7
+ 
+     .line 73
+     const/16 v12, 0x3df
+ 
+-    .line 74
+     .line 75
+     const/4 v13, 0x0
+ 
+@@ -216,8 +188,6 @@
+     .line 85
+     invoke-static/range {v1 .. v13}, Lio/ktor/http/Cookie;->copy$default(Lio/ktor/http/Cookie;Ljava/lang/String;Ljava/lang/String;Lio/ktor/http/CookieEncoding;Ljava/lang/Integer;Lio/ktor/util/date/GMTDate;Ljava/lang/String;Ljava/lang/String;ZZLjava/util/Map;ILjava/lang/Object;)Lio/ktor/http/Cookie;
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     move-result-object v0
+ 
+@@ -231,96 +201,72 @@
+     .line 1
+     const-string v0, "<this>"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "requestUrl"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-virtual {p0}, Lio/ktor/http/Cookie;->getDomain()Ljava/lang/String;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     if-eqz v0, :cond_8
+ 
+-    .line 16
+     .line 17
+     invoke-static {v0}, Lio/ktor/util/TextKt;->c(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v0
+ 
+     .line 21
+     if-eqz v0, :cond_8
+ 
+-    .line 22
+     .line 23
+     const/4 v1, 0x1
+ 
+     .line 24
+     new-array v2, v1, [C
+ 
+-    .line 25
+     .line 26
+     const/4 v3, 0x0
+ 
+     .line 27
+     const/16 v4, 0x2e
+ 
+-    .line 28
+     .line 29
+     aput-char v4, v2, v3
+ 
+-    .line 30
+     .line 31
+     invoke-static {v0, v2}, Lkotlin/text/StringsKt;->N1(Ljava/lang/String;[C)Ljava/lang/String;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v0
+ 
+     .line 35
+     if-eqz v0, :cond_8
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {p0}, Lio/ktor/http/Cookie;->getPath()Ljava/lang/String;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Lio/ktor/http/Cookie;->getPath()Ljava/lang/String;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v2
+ 
+     .line 44
+     if-eqz v2, :cond_7
+ 
+-    .line 45
+     .line 46
+     const/16 v5, 0x2f
+ 
+-    .line 47
+     .line 48
+     const/4 v6, 0x2
+ 
+@@ -330,15 +276,12 @@
+     .line 50
+     invoke-static {v2, v5, v3, v6, v7}, Lkotlin/text/StringsKt;->q0(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result v8
+ 
+     .line 54
+     if-eqz v8, :cond_0
+ 
+-    .line 55
+     .line 56
+     goto :goto_0
+ 
+@@ -346,35 +289,24 @@
+     :cond_0
+     new-instance v2, Ljava/lang/StringBuilder;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     invoke-virtual {p0}, Lio/ktor/http/Cookie;->getPath()Ljava/lang/String;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v8
+ 
+     .line 66
+     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result-object v2
+ 
+@@ -382,39 +314,30 @@
+     :goto_0
+     invoke-virtual {p1}, Lio/ktor/http/Url;->getHost()Ljava/lang/String;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v8
+ 
+     .line 80
+     invoke-static {v8}, Lio/ktor/util/TextKt;->c(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v8
+ 
+     .line 84
+     invoke-virtual {p1}, Lio/ktor/http/Url;->getEncodedPath()Ljava/lang/String;
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result-object v9
+ 
+     .line 88
+     invoke-static {v9, v5, v3, v6, v7}, Lkotlin/text/StringsKt;->q0(Ljava/lang/CharSequence;CZILjava/lang/Object;)Z
+ 
+-    .line 89
+-    .line 90
+     .line 91
+     move-result v10
+ 
+     .line 92
+     if-eqz v10, :cond_1
+ 
+-    .line 93
+     .line 94
+     goto :goto_1
+ 
+@@ -422,27 +345,18 @@
+     :cond_1
+     new-instance v10, Ljava/lang/StringBuilder;
+ 
+-    .line 96
+     .line 97
+     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 98
+-    .line 99
+     .line 100
+     invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 104
+-    .line 105
+     .line 106
+     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result-object v9
+ 
+@@ -450,66 +364,48 @@
+     :goto_1
+     invoke-static {v8, v0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result v5
+ 
+     .line 114
+     if-nez v5, :cond_3
+ 
+-    .line 115
+     .line 116
+     invoke-static {v8}, Lio/ktor/http/IpParserKt;->a(Ljava/lang/String;)Z
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v5
+ 
+     .line 120
+     if-nez v5, :cond_2
+ 
+-    .line 121
+     .line 122
+     new-instance v5, Ljava/lang/StringBuilder;
+ 
+-    .line 123
+     .line 124
+     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 131
+-    .line 132
+     .line 133
+     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result-object v0
+ 
+     .line 137
+     invoke-static {v8, v0, v3, v6, v7}, Lkotlin/text/StringsKt;->P(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 138
+-    .line 139
+     .line 140
+     move-result v0
+ 
+     .line 141
+     if-nez v0, :cond_3
+ 
+-    .line 142
+     .line 143
+     :cond_2
+     return v3
+@@ -518,43 +414,33 @@
+     :cond_3
+     const-string v0, "/"
+ 
+-    .line 145
+     .line 146
+     invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     move-result v0
+ 
+     .line 150
+     if-nez v0, :cond_4
+ 
+-    .line 151
+     .line 152
+     invoke-static {v9, v2}, Lkotlin/jvm/internal/Intrinsics;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+ 
+-    .line 153
+-    .line 154
+     .line 155
+     move-result v0
+ 
+     .line 156
+     if-nez v0, :cond_4
+ 
+-    .line 157
+     .line 158
+     invoke-static {v9, v2, v3, v6, v7}, Lkotlin/text/StringsKt;->f0(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     move-result v0
+ 
+     .line 162
+     if-nez v0, :cond_4
+ 
+-    .line 163
+     .line 164
+     return v3
+ 
+@@ -562,35 +448,27 @@
+     :cond_4
+     invoke-virtual {p0}, Lio/ktor/http/Cookie;->getSecure()Z
+ 
+-    .line 166
+-    .line 167
+     .line 168
+     move-result p0
+ 
+     .line 169
+     if-eqz p0, :cond_6
+ 
+-    .line 170
+     .line 171
+     invoke-virtual {p1}, Lio/ktor/http/Url;->getProtocol()Lio/ktor/http/URLProtocol;
+ 
+-    .line 172
+-    .line 173
+     .line 174
+     move-result-object p0
+ 
+     .line 175
+     invoke-static {p0}, Lio/ktor/http/URLProtocolKt;->a(Lio/ktor/http/URLProtocol;)Z
+ 
+-    .line 176
+-    .line 177
+     .line 178
+     move-result p0
+ 
+     .line 179
+     if-eqz p0, :cond_5
+ 
+-    .line 180
+     .line 181
+     goto :goto_2
+ 
+@@ -607,16 +485,12 @@
+     :cond_7
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 185
+     .line 186
+     const-string p1, "Path field should have the default value"
+ 
+-    .line 187
+     .line 188
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     throw p0
+ 
+@@ -624,16 +498,12 @@
+     :cond_8
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 193
+     .line 194
+     const-string p1, "Domain field should have the default value"
+ 
+-    .line 195
+     .line 196
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     throw p0
+ .end method

@@ -1,0 +1,1264 @@
+--- a/smali_classes9/com/xj/winemu/utils/HudDataProvider.smali
++++ b/smali_classes9/com/xj/winemu/utils/HudDataProvider.smali
+@@ -32,105 +32,75 @@
+     .line 1
+     const-string v0, "context"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "provider"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     iput-object p1, p0, Lcom/xj/winemu/utils/HudDataProvider;->a:Landroid/content/Context;
+ 
+-    .line 15
+     .line 16
+     iput-object p2, p0, Lcom/xj/winemu/utils/HudDataProvider;->b:Lcom/winemu/ui/IHudDataProvider;
+ 
+-    .line 17
+     .line 18
+     const-string p2, "activity"
+ 
+-    .line 19
+     .line 20
+     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object p2
+ 
+     .line 24
+     const-string v0, "null cannot be cast to non-null type android.app.ActivityManager"
+ 
+-    .line 25
+     .line 26
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     check-cast p2, Landroid/app/ActivityManager;
+ 
+-    .line 30
+     .line 31
+     iput-object p2, p0, Lcom/xj/winemu/utils/HudDataProvider;->c:Landroid/app/ActivityManager;
+ 
+-    .line 32
+     .line 33
+     const-string p2, "batterymanager"
+ 
+-    .line 34
+     .line 35
+     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-object p1
+ 
+     .line 39
+     const-string p2, "null cannot be cast to non-null type android.os.BatteryManager"
+ 
+-    .line 40
+     .line 41
+     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     check-cast p1, Landroid/os/BatteryManager;
+ 
+-    .line 45
+     .line 46
+     iput-object p1, p0, Lcom/xj/winemu/utils/HudDataProvider;->d:Landroid/os/BatteryManager;
+ 
+-    .line 47
+     .line 48
+     new-instance p1, Ljava/util/LinkedList;
+ 
+-    .line 49
+     .line 50
+     invoke-direct {p1}, Ljava/util/LinkedList;-><init>()V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     iput-object p1, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 54
+     .line 55
+     return-void
+ .end method
+@@ -143,7 +113,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -151,19 +120,15 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v1}, Ljava/util/AbstractCollection;->isEmpty()Z
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     if-eqz v1, :cond_0
+ 
+-    .line 11
+     .line 12
+     const/4 p0, 0x0
+ 
+@@ -174,24 +139,18 @@
+     :cond_0
+     iget-object v1, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 15
+     .line 16
+     invoke-static {v1}, Lkotlin/collections/CollectionsKt;->V0(Ljava/lang/Iterable;)F
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result v1
+ 
+     .line 20
+     iget-object p0, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0}, Ljava/util/LinkedList;->size()I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result p0
+     :try_end_0
+@@ -203,7 +162,6 @@
+     .line 27
+     div-float p0, v1, p0
+ 
+-    .line 28
+     .line 29
+     :goto_0
+     monitor-exit v0
+@@ -228,33 +186,25 @@
+     .line 1
+     const/high16 v0, 0x7fc00000    # Float.NaN
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     iget-object p0, p0, Lcom/xj/winemu/utils/HudDataProvider;->a:Landroid/content/Context;
+ 
+-    .line 4
+     .line 5
+     new-instance v1, Landroid/content/IntentFilter;
+ 
+-    .line 6
+     .line 7
+     const-string v2, "android.intent.action.BATTERY_CHANGED"
+ 
+-    .line 8
+     .line 9
+     invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     const/4 v2, 0x0
+ 
+     .line 13
+     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+@@ -264,16 +214,12 @@
+     .line 18
+     if-eqz p0, :cond_0
+ 
+-    .line 19
+     .line 20
+     const-string v2, "temperature"
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0, v2, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v1
+     :try_end_0
+@@ -283,14 +229,12 @@
+     :cond_0
+     if-lez v1, :cond_1
+ 
+-    .line 27
+     .line 28
+     int-to-float p0, v1
+ 
+     .line 29
+     const/high16 v0, 0x41200000    # 10.0f
+ 
+-    .line 30
+     .line 31
+     div-float/2addr p0, v0
+ 
+@@ -309,11 +253,9 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     iget-object v1, v0, Lcom/xj/winemu/utils/HudDataProvider;->e:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     const/4 v2, 0x0
+ 
+@@ -323,74 +265,55 @@
+     .line 7
+     const/high16 v4, 0x447a0000    # 1000.0f
+ 
+-    .line 8
+     .line 9
+     const/4 v5, 0x0
+ 
+     .line 10
+     if-eqz v1, :cond_1
+ 
+-    .line 11
+     .line 12
+     :try_start_0
+     new-instance v1, Ljava/io/File;
+ 
+-    .line 13
+     .line 14
+     iget-object v6, v0, Lcom/xj/winemu/utils/HudDataProvider;->e:Ljava/lang/String;
+ 
+-    .line 15
+     .line 16
+     invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object;)V
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-direct {v1, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     invoke-virtual {v1}, Ljava/io/File;->exists()Z
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result v6
+ 
+     .line 26
+     if-eqz v6, :cond_1
+ 
+-    .line 27
+     .line 28
+     invoke-static {v1, v5, v3, v5}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v1
+ 
+     .line 32
+     invoke-static {v1}, Lkotlin/text/StringsKt;->J1(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object v1
+ 
+     .line 36
+     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v1
+ 
+     .line 40
+     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v1
+     :try_end_0
+@@ -399,19 +322,15 @@
+     .line 44
+     cmpl-float v6, v1, v2
+ 
+-    .line 45
+     .line 46
+     if-lez v6, :cond_1
+ 
+-    .line 47
+     .line 48
+     cmpl-float v0, v1, v4
+ 
+-    .line 49
+     .line 50
+     if-lez v0, :cond_0
+ 
+-    .line 51
+     .line 52
+     div-float/2addr v1, v4
+ 
+@@ -423,89 +342,67 @@
+     :catch_0
+     iput-object v5, v0, Lcom/xj/winemu/utils/HudDataProvider;->e:Ljava/lang/String;
+ 
+-    .line 55
+     .line 56
+     :cond_1
+     const-string v23, "/sys/devices/platform/tegra-i2c.3/i2c-4/4-004c/ext_temperature"
+ 
+-    .line 57
+     .line 58
+     const-string v24, "/sys/devices/platform/tegra-tsensor/tsensor_temperature"
+ 
+-    .line 59
+     .line 60
+     const-string v6, "/sys/devices/system/cpu/cpu0/cpufreq/cpu_temp"
+ 
+-    .line 61
+     .line 62
+     const-string v7, "/sys/devices/system/cpu/cpu0/cpufreq/FakeShmoo_cpu_temp"
+ 
+-    .line 63
+     .line 64
+     const-string v8, "/sys/devices/platform/tegra-i2c.3/i2c-4/4-004c/temperature"
+ 
+-    .line 65
+     .line 66
+     const-string v9, "/sys/devices/platform/omap/omap_temp_sensor.0/temperature"
+ 
+-    .line 67
+     .line 68
+     const-string v10, "/sys/devices/platform/tegra_tmon/temp1_input"
+ 
+-    .line 69
+     .line 70
+     const-string v11, "/sys/devices/platform/s5p-tmu/temperature"
+ 
+-    .line 71
+     .line 72
+     const-string v12, "/sys/devices/platform/s5p-tmu/curr_temp"
+ 
+-    .line 73
+     .line 74
+     const-string v13, "/sys/devices/virtual/thermal/thermal_zone1/temp"
+ 
+-    .line 75
+     .line 76
+     const-string v14, "/sys/devices/virtual/thermal/thermal_zone0/temp"
+ 
+-    .line 77
+     .line 78
+     const-string v15, "/sys/class/thermal/thermal_zone0/temp"
+ 
+-    .line 79
+     .line 80
+     const-string v16, "/sys/class/thermal/thermal_zone1/temp"
+ 
+-    .line 81
+     .line 82
+     const-string v17, "/sys/class/thermal/thermal_zone3/temp"
+ 
+-    .line 83
+     .line 84
+     const-string v18, "/sys/class/thermal/thermal_zone4/temp"
+ 
+-    .line 85
+     .line 86
+     const-string v19, "/sys/class/hwmon/hwmon0/device/temp1_input"
+ 
+-    .line 87
+     .line 88
+     const-string v20, "/sys/class/i2c-adapter/i2c-4/4-004c/temperature"
+ 
+-    .line 89
+     .line 90
+     const-string v21, "/sys/kernel/debug/tegra_thermal/temp_tj"
+ 
+-    .line 91
+     .line 92
+     const-string v22, "/sys/htc/cpu_temp"
+ 
+-    .line 93
+     .line 94
+     filled-new-array/range {v6 .. v24}, [Ljava/lang/String;
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result-object v1
+ 
+@@ -516,77 +413,58 @@
+     :goto_0
+     const/16 v7, 0x13
+ 
+-    .line 100
+     .line 101
+     if-ge v6, v7, :cond_5
+ 
+-    .line 102
+     .line 103
+     aget-object v7, v1, v6
+ 
+-    .line 104
+     .line 105
+     :try_start_1
+     new-instance v8, Ljava/io/File;
+ 
+-    .line 106
+     .line 107
+     invoke-direct {v8, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+ 
+-    .line 108
+-    .line 109
+     .line 110
+     invoke-virtual {v8}, Ljava/io/File;->exists()Z
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result v9
+ 
+     .line 114
+     if-eqz v9, :cond_4
+ 
+-    .line 115
+     .line 116
+     invoke-static {v8, v5, v3, v5}, Lkotlin/io/FilesKt;->m(Ljava/io/File;Ljava/nio/charset/Charset;ILjava/lang/Object;)Ljava/lang/String;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result-object v8
+ 
+     .line 120
+     invoke-static {v8}, Lkotlin/text/StringsKt;->J1(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result-object v8
+ 
+     .line 124
+     invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result-object v8
+ 
+     .line 128
+     invoke-static {v8}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v8
+ 
+     .line 132
+     cmpg-float v9, v8, v2
+ 
+-    .line 133
+     .line 134
+     if-nez v9, :cond_2
+ 
+-    .line 135
+     .line 136
+     goto :goto_1
+ 
+@@ -596,15 +474,12 @@
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+ 
+-    .line 138
+     .line 139
+     cmpl-float v0, v8, v4
+ 
+-    .line 140
+     .line 141
+     if-lez v0, :cond_3
+ 
+-    .line 142
+     .line 143
+     div-float/2addr v8, v4
+ 
+@@ -618,7 +493,6 @@
+     :goto_1
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 146
+     .line 147
+     goto :goto_0
+ 
+@@ -626,7 +500,6 @@
+     :cond_5
+     const/high16 v0, 0x7fc00000    # Float.NaN
+ 
+-    .line 149
+     .line 150
+     return v0
+ .end method
+@@ -637,34 +510,27 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/xj/winemu/utils/HudDataProvider;->c()F
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-nez v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     const/4 v1, 0x0
+ 
+     .line 12
+     cmpl-float v1, v0, v1
+ 
+-    .line 13
+     .line 14
+     if-lez v1, :cond_0
+ 
+-    .line 15
+     .line 16
+     return v0
+ 
+@@ -672,8 +538,6 @@
+     :cond_0
+     invoke-virtual {p0}, Lcom/xj/winemu/utils/HudDataProvider;->b()F
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+@@ -687,75 +551,57 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     const-string v1, "config"
+ 
+-    .line 4
+     .line 5
+     move-object/from16 v2, p1
+ 
+-    .line 6
+     .line 7
+     invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->g()Z
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+     .line 14
+     const/high16 v3, 0x42c80000    # 100.0f
+ 
+-    .line 15
+     .line 16
+     const/4 v4, 0x0
+ 
+     .line 17
+     if-eqz v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     new-instance v1, Landroid/app/ActivityManager$MemoryInfo;
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v1}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iget-object v5, v0, Lcom/xj/winemu/utils/HudDataProvider;->c:Landroid/app/ActivityManager;
+ 
+-    .line 25
+     .line 26
+     invoke-virtual {v5, v1}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     iget-wide v5, v1, Landroid/app/ActivityManager$MemoryInfo;->totalMem:J
+ 
+-    .line 30
+     .line 31
+     long-to-float v5, v5
+ 
+     .line 32
+     iget-wide v6, v1, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
+ 
+-    .line 33
+     .line 34
+     long-to-float v1, v6
+ 
+     .line 35
+     sub-float v1, v5, v1
+ 
+-    .line 36
+     .line 37
+     div-float/2addr v1, v5
+ 
+@@ -768,8 +614,6 @@
+     .line 40
+     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-object v1
+ 
+@@ -784,28 +628,21 @@
+     :goto_0
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->e()Z
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result v5
+ 
+     .line 50
+     const/16 v6, 0x65
+ 
+-    .line 51
+     .line 52
+     if-eqz v5, :cond_1
+ 
+-    .line 53
+     .line 54
+     iget-object v5, v0, Lcom/xj/winemu/utils/HudDataProvider;->b:Lcom/winemu/ui/IHudDataProvider;
+ 
+-    .line 55
+     .line 56
+     invoke-interface {v5}, Lcom/winemu/ui/IHudDataProvider;->a()F
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v5
+ 
+@@ -818,27 +655,21 @@
+     .line 62
+     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v3
+ 
+     .line 66
+     invoke-virtual {v3}, Ljava/lang/Number;->intValue()I
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result v5
+ 
+     .line 70
+     if-ltz v5, :cond_1
+ 
+-    .line 71
+     .line 72
+     if-ge v5, v6, :cond_1
+ 
+-    .line 73
+     .line 74
+     goto :goto_1
+ 
+@@ -850,27 +681,21 @@
+     :goto_1
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->c()Z
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result v5
+ 
+     .line 80
+     if-nez v5, :cond_3
+ 
+-    .line 81
+     .line 82
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result v5
+ 
+     .line 86
+     if-eqz v5, :cond_2
+ 
+-    .line 87
+     .line 88
+     goto :goto_2
+ 
+@@ -886,8 +711,6 @@
+     :goto_2
+     invoke-virtual {v0}, Lcom/xj/winemu/utils/HudDataProvider;->a()F
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result v5
+ 
+@@ -897,76 +720,58 @@
+     .line 96
+     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     move-result-object v5
+ 
+     .line 100
+     invoke-virtual {v5}, Ljava/lang/Number;->intValue()I
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     move-result v7
+ 
+     .line 104
+     if-ltz v7, :cond_2
+ 
+-    .line 105
+     .line 106
+     :goto_3
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->b()Z
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     move-result v7
+ 
+     .line 110
+     if-eqz v7, :cond_4
+ 
+-    .line 111
+     .line 112
+     iget-object v7, v0, Lcom/xj/winemu/utils/HudDataProvider;->b:Lcom/winemu/ui/IHudDataProvider;
+ 
+-    .line 113
+     .line 114
+     invoke-interface {v7}, Lcom/winemu/ui/IHudDataProvider;->c()[I
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     move-result-object v7
+ 
+     .line 118
+     invoke-static {v7}, Lkotlin/collections/ArraysKt;->f0([I)Ljava/lang/Integer;
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     move-result-object v7
+ 
+     .line 122
+     if-eqz v7, :cond_4
+ 
+-    .line 123
+     .line 124
+     invoke-virtual {v7}, Ljava/lang/Number;->intValue()I
+ 
+-    .line 125
+-    .line 126
+     .line 127
+     move-result v8
+ 
+     .line 128
+     if-ltz v8, :cond_4
+ 
+-    .line 129
+     .line 130
+     if-ge v8, v6, :cond_4
+ 
+-    .line 131
+     .line 132
+     goto :goto_4
+ 
+@@ -978,64 +783,48 @@
+     :goto_4
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->f()Z
+ 
+-    .line 135
+-    .line 136
+     .line 137
+     move-result v6
+ 
+     .line 138
+     if-eqz v6, :cond_7
+ 
+-    .line 139
+     .line 140
+     sget-object v6, Lcom/winemu/core/utils/BatteryUtils;->a:Lcom/winemu/core/utils/BatteryUtils;
+ 
+-    .line 141
+     .line 142
+     iget-object v8, v0, Lcom/xj/winemu/utils/HudDataProvider;->a:Landroid/content/Context;
+ 
+-    .line 143
+     .line 144
+     invoke-virtual {v6, v8}, Lcom/winemu/core/utils/BatteryUtils;->c(Landroid/content/Context;)Z
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result v8
+ 
+     .line 148
+     invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     move-result-object v9
+ 
+     .line 152
+     if-nez v8, :cond_6
+ 
+-    .line 153
+     .line 154
+     iget-object v8, v0, Lcom/xj/winemu/utils/HudDataProvider;->a:Landroid/content/Context;
+ 
+-    .line 155
+     .line 156
+     invoke-virtual {v6, v8}, Lcom/winemu/core/utils/BatteryUtils;->b(Landroid/content/Context;)F
+ 
+-    .line 157
+-    .line 158
+     .line 159
+     move-result v8
+ 
+     .line 160
+     iget-object v10, v0, Lcom/xj/winemu/utils/HudDataProvider;->d:Landroid/os/BatteryManager;
+ 
+-    .line 161
+     .line 162
+     invoke-virtual {v6, v10}, Lcom/winemu/core/utils/BatteryUtils;->a(Landroid/os/BatteryManager;)F
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result v6
+ 
+@@ -1045,34 +834,27 @@
+     .line 167
+     const/high16 v6, 0x447a0000    # 1000.0f
+ 
+-    .line 168
+     .line 169
+     div-float/2addr v8, v6
+ 
+     .line 170
+     invoke-static {v8}, Ljava/lang/Math;->abs(F)F
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result v6
+ 
+     .line 174
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->a()Z
+ 
+-    .line 175
+-    .line 176
+     .line 177
+     move-result v8
+ 
+     .line 178
+     if-eqz v8, :cond_5
+ 
+-    .line 179
+     .line 180
+     const/high16 v8, 0x40000000    # 2.0f
+ 
+-    .line 181
+     .line 182
+     mul-float/2addr v6, v8
+ 
+@@ -1080,8 +862,6 @@
+     :cond_5
+     invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 184
+-    .line 185
+     .line 186
+     move-result-object v6
+ 
+@@ -1106,8 +886,6 @@
+     :goto_5
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->h()Z
+ 
+-    .line 193
+-    .line 194
+     .line 195
+     move-result v8
+ 
+@@ -1117,51 +895,39 @@
+     .line 197
+     if-eqz v8, :cond_8
+ 
+-    .line 198
+     .line 199
+     invoke-virtual {v0}, Lcom/xj/winemu/utils/HudDataProvider;->d()F
+ 
+-    .line 200
+-    .line 201
+     .line 202
+     move-result v8
+ 
+     .line 203
+     invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result-object v8
+ 
+     .line 207
+     invoke-virtual {v8}, Ljava/lang/Number;->floatValue()F
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     move-result v11
+ 
+     .line 211
+     invoke-static {v11}, Ljava/lang/Float;->isNaN(F)Z
+ 
+-    .line 212
+-    .line 213
+     .line 214
+     move-result v12
+ 
+     .line 215
+     if-nez v12, :cond_8
+ 
+-    .line 216
+     .line 217
+     cmpl-float v11, v11, v10
+ 
+-    .line 218
+     .line 219
+     if-lez v11, :cond_8
+ 
+-    .line 220
+     .line 221
+     move-object v4, v8
+ 
+@@ -1169,31 +935,24 @@
+     :cond_8
+     iget-object v8, v0, Lcom/xj/winemu/utils/HudDataProvider;->b:Lcom/winemu/ui/IHudDataProvider;
+ 
+-    .line 223
+     .line 224
+     invoke-interface {v8}, Lcom/winemu/ui/IHudDataProvider;->b()Z
+ 
+-    .line 225
+-    .line 226
+     .line 227
+     move-result v19
+ 
+     .line 228
+     invoke-virtual {v2}, Lcom/winemu/ui/HUDConfig;->d()Z
+ 
+-    .line 229
+-    .line 230
+     .line 231
+     move-result v2
+ 
+     .line 232
+     if-eqz v2, :cond_9
+ 
+-    .line 233
+     .line 234
+     iget-object v2, v0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 235
+     .line 236
+     monitor-enter v2
+ 
+@@ -1201,12 +960,9 @@
+     :try_start_0
+     iget-object v0, v0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 238
+     .line 239
+     invoke-static {v0}, Lkotlin/collections/CollectionsKt;->e1(Ljava/lang/Iterable;)Ljava/util/List;
+ 
+-    .line 240
+-    .line 241
+     .line 242
+     move-result-object v0
+     :try_end_0
+@@ -1219,7 +975,6 @@
+     :goto_6
+     move-object/from16 v20, v0
+ 
+-    .line 245
+     .line 246
+     goto :goto_7
+ 
+@@ -1237,8 +992,6 @@
+     :cond_9
+     invoke-static {}, Lkotlin/collections/CollectionsKt;->p()Ljava/util/List;
+ 
+-    .line 251
+-    .line 252
+     .line 253
+     move-result-object v0
+ 
+@@ -1249,19 +1002,15 @@
+     :goto_7
+     new-instance v11, Lcom/xj/common/entity/HudData;
+ 
+-    .line 256
+     .line 257
+     const/4 v0, 0x0
+ 
+     .line 258
+     if-eqz v1, :cond_a
+ 
+-    .line 259
+     .line 260
+     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 261
+-    .line 262
+     .line 263
+     move-result v1
+ 
+@@ -1279,12 +1028,9 @@
+     :goto_8
+     if-eqz v3, :cond_b
+ 
+-    .line 268
+     .line 269
+     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 270
+-    .line 271
+     .line 272
+     move-result v1
+ 
+@@ -1302,12 +1048,9 @@
+     :goto_9
+     if-eqz v5, :cond_c
+ 
+-    .line 277
+     .line 278
+     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 279
+-    .line 280
+     .line 281
+     move-result v1
+ 
+@@ -1325,12 +1068,9 @@
+     :goto_a
+     if-eqz v7, :cond_d
+ 
+-    .line 286
+     .line 287
+     invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+ 
+-    .line 288
+-    .line 289
+     .line 290
+     move-result v1
+ 
+@@ -1348,12 +1088,9 @@
+     :goto_b
+     if-eqz v9, :cond_e
+ 
+-    .line 295
+     .line 296
+     invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
+ 
+-    .line 297
+-    .line 298
+     .line 299
+     move-result v0
+ 
+@@ -1361,23 +1098,18 @@
+     :cond_e
+     move/from16 v16, v0
+ 
+-    .line 301
+     .line 302
+     if-eqz v6, :cond_f
+ 
+-    .line 303
+     .line 304
+     invoke-virtual {v6}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 305
+-    .line 306
+     .line 307
+     move-result v0
+ 
+     .line 308
+     move/from16 v17, v0
+ 
+-    .line 309
+     .line 310
+     goto :goto_c
+ 
+@@ -1385,17 +1117,13 @@
+     :cond_f
+     move/from16 v17, v10
+ 
+-    .line 312
+     .line 313
+     :goto_c
+     if-eqz v4, :cond_10
+ 
+-    .line 314
+     .line 315
+     invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
+ 
+-    .line 316
+-    .line 317
+     .line 318
+     move-result v10
+ 
+@@ -1403,12 +1131,9 @@
+     :cond_10
+     move/from16 v18, v10
+ 
+-    .line 320
+     .line 321
+     invoke-direct/range {v11 .. v20}, Lcom/xj/common/entity/HudData;-><init>(IIIIZFFZLjava/util/List;)V
+ 
+-    .line 322
+-    .line 323
+     .line 324
+     return-object v11
+ .end method
+@@ -1419,7 +1144,6 @@
+     .line 1
+     iget-object v0, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 2
+     .line 3
+     monitor-enter v0
+ 
+@@ -1427,32 +1151,24 @@
+     :try_start_0
+     iget-object v1, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v1}, Ljava/util/LinkedList;->size()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     const/16 v2, 0x1e
+ 
+-    .line 11
+     .line 12
+     if-lt v1, v2, :cond_0
+ 
+-    .line 13
+     .line 14
+     iget-object v1, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {v1}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     goto :goto_0
+ 
+@@ -1468,12 +1184,9 @@
+     :goto_0
+     iget-object p0, p0, Lcom/xj/winemu/utils/HudDataProvider;->f:Ljava/util/LinkedList;
+ 
+-    .line 23
+     .line 24
+     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-object p1
+ 
+@@ -1482,8 +1195,6 @@
+     :try_end_0
+     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     monitor-exit v0
+ 

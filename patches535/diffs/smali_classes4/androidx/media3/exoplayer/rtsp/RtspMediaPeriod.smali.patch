@@ -1,0 +1,2467 @@
+--- a/smali_classes4/androidx/media3/exoplayer/rtsp/RtspMediaPeriod.smali
++++ b/smali_classes4/androidx/media3/exoplayer/rtsp/RtspMediaPeriod.smali
+@@ -106,52 +106,39 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->allocator:Landroidx/media3/exoplayer/upstream/Allocator;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtpDataChannelFactory:Landroidx/media3/exoplayer/rtsp/RtpDataChannel$Factory;
+ 
+-    .line 7
+     .line 8
+     iput-object p4, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->listener:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$Listener;
+ 
+-    .line 9
+     .line 10
+     invoke-static {}, Landroidx/media3/common/util/Util;->createHandlerForCurrentLooper()Landroid/os/Handler;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p1
+ 
+     .line 14
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->handler:Landroid/os/Handler;
+ 
+-    .line 15
+     .line 16
+     new-instance v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$InternalListener;
+ 
+-    .line 17
+     .line 18
+     const/4 p1, 0x0
+ 
+     .line 19
+     invoke-direct {v1, p0, p1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$InternalListener;-><init>(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$1;)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     iput-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->internalListener:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$InternalListener;
+ 
+-    .line 23
+     .line 24
+     new-instance v0, Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 25
+     .line 26
+     move-object v2, v1
+ 
+@@ -170,57 +157,39 @@
+     .line 31
+     invoke-direct/range {v0 .. v6}, Landroidx/media3/exoplayer/rtsp/RtspClient;-><init>(Landroidx/media3/exoplayer/rtsp/RtspClient$SessionInfoListener;Landroidx/media3/exoplayer/rtsp/RtspClient$PlaybackEventListener;Ljava/lang/String;Landroid/net/Uri;Ljavax/net/SocketFactory;Z)V
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     iput-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 35
+     .line 36
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 42
+     .line 43
+     new-instance p1, Ljava/util/ArrayList;
+ 
+-    .line 44
+     .line 45
+     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 49
+     .line 50
+     const-wide p1, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 51
+-    .line 52
+-    .line 53
+-    .line 54
+     .line 55
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 56
+     .line 57
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->requestedSeekPositionUs:J
+ 
+-    .line 58
+     .line 59
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUsForTcpRetry:J
+ 
+-    .line 60
+     .line 61
+     return-void
+ .end method
+@@ -231,7 +200,6 @@
+     .line 1
+     iget-boolean p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->prepared:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -242,7 +210,6 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->preparationError:Ljava/io/IOException;
+ 
+-    .line 2
+     .line 3
+     return-object p1
+ .end method
+@@ -253,15 +220,12 @@
+     .line 1
+     iget v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->portBindingRetryCount:I
+ 
+-    .line 2
+     .line 3
+     add-int/lit8 v1, v0, 0x1
+ 
+-    .line 4
+     .line 5
+     iput v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->portBindingRetryCount:I
+ 
+-    .line 6
+     .line 7
+     return v0
+ .end method
+@@ -272,7 +236,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->playbackException:Landroidx/media3/exoplayer/rtsp/RtspMediaSource$RtspPlaybackException;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -283,7 +246,6 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->playbackException:Landroidx/media3/exoplayer/rtsp/RtspMediaSource$RtspPlaybackException;
+ 
+-    .line 2
+     .line 3
+     return-object p1
+ .end method
+@@ -294,7 +256,6 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -305,7 +266,6 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 2
+     .line 3
+     return-wide p1
+ .end method
+@@ -316,7 +276,6 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUsForTcpRetry:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -327,7 +286,6 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUsForTcpRetry:J
+ 
+-    .line 2
+     .line 3
+     return-wide p1
+ .end method
+@@ -338,7 +296,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -349,7 +306,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->listener:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$Listener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -360,8 +316,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isSeekPending()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -375,7 +329,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->notifyDiscontinuity:Z
+ 
+-    .line 2
+     .line 3
+     return p1
+ .end method
+@@ -386,7 +339,6 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->requestedSeekPositionUs:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -397,7 +349,6 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->requestedSeekPositionUs:J
+ 
+-    .line 2
+     .line 3
+     return-wide p1
+ .end method
+@@ -408,8 +359,6 @@
+     .line 1
+     invoke-direct {p0, p1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->getLoadableByTrackUri(Landroid/net/Uri;)Landroidx/media3/exoplayer/rtsp/RtpDataLoadable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -423,7 +372,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtpDataChannelFactory:Landroidx/media3/exoplayer/rtsp/RtpDataChannel$Factory;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -434,7 +382,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->allocator:Landroidx/media3/exoplayer/upstream/Allocator;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -445,7 +392,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->internalListener:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$InternalListener;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -456,8 +402,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->updateLoadingFinished()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -468,8 +412,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->maybeSetupTracks()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -480,7 +422,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->handler:Landroid/os/Handler;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -491,8 +432,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->maybeFinishPrepare()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -503,7 +442,6 @@
+     .line 1
+     iget-boolean p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isUsingRtpTcp:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -514,7 +452,6 @@
+     .line 1
+     iput-boolean p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isUsingRtpTcp:Z
+ 
+-    .line 2
+     .line 3
+     return p1
+ .end method
+@@ -525,8 +462,6 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->retryWithRtpTcp()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -537,7 +472,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -548,7 +482,6 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -570,12 +503,9 @@
+     .line 1
+     new-instance v0, Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/google/common/collect/ImmutableList$Builder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const/4 v1, 0x0
+ 
+@@ -583,89 +513,66 @@
+     :goto_0
+     invoke-virtual {p0}, Ljava/util/AbstractCollection;->size()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v2
+ 
+     .line 11
+     if-ge v1, v2, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v2
+ 
+     .line 17
+     check-cast v2, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 18
+     .line 19
+     invoke-static {v2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$200(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Landroidx/media3/exoplayer/source/SampleQueue;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     new-instance v3, Landroidx/media3/common/TrackGroup;
+ 
+-    .line 24
+     .line 25
+     invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v4
+ 
+     .line 29
+     invoke-virtual {v2}, Landroidx/media3/exoplayer/source/SampleQueue;->getUpstreamFormat()Landroidx/media3/common/Format;
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result-object v2
+ 
+     .line 33
+     invoke-static {v2}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v2
+ 
+     .line 37
+     check-cast v2, Landroidx/media3/common/Format;
+ 
+-    .line 38
+     .line 39
+     filled-new-array {v2}, [Landroidx/media3/common/Format;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v2
+ 
+     .line 43
+     invoke-direct {v3, v4, v2}, Landroidx/media3/common/TrackGroup;-><init>(Ljava/lang/String;[Landroidx/media3/common/Format;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 50
+     .line 51
+     goto :goto_0
+ 
+@@ -673,8 +580,6 @@
+     :cond_0
+     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object p0
+ 
+@@ -694,92 +599,69 @@
+     :goto_0
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 3
+     .line 4
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-ge v0, v1, :cond_1
+ 
+-    .line 9
+     .line 10
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 11
+     .line 12
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     check-cast v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 17
+     .line 18
+     invoke-static {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$100(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Z
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v1
+ 
+     .line 22
+     if-nez v1, :cond_0
+ 
+-    .line 23
+     .line 24
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 25
+     .line 26
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-object v1
+ 
+     .line 30
+     check-cast v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 31
+     .line 32
+     iget-object v1, v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->loadInfo:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;->getTrackUri()Landroid/net/Uri;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v2
+ 
+     .line 38
+     invoke-virtual {v2, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v2
+ 
+     .line 42
+     if-eqz v2, :cond_0
+ 
+-    .line 43
+     .line 44
+     invoke-static {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;->access$300(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;)Landroidx/media3/exoplayer/rtsp/RtpDataLoadable;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p0
+ 
+@@ -790,7 +672,6 @@
+     :cond_0
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 50
+     .line 51
+     goto :goto_0
+ 
+@@ -808,22 +689,15 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 2
+     .line 3
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 4
+-    .line 5
+-    .line 6
+-    .line 7
+     .line 8
+     cmp-long p0, v0, v2
+ 
+-    .line 9
+     .line 10
+     if-eqz p0, :cond_0
+ 
+-    .line 11
+     .line 12
+     const/4 p0, 0x1
+ 
+@@ -844,19 +718,15 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->released:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_3
+ 
+-    .line 4
+     .line 5
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->prepared:Z
+ 
+-    .line 6
+     .line 7
+     if-eqz v0, :cond_0
+ 
+-    .line 8
+     .line 9
+     goto :goto_1
+ 
+@@ -868,55 +738,42 @@
+     :goto_0
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 12
+     .line 13
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     if-ge v0, v1, :cond_2
+ 
+-    .line 18
+     .line 19
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 20
+     .line 21
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v1
+ 
+     .line 25
+     check-cast v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 26
+     .line 27
+     invoke-static {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$200(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Landroidx/media3/exoplayer/source/SampleQueue;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     invoke-virtual {v1}, Landroidx/media3/exoplayer/source/SampleQueue;->getUpstreamFormat()Landroidx/media3/common/Format;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v1
+ 
+     .line 35
+     if-nez v1, :cond_1
+ 
+-    .line 36
+     .line 37
+     goto :goto_1
+ 
+@@ -924,7 +781,6 @@
+     :cond_1
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -935,52 +791,39 @@
+     .line 42
+     iput-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->prepared:Z
+ 
+-    .line 43
+     .line 44
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 45
+     .line 46
+     invoke-static {v0}, Lcom/google/common/collect/ImmutableList;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v0
+ 
+     .line 50
+     invoke-static {v0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->buildTrackGroups(Lcom/google/common/collect/ImmutableList;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v0
+ 
+     .line 54
+     iput-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->trackGroups:Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 55
+     .line 56
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->callback:Landroidx/media3/exoplayer/source/MediaPeriod$Callback;
+ 
+-    .line 57
+     .line 58
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-object v0
+ 
+     .line 62
+     check-cast v0, Landroidx/media3/exoplayer/source/MediaPeriod$Callback;
+ 
+-    .line 63
+     .line 64
+     invoke-interface {v0, p0}, Landroidx/media3/exoplayer/source/MediaPeriod$Callback;->onPrepared(Landroidx/media3/exoplayer/source/MediaPeriod;)V
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     :cond_3
+     :goto_1
+@@ -1000,40 +843,30 @@
+     :goto_0
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v2
+ 
+     .line 9
+     if-ge v1, v2, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 12
+     .line 13
+     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v2
+ 
+     .line 17
+     check-cast v2, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {v2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;->isTransportReady()Z
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v2
+ 
+@@ -1043,7 +876,6 @@
+     .line 24
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 25
+     .line 26
+     goto :goto_0
+ 
+@@ -1051,28 +883,21 @@
+     :cond_0
+     if-eqz v0, :cond_1
+ 
+-    .line 28
+     .line 29
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->trackSelected:Z
+ 
+-    .line 30
+     .line 31
+     if-eqz v0, :cond_1
+ 
+-    .line 32
+     .line 33
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 34
+     .line 35
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 36
+     .line 37
+     invoke-virtual {v0, p0}, Landroidx/media3/exoplayer/rtsp/RtspClient;->setupSelectedTracks(Ljava/util/List;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     :cond_1
+     return-void
+@@ -1087,49 +912,36 @@
+     .line 2
+     iput-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isUsingRtpTcp:Z
+ 
+-    .line 3
+     .line 4
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 5
+     .line 6
+     invoke-virtual {v0}, Landroidx/media3/exoplayer/rtsp/RtspClient;->retryWithRtpTcp()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtpDataChannelFactory:Landroidx/media3/exoplayer/rtsp/RtpDataChannel$Factory;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {v0}, Landroidx/media3/exoplayer/rtsp/RtpDataChannel$Factory;->createFallbackDataChannelFactory()Landroidx/media3/exoplayer/rtsp/RtpDataChannel$Factory;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object v0
+ 
+     .line 15
+     if-nez v0, :cond_0
+ 
+-    .line 16
+     .line 17
+     new-instance v0, Landroidx/media3/exoplayer/rtsp/RtspMediaSource$RtspPlaybackException;
+ 
+-    .line 18
+     .line 19
+     const-string v1, "No fallback data channel factory for TCP retry"
+ 
+-    .line 20
+     .line 21
+     invoke-direct {v0, v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaSource$RtspPlaybackException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iput-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->playbackException:Landroidx/media3/exoplayer/rtsp/RtspMediaSource$RtspPlaybackException;
+ 
+-    .line 25
+     .line 26
+     return-void
+ 
+@@ -1137,45 +949,33 @@
+     :cond_0
+     new-instance v1, Ljava/util/ArrayList;
+ 
+-    .line 28
+     .line 29
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 30
+     .line 31
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v2
+ 
+     .line 35
+     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     new-instance v2, Ljava/util/ArrayList;
+ 
+-    .line 39
+     .line 40
+     iget-object v3, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 41
+     .line 42
+     invoke-interface {v3}, Ljava/util/List;->size()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v3
+ 
+     .line 46
+     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     const/4 v3, 0x0
+ 
+@@ -1186,103 +986,75 @@
+     :goto_0
+     iget-object v5, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 52
+     .line 53
+     invoke-interface {v5}, Ljava/util/List;->size()I
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result v5
+ 
+     .line 57
+     if-ge v4, v5, :cond_3
+ 
+-    .line 58
+     .line 59
+     iget-object v5, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 60
+     .line 61
+     invoke-interface {v5, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v5
+ 
+     .line 65
+     check-cast v5, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 66
+     .line 67
+     invoke-static {v5}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$100(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Z
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v6
+ 
+     .line 71
+     if-nez v6, :cond_1
+ 
+-    .line 72
+     .line 73
+     new-instance v6, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 74
+     .line 75
+     iget-object v7, v5, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->loadInfo:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 76
+     .line 77
+     iget-object v7, v7, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;->mediaTrack:Landroidx/media3/exoplayer/rtsp/RtspMediaTrack;
+ 
+-    .line 78
+     .line 79
+     invoke-direct {v6, p0, v7, v4, v0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;-><init>(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;Landroidx/media3/exoplayer/rtsp/RtspMediaTrack;ILandroidx/media3/exoplayer/rtsp/RtpDataChannel$Factory;)V
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     invoke-virtual {v6}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->startLoading()V
+ 
+-    .line 86
+-    .line 87
+     .line 88
+     iget-object v7, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 89
+     .line 90
+     iget-object v5, v5, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->loadInfo:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 91
+     .line 92
+     invoke-interface {v7, v5}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 93
+-    .line 94
+     .line 95
+     move-result v5
+ 
+     .line 96
+     if-eqz v5, :cond_2
+ 
+-    .line 97
+     .line 98
+     iget-object v5, v6, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->loadInfo:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 99
+     .line 100
+     invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 101
+-    .line 102
+     .line 103
+     goto :goto_1
+ 
+@@ -1290,14 +1062,11 @@
+     :cond_1
+     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+-    .line 105
+-    .line 106
+     .line 107
+     :cond_2
+     :goto_1
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 108
+     .line 109
+     goto :goto_0
+ 
+@@ -1305,85 +1074,61 @@
+     :cond_3
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 111
+     .line 112
+     invoke-static {v0}, Lcom/google/common/collect/ImmutableList;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     move-result-object v0
+ 
+     .line 116
+     iget-object v4, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 117
+     .line 118
+     invoke-interface {v4}, Ljava/util/List;->clear()V
+ 
+-    .line 119
+-    .line 120
+     .line 121
+     iget-object v4, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 122
+     .line 123
+     invoke-interface {v4, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+ 
+-    .line 124
+-    .line 125
+     .line 126
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 127
+     .line 128
+     invoke-interface {v1}, Ljava/util/List;->clear()V
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 132
+     .line 133
+     invoke-interface {p0, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     :goto_2
+     invoke-virtual {v0}, Ljava/util/AbstractCollection;->size()I
+ 
+-    .line 137
+-    .line 138
+     .line 139
+     move-result p0
+ 
+     .line 140
+     if-ge v3, p0, :cond_4
+ 
+-    .line 141
+     .line 142
+     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 143
+-    .line 144
+     .line 145
+     move-result-object p0
+ 
+     .line 146
+     check-cast p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 147
+     .line 148
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->cancelLoad()V
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 152
+     .line 153
+     goto :goto_2
+ 
+@@ -1405,59 +1150,45 @@
+     :goto_0
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v2
+ 
+     .line 9
+     if-ge v1, v2, :cond_1
+ 
+-    .line 10
+     .line 11
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 12
+     .line 13
+     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v2
+ 
+     .line 17
+     check-cast v2, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 18
+     .line 19
+     invoke-static {v2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$200(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Landroidx/media3/exoplayer/source/SampleQueue;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v2
+ 
+     .line 23
+     iget-boolean v3, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v2, p1, p2, v3}, Landroidx/media3/exoplayer/source/SampleQueue;->seekTo(JZ)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v2
+ 
+     .line 29
+     if-nez v2, :cond_0
+ 
+-    .line 30
+     .line 31
+     return v0
+ 
+@@ -1465,7 +1196,6 @@
+     :cond_0
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -1483,7 +1213,6 @@
+     .line 1
+     iget-boolean p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->notifyDiscontinuity:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1497,7 +1226,6 @@
+     .line 2
+     iput-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 3
+     .line 4
+     const/4 v0, 0x0
+ 
+@@ -1505,44 +1233,33 @@
+     :goto_0
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 6
+     .line 7
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v1
+ 
+     .line 11
+     if-ge v0, v1, :cond_0
+ 
+-    .line 12
+     .line 13
+     iget-boolean v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 14
+     .line 15
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 16
+     .line 17
+     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result-object v2
+ 
+     .line 21
+     check-cast v2, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 22
+     .line 23
+     invoke-static {v2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$100(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v2
+ 
+@@ -1552,11 +1269,9 @@
+     .line 28
+     iput-boolean v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 29
+     .line 30
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 31
+     .line 32
+     goto :goto_0
+ 
+@@ -1573,8 +1288,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isLoading()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1588,15 +1301,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isSeekPending()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     goto :goto_1
+ 
+@@ -1608,52 +1318,39 @@
+     :goto_0
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result v1
+ 
+     .line 15
+     if-ge v0, v1, :cond_2
+ 
+-    .line 16
+     .line 17
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 18
+     .line 19
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v1
+ 
+     .line 23
+     check-cast v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 24
+     .line 25
+     invoke-static {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$100(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v2
+ 
+     .line 29
+     if-nez v2, :cond_1
+ 
+-    .line 30
+     .line 31
+     invoke-static {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$200(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Landroidx/media3/exoplayer/source/SampleQueue;
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result-object v1
+ 
+@@ -1663,13 +1360,10 @@
+     .line 36
+     invoke-virtual {v1, p1, p2, p3, v2}, Landroidx/media3/exoplayer/source/SampleQueue;->discardTo(JZZ)V
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     :cond_1
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 40
+     .line 41
+     goto :goto_0
+ 
+@@ -1692,31 +1386,24 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 2
+     .line 3
+     const-wide/high16 v1, -0x8000000000000000L
+ 
+-    .line 4
+     .line 5
+     if-nez v0, :cond_6
+ 
+-    .line 6
+     .line 7
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v0
+ 
+     .line 13
+     if-eqz v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     goto :goto_2
+ 
+@@ -1724,22 +1411,15 @@
+     :cond_0
+     iget-wide v3, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->requestedSeekPositionUs:J
+ 
+-    .line 17
+     .line 18
+     const-wide v5, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 19
+-    .line 20
+-    .line 21
+-    .line 22
+     .line 23
+     cmp-long v0, v3, v5
+ 
+-    .line 24
+     .line 25
+     if-eqz v0, :cond_1
+ 
+-    .line 26
+     .line 27
+     return-wide v3
+ 
+@@ -1753,10 +1433,6 @@
+     .line 30
+     const-wide v4, 0x7fffffffffffffffL
+ 
+-    .line 31
+-    .line 32
+-    .line 33
+-    .line 34
+     .line 35
+     move v6, v0
+ 
+@@ -1764,60 +1440,45 @@
+     :goto_0
+     iget-object v7, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 37
+     .line 38
+     invoke-interface {v7}, Ljava/util/List;->size()I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v7
+ 
+     .line 42
+     if-ge v6, v7, :cond_3
+ 
+-    .line 43
+     .line 44
+     iget-object v7, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 45
+     .line 46
+     invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move-result-object v7
+ 
+     .line 50
+     check-cast v7, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 51
+     .line 52
+     invoke-static {v7}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->access$100(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;)Z
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result v8
+ 
+     .line 56
+     if-nez v8, :cond_2
+ 
+-    .line 57
+     .line 58
+     invoke-virtual {v7}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->getBufferedPositionUs()J
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     move-result-wide v7
+ 
+     .line 62
+     invoke-static {v4, v5, v7, v8}, Ljava/lang/Math;->min(JJ)J
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-wide v3
+ 
+@@ -1831,7 +1492,6 @@
+     :cond_2
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 69
+     .line 70
+     goto :goto_0
+ 
+@@ -1839,15 +1499,12 @@
+     :cond_3
+     if-nez v3, :cond_5
+ 
+-    .line 72
+     .line 73
+     cmp-long p0, v4, v1
+ 
+-    .line 74
+     .line 75
+     if-nez p0, :cond_4
+ 
+-    .line 76
+     .line 77
+     goto :goto_1
+ 
+@@ -1860,7 +1517,6 @@
+     :goto_1
+     const-wide/16 v0, 0x0
+ 
+-    .line 80
+     .line 81
+     return-wide v0
+ 
+@@ -1876,8 +1532,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->getBufferedPositionUs()J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+@@ -1924,56 +1578,42 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->prepared:Z
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0}, Landroidx/media3/common/util/Assertions;->checkState(Z)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v0, Landroidx/media3/exoplayer/source/TrackGroupArray;
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->trackGroups:Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 9
+     .line 10
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     check-cast p0, Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 15
+     .line 16
+     const/4 v1, 0x0
+ 
+     .line 17
+     new-array v1, v1, [Landroidx/media3/common/TrackGroup;
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0, v1}, Lcom/google/common/collect/ImmutableCollection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     check-cast p0, [Landroidx/media3/common/TrackGroup;
+ 
+-    .line 24
+     .line 25
+     invoke-direct {v0, p0}, Landroidx/media3/exoplayer/source/TrackGroupArray;-><init>([Landroidx/media3/common/TrackGroup;)V
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     return-object v0
+ .end method
+@@ -1984,20 +1624,15 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_1
+ 
+-    .line 4
+     .line 5
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {v0}, Landroidx/media3/exoplayer/rtsp/RtspClient;->getState()I
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result v0
+ 
+@@ -2010,23 +1645,18 @@
+     .line 13
+     if-eq v0, v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/rtsp/RtspClient;->getState()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+     .line 21
+     if-ne p0, v2, :cond_1
+ 
+-    .line 22
+     .line 23
+     :cond_0
+     return v2
+@@ -2045,43 +1675,33 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->suppressRead()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-nez v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 8
+     .line 9
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object p0
+ 
+     .line 13
+     check-cast p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->isSampleQueueReady()Z
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+     .line 19
+     if-eqz p0, :cond_0
+ 
+-    .line 20
+     .line 21
+     const/4 p0, 0x1
+ 
+@@ -2107,11 +1727,9 @@
+     .line 1
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->preparationError:Ljava/io/IOException;
+ 
+-    .line 2
+     .line 3
+     if-nez p0, :cond_0
+ 
+-    .line 4
+     .line 5
+     return-void
+ 
+@@ -2126,19 +1744,15 @@
+     .line 1
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->callback:Landroidx/media3/exoplayer/source/MediaPeriod$Callback;
+ 
+-    .line 2
+     .line 3
+     :try_start_0
+     iget-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p1}, Landroidx/media3/exoplayer/rtsp/RtspClient;->start()V
+     :try_end_0
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     return-void
+ 
+@@ -2149,16 +1763,12 @@
+     .line 10
+     iput-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->preparationError:Ljava/io/IOException;
+ 
+-    .line 11
+     .line 12
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 13
+     .line 14
+     invoke-static {p0}, Landroidx/media3/common/util/Util;->closeQuietly(Ljava/io/Closeable;)V
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     return-void
+ .end method
+@@ -2169,15 +1779,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->suppressRead()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, -0x3
+ 
+@@ -2188,24 +1795,18 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     check-cast p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p2, p3, p4}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->read(Landroidx/media3/exoplayer/FormatHolder;Landroidx/media3/decoder/DecoderInputBuffer;I)I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 
+@@ -2219,22 +1820,18 @@
+     .line 1
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->notifyDiscontinuity:Z
+ 
+-    .line 2
+     .line 3
+     if-eqz v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     const/4 v0, 0x0
+ 
+     .line 6
+     iput-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->notifyDiscontinuity:Z
+ 
+-    .line 7
+     .line 8
+     const-wide/16 v0, 0x0
+ 
+-    .line 9
+     .line 10
+     return-wide v0
+ 
+@@ -2242,10 +1839,6 @@
+     :cond_0
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 12
+-    .line 13
+-    .line 14
+-    .line 15
+     .line 16
+     return-wide v0
+ .end method
+@@ -2267,44 +1860,33 @@
+     :goto_0
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 3
+     .line 4
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     move-result v1
+ 
+     .line 8
+     if-ge v0, v1, :cond_0
+ 
+-    .line 9
+     .line 10
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 11
+     .line 12
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v1
+ 
+     .line 16
+     check-cast v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 17
+     .line 18
+     invoke-virtual {v1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->release()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 22
+     .line 23
+     goto :goto_0
+ 
+@@ -2312,19 +1894,15 @@
+     :cond_0
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 25
+     .line 26
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->closeQuietly(Ljava/io/Closeable;)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     const/4 v0, 0x1
+ 
+     .line 30
+     iput-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->released:Z
+ 
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -2335,35 +1913,27 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->getBufferedPositionUs()J
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-wide v0
+ 
+     .line 5
+     const-wide/16 v2, 0x0
+ 
+-    .line 6
+     .line 7
+     cmp-long v0, v0, v2
+ 
+-    .line 8
+     .line 9
+     if-nez v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-boolean v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isUsingRtpTcp:Z
+ 
+-    .line 12
+     .line 13
+     if-nez v0, :cond_0
+ 
+-    .line 14
+     .line 15
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUsForTcpRetry:J
+ 
+-    .line 16
+     .line 17
+     return-wide p1
+ 
+@@ -2374,33 +1944,24 @@
+     .line 19
+     invoke-virtual {p0, p1, p2, v0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->discardBuffer(JZ)V
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->requestedSeekPositionUs:J
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isSeekPending()Z
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result v1
+ 
+     .line 28
+     if-eqz v1, :cond_2
+ 
+-    .line 29
+     .line 30
+     iget-object v0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v0}, Landroidx/media3/exoplayer/rtsp/RtspClient;->getState()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v0
+ 
+@@ -2410,27 +1971,21 @@
+     .line 37
+     if-eq v0, v1, :cond_7
+ 
+-    .line 38
+     .line 39
+     const/4 v1, 0x2
+ 
+     .line 40
+     if-ne v0, v1, :cond_1
+ 
+-    .line 41
+     .line 42
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 43
+     .line 44
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 45
+     .line 46
+     invoke-virtual {p0, p1, p2}, Landroidx/media3/exoplayer/rtsp/RtspClient;->seekToUs(J)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     return-wide p1
+ 
+@@ -2438,12 +1993,9 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     throw p0
+ 
+@@ -2451,15 +2003,12 @@
+     :cond_2
+     invoke-direct {p0, p1, p2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->seekInsideBufferUs(J)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v1
+ 
+     .line 60
+     if-eqz v1, :cond_3
+ 
+-    .line 61
+     .line 62
+     goto :goto_2
+ 
+@@ -2467,15 +2016,12 @@
+     :cond_3
+     iput-wide p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 64
+     .line 65
+     iget-boolean v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->loadingFinished:Z
+ 
+-    .line 66
+     .line 67
+     if-eqz v1, :cond_6
+ 
+-    .line 68
+     .line 69
+     move v1, v0
+ 
+@@ -2483,44 +2029,33 @@
+     :goto_0
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 71
+     .line 72
+     invoke-interface {v2}, Ljava/util/List;->size()I
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     move-result v2
+ 
+     .line 76
+     if-ge v1, v2, :cond_4
+ 
+-    .line 77
+     .line 78
+     iget-object v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 79
+     .line 80
+     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     move-result-object v2
+ 
+     .line 84
+     check-cast v2, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 85
+     .line 86
+     invoke-virtual {v2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->resumeLoad()V
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 90
+     .line 91
+     goto :goto_0
+ 
+@@ -2528,28 +2063,21 @@
+     :cond_4
+     iget-boolean v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->isUsingRtpTcp:Z
+ 
+-    .line 93
+     .line 94
+     if-eqz v1, :cond_5
+ 
+-    .line 95
+     .line 96
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 97
+     .line 98
+     invoke-static {p1, p2}, Landroidx/media3/common/util/Util;->usToMs(J)J
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     move-result-wide v2
+ 
+     .line 102
+     invoke-virtual {v1, v2, v3}, Landroidx/media3/exoplayer/rtsp/RtspClient;->startPlayback(J)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     goto :goto_1
+ 
+@@ -2557,12 +2085,9 @@
+     :cond_5
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 107
+     .line 108
+     invoke-virtual {v1, p1, p2}, Landroidx/media3/exoplayer/rtsp/RtspClient;->seekToUs(J)V
+ 
+-    .line 109
+-    .line 110
+     .line 111
+     goto :goto_1
+ 
+@@ -2570,54 +2095,40 @@
+     :cond_6
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspClient:Landroidx/media3/exoplayer/rtsp/RtspClient;
+ 
+-    .line 113
+     .line 114
+     invoke-virtual {v1, p1, p2}, Landroidx/media3/exoplayer/rtsp/RtspClient;->seekToUs(J)V
+ 
+-    .line 115
+-    .line 116
+     .line 117
+     :goto_1
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 118
+     .line 119
+     invoke-interface {v1}, Ljava/util/List;->size()I
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v1
+ 
+     .line 123
+     if-ge v0, v1, :cond_7
+ 
+-    .line 124
+     .line 125
+     iget-object v1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 126
+     .line 127
+     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 128
+-    .line 129
+     .line 130
+     move-result-object v1
+ 
+     .line 131
+     check-cast v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 132
+     .line 133
+     invoke-virtual {v1, p1, p2}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->seekTo(J)V
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 137
+     .line 138
+     goto :goto_1
+ 
+@@ -2643,31 +2154,24 @@
+     .line 4
+     if-ge v1, v2, :cond_2
+ 
+-    .line 5
+     .line 6
+     aget-object v2, p3, v1
+ 
+-    .line 7
+     .line 8
+     if-eqz v2, :cond_1
+ 
+-    .line 9
+     .line 10
+     aget-object v2, p1, v1
+ 
+-    .line 11
+     .line 12
+     if-eqz v2, :cond_0
+ 
+-    .line 13
+     .line 14
+     aget-boolean v2, p2, v1
+ 
+-    .line 15
+     .line 16
+     if-nez v2, :cond_1
+ 
+-    .line 17
+     .line 18
+     :cond_0
+     const/4 v2, 0x0
+@@ -2675,12 +2179,10 @@
+     .line 19
+     aput-object v2, p3, v1
+ 
+-    .line 20
+     .line 21
+     :cond_1
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 22
+     .line 23
+     goto :goto_0
+ 
+@@ -2688,12 +2190,9 @@
+     :cond_2
+     iget-object p2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 25
+     .line 26
+     invoke-interface {p2}, Ljava/util/List;->clear()V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move p2, v0
+ 
+@@ -2707,15 +2206,12 @@
+     .line 32
+     if-ge p2, v1, :cond_5
+ 
+-    .line 33
+     .line 34
+     aget-object v1, p1, p2
+ 
+-    .line 35
+     .line 36
+     if-nez v1, :cond_3
+ 
+-    .line 37
+     .line 38
+     goto :goto_2
+ 
+@@ -2723,123 +2219,92 @@
+     :cond_3
+     invoke-interface {v1}, Landroidx/media3/exoplayer/trackselection/TrackSelection;->getTrackGroup()Landroidx/media3/common/TrackGroup;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v1
+ 
+     .line 43
+     iget-object v3, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->trackGroups:Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 44
+     .line 45
+     invoke-static {v3}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object v3
+ 
+     .line 49
+     check-cast v3, Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {v3, v1}, Lcom/google/common/collect/ImmutableList;->indexOf(Ljava/lang/Object;)I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v3
+ 
+     .line 55
+     iget-object v4, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 56
+     .line 57
+     iget-object v5, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 58
+     .line 59
+     invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object v5
+ 
+     .line 63
+     check-cast v5, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 64
+     .line 65
+     invoke-static {v5}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v5
+ 
+     .line 69
+     check-cast v5, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 70
+     .line 71
+     iget-object v5, v5, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->loadInfo:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 72
+     .line 73
+     invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     iget-object v4, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->trackGroups:Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 77
+     .line 78
+     invoke-virtual {v4, v1}, Lcom/google/common/collect/ImmutableList;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result v1
+ 
+     .line 82
+     if-eqz v1, :cond_4
+ 
+-    .line 83
+     .line 84
+     aget-object v1, p3, p2
+ 
+-    .line 85
+     .line 86
+     if-nez v1, :cond_4
+ 
+-    .line 87
+     .line 88
+     new-instance v1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$SampleStreamImpl;
+ 
+-    .line 89
+     .line 90
+     invoke-direct {v1, p0, v3}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$SampleStreamImpl;-><init>(Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;I)V
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     aput-object v1, p3, p2
+ 
+-    .line 94
+     .line 95
+     aput-boolean v2, p4, p2
+ 
+-    .line 96
+     .line 97
+     :cond_4
+     :goto_2
+     add-int/lit8 p2, p2, 0x1
+ 
+-    .line 98
+     .line 99
+     goto :goto_1
+ 
+@@ -2848,65 +2313,49 @@
+     :goto_3
+     iget-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 101
+     .line 102
+     invoke-interface {p1}, Ljava/util/List;->size()I
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result p1
+ 
+     .line 106
+     if-ge v0, p1, :cond_7
+ 
+-    .line 107
+     .line 108
+     iget-object p1, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 109
+     .line 110
+     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 111
+-    .line 112
+     .line 113
+     move-result-object p1
+ 
+     .line 114
+     check-cast p1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 115
+     .line 116
+     iget-object p2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->selectedLoadInfos:Ljava/util/List;
+ 
+-    .line 117
+     .line 118
+     iget-object p3, p1, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->loadInfo:Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtpLoadInfo;
+ 
+-    .line 119
+     .line 120
+     invoke-interface {p2, p3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result p2
+ 
+     .line 124
+     if-nez p2, :cond_6
+ 
+-    .line 125
+     .line 126
+     invoke-virtual {p1}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->cancelLoad()V
+ 
+-    .line 127
+-    .line 128
+     .line 129
+     :cond_6
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 130
+     .line 131
+     goto :goto_3
+ 
+@@ -2914,37 +2363,28 @@
+     :cond_7
+     iput-boolean v2, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->trackSelected:Z
+ 
+-    .line 133
+     .line 134
+     const-wide/16 p1, 0x0
+ 
+-    .line 135
+     .line 136
+     cmp-long p1, p5, p1
+ 
+-    .line 137
+     .line 138
+     if-eqz p1, :cond_8
+ 
+-    .line 139
+     .line 140
+     iput-wide p5, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->requestedSeekPositionUs:J
+ 
+-    .line 141
+     .line 142
+     iput-wide p5, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUs:J
+ 
+-    .line 143
+     .line 144
+     iput-wide p5, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->pendingSeekPositionUsForTcpRetry:J
+ 
+-    .line 145
+     .line 146
+     :cond_8
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->maybeSetupTracks()V
+ 
+-    .line 147
+-    .line 148
+     .line 149
+     return-wide p5
+ .end method
+@@ -2955,15 +2395,12 @@
+     .line 1
+     invoke-direct {p0}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->suppressRead()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, -0x3
+ 
+@@ -2974,24 +2411,18 @@
+     :cond_0
+     iget-object p0, p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod;->rtspLoaderWrappers:Ljava/util/List;
+ 
+-    .line 10
+     .line 11
+     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+     .line 15
+     check-cast p0, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p0, p2, p3}, Landroidx/media3/exoplayer/rtsp/RtspMediaPeriod$RtspLoaderWrapper;->skipData(J)I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result p0
+ 

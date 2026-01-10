@@ -1,0 +1,1119 @@
+--- a/smali_classes6/com/google/protobuf/FieldInfo.smali
++++ b/smali_classes6/com/google/protobuf/FieldInfo.smali
+@@ -94,60 +94,45 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/protobuf/FieldInfo;->field:Ljava/lang/reflect/Field;
+ 
+-    .line 5
+     .line 6
+     iput-object p3, p0, Lcom/google/protobuf/FieldInfo;->type:Lcom/google/protobuf/FieldType;
+ 
+-    .line 7
+     .line 8
+     iput-object p4, p0, Lcom/google/protobuf/FieldInfo;->messageClass:Ljava/lang/Class;
+ 
+-    .line 9
+     .line 10
+     iput p2, p0, Lcom/google/protobuf/FieldInfo;->fieldNumber:I
+ 
+-    .line 11
+     .line 12
+     iput-object p5, p0, Lcom/google/protobuf/FieldInfo;->presenceField:Ljava/lang/reflect/Field;
+ 
+-    .line 13
+     .line 14
+     iput p6, p0, Lcom/google/protobuf/FieldInfo;->presenceMask:I
+ 
+-    .line 15
+     .line 16
+     iput-boolean p7, p0, Lcom/google/protobuf/FieldInfo;->required:Z
+ 
+-    .line 17
+     .line 18
+     iput-boolean p8, p0, Lcom/google/protobuf/FieldInfo;->enforceUtf8:Z
+ 
+-    .line 19
+     .line 20
+     iput-object p9, p0, Lcom/google/protobuf/FieldInfo;->oneof:Lcom/google/protobuf/OneofInfo;
+ 
+-    .line 21
+     .line 22
+     iput-object p10, p0, Lcom/google/protobuf/FieldInfo;->oneofStoredType:Ljava/lang/Class;
+ 
+-    .line 23
+     .line 24
+     iput-object p11, p0, Lcom/google/protobuf/FieldInfo;->mapDefaultEntry:Ljava/lang/Object;
+ 
+-    .line 25
+     .line 26
+     iput-object p12, p0, Lcom/google/protobuf/FieldInfo;->enumVerifier:Lcom/google/protobuf/Internal$EnumVerifier;
+ 
+-    .line 27
+     .line 28
+     iput-object p13, p0, Lcom/google/protobuf/FieldInfo;->cachedSizeField:Ljava/lang/reflect/Field;
+ 
+-    .line 29
+     .line 30
+     return-void
+ .end method
+@@ -158,7 +143,6 @@
+     .line 1
+     if-lez p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     return-void
+ 
+@@ -166,43 +150,30 @@
+     :cond_0
+     new-instance v0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 5
+     .line 6
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v2, "fieldNumber must be positive: "
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object p0
+ 
+     .line 23
+     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     throw v0
+ .end method
+@@ -213,64 +184,46 @@
+     .line 1
+     move-object/from16 v5, p3
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "field"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "fieldType"
+ 
+-    .line 12
+     .line 13
+     move-object/from16 v3, p2
+ 
+-    .line 14
+     .line 15
+     invoke-static {v3, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v0, "presenceField"
+ 
+-    .line 19
+     .line 20
+     invoke-static {v5, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     if-eqz v5, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-static/range {p4 .. p4}, Lcom/google/protobuf/FieldInfo;->isExactlyOneBitSet(I)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     if-eqz v0, :cond_1
+ 
+-    .line 30
+     .line 31
+     :cond_0
+     move/from16 v6, p4
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -278,47 +231,33 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 35
+     .line 36
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     const-string v0, "presenceMask must have exactly one bit set: "
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move/from16 v6, p4
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p1
+ 
+     .line 55
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     throw p0
+ 
+@@ -326,7 +265,6 @@
+     :goto_0
+     new-instance v0, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 60
+     .line 61
+     const/4 v11, 0x0
+ 
+@@ -354,16 +292,12 @@
+     .line 69
+     move/from16 v8, p5
+ 
+-    .line 70
+     .line 71
+     move-object/from16 v12, p6
+ 
+-    .line 72
+     .line 73
+     invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     return-object v0
+ .end method
+@@ -374,50 +308,36 @@
+     .line 1
+     move-object/from16 v3, p2
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "field"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "fieldType"
+ 
+-    .line 12
+     .line 13
+     invoke-static {v3, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     sget-object v0, Lcom/google/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/protobuf/FieldType;
+ 
+-    .line 17
+     .line 18
+     if-eq v3, v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     sget-object v0, Lcom/google/protobuf/FieldType;->GROUP_LIST:Lcom/google/protobuf/FieldType;
+ 
+-    .line 21
+     .line 22
+     if-eq v3, v0, :cond_0
+ 
+-    .line 23
+     .line 24
+     new-instance v0, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 25
+     .line 26
+     const/4 v12, 0x0
+ 
+@@ -454,12 +374,9 @@
+     .line 37
+     move/from16 v8, p3
+ 
+-    .line 38
+     .line 39
+     invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-object v0
+ 
+@@ -467,16 +384,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 44
+     .line 45
+     const-string p1, "Shouldn\'t be called for repeated message fields."
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     throw p0
+ .end method
+@@ -487,21 +400,15 @@
+     .line 1
+     invoke-static/range {p1 .. p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "field"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance v1, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 10
+     .line 11
+     const/4 v12, 0x0
+ 
+@@ -535,20 +442,15 @@
+     .line 21
+     move/from16 v3, p1
+ 
+-    .line 22
+     .line 23
+     move-object/from16 v4, p2
+ 
+-    .line 24
+     .line 25
+     move-object/from16 v13, p3
+ 
+-    .line 26
+     .line 27
+     invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     return-object v1
+ .end method
+@@ -559,64 +461,46 @@
+     .line 1
+     move-object/from16 v5, p3
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "field"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "fieldType"
+ 
+-    .line 12
+     .line 13
+     move-object/from16 v3, p2
+ 
+-    .line 14
+     .line 15
+     invoke-static {v3, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     const-string v0, "presenceField"
+ 
+-    .line 19
+     .line 20
+     invoke-static {v5, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     if-eqz v5, :cond_0
+ 
+-    .line 24
+     .line 25
+     invoke-static/range {p4 .. p4}, Lcom/google/protobuf/FieldInfo;->isExactlyOneBitSet(I)Z
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v0
+ 
+     .line 29
+     if-eqz v0, :cond_1
+ 
+-    .line 30
+     .line 31
+     :cond_0
+     move/from16 v6, p4
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -624,47 +508,33 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 35
+     .line 36
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 37
+     .line 38
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     const-string v0, "presenceMask must have exactly one bit set: "
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move/from16 v6, p4
+ 
+-    .line 47
+     .line 48
+     invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result-object p1
+ 
+     .line 55
+     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     throw p0
+ 
+@@ -672,7 +542,6 @@
+     :goto_0
+     new-instance v0, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 60
+     .line 61
+     const/4 v11, 0x0
+ 
+@@ -700,16 +569,12 @@
+     .line 69
+     move/from16 v8, p5
+ 
+-    .line 70
+     .line 71
+     move-object/from16 v12, p6
+ 
+-    .line 72
+     .line 73
+     invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     return-object v0
+ .end method
+@@ -720,38 +585,27 @@
+     .line 1
+     const-string v0, "mapDefaultEntry"
+ 
+-    .line 2
+     .line 3
+     move-object/from16 v12, p2
+ 
+-    .line 4
+     .line 5
+     invoke-static {v12, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-static/range {p1 .. p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "field"
+ 
+-    .line 12
+     .line 13
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     new-instance v1, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 17
+     .line 18
+     sget-object v4, Lcom/google/protobuf/FieldType;->MAP:Lcom/google/protobuf/FieldType;
+ 
+-    .line 19
+     .line 20
+     const/4 v11, 0x0
+ 
+@@ -782,16 +636,12 @@
+     .line 29
+     move/from16 v3, p1
+ 
+-    .line 30
+     .line 31
+     move-object/from16 v13, p3
+ 
+-    .line 32
+     .line 33
+     invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     return-object v1
+ .end method
+@@ -814,59 +664,42 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "fieldType"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p1, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const-string v0, "oneof"
+ 
+-    .line 10
+     .line 11
+     move-object/from16 v9, p2
+ 
+-    .line 12
+     .line 13
+     invoke-static {v9, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v0, "oneofStoredType"
+ 
+-    .line 17
+     .line 18
+     move-object/from16 v10, p3
+ 
+-    .line 19
+     .line 20
+     invoke-static {v10, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p1}, Lcom/google/protobuf/FieldType;->isScalar()Z
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v0
+ 
+     .line 27
+     if-eqz v0, :cond_0
+ 
+-    .line 28
+     .line 29
+     new-instance v0, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 30
+     .line 31
+     const/4 v11, 0x0
+ 
+@@ -897,16 +730,12 @@
+     .line 40
+     move/from16 v8, p4
+ 
+-    .line 41
+     .line 42
+     move-object/from16 v12, p5
+ 
+-    .line 43
+     .line 44
+     invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     return-object v0
+ 
+@@ -914,57 +743,39 @@
+     :cond_0
+     new-instance v0, Ljava/lang/IllegalArgumentException;
+ 
+-    .line 49
+     .line 50
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     const-string v2, "Oneof is only supported for scalar fields. Field "
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     const-string v2, " is of type "
+ 
+-    .line 64
+     .line 65
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+-    .line 69
+-    .line 70
+     .line 71
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result-object v1
+ 
+     .line 75
+     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 76
+-    .line 77
+     .line 78
+     throw v0
+ .end method
+@@ -975,50 +786,36 @@
+     .line 1
+     move-object/from16 v3, p2
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v0, "field"
+ 
+-    .line 7
+     .line 8
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-string v0, "fieldType"
+ 
+-    .line 12
+     .line 13
+     invoke-static {v3, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     sget-object v0, Lcom/google/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/protobuf/FieldType;
+ 
+-    .line 17
+     .line 18
+     if-eq v3, v0, :cond_0
+ 
+-    .line 19
+     .line 20
+     sget-object v0, Lcom/google/protobuf/FieldType;->GROUP_LIST:Lcom/google/protobuf/FieldType;
+ 
+-    .line 21
+     .line 22
+     if-eq v3, v0, :cond_0
+ 
+-    .line 23
+     .line 24
+     new-instance v0, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 25
+     .line 26
+     const/4 v11, 0x0
+ 
+@@ -1055,12 +852,9 @@
+     .line 37
+     move-object/from16 v13, p3
+ 
+-    .line 38
+     .line 39
+     invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     return-object v0
+ 
+@@ -1068,16 +862,12 @@
+     :cond_0
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 44
+     .line 45
+     const-string p1, "Shouldn\'t be called for repeated message fields."
+ 
+-    .line 46
+     .line 47
+     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     throw p0
+ .end method
+@@ -1088,21 +878,15 @@
+     .line 1
+     invoke-static/range {p1 .. p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "field"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance v1, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 10
+     .line 11
+     const/4 v11, 0x0
+ 
+@@ -1133,24 +917,18 @@
+     .line 20
+     move/from16 v3, p1
+ 
+-    .line 21
+     .line 22
+     move-object/from16 v4, p2
+ 
+-    .line 23
+     .line 24
+     move-object/from16 v13, p3
+ 
+-    .line 25
+     .line 26
+     move-object/from16 v14, p4
+ 
+-    .line 27
+     .line 28
+     invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     return-object v1
+ .end method
+@@ -1172,47 +950,33 @@
+     .line 1
+     invoke-static/range {p1 .. p1}, Lcom/google/protobuf/FieldInfo;->checkFieldNumber(I)V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     const-string v0, "field"
+ 
+-    .line 5
+     .line 6
+     invoke-static {p0, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     const-string v0, "fieldType"
+ 
+-    .line 10
+     .line 11
+     move-object/from16 v4, p2
+ 
+-    .line 12
+     .line 13
+     invoke-static {v4, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     const-string v0, "messageClass"
+ 
+-    .line 17
+     .line 18
+     move-object/from16 v5, p3
+ 
+-    .line 19
+     .line 20
+     invoke-static {v5, v0}, Lcom/google/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     new-instance v1, Lcom/google/protobuf/FieldInfo;
+ 
+-    .line 24
+     .line 25
+     const/4 v13, 0x0
+ 
+@@ -1246,12 +1010,9 @@
+     .line 35
+     move/from16 v3, p1
+ 
+-    .line 36
+     .line 37
+     invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     return-object v1
+ .end method
+@@ -1262,18 +1023,15 @@
+     .line 1
+     if-eqz p0, :cond_0
+ 
+-    .line 2
+     .line 3
+     add-int/lit8 v0, p0, -0x1
+ 
+-    .line 4
+     .line 5
+     and-int/2addr p0, v0
+ 
+     .line 6
+     if-nez p0, :cond_0
+ 
+-    .line 7
+     .line 8
+     const/4 p0, 0x1
+ 
+@@ -1294,15 +1052,12 @@
+     .line 1
+     new-instance v0, Lcom/google/protobuf/FieldInfo$Builder;
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+     .line 4
+     invoke-direct {v0, v1}, Lcom/google/protobuf/FieldInfo$Builder;-><init>(Lcom/google/protobuf/FieldInfo$1;)V
+ 
+-    .line 5
+-    .line 6
+     .line 7
+     return-object v0
+ .end method
+@@ -1341,7 +1096,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->cachedSizeField:Ljava/lang/reflect/Field;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1352,7 +1106,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->enumVerifier:Lcom/google/protobuf/Internal$EnumVerifier;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1363,7 +1116,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->field:Ljava/lang/reflect/Field;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1374,7 +1126,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/protobuf/FieldInfo;->fieldNumber:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1392,7 +1143,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->messageClass:Ljava/lang/Class;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1403,7 +1153,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->mapDefaultEntry:Ljava/lang/Object;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1421,51 +1170,42 @@
+     .line 1
+     sget-object v0, Lcom/google/protobuf/FieldInfo$1;->$SwitchMap$com$google$protobuf$FieldType:[I
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/google/protobuf/FieldInfo;->type:Lcom/google/protobuf/FieldType;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     aget v0, v0, v1
+ 
+-    .line 10
+     .line 11
+     const/4 v1, 0x1
+ 
+     .line 12
+     if-eq v0, v1, :cond_1
+ 
+-    .line 13
+     .line 14
+     const/4 v1, 0x2
+ 
+     .line 15
+     if-eq v0, v1, :cond_1
+ 
+-    .line 16
+     .line 17
+     const/4 v1, 0x3
+ 
+     .line 18
+     if-eq v0, v1, :cond_0
+ 
+-    .line 19
+     .line 20
+     const/4 v1, 0x4
+ 
+     .line 21
+     if-eq v0, v1, :cond_0
+ 
+-    .line 22
+     .line 23
+     const/4 p0, 0x0
+ 
+@@ -1476,7 +1216,6 @@
+     :cond_0
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->messageClass:Ljava/lang/Class;
+ 
+-    .line 26
+     .line 27
+     return-object p0
+ 
+@@ -1484,16 +1223,12 @@
+     :cond_1
+     iget-object v0, p0, Lcom/google/protobuf/FieldInfo;->field:Ljava/lang/reflect/Field;
+ 
+-    .line 29
+     .line 30
+     if-eqz v0, :cond_2
+ 
+-    .line 31
+     .line 32
+     invoke-virtual {v0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result-object p0
+ 
+@@ -1504,7 +1239,6 @@
+     :cond_2
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->oneofStoredType:Ljava/lang/Class;
+ 
+-    .line 38
+     .line 39
+     return-object p0
+ .end method
+@@ -1515,7 +1249,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->oneof:Lcom/google/protobuf/OneofInfo;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1533,7 +1266,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->oneofStoredType:Ljava/lang/Class;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1544,7 +1276,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->presenceField:Ljava/lang/reflect/Field;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1555,7 +1286,6 @@
+     .line 1
+     iget p0, p0, Lcom/google/protobuf/FieldInfo;->presenceMask:I
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1566,7 +1296,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/protobuf/FieldInfo;->type:Lcom/google/protobuf/FieldType;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1577,7 +1306,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/google/protobuf/FieldInfo;->enforceUtf8:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1588,7 +1316,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/google/protobuf/FieldInfo;->required:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method

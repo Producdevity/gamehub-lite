@@ -1,0 +1,354 @@
+--- a/smali_classes4/androidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic.smali
++++ b/smali_classes4/androidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic.smali
+@@ -130,27 +130,21 @@
+     .line 1
+     move-object/from16 v0, p0
+ 
+-    .line 2
+     .line 3
+     iget-object v1, v0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->samples:Ljava/util/ArrayDeque;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {v1}, Ljava/util/ArrayDeque;->isEmpty()Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v1
+ 
+     .line 9
+     if-eqz v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     const-wide/high16 v0, -0x8000000000000000L
+ 
+-    .line 12
+     .line 13
+     return-wide v0
+ 
+@@ -158,34 +152,27 @@
+     :cond_0
+     iget-wide v1, v0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->weightSum:D
+ 
+-    .line 15
+     .line 16
+     iget-wide v3, v0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->percentile:D
+ 
+-    .line 17
+     .line 18
+     mul-double/2addr v1, v3
+ 
+     .line 19
+     iget-object v0, v0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->sortedSamples:Ljava/util/TreeSet;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v0}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v0
+ 
+     .line 25
+     const-wide/16 v3, 0x0
+ 
+-    .line 26
+     .line 27
+     const-wide/16 v5, 0x0
+ 
+-    .line 28
+     .line 29
+     move-wide v9, v3
+ 
+@@ -196,39 +183,30 @@
+     :goto_0
+     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+ 
+-    .line 32
+-    .line 33
+     .line 34
+     move-result v11
+ 
+     .line 35
+     if-eqz v11, :cond_3
+ 
+-    .line 36
+     .line 37
+     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     move-result-object v11
+ 
+     .line 41
+     check-cast v11, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;
+ 
+-    .line 42
+     .line 43
+     invoke-static {v11}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;->access$000(Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;)D
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-wide v12
+ 
+     .line 47
+     const-wide/high16 v14, 0x4000000000000000L    # 2.0
+ 
+-    .line 48
+     .line 49
+     div-double/2addr v12, v14
+ 
+@@ -238,24 +216,18 @@
+     .line 51
+     cmpl-double v12, v5, v1
+ 
+-    .line 52
+     .line 53
+     if-ltz v12, :cond_2
+ 
+-    .line 54
+     .line 55
+     cmp-long v0, v9, v3
+ 
+-    .line 56
+     .line 57
+     if-nez v0, :cond_1
+ 
+-    .line 58
+     .line 59
+     invoke-static {v11}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;->access$100(Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;)J
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-wide v0
+ 
+@@ -266,8 +238,6 @@
+     :cond_1
+     invoke-static {v11}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;->access$100(Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;)J
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-wide v3
+ 
+@@ -302,16 +272,12 @@
+     :cond_2
+     invoke-static {v11}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;->access$100(Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;)J
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     move-result-wide v9
+ 
+     .line 81
+     invoke-static {v11}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;->access$000(Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;)D
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result-wide v7
+ 
+@@ -324,14 +290,12 @@
+     .line 87
+     move-wide/from16 v16, v7
+ 
+-    .line 88
+     .line 89
+     move-wide v7, v5
+ 
+     .line 90
+     move-wide/from16 v5, v16
+ 
+-    .line 91
+     .line 92
+     goto :goto_0
+ 
+@@ -349,57 +313,42 @@
+     :goto_0
+     iget-object v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->samples:Ljava/util/ArrayDeque;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->size()I
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result v0
+ 
+     .line 7
+     iget v1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->maxSampleCount:I
+ 
+-    .line 8
+     .line 9
+     if-lt v0, v1, :cond_0
+ 
+-    .line 10
+     .line 11
+     iget-object v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->samples:Ljava/util/ArrayDeque;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->remove()Ljava/lang/Object;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object v0
+ 
+     .line 17
+     check-cast v0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;
+ 
+-    .line 18
+     .line 19
+     iget-object v1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->sortedSamples:Ljava/util/TreeSet;
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {v1, v0}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     iget-wide v1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->weightSum:D
+ 
+-    .line 25
+     .line 26
+     invoke-static {v0}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;->access$000(Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;)D
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-wide v3
+ 
+@@ -409,7 +358,6 @@
+     .line 31
+     iput-wide v1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->weightSum:D
+ 
+-    .line 32
+     .line 33
+     goto :goto_0
+ 
+@@ -420,16 +368,12 @@
+     .line 35
+     invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
+ 
+-    .line 36
+-    .line 37
+     .line 38
+     move-result-wide v0
+ 
+     .line 39
+     const-wide/32 v2, 0x7a1200
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     mul-long/2addr p1, v2
+ 
+@@ -439,53 +383,39 @@
+     .line 44
+     new-instance p3, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p3, p1, p2, v0, v1}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic$Sample;-><init>(JD)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     iget-object p1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->samples:Ljava/util/ArrayDeque;
+ 
+-    .line 50
+     .line 51
+     invoke-virtual {p1, p3}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     iget-object p1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->sortedSamples:Ljava/util/TreeSet;
+ 
+-    .line 55
+     .line 56
+     invoke-virtual {p1, p3}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     iget-wide p1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->weightSum:D
+ 
+-    .line 60
+     .line 61
+     add-double/2addr p1, v0
+ 
+     .line 62
+     iput-wide p1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->weightSum:D
+ 
+-    .line 63
+     .line 64
+     invoke-direct {p0}, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->calculateBitrateEstimate()J
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result-wide p1
+ 
+     .line 68
+     iput-wide p1, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->bitrateEstimate:J
+ 
+-    .line 69
+     .line 70
+     return-void
+ .end method
+@@ -496,7 +426,6 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->bitrateEstimate:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -507,37 +436,27 @@
+     .line 1
+     iget-object v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->samples:Ljava/util/ArrayDeque;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {v0}, Ljava/util/ArrayDeque;->clear()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->sortedSamples:Ljava/util/TreeSet;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0}, Ljava/util/TreeSet;->clear()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const-wide/16 v0, 0x0
+ 
+-    .line 12
+     .line 13
+     iput-wide v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->weightSum:D
+ 
+-    .line 14
+     .line 15
+     const-wide/high16 v0, -0x8000000000000000L
+ 
+-    .line 16
+     .line 17
+     iput-wide v0, p0, Landroidx/media3/exoplayer/upstream/experimental/SlidingPercentileBandwidthStatistic;->bitrateEstimate:J
+ 
+-    .line 18
+     .line 19
+     return-void
+ .end method

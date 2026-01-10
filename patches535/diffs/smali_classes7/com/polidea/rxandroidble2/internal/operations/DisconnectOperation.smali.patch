@@ -1,0 +1,340 @@
+--- a/smali_classes7/com/polidea/rxandroidble2/internal/operations/DisconnectOperation.smali
++++ b/smali_classes7/com/polidea/rxandroidble2/internal/operations/DisconnectOperation.smali
+@@ -42,36 +42,27 @@
+     .line 1
+     invoke-direct {p0}, Lcom/polidea/rxandroidble2/internal/QueueOperation;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->a:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 5
+     .line 6
+     iput-object p2, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->b:Lcom/polidea/rxandroidble2/internal/connection/BluetoothGattProvider;
+ 
+-    .line 7
+     .line 8
+     iput-object p3, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->c:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     iput-object p4, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->d:Landroid/bluetooth/BluetoothManager;
+ 
+-    .line 11
+     .line 12
+     iput-object p5, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->e:Lio/reactivex/Scheduler;
+ 
+-    .line 13
+     .line 14
+     iput-object p6, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->f:Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;
+ 
+-    .line 15
+     .line 16
+     iput-object p7, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->g:Lcom/polidea/rxandroidble2/internal/connection/ConnectionStateChangeListener;
+ 
+-    .line 17
+     .line 18
+     return-void
+ .end method
+@@ -84,53 +75,39 @@
+     .line 1
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->g:Lcom/polidea/rxandroidble2/internal/connection/ConnectionStateChangeListener;
+ 
+-    .line 2
+     .line 3
+     sget-object v1, Lcom/polidea/rxandroidble2/RxBleConnection$RxBleConnectionState;->DISCONNECTING:Lcom/polidea/rxandroidble2/RxBleConnection$RxBleConnectionState;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {v0, v1}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionStateChangeListener;->a(Lcom/polidea/rxandroidble2/RxBleConnection$RxBleConnectionState;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     iget-object v0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->b:Lcom/polidea/rxandroidble2/internal/connection/BluetoothGattProvider;
+ 
+-    .line 9
+     .line 10
+     invoke-virtual {v0}, Lcom/polidea/rxandroidble2/internal/connection/BluetoothGattProvider;->a()Landroid/bluetooth/BluetoothGatt;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object v0
+ 
+     .line 14
+     if-nez v0, :cond_0
+ 
+-    .line 15
+     .line 16
+     const/4 v0, 0x0
+ 
+     .line 17
+     new-array v0, v0, [Ljava/lang/Object;
+ 
+-    .line 18
+     .line 19
+     const-string v1, "Disconnect operation has been executed but GATT instance was null - considering disconnected."
+ 
+-    .line 20
+     .line 21
+     invoke-static {v1, v0}, Lcom/polidea/rxandroidble2/internal/RxBleLog;->p(Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     invoke-virtual {p0, p1, p2}, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->f(Lio/reactivex/Emitter;Lcom/polidea/rxandroidble2/internal/serialization/QueueReleaseInterface;)V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     return-void
+ 
+@@ -138,37 +115,27 @@
+     :cond_0
+     invoke-virtual {p0, v0}, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->h(Landroid/bluetooth/BluetoothGatt;)Lio/reactivex/Single;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v0
+ 
+     .line 32
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->e:Lio/reactivex/Scheduler;
+ 
+-    .line 33
+     .line 34
+     invoke-virtual {v0, v1}, Lio/reactivex/Single;->z(Lio/reactivex/Scheduler;)Lio/reactivex/Single;
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     move-result-object v0
+ 
+     .line 38
+     new-instance v1, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation$1;
+ 
+-    .line 39
+     .line 40
+     invoke-direct {v1, p0, p1, p2}, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation$1;-><init>(Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;Lio/reactivex/ObservableEmitter;Lcom/polidea/rxandroidble2/internal/serialization/QueueReleaseInterface;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     invoke-virtual {v0, v1}, Lio/reactivex/Single;->a(Lio/reactivex/SingleObserver;)V
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     return-void
+ .end method
+@@ -179,19 +146,15 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/exceptions/BleDisconnectedException;
+ 
+-    .line 2
+     .line 3
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->c:Ljava/lang/String;
+ 
+-    .line 4
+     .line 5
+     const/4 v1, -0x1
+ 
+     .line 6
+     invoke-direct {v0, p1, p0, v1}, Lcom/polidea/rxandroidble2/exceptions/BleDisconnectedException;-><init>(Ljava/lang/Throwable;Ljava/lang/String;I)V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     return-object v0
+ .end method
+@@ -202,26 +165,18 @@
+     .line 1
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->g:Lcom/polidea/rxandroidble2/internal/connection/ConnectionStateChangeListener;
+ 
+-    .line 2
+     .line 3
+     sget-object v0, Lcom/polidea/rxandroidble2/RxBleConnection$RxBleConnectionState;->DISCONNECTED:Lcom/polidea/rxandroidble2/RxBleConnection$RxBleConnectionState;
+ 
+-    .line 4
+     .line 5
+     invoke-interface {p0, v0}, Lcom/polidea/rxandroidble2/internal/connection/ConnectionStateChangeListener;->a(Lcom/polidea/rxandroidble2/RxBleConnection$RxBleConnectionState;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-interface {p2}, Lcom/polidea/rxandroidble2/internal/serialization/QueueReleaseInterface;->release()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     invoke-interface {p1}, Lio/reactivex/Emitter;->onComplete()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     return-void
+ .end method
+@@ -232,49 +187,36 @@
+     .line 1
+     new-instance v0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation$DisconnectGattObservable;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->a:Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;
+ 
+-    .line 4
+     .line 5
+     iget-object v2, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->e:Lio/reactivex/Scheduler;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0, p1, v1, v2}, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation$DisconnectGattObservable;-><init>(Landroid/bluetooth/BluetoothGatt;Lcom/polidea/rxandroidble2/internal/connection/RxBleGattCallback;Lio/reactivex/Scheduler;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->f:Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;
+ 
+-    .line 11
+     .line 12
+     iget-wide v1, p0, Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;->a:J
+ 
+-    .line 13
+     .line 14
+     iget-object v3, p0, Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;->b:Ljava/util/concurrent/TimeUnit;
+ 
+-    .line 15
+     .line 16
+     iget-object v4, p0, Lcom/polidea/rxandroidble2/internal/operations/TimeoutConfiguration;->c:Lio/reactivex/Scheduler;
+ 
+-    .line 17
+     .line 18
+     invoke-static {p1}, Lio/reactivex/Single;->u(Ljava/lang/Object;)Lio/reactivex/Single;
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result-object v5
+ 
+     .line 22
+     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Single;->F(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Lio/reactivex/SingleSource;)Lio/reactivex/Single;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object p0
+ 
+@@ -288,20 +230,15 @@
+     .line 1
+     invoke-virtual {p0, p1}, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->i(Landroid/bluetooth/BluetoothGatt;)Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     if-eqz v0, :cond_0
+ 
+-    .line 6
+     .line 7
+     invoke-static {p1}, Lio/reactivex/Single;->u(Ljava/lang/Object;)Lio/reactivex/Single;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -312,8 +249,6 @@
+     :cond_0
+     invoke-virtual {p0, p1}, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->g(Landroid/bluetooth/BluetoothGatt;)Lio/reactivex/Single;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -327,12 +262,9 @@
+     .line 1
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->d:Landroid/bluetooth/BluetoothManager;
+ 
+-    .line 2
+     .line 3
+     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGatt;->getDevice()Landroid/bluetooth/BluetoothDevice;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p1
+ 
+@@ -342,15 +274,12 @@
+     .line 8
+     invoke-virtual {p0, p1, v0}, Landroid/bluetooth/BluetoothManager;->getConnectionState(Landroid/bluetooth/BluetoothDevice;I)I
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result p0
+ 
+     .line 12
+     if-nez p0, :cond_0
+ 
+-    .line 13
+     .line 14
+     const/4 p0, 0x1
+ 
+@@ -371,52 +300,36 @@
+     .line 1
+     new-instance v0, Ljava/lang/StringBuilder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     const-string v1, "DisconnectOperation{"
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object p0, p0, Lcom/polidea/rxandroidble2/internal/operations/DisconnectOperation;->c:Ljava/lang/String;
+ 
+-    .line 12
+     .line 13
+     invoke-static {p0}, Lcom/polidea/rxandroidble2/internal/logger/LoggerUtil;->d(Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result-object p0
+ 
+     .line 17
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     const/16 p0, 0x7d
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object p0
+ 

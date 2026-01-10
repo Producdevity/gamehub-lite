@@ -1,0 +1,209 @@
+--- a/smali_classes4/androidx/media3/exoplayer/mediacodec/SynchronousMediaCodecAdapter$Factory.smali
++++ b/smali_classes4/androidx/media3/exoplayer/mediacodec/SynchronousMediaCodecAdapter$Factory.smali
+@@ -24,8 +24,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -53,8 +51,6 @@
+     :try_start_0
+     invoke-virtual {p0, p1}, Landroidx/media3/exoplayer/mediacodec/SynchronousMediaCodecAdapter$Factory;->createCodec(Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;)Landroid/media/MediaCodec;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+     :try_end_0
+@@ -65,48 +61,36 @@
+     :try_start_1
+     const-string v1, "configureCodec"
+ 
+-    .line 7
+     .line 8
+     invoke-static {v1}, Landroidx/media3/common/util/TraceUtil;->beginSection(Ljava/lang/String;)V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     iget-object v1, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->surface:Landroid/view/Surface;
+ 
+-    .line 12
+     .line 13
+     if-nez v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     iget-object v2, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->codecInfo:Landroidx/media3/exoplayer/mediacodec/MediaCodecInfo;
+ 
+-    .line 16
+     .line 17
+     iget-boolean v2, v2, Landroidx/media3/exoplayer/mediacodec/MediaCodecInfo;->detachedSurfaceSupported:Z
+ 
+-    .line 18
+     .line 19
+     if-eqz v2, :cond_0
+ 
+-    .line 20
+     .line 21
+     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+ 
+-    .line 22
+     .line 23
+     const/16 v3, 0x23
+ 
+-    .line 24
+     .line 25
+     if-lt v2, v3, :cond_0
+ 
+-    .line 26
+     .line 27
+     const/16 v2, 0x8
+ 
+-    .line 28
+     .line 29
+     goto :goto_0
+ 
+@@ -128,56 +112,39 @@
+     :goto_0
+     iget-object v3, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->mediaFormat:Landroid/media/MediaFormat;
+ 
+-    .line 35
+     .line 36
+     iget-object v4, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->crypto:Landroid/media/MediaCrypto;
+ 
+-    .line 37
+     .line 38
+     invoke-virtual {p0, v3, v1, v4, v2}, Landroid/media/MediaCodec;->configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     invoke-static {}, Landroidx/media3/common/util/TraceUtil;->endSection()V
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     const-string v1, "startCodec"
+ 
+-    .line 45
+     .line 46
+     invoke-static {v1}, Landroidx/media3/common/util/TraceUtil;->beginSection(Ljava/lang/String;)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-virtual {p0}, Landroid/media/MediaCodec;->start()V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-static {}, Landroidx/media3/common/util/TraceUtil;->endSection()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     new-instance v1, Landroidx/media3/exoplayer/mediacodec/SynchronousMediaCodecAdapter;
+ 
+-    .line 56
+     .line 57
+     iget-object p1, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->loudnessCodecController:Landroidx/media3/exoplayer/mediacodec/LoudnessCodecController;
+ 
+-    .line 58
+     .line 59
+     invoke-direct {v1, p0, p1, v0}, Landroidx/media3/exoplayer/mediacodec/SynchronousMediaCodecAdapter;-><init>(Landroid/media/MediaCodec;Landroidx/media3/exoplayer/mediacodec/LoudnessCodecController;Landroidx/media3/exoplayer/mediacodec/SynchronousMediaCodecAdapter$1;)V
+     :try_end_1
+     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     return-object v1
+ 
+@@ -189,12 +156,9 @@
+     :goto_1
+     if-eqz v0, :cond_1
+ 
+-    .line 65
+     .line 66
+     invoke-virtual {v0}, Landroid/media/MediaCodec;->release()V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     :cond_1
+     throw p1
+@@ -211,69 +175,48 @@
+     .line 1
+     iget-object p0, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->codecInfo:Landroidx/media3/exoplayer/mediacodec/MediaCodecInfo;
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Landroidx/media3/common/util/Assertions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     iget-object p0, p1, Landroidx/media3/exoplayer/mediacodec/MediaCodecAdapter$Configuration;->codecInfo:Landroidx/media3/exoplayer/mediacodec/MediaCodecInfo;
+ 
+-    .line 7
+     .line 8
+     iget-object p0, p0, Landroidx/media3/exoplayer/mediacodec/MediaCodecInfo;->name:Ljava/lang/String;
+ 
+-    .line 9
+     .line 10
+     new-instance p1, Ljava/lang/StringBuilder;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const-string v0, "createCodec:"
+ 
+-    .line 16
+     .line 17
+     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p1
+ 
+     .line 27
+     invoke-static {p1}, Landroidx/media3/common/util/TraceUtil;->beginSection(Ljava/lang/String;)V
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     invoke-static {p0}, Landroid/media/MediaCodec;->createByCodecName(Ljava/lang/String;)Landroid/media/MediaCodec;
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result-object p0
+ 
+     .line 34
+     invoke-static {}, Landroidx/media3/common/util/TraceUtil;->endSection()V
+ 
+-    .line 35
+-    .line 36
+     .line 37
+     return-object p0
+ .end method

@@ -1,0 +1,539 @@
+--- a/smali_classes6/com/google/common/collect/ImmutableSortedSet.smali
++++ b/smali_classes6/com/google/common/collect/ImmutableSortedSet.smali
+@@ -85,12 +85,9 @@
+     .line 1
+     invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     iput-object p1, p0, Lcom/google/common/collect/ImmutableSortedSet;->comparator:Ljava/util/Comparator;
+ 
+-    .line 5
+     .line 6
+     return-void
+ .end method
+@@ -117,12 +114,9 @@
+     .line 1
+     new-instance v0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -149,12 +143,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -176,12 +167,9 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {p0}, Lcom/google/common/collect/ImmutableSortedSet;->emptySet(Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableSortedSet;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -192,16 +180,12 @@
+     :cond_0
+     invoke-static {p2, p1}, Lcom/google/common/collect/ObjectArrays;->checkElementsNotNull([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/4 v0, 0x0
+ 
+     .line 12
+     invoke-static {p2, v0, p1, p0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;IILjava/util/Comparator;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const/4 v0, 0x1
+ 
+@@ -212,39 +196,30 @@
+     :goto_0
+     if-ge v0, p1, :cond_2
+ 
+-    .line 18
+     .line 19
+     aget-object v2, p2, v0
+ 
+-    .line 20
+     .line 21
+     add-int/lit8 v3, v1, -0x1
+ 
+-    .line 22
+     .line 23
+     aget-object v3, p2, v3
+ 
+-    .line 24
+     .line 25
+     invoke-interface {p0, v2, v3}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result v3
+ 
+     .line 29
+     if-eqz v3, :cond_1
+ 
+-    .line 30
+     .line 31
+     add-int/lit8 v3, v1, 0x1
+ 
+-    .line 32
+     .line 33
+     aput-object v2, p2, v1
+ 
+-    .line 34
+     .line 35
+     move v1, v3
+ 
+@@ -252,7 +227,6 @@
+     :cond_1
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 37
+     .line 38
+     goto :goto_0
+ 
+@@ -263,24 +237,18 @@
+     .line 40
+     invoke-static {p2, v1, p1, v0}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     array-length p1, p2
+ 
+     .line 44
+     div-int/lit8 p1, p1, 0x2
+ 
+-    .line 45
+     .line 46
+     if-ge v1, p1, :cond_3
+ 
+-    .line 47
+     .line 48
+     invoke-static {p2, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result-object p2
+ 
+@@ -288,20 +256,15 @@
+     :cond_3
+     new-instance p1, Lcom/google/common/collect/RegularImmutableSortedSet;
+ 
+-    .line 53
+     .line 54
+     invoke-static {p2, v1}, Lcom/google/common/collect/ImmutableList;->asImmutableList([Ljava/lang/Object;I)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     move-result-object p2
+ 
+     .line 58
+     invoke-direct {p1, p2, p0}, Lcom/google/common/collect/RegularImmutableSortedSet;-><init>(Lcom/google/common/collect/ImmutableList;Ljava/util/Comparator;)V
+ 
+-    .line 59
+-    .line 60
+     .line 61
+     return-object p1
+ .end method
+@@ -580,36 +543,27 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/common/collect/SortedIterables;->comparator(Ljava/util/SortedSet;)Ljava/util/Comparator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-static {p0}, Lcom/google/common/collect/ImmutableList;->copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     invoke-virtual {p0}, Ljava/util/AbstractCollection;->isEmpty()Z
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result v1
+ 
+     .line 13
+     if-eqz v1, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-static {v0}, Lcom/google/common/collect/ImmutableSortedSet;->emptySet(Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableSortedSet;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object p0
+ 
+@@ -620,12 +574,9 @@
+     :cond_0
+     new-instance v1, Lcom/google/common/collect/RegularImmutableSortedSet;
+ 
+-    .line 21
+     .line 22
+     invoke-direct {v1, p0, v0}, Lcom/google/common/collect/RegularImmutableSortedSet;-><init>(Lcom/google/common/collect/ImmutableList;Ljava/util/Comparator;)V
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     return-object v1
+ .end method
+@@ -647,27 +598,21 @@
+     .line 1
+     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object v0
+ 
+     .line 5
+     invoke-virtual {v0, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     if-eqz v0, :cond_0
+ 
+-    .line 10
+     .line 11
+     sget-object p0, Lcom/google/common/collect/RegularImmutableSortedSet;->NATURAL_EMPTY_SET:Lcom/google/common/collect/RegularImmutableSortedSet;
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ 
+@@ -675,20 +620,15 @@
+     :cond_0
+     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedSet;
+ 
+-    .line 15
+     .line 16
+     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v1
+ 
+     .line 20
+     invoke-direct {v0, v1, p0}, Lcom/google/common/collect/RegularImmutableSortedSet;-><init>(Lcom/google/common/collect/ImmutableList;Ljava/util/Comparator;)V
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     return-object v0
+ .end method
+@@ -708,20 +648,15 @@
+     .line 1
+     new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$Builder;
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedSet$Builder;-><init>(Ljava/util/Comparator;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-object v0
+ .end method
+@@ -1187,12 +1122,9 @@
+     .line 1
+     new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$Builder;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedSet$Builder;-><init>(Ljava/util/Comparator;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-object v0
+ .end method
+@@ -1211,16 +1143,12 @@
+     .line 1
+     new-instance p0, Ljava/io/InvalidObjectException;
+ 
+-    .line 2
+     .line 3
+     const-string p1, "Use SerializedForm"
+ 
+-    .line 4
+     .line 5
+     invoke-direct {p0, p1}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     throw p0
+ .end method
+@@ -1240,20 +1168,15 @@
+     .line 1
+     new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$Builder;
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Ljava/util/Collections;->reverseOrder()Ljava/util/Comparator;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object v1
+ 
+     .line 7
+     invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedSet$Builder;-><init>(Ljava/util/Comparator;)V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     return-object v0
+ .end method
+@@ -1285,12 +1208,9 @@
+     .line 1
+     new-instance v0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw v0
+ .end method
+@@ -1317,8 +1237,6 @@
+     .line 1
+     invoke-static {p0}, Lcom/google/common/collect/CollectCollectors;->toImmutableSortedSet(Ljava/util/Comparator;)Ljava/util/stream/Collector;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+@@ -1370,8 +1288,6 @@
+     .line 2
+     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ImmutableSortedSet;->tailSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+@@ -1381,8 +1297,6 @@
+     .line 7
+     invoke-static {p0, p1}, Lcom/google/common/collect/Iterables;->getFirst(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -1403,7 +1317,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/google/common/collect/ImmutableSortedSet;->comparator:Ljava/util/Comparator;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1503,16 +1416,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -1537,16 +1446,12 @@
+     .line 2
+     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ImmutableSortedSet;->headSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+     .line 6
+     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -1556,8 +1461,6 @@
+     .line 11
+     invoke-static {p0, p1}, Lcom/google/common/collect/Iterators;->getNext(Ljava/util/Iterator;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+@@ -1659,8 +1562,6 @@
+     .line 2
+     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ImmutableSortedSet;->tailSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+@@ -1670,8 +1571,6 @@
+     .line 7
+     invoke-static {p0, p1}, Lcom/google/common/collect/Iterables;->getFirst(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+@@ -1718,16 +1617,12 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+@@ -1755,16 +1650,12 @@
+     .line 2
+     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ImmutableSortedSet;->headSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
+ 
+-    .line 3
+-    .line 4
+     .line 5
+     move-result-object p0
+ 
+     .line 6
+     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -1774,8 +1665,6 @@
+     .line 11
+     invoke-static {p0, p1}, Lcom/google/common/collect/Iterators;->getNext(Ljava/util/Iterator;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-object p0
+ 
+@@ -1810,12 +1699,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -1847,12 +1733,9 @@
+     .line 1
+     new-instance p0, Ljava/lang/UnsupportedOperationException;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     throw p0
+ .end method
+@@ -2058,24 +1941,18 @@
+     .line 1
+     new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;
+ 
+-    .line 2
+     .line 3
+     iget-object v1, p0, Lcom/google/common/collect/ImmutableSortedSet;->comparator:Ljava/util/Comparator;
+ 
+-    .line 4
+     .line 5
+     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->toArray()[Ljava/lang/Object;
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result-object p0
+ 
+     .line 9
+     invoke-direct {v0, v1, p0}, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;-><init>(Ljava/util/Comparator;[Ljava/lang/Object;)V
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     return-object v0
+ .end method

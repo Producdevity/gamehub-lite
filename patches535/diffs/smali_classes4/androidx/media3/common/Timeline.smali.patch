@@ -1,0 +1,1372 @@
+--- a/smali_classes4/androidx/media3/common/Timeline.smali
++++ b/smali_classes4/androidx/media3/common/Timeline.smali
+@@ -30,61 +30,48 @@
+     .line 1
+     new-instance v0, Landroidx/media3/common/Timeline$1;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/common/Timeline$1;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sput-object v0, Landroidx/media3/common/Timeline;->EMPTY:Landroidx/media3/common/Timeline;
+ 
+-    .line 7
+     .line 8
+     const/4 v0, 0x0
+ 
+     .line 9
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->intToStringMaxRadix(I)Ljava/lang/String;
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result-object v0
+ 
+     .line 13
+     sput-object v0, Landroidx/media3/common/Timeline;->FIELD_WINDOWS:Ljava/lang/String;
+ 
+-    .line 14
+     .line 15
+     const/4 v0, 0x1
+ 
+     .line 16
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->intToStringMaxRadix(I)Ljava/lang/String;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object v0
+ 
+     .line 20
+     sput-object v0, Landroidx/media3/common/Timeline;->FIELD_PERIODS:Ljava/lang/String;
+ 
+-    .line 21
+     .line 22
+     const/4 v0, 0x2
+ 
+     .line 23
+     invoke-static {v0}, Landroidx/media3/common/util/Util;->intToStringMaxRadix(I)Ljava/lang/String;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v0
+ 
+     .line 27
+     sput-object v0, Landroidx/media3/common/Timeline;->FIELD_SHUFFLED_WINDOW_INDICES:Ljava/lang/String;
+ 
+-    .line 28
+     .line 29
+     return-void
+ .end method
+@@ -97,8 +84,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -111,94 +96,69 @@
+     .line 1
+     new-instance v0, Landroidx/media3/common/h2;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/common/h2;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     sget-object v1, Landroidx/media3/common/Timeline;->FIELD_WINDOWS:Ljava/lang/String;
+ 
+-    .line 7
+     .line 8
+     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v1
+ 
+     .line 12
+     invoke-static {v0, v1}, Landroidx/media3/common/Timeline;->fromBundleListRetriever(Lcom/google/common/base/Function;Landroid/os/IBinder;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object v0
+ 
+     .line 16
+     new-instance v1, Landroidx/media3/common/i2;
+ 
+-    .line 17
+     .line 18
+     invoke-direct {v1}, Landroidx/media3/common/i2;-><init>()V
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     sget-object v2, Landroidx/media3/common/Timeline;->FIELD_PERIODS:Ljava/lang/String;
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p0, v2}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v2
+ 
+     .line 27
+     invoke-static {v1, v2}, Landroidx/media3/common/Timeline;->fromBundleListRetriever(Lcom/google/common/base/Function;Landroid/os/IBinder;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result-object v1
+ 
+     .line 31
+     sget-object v2, Landroidx/media3/common/Timeline;->FIELD_SHUFFLED_WINDOW_INDICES:Ljava/lang/String;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p0, v2}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object p0
+ 
+     .line 37
+     new-instance v2, Landroidx/media3/common/Timeline$RemotableTimeline;
+ 
+-    .line 38
+     .line 39
+     if-nez p0, :cond_0
+ 
+-    .line 40
+     .line 41
+     invoke-virtual {v0}, Ljava/util/AbstractCollection;->size()I
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result p0
+ 
+     .line 45
+     invoke-static {p0}, Landroidx/media3/common/Timeline;->generateUnshuffledIndices(I)[I
+ 
+-    .line 46
+-    .line 47
+     .line 48
+     move-result-object p0
+ 
+@@ -206,8 +166,6 @@
+     :cond_0
+     invoke-direct {v2, v0, v1, p0}, Landroidx/media3/common/Timeline$RemotableTimeline;-><init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableList;[I)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     return-object v2
+ .end method
+@@ -236,12 +194,9 @@
+     .line 1
+     if-nez p1, :cond_0
+ 
+-    .line 2
+     .line 3
+     invoke-static {}, Lcom/google/common/collect/ImmutableList;->of()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-object p0
+ 
+@@ -252,16 +207,12 @@
+     :cond_0
+     invoke-static {p1}, Landroidx/media3/common/BundleListRetriever;->getList(Landroid/os/IBinder;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object p1
+ 
+     .line 12
+     invoke-static {p0, p1}, Landroidx/media3/common/util/BundleCollectionUtil;->fromBundleList(Lcom/google/common/base/Function;Ljava/util/List;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     move-result-object p0
+ 
+@@ -275,7 +226,6 @@
+     .line 1
+     new-array v0, p0, [I
+ 
+-    .line 2
+     .line 3
+     const/4 v1, 0x0
+ 
+@@ -283,15 +233,12 @@
+     :goto_0
+     if-ge v1, p0, :cond_0
+ 
+-    .line 5
+     .line 6
+     aput v1, v0, v1
+ 
+-    .line 7
+     .line 8
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 9
+     .line 10
+     goto :goto_0
+ 
+@@ -310,8 +257,6 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+@@ -321,7 +266,6 @@
+     .line 6
+     if-ne v0, v1, :cond_0
+ 
+-    .line 7
+     .line 8
+     return-object p0
+ 
+@@ -329,78 +273,58 @@
+     :cond_0
+     new-instance v0, Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 10
+     .line 11
+     invoke-direct {v0}, Landroidx/media3/common/Timeline$Window;-><init>()V
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     const-wide/16 v2, 0x0
+ 
+-    .line 15
+     .line 16
+     invoke-virtual {p0, p1, v0, v2, v3}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;J)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-object v0
+ 
+     .line 24
+     iget v2, p1, Landroidx/media3/common/Timeline$Window;->firstPeriodIndex:I
+ 
+-    .line 25
+     .line 26
+     :goto_0
+     iget v3, p1, Landroidx/media3/common/Timeline$Window;->lastPeriodIndex:I
+ 
+-    .line 27
+     .line 28
+     const/4 v4, 0x0
+ 
+     .line 29
+     if-gt v2, v3, :cond_1
+ 
+-    .line 30
+     .line 31
+     new-instance v3, Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 32
+     .line 33
+     invoke-direct {v3}, Landroidx/media3/common/Timeline$Period;-><init>()V
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     invoke-virtual {p0, v2, v3, v1}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;Z)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 37
+-    .line 38
+     .line 39
+     move-result-object v3
+ 
+     .line 40
+     iput v4, v3, Landroidx/media3/common/Timeline$Period;->windowIndex:I
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     add-int/lit8 v2, v2, 0x1
+ 
+-    .line 46
+     .line 47
+     goto :goto_0
+ 
+@@ -408,51 +332,39 @@
+     :cond_1
+     iget p0, p1, Landroidx/media3/common/Timeline$Window;->firstPeriodIndex:I
+ 
+-    .line 49
+     .line 50
+     sub-int/2addr v3, p0
+ 
+     .line 51
+     iput v3, p1, Landroidx/media3/common/Timeline$Window;->lastPeriodIndex:I
+ 
+-    .line 52
+     .line 53
+     iput v4, p1, Landroidx/media3/common/Timeline$Window;->firstPeriodIndex:I
+ 
+-    .line 54
+     .line 55
+     new-instance p0, Landroidx/media3/common/Timeline$RemotableTimeline;
+ 
+-    .line 56
+     .line 57
+     invoke-static {p1}, Lcom/google/common/collect/ImmutableList;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object p1
+ 
+     .line 61
+     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v0
+ 
+     .line 65
+     filled-new-array {v4}, [I
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     move-result-object v1
+ 
+     .line 69
+     invoke-direct {p0, p1, v0, v1}, Landroidx/media3/common/Timeline$RemotableTimeline;-><init>(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableList;[I)V
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     return-object p0
+ .end method
+@@ -470,7 +382,6 @@
+     .line 2
+     if-ne p0, p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return v0
+ 
+@@ -478,14 +389,12 @@
+     :cond_0
+     instance-of v1, p1, Landroidx/media3/common/Timeline;
+ 
+-    .line 6
+     .line 7
+     const/4 v2, 0x0
+ 
+     .line 8
+     if-nez v1, :cond_1
+ 
+-    .line 9
+     .line 10
+     return v2
+ 
+@@ -493,88 +402,64 @@
+     :cond_1
+     check-cast p1, Landroidx/media3/common/Timeline;
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p1}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v1
+ 
+     .line 17
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 18
+-    .line 19
+     .line 20
+     move-result v3
+ 
+     .line 21
+     if-ne v1, v3, :cond_b
+ 
+-    .line 22
+     .line 23
+     invoke-virtual {p1}, Landroidx/media3/common/Timeline;->getPeriodCount()I
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result v1
+ 
+     .line 27
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getPeriodCount()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v3
+ 
+     .line 31
+     if-eq v1, v3, :cond_2
+ 
+-    .line 32
+     .line 33
+     goto/16 :goto_3
+ 
+-    .line 34
+     .line 35
+     :cond_2
+     new-instance v1, Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {v1}, Landroidx/media3/common/Timeline$Window;-><init>()V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     new-instance v3, Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 41
+     .line 42
+     invoke-direct {v3}, Landroidx/media3/common/Timeline$Period;-><init>()V
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     new-instance v4, Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 46
+     .line 47
+     invoke-direct {v4}, Landroidx/media3/common/Timeline$Window;-><init>()V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     new-instance v5, Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 51
+     .line 52
+     invoke-direct {v5}, Landroidx/media3/common/Timeline$Period;-><init>()V
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move v6, v2
+ 
+@@ -582,43 +467,33 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result v7
+ 
+     .line 60
+     if-ge v6, v7, :cond_4
+ 
+-    .line 61
+     .line 62
+     invoke-virtual {p0, v6, v1}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 63
+-    .line 64
+     .line 65
+     move-result-object v7
+ 
+     .line 66
+     invoke-virtual {p1, v6, v4}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     move-result-object v8
+ 
+     .line 70
+     invoke-virtual {v7, v8}, Landroidx/media3/common/Timeline$Window;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 71
+-    .line 72
+     .line 73
+     move-result v7
+ 
+     .line 74
+     if-nez v7, :cond_3
+ 
+-    .line 75
+     .line 76
+     return v2
+ 
+@@ -626,7 +501,6 @@
+     :cond_3
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 78
+     .line 79
+     goto :goto_0
+ 
+@@ -638,43 +512,33 @@
+     :goto_1
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getPeriodCount()I
+ 
+-    .line 82
+-    .line 83
+     .line 84
+     move-result v4
+ 
+     .line 85
+     if-ge v1, v4, :cond_6
+ 
+-    .line 86
+     .line 87
+     invoke-virtual {p0, v1, v3, v0}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;Z)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     move-result-object v4
+ 
+     .line 91
+     invoke-virtual {p1, v1, v5, v0}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;Z)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 92
+-    .line 93
+     .line 94
+     move-result-object v6
+ 
+     .line 95
+     invoke-virtual {v4, v6}, Landroidx/media3/common/Timeline$Period;->equals(Ljava/lang/Object;)Z
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     move-result v4
+ 
+     .line 99
+     if-nez v4, :cond_5
+ 
+-    .line 100
+     .line 101
+     return v2
+ 
+@@ -682,7 +546,6 @@
+     :cond_5
+     add-int/lit8 v1, v1, 0x1
+ 
+-    .line 103
+     .line 104
+     goto :goto_1
+ 
+@@ -690,23 +553,18 @@
+     :cond_6
+     invoke-virtual {p0, v0}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result v1
+ 
+     .line 109
+     invoke-virtual {p1, v0}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v3
+ 
+     .line 113
+     if-eq v1, v3, :cond_7
+ 
+-    .line 114
+     .line 115
+     return v2
+ 
+@@ -714,23 +572,18 @@
+     :cond_7
+     invoke-virtual {p0, v0}, Landroidx/media3/common/Timeline;->getLastWindowIndex(Z)I
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     move-result v3
+ 
+     .line 120
+     invoke-virtual {p1, v0}, Landroidx/media3/common/Timeline;->getLastWindowIndex(Z)I
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     move-result v4
+ 
+     .line 124
+     if-eq v3, v4, :cond_8
+ 
+-    .line 125
+     .line 126
+     return v2
+ 
+@@ -739,27 +592,21 @@
+     :goto_2
+     if-eq v1, v3, :cond_a
+ 
+-    .line 128
+     .line 129
+     invoke-virtual {p0, v1, v2, v0}, Landroidx/media3/common/Timeline;->getNextWindowIndex(IIZ)I
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result v4
+ 
+     .line 133
+     invoke-virtual {p1, v1, v2, v0}, Landroidx/media3/common/Timeline;->getNextWindowIndex(IIZ)I
+ 
+-    .line 134
+-    .line 135
+     .line 136
+     move-result v1
+ 
+     .line 137
+     if-eq v4, v1, :cond_9
+ 
+-    .line 138
+     .line 139
+     return v2
+ 
+@@ -786,15 +633,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->isEmpty()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-eqz p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, -0x1
+ 
+@@ -818,15 +662,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->isEmpty()Z
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+     .line 5
+     if-eqz p1, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, -0x1
+ 
+@@ -837,15 +678,12 @@
+     :cond_0
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p0
+ 
+     .line 13
+     add-int/lit8 p0, p0, -0x1
+ 
+-    .line 14
+     .line 15
+     return p0
+ .end method
+@@ -856,36 +694,27 @@
+     .line 1
+     invoke-virtual {p0, p1, p2}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p2
+ 
+     .line 5
+     iget p2, p2, Landroidx/media3/common/Timeline$Period;->windowIndex:I
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, p2, p3}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object v0
+ 
+     .line 11
+     iget v0, v0, Landroidx/media3/common/Timeline$Window;->lastPeriodIndex:I
+ 
+-    .line 12
+     .line 13
+     if-ne v0, p1, :cond_1
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, p2, p4, p5}, Landroidx/media3/common/Timeline;->getNextWindowIndex(IIZ)I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p1
+ 
+@@ -895,7 +724,6 @@
+     .line 20
+     if-ne p1, p2, :cond_0
+ 
+-    .line 21
+     .line 22
+     return p2
+ 
+@@ -903,15 +731,12 @@
+     :cond_0
+     invoke-virtual {p0, p1, p3}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object p0
+ 
+     .line 27
+     iget p0, p0, Landroidx/media3/common/Timeline$Window;->firstPeriodIndex:I
+ 
+-    .line 28
+     .line 29
+     return p0
+ 
+@@ -919,7 +744,6 @@
+     :cond_1
+     add-int/lit8 p1, p1, 0x1
+ 
+-    .line 31
+     .line 32
+     return p1
+ .end method
+@@ -933,35 +757,27 @@
+     .line 2
+     if-eqz p2, :cond_3
+ 
+-    .line 3
+     .line 4
+     if-eq p2, v0, :cond_2
+ 
+-    .line 5
+     .line 6
+     const/4 v1, 0x2
+ 
+     .line 7
+     if-ne p2, v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, p3}, Landroidx/media3/common/Timeline;->getLastWindowIndex(Z)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p2
+ 
+     .line 13
+     if-ne p1, p2, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, p3}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+@@ -979,12 +795,9 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     throw p0
+ 
+@@ -996,15 +809,12 @@
+     :cond_3
+     invoke-virtual {p0, p3}, Landroidx/media3/common/Timeline;->getLastWindowIndex(Z)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p0
+ 
+     .line 33
+     if-ne p1, p0, :cond_4
+ 
+-    .line 34
+     .line 35
+     const/4 p0, -0x1
+ 
+@@ -1041,8 +851,6 @@
+     .line 1
+     invoke-virtual {p0, p1}, Landroidx/media3/common/Timeline;->getIndexOfPeriod(Ljava/lang/Object;)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p1
+ 
+@@ -1052,8 +860,6 @@
+     .line 6
+     invoke-virtual {p0, p1, p2, v0}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;Z)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object p0
+ 
+@@ -1322,35 +1128,27 @@
+     .line 2
+     if-eqz p2, :cond_3
+ 
+-    .line 3
+     .line 4
+     if-eq p2, v0, :cond_2
+ 
+-    .line 5
+     .line 6
+     const/4 v1, 0x2
+ 
+     .line 7
+     if-ne p2, v1, :cond_1
+ 
+-    .line 8
+     .line 9
+     invoke-virtual {p0, p3}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 10
+-    .line 11
+     .line 12
+     move-result p2
+ 
+     .line 13
+     if-ne p1, p2, :cond_0
+ 
+-    .line 14
+     .line 15
+     invoke-virtual {p0, p3}, Landroidx/media3/common/Timeline;->getLastWindowIndex(Z)I
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result p0
+ 
+@@ -1368,12 +1166,9 @@
+     :cond_1
+     new-instance p0, Ljava/lang/IllegalStateException;
+ 
+-    .line 23
+     .line 24
+     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     throw p0
+ 
+@@ -1385,15 +1180,12 @@
+     :cond_3
+     invoke-virtual {p0, p3}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result p0
+ 
+     .line 33
+     if-ne p1, p0, :cond_4
+ 
+-    .line 34
+     .line 35
+     const/4 p0, -0x1
+ 
+@@ -1436,30 +1228,21 @@
+     .line 1
+     new-instance v0, Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Landroidx/media3/common/Timeline$Window;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     new-instance v1, Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 7
+     .line 8
+     invoke-direct {v1}, Landroidx/media3/common/Timeline$Period;-><init>()V
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     const/16 v2, 0xd9
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     move-result v3
+ 
+@@ -1476,32 +1259,24 @@
+     :goto_0
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result v5
+ 
+     .line 24
+     if-ge v4, v5, :cond_0
+ 
+-    .line 25
+     .line 26
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 27
+     .line 28
+     invoke-virtual {p0, v4, v0}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     move-result-object v5
+ 
+     .line 32
+     invoke-virtual {v5}, Landroidx/media3/common/Timeline$Window;->hashCode()I
+ 
+-    .line 33
+-    .line 34
+     .line 35
+     move-result v5
+ 
+@@ -1511,7 +1286,6 @@
+     .line 37
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 38
+     .line 39
+     goto :goto_0
+ 
+@@ -1519,12 +1293,9 @@
+     :cond_0
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 41
+     .line 42
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getPeriodCount()I
+ 
+-    .line 43
+-    .line 44
+     .line 45
+     move-result v0
+ 
+@@ -1538,8 +1309,6 @@
+     :goto_1
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getPeriodCount()I
+ 
+-    .line 49
+-    .line 50
+     .line 51
+     move-result v4
+ 
+@@ -1549,24 +1318,18 @@
+     .line 53
+     if-ge v0, v4, :cond_1
+ 
+-    .line 54
+     .line 55
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 56
+     .line 57
+     invoke-virtual {p0, v0, v1, v5}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;Z)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v4
+ 
+     .line 61
+     invoke-virtual {v4}, Landroidx/media3/common/Timeline$Period;->hashCode()I
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v4
+ 
+@@ -1576,7 +1339,6 @@
+     .line 66
+     add-int/lit8 v0, v0, 0x1
+ 
+-    .line 67
+     .line 68
+     goto :goto_1
+ 
+@@ -1584,8 +1346,6 @@
+     :cond_1
+     invoke-virtual {p0, v5}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result v0
+ 
+@@ -1596,19 +1356,15 @@
+     .line 74
+     if-eq v0, v1, :cond_2
+ 
+-    .line 75
+     .line 76
+     mul-int/lit8 v2, v2, 0x1f
+ 
+-    .line 77
+     .line 78
+     add-int/2addr v2, v0
+ 
+     .line 79
+     invoke-virtual {p0, v0, v3, v5}, Landroidx/media3/common/Timeline;->getNextWindowIndex(IIZ)I
+ 
+-    .line 80
+-    .line 81
+     .line 82
+     move-result v0
+ 
+@@ -1626,15 +1382,12 @@
+     .line 1
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+     .line 5
+     if-nez p0, :cond_0
+ 
+-    .line 6
+     .line 7
+     const/4 p0, 0x1
+ 
+@@ -1655,8 +1408,6 @@
+     .line 1
+     invoke-virtual/range {p0 .. p5}, Landroidx/media3/common/Timeline;->getNextPeriodIndex(ILandroidx/media3/common/Timeline$Period;Landroidx/media3/common/Timeline$Window;IZ)I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result p0
+ 
+@@ -1666,7 +1417,6 @@
+     .line 6
+     if-ne p0, p1, :cond_0
+ 
+-    .line 7
+     .line 8
+     const/4 p0, 0x1
+ 
+@@ -1689,29 +1439,21 @@
+     .line 1
+     new-instance v0, Ljava/util/ArrayList;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getWindowCount()I
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result v1
+ 
+     .line 10
+     new-instance v2, Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 11
+     .line 12
+     invoke-direct {v2}, Landroidx/media3/common/Timeline$Window;-><init>()V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     const/4 v3, 0x0
+ 
+@@ -1722,36 +1464,27 @@
+     :goto_0
+     if-ge v4, v1, :cond_0
+ 
+-    .line 18
+     .line 19
+     const-wide/16 v5, 0x0
+ 
+-    .line 20
+     .line 21
+     invoke-virtual {p0, v4, v2, v5, v6}, Landroidx/media3/common/Timeline;->getWindow(ILandroidx/media3/common/Timeline$Window;J)Landroidx/media3/common/Timeline$Window;
+ 
+-    .line 22
+-    .line 23
+     .line 24
+     move-result-object v5
+ 
+     .line 25
+     invoke-virtual {v5}, Landroidx/media3/common/Timeline$Window;->toBundle()Landroid/os/Bundle;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v5
+ 
+     .line 29
+     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     add-int/lit8 v4, v4, 0x1
+ 
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -1759,29 +1492,21 @@
+     :cond_0
+     new-instance v2, Ljava/util/ArrayList;
+ 
+-    .line 36
+     .line 37
+     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+ 
+-    .line 38
+-    .line 39
+     .line 40
+     invoke-virtual {p0}, Landroidx/media3/common/Timeline;->getPeriodCount()I
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result v4
+ 
+     .line 44
+     new-instance v5, Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {v5}, Landroidx/media3/common/Timeline$Period;-><init>()V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     move v6, v3
+ 
+@@ -1789,32 +1514,24 @@
+     :goto_1
+     if-ge v6, v4, :cond_1
+ 
+-    .line 51
+     .line 52
+     invoke-virtual {p0, v6, v5, v3}, Landroidx/media3/common/Timeline;->getPeriod(ILandroidx/media3/common/Timeline$Period;Z)Landroidx/media3/common/Timeline$Period;
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-object v7
+ 
+     .line 56
+     invoke-virtual {v7}, Landroidx/media3/common/Timeline$Period;->toBundle()Landroid/os/Bundle;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object v7
+ 
+     .line 60
+     invoke-interface {v2, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+ 
+-    .line 61
+-    .line 62
+     .line 63
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 64
+     .line 65
+     goto :goto_1
+ 
+@@ -1822,26 +1539,21 @@
+     :cond_1
+     new-array v4, v1, [I
+ 
+-    .line 67
+     .line 68
+     const/4 v5, 0x1
+ 
+     .line 69
+     if-lez v1, :cond_2
+ 
+-    .line 70
+     .line 71
+     invoke-virtual {p0, v5}, Landroidx/media3/common/Timeline;->getFirstWindowIndex(Z)I
+ 
+-    .line 72
+-    .line 73
+     .line 74
+     move-result v6
+ 
+     .line 75
+     aput v6, v4, v3
+ 
+-    .line 76
+     .line 77
+     :cond_2
+     move v6, v5
+@@ -1850,31 +1562,24 @@
+     :goto_2
+     if-ge v6, v1, :cond_3
+ 
+-    .line 79
+     .line 80
+     add-int/lit8 v7, v6, -0x1
+ 
+-    .line 81
+     .line 82
+     aget v7, v4, v7
+ 
+-    .line 83
+     .line 84
+     invoke-virtual {p0, v7, v3, v5}, Landroidx/media3/common/Timeline;->getNextWindowIndex(IIZ)I
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     move-result v7
+ 
+     .line 88
+     aput v7, v4, v6
+ 
+-    .line 89
+     .line 90
+     add-int/lit8 v6, v6, 0x1
+ 
+-    .line 91
+     .line 92
+     goto :goto_2
+ 
+@@ -1882,57 +1587,39 @@
+     :cond_3
+     new-instance p0, Landroid/os/Bundle;
+ 
+-    .line 94
+     .line 95
+     invoke-direct {p0}, Landroid/os/Bundle;-><init>()V
+ 
+-    .line 96
+-    .line 97
+     .line 98
+     sget-object v1, Landroidx/media3/common/Timeline;->FIELD_WINDOWS:Ljava/lang/String;
+ 
+-    .line 99
+     .line 100
+     new-instance v3, Landroidx/media3/common/BundleListRetriever;
+ 
+-    .line 101
+     .line 102
+     invoke-direct {v3, v0}, Landroidx/media3/common/BundleListRetriever;-><init>(Ljava/util/List;)V
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     invoke-virtual {p0, v1, v3}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     sget-object v0, Landroidx/media3/common/Timeline;->FIELD_PERIODS:Ljava/lang/String;
+ 
+-    .line 109
+     .line 110
+     new-instance v1, Landroidx/media3/common/BundleListRetriever;
+ 
+-    .line 111
+     .line 112
+     invoke-direct {v1, v2}, Landroidx/media3/common/BundleListRetriever;-><init>(Ljava/util/List;)V
+ 
+-    .line 113
+-    .line 114
+     .line 115
+     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     sget-object v0, Landroidx/media3/common/Timeline;->FIELD_SHUFFLED_WINDOW_INDICES:Ljava/lang/String;
+ 
+-    .line 119
+     .line 120
+     invoke-virtual {p0, v0, v4}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+ 
+-    .line 121
+-    .line 122
+     .line 123
+     return-object p0
+ .end method

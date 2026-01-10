@@ -1,0 +1,247 @@
+--- a/smali_classes6/com/jieli/jl_bt_ota/model/cmdHandler/SettingsMtuCmdHandler.smali
++++ b/smali_classes6/com/jieli/jl_bt_ota/model/cmdHandler/SettingsMtuCmdHandler.smali
+@@ -13,8 +13,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -30,7 +28,6 @@
+     .line 2
+     if-nez p1, :cond_0
+ 
+-    .line 3
+     .line 4
+     return-object p0
+ 
+@@ -38,19 +35,15 @@
+     :cond_0
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->b()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result v0
+ 
+     .line 9
+     const/16 v1, 0xd1
+ 
+-    .line 10
+     .line 11
+     if-eq v0, v1, :cond_1
+ 
+-    .line 12
+     .line 13
+     return-object p0
+ 
+@@ -58,16 +51,12 @@
+     :cond_1
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->d()[B
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result-object p0
+ 
+     .line 18
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->g()I
+ 
+-    .line 19
+-    .line 20
+     .line 21
+     move-result v0
+ 
+@@ -80,38 +69,30 @@
+     .line 24
+     const/16 v3, 0x212
+ 
+-    .line 25
+     .line 26
+     const/4 v4, 0x1
+ 
+     .line 27
+     if-ne v0, v4, :cond_3
+ 
+-    .line 28
+     .line 29
+     if-eqz p0, :cond_2
+ 
+-    .line 30
+     .line 31
+     array-length p2, p0
+ 
+     .line 32
+     if-lt p2, v2, :cond_2
+ 
+-    .line 33
+     .line 34
+     aget-byte p2, p0, v1
+ 
+-    .line 35
+     .line 36
+     aget-byte p0, p0, v4
+ 
+-    .line 37
+     .line 38
+     invoke-static {p2, p0}, Lcom/jieli/jl_bt_ota/util/CHexConver;->e(BB)I
+ 
+-    .line 39
+-    .line 40
+     .line 41
+     move-result v3
+ 
+@@ -119,34 +100,24 @@
+     :cond_2
+     new-instance p0, Lcom/jieli/jl_bt_ota/model/command/SettingsMtuCmd;
+ 
+-    .line 43
+     .line 44
+     new-instance p2, Lcom/jieli/jl_bt_ota/model/parameter/SettingsMtuParam;
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p2, v3}, Lcom/jieli/jl_bt_ota/model/parameter/SettingsMtuParam;-><init>(I)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     invoke-direct {p0, p2}, Lcom/jieli/jl_bt_ota/model/command/SettingsMtuCmd;-><init>(Lcom/jieli/jl_bt_ota/model/parameter/SettingsMtuParam;)V
+ 
+-    .line 50
+-    .line 51
+     .line 52
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->c()I
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result p1
+ 
+     .line 56
+     invoke-virtual {p0, p1}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->g(I)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 57
+-    .line 58
+     .line 59
+     move-result-object p0
+ 
+@@ -157,62 +128,46 @@
+     :cond_3
+     new-instance v0, Lcom/jieli/jl_bt_ota/model/response/SettingsMtuResponse;
+ 
+-    .line 62
+     .line 63
+     invoke-direct {v0, v3}, Lcom/jieli/jl_bt_ota/model/response/SettingsMtuResponse;-><init>(I)V
+ 
+-    .line 64
+-    .line 65
+     .line 66
+     invoke-virtual {v0, p0}, Lcom/jieli/jl_bt_ota/model/base/BaseResponse;->b([B)V
+ 
+-    .line 67
+-    .line 68
+     .line 69
+     if-eqz p0, :cond_4
+ 
+-    .line 70
+     .line 71
+     array-length v5, p0
+ 
+     .line 72
+     if-lt v5, v2, :cond_4
+ 
+-    .line 73
+     .line 74
+     aget-byte v1, p0, v1
+ 
+-    .line 75
+     .line 76
+     aget-byte p0, p0, v4
+ 
+-    .line 77
+     .line 78
+     invoke-static {v1, p0}, Lcom/jieli/jl_bt_ota/util/CHexConver;->e(BB)I
+ 
+-    .line 79
+-    .line 80
+     .line 81
+     move-result p0
+ 
+     .line 82
+     invoke-virtual {v0, p0}, Lcom/jieli/jl_bt_ota/model/response/SettingsMtuResponse;->f(I)Lcom/jieli/jl_bt_ota/model/response/SettingsMtuResponse;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     :cond_4
+     instance-of p0, p2, Lcom/jieli/jl_bt_ota/model/command/SettingsMtuCmd;
+ 
+-    .line 86
+     .line 87
+     if-eqz p0, :cond_5
+ 
+-    .line 88
+     .line 89
+     check-cast p2, Lcom/jieli/jl_bt_ota/model/command/SettingsMtuCmd;
+ 
+-    .line 90
+     .line 91
+     goto :goto_0
+ 
+@@ -220,53 +175,37 @@
+     :cond_5
+     new-instance p2, Lcom/jieli/jl_bt_ota/model/command/SettingsMtuCmd;
+ 
+-    .line 93
+     .line 94
+     new-instance p0, Lcom/jieli/jl_bt_ota/model/parameter/SettingsMtuParam;
+ 
+-    .line 95
+     .line 96
+     invoke-direct {p0, v3}, Lcom/jieli/jl_bt_ota/model/parameter/SettingsMtuParam;-><init>(I)V
+ 
+-    .line 97
+-    .line 98
+     .line 99
+     invoke-direct {p2, p0}, Lcom/jieli/jl_bt_ota/model/command/SettingsMtuCmd;-><init>(Lcom/jieli/jl_bt_ota/model/parameter/SettingsMtuParam;)V
+ 
+-    .line 100
+-    .line 101
+     .line 102
+     :goto_0
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->c()I
+ 
+-    .line 103
+-    .line 104
+     .line 105
+     move-result p0
+ 
+     .line 106
+     invoke-virtual {p2, p0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->g(I)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 107
+-    .line 108
+     .line 109
+     invoke-virtual {p1}, Lcom/jieli/jl_bt_ota/model/base/BasePacket;->f()I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result p0
+ 
+     .line 113
+     invoke-virtual {p2, p0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->j(I)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 114
+-    .line 115
+     .line 116
+     invoke-virtual {p2, v0}, Lcom/jieli/jl_bt_ota/model/base/CommandBase;->i(Lcom/jieli/jl_bt_ota/model/base/CommonResponse;)Lcom/jieli/jl_bt_ota/model/base/CommandBase;
+ 
+-    .line 117
+-    .line 118
+     .line 119
+     return-object p2
+ .end method

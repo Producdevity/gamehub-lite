@@ -1,0 +1,216 @@
+--- a/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback.smali
++++ b/smali_classes9/in/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback.smali
+@@ -41,181 +41,129 @@
+     .line 1
+     const-string v0, "packetMsg"
+ 
+-    .line 2
+     .line 3
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-direct {p0}, Lin/dragonbra/javasteam/steam/steamclient/callbackmgr/CallbackMsg;-><init>()V
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     new-instance v0, Lin/dragonbra/javasteam/base/ClientMsg;
+ 
+-    .line 10
+     .line 11
+     const-class v1, Lin/dragonbra/javasteam/generated/MsgClientChatMsg;
+ 
+-    .line 12
+     .line 13
+     invoke-direct {v0, v1, p1}, Lin/dragonbra/javasteam/base/ClientMsg;-><init>(Ljava/lang/Class;Lin/dragonbra/javasteam/base/IPacketMsg;)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/ClientMsg;->getBody()Lin/dragonbra/javasteam/base/ISteamSerializableMessage;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     check-cast p1, Lin/dragonbra/javasteam/generated/MsgClientChatMsg;
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatMsg;->getSteamIdChatter()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v1
+ 
+     .line 26
+     const-string v2, "getSteamIdChatter(...)"
+ 
+-    .line 27
+     .line 28
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 29
+-    .line 30
+     .line 31
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->chatterID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatMsg;->getSteamIdChatRoom()Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-object v1
+ 
+     .line 37
+     const-string v2, "getSteamIdChatRoom(...)"
+ 
+-    .line 38
+     .line 39
+     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     iput-object v1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->chatRoomID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 43
+     .line 44
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/generated/MsgClientChatMsg;->getChatMsgType()Lin/dragonbra/javasteam/enums/EChatEntryType;
+ 
+-    .line 45
+-    .line 46
+     .line 47
+     move-result-object p1
+ 
+     .line 48
+     const-string v1, "getChatMsgType(...)"
+ 
+-    .line 49
+     .line 50
+     invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->chatMsgType:Lin/dragonbra/javasteam/enums/EChatEntryType;
+ 
+-    .line 54
+     .line 55
+     invoke-virtual {v0}, Lin/dragonbra/javasteam/base/AbstractMsgBase;->getPayload()Lin/dragonbra/javasteam/util/stream/MemoryStream;
+ 
+-    .line 56
+-    .line 57
+     .line 58
+     move-result-object p1
+ 
+     .line 59
+     invoke-virtual {p1}, Lin/dragonbra/javasteam/util/stream/MemoryStream;->toByteArray()[B
+ 
+-    .line 60
+-    .line 61
+     .line 62
+     move-result-object p1
+ 
+     .line 63
+     const-string v0, "toByteArray(...)"
+ 
+-    .line 64
+     .line 65
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 66
+-    .line 67
+     .line 68
+     sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+ 
+-    .line 69
+     .line 70
+     const-string v1, "UTF_8"
+ 
+-    .line 71
+     .line 72
+     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+ 
+-    .line 73
+-    .line 74
+     .line 75
+     new-instance v1, Ljava/lang/String;
+ 
+-    .line 76
+     .line 77
+     invoke-direct {v1, p1, v0}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+ 
+-    .line 78
+-    .line 79
+     .line 80
+     new-instance p1, Lkotlin/text/Regex;
+ 
+-    .line 81
+     .line 82
+     const-string v0, "\u0000+$"
+ 
+-    .line 83
+     .line 84
+     invoke-direct {p1, v0}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+ 
+-    .line 85
+-    .line 86
+     .line 87
+     const-string v0, ""
+ 
+-    .line 88
+     .line 89
+     invoke-virtual {p1, v1, v0}, Lkotlin/text/Regex;->replace(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
+ 
+-    .line 90
+-    .line 91
+     .line 92
+     move-result-object p1
+ 
+     .line 93
+     iput-object p1, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->message:Ljava/lang/String;
+ 
+-    .line 94
+     .line 95
+     return-void
+ .end method
+@@ -230,7 +178,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->chatMsgType:Lin/dragonbra/javasteam/enums/EChatEntryType;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -243,7 +190,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->chatRoomID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -256,7 +202,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->chatterID:Lin/dragonbra/javasteam/types/SteamID;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -269,7 +214,6 @@
+     .line 1
+     iget-object p0, p0, Lin/dragonbra/javasteam/steam/handlers/steamfriends/callback/ChatMsgCallback;->message:Ljava/lang/String;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method

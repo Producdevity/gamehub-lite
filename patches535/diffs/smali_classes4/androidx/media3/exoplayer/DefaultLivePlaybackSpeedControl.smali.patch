@@ -1,0 +1,822 @@
+--- a/smali_classes4/androidx/media3/exoplayer/DefaultLivePlaybackSpeedControl.smali
++++ b/smali_classes4/androidx/media3/exoplayer/DefaultLivePlaybackSpeedControl.smali
+@@ -159,54 +159,42 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetUs:J
+ 
+-    .line 2
+     .line 3
+     const-wide/16 v2, 0x3
+ 
+-    .line 4
+     .line 5
+     iget-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetDeviationUs:J
+ 
+-    .line 6
+     .line 7
+     mul-long/2addr v4, v2
+ 
+     .line 8
+     add-long v10, v0, v4
+ 
+-    .line 9
+     .line 10
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 11
+     .line 12
+     cmp-long v0, v0, v10
+ 
+-    .line 13
+     .line 14
+     const/high16 v1, 0x3f800000    # 1.0f
+ 
+-    .line 15
+     .line 16
+     if-lez v0, :cond_0
+ 
+-    .line 17
+     .line 18
+     iget-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minUpdateIntervalMs:J
+ 
+-    .line 19
+     .line 20
+     invoke-static {p1, p2}, Landroidx/media3/common/util/Util;->msToUs(J)J
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result-wide p1
+ 
+     .line 24
+     iget v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustedPlaybackSpeed:F
+ 
+-    .line 25
+     .line 26
+     sub-float/2addr v0, v1
+ 
+@@ -222,7 +210,6 @@
+     .line 30
+     iget p2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxPlaybackSpeed:F
+ 
+-    .line 31
+     .line 32
+     sub-float/2addr p2, v1
+ 
+@@ -238,11 +225,9 @@
+     .line 36
+     iget-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->idealTargetLiveOffsetUs:J
+ 
+-    .line 37
+     .line 38
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 39
+     .line 40
+     sub-long/2addr v0, v2
+ 
+@@ -252,40 +237,33 @@
+     .line 42
+     new-array v2, v2, [J
+ 
+-    .line 43
+     .line 44
+     const/4 v3, 0x0
+ 
+     .line 45
+     aput-wide v10, v2, v3
+ 
+-    .line 46
+     .line 47
+     const/4 v3, 0x1
+ 
+     .line 48
+     aput-wide p1, v2, v3
+ 
+-    .line 49
+     .line 50
+     const/4 p1, 0x2
+ 
+     .line 51
+     aput-wide v0, v2, p1
+ 
+-    .line 52
+     .line 53
+     invoke-static {v2}, Lcom/google/common/primitives/Longs;->max([J)J
+ 
+-    .line 54
+-    .line 55
+     .line 56
+     move-result-wide p1
+ 
+     .line 57
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 58
+     .line 59
+     return-void
+ 
+@@ -293,7 +271,6 @@
+     :cond_0
+     iget v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustedPlaybackSpeed:F
+ 
+-    .line 61
+     .line 62
+     sub-float/2addr v0, v1
+ 
+@@ -303,15 +280,12 @@
+     .line 64
+     invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
+ 
+-    .line 65
+-    .line 66
+     .line 67
+     move-result v0
+ 
+     .line 68
+     iget v1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->proportionalControlFactor:F
+ 
+-    .line 69
+     .line 70
+     div-float/2addr v0, v1
+ 
+@@ -321,54 +295,39 @@
+     .line 72
+     sub-long v6, p1, v0
+ 
+-    .line 73
+     .line 74
+     iget-wide v8, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 75
+     .line 76
+     invoke-static/range {v6 .. v11}, Landroidx/media3/common/util/Util;->constrainValue(JJJ)J
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-wide p1
+ 
+     .line 80
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 81
+     .line 82
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxTargetLiveOffsetUs:J
+ 
+-    .line 83
+     .line 84
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 85
+-    .line 86
+-    .line 87
+-    .line 88
+     .line 89
+     cmp-long v2, v0, v2
+ 
+-    .line 90
+     .line 91
+     if-eqz v2, :cond_1
+ 
+-    .line 92
+     .line 93
+     cmp-long p1, p1, v0
+ 
+-    .line 94
+     .line 95
+     if-lez p1, :cond_1
+ 
+-    .line 96
+     .line 97
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 98
+     .line 99
+     :cond_1
+     return-void
+@@ -380,34 +339,24 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->mediaConfigurationTargetLiveOffsetUs:J
+ 
+-    .line 2
+     .line 3
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 4
+-    .line 5
+-    .line 6
+-    .line 7
+     .line 8
+     cmp-long v4, v0, v2
+ 
+-    .line 9
+     .line 10
+     if-eqz v4, :cond_3
+ 
+-    .line 11
+     .line 12
+     iget-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->targetLiveOffsetOverrideUs:J
+ 
+-    .line 13
+     .line 14
+     cmp-long v6, v4, v2
+ 
+-    .line 15
+     .line 16
+     if-eqz v6, :cond_0
+ 
+-    .line 17
+     .line 18
+     goto :goto_0
+ 
+@@ -415,23 +364,18 @@
+     :cond_0
+     iget-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minTargetLiveOffsetUs:J
+ 
+-    .line 20
+     .line 21
+     cmp-long v6, v4, v2
+ 
+-    .line 22
+     .line 23
+     if-eqz v6, :cond_1
+ 
+-    .line 24
+     .line 25
+     cmp-long v6, v0, v4
+ 
+-    .line 26
+     .line 27
+     if-gez v6, :cond_1
+ 
+-    .line 28
+     .line 29
+     move-wide v0, v4
+ 
+@@ -439,23 +383,18 @@
+     :cond_1
+     iget-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxTargetLiveOffsetUs:J
+ 
+-    .line 31
+     .line 32
+     cmp-long v6, v4, v2
+ 
+-    .line 33
+     .line 34
+     if-eqz v6, :cond_2
+ 
+-    .line 35
+     .line 36
+     cmp-long v6, v0, v4
+ 
+-    .line 37
+     .line 38
+     if-lez v6, :cond_2
+ 
+-    .line 39
+     .line 40
+     goto :goto_0
+ 
+@@ -474,15 +413,12 @@
+     :goto_0
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->idealTargetLiveOffsetUs:J
+ 
+-    .line 45
+     .line 46
+     cmp-long v0, v0, v4
+ 
+-    .line 47
+     .line 48
+     if-nez v0, :cond_4
+ 
+-    .line 49
+     .line 50
+     return-void
+ 
+@@ -490,23 +426,18 @@
+     :cond_4
+     iput-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->idealTargetLiveOffsetUs:J
+ 
+-    .line 52
+     .line 53
+     iput-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 54
+     .line 55
+     iput-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetUs:J
+ 
+-    .line 56
+     .line 57
+     iput-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetDeviationUs:J
+ 
+-    .line 58
+     .line 59
+     iput-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->lastPlaybackSpeedUpdateMs:J
+ 
+-    .line 60
+     .line 61
+     return-void
+ .end method
+@@ -523,7 +454,6 @@
+     .line 3
+     const/high16 p1, 0x3f800000    # 1.0f
+ 
+-    .line 4
+     .line 5
+     sub-float/2addr p1, p4
+ 
+@@ -552,34 +482,24 @@
+     .line 2
+     iget-wide p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetUs:J
+ 
+-    .line 3
+     .line 4
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 5
+-    .line 6
+-    .line 7
+-    .line 8
+     .line 9
+     cmp-long v0, p3, v0
+ 
+-    .line 10
+     .line 11
+     if-nez v0, :cond_0
+ 
+-    .line 12
+     .line 13
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetUs:J
+ 
+-    .line 14
+     .line 15
+     const-wide/16 p1, 0x0
+ 
+-    .line 16
+     .line 17
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetDeviationUs:J
+ 
+-    .line 18
+     .line 19
+     return-void
+ 
+@@ -587,58 +507,45 @@
+     :cond_0
+     iget v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minPossibleLiveOffsetSmoothingFactor:F
+ 
+-    .line 21
+     .line 22
+     invoke-static {p3, p4, p1, p2, v0}, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smooth(JJF)J
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-wide p3
+ 
+     .line 26
+     invoke-static {p1, p2, p3, p4}, Ljava/lang/Math;->max(JJ)J
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result-wide p3
+ 
+     .line 30
+     iput-wide p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetUs:J
+ 
+-    .line 31
+     .line 32
+     sub-long/2addr p1, p3
+ 
+     .line 33
+     invoke-static {p1, p2}, Ljava/lang/Math;->abs(J)J
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result-wide p1
+ 
+     .line 37
+     iget-wide p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetDeviationUs:J
+ 
+-    .line 38
+     .line 39
+     iget v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minPossibleLiveOffsetSmoothingFactor:F
+ 
+-    .line 40
+     .line 41
+     invoke-static {p3, p4, p1, p2, v0}, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smooth(JJF)J
+ 
+-    .line 42
+-    .line 43
+     .line 44
+     move-result-wide p1
+ 
+     .line 45
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->smoothedMinPossibleLiveOffsetDeviationUs:J
+ 
+-    .line 46
+     .line 47
+     return-void
+ .end method
+@@ -651,26 +558,18 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->mediaConfigurationTargetLiveOffsetUs:J
+ 
+-    .line 2
+     .line 3
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 4
+-    .line 5
+-    .line 6
+-    .line 7
+     .line 8
+     cmp-long v0, v0, v2
+ 
+-    .line 9
+     .line 10
+     const/high16 v1, 0x3f800000    # 1.0f
+ 
+-    .line 11
+     .line 12
+     if-nez v0, :cond_0
+ 
+-    .line 13
+     .line 14
+     return v1
+ 
+@@ -678,51 +577,39 @@
+     :cond_0
+     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->updateSmoothedMinPossibleLiveOffsetUs(JJ)V
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     iget-wide p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->lastPlaybackSpeedUpdateMs:J
+ 
+-    .line 19
+     .line 20
+     cmp-long p3, p3, v2
+ 
+-    .line 21
+     .line 22
+     if-eqz p3, :cond_1
+ 
+-    .line 23
+     .line 24
+     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+ 
+-    .line 25
+-    .line 26
+     .line 27
+     move-result-wide p3
+ 
+     .line 28
+     iget-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->lastPlaybackSpeedUpdateMs:J
+ 
+-    .line 29
+     .line 30
+     sub-long/2addr p3, v2
+ 
+     .line 31
+     iget-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minUpdateIntervalMs:J
+ 
+-    .line 32
+     .line 33
+     cmp-long p3, p3, v2
+ 
+-    .line 34
+     .line 35
+     if-gez p3, :cond_1
+ 
+-    .line 36
+     .line 37
+     iget p0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustedPlaybackSpeed:F
+ 
+-    .line 38
+     .line 39
+     return p0
+ 
+@@ -730,51 +617,39 @@
+     :cond_1
+     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+ 
+-    .line 41
+-    .line 42
+     .line 43
+     move-result-wide p3
+ 
+     .line 44
+     iput-wide p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->lastPlaybackSpeedUpdateMs:J
+ 
+-    .line 45
+     .line 46
+     invoke-direct {p0, p1, p2}, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustTargetLiveOffsetUs(J)V
+ 
+-    .line 47
+-    .line 48
+     .line 49
+     iget-wide p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 50
+     .line 51
+     sub-long/2addr p1, p3
+ 
+     .line 52
+     invoke-static {p1, p2}, Ljava/lang/Math;->abs(J)J
+ 
+-    .line 53
+-    .line 54
+     .line 55
+     move-result-wide p3
+ 
+     .line 56
+     iget-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxLiveOffsetErrorUsForUnitSpeed:J
+ 
+-    .line 57
+     .line 58
+     cmp-long p3, p3, v2
+ 
+-    .line 59
+     .line 60
+     if-gez p3, :cond_2
+ 
+-    .line 61
+     .line 62
+     iput v1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustedPlaybackSpeed:F
+ 
+-    .line 63
+     .line 64
+     goto :goto_0
+ 
+@@ -782,7 +657,6 @@
+     :cond_2
+     iget p3, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->proportionalControlFactor:F
+ 
+-    .line 66
+     .line 67
+     long-to-float p1, p1
+ 
+@@ -795,28 +669,22 @@
+     .line 70
+     iget p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minPlaybackSpeed:F
+ 
+-    .line 71
+     .line 72
+     iget p2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxPlaybackSpeed:F
+ 
+-    .line 73
+     .line 74
+     invoke-static {p3, p1, p2}, Landroidx/media3/common/util/Util;->constrainValue(FFF)F
+ 
+-    .line 75
+-    .line 76
+     .line 77
+     move-result p1
+ 
+     .line 78
+     iput p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustedPlaybackSpeed:F
+ 
+-    .line 79
+     .line 80
+     :goto_0
+     iget p0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->adjustedPlaybackSpeed:F
+ 
+-    .line 81
+     .line 82
+     return p0
+ .end method
+@@ -827,7 +695,6 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 2
+     .line 3
+     return-wide v0
+ .end method
+@@ -838,22 +705,15 @@
+     .line 1
+     iget-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 2
+     .line 3
+     const-wide v2, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 4
+-    .line 5
+-    .line 6
+-    .line 7
+     .line 8
+     cmp-long v4, v0, v2
+ 
+-    .line 9
+     .line 10
+     if-nez v4, :cond_0
+ 
+-    .line 11
+     .line 12
+     return-void
+ 
+@@ -861,43 +721,34 @@
+     :cond_0
+     iget-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->targetLiveOffsetRebufferDeltaUs:J
+ 
+-    .line 14
+     .line 15
+     add-long/2addr v0, v4
+ 
+     .line 16
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 17
+     .line 18
+     iget-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxTargetLiveOffsetUs:J
+ 
+-    .line 19
+     .line 20
+     cmp-long v6, v4, v2
+ 
+-    .line 21
+     .line 22
+     if-eqz v6, :cond_1
+ 
+-    .line 23
+     .line 24
+     cmp-long v0, v0, v4
+ 
+-    .line 25
+     .line 26
+     if-lez v0, :cond_1
+ 
+-    .line 27
+     .line 28
+     iput-wide v4, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->currentTargetLiveOffsetUs:J
+ 
+-    .line 29
+     .line 30
+     :cond_1
+     iput-wide v2, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->lastPlaybackSpeedUpdateMs:J
+ 
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -908,68 +759,51 @@
+     .line 1
+     iget-wide v0, p1, Landroidx/media3/common/MediaItem$LiveConfiguration;->targetOffsetMs:J
+ 
+-    .line 2
+     .line 3
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->msToUs(J)J
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     move-result-wide v0
+ 
+     .line 7
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->mediaConfigurationTargetLiveOffsetUs:J
+ 
+-    .line 8
+     .line 9
+     iget-wide v0, p1, Landroidx/media3/common/MediaItem$LiveConfiguration;->minOffsetMs:J
+ 
+-    .line 10
+     .line 11
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->msToUs(J)J
+ 
+-    .line 12
+-    .line 13
+     .line 14
+     move-result-wide v0
+ 
+     .line 15
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minTargetLiveOffsetUs:J
+ 
+-    .line 16
+     .line 17
+     iget-wide v0, p1, Landroidx/media3/common/MediaItem$LiveConfiguration;->maxOffsetMs:J
+ 
+-    .line 18
+     .line 19
+     invoke-static {v0, v1}, Landroidx/media3/common/util/Util;->msToUs(J)J
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-wide v0
+ 
+     .line 23
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxTargetLiveOffsetUs:J
+ 
+-    .line 24
+     .line 25
+     iget v0, p1, Landroidx/media3/common/MediaItem$LiveConfiguration;->minPlaybackSpeed:F
+ 
+-    .line 26
+     .line 27
+     const v1, -0x800001
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     cmpl-float v2, v0, v1
+ 
+-    .line 31
+     .line 32
+     if-eqz v2, :cond_0
+ 
+-    .line 33
+     .line 34
+     goto :goto_0
+ 
+@@ -977,24 +811,19 @@
+     :cond_0
+     iget v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->fallbackMinPlaybackSpeed:F
+ 
+-    .line 36
+     .line 37
+     :goto_0
+     iput v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->minPlaybackSpeed:F
+ 
+-    .line 38
+     .line 39
+     iget p1, p1, Landroidx/media3/common/MediaItem$LiveConfiguration;->maxPlaybackSpeed:F
+ 
+-    .line 40
+     .line 41
+     cmpl-float v1, p1, v1
+ 
+-    .line 42
+     .line 43
+     if-eqz v1, :cond_1
+ 
+-    .line 44
+     .line 45
+     goto :goto_1
+ 
+@@ -1002,49 +831,35 @@
+     :cond_1
+     iget p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->fallbackMaxPlaybackSpeed:F
+ 
+-    .line 47
+     .line 48
+     :goto_1
+     iput p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maxPlaybackSpeed:F
+ 
+-    .line 49
+     .line 50
+     const/high16 v1, 0x3f800000    # 1.0f
+ 
+-    .line 51
+     .line 52
+     cmpl-float v0, v0, v1
+ 
+-    .line 53
+     .line 54
+     if-nez v0, :cond_2
+ 
+-    .line 55
+     .line 56
+     cmpl-float p1, p1, v1
+ 
+-    .line 57
+     .line 58
+     if-nez p1, :cond_2
+ 
+-    .line 59
+     .line 60
+     const-wide v0, -0x7fffffffffffffffL    # -4.9E-324
+ 
+-    .line 61
+-    .line 62
+-    .line 63
+-    .line 64
+     .line 65
+     iput-wide v0, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->mediaConfigurationTargetLiveOffsetUs:J
+ 
+-    .line 66
+     .line 67
+     :cond_2
+     invoke-direct {p0}, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maybeResetTargetLiveOffsetUs()V
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     return-void
+ .end method
+@@ -1055,12 +870,9 @@
+     .line 1
+     iput-wide p1, p0, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->targetLiveOffsetOverrideUs:J
+ 
+-    .line 2
+     .line 3
+     invoke-direct {p0}, Landroidx/media3/exoplayer/DefaultLivePlaybackSpeedControl;->maybeResetTargetLiveOffsetUs()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     return-void
+ .end method

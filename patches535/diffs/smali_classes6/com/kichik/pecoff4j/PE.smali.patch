@@ -1,0 +1,1195 @@
+--- a/smali_classes6/com/kichik/pecoff4j/PE.smali
++++ b/smali_classes6/com/kichik/pecoff4j/PE.smali
+@@ -31,8 +31,6 @@
+     .line 1
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     return-void
+ .end method
+@@ -43,132 +41,97 @@
+     .line 1
+     const-string v0, "PE"
+ 
+-    .line 2
+     .line 3
+     new-instance v1, Lcom/kichik/pecoff4j/PE;
+ 
+-    .line 4
+     .line 5
+     invoke-direct {v1}, Lcom/kichik/pecoff4j/PE;-><init>()V
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     invoke-static {p0}, Lcom/kichik/pecoff4j/DOSHeader;->e(Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/DOSHeader;
+ 
+-    .line 9
+-    .line 10
+     .line 11
+     move-result-object v2
+ 
+     .line 12
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->o(Lcom/kichik/pecoff4j/DOSHeader;)V
+ 
+-    .line 13
+-    .line 14
+     .line 15
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->c()Lcom/kichik/pecoff4j/DOSHeader;
+ 
+-    .line 16
+-    .line 17
+     .line 18
+     move-result-object v2
+ 
+     .line 19
+     invoke-virtual {v2}, Lcom/kichik/pecoff4j/DOSHeader;->a()I
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result v2
+ 
+     .line 23
+     if-eqz v2, :cond_5
+ 
+-    .line 24
+     .line 25
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->c()Lcom/kichik/pecoff4j/DOSHeader;
+ 
+-    .line 26
+-    .line 27
+     .line 28
+     move-result-object v2
+ 
+     .line 29
+     invoke-virtual {v2}, Lcom/kichik/pecoff4j/DOSHeader;->a()I
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     move-result v2
+ 
+     .line 33
+     const/16 v3, 0x2000
+ 
+-    .line 34
+     .line 35
+     if-le v2, v3, :cond_0
+ 
+-    .line 36
+     .line 37
+     goto/16 :goto_3
+ 
+-    .line 38
+     .line 39
+     :cond_0
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->c()Lcom/kichik/pecoff4j/DOSHeader;
+ 
+-    .line 40
+-    .line 41
+     .line 42
+     move-result-object v2
+ 
+     .line 43
+     invoke-static {v2, p0}, Lcom/kichik/pecoff4j/DOSStub;->a(Lcom/kichik/pecoff4j/DOSHeader;Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/DOSStub;
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result-object v2
+ 
+     .line 47
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->s(Lcom/kichik/pecoff4j/DOSStub;)V
+ 
+-    .line 48
+-    .line 49
+     .line 50
+     invoke-static {p0}, Lcom/kichik/pecoff4j/PESignature;->b(Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/PESignature;
+ 
+-    .line 51
+-    .line 52
+     .line 53
+     move-result-object v2
+ 
+     .line 54
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->r(Lcom/kichik/pecoff4j/PESignature;)V
+ 
+-    .line 55
+-    .line 56
+     .line 57
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->g()Lcom/kichik/pecoff4j/PESignature;
+ 
+-    .line 58
+-    .line 59
+     .line 60
+     move-result-object v2
+ 
+     .line 61
+     invoke-virtual {v2}, Lcom/kichik/pecoff4j/PESignature;->a()Z
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result v2
+ 
+     .line 65
+     if-nez v2, :cond_1
+ 
+-    .line 66
+     .line 67
+     const/4 p0, 0x0
+ 
+@@ -179,155 +142,113 @@
+     :cond_1
+     invoke-static {p0}, Lcom/kichik/pecoff4j/COFFHeader;->b(Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/COFFHeader;
+ 
+-    .line 70
+-    .line 71
+     .line 72
+     move-result-object v2
+ 
+     .line 73
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->n(Lcom/kichik/pecoff4j/COFFHeader;)V
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     invoke-static {p0}, Lcom/kichik/pecoff4j/OptionalHeader;->d(Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 77
+-    .line 78
+     .line 79
+     move-result-object v2
+ 
+     .line 80
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->p(Lcom/kichik/pecoff4j/OptionalHeader;)V
+ 
+-    .line 81
+-    .line 82
+     .line 83
+     invoke-static {v1, p0}, Lcom/kichik/pecoff4j/SectionTable;->h(Lcom/kichik/pecoff4j/PE;Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 84
+-    .line 85
+     .line 86
+     move-result-object v2
+ 
+     .line 87
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->q(Lcom/kichik/pecoff4j/SectionTable;)V
+ 
+-    .line 88
+-    .line 89
+     .line 90
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->e()Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v2
+ 
+     .line 94
+     invoke-virtual {v2}, Lcom/kichik/pecoff4j/OptionalHeader;->c()Z
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result v2
+ 
+     .line 98
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->m(Z)V
+ 
+-    .line 99
+-    .line 100
+     .line 101
+     :goto_0
+     invoke-interface {p0}, Lcom/kichik/pecoff4j/io/IDataReader;->getPosition()I
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result v2
+ 
+     .line 105
+     invoke-virtual {v1, v2}, Lcom/kichik/pecoff4j/PE;->a(I)Lcom/kichik/pecoff4j/io/DataEntry;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v2
+ 
+     .line 109
+     if-eqz v2, :cond_5
+ 
+-    .line 110
+     .line 111
+     iget-boolean v3, v2, Lcom/kichik/pecoff4j/io/DataEntry;->a:Z
+ 
+-    .line 112
+     .line 113
+     if-eqz v3, :cond_3
+ 
+-    .line 114
+     .line 115
+     iget-object v3, v2, Lcom/kichik/pecoff4j/io/DataEntry;->g:Ljava/lang/String;
+ 
+-    .line 116
+     .line 117
+     const-string v4, ".rsrc"
+ 
+-    .line 118
+     .line 119
+     invoke-static {v3, v4}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+-    .line 120
+-    .line 121
+     .line 122
+     move-result v3
+ 
+     .line 123
+     if-eqz v3, :cond_2
+ 
+-    .line 124
+     .line 125
+     :try_start_0
+     invoke-static {v1, v2, p0}, Lcom/kichik/pecoff4j/SectionData;->b(Lcom/kichik/pecoff4j/PE;Lcom/kichik/pecoff4j/io/DataEntry;Lcom/kichik/pecoff4j/io/IDataReader;)Lcom/kichik/pecoff4j/SectionData;
+ 
+-    .line 126
+-    .line 127
+     .line 128
+     move-result-object v3
+ 
+     .line 129
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->d()Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 130
+-    .line 131
+     .line 132
+     move-result-object v4
+ 
+     .line 133
+     new-instance v5, Lcom/kichik/pecoff4j/io/ByteArrayDataReader;
+ 
+-    .line 134
+     .line 135
+     invoke-virtual {v3}, Lcom/kichik/pecoff4j/SectionData;->a()[B
+ 
+-    .line 136
+-    .line 137
+     .line 138
+     move-result-object v3
+ 
+     .line 139
+     invoke-direct {v5, v3}, Lcom/kichik/pecoff4j/io/ByteArrayDataReader;-><init>([B)V
+ 
+-    .line 140
+-    .line 141
+     .line 142
+     iget v3, v2, Lcom/kichik/pecoff4j/io/DataEntry;->f:I
+ 
+-    .line 143
+     .line 144
+     invoke-static {v5, v3}, Lcom/kichik/pecoff4j/ResourceDirectory;->e(Lcom/kichik/pecoff4j/io/IDataReader;I)Lcom/kichik/pecoff4j/ResourceDirectory;
+ 
+-    .line 145
+-    .line 146
+     .line 147
+     move-result-object v3
+ 
+@@ -337,8 +258,6 @@
+     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_1
+     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+ 
+-    .line 149
+-    .line 150
+     .line 151
+     goto :goto_0
+ 
+@@ -360,56 +279,39 @@
+     :goto_1
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 157
+     .line 158
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 159
+-    .line 160
+     .line 161
+     const-string v5, "Failed to parse resource table: "
+ 
+-    .line 162
+     .line 163
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 164
+-    .line 165
+     .line 166
+     invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+ 
+-    .line 167
+-    .line 168
+     .line 169
+     move-result-object v3
+ 
+     .line 170
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 174
+-    .line 175
+     .line 176
+     move-result-object v3
+ 
+     .line 177
+     invoke-static {v0, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 178
+-    .line 179
+     .line 180
+     iget v2, v2, Lcom/kichik/pecoff4j/io/DataEntry;->h:I
+ 
+-    .line 181
+     .line 182
+     invoke-interface {p0, v2}, Lcom/kichik/pecoff4j/io/IDataReader;->skipBytes(I)V
+ 
+-    .line 183
+-    .line 184
+     .line 185
+     goto :goto_0
+ 
+@@ -417,56 +319,39 @@
+     :goto_2
+     new-instance v4, Ljava/lang/StringBuilder;
+ 
+-    .line 187
+     .line 188
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    .line 189
+-    .line 190
+     .line 191
+     const-string v5, "Failed to parse resource table due to memory limitations: "
+ 
+-    .line 192
+     .line 193
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 194
+-    .line 195
+     .line 196
+     invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+ 
+-    .line 197
+-    .line 198
+     .line 199
+     move-result-object v3
+ 
+     .line 200
+     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    .line 201
+-    .line 202
+     .line 203
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+-    .line 204
+-    .line 205
+     .line 206
+     move-result-object v3
+ 
+     .line 207
+     invoke-static {v0, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 208
+-    .line 209
+     .line 210
+     iget v2, v2, Lcom/kichik/pecoff4j/io/DataEntry;->h:I
+ 
+-    .line 211
+     .line 212
+     invoke-interface {p0, v2}, Lcom/kichik/pecoff4j/io/IDataReader;->skipBytes(I)V
+ 
+-    .line 213
+-    .line 214
+     .line 215
+     goto :goto_0
+ 
+@@ -474,12 +359,9 @@
+     :cond_2
+     iget v2, v2, Lcom/kichik/pecoff4j/io/DataEntry;->h:I
+ 
+-    .line 217
+     .line 218
+     invoke-interface {p0, v2}, Lcom/kichik/pecoff4j/io/IDataReader;->skipBytes(I)V
+ 
+-    .line 219
+-    .line 220
+     .line 221
+     goto :goto_0
+ 
+@@ -487,27 +369,20 @@
+     :cond_3
+     iget-boolean v3, v2, Lcom/kichik/pecoff4j/io/DataEntry;->d:Z
+ 
+-    .line 223
+     .line 224
+     if-eqz v3, :cond_4
+ 
+-    .line 225
+     .line 226
+     invoke-static {v1, v2, p0}, Lcom/kichik/pecoff4j/PE;->l(Lcom/kichik/pecoff4j/PE;Lcom/kichik/pecoff4j/io/DataEntry;Lcom/kichik/pecoff4j/io/IDataReader;)V
+ 
+-    .line 227
+-    .line 228
+     .line 229
+     goto/16 :goto_0
+ 
+-    .line 230
+     .line 231
+     :cond_4
+     :try_start_1
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/PE;->d()Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 232
+-    .line 233
+     .line 234
+     move-result-object v3
+ 
+@@ -516,12 +391,9 @@
+     :try_end_1
+     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+ 
+-    .line 236
+-    .line 237
+     .line 238
+     goto/16 :goto_0
+ 
+-    .line 239
+     .line 240
+     :catch_2
+     move-exception p0
+@@ -529,8 +401,6 @@
+     .line 241
+     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+ 
+-    .line 242
+-    .line 243
+     .line 244
+     :cond_5
+     :goto_3
+@@ -543,63 +413,46 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->d()Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     iget p1, p1, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 6
+     .line 7
+     invoke-interface {p2, p1}, Lcom/kichik/pecoff4j/io/IDataReader;->E0(I)[B
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p1
+ 
+     .line 11
+     if-eqz p1, :cond_0
+ 
+-    .line 12
+     .line 13
+     invoke-virtual {p0, p1}, Lcom/kichik/pecoff4j/ImageData;->l([B)V
+ 
+-    .line 14
+-    .line 15
+     .line 16
+     :cond_0
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/ImageData;->a()Lcom/kichik/pecoff4j/DebugDirectory;
+ 
+-    .line 17
+-    .line 18
+     .line 19
+     move-result-object p1
+ 
+     .line 20
+     invoke-virtual {p1}, Lcom/kichik/pecoff4j/DebugDirectory;->c()I
+ 
+-    .line 21
+-    .line 22
+     .line 23
+     move-result p1
+ 
+     .line 24
+     new-array p1, p1, [B
+ 
+-    .line 25
+     .line 26
+     invoke-interface {p2, p1}, Lcom/kichik/pecoff4j/io/IDataReader;->read([B)V
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     invoke-virtual {p0, p1}, Lcom/kichik/pecoff4j/ImageData;->k([B)V
+ 
+-    .line 30
+-    .line 31
+     .line 32
+     return-void
+ .end method
+@@ -612,25 +465,18 @@
+     .line 1
+     new-instance v0, Lcom/kichik/pecoff4j/io/DataEntry;
+ 
+-    .line 2
+     .line 3
+     invoke-direct {v0}, Lcom/kichik/pecoff4j/io/DataEntry;-><init>()V
+ 
+-    .line 4
+-    .line 5
+     .line 6
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->b()Lcom/kichik/pecoff4j/COFFHeader;
+ 
+-    .line 7
+-    .line 8
+     .line 9
+     move-result-object v1
+ 
+     .line 10
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/COFFHeader;->a()I
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result v1
+ 
+@@ -647,133 +493,101 @@
+     .line 17
+     if-ge v3, v1, :cond_2
+ 
+-    .line 18
+     .line 19
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->f()Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 20
+-    .line 21
+     .line 22
+     move-result-object v5
+ 
+     .line 23
+     invoke-virtual {v5, v3}, Lcom/kichik/pecoff4j/SectionTable;->c(I)Lcom/kichik/pecoff4j/SectionHeader;
+ 
+-    .line 24
+-    .line 25
+     .line 26
+     move-result-object v5
+ 
+     .line 27
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->c()I
+ 
+-    .line 28
+-    .line 29
+     .line 30
+     move-result v6
+ 
+     .line 31
+     if-lez v6, :cond_1
+ 
+-    .line 32
+     .line 33
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->b()I
+ 
+-    .line 34
+-    .line 35
+     .line 36
+     move-result v6
+ 
+     .line 37
+     if-lt v6, p1, :cond_1
+ 
+-    .line 38
+     .line 39
+     iget v6, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 40
+     .line 41
+     if-eqz v6, :cond_0
+ 
+-    .line 42
+     .line 43
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->b()I
+ 
+-    .line 44
+-    .line 45
+     .line 46
+     move-result v6
+ 
+     .line 47
+     iget v7, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 48
+     .line 49
+     if-ge v6, v7, :cond_1
+ 
+-    .line 50
+     .line 51
+     :cond_0
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->b()I
+ 
+-    .line 52
+-    .line 53
+     .line 54
+     move-result v6
+ 
+     .line 55
+     iput v6, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 56
+     .line 57
+     iput v3, v0, Lcom/kichik/pecoff4j/io/DataEntry;->b:I
+ 
+-    .line 58
+     .line 59
+     iput-boolean v4, v0, Lcom/kichik/pecoff4j/io/DataEntry;->a:Z
+ 
+-    .line 60
+     .line 61
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->a()Ljava/lang/String;
+ 
+-    .line 62
+-    .line 63
+     .line 64
+     move-result-object v4
+ 
+     .line 65
+     iput-object v4, v0, Lcom/kichik/pecoff4j/io/DataEntry;->g:Ljava/lang/String;
+ 
+-    .line 66
+     .line 67
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->c()I
+ 
+-    .line 68
+-    .line 69
+     .line 70
+     move-result v4
+ 
+     .line 71
+     iput v4, v0, Lcom/kichik/pecoff4j/io/DataEntry;->h:I
+ 
+-    .line 72
+     .line 73
+     invoke-virtual {v5}, Lcom/kichik/pecoff4j/SectionHeader;->d()I
+ 
+-    .line 74
+-    .line 75
+     .line 76
+     move-result v4
+ 
+     .line 77
+     iput v4, v0, Lcom/kichik/pecoff4j/io/DataEntry;->f:I
+ 
+-    .line 78
+     .line 79
+     :cond_1
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 80
+     .line 81
+     goto :goto_0
+ 
+@@ -781,32 +595,24 @@
+     :cond_2
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->f()Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 83
+-    .line 84
+     .line 85
+     move-result-object v1
+ 
+     .line 86
+     invoke-virtual {v1}, Lcom/kichik/pecoff4j/SectionTable;->f()Lcom/kichik/pecoff4j/RVAConverter;
+ 
+-    .line 87
+-    .line 88
+     .line 89
+     move-result-object v1
+ 
+     .line 90
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->e()Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 91
+-    .line 92
+     .line 93
+     move-result-object v3
+ 
+     .line 94
+     invoke-virtual {v3}, Lcom/kichik/pecoff4j/OptionalHeader;->b()I
+ 
+-    .line 95
+-    .line 96
+     .line 97
+     move-result v3
+ 
+@@ -817,40 +623,30 @@
+     :goto_1
+     if-ge v5, v3, :cond_6
+ 
+-    .line 100
+     .line 101
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->e()Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 102
+-    .line 103
+     .line 104
+     move-result-object v6
+ 
+     .line 105
+     invoke-virtual {v6, v5}, Lcom/kichik/pecoff4j/OptionalHeader;->a(I)Lcom/kichik/pecoff4j/ImageDataDirectory;
+ 
+-    .line 106
+-    .line 107
+     .line 108
+     move-result-object v6
+ 
+     .line 109
+     invoke-virtual {v6}, Lcom/kichik/pecoff4j/ImageDataDirectory;->a()I
+ 
+-    .line 110
+-    .line 111
+     .line 112
+     move-result v7
+ 
+     .line 113
+     if-lez v7, :cond_5
+ 
+-    .line 114
+     .line 115
+     invoke-virtual {v6}, Lcom/kichik/pecoff4j/ImageDataDirectory;->b()I
+ 
+-    .line 116
+-    .line 117
+     .line 118
+     move-result v7
+ 
+@@ -860,32 +656,24 @@
+     .line 120
+     if-eq v5, v8, :cond_3
+ 
+-    .line 121
+     .line 122
+     invoke-virtual {p0, v6}, Lcom/kichik/pecoff4j/PE;->j(Lcom/kichik/pecoff4j/ImageDataDirectory;)Z
+ 
+-    .line 123
+-    .line 124
+     .line 125
+     move-result v8
+ 
+     .line 126
+     if-eqz v8, :cond_3
+ 
+-    .line 127
+     .line 128
+     invoke-virtual {v6}, Lcom/kichik/pecoff4j/ImageDataDirectory;->b()I
+ 
+-    .line 129
+-    .line 130
+     .line 131
+     move-result v6
+ 
+     .line 132
+     invoke-virtual {v1, v6}, Lcom/kichik/pecoff4j/RVAConverter;->a(I)I
+ 
+-    .line 133
+-    .line 134
+     .line 135
+     move-result v7
+ 
+@@ -893,41 +681,32 @@
+     :cond_3
+     if-lt v7, p1, :cond_5
+ 
+-    .line 137
+     .line 138
+     iget v6, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 139
+     .line 140
+     if-eqz v6, :cond_4
+ 
+-    .line 141
+     .line 142
+     if-ge v7, v6, :cond_5
+ 
+-    .line 143
+     .line 144
+     :cond_4
+     iput v7, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 145
+     .line 146
+     iput v5, v0, Lcom/kichik/pecoff4j/io/DataEntry;->b:I
+ 
+-    .line 147
+     .line 148
+     iput-boolean v2, v0, Lcom/kichik/pecoff4j/io/DataEntry;->a:Z
+ 
+-    .line 149
+     .line 150
+     iput v7, v0, Lcom/kichik/pecoff4j/io/DataEntry;->f:I
+ 
+-    .line 151
+     .line 152
+     :cond_5
+     add-int/lit8 v5, v5, 0x1
+ 
+-    .line 153
+     .line 154
+     goto :goto_1
+ 
+@@ -935,8 +714,6 @@
+     :cond_6
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->d()Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 156
+-    .line 157
+     .line 158
+     move-result-object p0
+ 
+@@ -946,12 +723,9 @@
+     .line 160
+     if-eqz p0, :cond_7
+ 
+-    .line 161
+     .line 162
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/ImageData;->a()Lcom/kichik/pecoff4j/DebugDirectory;
+ 
+-    .line 163
+-    .line 164
+     .line 165
+     move-result-object p0
+ 
+@@ -966,64 +740,50 @@
+     :goto_2
+     if-eqz p0, :cond_9
+ 
+-    .line 169
+     .line 170
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/DebugDirectory;->b()I
+ 
+-    .line 171
+-    .line 172
+     .line 173
+     move-result p0
+ 
+     .line 174
+     if-lt p0, p1, :cond_9
+ 
+-    .line 175
+     .line 176
+     iget p1, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 177
+     .line 178
+     if-eqz p1, :cond_8
+ 
+-    .line 179
+     .line 180
+     if-ge p0, p1, :cond_9
+ 
+-    .line 181
+     .line 182
+     :cond_8
+     iput p0, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 183
+     .line 184
+     const/4 p1, -0x1
+ 
+     .line 185
+     iput p1, v0, Lcom/kichik/pecoff4j/io/DataEntry;->b:I
+ 
+-    .line 186
+     .line 187
+     iput-boolean v4, v0, Lcom/kichik/pecoff4j/io/DataEntry;->d:Z
+ 
+-    .line 188
+     .line 189
+     iput-boolean v2, v0, Lcom/kichik/pecoff4j/io/DataEntry;->a:Z
+ 
+-    .line 190
+     .line 191
+     iput p0, v0, Lcom/kichik/pecoff4j/io/DataEntry;->e:I
+ 
+-    .line 192
+     .line 193
+     :cond_9
+     iget p0, v0, Lcom/kichik/pecoff4j/io/DataEntry;->c:I
+ 
+-    .line 194
+     .line 195
+     if-nez p0, :cond_a
+ 
+-    .line 196
+     .line 197
+     return-object v1
+ 
+@@ -1038,7 +798,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/kichik/pecoff4j/PE;->d:Lcom/kichik/pecoff4j/COFFHeader;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1049,7 +808,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/kichik/pecoff4j/PE;->a:Lcom/kichik/pecoff4j/DOSHeader;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1060,29 +818,22 @@
+     .line 1
+     iget-object v0, p0, Lcom/kichik/pecoff4j/PE;->f:Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 2
+     .line 3
+     if-nez v0, :cond_0
+ 
+-    .line 4
+     .line 5
+     new-instance v0, Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 6
+     .line 7
+     invoke-direct {v0}, Lcom/kichik/pecoff4j/ImageData;-><init>()V
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     iput-object v0, p0, Lcom/kichik/pecoff4j/PE;->f:Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 11
+     .line 12
+     :cond_0
+     iget-object p0, p0, Lcom/kichik/pecoff4j/PE;->f:Lcom/kichik/pecoff4j/ImageData;
+ 
+-    .line 13
+     .line 14
+     return-object p0
+ .end method
+@@ -1093,7 +844,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/kichik/pecoff4j/PE;->e:Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1104,7 +854,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/kichik/pecoff4j/PE;->g:Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1115,7 +864,6 @@
+     .line 1
+     iget-object p0, p0, Lcom/kichik/pecoff4j/PE;->c:Lcom/kichik/pecoff4j/PESignature;
+ 
+-    .line 2
+     .line 3
+     return-object p0
+ .end method
+@@ -1126,27 +874,21 @@
+     .line 1
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->f()Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result-object p0
+ 
+     .line 5
+     const-string v0, ".bind"
+ 
+-    .line 6
+     .line 7
+     invoke-virtual {p0, v0}, Lcom/kichik/pecoff4j/SectionTable;->b(Ljava/lang/String;)Lcom/kichik/pecoff4j/SectionHeader;
+ 
+-    .line 8
+-    .line 9
+     .line 10
+     move-result-object p0
+ 
+     .line 11
+     if-eqz p0, :cond_0
+ 
+-    .line 12
+     .line 13
+     const/4 p0, 0x1
+ 
+@@ -1167,7 +909,6 @@
+     .line 1
+     iget-boolean p0, p0, Lcom/kichik/pecoff4j/PE;->h:Z
+ 
+-    .line 2
+     .line 3
+     return p0
+ .end method
+@@ -1178,16 +919,12 @@
+     .line 1
+     invoke-virtual {p1}, Lcom/kichik/pecoff4j/ImageDataDirectory;->b()I
+ 
+-    .line 2
+-    .line 3
+     .line 4
+     move-result v0
+ 
+     .line 5
+     invoke-virtual {p1}, Lcom/kichik/pecoff4j/ImageDataDirectory;->a()I
+ 
+-    .line 6
+-    .line 7
+     .line 8
+     move-result p1
+ 
+@@ -1197,16 +934,12 @@
+     .line 10
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/PE;->f()Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 11
+-    .line 12
+     .line 13
+     move-result-object p0
+ 
+     .line 14
+     invoke-virtual {p0}, Lcom/kichik/pecoff4j/SectionTable;->e()I
+ 
+-    .line 15
+-    .line 16
+     .line 17
+     move-result v1
+ 
+@@ -1220,28 +953,21 @@
+     :goto_0
+     if-ge v3, v1, :cond_1
+ 
+-    .line 21
+     .line 22
+     invoke-virtual {p0, v3}, Lcom/kichik/pecoff4j/SectionTable;->c(I)Lcom/kichik/pecoff4j/SectionHeader;
+ 
+-    .line 23
+-    .line 24
+     .line 25
+     move-result-object v4
+ 
+     .line 26
+     invoke-virtual {v4}, Lcom/kichik/pecoff4j/SectionHeader;->d()I
+ 
+-    .line 27
+-    .line 28
+     .line 29
+     move-result v5
+ 
+     .line 30
+     invoke-virtual {v4}, Lcom/kichik/pecoff4j/SectionHeader;->e()I
+ 
+-    .line 31
+-    .line 32
+     .line 33
+     move-result v4
+ 
+@@ -1251,15 +977,12 @@
+     .line 35
+     if-lt v0, v5, :cond_0
+ 
+-    .line 36
+     .line 37
+     if-ge v0, v4, :cond_0
+ 
+-    .line 38
+     .line 39
+     if-gt p1, v4, :cond_0
+ 
+-    .line 40
+     .line 41
+     const/4 p0, 0x1
+ 
+@@ -1270,7 +993,6 @@
+     :cond_0
+     add-int/lit8 v3, v3, 0x1
+ 
+-    .line 44
+     .line 45
+     goto :goto_0
+ 
+@@ -1285,7 +1007,6 @@
+     .line 1
+     iput-boolean p1, p0, Lcom/kichik/pecoff4j/PE;->h:Z
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1296,7 +1017,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/PE;->d:Lcom/kichik/pecoff4j/COFFHeader;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1307,7 +1027,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/PE;->a:Lcom/kichik/pecoff4j/DOSHeader;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1318,7 +1037,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/PE;->e:Lcom/kichik/pecoff4j/OptionalHeader;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1329,7 +1047,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/PE;->g:Lcom/kichik/pecoff4j/SectionTable;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1340,7 +1057,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/PE;->c:Lcom/kichik/pecoff4j/PESignature;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
+@@ -1351,7 +1067,6 @@
+     .line 1
+     iput-object p1, p0, Lcom/kichik/pecoff4j/PE;->b:Lcom/kichik/pecoff4j/DOSStub;
+ 
+-    .line 2
+     .line 3
+     return-void
+ .end method
