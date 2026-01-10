@@ -159,6 +159,7 @@ check_dependencies() {
         echo "Install instructions:"
         echo "  macOS:   brew install apktool openjdk"
         echo "  Ubuntu:  sudo apt install apktool openjdk-17-jdk"
+        echo "  Arch:    sudo pacman -S apktool jdk17-openjdk"
         exit 1
     fi
 
@@ -452,7 +453,7 @@ BUILT_APKS=""
 main() {
     echo ""
     echo "====================================="
-    echo "  GameHub Lite Patcher v1.0"
+    echo "  GameHub Lite Patcher v5.1.0"
     echo "====================================="
     echo ""
 
