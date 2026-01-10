@@ -68,6 +68,33 @@ stop using windows
    adb install output/GameHub-Lite.apk
    ```
 
+#### How to use your custom keystore
+
+By default the patch generates a debug keystore for you,
+but you can override the keystore settings using environment variables:
+
+```bash
+  KEYSTORE="./keystore/release.keystore" \
+  KEYSTORE_PASS="your_password" \
+  KEY_ALIAS="your_key_alias" \
+  ./patch.sh
+```
+
+Or export them first:
+
+```bash
+  export KEYSTORE="./keystore/release.keystore"
+  export KEYSTORE_PASS="your_password"
+  export KEY_ALIAS="your_key_alias"
+  ./patch.sh
+```
+
+To find your key alias, run:
+
+```bash
+keytool -list -keystore ./keystore/release.keystore
+```
+
 ## How It Works
 
 The patcher uses a multi-step process:
