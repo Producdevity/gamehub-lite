@@ -18,9 +18,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PATCHES_DIR="$SCRIPT_DIR/patches"
 WORK_DIR="$SCRIPT_DIR/work"
 OUTPUT_DIR="$SCRIPT_DIR/output"
-KEYSTORE="$SCRIPT_DIR/keystore/debug.keystore"
-KEYSTORE_PASS="android"
-KEY_ALIAS="androiddebugkey"
+
+# Keystore configuration (can be overridden via environment variables)
+KEYSTORE="${KEYSTORE:-$SCRIPT_DIR/keystore/debug.keystore}"
+KEYSTORE_PASS="${KEYSTORE_PASS:-android}"
+KEY_ALIAS="${KEY_ALIAS:-androiddebugkey}"
 
 # Source APK (can be overridden)
 SOURCE_APK="${1:-$SCRIPT_DIR/apk/GameHub-5.1.0.apk}"
@@ -152,7 +154,7 @@ apply_deletions() {
         target="$WORK_DIR/decompiled/$file"
         if [ -e "$target" ]; then
             rm -rf "$target"
-            ((count++))
+            count=$((count + 1))
         fi
     done <"$PATCHES_DIR/files_to_delete.txt"
 
@@ -176,9 +178,9 @@ apply_patches() {
 
         if [ -f "$patch_file" ] && [ -f "$target" ]; then
             if patch -s -N "$target" <"$patch_file" 2>/dev/null; then
-                ((count++))
+                count=$((count + 1))
             else
-                ((failed++))
+                failed=$((failed + 1))
                 print_warning "Failed to patch: $file"
             fi
         fi
@@ -203,7 +205,7 @@ apply_binary_replacements() {
             target_dir=$(dirname "$target")
             mkdir -p "$target_dir"
             cp "$file" "$target"
-            ((count++))
+            count=$((count + 1))
         done < <(find "$PATCHES_DIR/binary_replacements" -type f -print0)
     fi
 
