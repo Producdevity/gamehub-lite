@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.resourcePatch
 
 import org.w3c.dom.Element
 import java.io.File
+import app.revanced.patches.gamehub.shared.ManifestUtils
 
 /**
  * Resource patch that removes tracking-related permissions and components from AndroidManifest.xml
@@ -33,52 +34,19 @@ val removeTrackingResourcesPatch = resourcePatch(
             )
 
             // Remove unwanted permissions
-            val usesPermissions = document.getElementsByTagName("uses-permission")
-            val toRemove = mutableListOf<Element>()
-
-            for (i in 0 until usesPermissions.length) {
-                val permission = usesPermissions.item(i) as Element
-                val permName = permission.getAttribute("android:name")
-                if (permissionsToRemove.contains(permName)) {
-                    toRemove.add(permission)
-                }
+            ManifestUtils.removeManifestTags(document, listOf("uses-permission")) { tag ->
+                permissionsToRemove.contains(tag.getAttribute("android:name"))
             }
-
-            toRemove.forEach { it.parentNode.removeChild(it) }
 
             // Remove JPush and Firebase components
-            val application = document.getElementsByTagName("application").item(0) as Element
-            val componentsToRemove = mutableListOf<Element>()
-
-            // Find services/receivers related to tracking
-            val services = application.getElementsByTagName("service")
-            for (i in 0 until services.length) {
-                val service = services.item(i) as Element
-                val name = service.getAttribute("android:name")
-                if (name.contains("jpush") ||
-                    name.contains("jiguang") ||
-                    name.contains("firebase") ||
-                    name.contains("umeng") ||
-                    name.contains("analytics")
-                ) {
-                    componentsToRemove.add(service)
-                }
+            ManifestUtils.removeManifestTags(document, listOf("service", "receiver")) { tag ->
+                val name = tag.getAttribute("android:name")
+                name.contains("jpush") ||
+                name.contains("jiguang") ||
+                name.contains("firebase") ||
+                name.contains("umeng") ||
+                (tag.tagName == "service" && name.contains("analytics"))
             }
-
-            val receivers = application.getElementsByTagName("receiver")
-            for (i in 0 until receivers.length) {
-                val receiver = receivers.item(i) as Element
-                val name = receiver.getAttribute("android:name")
-                if (name.contains("jpush") ||
-                    name.contains("jiguang") ||
-                    name.contains("firebase") ||
-                    name.contains("umeng")
-                ) {
-                    componentsToRemove.add(receiver)
-                }
-            }
-
-            componentsToRemove.forEach { it.parentNode.removeChild(it) }
         }
     }
 }
@@ -89,23 +57,14 @@ val removeTrackingResourcesPatch = resourcePatch(
  */
 val removeTrackingSdksPatch = resourcePatch(
     name = "Remove Tracking SDKs",
-    description = "Removes entire tracking SDK packages from the APK",
+    description = "Removes tracking-related assets and native libraries from the APK",
 ) {
     compatibleWith("com.xiaoji.egggame"("5.3.5"))
 
     dependsOn(removeTrackingResourcesPatch)
 
     execute {
-        // Packages to remove (these will be handled by bytecode removal)
-        val packagesToRemove = listOf(
-            "com/umeng/",
-            "cn/jiguang/",
-            "cn/jpush/",
-            "com/tencent/connect/",
-            "com/tencent/mm/",
-            "com/tencent/open/",
-            "com/tencent/tauth/",
-        )
+        // DEX class removal must be done via a bytecode patch instead.
 
         // Remove unused assets
         val assetsToRemove = listOf(

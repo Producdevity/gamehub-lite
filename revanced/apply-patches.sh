@@ -78,9 +78,9 @@ download_cli() {
     local cli_url="https://github.com/ReVanced/revanced-cli/releases/download/v5.0.1/revanced-cli-5.0.1-all.jar"
 
     print_step "Downloading ReVanced CLI..."
-    curl -L -o "$CLI_JAR" "$cli_url"
+    curl -fL --retry 3 --connect-timeout 15 -o "$CLI_JAR" "$cli_url"
 
-    if [ -f "$CLI_JAR" ]; then
+    if [ -s "$CLI_JAR" ]; then
         print_success "ReVanced CLI downloaded"
     else
         print_error "Failed to download ReVanced CLI"
@@ -129,21 +129,19 @@ apply_patches() {
 
     print_step "Applying patches to $(basename "$input_apk")..."
 
-    local cmd="java -jar $CLI_JAR patch"
-    cmd="$cmd -p $PATCHES_JAR"
-    cmd="$cmd -o $output_apk"
+    local cmd=(java -jar "$CLI_JAR" patch -p "$PATCHES_JAR" -o "$output_apk")
 
     if [ -n "$patch_list" ]; then
         # Apply specific patches
         IFS=',' read -ra PATCHES <<< "$patch_list"
         for patch in "${PATCHES[@]}"; do
-            cmd="$cmd -e \"$patch\""
+            cmd+=(-e "$patch")
         done
     fi
 
-    cmd="$cmd $input_apk"
+    cmd+=("$input_apk")
 
-    eval "$cmd"
+    "${cmd[@]}"
 
     if [ -f "$output_apk" ]; then
         print_success "Patched APK created: $output_apk"

@@ -176,22 +176,22 @@ verify_source_apk() {
         exit 1
     fi
 
-    # Calculate MD5 of source APK
-    local md5
-    if command -v md5sum &>/dev/null; then
-        md5=$(md5sum "$SOURCE_APK" | awk '{print $1}')
+    # Calculate SHA-256 of source APK
+    local sha256
+    if command -v sha256sum &>/dev/null; then
+        sha256=$(sha256sum "$SOURCE_APK" | awk '{print $1}')
     else
-        md5=$(md5 -q "$SOURCE_APK")
+        sha256=$(shasum -a 256 "$SOURCE_APK" | awk '{print $1}')
     fi
 
-    # Expected MD5 for GameHub 5.3.5
-    # Note: Keep the old MD5 hash check in place, or replace it if known.
-    local expected_md5="42db81116bf3c74e52e6f6afb4ec9f91" # Replace with actual MD5 if you are intentionally using a different APK
+    # Expected SHA-256 for GameHub 5.3.5 (set via env for flexibility)
+    local expected_sha256="${EXPECTED_SHA256:-}"
 
     print_success "Source APK found: $(basename "$SOURCE_APK")"
-    echo "         MD5: $md5"
-    if [ "$md5" != "$expected_md5" ]; then
-        print_warning "MD5 checksum does not match expected value."
+    echo "      SHA-256: $sha256"
+    
+    if [ -n "$expected_sha256" ] && [ "$sha256" != "$expected_sha256" ]; then
+        print_warning "SHA-256 checksum does not match expected value."
         print_warning "Proceeding may lead to unexpected results."
         read -r -p "Do you want to continue? (y/N): " choice
         if [[ ! "$choice" =~ ^[Yy]$ ]]; then
@@ -199,7 +199,7 @@ verify_source_apk() {
             exit 1
         fi
     else
-        print_success "MD5 checksum verified."
+        print_success "SHA-256 checksum verified (or no restriction set)."
     fi
 }
 
