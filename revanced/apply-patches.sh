@@ -7,7 +7,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PATCHES_JAR="$SCRIPT_DIR/patches/build/libs/gamehub-lite-patches.jar"
+PATCHES_JAR="$SCRIPT_DIR/build/libs/gamehub-lite-patches.jar"
 CLI_JAR="$SCRIPT_DIR/tools/revanced-cli.jar"
 OUTPUT_DIR="$SCRIPT_DIR/output"
 
@@ -94,7 +94,7 @@ build_patches() {
     cd "$SCRIPT_DIR"
 
     if [ -f "gradlew" ]; then
-        ./gradlew apiDump build jar
+        ./gradlew build jar
     else
         print_error "Gradle wrapper not found. Run 'gradle wrapper' first"
         exit 1
