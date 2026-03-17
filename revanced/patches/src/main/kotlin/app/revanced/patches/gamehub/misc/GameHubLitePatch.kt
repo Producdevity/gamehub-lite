@@ -45,9 +45,11 @@ val gameHubLitePatch = resourcePatch(
             // Add hardware acceleration
             application.setAttribute("android:hardwareAccelerated", "true")
 
-            // Remove Play Store splits metadata
-            val metaDataTags = document.getElementsByTagName("meta-data")
+            // Remove Play Store splits metadata & PairIP DRM components
             val tagsToRemove = mutableListOf<Element>()
+            
+            // 1. Remove meta-data
+            val metaDataTags = document.getElementsByTagName("meta-data")
             for (i in 0 until metaDataTags.length) {
                 val tag = metaDataTags.item(i) as Element
                 val name = tag.getAttribute("android:name")
@@ -55,6 +57,29 @@ val gameHubLitePatch = resourcePatch(
                     tagsToRemove.add(tag)
                 }
             }
+
+            // 2. Remove PairIP DRM components
+            val componentTypes = listOf("activity", "service", "provider", "receiver")
+            for (type in componentTypes) {
+                val components = document.getElementsByTagName(type)
+                for (i in 0 until components.length) {
+                    val tag = components.item(i) as Element
+                    val name = tag.getAttribute("android:name")
+                    if (name.startsWith("com.pairip.")) {
+                        tagsToRemove.add(tag)
+                    }
+                }
+            }
+
+            // 3. Remove Check License permission
+            val permissions = document.getElementsByTagName("uses-permission")
+            for (i in 0 until permissions.length) {
+                val tag = permissions.item(i) as Element
+                if (tag.getAttribute("android:name") == "com.android.vending.CHECK_LICENSE") {
+                    tagsToRemove.add(tag)
+                }
+            }
+
             for (tag in tagsToRemove) {
                 tag.parentNode.removeChild(tag)
             }
