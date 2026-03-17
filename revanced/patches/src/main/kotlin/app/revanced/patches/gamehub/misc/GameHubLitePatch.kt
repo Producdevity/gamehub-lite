@@ -34,14 +34,30 @@ val gameHubLitePatch = resourcePatch(
             // Change package name
             manifest.setAttribute("package", "gamehub.lite")
 
+            // Strip split APK requirements to allow standalone install
+            manifest.removeAttribute("android:isSplitRequired")
+            manifest.removeAttribute("android:requiredSplitTypes")
+            manifest.removeAttribute("android:splitTypes")
+
             // Update application attributes
             val application = document.getElementsByTagName("application").item(0) as Element
 
             // Add hardware acceleration
             application.setAttribute("android:hardwareAccelerated", "true")
 
-            // Update app name (optional - can be done via string resources)
-            // application.setAttribute("android:label", "GameHub Lite")
+            // Remove Play Store splits metadata
+            val metaDataTags = document.getElementsByTagName("meta-data")
+            val tagsToRemove = mutableListOf<Element>()
+            for (i in 0 until metaDataTags.length) {
+                val tag = metaDataTags.item(i) as Element
+                val name = tag.getAttribute("android:name")
+                if (name.startsWith("com.android.vending.splits") || name.startsWith("com.android.vending.derived")) {
+                    tagsToRemove.add(tag)
+                }
+            }
+            for (tag in tagsToRemove) {
+                tag.parentNode.removeChild(tag)
+            }
         }
 
         // Update string resources if needed
