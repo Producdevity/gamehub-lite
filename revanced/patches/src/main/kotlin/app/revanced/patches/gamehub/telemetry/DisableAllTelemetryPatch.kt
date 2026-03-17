@@ -31,34 +31,7 @@ val disableAllTelemetryPatch = bytecodePatch(
         // 1. IUmengService.a(context) - Umeng init
         // 2. FirebaseAuthLoginUtils.Companion.a(context) - Firebase init
 
-        appOnCreateFingerprint.method.apply {
-            val instructions = implementation!!.instructions
 
-            // Find and patch Umeng service call
-            // Pattern: invoke-interface {v0, p0}, Lcom/xj/common/service/IUmengService;->a(Landroid/content/Context;)V
-            for (i in instructions.indices) {
-                val instruction = instructions[i]
-                if (instruction.opcode.name.startsWith("invoke")) {
-                    val invokeInstruction = getInstruction<Instruction35c>(i)
-                    val reference = invokeInstruction.reference.toString()
-
-                    // Skip Umeng initialization
-                    if (reference.contains("IUmengService;->a(Landroid/content/Context;)V")) {
-                        // Replace with nop by removing the instruction
-                        // Note: We can't just remove as it would break indices
-                        // Instead we'll make the null check always fail
-                        // The pattern is: if-eqz v0, :cond_2 (skip if null)
-                        // We want to always skip, so we don't need to modify anything
-                        // as the service lookup returns null when the SDK is removed
-                    }
-
-                    // Skip Firebase initialization
-                    if (reference.contains("FirebaseAuthLoginUtils\$Companion;->a(Landroid/content/Context;)V")) {
-                        // Similar approach - Firebase init will fail gracefully when SDK is removed
-                    }
-                }
-            }
-        }
 
         // Patch FirebaseAuthLoginUtils.Companion.a() to return immediately
         firebaseAuthInitFingerprint.method.addInstructions(

@@ -75,7 +75,7 @@ download_cli() {
     mkdir -p "$SCRIPT_DIR/tools"
 
     # Get latest ReVanced CLI release
-    local cli_url="https://github.com/ReVanced/revanced-cli/releases/download/v4.6.0/revanced-cli-4.6.0-all.jar"
+    local cli_url="https://github.com/ReVanced/revanced-cli/releases/download/v5.0.1/revanced-cli-5.0.1-all.jar"
 
     print_step "Downloading ReVanced CLI..."
     curl -L -o "$CLI_JAR" "$cli_url"
@@ -112,7 +112,7 @@ list_patches() {
     print_step "Available patches:"
 
     java -jar "$CLI_JAR" list-patches \
-        --patch-bundle "$PATCHES_JAR"
+        -p "$PATCHES_JAR"
 }
 
 apply_patches() {
@@ -130,14 +130,14 @@ apply_patches() {
     print_step "Applying patches to $(basename "$input_apk")..."
 
     local cmd="java -jar $CLI_JAR patch"
-    cmd="$cmd --patch-bundle $PATCHES_JAR"
-    cmd="$cmd --out $output_apk"
+    cmd="$cmd -p $PATCHES_JAR"
+    cmd="$cmd -o $output_apk"
 
     if [ -n "$patch_list" ]; then
         # Apply specific patches
         IFS=',' read -ra PATCHES <<< "$patch_list"
         for patch in "${PATCHES[@]}"; do
-            cmd="$cmd --include \"$patch\""
+            cmd="$cmd -e \"$patch\""
         done
     fi
 
