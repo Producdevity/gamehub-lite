@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # GameHub Lite - ReVanced Patch Applier
-# Applies ReVanced patches to GameHub 5.1.0 APK
+# Applies ReVanced patches to GameHub 5.3.5 APK
 #
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PATCHES_JAR="$SCRIPT_DIR/build/libs/gamehub-lite-patches.jar"
+PATCHES_JAR="$SCRIPT_DIR/patches/build/libs/patches.rvp"
 CLI_JAR="$SCRIPT_DIR/tools/revanced-cli.jar"
 OUTPUT_DIR="$SCRIPT_DIR/output"
 
@@ -44,9 +44,9 @@ show_usage() {
     echo "  -h, --help             Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0 GameHub-5.1.0.apk"
-    echo "  $0 GameHub-5.1.0.apk -o my-output.apk"
-    echo "  $0 GameHub-5.1.0.apk -p \"Disable All Telemetry,GameHub Lite\""
+    echo "  $0 GameHub-5.3.5.apk"
+    echo "  $0 GameHub-5.3.5.apk -o my-output.apk"
+    echo "  $0 GameHub-5.3.5.apk -p \"Disable All Telemetry,GameHub Lite\""
 }
 
 check_dependencies() {
@@ -75,7 +75,7 @@ download_cli() {
     mkdir -p "$SCRIPT_DIR/tools"
 
     # Get latest ReVanced CLI release
-    local cli_url="https://github.com/ReVanced/revanced-cli/releases/latest/download/revanced-cli-all.jar"
+    local cli_url="https://github.com/ReVanced/revanced-cli/releases/download/v4.6.0/revanced-cli-4.6.0-all.jar"
 
     print_step "Downloading ReVanced CLI..."
     curl -L -o "$CLI_JAR" "$cli_url"
@@ -94,7 +94,7 @@ build_patches() {
     cd "$SCRIPT_DIR"
 
     if [ -f "gradlew" ]; then
-        ./gradlew build
+        ./gradlew apiDump build jar
     else
         print_error "Gradle wrapper not found. Run 'gradle wrapper' first"
         exit 1

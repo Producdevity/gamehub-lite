@@ -2,8 +2,7 @@ package app.revanced.patches.gamehub.misc
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.gamehub.telemetry.disableAllTelemetryPatch
-import app.revanced.util.get
-import app.revanced.util.set
+
 import org.w3c.dom.Element
 
 /**
@@ -20,16 +19,16 @@ val gameHubLitePatch = resourcePatch(
     name = "GameHub Lite",
     description = "Transform GameHub into a privacy-focused lightweight version",
 ) {
-    compatibleWith("com.xiaoji.egggame"("5.1.0"))
+    compatibleWith("com.xiaoji.egggame"("5.3.5"))
 
     dependsOn(
         disableAllTelemetryPatch,
         removeTrackingSdksPatch,
     )
 
-    execute { context ->
+    execute {
         // Change package name in AndroidManifest.xml
-        context.document["AndroidManifest.xml"].use { document ->
+        document("AndroidManifest.xml").use { document ->
             val manifest = document.getElementsByTagName("manifest").item(0) as Element
 
             // Change package name
@@ -46,7 +45,7 @@ val gameHubLitePatch = resourcePatch(
         }
 
         // Update string resources if needed
-        context.document["res/values/strings.xml"].use { document ->
+        document("res/values/strings.xml").use { document ->
             val strings = document.getElementsByTagName("string")
             for (i in 0 until strings.length) {
                 val string = strings.item(i) as Element

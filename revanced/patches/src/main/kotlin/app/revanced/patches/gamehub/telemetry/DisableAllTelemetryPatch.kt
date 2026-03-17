@@ -21,7 +21,7 @@ val disableAllTelemetryPatch = bytecodePatch(
     name = "Disable All Telemetry",
     description = "Removes all tracking, analytics, and telemetry services from GameHub",
 ) {
-    compatibleWith("com.xiaoji.egggame"("5.1.0"))
+    compatibleWith("com.xiaoji.egggame"("5.3.5"))
 
     dependsOn(disableJPushPatch)
 

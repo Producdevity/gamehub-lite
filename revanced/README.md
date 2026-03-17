@@ -47,10 +47,10 @@ This is an **alternative** to the diff-based patching system in the parent direc
 
 ```bash
 # Using the helper script
-./apply-patches.sh path/to/GameHub-5.1.0.apk
+./apply-patches.sh path/to/GameHub-5.3.5.apk
 
 # With custom output
-./apply-patches.sh GameHub-5.1.0.apk -o GameHub-Lite.apk
+./apply-patches.sh GameHub-5.3.5.apk -o GameHub-Lite.apk
 
 # List available patches
 ./apply-patches.sh -l
@@ -66,7 +66,7 @@ This is an **alternative** to the diff-based patching system in the parent direc
 java -jar tools/revanced-cli.jar patch \
     --patch-bundle build/libs/gamehub-lite-patches.jar \
     --out GameHub-Lite.apk \
-    GameHub-5.1.0.apk
+    GameHub-5.3.5.apk
 ```
 
 ### Using ReVanced Manager
@@ -137,7 +137,7 @@ revanced/
        name = "My Patch",
        description = "Does something useful",
    ) {
-       compatibleWith("com.xiaoji.egggame"("5.1.0"))
+       compatibleWith("com.xiaoji.egggame"("5.3.5"))
 
        execute {
            myFingerprint.method.addInstructions(0, "return-void")
@@ -149,7 +149,7 @@ revanced/
 
 ```bash
 # Build and apply in one step
-./gradlew build && ./apply-patches.sh ../apk/GameHub-5.1.0.apk
+./gradlew build && ./apply-patches.sh ../apk/GameHub-5.3.5.apk
 
 # Install on device
 adb install output/GameHub-Lite.apk
@@ -201,7 +201,7 @@ gpr.key=ghp_xxxxxxxxxxxx
 Ensure the fingerprint matches the target method. Use jadx to inspect the APK:
 
 ```bash
-jadx GameHub-5.1.0.apk -d jadx-output
+jadx GameHub-5.3.5.apk -d jadx-output
 ```
 
 ### APK Won't Install
