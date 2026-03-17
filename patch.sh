@@ -178,11 +178,16 @@ verify_source_apk() {
 
     # Calculate SHA-256 of source APK
     local sha256
+    local -a sha256_cmd
     if command -v sha256sum &>/dev/null; then
-        sha256=$(sha256sum "$SOURCE_APK" | awk '{print $1}')
+        sha256_cmd=(sha256sum)
+    elif command -v shasum &>/dev/null; then
+        sha256_cmd=(shasum -a 256)
     else
-        sha256=$(shasum -a 256 "$SOURCE_APK" | awk '{print $1}')
+        print_error "Neither sha256sum nor shasum is available."
+        exit 1
     fi
+    sha256=$("${sha256_cmd[@]}" "$SOURCE_APK" | awk '{print $1}')
 
     # Expected SHA-256 for GameHub 5.3.5 (set via env for flexibility)
     local expected_sha256="${EXPECTED_SHA256:-}"
@@ -198,8 +203,10 @@ verify_source_apk() {
             print_error "Aborting."
             exit 1
         fi
+    elif [ -n "$expected_sha256" ]; then
+        print_success "SHA-256 checksum verified."
     else
-        print_success "SHA-256 checksum verified (or no restriction set)."
+        print_warning "SHA-256 verification skipped; EXPECTED_SHA256 is not set."
     fi
 }
 

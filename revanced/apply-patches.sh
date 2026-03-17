@@ -7,7 +7,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PATCHES_JAR="$SCRIPT_DIR/patches/build/libs/patches.rvp"
+PATCHES_JAR="$SCRIPT_DIR/patches/build/libs/gamehub-lite-patches.jar"
 CLI_JAR="$SCRIPT_DIR/tools/revanced-cli.jar"
 OUTPUT_DIR="$SCRIPT_DIR/output"
 
