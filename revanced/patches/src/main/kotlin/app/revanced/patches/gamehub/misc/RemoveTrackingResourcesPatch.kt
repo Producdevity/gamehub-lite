@@ -118,8 +118,8 @@ val removeTrackingSdksPatch = resourcePatch(
 
         assetsToRemove.forEach { asset ->
             val assetFile = get("assets/$asset")
-            if (assetFile.exists()) {
-                assetFile.delete()
+            if (assetFile.exists() && !assetFile.delete()) {
+                error("Failed to delete asset: ${assetFile.path}")
             }
         }
 
@@ -137,8 +137,8 @@ val removeTrackingSdksPatch = resourcePatch(
         libDirs.forEach { libDir ->
             nativeLibsToRemove.forEach { lib ->
                 val libFile = get("$libDir/$lib")
-                if (libFile.exists()) {
-                    libFile.delete()
+                if (libFile.exists() && !libFile.delete()) {
+                    error("Failed to delete native library: ${libFile.path}")
                 }
             }
         }
