@@ -10,7 +10,7 @@ GameHub Lite is a community-maintained modified version of GameHub for education
 
 ## GameHub Lite Patcher
 
-A patching system that transforms GameHub 5.1.0 into GameHub Lite. A privacy-focused, lightweight version with telemetry removed and offline support added.
+A patching system that transforms GameHub 5.3.5 into GameHub Lite. A privacy-focused, lightweight version with telemetry removed and offline support added.
 
 ## What is GameHub Lite?
 
@@ -57,7 +57,7 @@ stop using windows
 
 ### Patching
 
-1. Download GameHub 5.1.0 APK and place it at `apk/GameHub-5.1.0.apk`
+1. Download GameHub 5.3.5 APK and place it at `apk/GameHub-5.3.5.apk`
 
 2. Run the patcher:
 
@@ -219,7 +219,7 @@ patches/
 
 If patches fail due to APK version mismatch:
 
-- Ensure you're using GameHub 5.1.0 exactly
+- Ensure you're using GameHub 5.3.5 exactly
 - Check the MD5 hash matches expected value
 - Try regenerating patches with your APK version
 
@@ -238,8 +238,8 @@ If patches fail due to APK version mismatch:
 
 | GameHub Version | Patcher Version | Status         |
 | --------------- | --------------- | -------------- |
-| 5.1.0           | 1.0             | Supported      |
-| 5.3.3           | -               | in development |
+| 5.1.0           | 1.0             | Deprecated     |
+| 5.3.5           | 1.0             | Supported      |
 
 ## Alternative: ReVanced Patches (WORK IN PROGRESS)
 
@@ -248,7 +248,7 @@ This doesn't currently support all features of the Lite APK, but you are free to
 
 ```bash
 cd revanced
-./apply-patches.sh ../apk/GameHub-5.1.0.apk
+./apply-patches.sh ../apk/GameHub-5.3.5.apk
 ```
 
 See [revanced/README.md](revanced/README.md) for details.

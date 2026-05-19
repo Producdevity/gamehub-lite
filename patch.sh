@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # GameHub Lite Patcher
-# Applies patches to GameHub 5.1.0 APK to create GameHub Lite
+# Applies patches to GameHub 5.3.5 APK to create GameHub Lite
 #
 
 set -e
@@ -52,7 +52,7 @@ get_variant_package() {
 }
 
 # Source APK (can be overridden)
-SOURCE_APK="${1:-$SCRIPT_DIR/apk/GameHub-5.1.0.apk}"
+SOURCE_APK="${1:-$SCRIPT_DIR/apk/GameHub-5.3.5.apk}"
 OUTPUT_APK="$OUTPUT_DIR/GameHub-Lite.apk"
 
 print_step() {
@@ -78,7 +78,7 @@ extract_version() {
         VERSION=$(grep "versionName:" "$WORK_DIR/decompiled/apktool.yml" | head -1 | awk -F': ' '{print $2}' | tr -d "'" | tr -d ' ')
     fi
     # Default fallback
-    VERSION="${VERSION:-5.1.0}"
+    VERSION="${VERSION:-5.3.5}"
     print_success "Version: $VERSION"
 }
 
@@ -171,34 +171,42 @@ verify_source_apk() {
     if [ ! -f "$SOURCE_APK" ]; then
         print_error "Source APK not found: $SOURCE_APK"
         echo ""
-        echo "Please provide GameHub 5.1.0 APK as first argument or place it at:"
-        echo "  $SCRIPT_DIR/apk/GameHub-5.1.0.apk"
+        echo "Please provide GameHub 5.3.5 APK as first argument or place it at:"
+        echo "  $SCRIPT_DIR/apk/GameHub-5.3.5.apk"
         exit 1
     fi
 
-    # Calculate MD5 of source APK
-    local md5
-    if command -v md5sum &>/dev/null; then
-        md5=$(md5sum "$SOURCE_APK" | awk '{print $1}')
+    # Calculate SHA-256 of source APK
+    local sha256
+    local -a sha256_cmd
+    if command -v sha256sum &>/dev/null; then
+        sha256_cmd=(sha256sum)
+    elif command -v shasum &>/dev/null; then
+        sha256_cmd=(shasum -a 256)
     else
-        md5=$(md5 -q "$SOURCE_APK")
+        print_error "Neither sha256sum nor shasum is available."
+        exit 1
     fi
+    sha256=$("${sha256_cmd[@]}" "$SOURCE_APK" | awk '{print $1}')
 
-    # Expected MD5 for GameHub 5.1.0
-    local expected_md5="42db81116bf3c74e52e6f6afb4ec9f91" # Replace with actual MD5 if you are intentionally using a different APK
+    # Expected SHA-256 for GameHub 5.3.5 (set via env for flexibility)
+    local expected_sha256="${EXPECTED_SHA256:-}"
 
     print_success "Source APK found: $(basename "$SOURCE_APK")"
-    echo "         MD5: $md5"
-    if [ "$md5" != "$expected_md5" ]; then
-        print_warning "MD5 checksum does not match expected value."
+    echo "      SHA-256: $sha256"
+    
+    if [ -n "$expected_sha256" ] && [ "$sha256" != "$expected_sha256" ]; then
+        print_warning "SHA-256 checksum does not match expected value."
         print_warning "Proceeding may lead to unexpected results."
-        read -pr "Do you want to continue? (y/N): " choice
+        read -r -p "Do you want to continue? (y/N): " choice
         if [[ ! "$choice" =~ ^[Yy]$ ]]; then
             print_error "Aborting."
             exit 1
         fi
+    elif [ -n "$expected_sha256" ]; then
+        print_success "SHA-256 checksum verified."
     else
-        print_success "MD5 checksum verified."
+        print_warning "SHA-256 verification skipped; EXPECTED_SHA256 is not set."
     fi
 }
 

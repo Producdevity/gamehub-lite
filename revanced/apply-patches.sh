@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # GameHub Lite - ReVanced Patch Applier
-# Applies ReVanced patches to GameHub 5.1.0 APK
+# Applies ReVanced patches to GameHub 5.3.5 APK
 #
 
 set -e
@@ -44,9 +44,9 @@ show_usage() {
     echo "  -h, --help             Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0 GameHub-5.1.0.apk"
-    echo "  $0 GameHub-5.1.0.apk -o my-output.apk"
-    echo "  $0 GameHub-5.1.0.apk -p \"Disable All Telemetry,GameHub Lite\""
+    echo "  $0 GameHub-5.3.5.apk"
+    echo "  $0 GameHub-5.3.5.apk -o my-output.apk"
+    echo "  $0 GameHub-5.3.5.apk -p \"Disable All Telemetry,GameHub Lite\""
 }
 
 check_dependencies() {
@@ -75,12 +75,12 @@ download_cli() {
     mkdir -p "$SCRIPT_DIR/tools"
 
     # Get latest ReVanced CLI release
-    local cli_url="https://github.com/ReVanced/revanced-cli/releases/latest/download/revanced-cli-all.jar"
+    local cli_url="https://github.com/ReVanced/revanced-cli/releases/download/v5.0.1/revanced-cli-5.0.1-all.jar"
 
     print_step "Downloading ReVanced CLI..."
-    curl -L -o "$CLI_JAR" "$cli_url"
+    curl -fL --retry 3 --connect-timeout 15 -o "$CLI_JAR" "$cli_url"
 
-    if [ -f "$CLI_JAR" ]; then
+    if [ -s "$CLI_JAR" ]; then
         print_success "ReVanced CLI downloaded"
     else
         print_error "Failed to download ReVanced CLI"
@@ -94,7 +94,7 @@ build_patches() {
     cd "$SCRIPT_DIR"
 
     if [ -f "gradlew" ]; then
-        ./gradlew build
+        ./gradlew build jar
     else
         print_error "Gradle wrapper not found. Run 'gradle wrapper' first"
         exit 1
@@ -112,7 +112,7 @@ list_patches() {
     print_step "Available patches:"
 
     java -jar "$CLI_JAR" list-patches \
-        --patch-bundle "$PATCHES_JAR"
+        -p "$PATCHES_JAR"
 }
 
 apply_patches() {
@@ -129,21 +129,19 @@ apply_patches() {
 
     print_step "Applying patches to $(basename "$input_apk")..."
 
-    local cmd="java -jar $CLI_JAR patch"
-    cmd="$cmd --patch-bundle $PATCHES_JAR"
-    cmd="$cmd --out $output_apk"
+    local cmd=(java -jar "$CLI_JAR" patch -p "$PATCHES_JAR" -o "$output_apk")
 
     if [ -n "$patch_list" ]; then
         # Apply specific patches
         IFS=',' read -ra PATCHES <<< "$patch_list"
         for patch in "${PATCHES[@]}"; do
-            cmd="$cmd --include \"$patch\""
+            cmd+=(-e "$patch")
         done
     fi
 
-    cmd="$cmd $input_apk"
+    cmd+=("$input_apk")
 
-    eval "$cmd"
+    "${cmd[@]}"
 
     if [ -f "$output_apk" ]; then
         print_success "Patched APK created: $output_apk"

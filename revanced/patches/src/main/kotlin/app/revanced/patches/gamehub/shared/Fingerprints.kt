@@ -7,7 +7,6 @@ import app.revanced.patcher.fingerprint
  * This is the main entry point where analytics services are initialized
  */
 internal val appOnCreateFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC)
     returns("V")
     parameters()
     custom { method, classDef ->
@@ -19,7 +18,6 @@ internal val appOnCreateFingerprint = fingerprint {
  * Fingerprint for PushApp.b(Application) - JPush initialization
  */
 internal val pushAppInitFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/app/Application;")
     custom { method, classDef ->
@@ -31,7 +29,6 @@ internal val pushAppInitFingerprint = fingerprint {
  * Fingerprint for JPushInterface.init() call
  */
 internal val jpushInitFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     parameters("Landroid/content/Context;", "Lcn/jpush/android/data/JPushConfig;")
     custom { method, classDef ->
@@ -43,7 +40,6 @@ internal val jpushInitFingerprint = fingerprint {
  * Fingerprint for IUmengService.a(Context) - Umeng initialization
  */
 internal val umengServiceInitFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.ABSTRACT)
     returns("V")
     parameters("Landroid/content/Context;")
     custom { method, classDef ->
@@ -55,7 +51,6 @@ internal val umengServiceInitFingerprint = fingerprint {
  * Fingerprint for FirebaseAuthLoginUtils.Companion.a(Context)
  */
 internal val firebaseAuthInitFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/content/Context;")
     custom { method, classDef ->
@@ -68,7 +63,6 @@ internal val firebaseAuthInitFingerprint = fingerprint {
  * Fingerprint for CommonApp.Companion.i() initialization
  */
 internal val commonAppInitFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Z", "Ljava/lang/String;", "Ljava/lang/String;")
     custom { method, classDef ->

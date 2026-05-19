@@ -14,7 +14,7 @@ val disableJPushPatch = bytecodePatch(
     name = "Disable JPush",
     description = "Disables JPush push notification service and its tracking",
 ) {
-    compatibleWith("com.xiaoji.egggame"("5.1.0"))
+    compatibleWith("com.xiaoji.egggame"("5.3.5"))
 
     execute {
         // Method 1: Make JPushInterface.init() return immediately

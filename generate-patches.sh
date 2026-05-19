@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DECOMPILED_DIR="$SCRIPT_DIR/decompiled"
 PATCHES_DIR="$SCRIPT_DIR/patches"
 
-ORIGINAL_APK="${1:-$SCRIPT_DIR/apk/GameHub-5.1.0.apk}"
+ORIGINAL_APK="${1:-$SCRIPT_DIR/apk/GameHub-5.3.5.apk}"
 LITE_APK="${2:-$SCRIPT_DIR/apk/GameHub-Lite.apk}"
 
 print_step() {
